@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> options.data  | Assemble</title>
+    <link rel="stylesheet" href="assets/css/assemble.css">
+  </head>
+  <body style="background: white">
+
+    <!-- navigation
+    ================================================== -->
+    
+<div class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="nav-collapse collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../docs/Home.html">Docs</a>
+        </li>
+        <!--  <li>
+          <a href="../examples.html">Examples</a>
+        </li> -->
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+       <!-- <li>
+          <a href="../tutorials.html">Tutorials</a>
+        </li>
+        <li>
+          <a href="../blog.html">Blog</a>
+        </li> -->
+        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Subhead
+    ================================================== -->
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1><span class="text-muted">Docs /</span> configuration </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="container">
+      <div class="row">
+
+        <!-- Left side navigation
+        ================================================== -->
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Home.html">Table of Contents</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Getting Started
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+                <li><a href="About.html">About</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Installation.html">Installation</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Quickstart.html">Quickstart</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Development
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="External-Libraries.html">External Libraries</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Methods.html">Methods</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Configuration
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+                <li><a href="Built-in-Variables.html">Built-in Variables</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Options.html">Options Overview</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="options-assets.html">options.assets</a></li>
+                
+              
+                
+                <li><a href="options-collections.html">options.collections</a></li>
+                
+              
+                
+                <li class="active"><a href="options-data.html">options.data</a></li>
+                
+              
+                
+                <li><a href="options-engine.html">options.engine</a></li>
+                
+              
+                
+                <li><a href="options-ext.html">options.ext</a></li>
+                
+              
+                
+                <li><a href="options-helpers.html">options.helpers</a></li>
+                
+              
+                
+                <li><a href="options-layout.html">options.layout</a></li>
+                
+              
+                
+                <li><a href="options-layoutdir.html">options.layoutdir</a></li>
+                
+              
+                
+                <li><a href="options-partials.html">options.partials</a></li>
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Data
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+                <li><a href="Context.html">Context</a></li>
+                
+              
+                
+                <li><a href="Data.html">Data</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="YAML-front-matter.html">YAML front matter</a></li>
+                
+              
+                
+                <li><a href="YAML.html">YAML data</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <span class="nav-section-title">
+              Templates
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Helpers.html">Helpers</a></li>
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Layouts.html">Layouts</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Partials.html">Partials</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Content
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Markdown.html">Markdown</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+          </div>
+        </div>
+
+        <!-- Main content
+        ================================================== -->
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>options.data</h1>
+            <h3>Also see <a href="Data.html">data types</a> →</h3>
+<h2>Supplying data to templates</h2>
+<p>You must first define the paths to any data files you wish to use via the <code>options.data</code> object in the <code>assemble</code> task or target, then Assemble will automatically supply data to your templates:</p>
+<pre><code>assemble: {
+  options: {
+    data: &#39;src/data/*.json&#39;
+  }
+  files: {
+    &#39;site/&#39;: [&#39;src/pages/*.hbs&#39;]
+  }
+}</code></pre>
+<h3>Matching names</h3>
+<p>Context to  the name of the data file is the same as the associated template, and we   </p>
+<p>To use &quot;external&quot; data files (versus YAML front matter), y</p>
+<p><strong>&quot;widget component&quot; example</strong></p>
+<p>Given a data file, such as <code>widget.json</code> or <code>widget.yml</code> :</p>
+<pre><code class="lang-json">{
+  &quot;name&quot;: &quot;This is a square widget&quot;,
+  &quot;modifier&quot;: &quot;widget-square&quot;
+}</code></pre>
+<p>With the following Handlebars expressions in out template, <code>widget.hbs</code> :</p>
+<pre><code class="lang-html">&lt;div class=&quot;widget {{ widget.modifier }}&quot;&gt;{{ widget.name }}&lt;/div&gt;</code></pre>
+<p>The result after running <code>grunt assemble</code> will be:</p>
+<pre><code class="lang-html">&lt;div class=&quot;widget widget-square&quot;&gt;This is a square widget&lt;/div&gt;</code></pre>
+<p><strong>package.json example #1</strong></p>
+<p>Add <code>package.json</code> to the <code>data</code> object:</p>
+<pre><code class="lang-javascript">assemble {
+  myProject: {
+    options: {
+      data: &#39;package.json&#39;
+    },
+    files: {
+      &#39;dest&#39;: [&#39;src/templates/**/*.hbs&#39;]
+    }
+  }
+}</code></pre>
+<p>And we will not be able to retrieve metadata from <code>package.json</code> by using variables such as:</p>
+<ul>
+<li><code>{{package.verson}}</code></li>
+<li><code>{{package.name}}</code></li>
+<li><code>{{package.description}}</code></li>
+<li><code>{{package.author.url}}</code></li>
+<li><code>{{package.author.name}}</code></li>
+</ul>
+<p><strong>package.json example #2</strong></p>
+<p>Assuming we add the following code to our Gruntfile</p>
+<pre><code class="lang-javascript">pkg: grunt.file.readJSON(&#39;package.json&#39;),
+
+assemble {
+  myProject: {
+    options: {
+      pkg: &#39;&lt;%= pkg %&gt;&#39;,
+      data: &#39;other/data/*.json&#39;
+    },
+    files: {
+      &#39;dest&#39;: [&#39;src/templates/**/*.hbs&#39;]
+    }
+  }
+}</code></pre>
+<p>We can now use the following variables in our templates:</p>
+<ul>
+<li><code>{{pkg.verson}}</code></li>
+<li><code>{{pkg.name}}</code></li>
+<li><code>{{pkg.description}}</code></li>
+<li><code>{{pkg.author.url}}</code></li>
+<li><code>{{pkg.author.name}}</code></li>
+</ul>
+<p>Also see: <a href="YAML-front-matter.html">YAML front matter</a></p>
+<h2>Related Info</h2>
+<ul>
+<li><a href="Options.html">Complete list of Options</a></li>
+<li><a href="Data.html">Data Types</a></li>
+<li><a href="Built-in-Variables.html">variables</a></li>
+</ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JavaScripts
+    ================================================== -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/highlight.js"></script>
+    <script src="assets/js/holder/holder.js"></script>
+    <script src="assets/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+
+    <!-- Google Analytics 
+================================================== -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33358518-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

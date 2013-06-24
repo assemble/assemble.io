@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> options.partials  | Assemble</title>
+    <link rel="stylesheet" href="assets/css/assemble.css">
+  </head>
+  <body style="background: white">
+
+    <!-- navigation
+    ================================================== -->
+    
+<div class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="nav-collapse collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../docs/Home.html">Docs</a>
+        </li>
+        <!--  <li>
+          <a href="../examples.html">Examples</a>
+        </li> -->
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+       <!-- <li>
+          <a href="../tutorials.html">Tutorials</a>
+        </li>
+        <li>
+          <a href="../blog.html">Blog</a>
+        </li> -->
+        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Subhead
+    ================================================== -->
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1><span class="text-muted">Docs /</span> configuration </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="container">
+      <div class="row">
+
+        <!-- Left side navigation
+        ================================================== -->
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Home.html">Table of Contents</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Getting Started
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+                <li><a href="About.html">About</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Installation.html">Installation</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Quickstart.html">Quickstart</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Development
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="External-Libraries.html">External Libraries</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Methods.html">Methods</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Configuration
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+                <li><a href="Built-in-Variables.html">Built-in Variables</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Options.html">Options Overview</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="options-assets.html">options.assets</a></li>
+                
+              
+                
+                <li><a href="options-collections.html">options.collections</a></li>
+                
+              
+                
+                <li><a href="options-data.html">options.data</a></li>
+                
+              
+                
+                <li><a href="options-engine.html">options.engine</a></li>
+                
+              
+                
+                <li><a href="options-ext.html">options.ext</a></li>
+                
+              
+                
+                <li><a href="options-helpers.html">options.helpers</a></li>
+                
+              
+                
+                <li><a href="options-layout.html">options.layout</a></li>
+                
+              
+                
+                <li><a href="options-layoutdir.html">options.layoutdir</a></li>
+                
+              
+                
+                <li class="active"><a href="options-partials.html">options.partials</a></li>
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Data
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+                <li><a href="Context.html">Context</a></li>
+                
+              
+                
+                <li><a href="Data.html">Data</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="YAML-front-matter.html">YAML front matter</a></li>
+                
+              
+                
+                <li><a href="YAML.html">YAML data</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <span class="nav-section-title">
+              Templates
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Helpers.html">Helpers</a></li>
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Layouts.html">Layouts</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Partials.html">Partials</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Content
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Markdown.html">Markdown</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+          </div>
+        </div>
+
+        <!-- Main content
+        ================================================== -->
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>options.partials</h1>
+            <h2>Registering Partials</h2>
+<p>Assemble automatically registers any partials supplied via the <code>partials</code> option at the task or target levels. </p>
+<pre><code class="lang-javascript">assemble {
+  docs: {
+    options: {
+      partials: [&#39;src/templates/partials/**/*.md&#39;]
+    },
+    files: {
+      &#39;docs/&#39;: [&#39;src/templates/pages/*.md&#39;]
+    }
+  }
+}</code></pre>
+<h3>Task-target behavior</h3>
+<p>Any partials registered at the <em>task</em> level are are also available at the <em>target</em> level. </p>
+<p><strong>Important!</strong> It is standard in Grunt.js for target-level options to overwrite task-level options. However, assemble merges the list of partials defined at the task-level with the partials defined for each target. </p>
+<h2>Usage examples</h2>
+<h3>Ways to apply context to partials</h3>
+<h4>&quot;Inline&quot;</h4>
+<p>You can establish context inside the partials:</p>
+<pre><code class="lang-handlebars">{{&gt; module module.panel-primary}}
+{{&gt; module module.panel-info}}
+{{&gt; module module.panel-success}}
+{{&gt; module module.panel-warning}}
+{{&gt; module module.panel-danger}}
+{{&gt; module module.panel-query}}</code></pre>
+<h4>Block expressions</h4>
+<p>Wrap partials in block expressions and either set the context on the partial:</p>
+<pre><code class="lang-handlebars">{{#module}}
+  {{&gt; module panel-inverse}}
+  {{&gt; module panel-success}}
+  {{&gt; module panel-info}}
+{{/module}}</code></pre>
+<p>Or on the section tags:</p>
+<pre><code class="lang-handlebars">{{#module.panel-base}}
+  {{&gt; module }}
+{{/module.panel-base}}</code></pre>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JavaScripts
+    ================================================== -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/highlight.js"></script>
+    <script src="assets/js/holder/holder.js"></script>
+    <script src="assets/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+
+    <!-- Google Analytics 
+================================================== -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33358518-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

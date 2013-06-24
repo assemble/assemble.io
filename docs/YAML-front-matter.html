@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> YAML front matter  | Assemble</title>
+    <link rel="stylesheet" href="assets/css/assemble.css">
+  </head>
+  <body style="background: white">
+
+    <!-- navigation
+    ================================================== -->
+    
+<div class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="nav-collapse collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../docs/Home.html">Docs</a>
+        </li>
+        <!--  <li>
+          <a href="../examples.html">Examples</a>
+        </li> -->
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+       <!-- <li>
+          <a href="../tutorials.html">Tutorials</a>
+        </li>
+        <li>
+          <a href="../blog.html">Blog</a>
+        </li> -->
+        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Subhead
+    ================================================== -->
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1><span class="text-muted">Docs /</span> data </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="container">
+      <div class="row">
+
+        <!-- Left side navigation
+        ================================================== -->
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Home.html">Table of Contents</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Getting Started
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+                <li><a href="About.html">About</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Installation.html">Installation</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Quickstart.html">Quickstart</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Development
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="External-Libraries.html">External Libraries</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Methods.html">Methods</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Configuration
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+                <li><a href="Built-in-Variables.html">Built-in Variables</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Options.html">Options Overview</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="options-assets.html">options.assets</a></li>
+                
+              
+                
+                <li><a href="options-collections.html">options.collections</a></li>
+                
+              
+                
+                <li><a href="options-data.html">options.data</a></li>
+                
+              
+                
+                <li><a href="options-engine.html">options.engine</a></li>
+                
+              
+                
+                <li><a href="options-ext.html">options.ext</a></li>
+                
+              
+                
+                <li><a href="options-helpers.html">options.helpers</a></li>
+                
+              
+                
+                <li><a href="options-layout.html">options.layout</a></li>
+                
+              
+                
+                <li><a href="options-layoutdir.html">options.layoutdir</a></li>
+                
+              
+                
+                <li><a href="options-partials.html">options.partials</a></li>
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Data
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+                <li><a href="Context.html">Context</a></li>
+                
+              
+                
+                <li><a href="Data.html">Data</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li class="active"><a href="YAML-front-matter.html">YAML front matter</a></li>
+                
+              
+                
+                <li><a href="YAML.html">YAML data</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <span class="nav-section-title">
+              Templates
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Helpers.html">Helpers</a></li>
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Layouts.html">Layouts</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Partials.html">Partials</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+            <span class="nav-section-title">
+              Content
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <li><a href="Markdown.html">Markdown</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+
+          </div>
+        </div>
+
+        <!-- Main content
+        ================================================== -->
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>YAML front matter</h1>
+            <blockquote>
+<p>YFM is an <strong>optional</strong> section of valid YAML that is placed at the top of a page and is used for maintaining metadata for the page and its contents. </p>
+</blockquote>
+<p><strong>Actually</strong>, YFM can be used with both <a href="Pages.html">pages</a> and <a href="Partials.html">partials</a>, so <em>unless otherwise noted</em> you can safely assume that when the documentation YFM of a page, the same applies for YFM of a partial. </p>
+<h2>Table of Contents</h2>
+<ul>
+<li>YFM in &quot;pages&quot; (a &quot;page&quot; is any file specified in the <code>src</code> property of a task or target)</li>
+<li>YFM in partials</li>
+<li>Metadata</li>
+<li>Content</li>
+<li>Config data</li>
+<li>Lo-Dash templates in YFM</li>
+</ul>
+<p>TOPICS TO COVER
+<em> structured data for the file and/or its contents
+</em> supply metadata
+<em> define configuration settings, options 
+</em> specify variables, built-in or custom
+* use lo-dash templates to bring the power of JavaScript to your YFM</p>
+<p>Use cases:
+<em> collections
+</em> permalinks
+* lo-dash templates: time, date, metadata &quot;pipeline&quot;</p>
+<h2>YFM &quot;Variables&quot;</h2>
+<h3>Built-in Variables</h3>
+<ul>
+<li><code>layout</code> : Optionally define or override the layout to use. You must include file extension, since Assemble can process multiple file types. Layout files can exist in any directory, and may be.</li>
+<li><code>published</code> : set to <code>false</code> to exclude a file from being rendered by a task-target.</li>
+<li><code>category</code>/<code>categories</code>/<code>tags</code> : Define the categories and tags as [YAML lists](<a href="http://en.wikipedia.org/wiki/YAML#Lists">http://en.wikipedia.org/wiki/YAML#Lists</a> or a space-separated string) or a space-separated string. for each category and tag, Assemble will generate a page in the <code>dest</code> directory.</li>
+</ul>
+<p>If set, allows to specify tags attributed to given entry. Tag pages are generated automatically. Entry may belong to more than one tag, use YAML List to specify multiple tags.</p>
+<h3>Custom Variables</h3>
+<p>Any variables in the front-matter that are not predefined are mixed into the data that is sent to the Liquid templating engine during the conversion. For instance, if you set a title, you can use that in your layout to set the page title:</p>
+<pre><code class="lang-html">&lt;title&gt;{{ page.title }}&lt;/title&gt;</code></pre>
+<h2>Using Lo-Dash templates in YFM</h2>
+<h3>Metadata &quot;conduit&quot;</h3>
+<p>This may not be obvious at first, is that YAML Front-Matter acts as a kind of &quot;conduit&quot; for passing information to pages via Lo-Dash templates. </p>
+<p>So you could do this:</p>
+<pre><code class="lang-js">grunt.initConfig({
+  assemble: {
+    component: {
+      options: {
+        data: &#39;page.json&#39;
+      },
+      files: {
+        &#39;index.html&#39;: [&#39;src/pages/*.hbs&#39;]
+      }
+    }
+  }
+});</code></pre>
+<p>With <code>page.json</code> containing:</p>
+<pre><code class="lang-json">{
+  &quot;index&quot;: {
+    &quot;title&quot;: &quot;Home&quot;
+  },
+  &quot;about&quot;: {
+    &quot;title&quot;: &quot;About Us&quot;
+  }
+}</code></pre>
+<p>And the <a href="">YAML Front-Matter</a> of the page, use underscore templates:</p>
+<pre><code class="lang-yaml">---
+title: &lt;%= page.index.title %&gt;
+---
+
+YAML front matter</code></pre>
+<p>Alternatively, inside the Grunfile you can use <code>grunt.config.set</code> to define the data to be used for a given variable: </p>
+<pre><code class="lang-js">grunt.config.set(&#39;page.index.title&#39;, &#39;Home&#39;);</code></pre>
+<h3>Example usage</h3>
+<pre><code class="lang-html">---
+title: 
+list: &lt;% _.forEach(people, function(name) { %&gt;&lt;li&gt;&lt;%= name %&gt;&lt;/li&gt;&lt;% }); %&gt;
+people:
+- Jon Schlinkert
+- Brian Woodward
+---
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;YAML front matter&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;section class=&quot;people&quot;&gt;
+      &lt;ul&gt;
+        [object Object]
+      &lt;/ul&gt;
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<pre><code class="lang-yaml">---
+layout: default.hbs
+title: Early humans discovered...
+description: Lots of things, because they were early humans. 
+date: 2013-07-04
+categories:
+- anthropology
+- unibrows
+- various wooly animals
+tags:
+- rocks
+- wheel
+- 30 inch wooden rims
+published: false 
+---</code></pre>
+<pre><code class="lang-html">--- 
+title: My Blog
+description: Like I said, my bloggg!
+example:
+  custom:
+    variables:
+    - one
+    - two
+    - three
+---
+&lt;div class=&quot;page-header&quot;&gt;
+  &lt;h1&gt;YAML front matter&lt;/h1&gt;
+  &lt;p class=&quot;lead&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+
+&lt;/ul&gt;</code></pre>
+<h2>YAML Front-Matter in Partials</h2>
+<pre><code class="lang-html">---
+title: &lt;%= component.name ][ pkg.name %
+require: [&lt;%= title %&gt;.css, &lt;%= title %&gt;.js]
+---
+&lt;!-- {{title}} --&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;span3&quot;&gt;
+    &lt;div class=&quot;dropdown&quot;&gt;
+      &lt;div&gt;User Settings&lt;/div&gt;
+      &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;My Profile&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Friend Requests&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Account Settings&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Log Out&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;&lt;!-- /{{title}} --&gt;</code></pre>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;{{ titleize component }} Component&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{assets}}/css/{{component}}.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      {{&gt; body }}
+    &lt;/div&gt;
+    &lt;script src=&quot;{{assets}}/js/{{component}}.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3>Rendering Lists</h3>
+<p>Use <a href="http://en.wikipedia.org/wiki/YAML#Associative_arrays_of_lists">YAML Associative Arrays</a> for rendering lists of information.</p>
+<p>Indented Blocks, common in YAML data files, use indentation and new lines to separate the <code>key: value</code> pairs</p>
+<pre><code class="lang-yaml">---
+title: Associative arrays
+people:
+  name: John Smith
+  age: 33</code></pre>
+<p>Inline Blocks, common in YAML data streams, use comma+space to separate the <code>key: value</code> pairs between braces:</p>
+<pre><code class="lang-yaml">morePeople:  {name: Grace Jones, age: 21}
+---</code></pre>
+<p>Used like this:</p>
+<pre><code class="lang-html">&lt;div class=&quot;page-header&quot;&gt;
+  &lt;h1&gt;{{{title}}}&lt;/h1&gt; 
+&lt;/div&gt;
+
+&lt;div class=&quot;examples&quot;&gt;
+  &lt;h4&gt;Associative arrays&lt;/h4&gt;
+  &lt;dl class=&quot;dl-horizontal&quot;&gt;
+    {{#people}}
+      &lt;dt&gt;Name:&lt;/dt&gt; &lt;dd&gt;{{name}}&lt;/dd&gt;
+      &lt;dt&gt;Age:&lt;/dt&gt;  &lt;dd&gt;{{age}}&lt;/dd&gt;
+    {{/people}}
+    {{#morePeople}}
+      &lt;dt&gt;Name:&lt;/dt&gt; &lt;dd&gt;{{name}}&lt;/dd&gt;
+      &lt;dt&gt;Age:&lt;/dt&gt;  &lt;dd&gt;{{age}}&lt;/dd&gt;
+    {{/morePeople}}
+  &lt;/dl&gt;
+&lt;/div&gt;</code></pre>
+<h3><a href="https://assemble/assemble/test/actual/yaml">More examples</a></h3>
+<p>See some great usage examples in assemble&#39;s <a href="https://assemble/assemble/test/actual/yaml">YAML test files</a>:</p>
+<ul>
+<li>YAML associative arrays</li>
+<li>YAML block literals</li>
+<li>YAML comments</li>
+<li>YAML data files</li>
+<li>YAML data types</li>
+<li>YAML documents</li>
+<li>YAML lists</li>
+<li>YAML relational-trees</li>
+<li>YAML variables</li>
+</ul>
+<p><strong>Please note</strong>: <em>YFM cannot be parsed if it is not the first thing on the page</em>.</p>
+<p><a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML Front-Matter</a> was made popular by Jekyll, the &quot;blog-aware, static site generator&quot; that powers GitHub Pages.</p>
+<ul>
+<li>YAML front-matter is <strong>optionally</strong> used at the beginning of a page to define metadata for the page&#39;s content. </li>
+<li>In order for YAML front-matter to be processed, it <em>must be the first thing at the top of the page</em>, and </li>
+<li>To be valid, it must be &quot;wrapped&quot; with three leading dashes (above) (<code>---</code>) and three dashes following (below) (<code>---</code>).</li>
+</ul>
+<p>Example:</p>
+<pre><code class="lang-html">---
+title: YAML front-matter
+description: A very simple way to add structured data to a page.
+---
+
+&quot;Front matter is essentially metadata about the document its attached to, formatted in such a way that it does not get in the way. In other words, if you don&#39;t know its “Front Matter”, you probably wouldn&#39;t wonder what it is, or what its doing there.&quot;
+
+
+
+&lt;h1&gt; {{ title }} &lt;/h1&gt;
+&lt;p&gt;Page content here... {{ eieio }}&lt;/p&gt;</code></pre>
+<h2>FAQ</h2>
+<ul>
+<li>With <a href="https://github.com/assemble/assemble">Assemble</a> you may do <a href="https://github.com/assemble/assemble/tree/master/test/YAML">just about anything</a> with YAML front matter that you can do with <a href="http://www.yaml.org/spec/1.2/spec.html">valid YAML</a></li>
+<li>YFM must be <a href="http://www.yaml.org/spec/1.2/spec.html">valid YAML</a> </li>
+<li>YFM cannot be parsed if it is not the first thing on the page</li>
+<li><a href="https://github.com/assemble/assemble">Assemble</a> parses YAML front matter into an object literal.</li>
+<li>YFM allows you to define variables for a page, directly inside the page.</li>
+</ul>
+<p><strong>Custom Variables</strong>
+<em> You may use any of the default variables provided by Assemble, or you may define your own custom variables inside the YFM of a file.
+</em> You may add as many custom variables as you require</p>
+<p><strong>Lo-Dash Templates</strong>
+<em> You may use underscore <a href="http://gruntjs.com/configuring-tasks#templates">Lo-Dash templates</a> in YFM
+</em> Assemble exposes all variables defined in YAML front-matter to the page in which they were defined, thus...
+<em> Using <a href="http://gruntjs.com/configuring-tasks#templates">Lo-Dash templates</a> in YFM enables programmatic access to those pages across your project.
+</em> YFM may be used in any file that Assemble processes through any of the <a href="http://gruntjs.com/configuring-tasks#files">src-dest or files mappings formats</a> available in Grunt.js. </p>
+<h3>Recommended usage</h3>
+<ul>
+<li>YFM is best used for structured data, like configuration settings or metadata for a page, as opposed to long-form content.</li>
+<li>YFM offers an easy way to maintain metadata or rendered data for pages and partials, as an <em>optional</em> alternative to using &quot;external&quot; <code>.json</code> or <code>.yaml</code> data files</li>
+</ul>
+<h3>Not recommended</h3>
+<ul>
+<li>YFM isn&#39;t the best option for long-form content or extensive amounts of metadata. In these cases you might want to consider externalizing your data to <a href="JSON.html">JSON</a> or <a href="YAML.html">YAML</a> files instead.</li>
+</ul>
+<h2>Related info</h2>
+<ul>
+<li><a href="YAML.html">YAML data</a></li>
+<li><a href="JSON.html">JSON data</a></li>
+</ul>
+<h2>External links</h2>
+<ul>
+<li><a href="http://nodeca.github.io/js-yaml/">js-yaml &quot;online&quot;</a> allows you to play with YAML in the browser.</li>
+<li><a href="http://www.yaml.org/spec/1.2/spec.html">YAML specification</a> </li>
+<li><a href="http://www.yaml.org/"><a href="http://www.yaml.org/">http://www.yaml.org/</a></a></li>
+<li><a href="http://en.wikipedia.org/wiki/YAML">wikipedia page about YAML</a> </li>
+</ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JavaScripts
+    ================================================== -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/highlight.js"></script>
+    <script src="assets/js/holder/holder.js"></script>
+    <script src="assets/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+
+    <!-- Google Analytics 
+================================================== -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33358518-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

@@ -1,79 +1,530 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Assemble-docs : Documentation for Assemble and related projects." />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Assemble-docs</title>
+    <meta charset="UTF-8">
+    <title>Assemble</title>
+    <link rel="stylesheet" href="docs/assets/css/assemble.css">
+    <link rel="stylesheet" href="docs/assets/css/github.css">
   </head>
-
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/assemble/assemble-docs">View on GitHub</a>
-
-          <h1 id="project_title">Assemble-docs</h1>
-          <h2 id="project_tagline">Documentation for Assemble and related projects.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/assemble/assemble-docs/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/assemble/assemble-docs/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+    <!-- nav partial -->
+    
+<div class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">ASSEMBLE</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="nav-collapse collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="docs/Home.html">Docs</a>
+        </li>
+        <!--  <li>
+          <a href="examples.html">Examples</a>
+        </li> -->
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+       <!-- <li>
+          <a href="tutorials.html">Tutorials</a>
+        </li>
+        <li>
+          <a href="blog.html">Blog</a>
+        </li> -->
+        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
+      </ul>
     </div>
+  </div>
+</div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Assemble-docs maintained by <a href="https://github.com/assemble">assemble</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
 
     
+    <!-- body partial, used for adding pages to layout -->
+    
 
+<!-- Jumbotron component
+================================================== -->
+<header class="jumbotron masthead">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col col-lg-6">
+        <h1> BUILD SOMETHING </h1>
+        <p class="lead"> Documentation. Sites. Components. <br>It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.
+ </p>
+        <p> <a class="btn btn-inverse" href="https://github.com/assemble/assemble/archive/master.zip">Download Assemble</a> </p>
+      </div>      
+      <div class="col col-lg-6">
+        <blockquote class="twitter-tweet"><p><a href="https://twitter.com/_mattbailey">@_mattbailey</a> no problem! That Assemble module has just completely changed my life . Thanks! <a href="https://twitter.com/search?q=%23webdev&amp;src=hash">#webdev</a> <a href="https://twitter.com/search?q=%23nodejs&amp;src=hash">#nodejs</a> <a href="https://twitter.com/search?q=%23frontend&amp;src=hash">#frontend</a> <a href="https://twitter.com/search?q=%23development&amp;src=hash">#development</a></p>&mdash; Przemyslaw Bobak (@bobek_balinek) <a href="https://twitter.com/bobek_balinek/statuses/346937578773172224">June 18, 2013</a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<!-- Teaser component
+============================== -->
+
+<div class="teaser ">
+  <a class="teaser-content" href="site/docs/Home.html">
+    
+     <strong>Design. Templates. Data.</strong> 
+     <em> See how Assemble bridges the gap between design and development. </em> 
+  </a>
+</div>
+
+
+<!-- Page
+================================================== -->
+
+
+<div class="container">
+  <div class="panel panel-clear">
+    <section class="gallery">
+      <div class="row">        
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="band">
+  <div class="container">
+    <section class="gallery">
+      <div class="row">        
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="band band-primary">
+  <div class="container">
+    <section class="gallery">
+      <div class="row">        
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="band band-info">
+  <div class="container">
+    <section class="gallery">
+      <div class="row">        
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="band band-slate">
+  <div class="container">
+    <section class="gallery">
+      <div class="row">        
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="band band-gray">
+  <div class="container">
+    <section class="gallery">
+      <div class="row">        
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="band band-social">
+  <div class="container">
+    <section class="gallery">
+      <div class="row">        
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+        
+<div class="col col-lg-4">
+  <a class="thumbnail" href="#">
+    <img data-src="holder.js/100%x250/#fff:#000" alt="">
+  </a>
+</div>
+
+        
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<!-- Banner component
+============================== -->
+
+<div class="banner">
+  <div class="container">
+    <p> <a href="site/docs/Home.html">Get Started with Assemble</a> </p>
+  </div>
+</div>
+
+
+
+    <script src="docs/assets/js/jquery.js"></script>
+    <script src="docs/assets/js/highlight.js"></script>
+    <script src="docs/assets/js/holder/holder.js"></script>
+    <script src="docs/assets/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+    
+    <!-- Google Analytics 
+================================================== -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33358518-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+    
   </body>
 </html>
