@@ -1,0 +1,10 @@
+---
+component: teaser
+---
+<div class="teaser {{modifier}}">
+  <a class="teaser-content" href="{{ link }}">
+    {{! <span class="glyphicon"></span>  }}
+    {{#if title}} {{{ title }}} {{/if}}
+    {{#if subtitle}} <em> {{{ subtitle }}} </em> {{/if}}
+  </a>
+</div>

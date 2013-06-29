@@ -1,0 +1,34 @@
+---
+published: false
+---
+#### Still needed!
+
+
+**URL Variables**
+Look at the node.js URL module for this. There are also URL parsers to help with this:
+
+* `base` : "cwd" of the generated site
+* `root` : 
+* `domain` :
+* `url` :
+
+* `collections.related`
+
+* `permalinks`/`permalink` : 
+* `navigation` : ability to somehow selectively specify pages and/or navigation "sections"
+* `sitemap` : (helper?)
+* `include`/`exclude` or `status`(?): more control over how pages are published
+
+**"Relationship" Variables**
+* `related` : What other items are related to this item? Should this be in the page object, or collections?
+
+**Pagination**
+
+* `paginate` : When the `paginate` configuration option is set, `pagination` becomes available for use.
+* `pagination` : When the `paginate` configuration option is set, this variable becomes available for use.
+* `per_page` : Number of "pages" shown per list page.
+* `total_pages` : Total number of pagination pages. 
+* `page` : Current pagination page.
+* `previous_page` : Previous pagination page. This should probably be expanded to `previous_item` so that any collections can use it.
+* `next_page` : Next pagination page. This should probably be expanded to `previous_item` so that any collections can use it.
+

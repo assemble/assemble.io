@@ -1,0 +1,23 @@
+---
+title: Blog
+posts: ['README.md']
+---
+<!-- Subhead
+================================================== -->
+<header class="masthead subhead">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-6">
+        <h1> {{ uppercase title }} </h1>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="panel panel-docs">
+    <h1>Stay tuned...</h1>
+    {{#each posts}}
+    <h2>{{md this}}</h2>
+    {{/each}}
+  </div>
+</div>

@@ -1,0 +1,117 @@
+---
+name: ghpages
+notes: >
+  This is the "task manifest" for Assemble's gh-pages.
+
+
+# =====================================================
+# Assemble Libs
+# =====================================================
+
+js       : src/assets/js
+less     : src/less
+templates: src/templates
+
+
+# =====================================================
+# Handlebars Templates
+# =====================================================
+
+layouts : <%= ghpages.templates %>/layouts
+pages   : <%= ghpages.templates %>/pages
+partials: <%= ghpages.templates %>/partials
+data    : <%= ghpages.templates %>/data
+
+
+# =====================================================
+# LESS Components
+# =====================================================
+
+overrides: <%= ghpages.less %>/overrides.less
+
+component:
+  variables  : <%= ghpages.less %>/variables.less
+  mixins     : <%= ghpages.less %>/components/mixins.less
+
+  # Components: Core CSS
+  scaffolding: <%= ghpages.less %>/components/scaffolding.less
+  type       : <%= ghpages.less %>/components/type.less
+  blockquote : <%= ghpages.less %>/components/blockquote.less
+  code       : <%= ghpages.less %>/components/code.less
+  fonts      : <%= ghpages.less %>/components/fonts.less
+  webfonts   : <%= ghpages.less %>/components/webfonts.less
+  tables     : <%= ghpages.less %>/components/tables.less
+  buttons    : <%= ghpages.less %>/components/buttons.less
+
+  # Components: common
+  panels     : <%= ghpages.less %>/components/panels.less
+
+  # Components: Nav
+  nav        : <%= ghpages.less %>/components/nav.less
+  navbar     : <%= ghpages.less %>/components/navbar.less
+
+  # Components: Z-index
+  tooltip    : <%= ghpages.less %>/components/tooltip.less
+
+  # Components: Misc
+  alerts     : <%= ghpages.less %>/components/alerts.less
+  banner     : <%= ghpages.less %>/components/banner.less
+  teaser     : <%= ghpages.less %>/components/teaser.less
+  band       : <%= ghpages.less %>/components/band.less
+  thumbnails : <%= ghpages.less %>/components/thumbnails.less
+  labels     : <%= ghpages.less %>/components/labels.less
+  masthead   : <%= ghpages.less %>/components/masthead.less
+
+  # Components: Examples
+  palette    : <%= ghpages.less %>/components/palette.less
+  docs       : <%= ghpages.less %>/components/component-docs.less
+
+# =====================================================
+# LESS Globals
+# =====================================================
+
+globals:
+# Assemble globals
+- <%= ghpages.component.variables %>
+- <%= ghpages.component.mixins %>
+# Bootstrap globals
+- <%= bootstrap.component.mixins %>
+- <%= bootstrap.component.normalize %>
+- <%= bootstrap.component.print %>
+- <%= bootstrap.docs %>
+
+
+# =====================================================
+# LESS Bundles
+# =====================================================
+
+bundle:
+  all:
+  - <%= ghpages.component.banner %>
+  - <%= ghpages.component.buttons %>
+  - <%= ghpages.component.fonts %>
+  - <%= ghpages.component.masthead %>
+  - <%= ghpages.component.mixins %>
+  - <%= ghpages.component.navbar %>
+  - <%= ghpages.component.scaffolding %>
+  - <%= ghpages.component.thumbnails %>
+  - <%= ghpages.component.teaser %>
+  - <%= ghpages.component.webfonts %>
+  - <%= ghpages.component.wireframe %>
+
+  components:
+  # Bootstrap components
+  - <%= bootstrap.bundle.reset %>
+  - <%= bootstrap.bundle.core %>
+  - <%= bootstrap.component.navs %>
+  - <%= bootstrap.component.navbar %>
+  - <%= ghpages.component.navbar %>
+  - <%= bootstrap.component.list_group %>
+  - <%= bootstrap.component.panels %>
+  - <%= bootstrap.component.glyphicons %>
+
+  # Custom components
+  - <%= ghpages.component.assemble %>
+  - <%= ghpages.component.webfonts %>
+  - <%= ghpages.component.wireframe %>
+...

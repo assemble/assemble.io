@@ -1,0 +1,5 @@
+{
+  "masthead": {
+    "download": "_gaq.push(['_trackEvent', 'masthead-download', 'clicked'])"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "homepage": {
+    "masthead": {
+      "linkable": true,
+      "modifier": "",
+      "title": "<strong>Design. Templates. Data.</strong>",
+      "subtitle": "See how Assemble bridges the gap between design and development.",
+      "ideas": "<strong>Built with Assemble</strong> It has never been easier to build static sites.",
+      "link": "site/docs/Home.html",
+      "button": {
+        "modifier": "button-white"
+      }
+    },
+    "footer": {
+      "static": true,
+      "modifier": "banner-inverse banner-large",
+      "title": "<p>Get started with some examples.</p>",
+      "subtitle": "",
+      "link": "#",
+      "button": {
+        "modifier": "button-jade button-large pull-right",
+        "href": "#",
+        "text": "Visit Assemble on GitHub"
+      }
+    }
+  }
+}

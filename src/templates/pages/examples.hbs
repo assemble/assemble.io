@@ -1,0 +1,287 @@
+---
+title: Components
+section: Docs
+---
+
+<!-- Subhead
+================================================== -->
+<header class="masthead subhead">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-6">
+        <h1> {{ uppercase title }} </h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="panel panel-full-width panel-docs">
+    <div class="row">
+      <div class="col col-lg-12">
+        <h1>{{title}}</h1>
+
+        <!-- Palette component
+        ============================================== -->
+        <h2>Palette component</h2>
+        {{#draft}} <p>Inspired by the Android <a href="http://developer.android.com/design/style/color.html#palette">Developer styleguide</a>.</p> {{/draft}}
+        
+        <div class="bs-example tooltip-demo">
+          {{#each swatch}}
+            {{> swatch . }}
+          {{/each}}
+        </div>
+
+
+        <h2>Stay tuned!</h2>
+        <p>Much more to come.</p>
+
+
+        {{#draft}}
+        <!-- Alert component
+        ============================================== -->
+        <section id="alerts">
+          <h2>Alert component</h2>
+          {{> alert }}
+        </section>
+        {{/draft}}
+
+
+        {{#draft}}
+        <!-- Button component
+        ============================================== -->
+        <style>
+          /* Terrible, I know */
+          #buttons .btn {
+            margin: 5px 0;
+          }
+        </style>
+        <section id="buttons">
+          {{> examples-buttons }}
+        </section>
+        {{/draft}}
+
+        {{#draft}}{{! the path for the md content is specified in the YAML front-matter of this page }}
+        {{{md content}}}
+        {{/draft}}
+
+      </div>
+    </div>
+
+{{#draft}}
+    <!-- Panel component
+    ============================================== -->
+    <section id="panel-columns">
+      <div class="col col-lg-12">
+        <h1>Panels</h1>
+
+        <p>Every "module" on this page is constructed from the same "partial", the only difference is the data supplied to each one from <code>module.json</code>.</p>
+        <p>The craziest thing about this is that I didn't (really) have to massacre the partial to make it work. I took liberties for the progress bars mostly, but considering how sparse the template is I don't feel too bad about it. </p>
+      </div>
+
+      <div class="col col-lg-4">
+        <div class="page-header">
+          <h2>Templates</h2>
+          <p class="lead">{{ lead }}</p> 
+          {{> module module.panel-intro}}
+        </div>
+      </div>
+      <div class="col col-lg-4">
+        <div class="page-header">
+          <h2>Data</h2>
+          <p class="lead">{{ lead }}</p> 
+          {{> module module.panel-intro}}
+        </div>
+      </div>
+      <div class="col col-lg-4">
+        <div class="page-header">
+          <h2>Helpers</h2>
+          <p class="lead">{{ lead }}</p> 
+          {{> module module.panel-intro}}
+        </div>
+      </div>
+    </section>
+
+    <section id="panels">
+      <div class="col col-lg-3">
+
+        {{! Three different ways to create partials. You can establish context inside the partials, like this: }}
+        {{> module module.panel-primary}}
+        {{> module module.panel-info}}
+        {{> module module.panel-success}}
+        {{> module module.panel-warning}}
+        {{> module module.panel-danger}}
+        {{> module module.panel-query}}
+
+      </div>
+      <div class="col col-lg-9">
+
+        {{! or you can wrap the partials in block expressions to establish context, like this: }}
+        {{#module}}
+          {{> module panel-inverse}}
+        {{/module}}
+
+
+        {{! or you can wrap them like this }}
+        {{#module.panel-base}}
+          {{> module }}
+        {{/module.panel-base}}
+
+
+        <h3>Alerts</h3>
+        {{> module module.alert-info }}
+        {{> module module.alert-success }}
+        {{> module module.alert-warning }}
+        {{> module module.alert-danger }}
+        {{> module module.alert-block }}
+
+        
+        <h3>Progress Bars</h3>
+        <div class="panel">
+          {{> module module.progress-info }}
+          {{> module module.progress-success }}
+          {{> module module.progress-warning }}
+          {{> module module.progress-danger }}
+        </div>
+
+
+        <div class="row">
+          <div class="col col-lg-6">
+            {{! or like this }}
+            {{#module.panel-base}}
+              {{> module }}
+            {{/module.panel-base}}
+          </div>
+          <div class="col col-lg-6">
+            {{! or like this }}
+            {{#module.panel-base}}
+              {{> module }}
+            {{/module.panel-base}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-lg-12">
+
+            <hr>
+            <h3>Wells</h3>
+            {{! and even turn it into a different module, with like this }}
+            {{> module module.well}}
+            {{> module module.well-alt}}
+          </div>
+          <div class="col col-lg-12">
+            {{> glyphicons }}
+          </div>
+        </div>
+      </div>
+    </section>
+{{/draft}}
+  </div>
+{{#draft}}
+  <div class="panel panel-full-width panel-docs">
+    <div class="row band">
+      <section id="intro">
+        <div class="col col-lg-12">
+          <div class="panel panel-inverse">
+
+            <div class="panel-heading">
+              <div class="btn-toolbar">
+                <div class="btn-group">
+                  <a class="btn btn-default btn-small" href="#"><i class="glyphicon glyphicon-arrow-left"></i></a>
+                  <a class="btn btn-default btn-small" href="#"><i class="glyphicon glyphicon-arrow-right"></i></a>
+                </div>
+                <div class="btn-group">
+                  <a class="btn btn-default btn-small" href="#"><i class="glyphicon glyphicon-repeat"></i></a>
+                </div>
+                <div class="btn-group">
+                  <a class="btn btn-default btn-small" href="#"><i class="glyphicon glyphicon-home"></i></a>
+                </div>
+              </div>
+              <input class="input-small" type="text">
+            </div>
+
+            <h3>Link within a paragraph</h3>
+            <p> Aliquam hendrerit congue mauris at imperdiet. Suspendisse sit amet justo eu lacus tempor malesuada aliquam et massa. Proin malesuada, sem id facilisis facilisis, ipsum lacus tincidunt dui, ut tincidunt diam urna vitae tellus. Etiam auctor dapibus felis, auctor eleifend erat semper non. <a href="http://github.com/upstage/">Upstage</a> laoreet metus. Duis odio elit, venenatis nec malesuada at, pretium ut quam. Aenean sagittis eleifend rutrum. Ut dictum volutpat metus sit amet imperdiet. Integer iaculis massa vel ipsum tincidunt dictum. In fringilla pellentesque massa eget faucibus. Quisque vitae ligula justo. </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <section id="wireframe">
+      <div class="col col-lg-3">
+
+        {{! Three different ways to create partials. You can establish context inside the partials, like this: }}
+        {{> module module.panel-primary}}
+        {{> module module.panel-info}}
+        {{> module module.panel-success}}
+        {{> module module.panel-warning}}
+        {{> module module.panel-danger}}
+        {{> module module.panel-query}}
+
+      </div>
+      <div class="col col-lg-9">
+
+        {{! or you can wrap the partials in block expressions to establish context, like this: }}
+        {{#module}}
+          {{> module panel-inverse}}
+        {{/module}}
+
+
+        {{! or you can wrap them like this }}
+        {{#module.panel-base}}
+          {{> module }}
+        {{/module.panel-base}}
+
+
+        <h3>Alerts</h3>
+        {{> module module.alert-info }}
+        {{> module module.alert-success }}
+        {{> module module.alert-warning }}
+        {{> module module.alert-danger }}
+        {{> module module.alert-block }}
+
+        
+        <h3>Progress Bars</h3>
+        <div class="panel">
+          {{> module module.progress-info }}
+          {{> module module.progress-success }}
+          {{> module module.progress-warning }}
+          {{> module module.progress-danger }}
+        </div>
+
+
+        <div class="row">
+          <div class="col col-lg-6">
+            {{! or like this }}
+            {{#modulepanel-base}}
+              {{> module }}
+            {{/module.panel-base}}
+          </div>
+          <div class="col col-lg-6">
+            {{! or like this }}
+            {{#module.panel-base}}
+              {{> module }}
+            {{/module.panel-base}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-lg-12">
+
+            <hr>
+            <h3>Wells</h3>
+            {{! and even turn it into a different module, with like this }}
+            {{> module module.well}}
+            {{> module module.well-alt}}
+          </div>
+          <div class="col col-lg-12">
+            {{> glyphicons }}
+          </div>
+        </div>
+      </div>
+    </section>
+    <p class="text-muted"> Portions of this page are modifications based on work created and <a href="http://code.google.com/policies.html">shared by the Android Open Source Project</a> and used according to terms described in the <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons 2.5 Attribution License</a>.</p>
+
+  </div>
+{{/draft}}
+
+</div>
+
+

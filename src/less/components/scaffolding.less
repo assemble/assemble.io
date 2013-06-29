@@ -1,0 +1,31 @@
+//
+// Scaffolding
+// -----------------------------------------------
+
+
+body {
+  position: relative;
+  padding-top: @body-padding;
+}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+}
+
+// Remove underline from links on hover
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+
+
+// Disable iOS/WinMobile font size changes
+@media screen and (max-device-width: 480px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+  }
+}

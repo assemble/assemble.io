@@ -1,0 +1,82 @@
+//
+// Palette component
+// ------------------------------------------
+
+@palette-height: 100px;
+
+.palette-wrap {
+  display: block;
+  .clearfix();
+}
+
+// Base
+.palette {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  display: table;
+  width: 100%;
+  height: @palette-height;
+  .clearfix();
+}
+.palette-dark-colors {
+  height: (@palette-height / 2); 
+}
+
+// Swatch
+// -------------------------
+
+.swatch {
+  float: none;
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  // Hidden text to keep swatch colors from collapsing
+  &:after {
+    visibility: hidden;
+    content: "swatch"; 
+    float: left;
+  }
+}
+
+@swatch-tooltip-width: 7em;
+
+// Swatch tooltips
+.swatch-tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  display: none;
+  min-width: @swatch-tooltip-width;
+  padding: 10px;
+  margin-left: -(@swatch-tooltip-width / 2);
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center; 
+  background-color: #fff;
+  white-space: nowrap;
+  .box-shadow(0 5px 5px rgba(0,0,0,.1));
+  z-index: @zindex-tooltip;
+  -webkit-user-select: text;
+          user-select: text;
+          
+  &:after {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -8px;
+    border: 8px solid rgba(255,255,255,0);
+    border-top-color: #fff;
+    content: '';
+  }
+}
+.swatch:hover .swatch-tooltip {
+  display: block;
+}

@@ -1,0 +1,307 @@
+---
+published: false
+---
+TODO: 
+* Explain how context works in Assemble
+* Explain how data/options/variables can be overridden. E.g.:
+  - Gruntfile (options)
+  - JSON, YAML
+  - YAML Front Matter of the page
+
+
+
+## Overriding Defaults
+
+Inside a task configuration (in your Gruntfile), an `options` property may be specified to override built-in defaults. In addition, each target may have an `options` property which is specific to that target. So task-level options will override global defaults, and target-level options will override task-level options.
+
+
+
+# Pre-defined Variables
+
+### global
+* `content` : In layout files, this contains the content of the subview(s). This is the variable used to insert the rendered content into the layout. This is not used in post files or page files.
+* `custom` : Any other variable that you add to the options in the assemble task/target will be added to the root of the data context and be available in any templates
+* `global` : Default information and configuration settings from `global.json`
+* `page` : This data if from the YAML Front Matter or `[page].json` with additional pre-defined variables for url and content.
+* `page` : This is just the [YAML Front Matter][yaml-front-matter] with 2 additions: `url` and `content`.
+* `pagination` : When the `paginate` configuration option is set, this variable becomes available for use.
+* `post` : This is just the [YAML Front Matter][yaml-front-matter] with 2 additions: `url` and `content`.
+* `root` : Root url of the generated site?
+* `url` : URL of the current page?
+
+### site
+* `categories` : List of all the category objects
+* `categories.some_category` : List of all the page objects with the `some_category` category.
+* `pages` : List of all the page objects.
+* `posts` : A reverse chronological list of all Posts. (Is this needed?)
+* `related_pages` : This should be in the page object.
+* `related_posts` : List of all `related_item` objects 
+* `tags` : List of all tag objects
+* `time` : The current time when `grunt assemble` was last run.
+
+
+### page
+* `categories` : List of category objects that are associated with this page. These should be provided in the yaml header.
+* `content` : Rendered page content... Is this needed?
+* `custom` : Any custom front matter that you specify will be available under `page`. For example, if you specify `something: true` in a page's front matter, that value will be available in templates as `page.something`"
+* `date` : date the page was generated
+* `next` : The full/relative? URL to the "next" page. The next page will be the next page from the pages list. Can be overridden in the yaml header.
+* `next` : The chronologically newer post
+* `previous` : The chronologically older post
+* `previous` : The full/relative? URL to the "previous" page. The previous page will the previous page from the pages list. Can be overridden in the yaml header.
+* `tags` : List of tag objects that are associated with this page. These should be defined in the [YAML Front Matter][yaml-front-matter].
+* `title` : page title provided by the page yaml header
+* `url` : full URL of the page from the page root
+* `categories` : The list of categories to which this post belongs. Categories are derived from the directory structure above the ==_posts== directory. For example, a post at `/work/code/_posts/2013-12-24-closures.textile` would have this field set to `['work', 'code']`. These can also be specified in the [YAML Front Matter][yaml-front-matter]
+* `content` : The un-rendered content of the Page.
+* `date` : The Date assigned to the Post. This can be overridden in a post's front matter by specifying a new date/time in the format `YYYY-MM-DD HH:MM:SS`
+* `id` : An identifier unique to the Post (useful in RSS feeds). e.g. `/2013/12/14/my-post` :
+* `next` : The chronologically newer post
+* `previous` : The chronologically older post
+* `tags` : The list of tags to which this post belongs. These can be specified in the [YAML Front Matter][yaml-front-matter]
+* `title` : The title of the Post.
+* `url` : The URL of the Post without the domain. e.g. `/2013/12/14/my-post.html`
+
+### pagination
+* `next_page` : Next pagination page.?
+* `page` : Current pagination page.?
+* `per_page` : Number of files shown per list page.
+* `posts` : Posts available for that page. 
+* `previous_page` : Previous pagination page.?
+* `total_pages` : Total number of pages. 
+* `total_posts` : Total number of posts. 
+
+
+### permalinks
+
+#### permalink variables
+
+| *Variable* | *Description* |
+| `year` | Year from the post's filename |
+| `month` | Month from the post's filename |
+| `day` | Day from the post's filename |
+| `title` | Title from the post's filename |
+| `categories` | The specified categories for this post. Assemble automatically parses out double slashes in the URLs, so if no categories are present, it basically ignores this. |
+| `i_month` | Month from the post's filename without leading zeros. |
+| `i_day` | Day from the post's filename without leading zeros. |
+
+#### URL styles
+
+| *Name*  | *Template* |
+| `date` | `/:categories/:year/:month/:day/:title.html` |
+| `pretty` | `/:categories/:year/:month/:day/:title/` |
+| `none` | `/:categories/:title.html` |
+
+
+#### examples
+
+Given a post named: `/2009-04-29-slap-chop.textile`
+
+| *Setting* | *Result* |
+| None specified. | `/2009/04/29/slap-chop.html` |
+| `permalink: pretty` | `/2009/04/29/slap-chop/index.html` |
+| `permalink: /:month-:day-:year/:title.html` | `/04-29-2009/slap-chop.html` |
+| `permalink: /blog/:year/:month/:day/:title` | `/blog/2009/04/29/slap-chop/index.html` |
+
+
+
+
+
+### Custom variable examples
+
+* `site` : Project-wide information and configuration settings from `[some-file].{yml,json}`
+* `[CONFIGURATION_DATA]` : As of _0.5.2_, all data inside of your `_config.yml` is now available through the `site` variable. So for example, if you have `url: http://mycom` in your configuration file, then in your posts and pages it can be used like so: <code>\{{ url }}</code>. Assemble does not parse a changed `_config.yml` in `auto` mode, you have to restart Assemble.
+
+
+
+Assemble supports a flexible way to build your site's URLs. You can specify the permalinks for your site through the [Configuration][] or on the [YAML Front Matter][yaml-front-matter] for each post. You're free to choose one of the built-in styles to create your links or craft your own. The default style is always `date`.
+
+
+
+#### Custom Variables
+
+Add whatever variables you want to either the YAML front matter, or the `*.json` and it will be added to the data that is sent to the selected templating engine during the build. A common use case is page titles:
+
+**Page Titles**
+
+``` html
+<title>\{{ page.title }}</title>
+```
+
+You might have a more practical use case than this, but if you wish you could also use underscore variables:
+
+``` html
+---
+page:
+  title: Sea Urchins Strike Again
+post:
+  title: <%= page.title %>
+---
+
+<title>\{{ page.title }}</title>
+```
+
+**Calculating Time**
+
+Using the helper `timeago`, you would calculate the number of days since a post was published, like this:
+
+(for this example, let's pretend today's date is `'2014-01-01 12:00:00'`)
+
+``` html
+---
+date: '2013-01-01 12:00:00'
+---
+
+<time>
+  \{{timeago post.date}}
+</time>
+```
+
+would render to:
+
+
+``` yaml
+<time>
+  1 year ago
+</time>
+```
+
+
+
+
+Assemble allows you to concoct your sites in any way you can dream up. The following is a list of the currently supported configuration options. These can all be specified by creating a `_config.yml` file in your site's root directory. There are also flags for the `Assemble` executable which are described below next to their respective configuration options. The order of precedence for conflicting settings is this:
+
+# Command-line flags
+# Configuration file settings
+# Defaults
+
+h2. Configuration Settings
+
+| *Setting* | *Config* | *Flag* | *Description* |
+
+| Base URL | `baseurl: [BASE_URL]` | `--base-url [url]` | Serve website from a given base URL |
+| URL | `url: [URL]` | `--url [url]` | Sets site.url, useful for environment switching |
+
+| Markdown | `markdown: [engine]` | `--showdown` or `--marked` | Uses [engine] instead of Marked. |
+| Highlight | `pygments: [boolean]` | `--pygments` | Enables highlight tag with Pygments. |
+
+| Future | `future: [boolean]` | `--no-future --future` | Publishes posts with a future date |
+| LSI | `lsi: [boolean]` | `--lsi` | Produces an index for related posts. |
+| Limit Posts | `limit_posts: [max_posts]` | `--limit_posts=[max_posts]` | Limits the number of posts to parse and publish |
+| Permalink | `permalink: [style]` | `--permalink=[style]` | Controls the URLs that posts are generated with. Please refer to the [Permalinks][] page for more info. |
+
+| Pagination| `paginate: [per_page]` | `--paginate [per_page]` | Splits your posts up over multiple subdirectories called _"page2", "page3", ... "pageN"_ |
+
+
+
+
+dest: The out directory path to put the file
+`dest: null`
+
+The parsed file meta data (header)
+meta: Is a Backbone.Model instance
+`meta: null`
+
+basename: The file's name without the extension
+`basename: null`
+
+The file's last extension
+srcExt: "hello.md.eco" -> "eco"
+`srcExt: null`
+
+destExt: The extension used for our output file
+`destExt: null`
+
+The file's extensions as an array
+extArray: "hello.md.eco" -> ["md","eco"]
+`extArray: null  # Array`
+
+filename: The file's name with the extension
+`filename: null`
+
+The full path of our source file, only necessary if called by @load
+srcPath:  @TODO: rename to `path` in next major breaking version`
+`srcPath: null`
+
+The full directory path of our source file
+srcDir:  @TODO: rename to `dirPath` in next major breaking version`
+`srcDir: null`
+
+destPath: The output path of our file
+`destPath: null`
+
+destDir: The output path of our file's directory
+`destDir: null`
+
+outputBasename: The file's name with the rendered extension
+`outputBasename: null`
+
+relativeSrcPath: The relative path of our source file (with extensions)
+`relativeSrcPath: null`
+
+relativeDest: The relative output path of our file
+`relativeDest: null`
+
+relativeSourceDir: The relative directory path of our source file
+`relativeSourceDir: null`
+
+relativeDestDir: The relative output path of our file's directory
+`relativeDestDir: null`
+
+relativeBase: The relative base of our source file (no extension)
+`relativeBase: null`
+
+srcMIME: The MIME content-type for the source file
+`srcMIME: null`
+
+outputMIME: The MIME content-type for the out file
+`outputMIME: null`
+
+ctime: The date object for when this document was created
+`ctime: null`
+
+mtime: The date object for when this document was last modified
+`mtime: null`
+
+exists: Does the file actually exist on the file system
+`exists: null`
+
+
+### Content variables
+
+encoding: The encoding of the file
+`encoding: null`
+
+source: The raw contents of the file, stored as a String
+`source: null`
+
+content: The contents of the file, stored as a String
+`content: null`
+
+### User-defined variables
+
+The title for this document
+title: Useful for page headings
+`title: null`
+
+The name for this document, defaults to the filename
+name: Useful for navigation listings
+`name: null`
+
+date: The date object for this document, defaults to mtime
+`date: null`
+
+slug: The generated slug (url safe seo title) for this document
+`slug: null`
+
+url: The url for this document
+`url: null`
+
+urls: Alternative urls for this document
+`urls: null  # Array`
+
+ignored: Whether or not we ignore this document (do not render it)
+`ignored: false`
+
+standalone: Whether or not we should treat this file as standalone (that nothing depends on it)
+`standalone: false`

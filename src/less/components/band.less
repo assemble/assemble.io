@@ -1,0 +1,87 @@
+// 
+// Banded sections
+// ------------------------------------------------
+
+
+.band {
+  padding: 40px 0 30px;
+  background-color: #fff;
+  text-shadow: none;
+  .col {
+    padding: 0 70px;
+  }
+  p, .label {
+    font-family: Arial, @font-family-base;
+    line-height: 24px;
+    font-size: 14px;
+  }
+  h2, h3 {
+    font-family: "Open Sans", @font-family-base;
+    padding: 15px 0 5px 0;
+    margin: 0;
+    font-weight: 300;
+  }
+  h3 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .label {
+    display: inline-block;
+    padding: 0 12px;
+    font-size: 11px;
+    font-weight: 300;
+    text-shadow: none;
+    text-transform: uppercase;
+  }
+}
+
+.band {
+  p, .label {
+    color: #fff;
+  }
+  h2, h3 {
+    color: #fff;
+  }
+  .label {
+    &:hover {
+      color: #fff;
+      background: rgba(0,0,0,.35);
+    }
+  }
+}
+.band-primary {
+  @band-primary:  #008fd5;
+  background-color: @band-primary; // @brand-primary; 
+  p, .label {
+    color: #a2e0ff;
+  }
+  .label {
+    background: darken(@band-primary, 10%);
+  }
+}
+.band-info {
+  @band-info: #30beda;
+  background-color: @band-info;
+  .label {
+    background: darken(@band-info, 10%);
+  }
+}
+.band-social {
+  @band-social: #5a62d2;
+  background-color: @band-social;  
+  .label {
+    background: darken(@band-social, 10%);
+  }
+}
+.band-slate {
+  background-color: #4b5c66;
+  .label {
+    background: darken(#4b5c66, 10%);
+  }
+}
+.band-gray {
+  background-color: #89949b;
+  .label {
+    background: darken(#89949b, 10%);
+  }
+}

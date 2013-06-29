@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{#if title}} {{title}} {{else}} {{titleize page.basename}} {{/if}} | Assemble</title>
+    <link rel="stylesheet" href="{{assets}}/css/assemble.css">
+  </head>
+  <body style="background: white">
+
+    <!-- navigation
+    ================================================== -->
+    {{> navbar }}
+
+
+    <!-- Subhead
+    ================================================== -->
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1><span class="text-muted">Docs /</span> {{#if section}}{{ section }} {{else}}{{basename}}{{/if}}</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="container">
+      <div class="row">
+
+        <!-- Left side navigation
+        ================================================== -->
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "toc"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Getting Started
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "getting started"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Development
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "development"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Configuration
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "configuration"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Data
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "data"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Templates
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "templates"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Content
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "content"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+          </div>
+        </div>
+
+        <!-- Main content
+        ================================================== -->
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>{{page.title}}</h1>
+            {{#markdown}}
+              {{> body }}
+              {{> generated-links.md }}
+            {{/markdown}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JavaScripts
+    ================================================== -->
+    <script src="{{assets}}/js/jquery.js"></script>
+    <script src="{{assets}}/js/bootstrap.js"></script>
+    <script src="{{assets}}/js/highlight.js"></script>
+    <script src="{{assets}}/js/holder/holder.js"></script>
+    <script src="{{assets}}/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+
+    {{> google-analytics }}
+
+  </body>
+</html>

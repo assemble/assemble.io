@@ -1,0 +1,58 @@
+# Grab some data from package.json for docs, then fill in the blanks
+
+# Repo name
+name: <%= package.name %>
+
+# Repo "proper" name
+proper_name: Assemble Wiki
+# <%= typeof(docs.proper)!== 'undefined' ?  docs.proper : '' %>
+proper: <% if (docs.proper_name) { %><%= docs.proper_name %><% } else { %><%= package.name %><% } %>
+
+# Org or user that the repo belongs to
+org_name:
+org: <% if (docs.org_name) { %><%= docs.org_name %><% } if (package.author.name) { %><%= package.author.name %><% } else { %><%= package.author %><% } %>
+username: <% if (package.author) { %><%= package.author %><% } else { %><%= package.author.name %><% } %>
+
+# Repo info, mostly from package.json
+description: <%= package.description %>
+version: <%= package.version %>
+author:
+  name: <%= package.author.name %>
+  url: <%= package.author.url %>
+
+# Repo files
+license: <%= package.license %>
+changelog: true
+roadmap: true
+
+
+devDependencies:
+  grunt: <%= package.devDependencies.grunt %>
+
+# Example or Gruntplugin
+type: 
+  is_example: false
+  is_plugin: false
+
+# Sections
+section:
+  summary: false
+  about: false
+  quickstart: false
+  author: false
+  credit: false
+  contributing: false
+
+build_requires: false
+file_types: false
+
+# Is there a separate CONTRIBUTING.md file?
+separate_contributing_file: false
+
+# If true, adds a section for Bower.
+bower: false
+
+# Tavis CI. If true, adds badge and link for Travis CI
+travis: false
+branch: false
+

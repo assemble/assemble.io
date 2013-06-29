@@ -1,0 +1,74 @@
+//
+// Nav
+// --------------------------------------------------
+
+
+// Sidebar to wrap navigation
+.sidebar {
+  // width: 209px;
+  padding: 72px 0 1999px;
+  margin-bottom: -1999px;
+  font-family: 'proxima-nova', 'open sans', helvetica, arial, sans-serif;
+  text-align: right;
+  border-right: 1px solid #e5e5e5;
+}
+
+
+// Section titles
+.nav-section-title {
+  display: block;
+  padding: .5em 2em .5em 0;
+  font-weight: 600;
+  line-height: 2em;
+  letter-spacing: 1px;
+  color: @gray-darker;
+  text-align: right;
+  text-transform: uppercase;
+}
+.nav + .nav-section-title {
+  margin-top: 40px;
+}
+
+// Navigation
+// -----------------
+
+// Links
+.nav-pills.nav-stacked > li > a {
+  display: block;
+  padding: 0.5em 2em 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  color: @gray-light;
+  text-align: right;
+  text-decoration: none;
+  border-radius: 0;
+}
+
+// State modifiers
+.nav-pills.nav-stacked  > li.active > a,
+.nav-pills.nav-stacked  > li.active > a:hover,
+.nav-pills.nav-stacked  > li.active > a:focus {
+  color: @gray-darker;
+  background-color: @gray-lightest;
+}
+
+
+// Right sidebar
+// ------------------------------
+
+.sidebar.sidebar-right {
+  border: none;
+  border-left: 1px solid #e5e5e5;
+
+  // Section titles
+  .nav-section-title {
+    text-align: left;
+  }
+
+  // Links
+  .nav-pills.nav-stacked > li > a {
+    text-align: left;
+  }
+}

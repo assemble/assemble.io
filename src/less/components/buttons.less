@@ -1,0 +1,324 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Button psuedo states
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+.btn-pseudo-states(@color, @background, @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 10%);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border
+    }
+  }
+}
+.btn-inverse-pseudo-states(@color: #222, @background, @border) {
+  .btn-pseudo-states(@color, @background, @border);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 10%);
+  }
+}
+
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core styles
+.btn {
+  display: inline-block;
+  padding: @padding-large-vertical (@padding-large-horizontal * 1.6);
+  margin-bottom: 0; // For input.btn
+  font-size: @font-size-base;
+  font-weight: 500;
+  line-height: @font-size-base;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent; // ensure that buttons do not have a border
+  border-radius: 100px;
+  white-space: nowrap;
+  .transition-duration(0.1s);
+  .transition-property(~"color, background-color");
+  .transition-timing-function(cubic-bezier(0.694, 0.0482, 0.335, 1));
+  .user-select(none);
+
+  &:focus {
+    .tab-focus();
+  }
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: default;
+    pointer-events: none; // Future-proof disabling of clicks
+    .opacity(.65);
+    .box-shadow(none);
+  }
+}
+
+
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-default {
+  .btn-pseudo-states(@btn-default-color, @btn-default-bg, @btn-default-border);
+}
+.btn-primary {
+  .btn-pseudo-states(@btn-primary-color, @btn-primary-bg, @btn-primary-border);
+}
+// Warning appears as orange
+.btn-warning {
+  .btn-pseudo-states(@btn-warning-color, @btn-warning-bg, @btn-warning-border);
+}
+// Danger and error appear as red
+.btn-danger {
+  .btn-pseudo-states(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+}
+// Success appears as green
+.btn-success {
+  .btn-pseudo-states(@btn-success-color, @btn-success-bg, @btn-success-border);
+}
+// Info appears as blue-green
+.btn-info {
+  .btn-pseudo-states(@btn-info-color, @btn-info-bg, @btn-info-border);
+}
+
+
+// Jade appears as green-blue
+.btn-jade {
+  .btn-pseudo-states(@btn-jade-color, @btn-jade-bg, @btn-jade-border);
+}
+// Inverse appears as white
+.btn-inverse {
+  .btn-inverse-pseudo-states(@btn-inverse-color, @btn-inverse-bg, @btn-inverse-border);
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.btn-link,
+.btn-link:active,
+.btn-link[disabled],
+fieldset[disabled] .btn-link {
+  background-color: transparent;
+  background-image: none;
+  .box-shadow(none);
+}
+.btn-link,
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active {
+  border-color: transparent;
+}
+.btn-link {
+  color: @link-color;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 0;
+}
+.btn-link:hover,
+.btn-link:focus {
+  color: @link-hover-color;
+  text-decoration: underline;
+  background-color: transparent;
+}
+.btn-link {
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: @gray-dark;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-jumbo {
+  padding: (@padding-large-vertical * 1.9) (@padding-large-horizontal * 3);
+  font-size: @font-size-large;
+}
+
+.btn-large {
+  padding: (@padding-large-vertical * 1.5) (@padding-large-horizontal * 2.5);
+  font-size: @font-size-large;
+}
+
+.btn-small {
+  padding: @padding-small-vertical @padding-large-horizontal;
+  font-size: @font-size-small;
+  line-height: 1.5; // ensure proper height of button next to small input
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+// Large button
+.button-large {
+  width: 100%;
+  font-family: "Open Sans", @font-family-sans-serif;
+  padding: 0 30px;
+  font-size: 17px;
+  line-height: 64px;
+  letter-spacing: 1px;
+  border-radius: 40px;  
+}
+
+// Small button
+.button-small {
+  padding: 9px 24px 9px 25px;
+  font-size: 12px;
+}
+
+// Mini button
+.button-mini {
+  padding: 6px 19px 6px 20px;
+  font-size: 10px;
+}
+
+
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Centered button
+.button-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+
+
+
+// Alternate styles
+// --------------------------------------------------
+
+
+.button-jade {
+  color: @btn-jade-color;
+  background: @btn-jade-bg;
+  .transition(all 0.1s ease-out);
+  &:hover {
+    color: @btn-jade-color;
+    background: @btn-jade-bg-hover;
+  }
+}
+
+// Cool gray
+.button-coolgray {
+  color: #fff;
+  background-color: #3f4546;
+}
+
+.button-white {
+  color: #222;
+  background: #fff;
+  &:hover {
+    color: #222;
+    background: #e5e5e5;
+  }
+}
+
+.button-dark {
+  color: #fff;
+  background-color: #222;
+  &:hover {
+    background-color: #444;
+  }
+}
+
+
+
+
+// Buttons
+// --------------------------------
+
+.btn-facebook {
+  display: block;
+  width: 180px;
+  padding-left: 24px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 56px;
+  text-decoration: none;
+  background-color: #3a5898;
+  background-position: 12px center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  &:hover {
+    background-color: #2f4a84;
+  }
+}
+
+
+

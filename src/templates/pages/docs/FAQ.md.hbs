@@ -1,0 +1,264 @@
+---
+published: false
+section: getting started
+---
+
+## Introduction to Assemble
+
+> Beginner's guide to using Assemble for building web projects, sites or components.
+
+
+
+Dead simple site and component generator, built from the ground up as a [Grunt.js](http://gruntjs.com/) plugin.  
+
+
+> Assemble makes it dead simple to build modular sites and components from **templates** and **data**. 
+
+> Assemble is an "opinion aware" site generator that makes it dead simple to build sites and components 
+
+With Assemble, you can use any directory structure and any naming conventions you want. 
+
+
+Just add templates and data and Assemble will produce a fully-grown  
+
+Assemble is an easy-bake oven for web projects.
+
+Just water it with templates and data and Assemble will produce a fully-grown   
+
+## What differentiates Assemble from other site builders?
+Assemble was designed from the ground up as a plugin to [Grunt.js](http://gruntjs.com/), the fantastic JavaScript "task runner". So Assemble follows the same conventions as hundreds of other Grunt plugins, providing you with the flexibility to configure your build process however you want, _with or without Assemble_. 
+
+Assemble also offers strong conventions for working with templates and data. For example, your project might include a few of the following concepts in some form:
+
+Raw templates and data
+
+Processes templates and data
+YAML, YAML Front-Matter, JSON
+Markdown, external (dedicated files) or inline (embedded in HTML).
+raw templates, Handlebars, HTML, plain text, markdown
+
+generated content
+can be any extension
+
+
+
+(representing the raw form of a website)
+
+runs it through Textile or Markdown and Liquid converters, and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind "GitHub Pages":http://pages.github.com, which you can use to host your project's page or blog right here from GitHub.
+
+See examples for plain HTML and CSS, scaffolds, client-side templates, mock-data, CSS pre-processors, markdown, YAML, JSON, sensible configuration defaults and a Grunt.js build system to make it work. 
+
+Assemble is great for gh-pages, documentation, static sites, mocking etc.
+
+Get the rocks out of your socks. Assemble helps you quickly launch static web projects by emphasizing a strong separation of concerns between structure, style, content and configuration.
+
+
+
+
+
+## Separation of Concerns
+
+Assemble brings order to web projects by showing you how to separate structure, styling, content, data and behavior.
+
+### Everything is a Component
+
+Strictly keep structure (markup), presentation (styling), and behavior (scripting) apart, and try to keep the interaction between the three to an absolute minimum.
+
+That is, make sure documents and templates contain only HTML and HTML that is solely serving structural purposes. Move everything presentational into style sheets, and everything behavioral into scripts.
+
+In addition, keep the contact area as small as possible by linking as few style sheets and scripts as possible from documents and templates.
+
+Separating structure from presentation from behavior is important for maintenance reasons. It is always more expensive to change HTML documents and templates than it is to update style sheets and scripts.
+
+
+
+HTML, CSS and JavaScript. The language of the web"
+
+Most web projects involve
+
+ a lot of JavaScript, one of the first things you learn is to stop tying your data to the DOM. It's all too easy to create JavaScript applications that end up as tangled piles of jQuery selectors and callbacks, all trying frantically to keep data in sync between the HTML UI, your JavaScript logic, and the database on your server. For rich client-side applications, a more structured approach is often helpful.
+
+With Backbone, you represent your data as Models, which can be created, validated, destroyed, and saved to the server. Whenever a UI action causes an attribute of a model to change, the model triggers a "change" event; all the Views that display the model's state can be notified of the change, so that they are able to respond accordingly, re-rendering themselves with the new information. In a finished Backbone app, you don't have to write the glue code that looks into the DOM to find an element with a specific id, and update the HTML manually — when the model changes, the views simply update themselves.
+
+If you're new here, and aren't yet quite sure what Backbone is for, start by browsing the list of Backbone-based projects.
+
+Many of the examples that follow are runnable. Click the play button to execute them.
+
+
+
+
+
+## Overview
+
+In a nutshell, assemble was designed to simplify
+
+
+
+
+## Conventions
+
+Assemble allows you to use your own conventions for just about everything, including folder structure and file names. Bearing this in mind, it's easiest to explain how to get the most out of assemble if we establish a common dialog using the following conventions:
+
+* The "assets" folder contains CSS, JavaScripts, images, fonts, icons and so on. We'll talk about this more later, but in general assets can be found in the `dest/assets` folder.
+* Projects have one or more locations for `src` and `dest` files.
+* "Templates" refers to structural code, which includes HTML, Mustache, Handlebars or any other templating library.
+
+
+
+
+assume the following structure
+
+use a generic example, following these assumptions:
+
+
+Everyone likes to organize their projects differently. Sure, there is a ton of value in standardizing folder structures, documentation methodologies, an so on. But there is also a ton of value in creativity and change. The bottom line is that you should be able to decide how to organize your own project.
+
+So bearing in mind that assemble honors this and allows you to use your own conventions,
+
+
+
+# Assemble
+
+Assemble a [Node.js]() application and [Grunt.js]() plugin used to generate web components, pages, themes, sites, or documentation. By default, the output of Assemble is formatted as HTML pages, but templates can be used to build files with just about any extension. `sitemap.xml` is a common example, and this README was generated from templates.
+
+
+Assemble provides:
+* Speed: Assemble builds pages quickly.
+* Live previews. Assemble includes a standalone doc server, making it trivial to preview your docs as you write.
+* Modern markup. Assemble's generated documentation is an attractive, functional web application with real URLs and graceful fallbacks for spiders and other agents that can't run JavaScript.
+* Flexible template engine support. Assemble was originally designed to use Handlebars by default, but it is not tied to any particular engine or preprocessor. You can use it with any engine that supports.................. [TODO].
+
+
+
+## Configurable Conventions
+
+As a philosophy, Assemble does not force opinion on you, freeing you to use your own conventions for most things, including:
+* How and where configuration data is stored
+* Terminology for variables ("global" variables, page variables or component variables, and so on)
+* Folder structure and file naming conventions.
+* Template engine: by default, Assemble
+* Content format: Assemble reads in data as text and parses it using your template engine of choice. So however you want to write your content is up to you. However, out of the box you can easily store content in any of the following formats and Assemble will build it: `.md|.markdown`, YAML front matter, `.yaml`, `.json`, `.txt`, `.html`, `.mustache|.hbs|.handlebars` (any arbitrary handlebars/mustache extension).
+
+
+
+
+
+
+
+
+it can be used easily and productively on non-YUI code
+
+
+## Summary
+
+To get the most out of Assemble it's important to first understand the role that Assemble plays within the context of a broader web development process. Depending on the team or environment you work in, you might use some or all of the following elements:
+
+* Design process
+* A development process
+
+
+
+
+
+To establish context, 
+
+
+In a nutshell, here are the major 
+ and where Assemble fits into that picture. 
+
+
+
+Assemble is really just the  here are the basic building blocks that Assemble works with to :
+
+* Templates basically are blocks of code (HTML, text, markdown, etc.) which, like pieces of a puzzle, will eventually be put together by Assemble. 
+* Variables are used inside templates as placeholders that will eventually be replaced with real data
+
+## Templates and Variables
+
+Let's start by creating a template, which can be any kind of markdown, text, xml or markup (such as HTML) we want it to be. For this example our template is going to be HTML, and since we're feeling creative, let's call it `my-template.tmpl`, and focusing only on the `head` of our HTML document let's add template variables for `title` and `author` so that we can later replace them with real data:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>\{{title}}</title>
+    <meta name="author" content="\{{author}}">
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+Handlebars.js is the default template engine in Assemble, so our variables are wrapped in "Handlebars expressions": `\{{` and `}}`. Given that our template is in Handlebars format, let's also change the file extension to `.hbs`, so our template is now named: `my-template.hbs`.
+
+
+## Data
+
+Now that it's time to add data, things get more interesting. Assembles allows you to work with several data formats inside your templates: 
+
+* [JSON]() files, such as `my-data.json`
+* [YAML]() files, such as `my-data.yml`
+* [YAML Front-Matter](), embedded directly inside the template itself
+
+The best part is that you can mix and match these formats however you want.
+
+### JSON
+
+When working with "external" data files, if we:
+
+a. name our file the same as our template, and
+b. add the path to the data file to the `options.data` object in the `assemble` task
+
+then Assemble will pick it up and use it automatically.  
+
+Here is an example of what we might put inside of `my-template.json` to populate our template with data.
+
+```json
+{
+  "title": "Assemble",
+  "author": "Brian Woodward"
+}
+```
+
+Here is the same in YAML format: `my-template.yml`
+``` yaml
+title: Assemble
+author: Brian Woodward
+```
+
+And this template: 
+
+`my-template.hbs`
+```
+<h1>\{{ title }}</h1>
+```
+
+Or, in cases where we only require simple metadata we can use YAML Front-matter to eliminate the need for an external data file:
+
+``` yaml
+---
+title: Assemble
+author: Brian Woodward
+---
+
+<h1>\{{ title }}</h1>
+```
+
+Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:
+
+``` yaml
+---
+title: <%= some.title.variable %>
+author: Brian Woodward
+---
+
+<h1>\{{ title }}</h1>
+<p>\{{ author }}</p>
+```
+
+Outputs:
+
+```html
+<h1>Assemble</h1>
+<p>Brian Woodward</p>
+```

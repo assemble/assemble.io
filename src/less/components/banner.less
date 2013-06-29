@@ -1,0 +1,30 @@
+//
+// Banner
+// ---------------------------------------------------
+
+// Fixed at the bottom of index page
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding-left: 20px;
+  background: #FFF;
+  text-align: left;
+  p {
+    font-size: (@font-size-large + 2px);
+    line-height: 100px;
+    color: @gray;
+    font-weight: 700;
+    white-space: nowrap;
+    &:before {
+      margin-right: 5px;
+      content: "Documentation: ";
+    }
+    a:hover {
+      text-decoration: none;
+      .transition(opacity .2s linear);
+    }
+  }
+}

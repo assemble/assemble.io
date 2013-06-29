@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{#if title}} {{title}} {{else}} {{titleize page.basename}} {{/if}} | Assemble</title>
+    <link rel="stylesheet" href="{{assets}}/css/assemble.css">
+    <link rel="stylesheet" href="{{assets}}/css/github.css">
+    
+    {{> less-js }}
+  </head>
+  <body style="background: white">
+
+    <!-- nav partial -->
+    {{> navbar }}
+
+
+    <!-- pull in page content -->
+    {{> body }}
+
+    <script src="{{assets}}/js/jquery.js"></script>
+    <script src="{{assets}}/js/highlight.js"></script>
+    <script src="{{assets}}/js/holder/holder.js"></script>
+    <script src="{{assets}}/js/bootstrap.min.js"></script>
+    <script src="{{assets}}/js/application.js"></script>
+    <script src="{{assets}}/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+
+    {{> google-analytics }}
+    
+  </body>
+</html>

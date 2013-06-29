@@ -1,0 +1,12 @@
+<section class="palette {{@key}}">
+  {{#each .}}
+    <div class="swatch {{@key}}"> <span class="swatch-tooltip">#{{.}}</span> </div>
+  {{/each}}
+</section>
+
+<style>
+{{#each .}}
+.{{@key}} {background-color: #{{.}}; }
+.{{@key}} span { color: #{{.}}; }
+{{/each}}
+</style>

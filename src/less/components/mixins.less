@@ -1,0 +1,41 @@
+
+// Mixins
+// ---------------------------------
+
+
+
+// Mixins
+// ---------------------------------
+// User select. For selecting text on the page
+.user-select(@select) {
+  -webkit-user-select: @select;
+     -moz-user-select: @select;
+      -ms-user-select: @select;
+       -o-user-select: @select;
+          user-select: @select;
+}
+
+
+.transition-property(...) {
+  -webkit-transition-property: @arguments;
+     -moz-transition-property: @arguments;
+       -o-transition-property: @arguments;
+          transition-property: @arguments;
+}
+
+
+.transition-timing-function(@transition-timing-function) {
+  -webkit-transition-timing-function: @transition-timing-function;
+     -moz-transition-timing-function: @transition-timing-function;
+       -o-transition-timing-function: @transition-timing-function;
+          transition-timing-function: @transition-timing-function;
+}
+
+// Transitions
+.transform(@arguments) {
+  -webkit-transition: -webkit-transform @arguments;
+     -moz-transition:    -moz-transform @arguments;
+       -o-transition:      -o-transform @arguments;
+          transition:         transform @arguments;
+}
+

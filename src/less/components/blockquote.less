@@ -1,0 +1,23 @@
+//
+// Blockquote
+// -------------------------------------------------------
+
+@blockquote-border: @brand-primary;
+
+// Make blockquotes a little larger
+.panel-docs blockquote {
+  padding-left: 15px;
+  margin: (@line-height-computed * 1.5) 0 (@line-height-computed * 1.5) -22px;
+  border-left: 7px solid @blockquote-border;
+  
+  p {
+    color: @gray-light;
+    font-family: @font-family-serif;
+    font-size: @font-size-large;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  strong {
+    color: @gray;
+  }
+}

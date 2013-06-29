@@ -1,0 +1,15 @@
+<section class="palette palette-colors">
+  {{# each palette.palette-colors}}
+  <div class="swatch {{.}}" style="background-color: #{{.}}"><span style="color: #{{.}};">#{{.}}</span></div>
+  {{/each}}
+</section>
+<section class="palette palette-colors-dark">
+  {{# each palette.palette-colors-dark}}
+  <div class="swatch {{.}}" style="background-color: #{{.}}"><span style="color: #{{.}};">#{{.}}</span></div>
+  {{/each}}
+</section>
+<section class="palette grayscale">
+  {{# each palette.grayscale}}
+  <div class="swatch {{.}}" style="background-color: #{{.}}"></div>
+  {{/each}}
+</section>

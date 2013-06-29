@@ -1,0 +1,24 @@
+palette-grayscale:
+  color-black        : "000"
+  color-gray-darkest : "111"
+  color-gray-darker  : "262829"
+  color-gray-dark    : "333"
+  color-gray         : "555"
+  color-gray-light   : "a2a8a8"
+  color-gray-lighter : "eee"
+  color-gray-lightest: "f5f5f5"
+  color-white        : "fff"
+
+palette-colors:
+  color-primary      : "33b5e5"
+  color-info         : "aa66cc"
+  color-success      : "99cc00"
+  color-warning      : "ffbb33"
+  color-danger       : "ff4444"
+
+palette-dark-colors:
+  color-primary-dark : "0099cc"
+  color-info-dark    : "9933cc"
+  color-success-dark : "669900"
+  color-warning-dark : "ff8800"
+  color-danger-dark  : "cc0000"
