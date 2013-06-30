@@ -3,8 +3,8 @@ title: Components
 section: Docs
 ---
 
-<!-- Subhead
-================================================== -->
+{{! Subhead
+================================================== }}
 <header class="masthead subhead">
   <div class="container">
     <div class="row">
@@ -21,11 +21,11 @@ section: Docs
       <div class="col col-lg-12">
         <h1>{{title}}</h1>
 
-        <!-- Palette component
-        ============================================== -->
+        {{! Palette component
+        ============================================== }}
         <h2>Palette component</h2>
         {{#draft}} <p>Inspired by the Android <a href="http://developer.android.com/design/style/color.html#palette">Developer styleguide</a>.</p> {{/draft}}
-        
+
         <div class="bs-example tooltip-demo">
           {{#each swatch}}
             {{> swatch . }}
@@ -38,8 +38,8 @@ section: Docs
 
 
         {{#draft}}
-        <!-- Alert component
-        ============================================== -->
+        {{! Alert component
+        ============================================== }}
         <section id="alerts">
           <h2>Alert component</h2>
           {{> alert }}
@@ -48,8 +48,8 @@ section: Docs
 
 
         {{#draft}}
-        <!-- Button component
-        ============================================== -->
+        {{! Button component
+        ============================================== }}
         <style>
           /* Terrible, I know */
           #buttons .btn {
@@ -69,8 +69,8 @@ section: Docs
     </div>
 
 {{#draft}}
-    <!-- Panel component
-    ============================================== -->
+    {{! Panel component
+    ============================================== }}
     <section id="panel-columns">
       <div class="col col-lg-12">
         <h1>Panels</h1>
@@ -82,21 +82,21 @@ section: Docs
       <div class="col col-lg-4">
         <div class="page-header">
           <h2>Templates</h2>
-          <p class="lead">{{ lead }}</p> 
+          <p class="lead">{{ lead }}</p>
           {{> module module.panel-intro}}
         </div>
       </div>
       <div class="col col-lg-4">
         <div class="page-header">
           <h2>Data</h2>
-          <p class="lead">{{ lead }}</p> 
+          <p class="lead">{{ lead }}</p>
           {{> module module.panel-intro}}
         </div>
       </div>
       <div class="col col-lg-4">
         <div class="page-header">
           <h2>Helpers</h2>
-          <p class="lead">{{ lead }}</p> 
+          <p class="lead">{{ lead }}</p>
           {{> module module.panel-intro}}
         </div>
       </div>
@@ -116,7 +116,7 @@ section: Docs
       </div>
       <div class="col col-lg-9">
 
-        {{! or you can wrap the partials in block expressions to establish context, like this: }}
+        {{! or you can wrap the partials in block expressions to establish context, like this }}
         {{#module}}
           {{> module panel-inverse}}
         {{/module}}
@@ -135,7 +135,7 @@ section: Docs
         {{> module module.alert-danger }}
         {{> module module.alert-block }}
 
-        
+
         <h3>Progress Bars</h3>
         <div class="panel">
           {{> module module.progress-info }}
@@ -238,7 +238,7 @@ section: Docs
         {{> module module.alert-danger }}
         {{> module module.alert-block }}
 
-        
+
         <h3>Progress Bars</h3>
         <div class="panel">
           {{> module module.progress-info }}
@@ -251,7 +251,7 @@ section: Docs
         <div class="row">
           <div class="col col-lg-6">
             {{! or like this }}
-            {{#modulepanel-base}}
+            {{#module.panel-base}}
               {{> module }}
             {{/module.panel-base}}
           </div>

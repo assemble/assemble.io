@@ -4,32 +4,44 @@
     <meta charset="UTF-8">
     <title>{{#if title}} {{title}} {{else}} {{titleize page.basename}} {{/if}} | Assemble</title>
     <link rel="stylesheet" href="{{assets}}/css/assemble.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{{assets}}/js/html5shiv.js"></script>
+    <script src="{{assets}}/js/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{assets}}/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{assets}}/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{assets}}/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{assets}}/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="{{assets}}/ico/favicon.png">
+    {{> google-analytics }}
   </head>
   <body style="background: white">
 
-    <!-- navigation
-    ================================================== -->
+    {{! NAVIGATION
+    =================================== }}
     {{> navbar }}
 
 
-    <!-- Subhead
-    ================================================== -->
+    {{! MASTHEAD
+    =================================== }}
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
           <div class="col col-lg-12">
-            <h1><span class="text-muted">Docs /</span> {{#if section}}{{ section }} {{else}}{{basename}}{{/if}}</h1>
+            <h1><span class="text-muted">Docs /&nbsp;</span> {{#if section}}{{ section }} {{else}}{{basename}}{{/if}}</h1>
           </div>
         </div>
       </div>
     </header>
-
-
     <div class="container">
       <div class="row">
 
-        <!-- Left side navigation
-        ================================================== -->
+        {{! VERTICAL NAV
+        =================================== }}
         <div class="col col-lg-3">
           <div class="sidebar">
             <ul class="nav nav-pills nav-stacked">
@@ -109,33 +121,36 @@
           </div>
         </div>
 
-        <!-- Main content
-        ================================================== -->
+        {{! MAIN CONTENT
+        =================================== }}
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>{{page.title}}</h1>
             {{#markdown}}
               {{> body }}
+              {{! A helper automatically creates this  }}
+              {{! partial with generated links from    }}
+              {{! pages in "src/templates/pages/docs"  }}
               {{> generated-links.md }}
             {{/markdown}}
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- JavaScripts
-    ================================================== -->
+
+    {{! SCRIPTS
+    =================================== }}
     <script src="{{assets}}/js/jquery.js"></script>
     <script src="{{assets}}/js/bootstrap.js"></script>
     <script src="{{assets}}/js/highlight.js"></script>
     <script src="{{assets}}/js/holder/holder.js"></script>
     <script src="{{assets}}/js/showup.js"></script>
     <script>
-      $().showUp('.navbar');
+      $(document).ready(function($) {
+        $().showUp('.navbar');
+      });
     </script>
-
     {{> google-analytics }}
-
   </body>
 </html>

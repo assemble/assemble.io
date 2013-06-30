@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>Components</title>
+    <link rel="stylesheet" href="docs/assets/css/assemble.css">
+    <link rel="stylesheet" href="docs/assets/css/github.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="docs/assets/js/html5shiv.js"></script>
+      <script src="docs/assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="docs/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="docs/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="docs/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="docs/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="docs/assets/ico/favicon.png">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  
+  <body>
+    <div class="navbar">
+      <div class="container"> <a class="navbar-brand" href="index.html">ASSEMBLE</a>
+
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="docs/Home.html">Docs</a>
+
+            </li>
+            <!--<li>
+          <a href="examples.html">Examples</a>
+        </li>-->
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <!--<li>
+          <a href="tutorials.html">Tutorials</a>
+        </li>
+        <li>
+          <a href="blog.html">Blog</a>
+        </li>-->
+            <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-6">
+            <h1>COMPONENTS</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="panel panel-full-width panel-docs">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1>Components</h1>
+            <h2>Palette component</h2>
+            <div class="bs-example tooltip-demo">
+              <section class="palette palette-grayscale">
+                <div class="swatch color-black">
+                  <span class="swatch-tooltip">#000</span>
+                </div>
+                <div class="swatch color-gray-darkest">
+                  <span class="swatch-tooltip">#111</span>
+                </div>
+                <div class="swatch color-gray-darker">
+                  <span class="swatch-tooltip">#262829</span>
+                </div>
+                <div class="swatch color-gray-dark">
+                  <span class="swatch-tooltip">#333</span>
+                </div>
+                <div class="swatch color-gray">
+                  <span class="swatch-tooltip">#555</span>
+                </div>
+                <div class="swatch color-gray-light">
+                  <span class="swatch-tooltip">#a2a8a8</span>
+                </div>
+                <div class="swatch color-gray-lighter">
+                  <span class="swatch-tooltip">#eee</span>
+                </div>
+                <div class="swatch color-gray-lightest">
+                  <span class="swatch-tooltip">#f5f5f5</span>
+                </div>
+                <div class="swatch color-white">
+                  <span class="swatch-tooltip">#fff</span>
+                </div>
+              </section>
+              <style>
+                .color-black {
+                  background-color: #000;
+                }
+                .color-black span {
+                  color: #000;
+                }
+                .color-gray-darkest {
+                  background-color: #111;
+                }
+                .color-gray-darkest span {
+                  color: #111;
+                }
+                .color-gray-darker {
+                  background-color: #262829;
+                }
+                .color-gray-darker span {
+                  color: #262829;
+                }
+                .color-gray-dark {
+                  background-color: #333;
+                }
+                .color-gray-dark span {
+                  color: #333;
+                }
+                .color-gray {
+                  background-color: #555;
+                }
+                .color-gray span {
+                  color: #555;
+                }
+                .color-gray-light {
+                  background-color: #a2a8a8;
+                }
+                .color-gray-light span {
+                  color: #a2a8a8;
+                }
+                .color-gray-lighter {
+                  background-color: #eee;
+                }
+                .color-gray-lighter span {
+                  color: #eee;
+                }
+                .color-gray-lightest {
+                  background-color: #f5f5f5;
+                }
+                .color-gray-lightest span {
+                  color: #f5f5f5;
+                }
+                .color-white {
+                  background-color: #fff;
+                }
+                .color-white span {
+                  color: #fff;
+                }
+              </style>
+              <section class="palette palette-colors">
+                <div class="swatch color-primary">
+                  <span class="swatch-tooltip">#33b5e5</span>
+                </div>
+                <div class="swatch color-info">
+                  <span class="swatch-tooltip">#aa66cc</span>
+                </div>
+                <div class="swatch color-success">
+                  <span class="swatch-tooltip">#99cc00</span>
+                </div>
+                <div class="swatch color-warning">
+                  <span class="swatch-tooltip">#ffbb33</span>
+                </div>
+                <div class="swatch color-danger">
+                  <span class="swatch-tooltip">#ff4444</span>
+                </div>
+              </section>
+              <style>
+                .color-primary {
+                  background-color: #33b5e5;
+                }
+                .color-primary span {
+                  color: #33b5e5;
+                }
+                .color-info {
+                  background-color: #aa66cc;
+                }
+                .color-info span {
+                  color: #aa66cc;
+                }
+                .color-success {
+                  background-color: #99cc00;
+                }
+                .color-success span {
+                  color: #99cc00;
+                }
+                .color-warning {
+                  background-color: #ffbb33;
+                }
+                .color-warning span {
+                  color: #ffbb33;
+                }
+                .color-danger {
+                  background-color: #ff4444;
+                }
+                .color-danger span {
+                  color: #ff4444;
+                }
+              </style>
+              <section class="palette palette-dark-colors">
+                <div class="swatch color-primary-dark">
+                  <span class="swatch-tooltip">#0099cc</span>
+                </div>
+                <div class="swatch color-info-dark">
+                  <span class="swatch-tooltip">#9933cc</span>
+                </div>
+                <div class="swatch color-success-dark">
+                  <span class="swatch-tooltip">#669900</span>
+                </div>
+                <div class="swatch color-warning-dark">
+                  <span class="swatch-tooltip">#ff8800</span>
+                </div>
+                <div class="swatch color-danger-dark">
+                  <span class="swatch-tooltip">#cc0000</span>
+                </div>
+              </section>
+              <style>
+                .color-primary-dark {
+                  background-color: #0099cc;
+                }
+                .color-primary-dark span {
+                  color: #0099cc;
+                }
+                .color-info-dark {
+                  background-color: #9933cc;
+                }
+                .color-info-dark span {
+                  color: #9933cc;
+                }
+                .color-success-dark {
+                  background-color: #669900;
+                }
+                .color-success-dark span {
+                  color: #669900;
+                }
+                .color-warning-dark {
+                  background-color: #ff8800;
+                }
+                .color-warning-dark span {
+                  color: #ff8800;
+                }
+                .color-danger-dark {
+                  background-color: #cc0000;
+                }
+                .color-danger-dark span {
+                  color: #cc0000;
+                }
+              </style>
+            </div>
+            <h2>Stay tuned!</h2>
+            <p>Much more to come.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="docs/assets/js/jquery.js"></script>
+    <script src="docs/assets/js/highlight.js"></script>
+    <script src="docs/assets/js/holder/holder.js"></script>
+    <script src="docs/assets/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+
+</html>

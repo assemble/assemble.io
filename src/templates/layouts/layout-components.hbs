@@ -10,31 +10,38 @@
   </head>
   <body style="background: white">
 
-    <!-- nav partial -->
+    {{! NAVIGATION
+    =================================== }}
     {{> navbar }}
 
-    <!-- Docs page layout -->
+
+    {{! HEADER
+    =================================== }}
     <div class="page-header">
       <div class="container">
         <h1> {{titleize page.basename}} Component</h1>
       </div>
     </div>
-
     <div class="container">
       <div class="row">
+
+        {{! VERTICAL NAVIGATION
+        =================================== }}
         <div class="col col-lg-3">
           <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
             <li class="active"><a href="../../index.html">ASSEMBLE</a></li>
             {{#each pages}}
             <li><a href="{{relative ../page.dest this.dest}}">{{titleize this.basename}} component</a></li>{{/each}}
           </ul>
-        </div>        
+        </div>  
+
+        {{! CONTENT
+        =================================== }}      
         <div class="col col-lg-9">
           {{> body }}
         </div>
       </div>
     </div>
-
     <script src="{{assets}}/js/jquery.js"></script>
     <script src="{{assets}}/js/highlight.js"></script>
     <script src="{{assets}}/js/holder/holder.js"></script>
@@ -42,8 +49,6 @@
     <script>
       $().showUp('.navbar');
     </script>
-
     {{> google-analytics }}
-  
   </body>
 </html>

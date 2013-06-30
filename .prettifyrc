@@ -1,0 +1,8 @@
+{
+  "indent_size": 2,
+  "indent_char": " ",
+  "indent_scripts": "normal",
+  "brace_style": "expand",
+  "max_char": 0,
+  "unformatted": ["pre", "code", "strong", "a"]
+}

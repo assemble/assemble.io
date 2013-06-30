@@ -5,16 +5,18 @@
     <title>{{#if title}} {{title}} {{else}} {{titleize page.basename}} {{/if}} | Assemble</title>
     <link rel="stylesheet" href="{{assets}}/css/assemble.css">
     <link rel="stylesheet" href="{{assets}}/css/github.css">
-    
+
+    {{! EXPERIMENTAL HELPER }}
     {{> less-js }}
+
   </head>
   <body style="background: white">
 
-    <!-- nav partial -->
+    {{! NAVIGATION }}
     {{> navbar }}
 
 
-    <!-- pull in page content -->
+    {{! MAIN CONTENT }}
     {{> body }}
 
     <script src="{{assets}}/js/jquery.js"></script>
@@ -26,8 +28,6 @@
     <script>
       $().showUp('.navbar');
     </script>
-
     {{> google-analytics }}
-    
   </body>
 </html>

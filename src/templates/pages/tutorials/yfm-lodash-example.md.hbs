@@ -1,9 +1,12 @@
 ---
-title: Blog
+title: Some Tutorials
+something: <%= _.readJSON("package.json") %>
+word: <%= _.uppercase(title) %>
+else: <%= _.expand(something) %>
 posts: ['README.md']
 ---
 {{! MASTHEAD
-=========================================== }}
+================================================== }}
 <header class="masthead subhead">
   <div class="container">
     <div class="row">
@@ -15,7 +18,9 @@ posts: ['README.md']
 </header>
 <div class="container">
   <div class="panel panel-docs">
-    <h1>Stay tuned...</h1>
+    {{else}}
+    <h1> {{ word }} </h1>
+
     {{#each posts}}
     <h2>{{md this}}</h2>
     {{/each}}

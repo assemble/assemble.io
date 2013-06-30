@@ -153,10 +153,11 @@ module.exports = function(grunt) {
         flatten: true,
         assets: 'docs/assets',
         today: '<%= grunt.template.today() %>',
-        data: 'src/data/*.{json,yml}',
-        helpers: 'config/*-helpers.js',
+        data: ['src/data/*.{json,yml}', 'package.json'],
+        helpers: ['src/local-helpers.js','config/*-helpers.js'],
         layoutdir: 'src/templates/layouts',
         pkg: '<%= pkg %>',
+        meta: '<%= pkg %>',
         production: true,
         partials: ['src/templates/partials/**/*.{hbs,md}']
       },
@@ -185,7 +186,7 @@ module.exports = function(grunt) {
       },
       pages: {
         options: {
-          layout: 'layout-default.hbs'
+          layout: 'layout-landing.hbs'
         },
         files: [
           { expand: true, cwd: 'src/templates/pages', src: ['*.hbs', '!index.hbs'], dest: './' },
@@ -199,15 +200,35 @@ module.exports = function(grunt) {
           layout: 'layout-docs.hbs'
         },
         files: [
-          { expand: true, flatten: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: '../assemble-docs-gh-pages/docs/', ext: '.html' }
+          { expand: true, flatten: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' }
         ]
+      }
+    },
+
+    prettify: {
+      options: {
+        prettifyrc: '.prettifyrc'
+      },
+      demo: {
+        expand: true,
+        cwd: 'docs/',
+        ext: '.html',
+        src: ['**/*.html'],
+        dest: 'docs/'
+      },
+      root: {
+        expand: true,
+        cwd: './',
+        ext: '.html',
+        src: ['*.html'],
+        dest: './'
       }
     },
 
     // Before generating any new files,
     // remove files from previous build.
     clean: {
-      all: ['docs/**/*.{html,md}', 'index.html', 'src/docs/*.{hbs,md.hbs}']
+      all: ['docs/*.html', '*.html']
     }
   });
 
@@ -217,13 +238,16 @@ module.exports = function(grunt) {
   grunt.config.set('docs.content', 'vendor/assemble-wiki');
 
   // Load npm and local plugins.
+  grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('assemble-less');
+  grunt.loadNpmTasks('assemble-manifest');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-github-api');
-  grunt.loadNpmTasks('assemble-manifest');
-  grunt.loadNpmTasks('assemble-less');
+  grunt.loadNpmTasks('grunt-prettify');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('assemble');
 
   // Default tasks to be run.
   grunt.registerTask('default', [
@@ -231,7 +255,8 @@ module.exports = function(grunt) {
     'less:main',
     'assemble:links',
     'assemble:pages',
-    'assemble:docs'
+    'assemble:docs',
+    'prettify'
   ]);
 
   // Convenience aliases.

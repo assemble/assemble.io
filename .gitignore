@@ -8,3 +8,6 @@ src/generate
 *.sublime-project
 *.sublime-workspace
 TODO.md
+
+# Ignore temp folder for docs
+dist

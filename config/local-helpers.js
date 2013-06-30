@@ -7,7 +7,7 @@ var _      = require('lodash');
 (function() {
 
   module.exports.register = function(Handlebars, options) {
-    
+
     var urlNormalize = function(filepath) {
       return filepath.replace(/\\/g, "/");
     };
@@ -27,7 +27,7 @@ var _      = require('lodash');
 
     // The "dumptruck" and "destroy" helpers are used to move files
     // into assets during development, and then delete them in
-    // production mode. Use with caution. 
+    // production mode. Use with caution.
     // Handlebars.registerHelper('dumptruck', function(a, b) {
     //   var bowerrc = grunt.file.readJSON('.bowerrc');
     //   var vendor = bowerrc.directory;

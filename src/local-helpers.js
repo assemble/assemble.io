@@ -7,7 +7,7 @@ var _      = require('lodash');
 (function() {
 
   module.exports.register = function(Handlebars, options) {
-    
+
     var urlNormalize = function(filepath) {
       return filepath.replace(/\\/g, "/");
     };
@@ -30,7 +30,7 @@ var _      = require('lodash');
 
     // The "dumptruck" and "destroy" helpers are used to move files
     // into assets during development, and then delete them in
-    // production mode. Use with caution. 
+    // production mode. Use with caution.
     Handlebars.registerHelper('dumptruck', function(a, b) {
       var bowerrc = grunt.file.readJSON('.bowerrc');
       var vendor = bowerrc.directory;
@@ -38,7 +38,7 @@ var _      = require('lodash');
       var dest = path.join(options.assets + b);
       return grunt.file.copy(main, dest);
     });
-    
+
     Handlebars.registerHelper('destroy', function(file) {
       return grunt.file.delete(options.assets + file);
     });
@@ -112,48 +112,48 @@ var _      = require('lodash');
     };
 
 
-    Handlebars.registerHelper('inline', function(str, lang) {
-      var output;
-      str = path.join(options.snippets, str);
+    // Handlebars.registerHelper('inline', function(str, lang) {
+    //   var output;
+    //   str = path.join(options.snippets, str);
 
-      var content = globFiles(str);
-      var ext = path.extname(str).replace(/^(\.)/gm, '');
-      if (isUndefined(lang)) {
-        lang = ext;
-      } else {
-        lang = lang;
-      }
-      switch (ext) {
-        case "md":
-        case "markdown":
-        case "mdown":
-          output = content.replace(/^(```)/gm, '&#x60;&#x60;&#x60;');
-          ext = "md";
-          break;
-        case "txt":
-          ext = "text";
-          output = content;
-          break;
-        case "hbs":
-        case "hbars":
-          output = content.replace(/^(---)/gm, '---');
-          ext = "html";
-          break;
-        case "less":
-          ext = "scss";
-          output = content;
-          break;
-        case void 0:
-          ext = "";
-          output = content;
-          break;
-        default:
-          ext = "";
-          output = content;
-      }
-      var result = '``` ' + lang + '\n' + output + '\n```\n';
-      return new Handlebars.SafeString(result);
-    });
+    //   var content = globFiles(str);
+    //   var ext = path.extname(str).replace(/^(\.)/gm, '');
+    //   if (isUndefined(lang)) {
+    //     lang = ext;
+    //   } else {
+    //     lang = lang;
+    //   }
+    //   switch (ext) {
+    //     case "md":
+    //     case "markdown":
+    //     case "mdown":
+    //       output = content.replace(/^(```)/gm, '&#x60;&#x60;&#x60;');
+    //       ext = "md";
+    //       break;
+    //     case "txt":
+    //       ext = "text";
+    //       output = content;
+    //       break;
+    //     case "hbs":
+    //     case "hbars":
+    //       output = content.replace(/^(---)/gm, '---');
+    //       ext = "html";
+    //       break;
+    //     case "less":
+    //       ext = "scss";
+    //       output = content;
+    //       break;
+    //     case void 0:
+    //       ext = "";
+    //       output = content;
+    //       break;
+    //     default:
+    //       ext = "";
+    //       output = content;
+    //   }
+    //   var result = '``` ' + lang + '\n' + output + '\n```\n';
+    //   return new Handlebars.SafeString(result);
+    // });
 
 
 
@@ -192,7 +192,7 @@ var _      = require('lodash');
 
     Handlebars.registerHelper('links-gh-pages', function(str) {
       var content = grunt.file.expand(str).map(function(link) {
-        var file = path.basename(link).replace(/\.hbs/g, '');
+        var file = path.basename(link).replace(/\.md\.hbs/g, '');
         return '[' + file.toLowerCase().replace(/\s/g, '-').replace(/\./g, '-') + ']: ' + file + '.html' ;
       });
       return new Handlebars.SafeString(content.join('\n'));
