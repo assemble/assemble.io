@@ -176,8 +176,6 @@ In this example, instead of adding adding the traditional head and footer we'll 
 ``` markdown
 \{{> body }}
 
----
-
 _This page was generated using Grunt and [assemble][repo] on \{{ today }}._
 
 [org]: https://github.com/assemble
@@ -185,6 +183,24 @@ _This page was generated using Grunt and [assemble][repo] on \{{ today }}._
 [issues]: https://github.com/assemble/assemble/issues
 [wiki]: https://github.com/assemble/assemble/wiki
 ```
+
+#### README Layout
+
+``` markdown
+# \{{pkg.name}} {{travis-badge}}
+
+> {{pkg.description}}
+
+\{{> body }}
+
+_This readme was generated using Grunt and [assemble][repo] on \{{ today }}._
+
+[org]: https://github.com/assemble
+[repo]: https://github.com/assemble/assemble
+[issues]: https://github.com/assemble/assemble/issues
+[wiki]: https://github.com/assemble/assemble/wiki
+```
+
 
 ## Layout FAQ
 * Layouts are optional

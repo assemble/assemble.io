@@ -142,6 +142,8 @@
               </li>
               <li class="active"><a href="Layouts.html">Layouts</a>
               </li>
+              <li><a href="Pages.html">Pages</a>
+              </li>
               <li><a href="Partials.html">Partials</a>
               </li>
             </ul>
@@ -293,9 +295,21 @@ layout: path/to/layout.hbs
             <p>In this example, instead of adding adding the traditional head and footer we&#39;ll add some link references to make sure the same ones are used on every generated page. This makes it easier to maintain links and it also cuts down on potential for broken links:</p>
 <pre><code class="lang-markdown">{{&gt; body }}
 
----
-
 _This page was generated using Grunt and [assemble][repo] on {{ today }}._
+
+[org]: https://github.com/assemble
+[repo]: https://github.com/assemble/assemble
+[issues]: https://github.com/assemble/assemble/issues
+[wiki]: https://github.com/assemble/assemble/wiki</code></pre>
+
+            <h4>README Layout</h4>
+<pre><code class="lang-markdown"># {{pkg.name}} [![Build Status](https://travis-ci.org/assemble/assemble-internal.png)](https://travis-ci.org/assemble/assemble-internal)
+
+&gt; Internal tools and tasks for managing Assemble projects.
+
+{{&gt; body }}
+
+_This readme was generated using Grunt and [assemble][repo] on {{ today }}._
 
 [org]: https://github.com/assemble
 [repo]: https://github.com/assemble/assemble

@@ -1,13 +1,13 @@
 ---
-published: false
+title: Pages
 section: templates
 ---
-
+{{#draft}}
 globbing
 
 
 The `pages` variable will generate the list of pages process in a target. Technically, `pages` behaves like a collection, but since _it cannot be referred to in the YAML front matter of a page_ it is not referred to as such.
-
+{{/draft}}
 
 ### Usage example
 
@@ -136,27 +136,6 @@ which renders to:
 </ul>
 ```
 
-#### Markdown pages
-
-``` markdown
-# \{{pkg.name}} {{travis-badge}}
-
-> {{pkg.description}}
-
-\{{> body }}
-
-
-_This readme was generated using Grunt and [assemble][repo] on \{{ today }}._
-
-[org]: https://github.com/assemble
-[repo]: https://github.com/assemble/assemble
-[issues]: https://github.com/assemble/assemble/issues
-[wiki]: https://github.com/assemble/assemble/wiki
-```
-
-
-
-
 ### Excluding pages
 
 **From the YAML Front Matter of a page**
@@ -184,7 +163,7 @@ Exclude files from being rendered by prefixing source file patterns with `!`. Vi
 ```
 
 
-
+{{#draft}}
 # Pages
 
 ## Defining a Page
@@ -388,3 +367,5 @@ Add the `pages` object "long-format" to your configuration file, and create sub-
       }
     }
   }
+
+{{/draft}}

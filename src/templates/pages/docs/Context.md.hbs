@@ -56,7 +56,7 @@ In Assemble, the root of the context is where the data object starts. Everything
 
 In `layout.hbs` we will use `\{{title}}` to lookup the `title` property on each page that is passed into the layout.  
 
-```html
+```handlebars
 <!doctype html>
 <html lang="en">
   <head>
@@ -106,7 +106,7 @@ So, given we have `myData.json` with:
 ```
 Out template, `myTemplate.hbs`, would have:
 
-```html
+```handlebars
 \{{myData.title}}
 ```
 {{#draft}}
@@ -120,7 +120,7 @@ You can use the `this` expression in any context to refer to the current context
 
 For example (from http://handlebarsjs.com/), inside the `\{{#each}}` block, you can use `this` to reference the element being iterated over.
 
-```html
+```handlebars
 <ul class="people-list">
   \{{#each people}}
   <li>\{{this}}</li>
