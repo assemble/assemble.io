@@ -22,7 +22,7 @@ These options are defined in the `assemble` task in your project's Gruntfile. An
 | Option   | Description |
 | -------- | ----------- |
 | [assets][options-assets] | directory that contains commonly used "assets" for a project, such as images, fonts, javascripts and stylesheets. Assemble will generate a relative path  from dest files to the given `assets` directory. |
-| [collections][options-collections] | |
+| [collections][options-collections] | Built-in collections for `tags`, `categories` and `pages` are available at the root of the context. |
 | [data][options-data] | path to data files to supply the data that will be passed into templates. |
 | [engine][options-engine] | engine to be used for processing templates. Handlebars is the default. |
 | [ext][options-ext] | extension to be used for `dest` files. |
@@ -59,6 +59,29 @@ Layouts are optional and may be defined at the task and/or [target][tasks-and-ta
 
 ``` js
 options: { layout: 'src/layouts/default.hbs' }
+```
+
+### [options.layoutdir][options-layoutdir]
+Type: `String` (optional)
+Default: `undefined`
+
+Path to the directory that is to be used as the "cwd" for layouts.
+
+``` js
+options: { layoutdir: 'src/layouts' }
+```
+
+When `layoutdir` is defined, then a `layout` may defined without the path:
+
+``` js
+options: { layout: 'default.hbs' }
+```
+or
+
+```yaml
+---
+layout: default.hbs
+---
 ```
 
 ### [options.assets][options-assets]

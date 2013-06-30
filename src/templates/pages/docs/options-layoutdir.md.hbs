@@ -27,7 +27,7 @@ Additionally, a `layoutdir` can be defined for each [targets][targets], allowing
 ### Without `layoutdir`
 When `layoutdir` _is not defined_, each layout must be defined using the _full path from the project root to the layout_:
 
-```
+```js
 assemble: {
   options: {
     layout: 'src/templates/layouts/default-layout.hbs'
@@ -50,7 +50,7 @@ assemble: {
 
 This also applies to [YAML front matter][yaml-front-matter] when it is necessary to "override" layouts at the page-level:
 
-``` html
+``` yaml
 ---
 title: Blog
 layout: src/templates/layouts/blog-layout.hbs
@@ -86,7 +86,7 @@ assemble: {
 
 And in [YAML front matter][yaml-front-matter]:
 
-``` html
+``` yaml
 ---
 title: Blog
 layout: blog-layout.hbs
@@ -108,7 +108,7 @@ To understand why this is important, imagine that you're project has three "sub-
 
 #### Not recommended
 
-```
+```js
 assemble: {
   components: {
     options: {
