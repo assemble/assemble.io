@@ -7,12 +7,6 @@ categories: [data, yaml, json, yfm]
 > Mix and match JSON, YAML, YAML front matter, and data stored in the Gruntfile however you want.
 
 
-Table of Contents
-
-* Data Formats
-* The "data" Object
-
-
 {{#draft}}
 ## TODO
 
@@ -66,7 +60,8 @@ Here is an example of what we might put inside of `my-template.json` to populate
 ### YAML example
 
 Here is the same in YAML format: `my-template.yml`
-``` yaml
+
+```yaml
 title: Assemble
 author: Brian Woodward
 ```
@@ -74,7 +69,8 @@ author: Brian Woodward
 And this template: 
 
 `my-template.hbs`
-```
+
+```html
 <h1>\{{ title }}</h1>
 ```
 
@@ -82,7 +78,7 @@ And this template:
 
 Or, in cases where we only require simple metadata we can use YAML Front-matter to eliminate the need for an external data file:
 
-``` yaml
+```yaml
 ---
 title: Assemble
 author: Brian Woodward
@@ -98,11 +94,11 @@ Outputs:
 <p>Brian Woodward</p>
 ```
 
-### Underscore and yaml front-matter
+### Underscore and [YAML front-matter][yaml-front-matter]
 
 Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:
 
-``` yaml
+```yaml
 ---
 title: <%= some.title.variable %>
 author: <%= some.author.variable %>
@@ -128,7 +124,7 @@ Using `data.json` or `data.yml` should work, but works a little bit differently 
 `myTemplate.hbs`:
 
 ```handlebars
-{{title}}
+\{{title}}
 ```
 
 When used in `myData.json`, the data can be accessed through the name of the file...
@@ -141,8 +137,9 @@ When used in `myData.json`, the data can be accessed through the name of the fil
 ```
 
 `myTemplate.hbs`:
+
 ```handlebars
-{{myData.title}}
+\{{myData.title}}
 ```
 
 
@@ -151,8 +148,8 @@ When used in `myData.json`, the data can be accessed through the name of the fil
 
 * [options.data][options-data]
 * [Complete list of Options][Options]
-* [Context][]
-* [Templates][]
+* [Context][context]
+* [Templates][templates]
 * [Variables][built-in-variables]
 {{#draft}}* [Idiomatic Data][]{{/draft}}
 

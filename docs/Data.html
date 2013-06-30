@@ -158,11 +158,6 @@
             <blockquote>
               <p>Mix and match JSON, YAML, YAML front matter, and data stored in the Gruntfile however you want.</p>
             </blockquote>
-            <p>Table of Contents</p>
-            <ul>
-              <li>Data Formats</li>
-              <li>The &quot;data&quot; Object</li>
-            </ul>
             <h2>Data Formats</h2>
             <p>Any of the following data formats may be used:</p>
             <ul>
@@ -203,7 +198,7 @@ author: Brian Woodward</code></pre>
             <p>And this template:</p>
             <p><code>my-template.hbs</code>
             </p>
-<pre><code>&lt;h1&gt;{{ title }}&lt;/h1&gt;</code></pre>
+<pre><code class="lang-html">&lt;h1&gt;{{ title }}&lt;/h1&gt;</code></pre>
 
             <h3>YAML front-matter example</h3>
             <p>Or, in cases where we only require simple metadata we can use YAML Front-matter to eliminate the need for an external data file:</p>
@@ -218,7 +213,8 @@ author: Brian Woodward
 <pre><code class="lang-html">&lt;h1&gt;Assemble&lt;/h1&gt;
 &lt;p&gt;Brian Woodward&lt;/p&gt;</code></pre>
 
-            <h3>Underscore and yaml front-matter</h3>
+            <h3>Underscore and <a href="YAML-front-matter.html">YAML front-matter</a>
+            </h3>
             <p>Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:</p>
 <pre><code class="lang-yaml">---
 title: &lt;%= some.title.variable %&gt;
@@ -236,7 +232,7 @@ author: &lt;%= some.author.variable %&gt;
 }</code></pre>
 
             <p><code>myTemplate.hbs</code>:</p>
-<pre><code class="lang-handlebars">Data</code></pre>
+<pre><code class="lang-handlebars">{{title}}</code></pre>
 
             <p>When used in <code>myData.json</code>, the data can be accessed through the name of the file...</p>
             <p><code>myData.json</code>:</p>
@@ -245,8 +241,7 @@ author: &lt;%= some.author.variable %&gt;
 }</code></pre>
 
             <p><code>myTemplate.hbs</code>:</p>
-<pre><code class="lang-handlebars">
-</code></pre>
+<pre><code class="lang-handlebars">{{myData.title}}</code></pre>
 
             <h2>Related information:</h2>
             <ul>

@@ -27,7 +27,7 @@ tags:
 
 You must first define the paths to any data files you wish to use via the `options.data` object in the `assemble` task or target, then Assemble will automatically supply data to your templates:
 
-```
+```js
 assemble: {
   options: {
     data: 'src/data/*.json'
@@ -50,7 +50,7 @@ To use "external" data files (versus YAML front matter), y
 
 Given a data file, such as `widget.json` or `widget.yml` :
 
-``` json
+```json
 {
   "name": "This is a square widget",
   "modifier": "widget-square"
@@ -59,13 +59,13 @@ Given a data file, such as `widget.json` or `widget.yml` :
 
 With the following Handlebars expressions in out template, `widget.hbs` :
 
-``` html
+```html
 <div class="widget \{{ widget.modifier }}">\{{ widget.name }}</div>
 ```
 
 The result after running `grunt assemble` will be:
 
-``` html
+```html
 <div class="widget widget-square">This is a square widget</div>
 ```
 
@@ -73,7 +73,7 @@ The result after running `grunt assemble` will be:
 
 Add `package.json` to the `data` object:
 
-``` javascript
+```js
 assemble {
   myProject: {
     options: {
@@ -100,7 +100,7 @@ And we will not be able to retrieve metadata from `package.json` by using variab
 
 Assuming we add the following code to our Gruntfile
 
-``` javascript
+```js
 pkg: grunt.file.readJSON('package.json'),
 
 assemble {

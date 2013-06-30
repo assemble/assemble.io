@@ -35,23 +35,28 @@ module.exports = function(grunt) {
       main: {
         src:  [
           // Components: Core CSS
-          '<%= bootstrap.component.scaffolding %>', '<%= ghpages.component.scaffolding %>',
+          '<%= bootstrap.component.scaffolding %>', 
+          '<%= ghpages.component.scaffolding %>',
           '<%= ghpages.component.type %>',
           '<%= ghpages.component.blockquote %>',
           '<%= ghpages.component.webfonts %>',
           '<%= ghpages.component.fonts %>',
-          '<%= bootstrap.component.code %>', '<%= ghpages.component.code %>',
+          '<%= bootstrap.component.code %>', 
+          '<%= ghpages.component.code %>',
           '<%= bootstrap.component.grid %>',
           '<%= ghpages.component.tables %>',
           '<%= ghpages.component.buttons %>',
 
           // Components: common
           '<%= bootstrap.component.glyphicons %>',
-          '<%= bootstrap.component.panels %>', '<%= ghpages.component.panels %>',
+          '<%= bootstrap.component.panels %>', 
+          '<%= ghpages.component.panels %>',
 
           // Components: Nav
-          '<%= bootstrap.component.navs %>', '<%= ghpages.component.nav %>',
-          '<%= bootstrap.component.navbar %>', '<%= ghpages.component.navbar %>',
+          '<%= bootstrap.component.navs %>', 
+          '<%= ghpages.component.nav %>',
+          '<%= bootstrap.component.navbar %>', 
+          '<%= ghpages.component.navbar %>',
 
           // Components: Z-index
           '<%= ghpages.component.tooltip %>',
@@ -61,8 +66,10 @@ module.exports = function(grunt) {
           '<%= ghpages.component.banner %>',
           '<%= ghpages.component.teaser %>',
           '<%= ghpages.component.band %>',
-          '<%= bootstrap.component.thumbnails %>', '<%= ghpages.component.thumbnails %>',
-          '<%= bootstrap.component.labels %>', '<%= ghpages.component.labels %>',
+          '<%= bootstrap.component.thumbnails %>', 
+          '<%= ghpages.component.thumbnails %>',
+          '<%= bootstrap.component.labels %>', 
+          '<%= ghpages.component.labels %>',
           '<%= bootstrap.component.badges %>',
           '<%= ghpages.component.masthead %>',
 
