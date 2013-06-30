@@ -54,14 +54,14 @@ Assemble will attempt to load an engine and automatically add it's own wrapper m
 This is particularly useful when **a)** a library such as [consolidate][] is used, where the engine is `consolidate`, and **b)** the developer wants to use another engine such as [handlebars](https://github.com/wycats/handlebars.js), [swig](https://github.com/paularmstrong/swig), [mustache](https://github.com/janl/mustache.js) etc.
 
 * The `init` function allows assemble to pass in options to be used in initializing this engine plugin.
-* `init` function is exposed, and [helper-lib](https://github.com/assemble/helper-lib) is registered inside the init so that options can be passed in.
+* `init` function is exposed, and [handlebars-helpers](https://github.com/assemble/handlebars-helpers) is registered inside the init so that options can be passed in.
 
 Admittedly, the `engine.engine` syntax is strange. This is "alpha", so feedback and pull requests are especially welcome if you have ideas for improving this.
 
 
 #### Register Helpers
 
-Call `registerFunctions` by passing in an engine. This is used if you need to register custom **helpers or "filters", etc.** beyond the helpers included in [helper-lib](http://github.com/assemble/helper-lib):
+Call `registerFunctions` by passing in an engine. This is used if you need to register custom **helpers or "filters", etc.** beyond the helpers included in [handlebars-helpers](http://github.com/assemble/handlebars-helpers):
 
 ```javascript
 registerFunctions(assemble.engine);

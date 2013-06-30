@@ -6,14 +6,14 @@ section: templates
 
 ## Built-in Helpers
 
-Assemble includes [helper-lib][] as a dependency, so all of the helpers from that library are available by default. 
+Assemble includes [handlebars-helpers][] as a dependency, so all of the helpers from that library are available by default. 
 
-[helper-lib][] includes more than **100 Handlebars helpers** from that library in your templates. 
+[handlebars-helpers][] includes more than **100 Handlebars helpers** from that library in your templates. 
 
 
 ### Helpers created for Assemble
 
-Most helpers from [helper-lib][] can be used with any Handlebars project, but a handful of helpers were created specifically for Assemble, including:
+Most helpers from [handlebars-helpers][] can be used with any Handlebars project, but a handful of helpers were created specifically for Assemble, including:
 
 * **dirname**: Returns the absolute path to the given file/directory. Would return: `path/to/variables.md`. Usage: `\{{dirname [path]}}`
 * **pagename**: Returns the full-name of a given file. Would return: `variables.md`. Usage: `\{{filename "docs/toc.md"}}`
@@ -50,15 +50,17 @@ Many additional helpers are available in the following categories:
 * `strings`
 * `url`
 
-Visit [helper-lib][] to learn more.
+Visit [handlebars-helpers][handlebars-helpers] to learn more.
 
 
 ## Related info
 
+* [Custom Helpers][custom-helpers]
 * [Templates][templates]
-* [helper-lib Github repo][]
-* [handlebarsjs.com][handlebars]
+* [handlebars-helpers Github repo][]
+* [Handlebarsjs.com Block Helpers](http://handlebarsjs.com/block_helpers.html "Block Helpers")
+* [Treehouse Blog, Handlebars.js Part 2: Partials and Helpers](http://blog.teamtreehouse.com/handlebars-js-part-2-partials-and-helpers)
+* [NetTuts+: An Introduction to Handlebars](http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/)
 
-
-[helper-lib]: http://github.com/assemble/helper-lib "Extensive collection of Handlebars helpers"
+[handlebars-helpers]: http://github.com/assemble/handlebars-helpers "Extensive collection of Handlebars helpers"
 

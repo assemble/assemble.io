@@ -3,7 +3,7 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>options.helpers | Assemble</title>
+    <title>Custom Helpers | Assemble</title>
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -71,7 +71,7 @@
         <div class="row">
           <div class="col col-lg-12">
             <h1>
-              <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
+              <span class="text-muted">Docs /&nbsp;</span>templates</h1>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@
               </li>
               <li><a href="options-ext.html">options.ext</a>
               </li>
-              <li class="active"><a href="options-helpers.html">options.helpers</a>
+              <li><a href="options-helpers.html">options.helpers</a>
               </li>
               <li><a href="options-layout.html">options.layout</a>
               </li>
@@ -140,7 +140,7 @@
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Custom-Helpers.html">Custom Helpers</a>
+              <li class="active"><a href="Custom-Helpers.html">Custom Helpers</a>
               </li>
               <li><a href="Helpers.html">Helpers</a>
               </li>
@@ -160,76 +160,34 @@
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
-            <h1>options.helpers</h1>
-            <h2>options.helpers</h2>
-            <blockquote>
-              <p>Helpers manipulate the output of variables</p>
-            </blockquote>
-            <p>For the most part helper expressions follow this pattern: <code>{{ helper_name variable_name }}</code>. For example:</p>
-<pre><code>&lt;title&gt;{{ uppercase title }}&lt;/title&gt;</code></pre>
-
-            <p>Renders to:</p>
-<pre><code>&lt;title&gt;PAGE TITLE&lt;/title&gt;</code></pre>
-
-            <h2>Custom helpers</h2>
-            <p>Custom helpers may be loaded with the current engine via <code>options: { helpers: []}</code> in the assemble task or target. But
-              <em>any helpers registered at the target level will override task-level helpers</em>.</p>
-            <p>Globbing patterns may be used to specify paths to the helpers to be loaded:</p>
-<pre><code class="lang-js">assemble: {
-  options: {
-    helpers: [&#39;./lib/helpers/**/*.js&#39;]
-  }
-}</code></pre>
-
-            <h3>Registering custom helpers</h3>
-            <p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function passing in the engine, otherwise each method is registered as a helper. For example, the following will result in 2 helpers being registered:</p>
-<pre><code class="lang-js">module.exports.foo = function(msg) { return msg; };
-module.exports.bar = function(msg) { return msg; };</code></pre>
-
-            <p>And this will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
-<pre><code class="lang-js">module.exports.register = function(Handlebars, options) {
-  Handlebars.registerHelper(&#39;foo&#39;, function(msg) {
-    return msg;
-  });
-};</code></pre>
-
-            <p>The <code>Handlebars.registerHelper</code> method takes the name of the helper and the helper function as arguments. Handlebars.js then takes whatever is returned from the helper function and writes it out to the template,
-              <em>so be sure to always return a string from your custom helpers</em>.</p>
-            <h2>Passing <code>assemble.options</code> into helpers</h2>
-            <p>Any <code>assemble.options</code> may be passed to custom helpers when the helper defines the <code>register</code> method. For example:</p>
-            <p>Given our <code>Gruntfile.js</code> has the following <code>assemble</code> task configuration:</p>
-<pre><code class="lang-js">assemble: {
-  options: {
-    version: &#39;0.1.0&#39;, // or we could use &#39;&lt;%= pkg.version %&gt;&#39;
-    helpers: [&#39;lib/helpers/**/*.js&#39;]
-  },
-  blog: {
-    files: {
-      &#39;articles/&#39;: [&#39;src/posts/*.md&#39;]
-    }
-  }
-}</code></pre>
-
-            <p>And given we have defined a custom helper, <code>opt</code>, which gets properties from the <code>assemble.options</code> object and returns them:</p>
-<pre><code class="lang-js">module.exports.register = register = function(Handlebars, options) {
-
-  Handlebars.registerHelper(&#39;opt&#39;, function(key) {
-    return options[key] || &#39;&#39;;
-  });
-
-};</code></pre>
-
-            <p>We can now user our helper in a Handlebars template like this:</p>
-<pre><code class="lang-html">&lt;div&gt;Version: v{{opt &#39;version&#39;}}&lt;/div&gt;</code></pre>
-
-            <p>And the output would be:</p>
-<pre><code class="lang-html">&lt;div&gt;Version: v0.1.0&lt;/div&gt;</code></pre>
-
-            <h2>Related Info</h2>
+            <h1>Custom Helpers</h1>
+            <p>Since custom helpers and <a href="External-Libraries.html">Lo-Dash mixins</a> are so easy to use with Assemble, the possibilities are truly endless. To make it easier for Assemble users to consume custom helpers created by other users, we offer the following conventions and recommendations for your consideration.</p>
+            <h2>Conventions and Recommendations</h2>
+            <p>Put the helper in the root of the project. This will make it easy to consume via package managers or methods other than <code>require</code>, such as <code>bower install</code>.</p>
+            <h3>Naming Conventions</h3>
             <ul>
-              <li><a href="Helpers.html">Helpers</a>
+              <li><strong>project name</strong>: use the following pattern: &quot;assemble-helpers-[custom helper name]&quot;</li>
+              <li><strong>helper name</strong>: preferably name the helper something like &quot;helper-[helper-name].js&quot;. All &quot;official&quot; helpers have been created following the pattern &quot;helper-*.js&quot; so that they can easily be consumed by Assemble via simple minimatch patterns. This doesn&#39;t prevent them from being used elsewhere either.</li>
+            </ul>
+            <h3>Generalization</h3>
+            <p>Oftentimes, beyond being used as a Handlebars helper, the code for many helpers can easily be generalized so that they can also be used as Lo-Dash mixins, filters for other template engines etc. It&#39;s worth doing this whenever you can to make the helper more useful to others.</p>
+            <p>Also:</p>
+            <ul>
+              <li>Make sure you add a <code>main</code> property to the project&#39;s <strong>package.json</strong> with a path to the helper.</li>
+              <li>Register the helper with <a href="https://github.com/bower/bower">Bower</a> and add a <a href="https://github.com/bower/bower#defining-a-package">bower.json</a> for easy downloading and consumption of the helper.</li>
+              <li>Add a test folder with any tests</li>
+              <li>If you want to demonstrate the helper, add those to the test folder as well</li>
+            </ul>
+            <h2>Related info</h2>
+            <ul>
+              <li><a href="Templates.html">Templates</a>
               </li>
-              <li><a href="Options.html">Options</a>
+              <li>[handlebars-helpers Github repo][]</li>
+              <li><a href="http://handlebarsjs.com/block_helpers.html" title="Block Helpers">Handlebarsjs.com Block Helpers</a>
+              </li>
+              <li><a href="http://blog.teamtreehouse.com/handlebars-js-part-2-partials-and-helpers">Treehouse Blog, Handlebars.js Part 2: Partials and Helpers</a>
+              </li>
+              <li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/">NetTuts+: An Introduction to Handlebars</a>
               </li>
             </ul>
           </div>
