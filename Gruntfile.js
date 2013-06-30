@@ -232,6 +232,15 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      docs: {
+        files: [
+          {expand: true, cwd: 'docs', src: ['**'], dest: '../assemble-docs-gh-pages/docs'},
+          {expand: true, cwd: './', src: ['*.html'], dest: '../assemble-docs-gh-pages/'}
+        ]
+      }
+    },
+
     // Before generating any new files,
     // remove files from previous build.
     clean: {
