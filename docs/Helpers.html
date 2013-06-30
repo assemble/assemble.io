@@ -1,627 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8">
-    <title> Helpers  | Assemble</title>
+    <title>Helpers | Assemble</title>
     <link rel="stylesheet" href="assets/css/assemble.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
+  
   <body style="background: white">
+    <div class="navbar">
+      <div class="container"> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
 
-    <!-- navigation
-    ================================================== -->
-    
-<div class="navbar">
-  <div class="container">
-    <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
-    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <div class="nav-collapse collapse bs-navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="../docs/Home.html">Docs</a>
-        </li>
-        <!--  <li>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="../docs/Home.html">Docs</a>
+
+            </li>
+            <!--<li>
           <a href="../examples.html">Examples</a>
-        </li> -->
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-       <!-- <li>
+        </li>-->
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <!--<li>
           <a href="../tutorials.html">Tutorials</a>
         </li>
         <li>
           <a href="../blog.html">Blog</a>
-        </li> -->
-        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
-      </ul>
+        </li>-->
+            <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
-
-
-    <!-- Subhead
-    ================================================== -->
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
           <div class="col col-lg-12">
-            <h1><span class="text-muted">Docs /</span> templates </h1>
+            <h1>
+              <span class="text-muted">Docs /&nbsp;</span>templates</h1>
           </div>
         </div>
       </div>
     </header>
-
-
     <div class="container">
       <div class="row">
-
-        <!-- Left side navigation
-        ================================================== -->
         <div class="col col-lg-3">
           <div class="sidebar">
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Home.html">Table of Contents</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Home.html">Table of Contents</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Getting Started
-            </span>
+            <span class="nav-section-title">Getting Started</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-                <li><a href="About.html">About</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Installation.html">Installation</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Quickstart.html">Quickstart</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="About.html">About</a>
+              </li>
+              <li><a href="Installation.html">Installation</a>
+              </li>
+              <li><a href="Quickstart.html">Quickstart</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Development
-            </span>
+            <span class="nav-section-title">Development</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="External-Libraries.html">External Libraries</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Methods.html">Methods</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="External-Libraries.html">External Libraries</a>
+              </li>
+              <li><a href="Methods.html">Methods</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Configuration
-            </span>
+            <span class="nav-section-title">Configuration</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-                <li><a href="Built-in-Variables.html">Built-in Variables</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Options.html">Options Overview</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="options-assets.html">options.assets</a></li>
-                
-              
-                
-                <li><a href="options-collections.html">options.collections</a></li>
-                
-              
-                
-                <li><a href="options-data.html">options.data</a></li>
-                
-              
-                
-                <li><a href="options-engine.html">options.engine</a></li>
-                
-              
-                
-                <li><a href="options-ext.html">options.ext</a></li>
-                
-              
-                
-                <li><a href="options-helpers.html">options.helpers</a></li>
-                
-              
-                
-                <li><a href="options-layout.html">options.layout</a></li>
-                
-              
-                
-                <li><a href="options-layoutdir.html">options.layoutdir</a></li>
-                
-              
-                
-                <li><a href="options-partials.html">options.partials</a></li>
-                
-              
+              <li><a href="Built-in-Variables.html">Built-in Variables</a>
+              </li>
+              <li><a href="Options.html">Options Overview</a>
+              </li>
+              <li><a href="options-assets.html">options.assets</a>
+              </li>
+              <li><a href="options-collections.html">options.collections</a>
+              </li>
+              <li><a href="options-data.html">options.data</a>
+              </li>
+              <li><a href="options-engine.html">options.engine</a>
+              </li>
+              <li><a href="options-ext.html">options.ext</a>
+              </li>
+              <li><a href="options-helpers.html">options.helpers</a>
+              </li>
+              <li><a href="options-layout.html">options.layout</a>
+              </li>
+              <li><a href="options-layoutdir.html">options.layoutdir</a>
+              </li>
+              <li><a href="options-partials.html">options.partials</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Data
-            </span>
+            <span class="nav-section-title">Data</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-                <li><a href="Context.html">Context</a></li>
-                
-              
-                
-                <li><a href="Data.html">Data</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="YAML-front-matter.html">YAML front matter</a></li>
-                
-              
-                
-                <li><a href="YAML.html">YAML data</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Context.html">Context</a>
+              </li>
+              <li><a href="Data.html">Data</a>
+              </li>
+              <li><a href="YAML-front-matter.html">YAML front matter</a>
+              </li>
+              <li><a href="YAML.html">YAML data</a>
+              </li>
             </ul>
-            
-            <span class="nav-section-title">
-              Templates
-            </span>
+            <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li class="active"><a href="Helpers.html">Helpers</a></li>
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Layouts.html">Layouts</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Partials.html">Partials</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li class="active"><a href="Helpers.html">Helpers</a>
+              </li>
+              <li><a href="Layouts.html">Layouts</a>
+              </li>
+              <li><a href="Partials.html">Partials</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Content
-            </span>
+            <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Markdown.html">Markdown</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Markdown.html">Markdown</a>
+              </li>
             </ul>
-
           </div>
         </div>
-
-        <!-- Main content
-        ================================================== -->
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Helpers</h1>
             <h2>Built-in Helpers</h2>
-<p>Assemble includes <a href="http://github.com/assemble/helper-lib" title="Extensive collection of Handlebars helpers">helper-lib</a> as a dependency, so all of the helpers from that library are available by default. </p>
-<p><a href="http://github.com/assemble/helper-lib" title="Extensive collection of Handlebars helpers">helper-lib</a> includes more than <strong>100 Handlebars helpers</strong> from that library in your templates. </p>
-<h3>Helpers created for Assemble</h3>
-<p>Most helpers from <a href="http://github.com/assemble/helper-lib" title="Extensive collection of Handlebars helpers">helper-lib</a> can be used with any Handlebars project, but a handful of helpers were created specifically for Assemble, including:</p>
-<ul>
-<li><strong>dirname</strong>: Returns the absolute path to the given file/directory. Would return: <code>path/to/variables.md</code>. Usage: <code>{{dirname [path]}}</code></li>
-<li><strong>pagename</strong>: Returns the full-name of a given file. Would return: <code>variables.md</code>. Usage: <code>{{filename &quot;docs/toc.md&quot;}}</code></li>
-<li><strong>filename</strong>: Can be used as an alternate for <code>pagename</code>. </li>
-<li><strong>basename</strong>: Returns the basename of a given file. Would return: <code>variables</code> Usage: <code>{{base &quot;docs/toc.md&quot;}}</code></li>
-<li><strong>extension</strong>: Returns the extension of a given file. Would return: <code>.md</code> Usage: <code>{{extension &quot;docs/toc.md&quot;}}</code></li>
-<li><strong>ext</strong>: Can be used as an alternate for<code>extension</code>. </li>
-<li><strong>relative</strong>: Returns the derived relative path from file A to file B. Usage: <code>{{relative [from] [to]}}</code>. This can also be used with <code>page</code> and <code>pages</code>.</li>
-<li><strong>markdown</strong>: Markdown block helper enables writing markdown inside HTML and then renders the markdown as HTML inline with the rest of the page. Usage: <code>{{#markdown}}{{/markdown}}</code></li>
-<li><strong>md</strong>: Markdown helper used to read in a file and inject the rendered markdown into the HTML. Usage: <code>{{md [path]}}</code></li>
-<li><strong>embed</strong>: Embeds code from an external file as preformatted text. The first parameter requires a path to the file you want to embed. The second optional parameter allows forcing syntax highlighting for a specific language. Usage: <code>{{embed &#39;path/to/file.js&#39;}}</code> or <code>{{embed &#39;path/to/file.hbs&#39; &#39;html&#39;}}</code></li>
-<li><strong>jsFiddle</strong>: Embed a jsFiddle, second parameter sets the desired tabs. Usage: <code>{{jsfiddle [id] [tabs]}}</code></li>
-<li><strong>gist</strong>: Downloads and embeds public GitHub Gists by adding only the Id of the Gist. Usage: <code>{{gist [id] [file]}}</code></li>
-<li><strong>authors</strong>: Reads in data from an &quot;AUTHORS&quot; file to generate markdown formatted author or list of authors for a README.md. Accepts a second optional parameter to a different file than the default. Usage: <code>{{authors}}</code> or <code>{{ authors [file] }}</code></li>
-<li><strong>changelog</strong>: Reads in data from an &quot;CHANGELOG&quot; file to generate markdown formatted changelog or list of changelog entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: <code>{{changelog [src]}}</code></li>
-<li><strong>roadmap</strong>: Reads in data from an &quot;ROADMAP&quot; file to generate markdown formatted roadmap or list of roadmap entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: <code>{{roadmap [src]}}</code></li>
-</ul>
-<p>Many additional helpers are available in the following categories:
-<em> <code>assemble</code>
-</em> <code>collections</code>
-<em> <code>comparisons</code>
-</em> <code>dates</code>
-<em> <code>file</code>
-</em> <code>html</code>
-<em> <code>inflections</code>
-</em> <code>logging</code>
-<em> <code>markdown</code>
-</em> <code>math</code>
-<em> <code>miscellaneous</code>
-</em> <code>numbers</code>
-<em> <code>objects</code>
-</em> <code>path</code>
-<em> <code>special</code>
-</em> <code>strings</code>
-* <code>url</code></p>
-<p>Visit <a href="http://github.com/assemble/helper-lib" title="Extensive collection of Handlebars helpers">helper-lib</a> to learn more.</p>
-<h2>Related info</h2>
-<ul>
-<li><a href="Templates.html">Templates</a></li>
-<li>[helper-lib Github repo][]</li>
-<li><a href="http://handlebarsjs.com">handlebarsjs.com</a></li>
-</ul>
+            <p>Assemble includes <a href="http://github.com/assemble/helper-lib" title="Extensive collection of Handlebars helpers">helper-lib</a> as a dependency, so all of the helpers from that library are available by default.</p>
+            <p><a href="http://github.com/assemble/helper-lib" title="Extensive collection of Handlebars helpers">helper-lib</a> includes more than <strong>100 Handlebars helpers</strong> from that library in your templates.</p>
+            <h3>Helpers created for Assemble</h3>
+            <p>Most helpers from <a href="http://github.com/assemble/helper-lib" title="Extensive collection of Handlebars helpers">helper-lib</a> can be used with any Handlebars project, but a handful of helpers were created specifically for Assemble, including:</p>
+            <ul>
+              <li><strong>dirname</strong>: Returns the absolute path to the given file/directory. Would return: <code>path/to/variables.md</code>. Usage: <code>{{dirname [path]}}</code>
+              </li>
+              <li><strong>pagename</strong>: Returns the full-name of a given file. Would return: <code>variables.md</code>. Usage: <code>{{filename &quot;docs/toc.md&quot;}}</code>
+              </li>
+              <li><strong>filename</strong>: Can be used as an alternate for <code>pagename</code>.</li>
+              <li><strong>basename</strong>: Returns the basename of a given file. Would return: <code>variables</code> Usage: <code>{{base &quot;docs/toc.md&quot;}}</code>
+              </li>
+              <li><strong>extension</strong>: Returns the extension of a given file. Would return: <code>.md</code> Usage: <code>{{extension &quot;docs/toc.md&quot;}}</code>
+              </li>
+              <li><strong>ext</strong>: Can be used as an alternate for<code>extension</code>.</li>
+              <li><strong>relative</strong>: Returns the derived relative path from file A to file B. Usage: <code>{{relative [from] [to]}}</code>. This can also be used with <code>page</code> and <code>pages</code>.</li>
+              <li><strong>markdown</strong>: Markdown block helper enables writing markdown inside HTML and then renders the markdown as HTML inline with the rest of the page. Usage: <code>{{#markdown}}{{/markdown}}</code>
+              </li>
+              <li><strong>md</strong>: Markdown helper used to read in a file and inject the rendered markdown into the HTML. Usage: <code>{{md [path]}}</code>
+              </li>
+              <li><strong>embed</strong>: Embeds code from an external file as preformatted text. The first parameter requires a path to the file you want to embed. The second optional parameter allows forcing syntax highlighting for a specific language. Usage: <code>{{embed &#39;path/to/file.js&#39;}}</code> or <code>{{embed &#39;path/to/file.hbs&#39; &#39;html&#39;}}</code>
+              </li>
+              <li><strong>jsFiddle</strong>: Embed a jsFiddle, second parameter sets the desired tabs. Usage: <code>{{jsfiddle [id] [tabs]}}</code>
+              </li>
+              <li><strong>gist</strong>: Downloads and embeds public GitHub Gists by adding only the Id of the Gist. Usage: <code>{{gist [id] [file]}}</code>
+              </li>
+              <li><strong>authors</strong>: Reads in data from an &quot;AUTHORS&quot; file to generate markdown formatted author or list of authors for a README.md. Accepts a second optional parameter to a different file than the default. Usage: <code>{{authors}}</code> or <code>{{ authors [file] }}</code>
+              </li>
+              <li><strong>changelog</strong>: Reads in data from an &quot;CHANGELOG&quot; file to generate markdown formatted changelog or list of changelog entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: <code>{{changelog [src]}}</code>
+              </li>
+              <li><strong>roadmap</strong>: Reads in data from an &quot;ROADMAP&quot; file to generate markdown formatted roadmap or list of roadmap entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: <code>{{roadmap [src]}}</code>
+              </li>
+            </ul>
+            <p>Many additional helpers are available in the following categories:
+              <em> <code>assemble</code>
 
+              </em> <code>collections</code>
+
+              <em> <code>comparisons</code>
+
+              </em> <code>dates</code>
+
+              <em> <code>file</code>
+
+              </em> <code>html</code>
+
+              <em> <code>inflections</code>
+
+              </em> <code>logging</code>
+
+              <em> <code>markdown</code>
+
+              </em> <code>math</code>
+
+              <em> <code>miscellaneous</code>
+
+              </em> <code>numbers</code>
+
+              <em> <code>objects</code>
+
+              </em> <code>path</code>
+
+              <em> <code>special</code>
+
+              </em> <code>strings</code>
+* <code>url</code>
+            </p>
+            <p>Visit <a href="http://github.com/assemble/helper-lib" title="Extensive collection of Handlebars helpers">helper-lib</a> to learn more.</p>
+            <h2>Related info</h2>
+            <ul>
+              <li><a href="Templates.html">Templates</a>
+              </li>
+              <li>[helper-lib Github repo][]</li>
+              <li><a href="http://handlebarsjs.com">handlebarsjs.com</a>
+              </li>
+            </ul>
           </div>
         </div>
-
       </div>
     </div>
-
-    <!-- JavaScripts
-    ================================================== -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/highlight.js"></script>
     <script src="assets/js/holder/holder.js"></script>
     <script src="assets/js/showup.js"></script>
     <script>
-      $().showUp('.navbar');
+      $(document).ready(function($)
+      {
+        $().showUp('.navbar');
+      });
     </script>
-
-    <!-- Google Analytics 
-================================================== -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-33358518-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
   </body>
+
 </html>

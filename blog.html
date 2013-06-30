@@ -1,112 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8">
-    <title> Blog  | Assemble</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="docs/assets/css/assemble.css">
     <link rel="stylesheet" href="docs/assets/css/github.css">
-    
-    
-
-
-
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="docs/assets/js/html5shiv.js"></script>
+      <script src="docs/assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="docs/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="docs/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="docs/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="docs/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="docs/assets/ico/favicon.png">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
-  <body style="background: white">
+  
+  <body>
+    <div class="navbar">
+      <div class="container"> <a class="navbar-brand" href="index.html">ASSEMBLE</a>
 
-    <!-- nav partial -->
-    
-<div class="navbar">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">ASSEMBLE</a>
-    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <div class="nav-collapse collapse bs-navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="docs/Home.html">Docs</a>
-        </li>
-        <!--  <li>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="docs/Home.html">Docs</a>
+
+            </li>
+            <!--<li>
           <a href="examples.html">Examples</a>
-        </li> -->
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-       <!-- <li>
+        </li>-->
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <!--<li>
           <a href="tutorials.html">Tutorials</a>
         </li>
         <li class="active">
           <a href="blog.html">Blog</a>
-        </li> -->
-        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-
-
-    <!-- pull in page content -->
-    
-<!-- Subhead
-================================================== -->
-<header class="masthead subhead">
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-6">
-        <h1> BLOG </h1>
+        </li>-->
+            <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-<div class="container">
-  <div class="panel panel-docs">
-    <h1>Stay tuned...</h1>
-    
-    <h2><h1>Assemble Documentation</h1>
-<h2>Custom Helpers</h2>
-<p>Custom helpers are creatively used to make this project easier to manage:</p>
-<ul>
-<li>For generating an up-to-date list of links. </li>
-</ul>
-<p>Handlebars.registerHelper(&#39;dumptruck&#39;, function(a, b) {
-Handlebars.registerHelper(&#39;destroy&#39;, function(file) {
-Handlebars.registerHelper(&#39;testtt&#39;, function(a) {
-Handlebars.registerHelper(&#39;bootstrap&#39;, function(str) {
-Handlebars.registerHelper(&#39;links-gh-json&#39;, function(str, dir) {
-Handlebars.registerHelper(&#39;links-wiki-json&#39;, function(str, dir) {
-Handlebars.registerHelper(&#39;links-gh-pages&#39;, function(str) {
-Handlebars.registerHelper(&#39;links-docs&#39;, function(str) {
-Handlebars.registerHelper(&#39;links-wiki&#39;, function(str) {</p>
-</h2>
-    
-  </div>
-</div>
-
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-6">
+            <h1>BLOG</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="panel panel-docs">
+        <h1>Stay tuned...</h1>
+        <h2>
+          <h1><a href="http://assemble.io/">Assemble Documentation</a>
+          </h1>
+          <blockquote>
+            <p>Assemble makes it dead simple to build modular sites, documentation and components from reusable templates and data. Make sure to visit the wiki.</p>
+          </blockquote>
+          <h4><a href="https://github.com/assemble/assemble-examples/">See examples →</a>
+          </h4>
+          <h4><a href="http://assemble.io/">Visit the docs →</a>
+          </h4>
+        </h2>
+      </div>
+    </div>
     <script src="docs/assets/js/jquery.js"></script>
     <script src="docs/assets/js/highlight.js"></script>
     <script src="docs/assets/js/holder/holder.js"></script>
-    <script src="docs/assets/js/bootstrap.min.js"></script>
-    <script src="docs/assets/js/application.js"></script>
     <script src="docs/assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>
-
-    <!-- Google Analytics 
-================================================== -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-33358518-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-    
   </body>
+
 </html>

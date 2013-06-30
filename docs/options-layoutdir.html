@@ -1,559 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8">
-    <title> options.layoutdir  | Assemble</title>
+    <title>options.layoutdir | Assemble</title>
     <link rel="stylesheet" href="assets/css/assemble.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
+  
   <body style="background: white">
+    <div class="navbar">
+      <div class="container"> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
 
-    <!-- navigation
-    ================================================== -->
-    
-<div class="navbar">
-  <div class="container">
-    <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
-    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <div class="nav-collapse collapse bs-navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="../docs/Home.html">Docs</a>
-        </li>
-        <!--  <li>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="../docs/Home.html">Docs</a>
+
+            </li>
+            <!--<li>
           <a href="../examples.html">Examples</a>
-        </li> -->
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-       <!-- <li>
+        </li>-->
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <!--<li>
           <a href="../tutorials.html">Tutorials</a>
         </li>
         <li>
           <a href="../blog.html">Blog</a>
-        </li> -->
-        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
-      </ul>
+        </li>-->
+            <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
-
-
-    <!-- Subhead
-    ================================================== -->
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
           <div class="col col-lg-12">
-            <h1><span class="text-muted">Docs /</span> configuration </h1>
+            <h1>
+              <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
           </div>
         </div>
       </div>
     </header>
-
-
     <div class="container">
       <div class="row">
-
-        <!-- Left side navigation
-        ================================================== -->
         <div class="col col-lg-3">
           <div class="sidebar">
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Home.html">Table of Contents</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Home.html">Table of Contents</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Getting Started
-            </span>
+            <span class="nav-section-title">Getting Started</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-                <li><a href="About.html">About</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Installation.html">Installation</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Quickstart.html">Quickstart</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="About.html">About</a>
+              </li>
+              <li><a href="Installation.html">Installation</a>
+              </li>
+              <li><a href="Quickstart.html">Quickstart</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Development
-            </span>
+            <span class="nav-section-title">Development</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="External-Libraries.html">External Libraries</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Methods.html">Methods</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="External-Libraries.html">External Libraries</a>
+              </li>
+              <li><a href="Methods.html">Methods</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Configuration
-            </span>
+            <span class="nav-section-title">Configuration</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-                <li><a href="Built-in-Variables.html">Built-in Variables</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Options.html">Options Overview</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="options-assets.html">options.assets</a></li>
-                
-              
-                
-                <li><a href="options-collections.html">options.collections</a></li>
-                
-              
-                
-                <li><a href="options-data.html">options.data</a></li>
-                
-              
-                
-                <li><a href="options-engine.html">options.engine</a></li>
-                
-              
-                
-                <li><a href="options-ext.html">options.ext</a></li>
-                
-              
-                
-                <li><a href="options-helpers.html">options.helpers</a></li>
-                
-              
-                
-                <li><a href="options-layout.html">options.layout</a></li>
-                
-              
-                
-                <li class="active"><a href="options-layoutdir.html">options.layoutdir</a></li>
-                
-              
-                
-                <li><a href="options-partials.html">options.partials</a></li>
-                
-              
+              <li><a href="Built-in-Variables.html">Built-in Variables</a>
+              </li>
+              <li><a href="Options.html">Options Overview</a>
+              </li>
+              <li><a href="options-assets.html">options.assets</a>
+              </li>
+              <li><a href="options-collections.html">options.collections</a>
+              </li>
+              <li><a href="options-data.html">options.data</a>
+              </li>
+              <li><a href="options-engine.html">options.engine</a>
+              </li>
+              <li><a href="options-ext.html">options.ext</a>
+              </li>
+              <li><a href="options-helpers.html">options.helpers</a>
+              </li>
+              <li><a href="options-layout.html">options.layout</a>
+              </li>
+              <li class="active"><a href="options-layoutdir.html">options.layoutdir</a>
+              </li>
+              <li><a href="options-partials.html">options.partials</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Data
-            </span>
+            <span class="nav-section-title">Data</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-                <li><a href="Context.html">Context</a></li>
-                
-              
-                
-                <li><a href="Data.html">Data</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="YAML-front-matter.html">YAML front matter</a></li>
-                
-              
-                
-                <li><a href="YAML.html">YAML data</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Context.html">Context</a>
+              </li>
+              <li><a href="Data.html">Data</a>
+              </li>
+              <li><a href="YAML-front-matter.html">YAML front matter</a>
+              </li>
+              <li><a href="YAML.html">YAML data</a>
+              </li>
             </ul>
-            
-            <span class="nav-section-title">
-              Templates
-            </span>
+            <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Helpers.html">Helpers</a></li>
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Layouts.html">Layouts</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Partials.html">Partials</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Helpers.html">Helpers</a>
+              </li>
+              <li><a href="Layouts.html">Layouts</a>
+              </li>
+              <li><a href="Partials.html">Partials</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Content
-            </span>
+            <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Markdown.html">Markdown</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Markdown.html">Markdown</a>
+              </li>
             </ul>
-
           </div>
         </div>
-
-        <!-- Main content
-        ================================================== -->
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.layoutdir</h1>
             <h2>options.layoutdir</h2>
-<blockquote>
-<p>Path to the directory to be used as the &quot;cwd&quot; for layouts</p>
-</blockquote>
-<p><code>layoutdir</code> makes maintaining <a href="options-layout.html">layouts</a> a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are stored without having to update the path to each layout used throughout your project. It could also reduce some clutter in the <a href="http://gruntjs.com">Gruntfile</a> and <a href="YAML-front-matter.html">YAML Front Matter</a>.</p>
-<p>Additionally, a <code>layoutdir</code> can be defined for each [targets][targets], allowing for even greater control over how <a href="Layouts.html">layouts</a> are used in your projects.</p>
-<h2>Usage Examples</h2>
-<h3>Without <code>layoutdir</code></h3>
-<p>When <code>layoutdir</code> <em>is not defined</em>, each layout must be defined using the <em>full path from the project root to the layout</em>:</p>
+            <blockquote>
+              <p>Path to the directory to be used as the &quot;cwd&quot; for layouts</p>
+            </blockquote>
+            <p><code>layoutdir</code> makes maintaining <a href="options-layout.html">layouts</a> a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are stored without having to update the path to each layout used throughout your project. It could also reduce some clutter in the <a href="http://gruntjs.com">Gruntfile</a> and <a href="YAML-front-matter.html">YAML Front Matter</a>.</p>
+            <p>Additionally, a <code>layoutdir</code> can be defined for each [targets][targets], allowing for even greater control over how <a href="Layouts.html">layouts</a> are used in your projects.</p>
+            <h2>Usage Examples</h2>
+            <h3>Without <code>layoutdir</code>
+            </h3>
+            <p>When <code>layoutdir</code> 
+              <em>is not defined</em>, each layout must be defined using the
+              <em>full path from the project root to the layout</em>:</p>
 <pre><code>assemble: {
   options: {
     layout: &#39;src/templates/layouts/default-layout.hbs&#39;
@@ -572,13 +185,17 @@
   }
   // etc.
 }</code></pre>
-<p>This also applies to <a href="YAML-front-matter.html">YAML front matter</a> when it is necessary to &quot;override&quot; layouts at the page-level:</p>
+
+            <p>This also applies to <a href="YAML-front-matter.html">YAML front matter</a> when it is necessary to &quot;override&quot; layouts at the page-level:</p>
 <pre><code class="lang-html">---
 title: Blog
 layout: src/templates/layouts/blog-layout.hbs
 ---</code></pre>
-<h3>With <code>layoutdir</code></h3>
-<p>When <code>layoutdir</code> is defined only require the name of the layout to be used (<em>must include the file extension</em>):</p>
+
+            <h3>With <code>layoutdir</code>
+            </h3>
+            <p>When <code>layoutdir</code> is defined only require the name of the layout to be used (
+              <em>must include the file extension</em>):</p>
 <pre><code>assemble: {
   options: {
     layoutdir: &#39;src/templates/layouts&#39;,
@@ -598,21 +215,23 @@ layout: src/templates/layouts/blog-layout.hbs
   }
   // etc.
 }</code></pre>
-<p>And in <a href="YAML-front-matter.html">YAML front matter</a>:</p>
+
+            <p>And in <a href="YAML-front-matter.html">YAML front matter</a>:</p>
 <pre><code class="lang-html">---
 title: Blog
 layout: blog-layout.hbs
 ---</code></pre>
-<h2>A Word of Caution</h2>
-<p>While <code>layoutdir</code> can make your project a little easier to manage, it is strongly recommended that you <strong>establish clear and consistent conventions for your layouts, and follow them</strong>. Otherwise, this feature might end up causing more problems than it solves. </p>
-<p>Here are some recommendations.</p>
-<ul>
-<li>Use names such as <code>default-layout.hbs</code> versus simply <code>default.hbs</code>, and</li>
-<li>Use a unique name for each layout used throughout a project. </li>
-</ul>
-<h3>Why clear naming conventions are important</h3>
-<p>To understand why this is important, imagine that you&#39;re project has three &quot;sub-projects&quot;, or [targets][]: <code>components</code>, <code>docs</code> and <code>blog</code>, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own <code>layoutdir</code> as well, which creates potential for conventions that lead to using the wrong layout accidentally, such as this:</p>
-<h4>Not recommended</h4>
+
+            <h2>A Word of Caution</h2>
+            <p>While <code>layoutdir</code> can make your project a little easier to manage, it is strongly recommended that you <strong>establish clear and consistent conventions for your layouts, and follow them</strong>. Otherwise, this feature might end up causing more problems than it solves.</p>
+            <p>Here are some recommendations.</p>
+            <ul>
+              <li>Use names such as <code>default-layout.hbs</code> versus simply <code>default.hbs</code>, and</li>
+              <li>Use a unique name for each layout used throughout a project.</li>
+            </ul>
+            <h3>Why clear naming conventions are important</h3>
+            <p>To understand why this is important, imagine that you&#39;re project has three &quot;sub-projects&quot;, or [targets][]: <code>components</code>, <code>docs</code> and <code>blog</code>, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own <code>layoutdir</code> as well, which creates potential for conventions that lead to using the wrong layout accidentally, such as this:</p>
+            <h4>Not recommended</h4>
 <pre><code>assemble: {
   components: {
     options: {
@@ -637,52 +256,42 @@ layout: blog-layout.hbs
   }
   // etc.
 }</code></pre>
-<p>Note that the layout name is the same for each target, but the <code>layoutdir</code> is a different directory, indicating that there are three different &quot;default&quot; layouts. </p>
-<p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the <a href="YAML-front-matter.html">YAML front matter</a> of individual pages, it is not a good idea to use the same name for multiple layouts, <em>unless you are intentionally using this naming convention as a strategy</em>. The reason is that it gets very difficult to track which page is building from which layout when working inside the pages themselves.</p>
-<h3>Difficult to follow</h3>
-<p>Without <code>layoutdir</code>, you have the entire path to follow, but without it you must rely on the name of the layout itself to guide you. </p>
+
+            <p>Note that the layout name is the same for each target, but the <code>layoutdir</code> is a different directory, indicating that there are three different &quot;default&quot; layouts.</p>
+            <p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the <a href="YAML-front-matter.html">YAML front matter</a> of individual pages, it is not a good idea to use the same name for multiple layouts,
+              <em>unless you are intentionally using this naming convention as a strategy</em>. The reason is that it gets very difficult to track which page is building from which layout when working inside the pages themselves.</p>
+            <h3>Difficult to follow</h3>
+            <p>Without <code>layoutdir</code>, you have the entire path to follow, but without it you must rely on the name of the layout itself to guide you.</p>
 <pre><code class="lang-html">---
 title: Any Page
 layout: default.hbs
 ---</code></pre>
-<h3>Recommended</h3>
-<p>Using a more descriptive name for the layout helps avoid confusion <em>now</em>:</p>
+
+            <h3>Recommended</h3>
+            <p>Using a more descriptive name for the layout helps avoid confusion
+              <em>now</em>:</p>
 <pre><code class="lang-html">---
 title: Any Page
 layout: blog-default.hbs
 ---</code></pre>
-<p>Of course, these are only recommendations and you will need to find a strategy that works for you and your team. </p>
-<h4>Also see <a href="Layouts.html">Layouts</a> and <a href="options-layout.html">options.layout</a> →</h4>
 
+            <p>Of course, these are only recommendations and you will need to find a strategy that works for you and your team.</p>
+            <h4>Also see <a href="Layouts.html">Layouts</a> and <a href="options-layout.html">options.layout</a> →</h4>
           </div>
         </div>
-
       </div>
     </div>
-
-    <!-- JavaScripts
-    ================================================== -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/highlight.js"></script>
     <script src="assets/js/holder/holder.js"></script>
     <script src="assets/js/showup.js"></script>
     <script>
-      $().showUp('.navbar');
+      $(document).ready(function($)
+      {
+        $().showUp('.navbar');
+      });
     </script>
-
-    <!-- Google Analytics 
-================================================== -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-33358518-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
   </body>
+
 </html>

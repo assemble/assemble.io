@@ -1,580 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8">
-    <title> options.helpers  | Assemble</title>
+    <title>options.helpers | Assemble</title>
     <link rel="stylesheet" href="assets/css/assemble.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
+  
   <body style="background: white">
+    <div class="navbar">
+      <div class="container"> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
 
-    <!-- navigation
-    ================================================== -->
-    
-<div class="navbar">
-  <div class="container">
-    <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
-    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <div class="nav-collapse collapse bs-navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="../docs/Home.html">Docs</a>
-        </li>
-        <!--  <li>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="../docs/Home.html">Docs</a>
+
+            </li>
+            <!--<li>
           <a href="../examples.html">Examples</a>
-        </li> -->
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-       <!-- <li>
+        </li>-->
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <!--<li>
           <a href="../tutorials.html">Tutorials</a>
         </li>
         <li>
           <a href="../blog.html">Blog</a>
-        </li> -->
-        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
-      </ul>
+        </li>-->
+            <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
-
-
-    <!-- Subhead
-    ================================================== -->
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
           <div class="col col-lg-12">
-            <h1><span class="text-muted">Docs /</span> configuration </h1>
+            <h1>
+              <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
           </div>
         </div>
       </div>
     </header>
-
-
     <div class="container">
       <div class="row">
-
-        <!-- Left side navigation
-        ================================================== -->
         <div class="col col-lg-3">
           <div class="sidebar">
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Home.html">Table of Contents</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Home.html">Table of Contents</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Getting Started
-            </span>
+            <span class="nav-section-title">Getting Started</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-                <li><a href="About.html">About</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Installation.html">Installation</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Quickstart.html">Quickstart</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="About.html">About</a>
+              </li>
+              <li><a href="Installation.html">Installation</a>
+              </li>
+              <li><a href="Quickstart.html">Quickstart</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Development
-            </span>
+            <span class="nav-section-title">Development</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="External-Libraries.html">External Libraries</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Methods.html">Methods</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="External-Libraries.html">External Libraries</a>
+              </li>
+              <li><a href="Methods.html">Methods</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Configuration
-            </span>
+            <span class="nav-section-title">Configuration</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-                <li><a href="Built-in-Variables.html">Built-in Variables</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Options.html">Options Overview</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="options-assets.html">options.assets</a></li>
-                
-              
-                
-                <li><a href="options-collections.html">options.collections</a></li>
-                
-              
-                
-                <li><a href="options-data.html">options.data</a></li>
-                
-              
-                
-                <li><a href="options-engine.html">options.engine</a></li>
-                
-              
-                
-                <li><a href="options-ext.html">options.ext</a></li>
-                
-              
-                
-                <li class="active"><a href="options-helpers.html">options.helpers</a></li>
-                
-              
-                
-                <li><a href="options-layout.html">options.layout</a></li>
-                
-              
-                
-                <li><a href="options-layoutdir.html">options.layoutdir</a></li>
-                
-              
-                
-                <li><a href="options-partials.html">options.partials</a></li>
-                
-              
+              <li><a href="Built-in-Variables.html">Built-in Variables</a>
+              </li>
+              <li><a href="Options.html">Options Overview</a>
+              </li>
+              <li><a href="options-assets.html">options.assets</a>
+              </li>
+              <li><a href="options-collections.html">options.collections</a>
+              </li>
+              <li><a href="options-data.html">options.data</a>
+              </li>
+              <li><a href="options-engine.html">options.engine</a>
+              </li>
+              <li><a href="options-ext.html">options.ext</a>
+              </li>
+              <li class="active"><a href="options-helpers.html">options.helpers</a>
+              </li>
+              <li><a href="options-layout.html">options.layout</a>
+              </li>
+              <li><a href="options-layoutdir.html">options.layoutdir</a>
+              </li>
+              <li><a href="options-partials.html">options.partials</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Data
-            </span>
+            <span class="nav-section-title">Data</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-                <li><a href="Context.html">Context</a></li>
-                
-              
-                
-                <li><a href="Data.html">Data</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="YAML-front-matter.html">YAML front matter</a></li>
-                
-              
-                
-                <li><a href="YAML.html">YAML data</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Context.html">Context</a>
+              </li>
+              <li><a href="Data.html">Data</a>
+              </li>
+              <li><a href="YAML-front-matter.html">YAML front matter</a>
+              </li>
+              <li><a href="YAML.html">YAML data</a>
+              </li>
             </ul>
-            
-            <span class="nav-section-title">
-              Templates
-            </span>
+            <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Helpers.html">Helpers</a></li>
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Layouts.html">Layouts</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Partials.html">Partials</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Helpers.html">Helpers</a>
+              </li>
+              <li><a href="Layouts.html">Layouts</a>
+              </li>
+              <li><a href="Partials.html">Partials</a>
+              </li>
             </ul>
-
-            <span class="nav-section-title">
-              Content
-            </span>
+            <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                <li><a href="Markdown.html">Markdown</a></li>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
+              <li><a href="Markdown.html">Markdown</a>
+              </li>
             </ul>
-
           </div>
         </div>
-
-        <!-- Main content
-        ================================================== -->
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.helpers</h1>
             <h2>options.helpers</h2>
-<blockquote>
-<p>Helpers manipulate the output of variables</p>
-</blockquote>
-<p>For the most part helper expressions follow this pattern: <code>{{ helper_name variable_name }}</code>. For example:</p>
+            <blockquote>
+              <p>Helpers manipulate the output of variables</p>
+            </blockquote>
+            <p>For the most part helper expressions follow this pattern: <code>{{ helper_name variable_name }}</code>. For example:</p>
 <pre><code>&lt;title&gt;{{ uppercase title }}&lt;/title&gt;</code></pre>
-<p>Renders to:</p>
+
+            <p>Renders to:</p>
 <pre><code>&lt;title&gt;PAGE TITLE&lt;/title&gt;</code></pre>
-<h2>Custom helpers</h2>
-<p>Custom helpers may be loaded with the current engine via <code>options: { helpers: []}</code> in the assemble task or target. But <em>any helpers registered at the target level will override task-level helpers</em>.</p>
-<p>Globbing patterns may be used to specify paths to the helpers to be loaded:</p>
+
+            <h2>Custom helpers</h2>
+            <p>Custom helpers may be loaded with the current engine via <code>options: { helpers: []}</code> in the assemble task or target. But
+              <em>any helpers registered at the target level will override task-level helpers</em>.</p>
+            <p>Globbing patterns may be used to specify paths to the helpers to be loaded:</p>
 <pre><code class="lang-js">assemble: {
   options: {
     helpers: [&#39;./lib/helpers/**/*.js&#39;]
   }
 }</code></pre>
-<h3>Registering custom helpers</h3>
-<p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function passing in the engine, otherwise each method is registered as a helper. For example, the following will result in 2 helpers being registered:</p>
+
+            <h3>Registering custom helpers</h3>
+            <p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function passing in the engine, otherwise each method is registered as a helper. For example, the following will result in 2 helpers being registered:</p>
 <pre><code class="lang-js">module.exports.foo = function(msg) { return msg; };
 module.exports.bar = function(msg) { return msg; };</code></pre>
-<p>And this will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
+
+            <p>And this will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
 <pre><code class="lang-js">module.exports.register = function(Handlebars, options) {
   Handlebars.registerHelper(&#39;foo&#39;, function(msg) {
     return msg;
   });
 };</code></pre>
-<p>The <code>Handlebars.registerHelper</code> method takes the name of the helper and the helper function as arguments. Handlebars.js then takes whatever is returned from the helper function and writes it out to the template, <em>so be sure to always return a string from your custom helpers</em>.</p>
-<h2>Passing <code>assemble.options</code> into helpers</h2>
-<p>Any <code>assemble.options</code> may be passed to custom helpers when the helper defines the <code>register</code> method. For example:</p>
-<p>Given our <code>Gruntfile.js</code> has the following <code>assemble</code> task configuration:</p>
+
+            <p>The <code>Handlebars.registerHelper</code> method takes the name of the helper and the helper function as arguments. Handlebars.js then takes whatever is returned from the helper function and writes it out to the template,
+              <em>so be sure to always return a string from your custom helpers</em>.</p>
+            <h2>Passing <code>assemble.options</code> into helpers</h2>
+            <p>Any <code>assemble.options</code> may be passed to custom helpers when the helper defines the <code>register</code> method. For example:</p>
+            <p>Given our <code>Gruntfile.js</code> has the following <code>assemble</code> task configuration:</p>
 <pre><code class="lang-js">assemble: {
   options: {
     version: &#39;0.1.0&#39;, // or we could use &#39;&lt;%= pkg.version %&gt;&#39;
@@ -586,7 +203,8 @@ module.exports.bar = function(msg) { return msg; };</code></pre>
     }
   }
 }</code></pre>
-<p>And given we have defined a custom helper, <code>opt</code>, which gets properties from the <code>assemble.options</code> object and returns them:</p>
+
+            <p>And given we have defined a custom helper, <code>opt</code>, which gets properties from the <code>assemble.options</code> object and returns them:</p>
 <pre><code class="lang-js">module.exports.register = register = function(Handlebars, options) {
 
   Handlebars.registerHelper(&#39;opt&#39;, function(key) {
@@ -594,45 +212,35 @@ module.exports.bar = function(msg) { return msg; };</code></pre>
   });
 
 };</code></pre>
-<p>We can now user our helper in a Handlebars template like this:</p>
-<pre><code class="lang-html">&lt;div&gt;Version: v{{opt &#39;version&#39;}}&lt;/div&gt;</code></pre>
-<p>And the output would be:</p>
-<pre><code class="lang-html">&lt;div&gt;Version: v0.1.0&lt;/div&gt;</code></pre>
-<h2>Related Info</h2>
-<ul>
-<li><a href="Helpers.html">Helpers</a></li>
-<li><a href="Options.html">Options</a></li>
-</ul>
 
+            <p>We can now user our helper in a Handlebars template like this:</p>
+<pre><code class="lang-html">&lt;div&gt;Version: v{{opt &#39;version&#39;}}&lt;/div&gt;</code></pre>
+
+            <p>And the output would be:</p>
+<pre><code class="lang-html">&lt;div&gt;Version: v0.1.0&lt;/div&gt;</code></pre>
+
+            <h2>Related Info</h2>
+            <ul>
+              <li><a href="Helpers.html">Helpers</a>
+              </li>
+              <li><a href="Options.html">Options</a>
+              </li>
+            </ul>
           </div>
         </div>
-
       </div>
     </div>
-
-    <!-- JavaScripts
-    ================================================== -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/highlight.js"></script>
     <script src="assets/js/holder/holder.js"></script>
     <script src="assets/js/showup.js"></script>
     <script>
-      $().showUp('.navbar');
+      $(document).ready(function($)
+      {
+        $().showUp('.navbar');
+      });
     </script>
-
-    <!-- Google Analytics 
-================================================== -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-33358518-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
   </body>
+
 </html>
