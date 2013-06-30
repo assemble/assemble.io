@@ -193,7 +193,7 @@ module.exports = function(grunt) {
       },
       pages: {
         options: {
-          layout: 'layout-landing.hbs'
+          layout: 'layout-default.hbs'
         },
         files: [
           { expand: true, cwd: 'src/templates/pages', src: ['*.hbs', '!index.hbs'], dest: './' },

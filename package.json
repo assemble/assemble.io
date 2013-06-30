@@ -1,10 +1,10 @@
 {
-  "name": "assemble-internal",
-  "description": "Internal tools and tasks for managing Assemble projects.",
+  "name": "assemble-docs",
+  "description": "Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.",
   "version": "0.1.1",
   "author": {
     "name": "assemble",
-    "url": "https://github.com/assemble/"
+    "url": "https://assemble.io/"
   },
   "contributors": [
     {
@@ -18,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/assemble/assemble-internal.git"
+    "url": "https://github.com/assemble/assemble-docs.git"
   },
   "bugs": {
-    "url": "https://github.com/assemble/assemble-internal/issues"
+    "url": "https://github.com/assemble/assemble-docs/issues"
   },
   "engines": {
     "node": ">= 0.8.0"
@@ -44,5 +44,11 @@
     "assemble-less": "~0.4.8",
     "grunt-prettify": "~0.1.5",
     "grunt-contrib-jshint": "~0.6.0"
-  }
+  },
+  "keywords": [
+    "assemble",
+    "grunt task",
+    "grunt templates",
+    "grunt handlebars"
+  ]
 }
