@@ -142,6 +142,8 @@
               </li>
               <li><a href="Layouts.html">Layouts</a>
               </li>
+              <li><a href="Pages.html">Pages</a>
+              </li>
               <li><a href="Partials.html">Partials</a>
               </li>
             </ul>
@@ -190,7 +192,7 @@
               <em>within</em>the current object. In other words, the &quot;path&quot; of the current object does not need to be appended to the variable, so instead of <code>about_us.title</code>, you may simply use <code>title</code>.</p>
             <h3>Example</h3>
             <p>In <code>layout.hbs</code> we will use <code>{{title}}</code> to lookup the <code>title</code> property on each page that is passed into the layout.</p>
-<pre><code class="lang-html">&lt;!doctype html&gt;
+<pre><code class="lang-handlebars">&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -219,12 +221,12 @@
 }</code></pre>
 
             <p>Out template, <code>myTemplate.hbs</code>, would have:</p>
-<pre><code class="lang-html">{{myData.title}}</code></pre>
+<pre><code class="lang-handlebars">{{myData.title}}</code></pre>
 
             <h2>&quot;this&quot; expression</h2>
             <p>You can use the <code>this</code> expression in any context to refer to the current context.</p>
             <p>For example (from <a href="http://handlebarsjs.com/">http://handlebarsjs.com/</a>), inside the <code>{{#each}}</code> block, you can use <code>this</code> to reference the element being iterated over.</p>
-<pre><code class="lang-html">&lt;ul class=&quot;people-list&quot;&gt;
+<pre><code class="lang-handlebars">&lt;ul class=&quot;people-list&quot;&gt;
   {{#each people}}
   &lt;li&gt;{{this}}&lt;/li&gt;
   {{/each}}
