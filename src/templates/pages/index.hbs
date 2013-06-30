@@ -1,7 +1,6 @@
 ---
 title: Welcome to Assemble.io!
 ---
-
 {{! Jumbotron component
 ================================================== }}
 <header class="jumbotron masthead">
@@ -21,6 +20,7 @@ title: Welcome to Assemble.io!
   </div>
 </header>
 
+
 {{! Teaser component
 ================================================== }}
 {{> teaser-link home.teaser.masthead }}
@@ -28,19 +28,18 @@ title: Welcome to Assemble.io!
 
 {{! Page
 ================================================== }}
-
-
 <div class="container">
   <div class="panel panel-clear">
     <section class="gallery">
       <div class="row">
         {{#each thumbnails}}
-        {{> gallery . }}
+          {{> gallery . }}
         {{/each}}
       </div>
     </section>
   </div>
 </div>
+
 
 {{! Banner component
 ================================================== }}
