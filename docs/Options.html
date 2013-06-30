@@ -183,7 +183,7 @@
                 <tr>
                   <td><a href="options-collections.html">collections</a>
                   </td>
-                  <td></td>
+                  <td>Built-in collections for <code>tags</code>, <code>categories</code> and <code>pages</code> are available at the root of the context.</td>
                 </tr>
                 <tr>
                   <td><a href="options-data.html">data</a>
@@ -244,6 +244,21 @@
             <p>Layouts are optional and may be defined at the task and/or <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a> level.
               <em>Unlike Jekyll</em>, Assemble requires a file extension since you are not limited to using a single file type.</p>
 <pre><code class="lang-js">options: { layout: &#39;src/layouts/default.hbs&#39; }</code></pre>
+
+            <h3><a href="options-layoutdir.html">options.layoutdir</a>
+            </h3>
+            <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
+            </p>
+            <p>Path to the directory that is to be used as the &quot;cwd&quot; for layouts.</p>
+<pre><code class="lang-js">options: { layoutdir: &#39;src/layouts&#39; }</code></pre>
+
+            <p>When <code>layoutdir</code> is defined, then a <code>layout</code> may defined without the path:</p>
+<pre><code class="lang-js">options: { layout: &#39;default.hbs&#39; }</code></pre>
+
+            <p>or</p>
+<pre><code class="lang-yaml">---
+layout: default.hbs
+---</code></pre>
 
             <h3><a href="options-assets.html">options.assets</a>
             </h3>

@@ -171,7 +171,7 @@
             <p>When <code>layoutdir</code> 
               <em>is not defined</em>, each layout must be defined using the
               <em>full path from the project root to the layout</em>:</p>
-<pre><code>assemble: {
+<pre><code class="lang-js">assemble: {
   options: {
     layout: &#39;src/templates/layouts/default-layout.hbs&#39;
   },
@@ -191,7 +191,7 @@
 }</code></pre>
 
             <p>This also applies to <a href="YAML-front-matter.html">YAML front matter</a> when it is necessary to &quot;override&quot; layouts at the page-level:</p>
-<pre><code class="lang-html">---
+<pre><code class="lang-yaml">---
 title: Blog
 layout: src/templates/layouts/blog-layout.hbs
 ---</code></pre>
@@ -221,7 +221,7 @@ layout: src/templates/layouts/blog-layout.hbs
 }</code></pre>
 
             <p>And in <a href="YAML-front-matter.html">YAML front matter</a>:</p>
-<pre><code class="lang-html">---
+<pre><code class="lang-yaml">---
 title: Blog
 layout: blog-layout.hbs
 ---</code></pre>
@@ -236,7 +236,7 @@ layout: blog-layout.hbs
             <h3>Why clear naming conventions are important</h3>
             <p>To understand why this is important, imagine that you&#39;re project has three &quot;sub-projects&quot;, or [targets][]: <code>components</code>, <code>docs</code> and <code>blog</code>, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own <code>layoutdir</code> as well, which creates potential for conventions that lead to using the wrong layout accidentally, such as this:</p>
             <h4>Not recommended</h4>
-<pre><code>assemble: {
+<pre><code class="lang-js">assemble: {
   components: {
     options: {
       layoutdir: &#39;src/components/layouts&#39;,
