@@ -3,7 +3,7 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>Installation | Assemble</title>
+    <title>Extending Assemble | Assemble</title>
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -71,7 +71,7 @@
         <div class="row">
           <div class="col col-lg-12">
             <h1>
-              <span class="text-muted">Docs /&nbsp;</span>getting started</h1>
+              <span class="text-muted">Docs /&nbsp;</span>development</h1>
           </div>
         </div>
       </div>
@@ -88,14 +88,14 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html">About</a>
               </li>
-              <li class="active"><a href="Installation.html">Installation</a>
+              <li><a href="Installation.html">Installation</a>
               </li>
               <li><a href="Quickstart.html">Quickstart</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Extending-Assemble.html">Extending Assemble</a>
+              <li class="active"><a href="Extending-Assemble.html">Extending Assemble</a>
               </li>
               <li><a href="External-Libraries.html">External Libraries</a>
               </li>
@@ -158,82 +158,50 @@
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
-            <h1>Installation</h1>
-            <h2>Download Assemble</h2>
-            <p>This plugin requires Grunt <code>~0.4.1</code>
-            </p>
-            <p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to read the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins.</p>
-            <p>Then install <a href="package.json">the required local dependencies</a> and this plugin with this command:</p>
-<pre><code class="lang-shell">$ npm install</code></pre>
-
-            <p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
-<pre><code class="lang-js">grunt.loadNpmTasks(&#39;assemble&#39;);</code></pre>
-
-            <p>When completed, you&#39;ll be able to run the various <code>grunt</code> commands available</p>
-            <h2>The &quot;assemble&quot; task</h2>
-<pre><code class="lang-js">assemble: {
-  options: {
-    assets: &quot;path/to/assets&quot;,
-    data:   &quot;path/to/config.json&quot;
-  },
-  project: {
-    options: {
-      layout: &quot;path/to/default-layout.mustache&quot;,
-      partials: &quot;path/to/partials/**/*.mustache&quot;
-    },
-    files: {
-      &#39;dest&#39;: &quot;path/to/pages/**/*.mustache&quot;
-      ]
-    }
-  }
-}
-grunt.loadNpmTasks(&#39;assemble&#39;);</code></pre>
-
-            <h2>Grunt.js Options</h2>
-            <p>Following is a brief exerpt from the Grunt.js wiki, please see <a href="https://github.com/gruntjs/grunt/wiki/Configuring-tasks">Grunt.js Wiki: Configuring Tasks</a> for more information. Grunt.js offers far more functionality than what we reference here.</p>
-            <p>Inside a task configuration, an <code>options</code> property may be specified to override built-in defaults. In addition, each target may have an <code>options</code> property which is specific to that target. Target-level options will override task-level options.</p>
-            <p>The <code>options</code> object is optional and may be omitted if not needed.</p>
-<pre><code class="lang-js">grunt.initConfig({
-  concat: {
-    options: {
-      // Task-level options may go here, overriding task defaults
-    },
-    foo: {
-      options: {
-        // &quot;foo&quot; target options may go here, overriding task-level options
-      }
-    },
-    bar: {
-      // No options specified; this target will use task-level options
-    }
-  }
-});</code></pre>
-
-            <h3><a href="http://gruntjs.com/configuring-tasks#files">Building the Files Object Dynamically</a>
-            </h3>
-            <p>From <a href="http://gruntjs.com/configuring-tasks#files">Gruntjs.com: Configuring Tasks</a>
-            </p>
-            <p>When you want to process many individual files, a few additional properties may be used to build a files list dynamically. These properties may be specified in both &quot;Compact&quot; and &quot;Files Array&quot; mapping formats.</p>
+            <h1>Extending Assemble</h1>
+            <blockquote>
+              <p>Companion projects that extend or make it easier to work with Assemble. Some of these are from Assemble&#39;s core team, others from the community. &quot;Thank you!&quot; to all the creators of these projects! We really appreciate your support!</p>
+            </blockquote>
+            <h2>Generators</h2>
+            <h3>Yeoman</h3>
             <ul>
-              <li><code>expand</code> Set to <code>true</code> to enable the following options:</li>
-              <li><code>cwd</code> All <code>src</code> matches are relative to (but don&#39;t include) this path.</li>
-              <li><code>src</code> Pattern(s) to match, relative to the <code>cwd</code>.</li>
-              <li><code>dest</code> Destination path prefix.</li>
-              <li><code>ext</code> Replace any existing extension with this value in generated <code>dest</code> paths.</li>
-              <li><code>flatten</code> Remove all path parts from generated <code>dest</code> paths.</li>
-              <li><code>rename</code> This function is called for each matched <code>src</code> file, (after extension renaming and flattening). The <code>dest</code> and matched <code>src</code> path are passed in, and this function must return a new <code>dest</code> value. If the same <code>dest</code> is returned more than once, each <code>src</code> which used it will be added to an array of sources for it.</li>
+              <li><a href="https://github.com/hariadi/generator-assemble">generator-assemble</a>: Yeoman generator for Assemble. Authored by <a href="https://github.com/hariadi">@hariadi</a>.</li>
             </ul>
-            <h2>Related info</h2>
+            <h3>Grunt Init</h3>
             <ul>
-              <li><a href="Built-in-Variables.html">variables</a>
+              <li><a href="https://github.com/assemble/grunt-init-assemble">grunt-init-assemble</a> Grunt init template for creating Assemble projects.</li>
+            </ul>
+            <h2>Assemble Boilerplates</h2>
+            <ul>
+              <li><a href="https://github.com/hariadi/assemble-jekyll">hariadi/assemble-jekyll</a>: Yeoman generator for Assemble that generate layouts, pages, partials, and markdown content for Jekyll static site. Authored by <a href="https://github.com/hariadi">@hariadi</a>.</li>
+              <li><a href="https://github.com/assemble/assemble-boilerplate-sitemap">Sitemap boilerplate</a>: Generate a sitemap with Assemble.</li>
+              <li><a href="https://github.com/assemble/assemble-boilerplate-basic">Basic site boilerplate</a>: Demonstrates how to use Assemble to build a site. Includes layouts, pages, partials, and markdown content.</li>
+              <li><a href="https://github.com/assemble/assemble-boilerplate-markdown">Markdown boilerplate</a>: Use Assemble to generate HTML pages from markdown content. Useful for wikis, gh-pages, documentation and blogs or sites with markdown posts</li>
+              <li><a href="https://github.com/assemble/assemble-boilerplate-readme">Readme boilerplate</a>: Use Assemble to generate a README, wiki pages, or other basic markdown documentation. This project features special helpers for maintaining readmes.</li>
+            </ul>
+            <h2>Helpers</h2>
+            <ul>
+              <li><a href="https://github.com/assemble/handlebars-helpers">handlebars-helpers</a>: Library of 110+ handlebars helpers. This project is active and supported, we love contributors and appreciate watchers.</li>
+              <li><a href="https://github.com/assemble/handlebars-helpers-examples">handlebars-helpers-examples</a>: Dozens (maybe more than 100?) examples for using helpers with Assemble.</li>
+            </ul>
+            <h2>Sublime Text</h2>
+            <ul>
+              <li><a href="https://github.com/jonschlinkert/sublime-markdown-extended">sublime-markdown-extended</a>: Sublime Text package that extends Soda&#39;s Monokai and the default markdown styles with additional syntax highlighting for <a href="http://assemble.io/docs/YAML-front-matter.html">YAML Front Matter</a>, GitHub Flavored Markdown (GFM) and language-specific syntax highlighting inside <a href="https://help.github.com/articles/github-flavored-markdown#syntax-highlighting">GFM &quot;fenced&quot; code blocks</a>
               </li>
-              <li><a href="Options.html">Options</a>
-              </li>
+            </ul>
+            <h2>Other</h2>
+            <ul>
+              <li><a href="https://github.com/assemble/assemble-less">assemble-less</a>: Grunt task for compiling LESS to CSS.</li>
+            </ul>
+            <h2>Related Info</h2>
+            <ul>
               <li><a href="Methods.html">Methods</a>
               </li>
+              <li><a href="Contributing.html">Contributing</a>
+              </li>
+              <li><a href="External-Libraries.html">External Libs</a>
+              </li>
             </ul>
-            <h4><a href="Built-in-Variables.html">Next →</a>
-            </h4>
           </div>
         </div>
       </div>

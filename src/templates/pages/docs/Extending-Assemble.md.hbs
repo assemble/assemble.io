@@ -1,7 +1,8 @@
 ---
-published: false
+title: Extending Assemble
 section: development
 ---
+{{#draft}}
 ## Extensions
 
 * Generator (content, posts)
@@ -12,26 +13,47 @@ section: development
 * Helpers
 * Preprocessors
 * Other
+{{/draft}}
 
 
-### Converters
+> Companion projects that extend or make it easier to work with Assemble. Some of these are from Assemble's core team, others from the community. "Thank you!" to all the creators of these projects! We really appreciate your support!
 
-If you are familiar with how the [markdown][https://github.com/assemble/assemble/wiki/Markdown] [helpers][https://github.com/assemble/assemble/wiki/Helpers] were implemented in assemble (`\{{#md}}` and `\{{#markdown}}`), then you are familiar with "converters". If you use a languages that has not been implemented in Assemble such as textile you can implement a converter for that language. 
 
-### Engines
+## Generators
 
-TODO...
+### Yeoman
 
-### Helpers
+* [generator-assemble](https://github.com/hariadi/generator-assemble): Yeoman generator for Assemble. Authored by [@hariadi](https://github.com/hariadi).
 
-TODO...
+### Grunt Init
 
-### Preprocessors
+* [grunt-init-assemble](https://github.com/assemble/grunt-init-assemble) Grunt init template for creating Assemble projects.
 
-TODO...
+
+## Assemble Boilerplates
+
+* [hariadi/assemble-jekyll](https://github.com/hariadi/assemble-jekyll): Yeoman generator for Assemble that generate layouts, pages, partials, and markdown content for Jekyll static site. Authored by [@hariadi](https://github.com/hariadi).
+* [Sitemap boilerplate](https://github.com/assemble/assemble-boilerplate-sitemap): Generate a sitemap with Assemble.
+* [Basic site boilerplate](https://github.com/assemble/assemble-boilerplate-basic): Demonstrates how to use Assemble to build a site. Includes layouts, pages, partials, and markdown content.
+* [Markdown boilerplate](https://github.com/assemble/assemble-boilerplate-markdown): Use Assemble to generate HTML pages from markdown content. Useful for wikis, gh-pages, documentation and blogs or sites with markdown posts
+* [Readme boilerplate](https://github.com/assemble/assemble-boilerplate-readme): Use Assemble to generate a README, wiki pages, or other basic markdown documentation. This project features special helpers for maintaining readmes.
+
+
+## Helpers
+
+* [handlebars-helpers](https://github.com/assemble/handlebars-helpers): Library of 110+ handlebars helpers. This project is active and supported, we love contributors and appreciate watchers.
+* [handlebars-helpers-examples](https://github.com/assemble/handlebars-helpers-examples): Dozens (maybe more than 100?) examples for using helpers with Assemble.
+
+
+
+## Sublime Text
+
+* [sublime-markdown-extended](https://github.com/jonschlinkert/sublime-markdown-extended): Sublime Text package that extends Soda's Monokai and the default markdown styles with additional syntax highlighting for [YAML Front Matter](http://assemble.io/docs/YAML-front-matter.html), GitHub Flavored Markdown (GFM) and language-specific syntax highlighting inside [GFM "fenced" code blocks](https://help.github.com/articles/github-flavored-markdown#syntax-highlighting)
 
 
 ## Other
+
+* [assemble-less](https://github.com/assemble/assemble-less): Grunt task for compiling LESS to CSS.
 
 
 ## Related Info
