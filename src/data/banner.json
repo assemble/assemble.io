@@ -6,7 +6,7 @@
       "title": "<strong>Design. Templates. Data.</strong>",
       "subtitle": "See how Assemble bridges the gap between design and development.",
       "ideas": "<strong>Built with Assemble</strong> It has never been easier to build static sites.",
-      "link": "site/docs/Home.html",
+      "link": "docs/Home.html",
       "button": {
         "modifier": "button-white"
       }
