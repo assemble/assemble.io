@@ -1,3 +1,0 @@
-roadmap:
-  eta:
-    - subgrunt to run grunt-release task for bumping versions, and grunt-exec to automatcially publish to npm when bumped.

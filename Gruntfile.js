@@ -272,7 +272,8 @@ module.exports = function(grunt) {
     'assemble:links',
     'assemble:pages',
     'assemble:docs',
-    'prettify'
+    'prettify',
+    'copy'
   ]);
 
   // Convenience aliases.
