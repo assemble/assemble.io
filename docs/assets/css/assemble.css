@@ -4207,7 +4207,7 @@ a.list-group-item.active > .badge,
   font-size: 140px;
 }
 .jumbotron .lead {
-  color: #acb3b5;
+  color: #666666;
   font-size: 18px;
   line-height: 1.5em;
   margin: 20px 0 30px;
@@ -4271,7 +4271,7 @@ a.list-group-item.active > .badge,
   color: #999;
 }
 .subhead .text-muted {
-  color: #acb3b5;
+  color: #666666;
   font-weight: 300;
 }
 .subhead-large {
