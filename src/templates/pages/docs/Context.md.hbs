@@ -13,7 +13,7 @@ In Handlebars, every template has a context. Blocks such as \{{#if}} create "inl
 
 Some helpers, like \{{#if}}, preserve the current context, while others such as \{{#each}} and \{{#with}} _change the context_ in different ways. _Helpers can even change the context to something totally new if they want_:
 
-```
+```js
 options.fn({ 
   published: true 
 })
@@ -31,7 +31,7 @@ The context object is just a [JSON data][JSON] object that when passed to the co
 
 Given we have a data file `alert.json` that contains the following properties:
 
-``` json
+```json
 {
   "title": "Heads up!"
 }
@@ -39,12 +39,12 @@ Given we have a data file `alert.json` that contains the following properties:
 
 In our template `alert.hbs`, we will now look up the properites of `alert.json` by using the name of the file, `alert`, as the current context. So to retrieve the `title` property, we would do this:
 
-``` handlebars
+```handlebars
 <h1>\{{alert.title}}</h1>
 ```
 Which renders to:
 
-``` html
+```html
 <h1>Heads up!</h1>
 ```
 
@@ -56,7 +56,7 @@ In Assemble, the root of the context is where the data object starts. Everything
 
 In `layout.hbs` we will use `\{{title}}` to lookup the `title` property on each page that is passed into the layout.  
 
-``` handlebars
+```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -106,7 +106,7 @@ So, given we have `myData.json` with:
 ```
 Out template, `myTemplate.hbs`, would have:
 
-```handlebars
+```html
 \{{myData.title}}
 ```
 {{#draft}}
@@ -120,24 +120,25 @@ You can use the `this` expression in any context to refer to the current context
 
 For example (from http://handlebarsjs.com/), inside the `\{{#each}}` block, you can use `this` to reference the element being iterated over.
 
-``` handlebars
+```html
 <ul class="people-list">
-  {{#each people}}
-  <li>{{this}}</li>
-  {{/each}}
+  \{{#each people}}
+  <li>\{{this}}</li>
+  \{{/each}}
 </ul>
 ```
 when used with this context, `people.json`:
 
-``` json
+```json
 [
   "Jon Schlinkert",
   "Brian Woodward"
 ]
 ```
+
 will result in:
 
-``` html
+```html
 <ul class="people-list">
   <li>Jon Schlinkert</li>
   <li>Brian Woodward</li>

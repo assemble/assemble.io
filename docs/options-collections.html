@@ -198,7 +198,7 @@
               <li>
                 <em>Any files specified in the <code>src</code> of a given target</em>will be the collection items associated with the &quot;pages&quot; object for that target.</li>
               <li>Although a &quot;page&quot; is a collection item, there is currently no concept of &quot;pages with related pages&quot;. In other words
-                <em>there is no object which contains a collection of pages associated with a given page</em>. So</li>
+                <em>there is no object which contains a collection of pages associated with a given page</em>.</li>
             </ul>
             <h3>Collection items</h3>
             <p>You may then add items to collections in the YAML front matter of any files that should include those collections:</p>
@@ -232,12 +232,12 @@ default: <code>null</code>
             <p>And then in the YAML front matter of a page:</p>
 <pre><code class="lang-yaml">---
 archives:
-  - 2013
-  - May
-  - 12
+- 2013
+- May
+- 12
 ---</code></pre>
 
-            <p>There are no restrictions on the number of collections creatd, you may specify as many custom collections as you require.</p>
+            <p>There are no restrictions on the number of collections created, you may specify as many custom collections as you require.</p>
             <h3>Automatic inflection</h3>
             <p>Currently, for the sake of ease of use, the collection method uses the <a href="https://github.com/dreamerslab/node.inflection">inflection</a> library to convert a collection&#39;s item key into the correct syntax:</p>
             <ul>
