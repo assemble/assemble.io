@@ -22,12 +22,11 @@ Layouts are optional, but the `\{{> body }}` tag is required for content to be p
     <title>\{{title}}</title>
   </head>
   <body>
-    <!-- the body tag is used to "pull in" content from pages -->
+    <!-- the body "pulls in" content from pages -->
     \{{> body }}
   </body>
 </html>
 ```
-
 
 ## Granular control
 
@@ -42,7 +41,7 @@ Layouts are optional, but the `\{{> body }}` tag is required for content to be p
 
 Since you can create as many [targets][] as you require, defining layouts in the Gruntfile is a great way of quickly setting up your layout "defaults". In the `assemble` task in your Gruntfile.js, you can define a layout at the task-level, and/or a different layout for each build target:
 
-``` javscript
+```javascript
 assemble: {
   options: {
     layout: 'layouts/default.hbs'
@@ -77,7 +76,7 @@ If you require a higher level of granularity than defining layouts in the Gruntf
 
 To do so, just add the layout to the [YFM][yaml-front-matter] of the page like this:
 
-``` yaml
+```yaml
 ---
 layout: path/to/layout.hbs
 ---
@@ -93,8 +92,7 @@ layout: path/to/layout.hbs
 Your imagination is the only limit to what can be done with layouts, so these are just examples.
 
 
-### Basic layout
-This is something you might use to wrap basic pages for a demo, documentation, etc.
+### Advanced layout
 
 ```html
 <!DOCTYPE html>
@@ -103,66 +101,25 @@ This is something you might use to wrap basic pages for a demo, documentation, e
     <title>\{{title}}</title>
   </head>
   <body>
-    <header class="page-header">
-      <h1>\{{title}} </h1>
-      <p class="lead">\{{description}}</p>
-    </header>
-    <!-- the body tag is required to pull in content from pages -->
-    \{{> body }}
-  </body>
-</html>
-```
-
-### Advanced layout
-
-``` html
-<!DOCTYPE html>
-  <html>
-  <head>
-    <title>\{{page.title}} &middot; \{{ site.title }}</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    \{{> head-extras }}
-    <script src="jquery.js"></script>
-    <script src="site.js"></script>
-  </head>
-  <body class="\{{ page.modifier }}" id="\{{ page.id }}">
 
     <!-- HEADER -->
-    <header id="header">
-
-      <!-- SITE TITLE OR LOGO -->
-      \{{#section main-header}}
-      <h1 data-content-field="site-title">
-        <a href="/">
-          \{{#if site.logo}}
-          <img src="\{{ assets }}/img/\{{ site.logo }}" alt="\{{ site.title }}">
-          \{{else}}
-          \{{ site.title }}
-          \{{/if}}
-        </a>
-      </h1>
-      \{{/section}}
-
-      <!-- SITE TAGLINE -->
-      \{{#section tagline}}
-      <p>\{{.}}</p>
-      \{{/section}}
-
-      <!-- MAIN NAVIGATION -->
-      \{{> main-navigation }}
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1><span class="text-muted">Docs /&nbsp;</span> \{{#if section}}\{{ section }} \{{else}}\{{basename}}\{{/if}}</h1>
+          </div>
+        </div>
+      </div>
     </header>
 
     <!-- CONTENT -->
-    <section id="content">
+    <div class="container">
       \{{> body }}
-    </section>
+    </div>
 
     <!-- FOOTER -->
-    <footer id="footer">
-      \{{> footer }}
-    </footer>
-
+    \{{> footer }}
   </body>
 </html>
 ```
@@ -175,8 +132,10 @@ Layouts don't have to be HTML, they can be whatever language you want them to be
 
 In this example, instead of adding adding the traditional head and footer we'll add some link references to make sure the same ones are used on every generated page. This makes it easier to maintain links and it also cuts down on potential for broken links:
 
-``` markdown
+```markdown
 \{{> body }}
+
+* * *
 
 _This page was generated using Grunt and [assemble][repo] on \{{ today }}._
 
@@ -188,12 +147,14 @@ _This page was generated using Grunt and [assemble][repo] on \{{ today }}._
 
 #### README Layout
 
-``` markdown
+```markdown
 # \{{pkg.name}} \{{travis-badge}}
 
 > \{{pkg.description}}
 
 \{{> body }}
+
+* * *
 
 _This readme was generated using Grunt and [assemble][repo] on \{{ today }}._
 
@@ -227,21 +188,21 @@ Layouts can also be defined on a page-by-page basis using `.json` or `.yml` data
 
 Or you can optionally add the layout to external configuration files for each page, using 
 
-``` json
+```json
 {
   "layout": ""
 }
 ```
 or a `[page-name].yml`
 
-``` yaml
+```yaml
 ---
 page:
   layout
 ---
 ```
 
-``` json
+```json
 {
   "layout": {
     "header" : "header-template",
@@ -256,7 +217,7 @@ page:
 
 `config.json` or something
 
-``` json
+```json
 {
   "layout": ""
 }
@@ -339,33 +300,37 @@ Then create the two different sections for the middle content section:
 
 Set up the multiple layouts in a configuration file (such as `pages.json`):
 
-``` json
+```json
 // ignore this!!! I'm experimenting with ideas so it's inconsistent...
-{
-  "home" : {
-    "name" : "Sidebar",
-    "template": "index.hbs",
-    "layout" : "default.hbs",
-    "sections" : [ "header", "sidebar", "footer" ]
+[
+  {
+    "home" : {
+      "name" : "Sidebar",
+      "template": "index.hbs",
+      "layout" : "default.hbs",
+      "sections" : [ "header", "sidebar", "footer" ]
+    },
+    "homepage" : {
+      "name" : "Full Width",
+      "sections" : [ "header", "full-width", "footer" ]
+    }
   },
-  "homepage" : {
-    "name" : "Full Width",
-    "sections" : [ "header", "full-width", "footer" ]
+  {
+    "layouts" : {
+      "default" : {
+        "name" : "Sidebar",
+        "sections" : [ "header", "sidebar", "footer" ]
+      },
+      "homepage" : {
+        "name" : "Full Width",
+        "sections" : [ "header", "full-width", "footer" ]
+      }
+    }
   }
-}
-"layouts" : {
-  "default" : {
-    "name" : "Sidebar",
-    "sections" : [ "header", "sidebar", "footer" ]
-  },
-  "homepage" : {
-    "name" : "Full Width",
-    "sections" : [ "header", "full-width", "footer" ]
-  }
-},
-``` json
+]
+```json
 
-``` json
+```json
 {
   "config": {
     "defaults": {
