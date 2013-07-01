@@ -47,7 +47,7 @@
             <ul class="nav nav-pills nav-stacked">
               {{#each pages}}
                 {{#is data.section "toc"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
                 {{/is}}
               {{/each}}
             </ul>
@@ -58,7 +58,7 @@
             <ul class="nav nav-pills nav-stacked">
               {{#each pages}}
                 {{#is data.section "getting started"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
                 {{/is}}
               {{/each}}
             </ul>
@@ -69,7 +69,7 @@
             <ul class="nav nav-pills nav-stacked">
               {{#each pages}}
                 {{#is data.section "development"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
                 {{/is}}
               {{/each}}
             </ul>
@@ -80,7 +80,7 @@
             <ul class="nav nav-pills nav-stacked">
               {{#each pages}}
                 {{#is data.section "configuration"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
                 {{/is}}
               {{/each}}
             </ul>
@@ -91,7 +91,7 @@
             <ul class="nav nav-pills nav-stacked">
               {{#each pages}}
                 {{#is data.section "data"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
                 {{/is}}
               {{/each}}
             </ul>
@@ -102,7 +102,7 @@
             <ul class="nav nav-pills nav-stacked">
               {{#each pages}}
                 {{#is data.section "templates"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
                 {{/is}}
               {{/each}}
             </ul>
@@ -113,7 +113,7 @@
             <ul class="nav nav-pills nav-stacked">
               {{#each pages}}
                 {{#is data.section "content"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
                 {{/is}}
               {{/each}}
             </ul>

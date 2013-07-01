@@ -79,22 +79,18 @@ module.exports = function(grunt) {
 
           // Utility classes
           '<%= bootstrap.component.utilities %>',
+          'src/less/components/gist-overrides.less',
           '<%= ghpages.overrides %>'
         ],
         dest: 'docs/assets/css/assemble.css'
       },
       components: {
-        options: {
-          concat: false,
-          paths: ['src/less', 'src/less/components', 'vendor/bootstrap/less'],
-          imports: {
-            less: '<%= ghpages.globals %>'
-          }
-        },
+        options: {concat: false },
         src:  [
-          '<%= bootstrap.bundle.all %>',
-          '<%= ghpages.bundle.all %>',
-          '!**/docs.css'
+        'src/less/components/gist-overrides.less'
+          // '<%= bootstrap.bundle.all %>',
+          // '<%= ghpages.bundle.all %>',
+          // '!**/docs.css'
         ],
         dest: 'docs/assets/css/components/'
       }
