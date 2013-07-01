@@ -46,7 +46,6 @@ Additionally, any collection item from the `collections` object can list the [pa
 }
 ```
 
-
 ## Custom collections
 
 ### options.collections
@@ -105,7 +104,7 @@ categories:
 
 **List all tags**
 
-``` html
+```handlebars
 <ul>
   \{{#tags}}
   <li><a href="/tag/\{{tag}}.html">\{{tag}}</a></li>
@@ -115,7 +114,7 @@ categories:
 
 **List all categories**
 
-``` html
+```handlebars
 <ul>
   \{{#categories}}
   <li><a href="/category/\{{category}}.html">\{{category}}</a></li>
@@ -125,7 +124,7 @@ categories:
 
 **List tags on current page**
 
-``` html
+```handlebars
 <ul>
   \{{#page.tags}}
   <li>\{{.}}</li>
@@ -135,7 +134,7 @@ categories:
 
 **List categories on current page**
 
-``` html
+```handlebars
 <ul>
   \{{#page.categories}}
   <li>\{{.}}</li>
@@ -147,10 +146,22 @@ categories:
 
 
 {{#draft}}
+
+Given we have a `tag` named `updates`: 
+
+```handlebars
+\{{#tags.updates.pages}}
+  \{{this.data.title}}
+\{{/tags.updates.pages}}
+```
+
+
 ### Collections options
 
 The following collections options are under consideration and have not been implemented:
 
+* `content`: returns the content of the given page in the collection.
+* `excerpt`: returns an excerpt of the content of the given page in the collection.
 * `include` / `exclude`
 * `next`
 * `previous`

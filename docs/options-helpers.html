@@ -150,6 +150,8 @@
               </li>
               <li><a href="Partials.html">Partials</a>
               </li>
+              <li><a href="Templates.html">Templates Overview</a>
+              </li>
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
@@ -181,6 +183,7 @@
   }
 }</code></pre>
 
+            <h4>Also see <a href="Custom-Helpers.html">Custom Helpers</a> and <a href="https://github.com/assemble/grunt-init-assemble-helper">grunt-init-assemble-helper</a> →</h4>
             <h3>Registering custom helpers</h3>
             <p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function passing in the engine, otherwise each method is registered as a helper. For example, the following will result in 2 helpers being registered:</p>
 <pre><code class="lang-js">module.exports.foo = function(msg) { return msg; };
