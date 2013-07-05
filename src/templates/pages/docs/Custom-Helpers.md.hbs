@@ -8,55 +8,41 @@ Since custom helpers and [Lo-Dash mixins][external-libraries] are so easy to use
 ### Also see [Helpers][helpers] →
 
 ## Quickstart using [grunt-init](https://github.com/gruntjs/grunt-init)
-If you are not familiar with **grunt-init**, then jump down to the [detailed instructions](#detailed-instructions) on this page, and visit the [grunt-init](https://github.com/gruntjs/grunt-init) project for more information.
-
-However, if you have [grunt-init](https://github.com/gruntjs/grunt-init) and are familiar with using it, follow these simple instructions to create a new [helper][helpers] for Assemble: 
-
-### 1. Install [grunt-init-assemble-helper](https://github.com/assemble/grunt-init-assemble-helper)
-
-``` bash
-git clone git@github.com:assemble/grunt-init-assemble-helper.git ~/.grunt-init/assemble
-```
-
-### 2. Install dependencies
-
-Then, in empty directory run:
-
-* `grunt-init assemble` and then
-* `npm i` to install the necessary dependencies
-
-### 3. Test
-
-Run `grunt assemble` to test that everything is working.
 
 
-<a name="detailed-instructions"></a>
-## Detailed instructions
-
-### Installation
+### 1. Install grunt-init
 If you haven't already done so, install [Grunt][grunt] and [grunt-init][]: 
 
 ``` bash
 npm i -g grunt-cli grunt-init
 ```
-
-Once grunt-init is installed, place this template in your `~/.grunt-init/` directory. It's recommended that you use `git clone` to install this template into that directory as follows:
-
-``` bash
-git clone git@github.com:assemble/assemble-init.git ~/.grunt-init/assemble
-```
-
 _(Windows users, see [the documentation][grunt-init] for the correct destination directory path)_
 
-To force `grunt-init` to use custom default values, move the `defaults.json` file to your `~/.grunt-init/` directory, and customize the values in that file.
+Once grunt-init is installed, place the template in your `~/.grunt-init/` directory. It's recommended that you use `git clone` to install this template into that directory as follows:
+
+
+### 2. Install [grunt-init-helper](https://github.com/assemble/grunt-init-helper)
+
+``` bash
+git clone https://github.com/assemble/grunt-init-helper.git ~/.grunt-init/helper
+```
+
+### 3. Install dependencies
+
+Then, in the directory where your custom helpers will be stored, run `grunt-init helper` and follow the prompts to generate a new helper with placeholder code that should be customized.
+
+
+**Note** that you may also force `grunt-init` to use custom default values, move the `defaults.json` file to your `~/.grunt-init/` directory, and customize the values in that file.
 
 
 ## Conventions and Recommendations
-If you create a new repo for a single helper, it's recommended that you save the helper to the root of the project to make it easy for others to consume via package managers, as with `bower install`, or methods other than `require`.
+If you are creating a helper for distribution, then you might consider using [grunt-init-assemble](https://github.com/assemble/grunt-init-assemble) first to create a new Assemble project, then use [grunt-init-helper](https://github.com/assemble/grunt-init-helper) to generate the new helper. 
+
+We recommend that you save the helper to the root of the project to make it easy for others to consume via package managers, such as [Bower](https://github.com/bower/bower).
 
 ### Naming Conventions
-* **project name**: use the following pattern: "assemble-helpers-[custom helper name]"
-* **helper name**: preferably name the helper something like "helper-[helper-name].js". All "official" helpers have been created following the pattern "helper-*.js" so that they can easily be consumed by Assemble via simple minimatch patterns. This doesn't prevent them from being used elsewhere either. 
+* **project name**: It is recommended that you use the following pattern: "`assemble-helper-[custom helper name]`" (with `helper` being singular or plural).
+* **helper name**: Name the helper itself something like "`helper-[helper-name].js`". All "official" helpers have been created following the pattern "helper-*.js" so that they can easily be consumed by `assemble.options.helpers` via simple minimatch patterns. This doesn't prevent them from being used elsewhere either. 
 
 ### "Generalizing" code
 Oftentimes, beyond being used as a Handlebars helper, the code for many helpers can easily be generalized so that they can also be used as Lo-Dash mixins, filters for other template engines etc. It's worth doing this whenever you can to make the helper more useful to others. Also:
@@ -65,7 +51,6 @@ Oftentimes, beyond being used as a Handlebars helper, the code for many helpers 
 * Register the helper with [Bower](https://github.com/bower/bower) and add a [bower.json](https://github.com/bower/bower#defining-a-package) for easy downloading and consumption of the helper.
 * Add a test folder with any tests
 * If you want to demonstrate the helper, add those to the test folder as well 
-
 
 
 ## Related info
@@ -78,3 +63,4 @@ Oftentimes, beyond being used as a Handlebars helper, the code for many helpers 
 
 [handlebars-helpers]: http://github.com/assemble/handlebars-helpers "Extensive collection of Handlebars helpers"
 
+[grunt-init]: http:/gruntjs.com

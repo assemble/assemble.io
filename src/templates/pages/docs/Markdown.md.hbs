@@ -59,7 +59,7 @@ content: ../path/to/content.md
 
 The `\{{#markdown}}...\{{/markdown}}` block expression is used to "wrap" markdown content that is written "inline" directly inside HTML documents:
 
-``` html
+``` markdown
 <h1> My Site </h1>
 
 \{{#markdown}}
@@ -89,7 +89,7 @@ Embed handlebars templates to make them even prettier.
 
 In a layout, can also wrap the `\{{> body }}` tag with the `\{{#markdown}}...\{{/markdown}}` block helper to convert any HTML pages that use that layout to markdown:
 
-``` html
+``` handlebars
 \{{#markdown}}
   \{{> body }}
 \{{/markdown}}

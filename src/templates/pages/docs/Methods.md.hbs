@@ -61,7 +61,9 @@ Admittedly, the `engine.engine` syntax is strange. This is "alpha", so feedback 
 
 #### Register Helpers
 
-Call `registerFunctions` by passing in an engine. This is used if you need to register custom **helpers or "filters", etc.** beyond the helpers included in [handlebars-helpers](http://github.com/assemble/handlebars-helpers):
+If you require helpers custom helpers beyond those included in [handlebars-helpers](http://github.com/assemble/handlebars-helpers), [they can be loaded][options-helpers] with the current engine via `options: { helpers: []}` in the assemble task or target. 
+
+You may also call `registerFunctions` by passing in an engine. This is used if you need to register custom **helpers** (filters, etc.):
 
 ```javascript
 registerFunctions(assemble.engine);
@@ -111,6 +113,8 @@ assemble: {
   }
 }
 ```
+
+Also see: [options.partials][options-partials]
 
 [consolidate]: https://github.com/visionmedia/consolidate.js/
 

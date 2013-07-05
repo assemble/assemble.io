@@ -195,7 +195,7 @@ content: ../path/to/content.md
 
             <h3>Markdown block expression</h3>
             <p>The <code>{{#markdown}}...{{/markdown}}</code> block expression is used to &quot;wrap&quot; markdown content that is written &quot;inline&quot; directly inside HTML documents:</p>
-<pre><code class="lang-html">&lt;h1&gt; My Site &lt;/h1&gt;
+<pre><code class="lang-markdown">&lt;h1&gt; My Site &lt;/h1&gt;
 
 {{#markdown}}
 ## Inline Markdown is awesome
@@ -222,7 +222,7 @@ Embed handlebars templates to make them even prettier.
 {{/markdown}}</code></pre>
 
             <p>In a layout, can also wrap the <code>{{&gt; body }}</code> tag with the <code>{{#markdown}}...{{/markdown}}</code> block helper to convert any HTML pages that use that layout to markdown:</p>
-<pre><code class="lang-html">{{#markdown}}
+<pre><code class="lang-handlebars">{{#markdown}}
   {{&gt; body }}
 {{/markdown}}</code></pre>
 
