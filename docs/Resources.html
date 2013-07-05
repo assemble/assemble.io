@@ -3,7 +3,7 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>About | Assemble</title>
+    <title>Resources | Assemble</title>
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -86,13 +86,13 @@
             </ul>
             <span class="nav-section-title">Getting Started</span>
             <ul class="nav nav-pills nav-stacked">
-              <li class="active"><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
+              <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
               <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
               </li>
-              <li><a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a>
+              <li class="active"><a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
@@ -162,24 +162,50 @@
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
-            <h1>About</h1>
+            <h1>Resources</h1>
             <blockquote>
-              <p>Assemble was created by <a href="https://github.com/jonschlinkert">@jonschlinkert</a> and <a href="https://github.com/doowb">@doowb</a> to get designers and developers on the same page.</p>
+              <p>Companion projects that extend or make it easier to work with Assemble. Some of these are from Assemble&#39;s core team, others from the community. &quot;Thank you!&quot; to all the creators of these projects! We really appreciate your support!</p>
             </blockquote>
-            <h2>What you won&#39;t find in Assemble</h2>
-            <h3>_config.yml</h3>
-            <p>A requirement to use <code>_config.yml</code>, or <code>config.json</code>, or <code>config</code> anything. Instead, Assemble provides <a href="options-data.html">options.data</a> which enables you to use your own conventions for configuration. You can name your files however you want, or put them in whatever directory you want. It&#39;s up to you.</p>
-            <h3>Special required _folders</h3>
-            <p>You won&#39;t find a requirement for directories like <code>_layouts</code>, <code>_posts</code> or <code>_anything-else</code>. Assemble is Grunt.js plugin, so you have as much flexibility as you would with any other Grunt.js plugin. Your project structure is whatever you want it to be. You can put your <a href="Layouts.html">layouts</a>, <a href="Pages.html">pages</a>, posts, <a href="options-partials.html">partials</a> or any other files wherever you want them to be. You can use an <code>includes</code> directory instead of <code>partials</code>. In fact, you could add hundreds of [targets][Gruntfile] in the assemble task in your Gruntfile, and use a different convention for each one if you had a reason.</p>
-            <h3>&quot;Blog awareness&quot;</h3>
-            <p>Which really means &quot;if you put your posts in a specific folder, and you name it exactly as required, then the parser will find your posts and render them into a blog&quot;. But Assemble isn&#39;t worried about what you put where, or where you go and how late you&#39;ll be out. You&#39;re a semi-responsible very bearded adult, you should be able to make your own decisions. Bottom line: Assemble is &quot;beard aware&quot;. Wait... Assemble helps you make choices about your beard. Nevermind hopefully you get the point... right?</p>
-            <h2>Learn more</h2>
+            <h2>Generators</h2>
+            <h3>Yeoman</h3>
             <ul>
-              <li><a href="Options.html">Options</a>
+              <li><a href="https://github.com/hariadi/generator-assemble">generator-assemble</a>: Yeoman generator for Assemble. Authored by <a href="https://github.com/hariadi">@hariadi</a>.</li>
+            </ul>
+            <h3>Grunt Init</h3>
+            <ul>
+              <li><a href="https://github.com/assemble/grunt-init-assemble">grunt-init-assemble</a> Grunt init template for creating Assemble projects.</li>
+              <li><a href="https://github.com/assemble/grunt-init-helper">grunt-init-helper</a> Grunt init template for creating <a href="Helpers.html">Handlebars helpers</a> for use with Assemble.</li>
+            </ul>
+            <h2>Assemble Boilerplates</h2>
+            <ul>
+              <li><a href="https://github.com/hariadi/assemble-jekyll">hariadi/assemble-jekyll</a>: Yeoman generator for Assemble that generate layouts, pages, partials, and markdown content for Jekyll static site.</li>
+              <li><a href="https://github.com/assemble/boilerplate-gist-blog">assemble/boilerplate-gist-blog</a>: Assemble a blog from GitHub Gists.</li>
+              <li><a href="https://github.com/assemble/assemble-boilerplate-sitemap">assemble/assemble-boilerplate-sitemap</a>: Generate a sitemap with Assemble.</li>
+              <li><a href="https://github.com/assemble/assemble-boilerplate-basic">assemble/assemble-boilerplate-basic</a>: Demonstrates how to use Assemble to build a site. Includes layouts, pages, partials, and markdown content.</li>
+              <li><a href="https://github.com/assemble/assemble-boilerplate-markdown">assemble/assemble-boilerplate-markdown</a>: Use Assemble to generate HTML pages from markdown content. Useful for wikis, gh-pages, documentation and blogs or sites with markdown posts</li>
+              <li><a href="https://github.com/assemble/assemble-boilerplate-readme">assemble/assemble-boilerplate-readme</a>: Use Assemble to generate a README, wiki pages, or other basic markdown documentation. This project features special helpers for maintaining readmes.</li>
+            </ul>
+            <h2>Helpers</h2>
+            <ul>
+              <li><a href="https://github.com/assemble/handlebars-helpers">handlebars-helpers</a>: Library of 110+ handlebars helpers. This project is active and supported, we love contributors and appreciate watchers.</li>
+              <li><a href="https://github.com/assemble/handlebars-helpers-examples">handlebars-helpers-examples</a>: Dozens (maybe more than 100?) examples for using helpers with Assemble.</li>
+            </ul>
+            <h2>Sublime Text</h2>
+            <ul>
+              <li><a href="https://github.com/jonschlinkert/sublime-markdown-extended">sublime-markdown-extended</a>: Sublime Text package that extends Soda&#39;s Monokai and the default markdown styles with additional syntax highlighting for <a href="http://assemble.io/docs/YAML-front-matter.html">YAML Front Matter</a>, GitHub Flavored Markdown (GFM) and language-specific syntax highlighting inside <a href="https://help.github.com/articles/github-flavored-markdown#syntax-highlighting">GFM &quot;fenced&quot; code blocks</a>
               </li>
-              <li><a href="Built-in-Variables.html">variables</a>
+            </ul>
+            <h2>Other</h2>
+            <ul>
+              <li><a href="https://github.com/assemble/assemble-less">assemble-less</a>: Grunt task for compiling LESS to CSS.</li>
+            </ul>
+            <h2>Related Info</h2>
+            <ul>
+              <li><a href="Methods.html">Methods</a>
               </li>
-              <li><a href="Templates.html">Templates</a>
+              <li><a href="Contributing.html">Contributing</a>
+              </li>
+              <li><a href="External-Libraries.html">External Libs</a>
               </li>
             </ul>
           </div>
