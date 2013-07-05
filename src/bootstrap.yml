@@ -10,7 +10,7 @@ comments: >
 # Bootstrap Libs
 # =====================================================
 js: <%= vendor.base %>/<%= bootstrap.version %>/js
-less: <%= vendor.base %>/<%= bootstrap.version %>/less
+less: src/less/bootstrap
 
 
 # =====================================================
