@@ -80,7 +80,6 @@ globals:
 - <%= bootstrap.component.print %>
 - <%= bootstrap.docs %>
 
-
 # =====================================================
 # LESS Bundles
 # =====================================================
@@ -98,6 +97,55 @@ bundle:
   - <%= ghpages.component.teaser %>
   - <%= ghpages.component.webfonts %>
   - <%= ghpages.component.wireframe %>
+
+  docs: 
+  # Components: Core CSS
+  - <%= bootstrap.component.scaffolding %>
+  - <%= ghpages.component.scaffolding %>
+  - <%= ghpages.component.type %>
+  - <%= ghpages.component.blockquote %>
+  - <%= ghpages.component.webfonts %>
+  - <%= ghpages.component.fonts %>
+  - <%= bootstrap.component.code %>
+  - <%= ghpages.component.code %>
+  - <%= bootstrap.component.grid %>
+  - <%= ghpages.component.tables %>
+  - <%= ghpages.component.buttons %>
+
+  # Components: common
+  - <%= bootstrap.component.glyphicons %>
+  - <%= bootstrap.component.panels %>
+  - <%= ghpages.component.panels %>
+
+  # Components: Nav
+  - <%= bootstrap.component.navs %>
+  - <%= ghpages.component.nav %>
+  - <%= bootstrap.component.navbar %>
+  - <%= ghpages.component.navbar %>
+
+  # Components: Z-index
+  - <%= ghpages.component.tooltip %>
+
+  # Components: Misc
+  - <%= ghpages.component.alerts %>
+  - <%= ghpages.component.banner %>
+  - <%= ghpages.component.teaser %>
+  - <%= ghpages.component.band %>
+  - <%= bootstrap.component.thumbnails %>
+  - <%= ghpages.component.thumbnails %>
+  - <%= bootstrap.component.labels %>
+  - <%= ghpages.component.labels %>
+  - <%= bootstrap.component.badges %>
+  - <%= ghpages.component.masthead %>
+
+  # Components: Examples
+  - <%= ghpages.component.palette %>
+  - <%= ghpages.component.docs %>
+
+  # Utility classes
+  - <%= bootstrap.component.utilities %>
+  - src/less/components/gist-overrides.less
+  - <%= ghpages.overrides %>
 
   components:
   # Bootstrap components

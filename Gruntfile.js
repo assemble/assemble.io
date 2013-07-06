@@ -23,8 +23,6 @@ module.exports = function(grunt) {
     bootstrap: grunt.file.readYAML('src/bootstrap.yml'),
     ghpages  : grunt.file.readYAML('src/ghpages.yml'),
 
-
-    // Styles
     less: {
       options: {
         paths: ['src/less', 'src/less/components', 'vendor/bootstrap/less'],
@@ -33,135 +31,25 @@ module.exports = function(grunt) {
         }
       },
       main: {
-        src:  [
-          // Components: Core CSS
-          '<%= bootstrap.component.scaffolding %>', 
-          '<%= ghpages.component.scaffolding %>',
-          '<%= ghpages.component.type %>',
-          '<%= ghpages.component.blockquote %>',
-          '<%= ghpages.component.webfonts %>',
-          '<%= ghpages.component.fonts %>',
-          '<%= bootstrap.component.code %>', 
-          '<%= ghpages.component.code %>',
-          '<%= bootstrap.component.grid %>',
-          '<%= ghpages.component.tables %>',
-          '<%= ghpages.component.buttons %>',
-
-          // Components: common
-          '<%= bootstrap.component.glyphicons %>',
-          '<%= bootstrap.component.panels %>', 
-          '<%= ghpages.component.panels %>',
-
-          // Components: Nav
-          '<%= bootstrap.component.navs %>', 
-          '<%= ghpages.component.nav %>',
-          '<%= bootstrap.component.navbar %>', 
-          '<%= ghpages.component.navbar %>',
-
-          // Components: Z-index
-          '<%= ghpages.component.tooltip %>',
-
-          // Components: Misc
-          '<%= ghpages.component.alerts %>',
-          '<%= ghpages.component.banner %>',
-          '<%= ghpages.component.teaser %>',
-          '<%= ghpages.component.band %>',
-          '<%= bootstrap.component.thumbnails %>', 
-          '<%= ghpages.component.thumbnails %>',
-          '<%= bootstrap.component.labels %>', 
-          '<%= ghpages.component.labels %>',
-          '<%= bootstrap.component.badges %>',
-          '<%= ghpages.component.masthead %>',
-
-          // Components: Examples
-          '<%= ghpages.component.palette %>',
-          '<%= ghpages.component.docs %>',
-
-          // Utility classes
-          '<%= bootstrap.component.utilities %>',
-          'src/less/components/gist-overrides.less',
-          '<%= ghpages.overrides %>'
-        ],
+        src:  ['<%= ghpages.bundle.docs %>'],
         dest: 'docs/assets/css/assemble.css'
-      },
-      components: {
-        options: {concat: false },
-        src:  [
-        'src/less/components/gist-overrides.less'
-          // '<%= bootstrap.bundle.all %>',
-          // '<%= ghpages.bundle.all %>',
-          // '!**/docs.css'
-        ],
-        dest: 'docs/assets/css/components/'
-      }
-    },
-
-    github: {
-      options: {},
-      readme: {
-        options: {
-          filters: {
-            'type': 'public'
-          }
-        },
-        src: '/repos/assemble/assemble/readme',
-        dest: 'config/readme.json'
-      },
-      repos: {
-        options: {
-          filters: {
-            'type': 'public'
-          }
-        },
-        src: '/orgs/assemble/repos',
-        dest: 'config/repos.json'
-      },
-      issues: {
-        options: {
-          filters: {
-            'state': 'open'
-          }
-        },
-        src: '/repos/assemble/assemble/issues',
-        dest: 'config/issues.json'
-      },
-      gists: {
-        options: {
-          filters: {
-            'state': 'open'
-          }
-        },
-        src: '/users/jonschlinkert/gists',
-        dest: 'config/gists.json'
-      }
-    },
-
-    shell: {
-      makeDir: {
-        command: 'npm show assemble'
-      }
-    },
-
-    show: {
-      options: {
-        command: 'npm show assemble',
-        dest: 'config/npm.json'
       }
     },
 
     // Templates
     assemble: {
       options: {
-        // lessjs: true,
         flatten: true,
-        assets: 'docs/assets',
+        production: true,
         today: '<%= grunt.template.today() %>',
-        data: ['src/data/*.{json,yml}', 'package.json'],
+        
+        assets: 'docs/assets',
+        data: [
+          'src/data/*.{json,yml}', 
+          'package.json'
+        ],
         helpers: ['src/local-helpers.js','config/*-helpers.js'],
         layoutdir: 'src/templates/layouts',
-        pkg: '<%= pkg %>',
-        meta: '<%= pkg %>',
-        production: true,
         partials: ['src/templates/partials/**/*.{hbs,md}']
       },
       // readme: {
@@ -180,7 +68,6 @@ module.exports = function(grunt) {
       links: {
         options: {
           ext: '.hbs',
-          wiki: false,
           layout: false
         },
         files: [
@@ -189,17 +76,14 @@ module.exports = function(grunt) {
       },
       pages: {
         options: {
-          layout: 'layout-default.hbs'
+          layout: 'layout-landing.hbs'
         },
         files: [
-          { expand: true, cwd: 'src/templates/pages', src: ['*.hbs', '!index.hbs'], dest: './' },
-          { expand: true, cwd: 'src/templates/pages', src: ['index.hbs'], dest: './' }
+          { expand: true, cwd: 'src/templates/pages', src: ['*.hbs'], dest: './' }
         ]
       },
       docs: {
         options: {
-          wiki: false,
-          collections: ['item'],
           layout: 'layout-docs.hbs'
         },
         files: [
