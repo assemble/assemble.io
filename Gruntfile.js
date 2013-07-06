@@ -20,8 +20,8 @@ module.exports = function(grunt) {
 
     // Metadata for templates
     pkg: grunt.file.readJSON('package.json'),
-    bootstrap: grunt.file.readYAML('src/bootstrap.yml'),
-    ghpages  : grunt.file.readYAML('src/ghpages.yml'),
+    bootstrap: grunt.file.readYAML('src/less/bootstrap.yml'),
+    ghpages  : grunt.file.readYAML('src/less/ghpages.yml'),
 
     less: {
       options: {
