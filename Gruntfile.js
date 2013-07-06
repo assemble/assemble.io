@@ -42,14 +42,13 @@ module.exports = function(grunt) {
         flatten: true,
         production: true,
         today: '<%= grunt.template.today() %>',
-        
+        layoutdir: 'src/templates/layouts',
+        helpers: 'src/local-helpers.js',
         assets: 'docs/assets',
         data: [
-          'src/data/*.{json,yml}', 
+          'src/data/*.{json,yml}',
           'package.json'
         ],
-        helpers: ['src/local-helpers.js','config/*-helpers.js'],
-        layoutdir: 'src/templates/layouts',
         partials: ['src/templates/partials/**/*.{hbs,md}']
       },
       // readme: {
@@ -96,31 +95,27 @@ module.exports = function(grunt) {
       options: {
         prettifyrc: '.prettifyrc'
       },
-      demo: {
-        expand: true,
-        cwd: 'docs/',
-        ext: '.html',
-        src: ['**/*.html'],
-        dest: 'docs/'
-      },
-      root: {
-        expand: true,
-        cwd: './',
-        ext: '.html',
-        src: ['*.html'],
-        dest: './'
+      docs: {
+        files: [
+          {expand: true, cwd: 'docs/', ext: '.html', src: ['**/*.html'], dest: 'docs/'},
+          {expand: true, cwd: './',    ext: '.html', src: ['*.html'],    dest: './'}
+        ]
       }
     },
 
     copy: {
       docs: {
         files: [
-          {expand: true, cwd: 'docs', src: ['**'], dest: '../assemble-docs-gh-pages/docs'},
-          {expand: true, cwd: './', src: ['*.html'], dest: '../assemble-docs-gh-pages/'}
+          {expand: true, cwd: 'docs', src: ['**'],     dest: '../assemble-docs-gh-pages/docs'},
+          {expand: true, cwd: './',   src: ['*.html'], dest: '../assemble-docs-gh-pages/'}
         ]
       }
     },
-
+    changelog: {
+      options: {
+        dest: 'CHANGELOG.md'
+      }
+    },
     // Before generating any new files,
     // remove files from previous build.
     clean: {
@@ -128,38 +123,18 @@ module.exports = function(grunt) {
     }
   });
 
-
   // Set the base path for Bootstrap LESS library.
   grunt.config.set('vendor.base', 'vendor');
-  grunt.config.set('docs.content', 'vendor/assemble-wiki');
 
   // Load npm and local plugins.
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
-  grunt.loadNpmTasks('assemble-manifest');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-github-api');
-  grunt.loadNpmTasks('grunt-prettify');
-  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-conventional-changelog');
 
-  // Default tasks to be run.
-  grunt.registerTask('default', [
-    'clean',
-    'less:main',
-    'assemble:links',
-    'assemble:pages',
-    'assemble:docs',
-    'prettify',
-    'copy'
-  ]);
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  // Convenience aliases.
-  grunt.registerTask('repos',   ['github:repos']);
-  grunt.registerTask('readme',  ['assemble:readme']);
-  grunt.registerTask('docs',    ['assemble:docs']);
+  // Default task to be run.
+  grunt.registerTask('default', ['clean', 'less', 'assemble', 'prettify', 'copy']);
 };
 
 

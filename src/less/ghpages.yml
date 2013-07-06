@@ -64,6 +64,7 @@ component:
 
   # Components: Examples
   palette    : <%= ghpages.less %>/components/palette.less
+  markdown   : <%= ghpages.less %>/components/markdown.less
   docs       : <%= ghpages.less %>/components/component-docs.less
 
 # =====================================================
@@ -98,7 +99,7 @@ bundle:
   - <%= ghpages.component.webfonts %>
   - <%= ghpages.component.wireframe %>
 
-  docs: 
+  docs:
   # Components: Core CSS
   - <%= bootstrap.component.scaffolding %>
   - <%= ghpages.component.scaffolding %>
@@ -142,9 +143,9 @@ bundle:
   - <%= ghpages.component.palette %>
   - <%= ghpages.component.docs %>
 
-  # Utility classes
+  # Utility classes and Overrides
+  - <%= ghpages.component.markdown %>
   - <%= bootstrap.component.utilities %>
-  - src/less/components/gist-overrides.less
   - <%= ghpages.overrides %>
 
   components:

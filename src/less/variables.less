@@ -287,8 +287,8 @@
 @state-success-bg:               #dff0d8;
 @state-success-border:           darken(spin(@state-success-bg, -10), 5%);
 
-@state-info-text:                #3a87ad;
-@state-info-bg:                  #d9edf7;
+@state-info-text:                @brand-info;
+@state-info-bg:                  lighten(@brand-info, 35%);
 @state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
 
@@ -326,10 +326,10 @@
 
 // Alerts
 // -------------------------
-@alert-bg:                    @state-warning-bg;
-@alert-text:                  @state-warning-text;
-@alert-border:                @state-warning-border;
-@alert-border-radius:         @border-radius-base;
+@alert-bg:                    #f0f1f1; // @state-warning-bg;
+@alert-text:                  darken(@alert-bg, 25%);;
+@alert-border:                darken(@alert-bg, 15%);
+@alert-border-radius:         0;
 
 @alert-success-bg:            @state-success-bg;
 @alert-success-text:          @state-success-text;
