@@ -64,17 +64,6 @@
             </ul>
 
             <span class="nav-section-title">
-              Development
-            </span>
-            <ul class="nav nav-pills nav-stacked">
-              {{#each pages}}
-                {{#is data.section "development"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
-                {{/is}}
-              {{/each}}
-            </ul>
-
-            <span class="nav-section-title">
               Configuration
             </span>
             <ul class="nav nav-pills nav-stacked">
@@ -118,6 +107,17 @@
               {{/each}}
             </ul>
 
+            <span class="nav-section-title">
+              Development
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "development"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
           </div>
         </div>
 
@@ -128,10 +128,7 @@
             <h1>{{page.title}}</h1>
             {{#markdown}}
               {{> body }}
-              {{! A helper automatically creates this  }}
-              {{! partial with generated links from    }}
-              {{! pages in "src/templates/pages/docs"  }}
-              {{> generated-links.md }}
+              {{> generated-links.md }} {{! A helper automatically creates this partial with generated links from pages in "src/templates/pages/docs". Janky as hell, but it's a temporary. }}
             {{/markdown}}
           </div>
         </div>
