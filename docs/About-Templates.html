@@ -3,7 +3,7 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>options.partials | Assemble</title>
+    <title>Templates Overview | Assemble</title>
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -65,7 +65,7 @@
         <div class="row">
           <div class="col col-lg-12">
             <h1>
-              <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
+              <span class="text-muted">Docs /&nbsp;</span>templates</h1>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@
               </li>
               <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
               </li>
-              <li class="active"><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
+              <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
               </li>
             </ul>
             <span class="nav-section-title">Data</span>
@@ -127,7 +127,7 @@
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
+              <li class="active"><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
               </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
@@ -156,49 +156,22 @@
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
-            <h1>options.partials</h1>
-            <h2>Registering Partials</h2>
-            <p>Assemble automatically registers any partial or array of partials supplied to <code>options.partials</code>, at the task or target level.</p>
-<pre><code class="lang-javascript">assemble {
-  docs: {
-    options: {
-      partials: [&#39;src/templates/partials/**/*.md&#39;]
-    },
-    files: {
-      &#39;docs/&#39;: [&#39;src/templates/pages/*.md&#39;]
-    }
-  }
-}</code></pre>
-
-            <h3>Task-target behavior</h3>
-            <p>Any partials registered at the
-              <em>task</em>level are are also available at the
-              <em>target</em>level.</p>
-            <p><strong>Important!</strong> It is standard in Grunt.js for target-level options to overwrite task-level options. However, assemble merges the list of partials defined at the task-level with the partials defined for each target.</p>
-            <h2>Usage examples</h2>
-            <h3>Ways to apply context to partials</h3>
-            <h4>&quot;Inline&quot;</h4>
-            <p>You can establish context inside the partials:</p>
-<pre><code class="lang-handlebars">{{&gt; module module.panel-primary}}
-{{&gt; module module.panel-info}}
-{{&gt; module module.panel-success}}
-{{&gt; module module.panel-warning}}
-{{&gt; module module.panel-danger}}
-{{&gt; module module.panel-query}}</code></pre>
-
-            <h4>Block expressions</h4>
-            <p>Wrap partials in block expressions and either set the context on the partial:</p>
-<pre><code class="lang-handlebars">{{#module}}
-  {{&gt; module panel-inverse}}
-  {{&gt; module panel-success}}
-  {{&gt; module panel-info}}
-{{/module}}</code></pre>
-
-            <p>Or on the section tags:</p>
-<pre><code class="lang-handlebars">{{#module.panel-base}}
-  {{&gt; module }}
-{{/module.panel-base}}</code></pre>
-
+            <h1>Templates Overview</h1>
+            <blockquote>
+              <p>Using templates with Assemble</p>
+            </blockquote>
+            <ul>
+              <li><a href="Pages.html">Pages</a>
+              </li>
+              <li><a href="Partials.html">Partials</a>
+              </li>
+              <li><a href="Layouts.html">Layouts</a>
+              </li>
+              <li><a href="Helpers.html">Helpers</a>
+              </li>
+            </ul>
+            <h2>Layouts</h2>
+            <p><a href="Layouts.html">layouts</a> make it simple to share common code across multiple pages in a project.</p>
             <hr>
             <div class="alert">
               <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
