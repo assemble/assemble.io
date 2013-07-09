@@ -489,7 +489,16 @@ body {
 .bs-example > .alert:last-child,
 .bs-example > .panel:last-child,
 .bs-example > .list-group:last-child,
-.bs-example > .well:last-child {
+.bs-example > .well:last-child,
+.bs-example > .panel-docs ul + blockquote:last-child,
+.bs-example > .panel-docs br + blockquote:last-child,
+.bs-example > .panel-docs hr + blockquote:last-child,
+.bs-example > .panel-docs pre + p + blockquote:last-child,
+.bs-example > .panel-docs pre + blockquote:last-child,
+.bs-example > h1 > em:last-child,
+.bs-example > h2 > em:last-child,
+.bs-example > h3 > em:last-child,
+.bs-example > h4 > em:last-child {
   margin-bottom: 0;
 }
 .bs-example > .close {
@@ -1034,25 +1043,25 @@ a.text-muted:focus {
   color: #888f8f;
 }
 .text-warning {
-  color: #c09853;
+  color: #ffbb33;
 }
 a.text-warning:hover,
 a.text-warning:focus {
-  color: #a47e3c;
+  color: #ffaa00;
 }
 .text-danger {
-  color: #b94a48;
+  color: #ff4444;
 }
 a.text-danger:hover,
 a.text-danger:focus {
-  color: #953b39;
+  color: #ff1111;
 }
 .text-success {
-  color: #468847;
+  color: #99cc00;
 }
 a.text-success:hover,
 a.text-success:focus {
-  color: #356635;
+  color: #739900;
 }
 .text-left {
   text-align: left;
@@ -3016,36 +3025,36 @@ input[type="button"].btn-block {
   border-color: #33b5e5;
 }
 .panel-success {
-  border-color: #d6e9c6;
+  border-color: #dfffa3;
 }
 .panel-success .panel-heading {
-  color: #468847;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
+  color: #99cc00;
+  background-color: #f2ffcc;
+  border-color: #dfffa3;
 }
 .panel-warning {
-  border-color: #fbeed5;
+  border-color: #ffe5a3;
 }
 .panel-warning .panel-heading {
-  color: #c09853;
-  background-color: #fcf8e3;
-  border-color: #fbeed5;
+  color: #ffbb33;
+  background-color: #fff1d6;
+  border-color: #ffe5a3;
 }
 .panel-danger {
-  border-color: #eed3d7;
+  border-color: #ffb4b4;
 }
 .panel-danger .panel-heading {
-  color: #b94a48;
-  background-color: #f2dede;
-  border-color: #eed3d7;
+  color: #ff4444;
+  background-color: #ffdddd;
+  border-color: #ffb4b4;
 }
 .panel-info {
-  border-color: #bce8f1;
+  border-color: #c4eaf7;
 }
 .panel-info .panel-heading {
-  color: #3a87ad;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: #33b5e5;
+  background-color: #f1fafd;
+  border-color: #c4eaf7;
 }
 .list-group-flush {
   margin: 15px -15px -15px;
@@ -3089,8 +3098,8 @@ input[type="button"].btn-block {
   padding-top: 70px;
   border-radius: 0;
   border: none;
-  -webkit-box-shadow: 0;
-  box-shadow: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .panel-docs:before,
 .panel-docs:after {
@@ -3808,63 +3817,163 @@ input[type="button"].btn-block {
   border-width: 0 5px 5px;
   border-bottom-color: rgba(0, 0, 0, 0.9);
 }
-.alert {
-  padding: 10px 35px 10px 15px;
+.alert,
+.panel-docs ul + blockquote,
+.panel-docs br + blockquote,
+.panel-docs hr + blockquote,
+.panel-docs pre + p + blockquote,
+.panel-docs pre + blockquote,
+h1 > em,
+h2 > em,
+h3 > em,
+h4 > em {
+  padding: 10px 25px;
   margin-bottom: 20px;
-  color: #c09853;
-  background-color: #fcf8e3;
-  border: 1px solid #fbeed5;
-  border-radius: 7px;
+  color: #aeb3b3;
+  background-color: #f0f1f1;
+  border: 1px solid #c8cccc;
+  border-radius: 0;
 }
-.alert h4 {
+.alert h4,
+.panel-docs ul + blockquote h4,
+.panel-docs br + blockquote h4,
+.panel-docs hr + blockquote h4,
+.panel-docs pre + p + blockquote h4,
+.panel-docs pre + blockquote h4,
+h1 > em h4,
+h2 > em h4,
+h3 > em h4,
+h4 > em h4 {
   margin-top: 0;
   color: inherit;
 }
-.alert hr {
-  border-top-color: #f8e5be;
+.alert hr,
+.panel-docs ul + blockquote hr,
+.panel-docs br + blockquote hr,
+.panel-docs hr + blockquote hr,
+.panel-docs pre + p + blockquote hr,
+.panel-docs pre + blockquote hr,
+h1 > em hr,
+h2 > em hr,
+h3 > em hr,
+h4 > em hr {
+  border-top-color: #bbc0c0;
 }
-.alert .alert-link {
-  font-weight: 500;
-  color: #a47e3c;
+.alert p,
+.alert .alert-link,
+.panel-docs ul + blockquote p,
+.panel-docs ul + blockquote .alert-link,
+.panel-docs br + blockquote p,
+.panel-docs br + blockquote .alert-link,
+.panel-docs hr + blockquote p,
+.panel-docs hr + blockquote .alert-link,
+.panel-docs pre + p + blockquote p,
+.panel-docs pre + p + blockquote .alert-link,
+.panel-docs pre + blockquote p,
+.panel-docs pre + blockquote .alert-link,
+h1 > em p,
+h1 > em .alert-link,
+h2 > em p,
+h2 > em .alert-link,
+h3 > em p,
+h3 > em .alert-link,
+h4 > em p,
+h4 > em .alert-link {
+  font: bold normal 14px/3em 'Assemble SSm A', 'Assemble SSm B', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #178ab4;
 }
-.alert .close {
+.alert p,
+.panel-docs ul + blockquote p,
+.panel-docs br + blockquote p,
+.panel-docs hr + blockquote p,
+.panel-docs pre + p + blockquote p,
+.panel-docs pre + blockquote p,
+h1 > em p,
+h2 > em p,
+h3 > em p,
+h4 > em p {
+  color: #000;
+  margin: 0;
+}
+.alert .close,
+.panel-docs ul + blockquote .close,
+.panel-docs br + blockquote .close,
+.panel-docs hr + blockquote .close,
+.panel-docs pre + p + blockquote .close,
+.panel-docs pre + blockquote .close,
+h1 > em .close,
+h2 > em .close,
+h3 > em .close,
+h4 > em .close {
   position: relative;
   top: -2px;
   right: -21px;
   color: inherit;
 }
-.alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
+.alert-success,
+h3 > em {
+  background-color: #f2ffcc;
+  border-color: #dfffa3;
+  color: #99cc00;
 }
-.alert-success hr {
-  border-top-color: #c9e2b3;
+.alert-success hr,
+h3 > em hr {
+  border-top-color: #d6ff8a;
 }
-.alert-success .alert-link {
-  color: #356635;
+.alert-success .alert-link,
+h3 > em .alert-link {
+  color: #739900;
 }
-.alert-danger {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
+.alert-warning,
+.panel-docs pre + p + blockquote,
+.panel-docs pre + blockquote,
+h2 > em {
+  background-color: #fff1d6;
+  border-color: #ffe5a3;
+  color: #ffbb33;
 }
-.alert-danger hr {
-  border-top-color: #e6c1c7;
+.alert-warning hr,
+.panel-docs pre + p + blockquote hr,
+.panel-docs pre + blockquote hr,
+h2 > em hr {
+  border-top-color: #ffde8a;
 }
-.alert-danger .alert-link {
-  color: #953b39;
+.alert-warning .alert-link,
+.panel-docs pre + p + blockquote .alert-link,
+.panel-docs pre + blockquote .alert-link,
+h2 > em .alert-link {
+  color: #ffaa00;
 }
-.alert-info {
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-  color: #3a87ad;
+.alert-danger,
+h1 > em {
+  background-color: #ffdddd;
+  border-color: #ffb4b4;
+  color: #ff4444;
 }
-.alert-info hr {
-  border-top-color: #a6e1ec;
+.alert-danger hr,
+h1 > em hr {
+  border-top-color: #ff9b9b;
 }
-.alert-info .alert-link {
-  color: #2d6987;
+.alert-danger .alert-link,
+h1 > em .alert-link {
+  color: #ff1111;
+}
+.alert-info,
+.panel-docs ul + blockquote,
+h4 > em {
+  background-color: #f1fafd;
+  border-color: #c4eaf7;
+  color: #33b5e5;
+}
+.alert-info hr,
+.panel-docs ul + blockquote hr,
+h4 > em hr {
+  border-top-color: #ade1f5;
+}
+.alert-info .alert-link,
+.panel-docs ul + blockquote .alert-link,
+h4 > em .alert-link {
+  color: #1a9bcb;
 }
 .alert-block {
   padding-top: 15px;
@@ -4365,6 +4474,56 @@ a.list-group-item.active > .badge,
 }
 .swatch:hover .swatch-tooltip {
   display: block;
+}
+.panel-docs ul + blockquote,
+.panel-docs br + blockquote,
+.panel-docs hr + blockquote,
+.panel-docs pre + p + blockquote,
+.panel-docs pre + blockquote {
+  margin: 0;
+  padding: 10px 25px;
+}
+.panel-docs ul + blockquote > p,
+.panel-docs br + blockquote > p,
+.panel-docs hr + blockquote > p,
+.panel-docs pre + p + blockquote > p,
+.panel-docs pre + blockquote > p,
+.panel-docs ul + blockquote > p > a,
+.panel-docs br + blockquote > p > a,
+.panel-docs hr + blockquote > p > a,
+.panel-docs pre + p + blockquote > p > a,
+.panel-docs pre + blockquote > p > a {
+  font: bold normal 14px/2em 'Assemble SSm A', 'Assemble SSm B', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000;
+}
+.panel-docs ul + blockquote > p > a,
+.panel-docs br + blockquote > p > a,
+.panel-docs hr + blockquote > p > a,
+.panel-docs pre + p + blockquote > p > a,
+.panel-docs pre + blockquote > p > a {
+  color: #178ab4;
+}
+h1 > em,
+h2 > em,
+h3 > em,
+h4 > em {
+  display: block;
+  color: #000;
+  font: bold normal 14px/2em 'Assemble SSm A', 'Assemble SSm B', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 10px 25px;
+}
+h1 > em > p > a,
+h2 > em > p > a,
+h3 > em > p > a,
+h4 > em > p > a {
+  color: #178ab4;
+}
+h2 > em {
+  margin-top: -65px;
+}
+h3 > em {
+  margin-top: -35px;
 }
 .banded-section {
   min-height: 250px;

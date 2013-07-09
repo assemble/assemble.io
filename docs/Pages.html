@@ -49,17 +49,11 @@
             <li> <a href="../docs/Home.html">Docs</a>
 
             </li>
-            <!--<li>
-          <a href="../examples.html">Examples</a>
-        </li>-->
+            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
-            <!--<li>
-          <a href="../tutorials.html">Tutorials</a>
-        </li>
-        <li>
-          <a href="../blog.html">Blog</a>
-        </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
             </li>
           </ul>
@@ -270,12 +264,18 @@ published: false
             <p><strong>From the Gruntfile</strong>
             </p>
             <p>Exclude files from being rendered by prefixing source file patterns with <code>!</code>. Visit the Grunt.js doce to <a href="http://gruntjs.com/configuring-tasks#globbing-patterns">learn more about globbing</a> patterns.</p>
-            <p>(from the Grunt.js docs):</p>
-<pre><code class="lang-js">// All files except for bar.js, in alpha order:
+            <h5><a href="http://gruntjs.com/configuring-tasks#globbing-patterns">Quoted from the Grunt.js docs</a> →</h5>
+<pre><code class="lang-javascript">// All files except for bar.js, in alpha order:
 {src: [&#39;foo/*.js&#39;, &#39;!foo/bar.js&#39;], dest: ...}
+
 // All files in alpha order, but with bar.js at the end.
 {src: [&#39;foo/*.js&#39;, &#39;!foo/bar.js&#39;, &#39;foo/bar.js&#39;], dest: ...}</code></pre>
 
+            <hr>
+            <div class="alert">
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

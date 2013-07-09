@@ -49,17 +49,11 @@
             <li> <a href="../docs/Home.html">Docs</a>
 
             </li>
-            <!--<li>
-          <a href="../examples.html">Examples</a>
-        </li>-->
+            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
-            <!--<li>
-          <a href="../tutorials.html">Tutorials</a>
-        </li>
-        <li>
-          <a href="../blog.html">Blog</a>
-        </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
             </li>
           </ul>
@@ -175,7 +169,9 @@
               </li>
               <li><a href="YAML-front-matter.html">YAML Front-Matter</a>, embedded directly inside the page/template itself</li>
             </ul>
-            <p>Visit the <a href="options-data.html">options.data</a> page to learn about supplying data to your templates.</p>
+            <blockquote>
+              <p>Go to <a href="options-data.html">options.data</a> to learn about supplying data to your templates →</p>
+            </blockquote>
             <h2>Usage examples</h2>
             <p>Let&#39;s start by creating a template, which can be any kind of markdown, text, xml or markup/HTML that we want to use. For this example our template is going to be HTML, and since I&#39;m feeling creative let&#39;s call it <code>my-template.hbs</code>.</p>
             <p>Now, focusing only on the <code>head</code> of our HTML document, let&#39;s add template variables for <code>title</code> and <code>author</code> so that we can later replace them with real data:</p>
@@ -264,6 +260,11 @@ author: &lt;%= some.author.variable %&gt;
               <li><a href="Built-in-Variables.html">Variables</a>
               </li>
             </ul>
+            <hr>
+            <div class="alert">
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

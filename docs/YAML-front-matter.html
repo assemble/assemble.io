@@ -49,17 +49,11 @@
             <li> <a href="../docs/Home.html">Docs</a>
 
             </li>
-            <!--<li>
-          <a href="../examples.html">Examples</a>
-        </li>-->
+            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
-            <!--<li>
-          <a href="../tutorials.html">Tutorials</a>
-        </li>
-        <li>
-          <a href="../blog.html">Blog</a>
-        </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
             </li>
           </ul>
@@ -166,22 +160,8 @@
             <blockquote>
               <p>YFM is an <strong>optional</strong> section of valid YAML that is placed at the top of a page and is used for maintaining metadata for the page and its contents.</p>
             </blockquote>
-            <p><strong>Actually</strong>, YFM can be used with both <a href="Pages.html">pages</a> and <a href="Partials.html">partials</a>, so
-              <em>unless otherwise noted</em>you can safely assume that when the documentation YFM of a page, the same applies for YFM of a partial.</p>
-            <h2>Table of Contents</h2>
-            <ul>
-              <li>YFM in &quot;pages&quot; (a &quot;page&quot; is any file specified in the <code>src</code> property of a task or target)</li>
-              <li>YFM in partials</li>
-              <li>Metadata</li>
-              <li>Content</li>
-              <li>Config data</li>
-              <li>Lo-Dash templates in YFM</li>
-            </ul>
-            <p>TOPICS TO COVER
-              <em>structured data for the file and/or its contents</em>supply metadata
-              <em>define configuration settings, options</em>specify variables, built-in or custom * use lo-dash templates to bring the power of JavaScript to your YFM</p>
-            <p>Use cases:
-              <em>collections</em>permalinks * lo-dash templates: time, date, metadata &quot;pipeline&quot;</p>
+            <p>YFM can be used with both <a href="Pages.html">pages</a> and <a href="Partials.html">partials</a>, so
+              <em>unless otherwise noted</em>&nbsp;you can safely assume that when the documentation refers to the <strong><em>YFM of a page</em></strong>, the same also applies to the <strong><em>YFM of a partial</em></strong>.</p>
             <h2>YFM &quot;Variables&quot;</h2>
             <h3>Built-in Variables</h3>
             <ul>
@@ -198,7 +178,7 @@
             <h3>Metadata &quot;conduit&quot;</h3>
             <p>This may not be obvious at first, is that YAML Front-Matter acts as a kind of &quot;conduit&quot; for passing information to pages via Lo-Dash templates.</p>
             <p>So you could do this:</p>
-<pre><code class="lang-js">grunt.initConfig({
+<pre><code class="lang-javascript">grunt.initConfig({
   assemble: {
     component: {
       options: {
@@ -221,7 +201,7 @@
   }
 }</code></pre>
 
-            <p>And the <a href="">YAML Front-Matter</a> of the page, use underscore templates:</p>
+            <p>And in the YFM of the page, use underscore templates:</p>
 <pre><code class="lang-yaml">---
 title: &lt;%= page.index.title %&gt;
 ---
@@ -377,7 +357,7 @@ people:
             <ul>
               <li>YAML front-matter is <strong>optionally</strong> used at the beginning of a page to define metadata for the page&#39;s content.</li>
               <li>In order for YAML front-matter to be processed, it
-                <em>must be the first thing at the top of the page</em>, and</li>
+                <em>must be the first thing at the top of the page</em>&nbsp;, and</li>
               <li>To be valid, it must be &quot;wrapped&quot; with three leading dashes (above) (<code>---</code>) and three dashes following (below) (<code>---</code>).</li>
             </ul>
             <p>Example:</p>
@@ -391,7 +371,7 @@ description: A very simple way to add structured data to a page.
 
 
 &lt;h1&gt; {{ title }} &lt;/h1&gt;
-&lt;p&gt;Page content here... {{ eieio }}&lt;/p&gt;</code></pre>
+&lt;p&gt;Page content here... {{ description }}&lt;/p&gt;</code></pre>
 
             <h2>FAQ</h2>
             <ul>
@@ -414,7 +394,7 @@ description: A very simple way to add structured data to a page.
             <ul>
               <li>YFM is best used for structured data, like configuration settings or metadata for a page, as opposed to long-form content.</li>
               <li>YFM offers an easy way to maintain metadata or rendered data for pages and partials, as an
-                <em>optional</em>alternative to using &quot;external&quot; <code>.json</code> or <code>.yaml</code> data files</li>
+                <em>optional</em>&nbsp; alternative to using &quot;external&quot; <code>.json</code> or <code>.yaml</code> data files</li>
             </ul>
             <h3>Not recommended</h3>
             <ul>
@@ -437,6 +417,11 @@ description: A very simple way to add structured data to a page.
               <li><a href="http://en.wikipedia.org/wiki/YAML">wikipedia page about YAML</a> 
               </li>
             </ul>
+            <hr>
+            <div class="alert">
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
