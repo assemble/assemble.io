@@ -3,8 +3,8 @@ title: External Libraries
 shortname: libs
 section: development
 ---
-> "Thank you!" to the creators and contributors of these amazing libraries. Our projects are easier to maintain because of you! 
-> — Assemble Team 
+> "Thank you!" to the creators and contributors of these amazing libraries. Our projects are easier to maintain because of you!
+> — Assemble Team
 
 
 ## [Grunt.js](http://gruntjs.com)
@@ -13,16 +13,16 @@ section: development
 
 Assemble wouldn't exist without Grunt.js.
 
-The advantage of building Assemble on top of Grunt, is that the Grunt ecosystem is already well established, popular, and includes hundreds if not thousands of plugins to choose from. So if you use Assemble for generating sites, components, or other [Templates][], you can use any other Grunt.js plugin to automate virtually any other part of your build with very little effort. 
+The advantage of building Assemble on top of Grunt, is that the Grunt ecosystem is already well established, popular, and includes hundreds if not thousands of plugins to choose from. So if you use Assemble for generating sites, components, or other [Templates][], you can use any other Grunt.js plugin to automate virtually any other part of your build with very little effort.
 
-Not to mention, if there isn't already a plugin that does what you need, it's really easy to create and publish your own! 
+Not to mention, if there isn't already a plugin that does what you need, it's really easy to create and publish your own!
 
 
 ## [Handlebars](http://handlebarsjs.com/)
 
 > Handlebars provides the power necessary to let you build semantic templates effectively with no frustration.
 
-Handlebars is the default template engine that ships with Assemble. In their own words: 
+Handlebars is the default template engine that ships with Assemble. In their own words:
 
 _Handlebars.js is an extension to the Mustache templating language created by Chris Wanstrath. Handlebars.js and Mustache are both logicless templating languages that keep the view and the code separated like we all know they should be._
 
@@ -32,15 +32,15 @@ More than **110 Handlebars helpers** from [handlebars-helpers][] are included by
 
 Here are just a few examples:
 
-* **pagename**: Returns the full-name of a given file. Usage: `\{{filename "docs/toc.md"}}` would return: `toc.md`. 
-* **basename**: Returns the basename of a given file. Usage: `\{{basename "docs/toc.md"}}` would return: `toc` 
+* **pagename**: Returns the full-name of a given file. Usage: `\{{filename "docs/toc.md"}}` would return: `toc.md`.
+* **basename**: Returns the basename of a given file. Usage: `\{{basename "docs/toc.md"}}` would return: `toc`
 * **relative**: Returns the derived relative path from file A to file B. Usage: `\{{relative "file/a" "file/b"}}`. This can also be used with the `page` and `pages` variables.
 * **markdown**: Markdown block helper enables writing markdown inside HTML and then renders the markdown as HTML inline with the rest of the page. Usage: `\{{#markdown}}\{{/markdown}}`
 * **md**: Markdown helper used to read in a file and inject the rendered markdown into the HTML. Usage: `\{{md 'file/to/include.md'}}`
 * **embed**: Embeds code from an external file as preformatted text. The first parameter (required) takes a path to the file you want to embed. The second parameter (optional) allows forcing syntax highlighting for a specific language. Usage: `\{{embed 'path/to/file.js'}}` or `\{{embed 'path/to/file.hbs' 'html'}}`
 * **gist**: Similar to `\{{embed}}` but for GitHub Gists.
 
-Visit the [Helpers][] page to learn more about helpers made specifically for Assemble, or visit [handlebars-helpers][] to see the comprehensive list.
+> Go to [handlebars-helpers][] for a comprehensive list, or [Helpers][helpers] to learn about Assemble-specific helpers →
 
 
 ## [Lo-Dash Methods](http://lodash.com/)
@@ -54,19 +54,17 @@ The [Lo-Dash](http://lodash.com/) library, exposed by Grunt.js, offers a number 
 
 > String manipulation extensions for Underscore.js javascript library.
 
-Underscore.string offers dozens of really useful string utility methods. From the [Grunt.js docs][grunt-util]: "Note that Underscore.string is mixed into grunt.util._ but is also available as grunt.util._.str for methods that conflict with existing Lo-Dash methods." Please [visit the Grunt.js documentation][grunt-util] to learn more. 
+Underscore.string offers dozens of really useful string utility methods. From the [Grunt.js docs][grunt-util]: "Note that Underscore.string is mixed into grunt.util._ but is also available as grunt.util._.str for methods that conflict with existing Lo-Dash methods." Please [visit the Grunt.js documentation][grunt-util] to learn more.
 
 Here is a preview of the methods available from [Underscore.string][underscore-string]:
 
-``` js
-<%= _.capitalize(title) %> 
-<%= _.humanize(title) %>
-<%= _.numberFormat(123456789.123, 5, '.', ',') %> => "123,456,789.12300"
-<%= _.clean(' foo    bar   ') %> => 'foo bar'
-<%= _.unescapeHTML('&lt;div&gt;Blah blah blah&lt;/div&gt;') %> => '<div>Blah blah blah</div>'
-```
+* `<%= _.capitalize(title) %>`
+* `<%= _.humanize(title) %>`
+* `<%= _.numberFormat(123456789.123, 5, '.', ',') %>` => "123,456,789.12300"
+* `<%= _.clean(' foo    bar   ') %>` => "foo bar"
+* `<%= _.unescapeHTML('&lt;div&gt;Blah blah blah&lt;/div&gt;') %>` => "`<div>Blah blah blah\</div>`"
 
-Visit [Underscore.string][underscore-string] to learn more.
+> Visit [Underscore.string][underscore-string] to learn more →
 
 
 ## [marked]()

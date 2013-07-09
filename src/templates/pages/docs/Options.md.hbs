@@ -8,7 +8,7 @@ categories:
 
 > Comprehensive list of options available in Assemble
 
-Most options are defined in the `assemble` task or target options in the Gruntfile, some options may only be defined inside the [YAML front matter][yaml-front-matter] of a file, and some may be defined in either location. 
+Most options are defined in the `assemble` task or target options in the Gruntfile, some options may only be defined inside the [YAML front matter][yaml-front-matter] of a file, and some may be defined in either location.
 
 Additionally, options may be defined in "external" [JSON][] or [YAML][] configuration files.
 
@@ -31,7 +31,7 @@ These options are defined in the `assemble` task in your project's Gruntfile. An
 | [layoutdir][options-layoutdir]** * ** | [Layouts][] are optional and assemble will build [pages][] without one. However, when a layout is specified the file _must contain a `\{{> body }}`_ tag,  since this tag indicates where the content from each file in a target should be inserted. |
 | [partials][options-partials] | the partials or "includes" to be used with [pages][]. |
 
-***Note** that when a layout is used the [\{{> body }}][Layouts] tag must be included inside the layout in order for content from pages to be "pulled in". 
+***Note** that when a layout is used the [\{{> body }}][Layouts] tag must be included inside the layout in order for content from pages to be "pulled in".
 
 
 ## Task Options
@@ -50,6 +50,8 @@ options: { data: 'src/data/**/*.{json,yml}' }
 
 Note that `assemble` merges the task and target-level data for `options.data`.
 
+> Learn more about [data][data] →
+
 ### [options.layout][options-layout]
 Type: `String` (optional)
 Default: `undefined`
@@ -60,6 +62,9 @@ Layouts are optional and may be defined at the task and/or [target][tasks-and-ta
 ``` js
 options: { layout: 'src/layouts/default.hbs' }
 ```
+
+> Learn more about [layouts][layouts] →
+
 
 ### [options.layoutdir][options-layoutdir]
 Type: `String` (optional)
@@ -98,12 +103,14 @@ options: { assets: 'docs/assets' }
 Type:  `String|Array` (optional)
 Default: `undefined`
 
-Specifies the Handlebars partials files, or paths to the directories of files to be used. 
+Specifies the Handlebars partials files, or paths to the directories of files to be used.
 
 ``` js
 options: { partials: 'src/partials/**/*.hbs' }
 ```
-Note that `assemble` merges the task and target-level data for `options.partials`.
+_**Note that `assemble` merges the task and target-level data for `options.partials`.**_
+
+> Learn more about [partials][partials] →
 
 
 ### [options.ext][options-ext]
@@ -131,7 +138,7 @@ assemble: {
 }
 ```
 
-Learn more about the [ext option][options-ext].
+> Learn more about the [ext option][options-ext] →
 
 
 ### [options.engine][options-engine]
@@ -145,11 +152,11 @@ Also, we welcome pull requests for additional template engines. If you have ques
 
 ### [options.helpers][options-helpers]
 Type: `String|Array` (optional)
-Default: 100+ helpers from [handlebars-helpers][] 
+Default: 100+ helpers from [handlebars-helpers][]
 
-Assemble depends on [handlebars-helpers][], an external library which includes more than **100 Handlebars helpers**. So any helpers from that project may be used in your templates. 
+Assemble depends on [handlebars-helpers][], an external library which includes more than **100 Handlebars helpers**. So any helpers from that project may be used in your templates.
 
-If you wish for Assemble to use custom helpers with Handlebars or any specified template engine, just provide the path to the helper or helpers in `options.helpers` :  
+If you wish for Assemble to use custom helpers with Handlebars or any specified template engine, just provide the path to the helper or helpers in `options.helpers` :
 
 ``` js
 options: { helpers: 'your/custom/helpers' }
@@ -179,14 +186,14 @@ default: true
 Defining `published: false` in the [YAML front matter][yaml-front-matter] of a page will:
 
 * Prevent the page from rendering
-* Omit the page from the `pages` collection. 
+* Omit the page from the `pages` collection.
 
 
 ## Custom Options
-Custom, user-defined variables may be specified in the [Options][options-overview] of the assemble task or target. Any variables defined in the options will be added to the _root of the data context_ and thus they will also be available in any templates. 
+Custom, user-defined variables may be specified in the [Options][options-overview] of the assemble task or target. Any variables defined in the options will be added to the _root of the data context_ and thus they will also be available in any templates.
 
 ### Example usage
-A common use case for defining custom variables in the options is for easily including or excluding content based on current "development status". 
+A common use case for defining custom variables in the options is for easily including or excluding content based on current "development status".
 
 For example, assuming we have defined a custom option, `production`:
 
@@ -231,7 +238,7 @@ The following is just a handful of options that can be used in your Gruntfile. P
 
 
 
-## Related info: 
+## Related info:
 
 * [Variables][built-in-variables]
 {{#draft}}* [Markdown Options][Markdown]{{/draft}}

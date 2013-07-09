@@ -235,6 +235,9 @@
 <pre><code class="lang-js">options: { data: &#39;src/data/**/*.{json,yml}&#39; }</code></pre>
 
             <p>Note that <code>assemble</code> merges the task and target-level data for <code>options.data</code>.</p>
+            <blockquote>
+              <p>Learn more about <a href="Data.html">data</a> →</p>
+            </blockquote>
             <h3><a href="options-layout.html">options.layout</a>
             </h3>
             <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
@@ -243,6 +246,9 @@
               <em>Unlike Jekyll</em>, Assemble requires a file extension since you are not limited to using a single file type.</p>
 <pre><code class="lang-js">options: { layout: &#39;src/layouts/default.hbs&#39; }</code></pre>
 
+            <blockquote>
+              <p>Learn more about <a href="Layouts.html">layouts</a> →</p>
+            </blockquote>
             <h3><a href="options-layoutdir.html">options.layoutdir</a>
             </h3>
             <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
@@ -272,7 +278,13 @@ layout: default.hbs
             <p>Specifies the Handlebars partials files, or paths to the directories of files to be used.</p>
 <pre><code class="lang-js">options: { partials: &#39;src/partials/**/*.hbs&#39; }</code></pre>
 
-            <p>Note that <code>assemble</code> merges the task and target-level data for <code>options.partials</code>.</p>
+            <p>
+              <em><strong>Note that <code>assemble</code> merges the task and target-level data for <code>options.partials</code>.</strong>
+              </em>
+            </p>
+            <blockquote>
+              <p>Learn more about <a href="Partials.html">partials</a> →</p>
+            </blockquote>
             <h3><a href="options-ext.html">options.ext</a>
             </h3>
             <p>Type: <code>String</code> (optional) Default: <code>.html</code>
@@ -295,7 +307,9 @@ layout: default.hbs
   }
 }</code></pre>
 
-            <p>Learn more about the <a href="options-ext.html">ext option</a>.</p>
+            <blockquote>
+              <p>Learn more about the <a href="options-ext.html">ext option</a> →</p>
+            </blockquote>
             <h3><a href="options-engine.html">options.engine</a>
             </h3>
             <p>Type: <code>String</code> (optional) Default: <code>handlebars</code>
@@ -304,7 +318,7 @@ layout: default.hbs
             <p>Also, we welcome pull requests for additional template engines. If you have questions please create an [Issue][assemble-issues].</p>
             <h3><a href="options-helpers.html">options.helpers</a>
             </h3>
-            <p>Type: <code>String|Array</code> (optional) Default: 100+ helpers from <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> 
+            <p>Type: <code>String|Array</code> (optional) Default: 100+ helpers from <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a>
             </p>
             <p>Assemble depends on <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a>, an external library which includes more than <strong>100 Handlebars helpers</strong>. So any helpers from that project may be used in your templates.</p>
             <p>If you wish for Assemble to use custom helpers with Handlebars or any specified template engine, just provide the path to the helper or helpers in <code>options.helpers</code> :</p>
@@ -383,10 +397,10 @@ default: true</p>
               </li>
             </ul>
             <hr>
-            <blockquote>
-              <p>Find an error? <a href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a> 
+            <div class="alert">
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
               </p>
-            </blockquote>
+            </div>
           </div>
         </div>
       </div>

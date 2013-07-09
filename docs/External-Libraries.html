@@ -183,7 +183,7 @@
             <p>Here are just a few examples:</p>
             <ul>
               <li><strong>pagename</strong>: Returns the full-name of a given file. Usage: <code>{{filename &quot;docs/toc.md&quot;}}</code> would return: <code>toc.md</code>.</li>
-              <li><strong>basename</strong>: Returns the basename of a given file. Usage: <code>{{basename &quot;docs/toc.md&quot;}}</code> would return: <code>toc</code> 
+              <li><strong>basename</strong>: Returns the basename of a given file. Usage: <code>{{basename &quot;docs/toc.md&quot;}}</code> would return: <code>toc</code>
               </li>
               <li><strong>relative</strong>: Returns the derived relative path from file A to file B. Usage: <code>{{relative &quot;file/a&quot; &quot;file/b&quot;}}</code>. This can also be used with the <code>page</code> and <code>pages</code> variables.</li>
               <li><strong>markdown</strong>: Markdown block helper enables writing markdown inside HTML and then renders the markdown as HTML inline with the rest of the page. Usage: <code>{{#markdown}}{{/markdown}}</code>
@@ -194,7 +194,9 @@
               </li>
               <li><strong>gist</strong>: Similar to <code>{{embed}}</code> but for GitHub Gists.</li>
             </ul>
-            <p>Visit the <a href="Helpers.html">Helpers</a> page to learn more about helpers made specifically for Assemble, or visit <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> to see the comprehensive list.</p>
+            <blockquote>
+              <p>Go to <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> for a comprehensive list, or <a href="Helpers.html">Helpers</a> to learn about Assemble-specific helpers →</p>
+            </blockquote>
             <h2><a href="http://lodash.com/">Lo-Dash Methods</a>
             </h2>
             <blockquote>
@@ -209,13 +211,18 @@
             <p>Underscore.string offers dozens of really useful string utility methods. From the <a href="http://gruntjs.com/api/grunt.util#grunt.util._">Grunt.js docs</a>: &quot;Note that Underscore.string is mixed into grunt.util.
               <em>but is also available as grunt.util.</em>.str for methods that conflict with existing Lo-Dash methods.&quot; Please <a href="http://gruntjs.com/api/grunt.util#grunt.util._">visit the Grunt.js documentation</a> to learn more.</p>
             <p>Here is a preview of the methods available from <a href="https://github.com/epeli/underscore.string">Underscore.string</a>:</p>
-<pre><code class="lang-js">&lt;%= _.capitalize(title) %&gt; 
-&lt;%= _.humanize(title) %&gt;
-&lt;%= _.numberFormat(123456789.123, 5, &#39;.&#39;, &#39;,&#39;) %&gt; =&gt; &quot;123,456,789.12300&quot;
-&lt;%= _.clean(&#39; foo    bar   &#39;) %&gt; =&gt; &#39;foo bar&#39;
-&lt;%= _.unescapeHTML(&#39;&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;&#39;) %&gt; =&gt; &#39;&lt;div&gt;Blah blah blah&lt;/div&gt;&#39;</code></pre>
-
-            <p>Visit <a href="https://github.com/epeli/underscore.string">Underscore.string</a> to learn more.</p>
+            <ul>
+              <li><code>&lt;%= _.capitalize(title) %&gt;</code>
+              </li>
+              <li><code>&lt;%= _.humanize(title) %&gt;</code>
+              </li>
+              <li><code>&lt;%= _.numberFormat(123456789.123, 5, &#39;.&#39;, &#39;,&#39;) %&gt;</code> =&gt; &quot;123,456,789.12300&quot;</li>
+              <li><code>&lt;%= _.clean(&#39; foo    bar   &#39;) %&gt;</code> =&gt; &quot;foo bar&quot;</li>
+              <li><code>&lt;%= _.unescapeHTML(&#39;&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;&#39;) %&gt;</code> =&gt; &quot;<code>&lt;div&gt;Blah blah blah\&lt;/div&gt;</code>&quot;</li>
+            </ul>
+            <blockquote>
+              <p>Visit <a href="https://github.com/epeli/underscore.string">Underscore.string</a> to learn more →</p>
+            </blockquote>
             <h2><a href="">marked</a>
             </h2>
             <blockquote>
@@ -227,10 +234,10 @@
               <p>JavaScript YAML parser and dumper. Very fast.</p>
             </blockquote>
             <hr>
-            <blockquote>
-              <p>Find an error? <a href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a> 
+            <div class="alert">
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
               </p>
-            </blockquote>
+            </div>
           </div>
         </div>
       </div>

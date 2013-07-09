@@ -28,8 +28,8 @@ The following variables are defined on the `page` object, which exposes data for
 {{#draft}}* `next` : The full/relative? URL to the "next" page. The next page will be the next page from the pages list. Can be overridden in the yaml header.{{/draft}}
 {{#draft}}* `previous` : The full/relative? URL to the "previous" page. The previous page will the previous page from the pages list. Can be overridden in the yaml header.{{/draft}}
 * `custom` : Any custom front matter that you specify will be available under `page`. For example, if you specify `something: true` in a page's front matter, that value will be available in templates as `page.something`"
-* `layout` : the layout to be used for the current page. Overrides any layouts defined in the `assemble.options`, at the task and target level, 
-* `published` : Use `published: false` in the [YAML Front Matter][yaml-front-matter] of a page to exclude the page from being rendered. 
+* `layout` : the layout to be used for the current page. Overrides any layouts defined in the `assemble.options`, at the task and target level,
+* `published` : Use `published: false` in the [YAML Front Matter][yaml-front-matter] of a page to exclude the page from being rendered.
 
 ``` yaml
 ---
@@ -41,16 +41,16 @@ published: false
 ### Collections
 Collections can also be defined in YAML front matter:
 
-* `pages` : list of pages in a target. 
+* `pages` : list of pages in a target.
 * `categories` : lists of all the category objects
 * `tags` : lists of all tag objects
 * `paginate` (planned)
 
-[Learn more][options-collections] about collections.
+> [Learn more][options-collections] about collections →
 
 
 ## Custom variables
-You may add any custom variable you require to the `assemble` task or target options. Custom variables are added to the _root of the data context_ and be available in any templates. 
+You may add any custom variable you require to the `assemble` task or target options. Custom variables are added to the _root of the data context_ and be available in any templates.
 
 For example, given that the custom variable `production` is set to `false` :
 
@@ -79,7 +79,7 @@ Will render the HTML for the _non-minified_ script tag:
 
 ## Helpers
 
-Variables can be modified using using special tags called [helpers][helpers]. Helpers may also accept parameters, each of which is a [Handlebars expression](http://handlebarsjs.com/expressions.html). 
+Variables can be modified using using special tags called [helpers][helpers]. Helpers may also accept parameters, each of which is a [Handlebars expression](http://handlebarsjs.com/expressions.html).
 
 
 
@@ -91,7 +91,7 @@ Variables can be modified using using special tags called [helpers][helpers]. He
 * `root` : example: `title`
 
 * `options.page` : exposes data for the "current" page at build time
-* `options.pages` : 
+* `options.pages` :
 * `options.dest` :
 * `options.src` :
 

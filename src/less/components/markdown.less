@@ -3,17 +3,61 @@
 // --------------------------------------------------
 
 
-// Create a pseduo-alert from this pattern and specificity
-// yes, I could just use HTML for the alerts intstead of
-// HTML generated from markdown, but that's no fun.
-.panel-docs hr + blockquote:extend(.alert all) {
-  margin: 0;
-  padding: 10px 25px;
-  > p, > p > a {
-    font: bold normal @font-size-base/3em @font-family-base;
-    color: #000;
-  }
-  > p > a {
-    color: darken(@link-color, 15%);
+//
+// Alerts
+// --------------------------------------
+
+// Create alerts from these patterns for HTML generated from markdown
+.panel-docs ul,
+.panel-docs br,
+.panel-docs hr,
+.panel-docs pre + p,
+.panel-docs pre {
+  + blockquote:extend(.alert all) {
+    margin: 0;
+    padding: 10px 25px;
+    > p, > p > a {
+      font: bold normal @font-size-base/2em @font-family-base;
+      color: #000;
+    }
+    > p > a {
+      color: darken(@link-color, 15%);
+    }
   }
 }
+.panel-docs pre + p,
+.panel-docs pre {
+  + blockquote:extend(.alert-warning all) {}
+}
+.panel-docs ul {
+  + blockquote:extend(.alert-info all) {}
+}
+
+h1, h2, h3, h4 {
+  > em:extend(.alert all) {
+    display: block;
+    color: #000;
+    font: bold normal @font-size-base/2em @font-family-base;
+    margin: 0;
+    padding: 10px 25px;
+    > p > a {
+      color: darken(@link-color, 15%);
+    }
+  }
+}
+h1 > em:extend(.alert-danger all) {}
+h2 > em:extend(.alert-warning all) { margin-top: -65px; }
+h3 > em:extend(.alert-success all) { margin-top: -35px; }
+h4 > em:extend(.alert-info all) {}
+
+
+// 
+// Buttons
+// --------------------------------------
+
+// a > em,
+// em > a,
+// a > strong,
+// strong > a {
+//   &:extend(.btn, .btn-default);
+// }

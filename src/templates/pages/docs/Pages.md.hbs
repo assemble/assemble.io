@@ -153,11 +153,12 @@ published: false
 
 Exclude files from being rendered by prefixing source file patterns with `!`. Visit the Grunt.js doce to [learn more about globbing](http://gruntjs.com/configuring-tasks#globbing-patterns) patterns.
 
-(from the Grunt.js docs):
+##### [Quoted from the Grunt.js docs](http://gruntjs.com/configuring-tasks#globbing-patterns) →
 
-``` js
+``` javascript
 // All files except for bar.js, in alpha order:
 {src: ['foo/*.js', '!foo/bar.js'], dest: ...}
+
 // All files in alpha order, but with bar.js at the end.
 {src: ['foo/*.js', '!foo/bar.js', 'foo/bar.js'], dest: ...}
 ```

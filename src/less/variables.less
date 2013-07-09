@@ -275,21 +275,21 @@
 // Form states and alerts
 // -------------------------
 
-@state-warning-text:             #c09853;
-@state-warning-bg:               #fcf8e3;
-@state-warning-border:           darken(spin(@state-warning-bg, -10), 3%);
+@state-warning-text:             @brand-warning;
+@state-warning-bg:               lighten(@brand-warning, 32%);
+@state-warning-border:           darken(spin(@state-warning-bg, 3), 10%);
 
-@state-danger-text:              #b94a48;
-@state-danger-bg:                #f2dede;
-@state-danger-border:            darken(spin(@state-danger-bg, -10), 3%);
+@state-danger-text:              @brand-danger;
+@state-danger-bg:                lighten(@brand-danger, 30%);
+@state-danger-border:            darken(@state-danger-bg, 8%);
 
-@state-success-text:             #468847;
-@state-success-bg:               #dff0d8;
-@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
+@state-success-text:             @brand-success;
+@state-success-bg:               lighten(@brand-success, 50%);
+@state-success-border:           darken(spin(@state-success-bg, 6), 8%);
 
-@state-info-text:                @brand-info;
-@state-info-bg:                  lighten(@brand-info, 35%);
-@state-info-border:              darken(spin(@state-info-bg, -10), 7%);
+@state-info-text:                @brand-primary;
+@state-info-bg:                  lighten(@brand-primary, 42%);
+@state-info-border:              darken(@state-info-bg, 10%);
 
 
 // Tooltips and popovers
@@ -327,9 +327,13 @@
 // Alerts
 // -------------------------
 @alert-bg:                    #f0f1f1; // @state-warning-bg;
-@alert-text:                  darken(@alert-bg, 25%);;
+@alert-text:                  darken(@alert-bg, 25%);
 @alert-border:                darken(@alert-bg, 15%);
 @alert-border-radius:         0;
+
+@alert-warning-bg:            @state-warning-bg;
+@alert-warning-text:          @state-warning-text;
+@alert-warning-border:        @state-warning-border;
 
 @alert-success-bg:            @state-success-bg;
 @alert-success-text:          @state-success-text;

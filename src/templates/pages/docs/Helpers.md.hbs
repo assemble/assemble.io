@@ -6,7 +6,7 @@ section: templates
 
 ## Built-in Helpers
 
-Assemble includes the [handlebars-helpers][handlebars-helpers] library as a dependency, so more than **100 Handlebars helpers** ofrom that library are available by default. 
+Assemble includes the [handlebars-helpers][handlebars-helpers] library as a dependency, so more than **100 Handlebars helpers** ofrom that library are available by default.
 
 ### Also see [Custom Helpers][custom-helpers] | [grunt-init-assemble-helper](https://github.com/assemble/grunt-init-assemble-helper) →
 
@@ -16,10 +16,10 @@ Most helpers from [handlebars-helpers][] can be used with any Handlebars project
 
 * **dirname**: Returns the absolute path to the given file/directory. Would return: `path/to/variables.md`. Usage: `\{{dirname [path]}}`
 * **pagename**: Returns the full-name of a given file. Would return: `variables.md`. Usage: `\{{filename "docs/toc.md"}}`
-* **filename**: Can be used as an alternate for `pagename`. 
+* **filename**: Can be used as an alternate for `pagename`.
 * **basename**: Returns the basename of a given file. Would return: `variables` Usage: `\{{base "docs/toc.md"}}`
 * **extension**: Returns the extension of a given file. Would return: `.md` Usage: `\{{extension "docs/toc.md"}}`
-* **ext**: Can be used as an alternate for`extension`. 
+* **ext**: Can be used as an alternate for`extension`.
 * **relative**: Returns the derived relative path from file A to file B. Usage: `\{{relative [from] [to]}}`. This can also be used with `page` and `pages`.
 * **markdown**: Markdown block helper enables writing markdown inside HTML and then renders the markdown as HTML inline with the rest of the page. Usage: `\{{#markdown}}\{{/markdown}}`
 * **md**: Markdown helper used to read in a file and inject the rendered markdown into the HTML. Usage: `\{{md [path]}}`
@@ -31,6 +31,7 @@ Most helpers from [handlebars-helpers][] can be used with any Handlebars project
 * **roadmap**: Reads in data from an "ROADMAP" file to generate markdown formatted roadmap or list of roadmap entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: `\{{roadmap [src]}}`
 
 Many additional helpers are available in the following categories:
+
 * `assemble`
 * `collections`
 * `comparisons`
@@ -49,7 +50,7 @@ Many additional helpers are available in the following categories:
 * `strings`
 * `url`
 
-Visit [handlebars-helpers][handlebars-helpers] to learn more.
+> Visit [handlebars-helpers][handlebars-helpers] to learn more →
 
 
 ## Related info

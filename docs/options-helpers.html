@@ -161,7 +161,8 @@
             <blockquote>
               <p>Helpers manipulate the output of variables</p>
             </blockquote>
-            <p>For the most part helper expressions follow this pattern: <code>{{ helper_name variable_name }}</code>. For example:</p>
+            <p>For the most part helper expressions follow this pattern: <code>{{ helper_name variable_name }}</code>.</p>
+            <p>For example:</p>
 <pre><code>&lt;title&gt;{{ uppercase title }}&lt;/title&gt;</code></pre>
 
             <p>Renders to:</p>
@@ -177,7 +178,9 @@
   }
 }</code></pre>
 
-            <h4>Also see <a href="Custom-Helpers.html">Custom Helpers</a> and <a href="https://github.com/assemble/grunt-init-assemble-helper">grunt-init-assemble-helper</a> →</h4>
+            <blockquote>
+              <p>For more info see <a href="Custom-Helpers.html">Custom Helpers</a>. Or download <a href="https://github.com/assemble/grunt-init-helper">grunt-init-helper</a> to generate helpers →</p>
+            </blockquote>
             <h3>Registering custom helpers</h3>
             <p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function passing in the engine, otherwise each method is registered as a helper. For example, the following will result in 2 helpers being registered:</p>
 <pre><code class="lang-js">module.exports.foo = function(msg) { return msg; };
@@ -230,10 +233,10 @@ module.exports.bar = function(msg) { return msg; };</code></pre>
               </li>
             </ul>
             <hr>
-            <blockquote>
-              <p>Find an error? <a href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a> 
+            <div class="alert">
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
               </p>
-            </blockquote>
+            </div>
           </div>
         </div>
       </div>

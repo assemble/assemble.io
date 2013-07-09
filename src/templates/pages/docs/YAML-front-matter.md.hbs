@@ -5,9 +5,9 @@ section: data
 
 > YFM is an **optional** section of valid YAML that is placed at the top of a page and is used for maintaining metadata for the page and its contents. 
 
-**Actually**, YFM can be used with both [pages][pages] and [partials][partials], so _unless otherwise noted_ you can safely assume that when the documentation YFM of a page, the same applies for YFM of a partial. 
+YFM can be used with both [pages][pages] and [partials][partials], so _unless otherwise noted_&nbsp;you can safely assume that when the documentation refers to the **_YFM of a page_**, the same also applies to the **_YFM of a partial_**. 
 
-
+{{#draft}}
 ## Table of Contents
 
 * YFM in "pages" (a "page" is any file specified in the `src` property of a task or target)
@@ -29,7 +29,7 @@ Use cases:
 * collections
 * permalinks
 * lo-dash templates: time, date, metadata "pipeline"
-
+{{/draft}}
 
 ## YFM "Variables"
 
@@ -58,7 +58,7 @@ This may not be obvious at first, is that YAML Front-Matter acts as a kind of "c
 
 So you could do this:
 
-``` js
+``` javascript
 grunt.initConfig({
   assemble: {
     component: {
@@ -86,7 +86,7 @@ With `page.json` containing:
 }
 ```
 
-And the [YAML Front-Matter]() of the page, use underscore templates:
+And in the YFM of the page, use underscore templates:
 
 ``` yaml
 ---
@@ -273,9 +273,6 @@ See some great usage examples in assemble's [YAML test files](https://assemble/a
 * YAML variables
 
 
-
-
-
 **Please note**: _YFM cannot be parsed if it is not the first thing on the page_.
 
 
@@ -283,7 +280,7 @@ See some great usage examples in assemble's [YAML test files](https://assemble/a
 
 
 * YAML front-matter is **optionally** used at the beginning of a page to define metadata for the page's content. 
-* In order for YAML front-matter to be processed, it _must be the first thing at the top of the page_, and 
+* In order for YAML front-matter to be processed, it _must be the first thing at the top of the page_&nbsp;, and 
 * To be valid, it must be "wrapped" with three leading dashes (above) (`---`) and three dashes following (below) (`---`).
 
 Example:
@@ -299,7 +296,7 @@ description: A very simple way to add structured data to a page.
 
 
 <h1> \{{ title }} </h1>
-<p>Page content here... \{{ eieio }}</p>
+<p>Page content here... \{{ description }}</p>
 ```
 
 
@@ -325,7 +322,7 @@ description: A very simple way to add structured data to a page.
 
 ### Recommended usage
 * YFM is best used for structured data, like configuration settings or metadata for a page, as opposed to long-form content.
-* YFM offers an easy way to maintain metadata or rendered data for pages and partials, as an _optional_ alternative to using "external" `.json` or `.yaml` data files
+* YFM offers an easy way to maintain metadata or rendered data for pages and partials, as an _optional_&nbsp; alternative to using "external" `.json` or `.yaml` data files
 
 
 ### Not recommended
