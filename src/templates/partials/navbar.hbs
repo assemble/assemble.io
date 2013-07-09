@@ -17,9 +17,10 @@ component: navbar
         <!--<li{{#is title "Examples"}} class="active"{{/is}}> <a href="{{relative page.dest "examples.html"}}">Examples</a> </li>-->
       </ul>
       <ul class="nav navbar-nav pull-right">
+        <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" {{#production}}{{{track.navbar.download}}}{{/production}}><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <!--<li{{#is title "Tutorials"}} class="active"{{/is}}> <a href="{{relative page.dest "tutorials.html"}}">Tutorials</a> </li> -->
         <!--<li{{#is title "Blog"}} class="active"{{/is}}> <a href="{{relative page.dest "blog.html"}}">Blog</a> </li>-->
-        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
+        <li> <a href="https://github.com/assemble/assemble/" {{#production}}{{{track.navbar.click-repo}}}{{/production}}>GitHub Repo</a> </li>
       </ul>
     </div>
   </div>
