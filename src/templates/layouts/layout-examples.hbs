@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{#if title}} {{title}} {{else}} {{titleize page.basename}} {{/if}} | Assemble</title>
+    <link rel="stylesheet" href="{{assets}}/css/assemble.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{{assets}}/js/html5shiv.js"></script>
+    <script src="{{assets}}/js/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{assets}}/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{assets}}/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{assets}}/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{assets}}/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="{{assets}}/ico/favicon.png">
+    {{> analytics }}
+  </head>
+  <body style="background: white">
+
+    {{! NAVIGATION
+    =================================== }}
+    {{> navbar }}
+
+
+    {{! MASTHEAD
+    =================================== }}
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1><span class="text-muted">Docs /&nbsp;</span> {{#if section}}{{ section }} {{else}}{{basename}}{{/if}}</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+
+        {{! VERTICAL NAV
+        =================================== }}
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "toc"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Getting Started
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "getting started"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Configuration
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "configuration"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Data
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "data"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Templates
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "templates"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Content
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "content"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+            <span class="nav-section-title">
+              Development
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.section "development"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
+            </ul>
+
+          </div>
+        </div>
+
+        {{! MAIN CONTENT
+        =================================== }}
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>{{page.title}}</h1>
+            {{#markdown}}
+              {{> body }}
+              {{> generated-links.md }} {{! A helper automatically creates this partial with generated links from pages in "src/templates/pages/docs". Janky as hell, but it's a temporary. }}
+            {{/markdown}}
+            <hr>
+            <div class="alert"><p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {{! SCRIPTS
+    =================================== }}
+    <script src="{{assets}}/js/jquery.js"></script>
+    <script src="{{assets}}/js/bootstrap.js"></script>
+    <script src="{{assets}}/js/highlight.js"></script>
+    <script src="{{assets}}/js/holder/holder.js"></script>
+    <script src="{{assets}}/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+</html>

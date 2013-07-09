@@ -52,9 +52,14 @@
             <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
+            <li>
+              <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
+                <i class="glyphicon glypicon-large glyphicon-download"></i>
+              </a>
+            </li>
             <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
             <!--<li> <a href="../blog.html">Blog</a> </li>-->
-            <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> 
+            <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
         </div>
@@ -161,12 +166,12 @@
               <p>Assemble was created by <a href="https://github.com/jonschlinkert">@jonschlinkert</a> and <a href="https://github.com/doowb">@doowb</a> to get designers and developers on the same page.</p>
             </blockquote>
             <h2>What you won&#39;t find in Assemble</h2>
-            <h3>_config.yml</h3>
-            <p>A requirement to use <code>_config.yml</code>, or <code>config.json</code>, or <code>config</code> anything. Instead, Assemble provides <a href="options-data.html">options.data</a> which enables you to use your own conventions for configuration. You can name your files however you want, or put them in whatever directory you want. It&#39;s up to you.</p>
+            <h3>&quot;Blog awareness&quot;</h3>
+            <p>Which really means &quot;if you put your posts in a specific folder, and you name it exactly as required, then the parser will find your posts and render them into a blog&quot;. But Assemble isn&#39;t worried about what you put where, or where you go and how late you&#39;ll be out. You&#39;re a semi-responsible very bearded adult, you should be able to make your own decisions. Bottom line: Assemble is &quot;beard aware&quot;. Wait... Assemble helps you make choices about your beard. Nevermind...</p>
             <h3>Special required _folders</h3>
             <p>You won&#39;t find a requirement for directories like <code>_layouts</code>, <code>_posts</code> or <code>_anything-else</code>. Assemble is Grunt.js plugin, so you have as much flexibility as you would with any other Grunt.js plugin. Your project structure is whatever you want it to be. You can put your <a href="Layouts.html">layouts</a>, <a href="Pages.html">pages</a>, posts, <a href="options-partials.html">partials</a> or any other files wherever you want them to be. You can use an <code>includes</code> directory instead of <code>partials</code>. In fact, you could add hundreds of [targets][Gruntfile] in the assemble task in your Gruntfile, and use a different convention for each one if you had a reason.</p>
-            <h3>&quot;Blog awareness&quot;</h3>
-            <p>Which really means &quot;if you put your posts in a specific folder, and you name it exactly as required, then the parser will find your posts and render them into a blog&quot;. But Assemble isn&#39;t worried about what you put where, or where you go and how late you&#39;ll be out. You&#39;re a semi-responsible very bearded adult, you should be able to make your own decisions. Bottom line: Assemble is &quot;beard aware&quot;. Wait... Assemble helps you make choices about your beard. Nevermind hopefully you get the point... right?</p>
+            <h3>_config.yml</h3>
+            <p>A requirement to use <code>_config.yml</code>, or <code>config.json</code>, or <code>config</code> anything. Instead, Assemble provides <a href="options-data.html">options.data</a> which enables you to use your own conventions for configuration. You can name your files however you want, or put them in whatever directory you want. It&#39;s up to you.</p>
             <h2>Learn more</h2>
             <ul>
               <li><a href="Options.html">Options</a>
