@@ -1,10 +1,26 @@
 ---
 component: teaser
 ---
+<style type="text/css" media="screen">
+  iframe {
+    margin: -7px 0 0 25px;
+    vertical-align: text-top;
+  }
+  iframe + iframe {
+    margin-left: -20px;
+  }
+</style>
 <div class="teaser {{modifier}}">
   <a class="teaser-content" href="{{ link }}">
-    {{! <span class="glyphicon"></span>  }}
+    {{! OPTIONAL ICON <span class="glyphicon"></span>  }}
     {{#if title}} {{{ title }}} {{/if}}
     {{#if subtitle}} <em> {{{ subtitle }}} </em> {{/if}}
+
+    {{! WATCH BUTTON }}
+    <iframe src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+    {{! FORK BUTTON }}
+    <iframe src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
   </a>
 </div>
+
