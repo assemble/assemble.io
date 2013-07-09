@@ -3699,6 +3699,10 @@ input[type="button"].btn-block {
 .navbar:hover {
   background: #fff;
 }
+.navbar .navbar-nav > li > a .glyphicon {
+  font-size: 24px;
+  float: left;
+}
 .navbar .navbar-brand {
   color: #111111;
   font-weight: 700;
@@ -4524,6 +4528,9 @@ h2 > em {
 }
 h3 > em {
   margin-top: -35px;
+}
+.glyphicon-large:before {
+  font-size: 24px;
 }
 .banded-section {
   min-height: 250px;
