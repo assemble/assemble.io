@@ -70,7 +70,7 @@ module.exports = function(grunt) {
           layout: false
         },
         files: [
-          { expand: true, flatten: true, cwd: 'src/templates/partials/snippets', src: ['generated-links.md.hbs'], dest: 'src/templates/partials' },
+          { expand: true, flatten: true, cwd: 'src/templates/partials/snippets', src: ['generated-links.md.hbs'], dest: 'src/templates/partials/' },
         ]
       },
       pages: {
