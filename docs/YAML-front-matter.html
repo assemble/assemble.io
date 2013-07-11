@@ -167,6 +167,7 @@
             </blockquote>
             <p>YFM can be used with both <a href="Pages.html">pages</a> and <a href="Partials.html">partials</a>, so
               <em>unless otherwise noted</em>&nbsp;you can safely assume that when the documentation refers to the <strong><em>YFM of a page</em></strong>, the same also applies to the <strong><em>YFM of a partial</em></strong>.</p>
+            <h2>Example</h2>
             <h2>YFM &quot;Variables&quot;</h2>
             <h3>Built-in Variables</h3>
             <ul>
@@ -207,7 +208,7 @@
 }</code></pre>
 
             <p>And in the YFM of the page, use underscore templates:</p>
-<pre><code class="lang-yaml">---
+<pre><code class="lang-html">---
 title: &lt;%= page.index.title %&gt;
 ---
 
@@ -218,7 +219,7 @@ YAML front matter</code></pre>
 
             <h3>Example usage</h3>
 <pre><code class="lang-html">---
-title: 
+title:
 list: &lt;% _.forEach(people, function(name) { %&gt;&lt;li&gt;&lt;%= name %&gt;&lt;/li&gt;&lt;% }); %&gt;
 people:
 - Jon Schlinkert
@@ -242,7 +243,7 @@ people:
 <pre><code class="lang-yaml">---
 layout: default.hbs
 title: Early humans discovered...
-description: Lots of things, because they were early humans. 
+description: Lots of things, because they were early humans.
 date: 2013-07-04
 categories:
 - anthropology
@@ -252,10 +253,10 @@ tags:
 - rocks
 - wheel
 - 30 inch wooden rims
-published: false 
+published: false
 ---</code></pre>
 
-<pre><code class="lang-html">--- 
+<pre><code class="lang-html">---
 title: My Blog
 description: Like I said, my bloggg!
 example:
@@ -266,47 +267,47 @@ example:
     - three
 ---
 &lt;div class=&quot;page-header&quot;&gt;
-  &lt;h1&gt;YAML front matter&lt;/h1&gt;
-  &lt;p class=&quot;lead&quot;&gt;&lt;/p&gt;
+  &lt;h1&gt;{{title}}&lt;/h1&gt;
+  &lt;p class=&quot;lead&quot;&gt;{{description}}&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
-
+  {{#each example.custom.variables}}
+  &lt;li&gt;{{.}}&lt;/li&gt;
+  {{/each}}
 &lt;/ul&gt;</code></pre>
 
             <h2>YAML Front-Matter in Partials</h2>
 <pre><code class="lang-html">---
-title: &lt;%= component.name ][ pkg.name %&gt;
-require: [&lt;%= title %&gt;.css, &lt;%= title %&gt;.js]
+title: &lt;%= component.name || pkg.name %&gt;
 ---
-&lt;!-- {{title}} --&gt;
-&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;span3&quot;&gt;
-    &lt;div class=&quot;dropdown&quot;&gt;
-      &lt;div&gt;User Settings&lt;/div&gt;
-      &lt;ul class=&quot;dropdown-menu&quot;&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;My Profile&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Friend Requests&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Account Settings&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Log Out&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;&lt;!-- /{{title}} --&gt;</code></pre>
-
-<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;{{ titleize component }} Component&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{assets}}/css/{{component}}.css&quot;&gt;
+    &lt;title&gt;{{ titleize title }} Component&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{assets}}/css/{{title}}.css&quot;&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;div class=&quot;container&quot;&gt;
+      &lt;!-- {{title}} --&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;span3&quot;&gt;
+          &lt;div class=&quot;dropdown&quot;&gt;
+            &lt;div&gt;User Settings&lt;/div&gt;
+            &lt;ul class=&quot;dropdown-menu&quot;&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;My Profile&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Friend Requests&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Account Settings&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Log Out&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;&lt;!-- /{{title}} --&gt;
       {{&gt; body }}
     &lt;/div&gt;
-    &lt;script src=&quot;{{assets}}/js/{{component}}.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;{{assets}}/js/{{title}}.js&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
@@ -317,15 +318,15 @@ require: [&lt;%= title %&gt;.css, &lt;%= title %&gt;.js]
 title: Associative arrays
 people:
   name: John Smith
-  age: 33</code></pre>
+  age: 33
 
-            <p>Inline Blocks, common in YAML data streams, use comma+space to separate the <code>key: value</code> pairs between braces:</p>
-<pre><code class="lang-yaml">morePeople:  {name: Grace Jones, age: 21}
+morePeople: {name: Grace Jones, age: 21}
 ---</code></pre>
 
-            <p>Used like this:</p>
+            <p>Inline Blocks such as <code>morePeople</code>, common in YAML data streams, use comma+space to separate the <code>key: value</code> pairs between braces:</p>
+            <p>Used in templates like this:</p>
 <pre><code class="lang-html">&lt;div class=&quot;page-header&quot;&gt;
-  &lt;h1&gt;{{{title}}}&lt;/h1&gt; 
+  &lt;h1&gt;{{{title}}}&lt;/h1&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;examples&quot;&gt;
@@ -356,33 +357,11 @@ people:
               <li>YAML relational-trees</li>
               <li>YAML variables</li>
             </ul>
-            <p><strong>Please note</strong>:
-              <em>YFM cannot be parsed if it is not the first thing on the page</em>.</p>
-            <p><a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML Front-Matter</a> was made popular by Jekyll, the &quot;blog-aware, static site generator&quot; that powers GitHub Pages.</p>
-            <ul>
-              <li>YAML front-matter is <strong>optionally</strong> used at the beginning of a page to define metadata for the page&#39;s content.</li>
-              <li>In order for YAML front-matter to be processed, it
-                <em>must be the first thing at the top of the page</em>&nbsp;, and</li>
-              <li>To be valid, it must be &quot;wrapped&quot; with three leading dashes (above) (<code>---</code>) and three dashes following (below) (<code>---</code>).</li>
-            </ul>
-            <p>Example:</p>
-<pre><code class="lang-html">---
-title: YAML front-matter
-description: A very simple way to add structured data to a page.
----
-
-&quot;Front matter is essentially metadata about the document its attached to, formatted in such a way that it does not get in the way. In other words, if you don&#39;t know its “Front Matter”, you probably wouldn&#39;t wonder what it is, or what its doing there.&quot;
-
-
-
-&lt;h1&gt; {{ title }} &lt;/h1&gt;
-&lt;p&gt;Page content here... {{ description }}&lt;/p&gt;</code></pre>
-
             <h2>FAQ</h2>
             <ul>
               <li>With <a href="https://github.com/assemble/assemble">Assemble</a> you may do <a href="https://github.com/assemble/assemble/tree/master/test/YAML">just about anything</a> with YAML front matter that you can do with <a href="http://www.yaml.org/spec/1.2/spec.html">valid YAML</a>
               </li>
-              <li>YFM must be <a href="http://www.yaml.org/spec/1.2/spec.html">valid YAML</a> 
+              <li>YFM must be <a href="http://www.yaml.org/spec/1.2/spec.html">valid YAML</a>
               </li>
               <li>YFM cannot be parsed if it is not the first thing on the page</li>
               <li><a href="https://github.com/assemble/assemble">Assemble</a> parses YAML front matter into an object literal.</li>
@@ -415,11 +394,11 @@ description: A very simple way to add structured data to a page.
             <h2>External links</h2>
             <ul>
               <li><a href="http://nodeca.github.io/js-yaml/">js-yaml &quot;online&quot;</a> allows you to play with YAML in the browser.</li>
-              <li><a href="http://www.yaml.org/spec/1.2/spec.html">YAML specification</a> 
+              <li><a href="http://www.yaml.org/spec/1.2/spec.html">YAML specification</a>
               </li>
               <li><a href="http://www.yaml.org/"><a href="http://www.yaml.org/">http://www.yaml.org/</a></a>
               </li>
-              <li><a href="http://en.wikipedia.org/wiki/YAML">wikipedia page about YAML</a> 
+              <li><a href="http://en.wikipedia.org/wiki/YAML">wikipedia page about YAML</a>
               </li>
             </ul>
             <hr>
