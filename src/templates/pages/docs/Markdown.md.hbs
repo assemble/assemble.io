@@ -95,26 +95,21 @@ In a layout, can also wrap the `\{{> body }}` tag with the `\{{#markdown}}...\{{
 \{{/markdown}}
 ```
 
-
 ### Markdown options
 
-Default markdown options are from [marked](marked), so the following options are available for changing behavior:
+Default markdown options are from [marked][marked], so the following options are available for changing behavior:
 
-  * **pedantic**: Conform to obscure parts of `markdown.pl` as much as possible.
-  Don't fix any of the original markdown bugs or poor behavior.
-  * **gfm**: Enable github flavored markdown (enabled by default).
-  * **sanitize**: Sanitize the output. Ignore any HTML that has been input.
-  * **highlight**: A callback to highlight code blocks.
-  * **tables**: Enable GFM tables. This is enabled by default. (Requires the
-  `gfm` option in order to be enabled).
-  * **breaks**: Enable GFM line breaks. Disabled by default.
-  * **smartLists**: Use smarter list behavior than the original markdown.
-  Disabled by default. May eventually be default with the old behavior
-  moved into `pedantic`.
-  * **langPrefix**: Set the prefix for code block classes. Defaults to `lang-`.
+* **pedantic**: Conform to obscure parts of `markdown.pl` as much as possible. Don't fix any of the original markdown bugs or poor behavior.
+* **gfm**: Enable github flavored markdown (enabled by default).
+* **sanitize**: Sanitize the output. Ignore any HTML that has been input.
+* **highlight**: A callback to highlight code blocks.
+* **tables**: Enable GFM tables. This is enabled by default. (Requires the `gfm` option in order to be enabled).
+* **breaks**: Enable GFM line breaks. Disabled by default.
+* **smartLists**: Use smarter list behavior than the original markdown. Disabled by default. May eventually be default with the old behavior moved into `pedantic`.
+* **langPrefix**: Set the prefix for code block classes. Defaults to `lang-`.
 
 #### Marked License
 
-Marked Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License). See Marked [LICENSE](https://github.com/chjj/marked/blob/master/LICENSE) and [repo](marked) for more info.
+Marked Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License). See the Marked.js [LICENSE](https://github.com/chjj/marked/blob/master/LICENSE) and [repo][marked] for more info.
 
 [marked]: https://github.com/chjj/marked "Marked Repo on GitHub"

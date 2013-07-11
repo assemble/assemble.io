@@ -11,7 +11,6 @@ section: templates
 * [Helpers][helpers]
 
 
-
 ## Layouts
 
 [layouts][layouts] make it simple to share common code across multiple pages in a project.  
@@ -19,6 +18,7 @@ section: templates
 
 
 {{#draft}}
+
 * Lo-Dash
 * Handlebars
 
@@ -30,7 +30,11 @@ Handlebars is the default template engine that ships with Assemble.
 Handlebars Paths
 
 Handlebars supports simple paths, just like Mustache.
+
+```handlebars
 <p>\{{name}}</p>
+```
+
 Handlebars also supports nested paths, making it possible to look up properties nested below the current context.
 
 
@@ -38,7 +42,7 @@ Handlebars also supports nested paths, making it possible to look up properties 
 
 Layout
 
-``` html
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,7 +60,7 @@ Layout
 
 To add data to a section, you have to understand how context works. For example, if we have a JSON file named `section.json` :
 
-``` json
+```json
 {
   "header" : {
     "title" : "Page Title",
@@ -67,18 +71,18 @@ To add data to a section, you have to understand how context works. For example,
 
 And we want that data to end up in our templates, so our templates must start with the `section` variable:
 
-``` handlebars
+```handlebars
 \{{#section.header}}
 <div class="page-header">
   <h1>\{{ title }}</h1>
   <p>\{{ description }}</p>
 </div>
-\{{/section}}
+\{{/section.header}}
 ```
 
 Output:
 
-``` html
+```html
 <div class="page-header">
   <h1>Page Title</h1>
   <p>This is the page description.</p>
@@ -92,14 +96,11 @@ TODO...
 
 
 
-
-
-
 ## Arrays
 
 The `\{{#each}}` helper is used for accessing data in arrays. Let's say we start with an array of items:
 
-``` json
+```json
 {
   "items" : [
     {
@@ -120,7 +121,7 @@ The `\{{#each}}` helper is used for accessing data in arrays. Let's say we start
 
 Inside our templates, we use the `\{{#each}}` helper like this:
 
-``` handlebars
+```handlebars
 \{{#each items}}
 <div>
   <h1>\{{ title }}</h1>
@@ -131,7 +132,7 @@ Inside our templates, we use the `\{{#each}}` helper like this:
 
 And it compiles to:
 
-``` html
+```html
 <div>
   <h1>First Item</h1>
   <p>This is the first item description.</p>
@@ -153,12 +154,16 @@ Although the Handlebars helpers from [helper lib][] can be extremely useful and 
 
 For example:
 
-```
-// From this
-"Page Title"
+From this
 
-// To this
-"page-title" 
+```
+Page Title
+```
+
+To this
+
+```
+page-title 
 ```
 
 We could use the `\{{hyphenate}}` Handlebars helper from [helper lib][] in the content of the page:
@@ -189,7 +194,7 @@ Results in `page-title`.
 
 Or, depending on your tastes, you might find it preferrable to use combination of underscore templates in the YAML front matter with handlebars in the page itself.
 
-``` html
+```handlebars
 ---
 title: Page Title
 class: <%= title.toLowerCase() %>
@@ -197,7 +202,7 @@ class: <%= title.toLowerCase() %>
 <div class="\{{hyphenate class}}">
   <h1>\{{ title }}</h1>
 </div>
-``` 
+```
 
 ### Where can Lo-Dash Templates be used with Assemble?
 
@@ -208,20 +213,19 @@ class: <%= title.toLowerCase() %>
 
 For example, inside `alert.json` :
 
-``` json
+```json
 {
   "class": "welcome-alert",
   "message": "Welcome to <%= title %>, the best place on the web."
 }
 ```
+
 Or the same in YAML:
 
-``` json
+```yaml
 class: welcome-alert
 message: Welcome to <%= title %>, the best place on the web
 ```
-
-
 
 Here are the global defaults:
 
@@ -267,9 +271,10 @@ project:
       title: Page Name
       layout: <%= layouts %>/<%= layout.type %>/<%= layout.name %>.json
         section:
-          - [<%= sections %>/<%= sections.type %>/<%= sections.name %>.json]
+          - <%= sections %>/<%= sections.type %>/<%= sections.name %>.json
           components:
-            - [<%= component.name %>.json, <%= component.name2 %>.json]
+            - <%= component.name %>.json
+            - <%= component.name2 %>.json
 ---
 ```
 

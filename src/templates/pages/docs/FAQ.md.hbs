@@ -177,7 +177,7 @@ Assemble is really just the  here are the basic building blocks that Assemble wo
 
 Let's start by creating a template, which can be any kind of markdown, text, xml or markup (such as HTML) we want it to be. For this example our template is going to be HTML, and since we're feeling creative, let's call it `my-template.tmpl`, and focusing only on the `head` of our HTML document let's add template variables for `title` and `author` so that we can later replace them with real data:
 
-```html
+```handlebars
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -221,7 +221,8 @@ Here is an example of what we might put inside of `my-template.json` to populate
 ```
 
 Here is the same in YAML format: `my-template.yml`
-``` yaml
+
+```yaml
 title: Assemble
 author: Brian Woodward
 ```
@@ -229,13 +230,14 @@ author: Brian Woodward
 And this template: 
 
 `my-template.hbs`
-```
+
+```handlebars
 <h1>\{{ title }}</h1>
 ```
 
 Or, in cases where we only require simple metadata we can use YAML Front-matter to eliminate the need for an external data file:
 
-``` yaml
+```yaml
 ---
 title: Assemble
 author: Brian Woodward
@@ -246,7 +248,7 @@ author: Brian Woodward
 
 Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:
 
-``` yaml
+```handlebars
 ---
 title: <%= some.title.variable %>
 author: Brian Woodward
