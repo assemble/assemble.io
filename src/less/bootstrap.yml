@@ -77,7 +77,7 @@ component:
   responsive_utilities: responsive-utilities.less
 
 # Docs CSS
-docs: vendor/bootstrap/docs/assets/css/docs.css
+docs: docs/assets/css/docs.css
 
 
 # =====================================================
