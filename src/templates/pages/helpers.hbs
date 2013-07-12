@@ -1,0 +1,17 @@
+---
+section: getting started
+title: Handlebars Helpers
+sections: ['src/content/helpers/helpers/*.md.hbs']
+layout: layout-helpers.hbs
+
+published: false
+---
+{{! THE HELPERS
+=========================================== }}
+<div class="container">
+  <div class="panel panel-docs">
+    {{#each sections}}
+    <h2>{{md this}}</h2>
+    {{/each}}
+  </div>
+</div>

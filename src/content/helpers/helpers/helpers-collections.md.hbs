@@ -1,0 +1,297 @@
+
+
+
+
+
+
+
+
+#### \{{join}}
+_Joins all elements of a collection into a string using a separator if specified._
+<br>Parameters: separator `string` - A string to use as a separator between the items. (Optional)
+
+Data:
+
+```json
+"collection": [
+  "Amy Wong",
+  "Bender",
+  "Dr. Zoidberg",
+  "Fry",
+  "Hermes Conrad",
+  "Leela",
+  "Professor Farnsworth",
+  "Scruffy"
+]
+```
+Template:
+
+```html
+\{{join collection " & "}}
+```
+
+Renders to:
+
+```
+Amy Wong & Bender & Dr. Zoidberg & Fry & Hermes Conrad & Leela & Professor Farnsworth & Scruffy
+```
+
+#### \{{sort}}
+_Returns the collection sorted._
+Parameters: `none`
+
+Data:
+
+```json
+"collection": [
+  "Amy Wong",
+  "Bender",
+  "Dr. Zoidberg",
+  "Fry",
+  "Hermes Conrad",
+  "Leela",
+  "Professor Farnsworth",
+  "Scruffy"
+]
+```
+Template:
+
+```html
+\{{sort collection}}
+```
+
+Renders to:
+
+```
+Amy Wong, Bender, Dr. Zoidberg, Fry, Hermes Conrad, Leela, Professor Farnsworth, Scruffy
+```
+
+#### \{{withSort}}
+_Uses the sorted collection inside the block._
+<br>Parameters: field `string` - String name of the field or property to sort by. (Optional)
+
+Data:
+
+```json
+"collection": [
+  {
+    "name": "Leela",
+    "deliveries": 8021
+  },
+  {
+    "name": "Bender",
+    "deliveries": 239
+  },
+  {
+    "name": "Fry",
+    "deliveries": -12
+  }
+]
+```
+Template:
+
+```html
+\{{#withSort collection "deliveries"}}
+  \{{name}}: \{{deliveries}} <br>
+\{{/withSort}}
+```
+
+Renders to:
+
+```html
+Fry: -12
+Bender: 239
+Leela: 8021
+```
+
+#### \{{length}}
+_Returns the length of the collection._
+<br>Parameters: `none`
+
+Data:
+
+```json
+"collection": [
+  "Amy Wong",
+  "Bender",
+  "Dr. Zoidberg",
+  "Fry",
+  "Hermes Conrad",
+  "Leela",
+  "Professor Farnsworth",
+  "Scruffy"
+]
+```
+
+Template:
+
+```html
+\{{length collection}}
+```
+
+Renders to:
+
+```html
+8
+```
+
+#### \{{lengthEqual}}
+_Conditionally render a block based on the length of a collection._
+<br>Parameters: length `int` - The value to test against. (Required)
+
+Data:
+
+```json
+"collection": [
+  {
+    "name": "Leela",
+    "deliveries": 8021
+  },
+  {
+    "name": "Bender",
+    "deliveries": 239
+  },
+  {
+    "name": "Fry",
+    "deliveries": -12
+  }
+]
+```
+Template:
+
+```html
+\{{#lengthEqual collection 3}}
+  There are 3 people in Planet Express.
+\{{else}}
+  This is not Planet Express.
+\{{/lengthEqual}}
+```
+
+Renders to:
+
+```
+There are 3 people in Planet Express.
+```
+
+#### \{{empty}}
+_Conditionally render a block if the collection is empty._
+<br>Parameters: `none`
+
+Data:
+
+```json
+"collection": []
+```
+Template:
+
+```html
+\{{#empty collection}}
+    Good news everyone!
+\{{else}}
+    Bad news everyone!
+\{{/empty}}
+```
+
+Renders to:
+
+```
+Good news everyone!
+```
+#### \{{any}}
+_Conditionally render a block if the collection isn't empty. Opposite of `empty`_
+<br>Parameters: `none`
+
+Data:
+
+```json
+"collection": ["Professor Farnswor"]
+```
+Templates:
+
+```html
+\{{#any collection}}
+  Good news everyone!
+\{{else}}
+  Bad news everyone!
+\{{/any}}
+```
+
+Renders to:
+
+```
+Good news everyone!
+```
+
+#### \{{inArray}}
+_Conditionally render a block if a specified value is in the collection._
+<br>Parameters: value `string|int` - A value to test against. (Required)
+
+Data:
+
+```json
+"collection": ["Professor Farnsworth", "Fry", "Bend"]
+```
+Template:
+
+```html
+\{{#inArray collection "Fry"}}
+  I'm walking on sunshine!
+\{{else}}
+  I'm walking on darkness.
+\{{/inArray}}
+```
+
+Renders to:
+
+```html
+I'm walking on sunshine!
+```
+
+#### \{{eachIndex}}
+_Current implementation of the default Handlebars loop helper \{{#each}} adding index (0-based index) to the loop context._
+<br>Parameters: `none`
+
+Data:
+
+```json
+"collection": ["Professor Farnsworth", "Fry", "Bend"]
+```
+Template:
+
+```html
+\{{#eachIndex collection}}
+  \{{this}} is \{{index}}
+\{{/eachIndex}}
+```
+
+Renders to:
+
+```
+Professor Farnsworth is 0, Fry is 1, Bender is 2
+```
+
+#### \{{eachProperty}}
+_Uses the key and value of each property in an object to render a block._
+<br>Parameters: `none`
+
+Data:
+
+```json
+"collection": {
+  "one": 1,
+  "two": 2
+}
+```
+Template:
+
+```html
+\{{#eachProperty object}}
+    \{{key}} - \{{value}}<br/>
+\{{/eachProperty }}
+```
+Renders to:
+
+```
+one - 1
+two - 2
+```

@@ -1,0 +1,54 @@
+# [{{ docs.name }} v{{ docs.version }}](http://github.com/{{ docs.org }}/{{ docs.name }}){{#if docs.travis}} [![Build Status](https://travis-ci.org/{{docs.org}}/{{docs.name}}.png)](https://travis-ci.org/{{docs.org}}/{{docs.name}}){{/if}}
+
+> {{{ docs.description }}}
+
+## Quick start
+{{> docs-quick-start.md }}
+
+{{> toc.md }}
+
+***
+
+{{> docs-helpers.md }}
+
+***
+
+## How Handlebars Helpers Work
+{{> docs-how-helpers-work.md }}
+
+## Contributing
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using Grunt.
+
+{{#if docs.section.about}}
+## About
+{{> docs-about.md }}
+{{/if}}
+
+## Authors
+{{authors '../helpers/AUTHORS'}}
+
+{{#if docs.section.credit}}
+## Credit
+{{> docs-credit.md }}
+{{/if}}
+
+## Copyright and license
+Copyright {{now "%Y"}} {{titleize docs.org}}
+
+[MIT License](LICENSE-MIT)
+
+## Release History
+{{changelog '../helpers/CHANGELOG'}}
+
+{{!### Roadmap}}
+{{!roadmap '../helpers/ROADMAP'}}
+
+***
+
+{{# if docs.section.author}}Authored by [{{ docs.author.name }}]({{ docs.author.url }}){{/if}}
+
+_This file was generated using Grunt and [assemble](http://github.com/assemble/assemble) on {{ today }}._
+
+{{! get data from './common/data/links.yml' }}
+{{> LINKS }}
+{{> REPOS }}

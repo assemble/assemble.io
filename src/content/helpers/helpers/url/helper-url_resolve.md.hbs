@@ -1,0 +1,19 @@
+#### \{{url_resolve}}
+_Take a base URL, and a href URL, and resolve them as a browser would for an anchor tag._
+
+<br>Template:
+
+```html
+\{{url_resolve url href}}
+```
+
+Example:
+
+```html
+<a href="\{{url_resolve "http://example.com/one" "/two"}}"></a>
+```
+Renders to:
+
+```html
+<a href="http://example.com/two"></a>
+```
