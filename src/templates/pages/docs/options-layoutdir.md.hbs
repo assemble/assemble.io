@@ -20,7 +20,7 @@ tags:
 
 `layoutdir` makes maintaining [layouts][options-layout] a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are stored without having to update the path to each layout used throughout your project. It could also reduce some clutter in the [Gruntfile](http://gruntjs.com) and [YAML Front Matter][yaml-front-matter].
 
-Additionally, a `layoutdir` can be defined for each [targets][targets], allowing for even greater control over how [layouts][] are used in your projects.
+Additionally, a `layoutdir` can be defined for each [targets](http://gruntjs.com/configuring-tasks), allowing for even greater control over how [layouts][] are used in your projects.
 
 ## Usage Examples
 
@@ -104,7 +104,7 @@ Here are some recommendations.
 
 ### Why clear naming conventions are important
 
-To understand why this is important, imagine that you're project has three "sub-projects", or [targets][]: `components`, `docs` and `blog`, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own `layoutdir` as well, which creates potential for conventions that lead to using the wrong layout accidentally, such as this:
+To understand why this is important, imagine that you're project has three "sub-projects", or [targets](http://gruntjs.com/configuring-tasks): `components`, `docs` and `blog`, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own `layoutdir` as well, which creates potential for conventions that lead to using the wrong layout accidentally, such as this:
 
 #### Not recommended
 
