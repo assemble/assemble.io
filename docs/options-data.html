@@ -175,8 +175,8 @@
 }</code></pre>
 
             <h3>Matching names</h3>
-            <p>Context to the name of the data file is the same as the associated template, and we</p>
-            <p>To use &quot;external&quot; data files (versus YAML front matter), y</p>
+            <p>When using &quot;external&quot; data files (versus YAML front matter),
+              <em>if name of the data file is the same as the associated template</em>then Assemble will automatically associate the two files.</p>
             <p><strong>&quot;widget component&quot; example</strong>
             </p>
             <p>Given a data file, such as <code>widget.json</code> or <code>widget.yml</code> :</p>
@@ -185,7 +185,7 @@
   &quot;modifier&quot;: &quot;widget-square&quot;
 }</code></pre>
 
-            <p>With the following Handlebars expressions in out template, <code>widget.hbs</code> :</p>
+            <p>With the following Handlebars expressions in out template, <code>widget.hbs</code>:</p>
 <pre><code class="lang-html">&lt;div class=&quot;widget {{ widget.modifier }}&quot;&gt;{{ widget.name }}&lt;/div&gt;</code></pre>
 
             <p>The result after running <code>grunt assemble</code> will be:</p>
