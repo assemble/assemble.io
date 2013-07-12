@@ -31,7 +31,7 @@ You must first define the paths to any data files you wish to use via the `optio
 assemble: {
   options: {
     data: 'src/data/*.json'
-  }
+  },
   files: {
     'site/': ['src/pages/*.hbs']
   }
@@ -82,7 +82,7 @@ assemble {
 }
 ```
 
-And we will not be able to retrieve metadata from `package.json` by using variables such as:
+And we will now be able to retrieve metadata from `package.json` by using variables such as:
 
 * `\{{package.verson}}`
 * `\{{package.name}}`

@@ -30,7 +30,7 @@ assemble: {
 
 Assemble will attempt to load an engine and automatically add it's own wrapper methods around it while holding an instance of the engine. This is a way for engine plugin authors to write adapters between other engines and assemble's wrapper. To make these functions on the options useful, we've exposed the underlying engine through the `assemble.engine` object so **developers can use the raw engine**. 
 
-This is particularly useful when **a)** a library such as [consolidate][] is used, where the engine is `consolidate`, and **b)** the developer wants to use another engine such as [handlebars](https://github.com/wycats/handlebars.js), [swig](https://github.com/paularmstrong/swig), [mustache](https://github.com/janl/mustache.js) etc.
+This is particularly useful when **a)** a library such as [consolidate](https://github.com/visionmedia/consolidate.js/) is used, where the engine is `consolidate`, and **b)** the developer wants to use another engine such as [handlebars](https://github.com/wycats/handlebars.js), [swig](https://github.com/paularmstrong/swig), [mustache](https://github.com/janl/mustache.js) etc.
 
 * The `init` function allows assemble to pass in options to be used in initializing this engine plugin.
 * `init` function is exposed, and [handlebars-helpers](https://github.com/assemble/handlebars-helpers) is registered inside the init so that options can be passed in.
