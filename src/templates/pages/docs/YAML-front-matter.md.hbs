@@ -3,9 +3,24 @@ title: YAML front matter
 section: data
 ---
 
-> YFM is an **optional** section of valid YAML that is placed at the top of a page and is used for maintaining metadata for the page and its contents. 
+> YFM is an **optional** section of valid YAML that is placed at the top of a page and is used for maintaining metadata for the page and its contents.
 
-YFM can be used with both [pages][pages] and [partials][partials], so _unless otherwise noted_&nbsp;you can safely assume that when the documentation refers to the **_YFM of a page_**, the same also applies to the **_YFM of a partial_**. 
+YFM can be used with both [pages][pages] and [partials][partials], so _unless otherwise noted_&nbsp;you can safely assume that when the documentation refers to the **_YFM of a page_**, the same also applies to the **_YFM of a partial_**.
+
+
+## Example
+
+```html
+---
+title: YAML Front Matter
+description: A very simple way to add structured data to a page.
+---
+
+<h1> \{{ title }} </h1>
+<p> \{{ description }} </p>
+
+Page content here...
+```
 
 {{#draft}}
 ## Table of Contents
@@ -21,7 +36,7 @@ YFM can be used with both [pages][pages] and [partials][partials], so _unless ot
 TOPICS TO COVER
 * structured data for the file and/or its contents
 * supply metadata
-* define configuration settings, options 
+* define configuration settings, options
 * specify variables, built-in or custom
 * use lo-dash templates to bring the power of JavaScript to your YFM
 
@@ -45,7 +60,7 @@ If set, allows to specify tags attributed to given entry. Tag pages are generate
 
 Any variables in the front-matter that are not predefined are mixed into the data that is sent to the Liquid templating engine during the conversion. For instance, if you set a title, you can use that in your layout to set the page title:
 
-``` html
+```html
 <title>\{{ page.title }}</title>
 ```
 
@@ -54,11 +69,11 @@ Any variables in the front-matter that are not predefined are mixed into the dat
 
 ### Metadata "conduit"
 
-This may not be obvious at first, is that YAML Front-Matter acts as a kind of "conduit" for passing information to pages via Lo-Dash templates. 
+This may not be obvious at first, is that YAML Front-Matter acts as a kind of "conduit" for passing information to pages via Lo-Dash templates.
 
 So you could do this:
 
-``` javascript
+```javascript
 grunt.initConfig({
   assemble: {
     component: {
@@ -75,7 +90,7 @@ grunt.initConfig({
 
 With `page.json` containing:
 
-``` json
+```json
 {
   "index": {
     "title": "Home"
@@ -88,7 +103,7 @@ With `page.json` containing:
 
 And in the YFM of the page, use underscore templates:
 
-``` yaml
+```html
 ---
 title: <%= page.index.title %>
 ---
@@ -96,17 +111,17 @@ title: <%= page.index.title %>
 {{ title }}
 ```
 
-Alternatively, inside the Grunfile you can use `grunt.config.set` to define the data to be used for a given variable: 
+Alternatively, inside the Grunfile you can use `grunt.config.set` to define the data to be used for a given variable:
 
-``` js 
+```js
 grunt.config.set('page.index.title', 'Home');
 ```
 
 ### Example usage
 
-``` html
+```html
 ---
-title: 
+title:
 list: <% _.forEach(people, function(name) { %><li><%= name %></li><% }); %>
 people:
 - Jon Schlinkert
@@ -129,11 +144,11 @@ people:
 ```
 
 
-``` yaml
+```yaml
 ---
 layout: default.hbs
 title: Early humans discovered...
-description: Lots of things, because they were early humans. 
+description: Lots of things, because they were early humans.
 date: 2013-07-04
 categories:
 - anthropology
@@ -143,15 +158,15 @@ tags:
 - rocks
 - wheel
 - 30 inch wooden rims
-published: false 
+published: false
 ---
 ```
 
 
 
 
-``` html
---- 
+```html
+---
 title: My Blog
 description: Like I said, my bloggg!
 example:
@@ -162,56 +177,51 @@ example:
     - three
 ---
 <div class="page-header">
-  <h1>{{title}}</h1>
-  <p class="lead">{{description}}</p>
+  <h1>\{{title}}</h1>
+  <p class="lead">\{{description}}</p>
 </div>
 
 <ul>
-  {{#each example.custom.variables}}
-  <li>{{.}}</li>
-  {{/each}}
+  \{{#each example.custom.variables}}
+  <li>\{{.}}</li>
+  \{{/each}}
 </ul>
 ```
 
 
 ## YAML Front-Matter in Partials
 
-``` html
+```html
 ---
-title: <%= component.name ][ pkg.name %>
-require: [<%= title %>.css, <%= title %>.js]
+title: <%= component.name || pkg.name %>
 ---
-<!-- \{{title}} -->
-<div class="row">
-  <div class="span3">
-    <div class="dropdown">
-      <div>User Settings</div>
-      <ul class="dropdown-menu">
-        <li><a href="#">My Profile</a></li>
-        <li><a href="#">Friend Requests</a></li>
-        <li><a href="#">Account Settings</a></li>
-        <li><a href="#">Support</a></li>
-        <li><a href="#">Log Out</a></li>
-      </ul>
-    </div>
-  </div>
-</div><!-- /\{{title}} -->
-```
-
-
-``` html
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>\{{ titleize component }} Component</title>
-    <link rel="stylesheet" href="\{{assets}}/css/\{{component}}.css">
+    <title>\{{ titleize title }} Component</title>
+    <link rel="stylesheet" href="\{{assets}}/css/\{{title}}.css">
   </head>
   <body>
     <div class="container">
+      <!-- \{{title}} -->
+      <div class="row">
+        <div class="span3">
+          <div class="dropdown">
+            <div>User Settings</div>
+            <ul class="dropdown-menu">
+              <li><a href="#">My Profile</a></li>
+              <li><a href="#">Friend Requests</a></li>
+              <li><a href="#">Account Settings</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- /\{{title}} -->
       \{{> body }}
     </div>
-    <script src="\{{assets}}/js/\{{component}}.js"></script>
+    <script src="\{{assets}}/js/\{{title}}.js"></script>
   </body>
 </html>
 ```
@@ -222,25 +232,23 @@ Use [YAML Associative Arrays](http://en.wikipedia.org/wiki/YAML#Associative_arra
 
 Indented Blocks, common in YAML data files, use indentation and new lines to separate the `key: value` pairs
 
-``` yaml
+```yaml
 ---
 title: Associative arrays
 people:
   name: John Smith
   age: 33
-```
 
-Inline Blocks, common in YAML data streams, use comma+space to separate the `key: value` pairs between braces:
-
-``` yaml
-morePeople:  {name: Grace Jones, age: 21}
+morePeople: {name: Grace Jones, age: 21}
 ---
 ```
-Used like this:
+Inline Blocks such as `morePeople`, common in YAML data streams, use comma+space to separate the `key: value` pairs between braces:
 
-``` html
+Used in templates like this:
+
+```html
 <div class="page-header">
-  <h1>\{{{title}}}</h1> 
+  <h1>\{{{title}}}</h1>
 </div>
 
 <div class="examples">
@@ -272,39 +280,25 @@ See some great usage examples in assemble's [YAML test files](https://assemble/a
 * YAML relational-trees
 * YAML variables
 
-
+{{#draft}}
 **Please note**: _YFM cannot be parsed if it is not the first thing on the page_.
-
 
 [YAML Front-Matter](https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter) was made popular by Jekyll, the "blog-aware, static site generator" that powers GitHub Pages.
 
 
-* YAML front-matter is **optionally** used at the beginning of a page to define metadata for the page's content. 
-* In order for YAML front-matter to be processed, it _must be the first thing at the top of the page_&nbsp;, and 
+* YAML front-matter is **optionally** used at the beginning of a page to define metadata for the page's content.
+* In order for YAML front-matter to be processed, it _must be the first thing at the top of the page_
 * To be valid, it must be "wrapped" with three leading dashes (above) (`---`) and three dashes following (below) (`---`).
 
-Example:
-
-``` html
----
-title: YAML front-matter
-description: A very simple way to add structured data to a page.
----
 
 "Front matter is essentially metadata about the document its attached to, formatted in such a way that it does not get in the way. In other words, if you don't know its “Front Matter”, you probably wouldn't wonder what it is, or what its doing there."
-
-
-
-<h1> \{{ title }} </h1>
-<p>Page content here... \{{ description }}</p>
-```
-
+{{/draft}}
 
 
 ## FAQ
 
 * With [Assemble](https://github.com/assemble/assemble) you may do [just about anything](https://github.com/assemble/assemble/tree/master/test/YAML) with YAML front matter that you can do with [valid YAML](http://www.yaml.org/spec/1.2/spec.html)
-* YFM must be [valid YAML](http://www.yaml.org/spec/1.2/spec.html) 
+* YFM must be [valid YAML](http://www.yaml.org/spec/1.2/spec.html)
 * YFM cannot be parsed if it is not the first thing on the page
 * [Assemble](https://github.com/assemble/assemble) parses YAML front matter into an object literal.
 * YFM allows you to define variables for a page, directly inside the page.
@@ -317,7 +311,7 @@ description: A very simple way to add structured data to a page.
 * You may use underscore [Lo-Dash templates][lodash] in YFM
 * Assemble exposes all variables defined in YAML front-matter to the page in which they were defined, thus...
 * Using [Lo-Dash templates][lodash] in YFM enables programmatic access to those pages across your project.
-* YFM may be used in any file that Assemble processes through any of the [src-dest or files mappings formats][files] available in Grunt.js. 
+* YFM may be used in any file that Assemble processes through any of the [src-dest or files mappings formats][files] available in Grunt.js.
 
 
 ### Recommended usage
@@ -339,7 +333,7 @@ description: A very simple way to add structured data to a page.
 ## External links
 
 * [js-yaml "online"](http://nodeca.github.io/js-yaml/) allows you to play with YAML in the browser.
-* [YAML specification](http://www.yaml.org/spec/1.2/spec.html) 
+* [YAML specification](http://www.yaml.org/spec/1.2/spec.html)
 * [http://www.yaml.org/](http://www.yaml.org/)
-* [wikipedia page about YAML](http://en.wikipedia.org/wiki/YAML) 
+* [wikipedia page about YAML](http://en.wikipedia.org/wiki/YAML)
 

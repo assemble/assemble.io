@@ -35,16 +35,12 @@ assemble: {
   files: {
     'site/': ['src/pages/*.hbs']
   }
-} 
+}
 ```
 
 ### Matching names
 
-Context to  the name of the data file is the same as the associated template, and we   
-
-To use "external" data files (versus YAML front matter), y
-
-
+When using "external" data files (versus YAML front matter), _if name of the data file is the same as the associated template_ then Assemble will automatically associate the two files.
 
 **"widget component" example**
 
@@ -57,7 +53,7 @@ Given a data file, such as `widget.json` or `widget.yml` :
 }
 ```
 
-With the following Handlebars expressions in out template, `widget.hbs` :
+With the following Handlebars expressions in out template, `widget.hbs`:
 
 ```html
 <div class="widget \{{ widget.modifier }}">\{{ widget.name }}</div>
