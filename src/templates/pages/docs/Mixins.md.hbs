@@ -1,0 +1,79 @@
+---
+title: Lo-Dash Mixins
+section: templates
+published: false
+---
+
+{{#TODO}}
+
+* Reference underscore.string
+* Create a cheatsheet for underscore.string
+
+{{/TODO}}
+
+
+## Built-in Lo-Dash Mixins
+
+Assemble includes the [lodash-mixins][lodash-mixins] library as a dependency, so any mixin from that library is available by default.
+
+### Also see
+* [Custom Mixins][custom-mixins] | [grunt-init-assemble-mixin](https://github.com/assemble/grunt-init-assemble-mixin) →
+* [Custom Helpers][custom-helpers] | [grunt-init-assemble-helper](https://github.com/assemble/grunt-init-assemble-helper) →
+
+### Mixins created for Assemble
+
+Most helpers from [lodash-mixins][] can be used with any Handlebars project, but a handful of helpers were created specifically for Assemble, including:
+
+* **dirname**: Returns the absolute path to the given file/directory. Would return: `path/to/variables.md`. Usage: `\{{dirname [path]}}`
+* **pagename**: Returns the full-name of a given file. Would return: `variables.md`. Usage: `\{{filename "docs/toc.md"}}`
+* **filename**: Can be used as an alternate for `pagename`.
+* **basename**: Returns the basename of a given file. Would return: `variables` Usage: `\{{base "docs/toc.md"}}`
+* **extension**: Returns the extension of a given file. Would return: `.md` Usage: `\{{extension "docs/toc.md"}}`
+* **ext**: Can be used as an alternate for`extension`.
+* **relative**: Returns the derived relative path from file A to file B. Usage: `\{{relative [from] [to]}}`. This can also be used with `page` and `pages`.
+* **markdown**: Markdown block helper enables writing markdown inside HTML and then renders the markdown as HTML inline with the rest of the page. Usage: `\{{#markdown}}\{{/markdown}}`
+* **md**: Markdown helper used to read in a file and inject the rendered markdown into the HTML. Usage: `\{{md [path]}}`
+* **embed**: Embeds code from an external file as preformatted text. The first parameter requires a path to the file you want to embed. The second optional parameter allows forcing syntax highlighting for a specific language. Usage: `\{{embed 'path/to/file.js'}}` or `\{{embed 'path/to/file.hbs' 'html'}}`
+* **jsFiddle**: Embed a jsFiddle, second parameter sets the desired tabs. Usage: `\{{jsfiddle [id] [tabs]}}`
+* **gist**: Downloads and embeds public GitHub Gists by adding only the Id of the Gist. Usage: `\{{gist [id] [file]}}`
+* **authors**: Reads in data from an "AUTHORS" file to generate markdown formatted author or list of authors for a README.md. Accepts a second optional parameter to a different file than the default. Usage: `\{{authors}}` or `\{{ authors [file] }}`
+* **changelog**: Reads in data from an "CHANGELOG" file to generate markdown formatted changelog or list of changelog entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: `\{{changelog [src]}}`
+* **roadmap**: Reads in data from an "ROADMAP" file to generate markdown formatted roadmap or list of roadmap entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: `\{{roadmap [src]}}`
+
+Many additional helpers are available in the following categories:
+
+* `assemble`
+* `collections`
+* `comparisons`
+* `dates`
+* `file`
+* `html`
+* `inflections`
+* `logging`
+* `markdown`
+* `math`
+* `miscellaneous`
+* `numbers`
+* `objects`
+* `path`
+* `special`
+* `strings`
+* `url`
+
+> Visit [lodash-mixins][lodash-mixins] to learn more →
+
+
+## Related info
+
+* [Custom Mixins][custom-mixins]
+* [Custom Helpers][custom-helpers]
+* [Templates][about-templates]
+* [lodash-mixins Github repo][lodash-mixins]
+* [handlebars-helpers Github repo][handlebars-helpers]
+* [Handlebarsjs.com Block Helpers](http://handlebarsjs.com/block_helpers.html "Block Helpers")
+* [Treehouse Blog, Handlebars.js Part 2: Partials and Helpers](http://blog.teamtreehouse.com/handlebars-js-part-2-partials-and-helpers)
+* [NetTuts+: An Introduction to Handlebars](http://net.tutsplus.com/tutorials/javascript-ajax/introduction-to-handlebars/)
+
+[lodash-mixins]: http://github.com/assemble/lodash-mixins "Extensive collection of Lo-Dash mixins"
+[handlebars-helpers]: http://github.com/assemble/handlebars-helpers "Extensive collection of Handlebars helpers"
+
