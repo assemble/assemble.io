@@ -21,7 +21,7 @@ teaser:
     title: <strong>Design. Templates. Data.</strong>
     subtitle: See how Assemble bridges the gap between design and development.
     ideas: <strong>Built with Assemble</strong> It has never been easier to build static sites.
-    link: docs/Home.html
+    href: docs/Home.html
 
   footer:
     static: true
