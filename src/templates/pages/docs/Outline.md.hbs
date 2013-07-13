@@ -8,11 +8,11 @@ published: false
 
 * What is Assemble?
 * Why was it created?
-* Who created it? 
+* Who created it?
 * Why should you use it?
 
 
-## Getting Started 
+## Getting Started
 
 * First steps
 * `npm install grunt -g`, then `npm install assemble`
@@ -23,7 +23,7 @@ Pre-requisites to Using Assemble
 * See how a target works
 
 
-## Fundamentals of Using Assemble 
+## Fundamentals of Using Assemble
 
 ### The `assemble` task
 
@@ -37,11 +37,11 @@ Pre-requisites to Using Assemble
 
 ### Options
 
-Options can be defined at the task and/or target-levels. This offers a convenient way to use the task-level options for defining the "global" or "default" options for a project, and to then use the target-level options for overriding or extending the default options as necessary. 
+Options can be defined at the task and/or target-levels. This offers a convenient way to use the task-level options for defining the "global" or "default" options for a project, and to then use the target-level options for overriding or extending the default options as necessary.
 
 For example:
 
-``` js
+```js
 assemble: {
   options: {
     // Specify default options
@@ -91,7 +91,7 @@ assemble: {
       'docs/': ['src/docs/*.hbs']
     ]
   },
-  
+
   // Build README
   readme: {
     options: {
@@ -108,12 +108,12 @@ assemble: {
 
 #### Layout `\{{> body }}` tag
 
-Layouts are optional, so pages can be built with our without one. However, when a layout is used, it _must contain a `\{{> body }}`_ tag. Assemble uses this tag to "pull in" content from all the `src` pages specified in a target. 
+Layouts are optional, so pages can be built with our without one. However, when a layout is used, it _must contain a `\{{> body }}`_ tag. Assemble uses this tag to "pull in" content from all the `src` pages specified in a target.
 
 
 Given this task configuration:
 
-``` js
+```js
 assemble: {
   blog: {
     options: {
@@ -129,7 +129,7 @@ assemble: {
 
 With this layout, `blog-layout.hbs` :
 
-``` html
+```html
 <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -150,26 +150,26 @@ With this layout, `blog-layout.hbs` :
 
 And this page, `post.hbs` :
 
-``` html
+```html
 ---
 title: Welcome to my blog!
 description: The best blog you'll find at this web address.
 ---
 <div class="page-header">
   <h1>\{{title}}</h1>
-  <p class="lead">\{{lead}}</p> 
+  <p class="lead">\{{lead}}</p>
 </div>
 
-Aliquam erat volutpat. Ut imperdiet condimentum nisi non aliquet. 
-Vivamus sit amet consectetur sapien. Phasellus varius interdum urna, 
-eget mattis justo faucibus vel. Aliquam elementum, magna ut pretium 
-molestie, erat orci eleifend tellus, sit amet rhoncus arcu odio eu 
+Aliquam erat volutpat. Ut imperdiet condimentum nisi non aliquet.
+Vivamus sit amet consectetur sapien. Phasellus varius interdum urna,
+eget mattis justo faucibus vel. Aliquam elementum, magna ut pretium
+molestie, erat orci eleifend tellus, sit amet rhoncus arcu odio eu
 sem. Proin lobortis mi ac ante luctus porta.
 ```
 
 The rendered output will be:
 
-``` html
+```html
 <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -181,12 +181,12 @@ The rendered output will be:
     <div class="container">
       <div class="page-header">
         <h1>Welcome to my blog!</h1>
-        <p class="lead">The best blog you'll find at this web address.</p> 
+        <p class="lead">The best blog you'll find at this web address.</p>
       </div>
-      Aliquam erat volutpat. Ut imperdiet condimentum nisi non aliquet. 
-      Vivamus sit amet consectetur sapien. Phasellus varius interdum urna, 
-      eget mattis justo faucibus vel. Aliquam elementum, magna ut pretium 
-      molestie, erat orci eleifend tellus, sit amet rhoncus arcu odio eu 
+      Aliquam erat volutpat. Ut imperdiet condimentum nisi non aliquet.
+      Vivamus sit amet consectetur sapien. Phasellus varius interdum urna,
+      eget mattis justo faucibus vel. Aliquam elementum, magna ut pretium
+      molestie, erat orci eleifend tellus, sit amet rhoncus arcu odio eu
       sem. Proin lobortis mi ac ante luctus porta.
     </div>
   </body>

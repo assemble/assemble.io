@@ -13,7 +13,7 @@ section: templates
 
 ## Layouts
 
-[layouts][layouts] make it simple to share common code across multiple pages in a project.  
+[layouts][layouts] make it simple to share common code across multiple pages in a project.
 
 
 
@@ -27,7 +27,9 @@ section: templates
 
 Handlebars is the default template engine that ships with Assemble.
 
-Handlebars Paths
+TODO:
+
+How Handlebars Paths work.
 
 Handlebars supports simple paths, just like Mustache.
 
@@ -36,7 +38,6 @@ Handlebars supports simple paths, just like Mustache.
 ```
 
 Handlebars also supports nested paths, making it possible to look up properties nested below the current context.
-
 
 ### Example
 
@@ -54,7 +55,6 @@ Layout
   </body>
 </html>
 ```
-
 
 ### Adding data to sections
 
@@ -150,7 +150,7 @@ And it compiles to:
 
 ### Lo-Dash Templates in YAML Front Matter
 
-Although the Handlebars helpers from [helper lib][] can be extremely useful and powerful, they can only be used inside the content of a page. So there are certain situation where they fall short, such as when you want to make a string lowercase _and_ replace spaces in the string with dashes. 
+Although the Handlebars helpers from [helper lib][] can be extremely useful and powerful, they can only be used inside the content of a page. So there are certain situation where they fall short, such as when you want to make a string lowercase _and_ replace spaces in the string with dashes.
 
 For example:
 
@@ -163,7 +163,7 @@ Page Title
 To this
 
 ```
-page-title 
+page-title
 ```
 
 We could use the `\{{hyphenate}}` Handlebars helper from [helper lib][] in the content of the page:
@@ -188,7 +188,7 @@ class: <%= title.toLowerCase().split(" ").join("-") %>
   <h1>\{{ title }}</h1>
 </div>
 ```
-Results in `page-title`. 
+Results in `page-title`.
 
 #### Lo-Dash and Handlebars together
 
@@ -206,7 +206,7 @@ class: <%= title.toLowerCase() %>
 
 ### Where can Lo-Dash Templates be used with Assemble?
 
-* Inside the Gruntfile 
+* Inside the Gruntfile
 * In YAML front matter of pages **and partials**
 * In JSON or YAML files that supply content or data to pages or partials
 * In external JSON or YAML files that are used to supply configuration data to Assemble
@@ -229,7 +229,7 @@ message: Welcome to <%= title %>, the best place on the web
 
 Here are the global defaults:
 
-1. `YAML front matter` : YAML front matter must be the first thing in the file and takes the form of:YAML front-matter allows wins over all other methods, if 
+1. `YAML front matter` : YAML front matter must be the first thing in the file and takes the form of:YAML front-matter allows wins over all other methods, if
 not defined the following option is used.
 2. page.json:
 3. config.json with a `page` or `pages` object

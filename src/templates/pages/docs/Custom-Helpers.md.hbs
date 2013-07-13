@@ -3,7 +3,7 @@ title: Custom Helpers
 section: templates
 ---
 
-> Custom helpers and [Lo-Dash mixins][external-libraries] are so easy to use with Assemble, the possibilities are truly limitless. 
+> Custom helpers and [Lo-Dash mixins][external-libraries] are so easy to use with Assemble, the possibilities are truly limitless.
 
 To make it easier for Assemble users to consume custom helpers created by other users, we offer the following conventions and recommendations for your consideration.
 
@@ -14,7 +14,7 @@ To make it easier for Assemble users to consume custom helpers created by other 
 
 
 ### 1. Install grunt-init
-If you haven't already done so, install [Grunt][grunt] and [grunt-init][]: 
+If you haven't already done so, install [Grunt][grunt] and [grunt-init][]:
 
 ``` bash
 npm i -g grunt-cli grunt-init
@@ -40,21 +40,21 @@ Then, in the directory where your custom helpers will be stored, run `grunt-init
 
 
 ## Conventions and Recommendations
-If you are creating a helper for distribution, then you might consider using [grunt-init-assemble](https://github.com/assemble/grunt-init-assemble) first to create a new Assemble project, then use [grunt-init-helper](https://github.com/assemble/grunt-init-helper) to generate the new helper. 
+If you are creating a helper for distribution, then you might consider using [grunt-init-assemble](https://github.com/assemble/grunt-init-assemble) first to create a new Assemble project, then use [grunt-init-helper](https://github.com/assemble/grunt-init-helper) to generate the new helper.
 
 We recommend that you save the helper to the root of the project to make it easy for others to consume via package managers, such as [Bower](https://github.com/bower/bower).
 
 ### Naming Conventions
 * **project name**: It is recommended that you use the following pattern: "`assemble-helper-[custom helper name]`" (with `helper` being singular or plural).
-* **helper name**: Name the helper itself something like "`helper-[helper-name].js`". All "official" helpers have been created following the pattern "helper-*.js" so that they can easily be consumed by `assemble.options.helpers` via simple minimatch patterns. This doesn't prevent them from being used elsewhere either. 
+* **helper name**: Name the helper itself something like "`helper-[helper-name].js`". All "official" helpers have been created following the pattern "helper-*.js" so that they can easily be consumed by `assemble.options.helpers` via simple minimatch patterns. This doesn't prevent them from being used elsewhere either.
 
 ### "Generalizing" code
 Oftentimes, beyond being used as a Handlebars helper, the code for many helpers can easily be generalized so that they can also be used as Lo-Dash mixins, filters for other template engines etc. It's worth doing this whenever you can to make the helper more useful to others. Also:
 
-* Make sure you add a `main` property to the project's **package.json** with a path to the helper. 
+* Make sure you add a `main` property to the project's **package.json** with a path to the helper.
 * Register the helper with [Bower](https://github.com/bower/bower) and add a [bower.json](https://github.com/bower/bower#defining-a-package) for easy downloading and consumption of the helper.
 * Add a test folder with any tests
-* If you want to demonstrate the helper, add those to the test folder as well 
+* If you want to demonstrate the helper, add those to the test folder as well
 
 
 ## Related info

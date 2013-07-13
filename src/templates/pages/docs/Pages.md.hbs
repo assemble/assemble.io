@@ -30,7 +30,7 @@ src/
 
 And the `assemble` task in our Gruntfile has the following targets:
 
-``` js
+```javascript
 assemble: {
   options: {
     layout: 'layouts/default.hbs'
@@ -50,7 +50,7 @@ assemble: {
 
 And that `default.hbs` has the following contents:
 
-``` handlebars
+```handlebars
 <ul>
   \{{#each pages}}
     <li><a href="#">\{{../pagename}}</a></li>
@@ -60,7 +60,7 @@ And that `default.hbs` has the following contents:
 
 Then in `docs/index.html` the rendered content will be:
 
-``` html
+```html
 <ul>
   <li><a href="#">index</a></li>
   <li><a href="#">api</a></li>
@@ -70,7 +70,7 @@ Then in `docs/index.html` the rendered content will be:
 
 And in `blog/index.html` the rendered content will be:
 
-``` html
+```html
 <ul>
   <li><a href="#">index</a></li>
   <li><a href="#">articles</a></li>
@@ -87,7 +87,7 @@ With a couple of simple modifications to the previous example, we can have the o
 
 First, we add a `title:` to the YAML front matter of each page, like this:
 
-``` yaml
+```yaml
 ---
 title: home
 ---
@@ -95,7 +95,7 @@ title: home
 
 Then we change our template to use the `title` variable instead of the file name:
 
-``` html
+```html
 <ul>
   \{{#each pages}}
     <li><a href="#">\{{../page.title}}</a></li>
@@ -104,7 +104,7 @@ Then we change our template to use the `title` variable instead of the file name
 ```
 which renders to:
 
-``` html
+```html
 <ul>
   <li><a href="#">home</a></li><!-- text is now "home" instead of "index" -->
   <li><a href="#">articles</a></li>
@@ -117,7 +117,7 @@ which renders to:
 #### "Titleizing" the output
 We can even go a step further and make the rendered titles propercase:
 
-``` html
+```html
 <ul>
   \{{#each pages}}
     <li><a href="#">\{{titleize ../page.title}}</a></li>
@@ -126,7 +126,7 @@ We can even go a step further and make the rendered titles propercase:
 ```
 which renders to:
 
-``` html
+```html
 <ul>
   <li><a href="#">Home</a></li>
   <li><a href="#">Articles</a></li>
@@ -142,7 +142,7 @@ which renders to:
 
 You may also exclude files from being rendered by adding `published: false` to the YAML Front Matter of a page.
 
-``` yaml
+```yaml
 ---
 title: Just testing some stuff on this page, it should not be published
 published: false
@@ -155,7 +155,7 @@ Exclude files from being rendered by prefixing source file patterns with `!`. Vi
 
 ##### [Quoted from the Grunt.js docs](http://gruntjs.com/configuring-tasks#globbing-patterns) →
 
-``` javascript
+```javascript
 // All files except for bar.js, in alpha order:
 {src: ['foo/*.js', '!foo/bar.js'], dest: ...}
 
@@ -165,6 +165,9 @@ Exclude files from being rendered by prefixing source file patterns with `!`. Vi
 
 
 {{#draft}}
+
+NOTE: If you're reading this unpublished content, know that these features haven't even been released. So it's probably best to _not_ try to use them ;-) Sorry.
+
 # Pages
 
 ## Defining a Page
@@ -179,194 +182,204 @@ When a page is defined, all objects are optional except for the page `<title></t
 
 The simplest way to define a new page is to add a `page.json` file in the following directory `./src/templates/pages/custom/`, and add a single property to declare the
 
-    {
-      "home": {}
-    }
+```json
+{
+  "home": {}
+}
+```
 
 Sensible defaults are provide for common global properties, so that if you need to quickly scaffold a project you can do so without having to fill out an entire config file.
 
-    {
-      "home": {
-        "title": "Home"
-      }
-    }
-
+```json
+{
+  "home": {
+    "title": "Home"
+  }
+}
+```
 
 then the page would compile with the file name `home.html`. So if we want the page's file name to be `index.html`, we woud add that to the `home` object:
 
-    {
-      "home": {
-        "title": "Home",
-        "filename": "index",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      }
+```json
+{
+  "home": {
+    "title": "Home",
+    "filename": "index",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  }
+}
+```
+
+YAML front matter is also processed:
+
+```html
+---
+title: Snow crabs are swarthy and devious criminals.
+subtitle: A true and captivating tale of how a band of ingenious snow crabs successfully robbed the Bank of New York.
+author: Jon Schlinkert
+category: Breaking news
+layout: featured-article
+---
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+```
+```json
+{
+  "home": {
+    "title": "Home",
+    "filename": "index",
+    "layout": "path/to/layout.json",
+    "masthead": "A beautiful, responsive theme. By <%= theme.author %>",
+    "content": [
+      "path/to/content1.md",
+      "path/to/content1.md",
+      "path/to/content2.md"
+    ],
+    "variables": {
+      "hero": "This is an awesome theme!",
+      "buy-now": "Buy Now!"
     }
+  }
+}
+```
+Or the same in YAML:
 
-
-YAML front matter in is also processed:
-
-
-    ---
-    title: Snow crabs are swarthy and devious criminals.
-    author: Jon Schlinkert
-    category: Breaking news
-    layout: featured-article
-    ---
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-
-
-    {
-      "home": {
-        "title": "Home",
-        "filename": "index",
-        "layout": "path/to/layout.json",
-        "masthead": "A beautiful, responsive theme. By <%= theme.author %>",
-        "content": [
-          "path/to/content1.md",
-          "path/to/content1.md",
-          "path/to/content2.md"
-        ],
-        "variables": {
-          "hero": "This is an awesome theme!",
-          "buy-now": "Buy Now!"
-        }
-      }
-    }
-
-
-and the same in YAML:
-    ---
-    home:
-      title: "Home"
-      filename: index
-      layout: path/to/layout.json
-      masthead: A beautiful, responsive theme. By <%= theme.author %>
-      content:
-      - path/to/content1.md
-      - path/to/content1.md
-      - path/to/content2.md
-      variables:
-        hero: This is an awesome theme!
-        buy-now: Buy Now!
-    ...
-
-
+```yaml
+home:
+  title: "Home"
+  filename: index
+  layout: path/to/layout.json
+  masthead: A beautiful, responsive theme. By <%= theme.author %>
+  content:
+  - path/to/content1.md
+  - path/to/content1.md
+  - path/to/content2.md
+  variables:
+    hero: This is an awesome theme!
+    buy-now: Buy Now!
+```
 
 ## Collections of pages
 
 A collections of pages is defined like this:
 
-    {
-      "about": {
-        // properties
-      },
-      "contact": {
-        // properties
-      },
-      "blog": {
-        // properties
-      },
-      "post": {
-        // properties
-      }
-    }
-
+```json
+{
+  "about": {
+    // properties
+  },
+  "contact": {
+    // properties
+  },
+  "blog": {
+    // properties
+  },
+  "post": {
+    // properties
+  }
+}
+```
 
 json
 
-    {
-      "pages": "path/to/pages.json",
-    }
+```json
+{
+  "pages": "path/to/pages.json",
+}
+```
 
 YAML
 
-    pages: path/to/pages.json
+```yaml
+pages: path/to/pages.json
+```
+1. Create a `pages.json` file and add an object for each page to be built:
 
- 1. Create a `pages.json` file and add an object for each page to be built:
 
 Add the `pages` object "short-format" to your configuration file, and create sub-objects for each page to be built.
 
-    {
-      "pages": {
-        "home": "path/to/custom/home.json",
-        "about": "path/to/custom/about.json",
-        "blog": "path/to/custom/blog.json",
-        "contact": false
-      }
-    }
+```json
+{
+  "pages": {
+    "home": "path/to/custom/home.json",
+    "about": "path/to/custom/about.json",
+    "blog": "path/to/custom/blog.json",
+    "contact": false
+  }
+}
+```
 
 To exclude a page simple provide a falsy value. The same goes for excluding `layouts` or other default values.
 
 
 Add the `pages` object "long-format" to your configuration file, and create sub-objects for each page to be built.
 
-  {
-    "pages": {
-      "home": {
-        "title": "Home",
-        "masthead": "A beautiful, responsive theme. By <%= theme.author %>",
-        "slug": "index",
-        "layout-example1": "<%= defaults.layouts.home %>",
-        "layout-example2": "path/to/home-page-layouts/carousel.mustache",
-        //  "another layout example": "path/to/<%= template-engine %>/full-width.<%= template-engine %>", // example for using templates to determin engine first, e.g. mustache, md, liquid, etc. implying that we would need to (could) support multiple versions of a template.
-        "content-example": "path/to/home.md", // content can be a single path or an array
-        "content": [
-          "content1.md",
-          "content1.md",
-          "content2.md"
-        ]
-      },
-      "about": {
-        "title": "About Us",
-        "slug": "about",
-        "layout": "path/to/layouts-type1/full-width.mustache",
-        "content": "path/to/about-us.md"
-      },
-      "contact": {
-        "title": "Contact Us",
-        "slug": "contact",
-        "layout": "path/to/layouts-type1/full-width.mustache",
-        "content": "path/to/contact-us.md"
-      },
-      "blog": {
-        "title": "Blog",
-        "subtitle": "Welcome to our Blog!",
-        "slug": "blog",
-        "layout": "path/to/layouts-type1/two-column.mustache",
-        "content": "path/to/contact-us.md"
-      },
-      "post": {
-        "title": "{{ page.title }}",
-        "slug": "<%= grunt.template.today(\"yyyy\")-<%= post-name %>",
-        "layout": "path/to/layouts-type4/two-column.mustache",
-        //"content": "<%= theme.content %>" // the 'content' object in the theme.json file, might reference content.md
-        "content": "path/to/post.md"
-      },
-      "article": { // alternative to 'post'
-        "title": "Example Blog Post",
-        "subtitle": "The most important blog post you've ever read.",
-        "slug": "example-blog-post",
-        "layout": "<%= defaults.layouts.blog %>",
-        "content": "path/to/post.md"
-      },
-      "catalog": {
-        "title": "Products",
-        "slug": "products",
-        "layout": "path/to/layouts-type2/gallery.mustache",
-        "content": "<%= products %>/products.yml"
-      },
-      "product": {
-        "title": "{{ page.title }}",
-        "slug": "products",
-        "layout": "path/to/layouts-products/product-example.mustache",
-        "content": "<%= products %>/product-types1/product.yml"
-      },
-      "portfolio": {
-        "title": "Our Work",
-        "layout": "../../layouts/my-custom-layouts/portfolio.mustache"
-      }
+```json
+{
+  "pages": {
+    "home": {
+      "title": "Home",
+      "masthead": "A beautiful, responsive theme. By <%= theme.author %>",
+      "slug": "index",
+      "layout-example1": "<%= defaults.layouts.home %>",
+      "layout-example2": "path/to/home-page-layouts/carousel.hbs",
+      "content-example": "path/to/home.md", // content can be a single path, array or globbing patterns
+      "content": [
+        "content1.md",
+        "content1.md",
+        "content2.md"
+      ]
+    },
+    "about": {
+      "title": "About Us",
+      "slug": "about",
+      "layout": "path/to/layouts-type1/full-width.hbs",
+      "content": "path/to/about-us.md"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "slug": "contact",
+      "layout": "path/to/layouts-type1/full-width.hbs",
+      "content": "path/to/contact-us.md"
+    },
+    "blog": {
+      "title": "Blog",
+      "subtitle": "Welcome to our Blog!",
+      "slug": "blog",
+      "layout": "path/to/layouts-type1/two-column.hbs",
+      "content": "path/to/contact-us.md"
+    },
+    "post": {
+      "title": "{{ page.title }}",
+      "slug": "<%= grunt.template.today(\"yyyy\")-<%= post-name %>",
+      "layout": "path/to/layouts-type4/two-column.hbs",
+      //"content": "<%= theme.content %>" // the 'content' object in the theme.json file, might reference content.md
+      "content": "path/to/post.md"
+    },
+    "article": { // alternative to 'post'
+      "title": "Example Blog Post",
+      "subtitle": "The most important blog post you've ever read.",
+      "slug": "example-blog-post",
+      "layout": "<%= defaults.layouts.blog %>",
+      "content": "path/to/post.md"
+    },
+    "catalog": {
+      "title": "Products",
+      "slug": "products",
+      "layout": "path/to/layouts-type2/gallery.hbs",
+      "content": "<%= products %>/products.yml"
+    },
+    "product": {
+      "title": "{{ page.title }}",
+      "slug": "products",
+      "layout": "path/to/layouts-products/product-example.hbs",
+      "content": "<%= products %>/product-types1/product.yml"
+    },
+    "portfolio": {
+      "title": "Our Work",
+      "layout": "../../layouts/my-custom-layouts/portfolio.hbs"
     }
   }
+}
+```
 
 {{/draft}}
