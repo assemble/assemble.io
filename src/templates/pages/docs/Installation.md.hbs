@@ -3,7 +3,7 @@ title: Installation
 section: getting started
 ---
 
-## Install the "assemble" plugin
+## Installation
 
 This plugin requires Grunt `~0.4.1`
 
@@ -25,7 +25,6 @@ When completed, you'll be able to run the various `grunt` commands available
 
 
 ## The "assemble" task
-
 ```js
 assemble: {
   options: {
@@ -34,11 +33,11 @@ assemble: {
   },
   project: {
     options: {
-      layout: "path/to/default-layout.hbs",
-      partials: "path/to/partials/**/*.hbs"
+      layout: "path/to/default-layout.mustache",
+      partials: "path/to/partials/**/*.mustache"
     },
     files: {
-      'dest': "path/to/pages/**/*.hbs"
+      'dest': "path/to/pages/**/*.mustache"
       ]
     }
   }

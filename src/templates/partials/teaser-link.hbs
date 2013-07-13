@@ -10,9 +10,9 @@ component: teaser
     margin-left: -20px;
   }
 </style>
-<div class="teaser {{ modifier }}">
-  <a class="teaser-content" href="{{ url }}">
-    {{! OPTIONAL ICON <span class="glyphicon"></span> }}
+<div class="teaser {{modifier}}">
+  <a class="teaser-content" href="{{ href }}">
+    {{! OPTIONAL ICON <span class="glyphicon"></span>  }}
     {{#if title}} {{{ title }}} {{/if}}
     {{#if subtitle}} <em> {{{ subtitle }}} </em> {{/if}}
 
@@ -23,3 +23,4 @@ component: teaser
     <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
   </a>
 </div>
+
