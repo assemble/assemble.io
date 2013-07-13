@@ -181,7 +181,7 @@
 }</code></pre>
 
             <p>Assemble will attempt to load an engine and automatically add it&#39;s own wrapper methods around it while holding an instance of the engine. This is a way for engine plugin authors to write adapters between other engines and assemble&#39;s wrapper. To make these functions on the options useful, we&#39;ve exposed the underlying engine through the <code>assemble.engine</code> object so <strong>developers can use the raw engine</strong>.</p>
-            <p>This is particularly useful when <strong>a)</strong> a library such as [consolidate][] is used, where the engine is <code>consolidate</code>, and <strong>b)</strong> the developer wants to use another engine such as <a href="https://github.com/wycats/handlebars.js">handlebars</a>, <a href="https://github.com/paularmstrong/swig">swig</a>, <a href="https://github.com/janl/mustache.js">mustache</a> etc.</p>
+            <p>This is particularly useful when <strong>a)</strong> a library such as <a href="https://github.com/visionmedia/consolidate.js/">consolidate</a> is used, where the engine is <code>consolidate</code>, and <strong>b)</strong> the developer wants to use another engine such as <a href="https://github.com/wycats/handlebars.js">handlebars</a>, <a href="https://github.com/paularmstrong/swig">swig</a>, <a href="https://github.com/janl/mustache.js">mustache</a> etc.</p>
             <ul>
               <li>The <code>init</code> function allows assemble to pass in options to be used in initializing this engine plugin.</li>
               <li><code>init</code> function is exposed, and <a href="https://github.com/assemble/handlebars-helpers">handlebars-helpers</a> is registered inside the init so that options can be passed in.</li>

@@ -1,9 +1,9 @@
 jumbotron:
   title: build something
-  lead: > 
+  lead: >
     Documentation. Sites. Components. <br>It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.
   ideas: >
-    Finally, a tool that closes the gap between developers and designers. 
+    Finally, a tool that closes the gap between developers and designers.
     The bridge between designers and developers.
     Want leverage? You got it, now go build something.
     Workflow between design and development has never been easier.
@@ -21,7 +21,7 @@ teaser:
     title: <strong>Design. Templates. Data.</strong>
     subtitle: See how Assemble bridges the gap between design and development.
     ideas: <strong>Built with Assemble</strong> It has never been easier to build static sites.
-    href: docs/Home.html
+    url: docs/Home.html
 
   footer:
     static: true

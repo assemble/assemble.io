@@ -167,7 +167,7 @@
               <p>Path to the directory to be used as the &quot;cwd&quot; for layouts</p>
             </blockquote>
             <p><code>layoutdir</code> makes maintaining <a href="options-layout.html">layouts</a> a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are stored without having to update the path to each layout used throughout your project. It could also reduce some clutter in the <a href="http://gruntjs.com">Gruntfile</a> and <a href="YAML-front-matter.html">YAML Front Matter</a>.</p>
-            <p>Additionally, a <code>layoutdir</code> can be defined for each [targets][targets], allowing for even greater control over how <a href="Layouts.html">layouts</a> are used in your projects.</p>
+            <p>Additionally, a <code>layoutdir</code> can be defined for each <a href="http://gruntjs.com/configuring-tasks">targets</a>, allowing for even greater control over how <a href="Layouts.html">layouts</a> are used in your projects.</p>
             <h2>Usage Examples</h2>
             <h3>Without <code>layoutdir</code>
             </h3>
@@ -237,7 +237,7 @@ layout: blog-layout.hbs
               <li>Use a unique name for each layout used throughout a project.</li>
             </ul>
             <h3>Why clear naming conventions are important</h3>
-            <p>To understand why this is important, imagine that you&#39;re project has three &quot;sub-projects&quot;, or [targets][]: <code>components</code>, <code>docs</code> and <code>blog</code>, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own <code>layoutdir</code> as well, which creates potential for conventions that lead to using the wrong layout accidentally, such as this:</p>
+            <p>To understand why this is important, imagine that you&#39;re project has three &quot;sub-projects&quot;, or <a href="http://gruntjs.com/configuring-tasks">targets</a>: <code>components</code>, <code>docs</code> and <code>blog</code>, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own <code>layoutdir</code> as well, which creates potential for conventions that lead to using the wrong layout accidentally, such as this:</p>
             <h4>Not recommended</h4>
 <pre><code class="lang-js">assemble: {
   components: {

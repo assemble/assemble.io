@@ -10,10 +10,8 @@
 
 module.exports = function(grunt) {
 
-  var _ = grunt.util._; // lodash
-
   // Internal lib
-  _.mixin(require('./src/mixins').init(grunt));
+  grunt.util._.mixin(require('./src/mixins').init(grunt));
 
   // Project configuration.
   grunt.initConfig({
@@ -111,11 +109,7 @@ module.exports = function(grunt) {
         ]
       }
     },
-    changelog: {
-      options: {
-        dest: 'CHANGELOG.md'
-      }
-    },
+
     // Before generating any new files,
     // remove files from previous build.
     clean: {
@@ -129,8 +123,6 @@ module.exports = function(grunt) {
   // Load npm and local plugins.
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
-  grunt.loadNpmTasks('grunt-conventional-changelog');
-
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // Default task to be run.

@@ -3,7 +3,7 @@ var path   = require('path');
 var _      = require('lodash');
 
 // These are some really brittle experimental helpers. I'm just having some fun
-// playing around for our docs, but I strongly recommend you not use these on 
+// playing around for our docs, but I strongly recommend you not use these on
 // your own projects. - Jon
 
 (function() {

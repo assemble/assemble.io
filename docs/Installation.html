@@ -162,12 +162,12 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Installation</h1>
-            <h2>Download Assemble</h2>
+            <h2>Install the &quot;assemble&quot; plugin</h2>
             <p>This plugin requires Grunt <code>~0.4.1</code>
             </p>
             <p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to read the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins.</p>
-            <p>Then install <a href="https://github.com/assemble/assemble/blob/master/package.json#L40-L54">the required local dependencies</a> and this plugin with this command:</p>
-<pre><code class="lang-shell">$ npm install</code></pre>
+            <p>Then install the plugin with this command:</p>
+<pre><code class="lang-shell">$ npm install assemble --save-dev</code></pre>
 
             <p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
 <pre><code class="lang-js">grunt.loadNpmTasks(&#39;assemble&#39;);</code></pre>
@@ -181,11 +181,11 @@
   },
   project: {
     options: {
-      layout: &quot;path/to/default-layout.mustache&quot;,
-      partials: &quot;path/to/partials/**/*.mustache&quot;
+      layout: &quot;path/to/default-layout.hbs&quot;,
+      partials: &quot;path/to/partials/**/*.hbs&quot;
     },
     files: {
-      &#39;dest&#39;: &quot;path/to/pages/**/*.mustache&quot;
+      &#39;dest&#39;: &quot;path/to/pages/**/*.hbs&quot;
       ]
     }
   }
@@ -193,7 +193,7 @@
 grunt.loadNpmTasks(&#39;assemble&#39;);</code></pre>
 
             <h2>Grunt.js Options</h2>
-            <p>Following is a brief exerpt from the Grunt.js wiki, please see <a href="https://github.com/gruntjs/grunt/wiki/Configuring-tasks">Grunt.js Wiki: Configuring Tasks</a> for more information. Grunt.js offers far more functionality than what we reference here.</p>
+            <p>Following is a brief exerpt from the Grunt.js wiki, please see <a href="http://gruntjs.com/configuring-tasks">Grunt.js docs</a> for more information. Grunt.js offers far more functionality than what we reference here.</p>
             <p>Inside a task configuration, an <code>options</code> property may be specified to override built-in defaults. In addition, each target may have an <code>options</code> property which is specific to that target. Target-level options will override task-level options.</p>
             <p>The <code>options</code> object is optional and may be omitted if not needed.</p>
 <pre><code class="lang-js">grunt.initConfig({
