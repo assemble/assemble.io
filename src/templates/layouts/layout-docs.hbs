@@ -132,12 +132,29 @@
               {{> generated-links.md }} {{! A helper automatically creates this partial with generated links from pages in "src/templates/pages/docs". Janky as hell, but it's a temporary. }}
             {{/markdown}}
             <hr>
-            <div class="alert"><p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a></p></div>
+            <div class="alert">
+
+              {{! Special styles for GitHub Buttons
+              =========================================== }}
+              <style type="text/css" media="screen">
+                .alert iframe {
+                  float: right;
+                  margin: 7px -30px 0 0;
+                  vertical-align: text-top;
+                }
+              </style>
+
+              {{! GITHUB BUTTONS (right aligned)
+              =========================================== }}
+              {{> github-star-button }}
+              {{> github-fork-button }}
+
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
 
     {{! SCRIPTS
     =================================== }}
