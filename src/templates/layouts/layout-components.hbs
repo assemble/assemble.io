@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{assets}}/css/components/{{component}}.css">
     <link rel="stylesheet" href="{{assets}}/css/github.css">
     <link rel="stylesheet" href="{{assets}}/css/docs.css">
+    {{> metadata }}
   </head>
   <body style="background: white">
 
@@ -33,10 +34,10 @@
             {{#each pages}}
             <li><a href="{{relative ../page.dest this.dest}}">{{titleize this.basename}} component</a></li>{{/each}}
           </ul>
-        </div>  
+        </div>
 
         {{! CONTENT
-        =================================== }}      
+        =================================== }}
         <div class="col col-lg-9">
           {{> body }}
         </div>

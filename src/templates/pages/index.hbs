@@ -26,6 +26,19 @@ title: Welcome to Assemble.io!
 {{> teaser-link home.teaser.masthead }}
 
 
+<div class="band">
+  <div class="container">
+    <section class="gallery">
+      <div class="row">
+        {{#each thumbnails}}
+        {{> gallery . }}
+        {{/each}}
+      </div>
+    </section>
+  </div>
+</div>
+
+
 {{! Page
 ================================================== }}
 <div class="container">
