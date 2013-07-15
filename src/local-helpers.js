@@ -1,7 +1,3 @@
-var grunt  = require('grunt');
-var path   = require('path');
-var _      = require('lodash');
-
 // These are some really brittle experimental helpers. I'm just having some fun
 // playing around for our docs, but I strongly recommend you not use these on
 // your own projects. - Jon
@@ -9,6 +5,9 @@ var _      = require('lodash');
 (function() {
 
   module.exports.register = function(Handlebars, options) {
+    var grunt  = require('grunt');
+    var path   = require('path');
+    var _      = require('lodash');
 
     var urlNormalize = function(filepath) {
       return filepath.replace(/\\/g, "/");

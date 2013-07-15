@@ -1,9 +1,0 @@
-{
-  "name": "assemble-manifest",
-  "dependencies": {
-    "mout": "one",
-    "bootstrap": "two",
-    "jquery": "three",
-    "less": "four"
-  }
-}
