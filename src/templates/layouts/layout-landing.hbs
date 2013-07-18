@@ -2,10 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="pocket-site-verification" content="72f43d554f7a579136e45dbed7ef13" />
-
     <title>{{#if title}} {{title}} {{else}} {{titleize page.basename}} {{/if}} | Assemble</title>
     <meta name="description" content="{{#if description}} {{description}} | {{/if}} {{package.description}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="{{assets}}/css/assemble.css">
 
@@ -32,8 +31,8 @@
     {{> body }}
 
     <script src="{{assets}}/js/jquery.js"></script>
+    <script src="{{assets}}/js/holder.js"></script>
     <script src="{{assets}}/js/highlight.js"></script>
-    <script src="{{assets}}/js/holder/holder.js"></script>
     <script src="{{assets}}/js/showup.js"></script>
     <script>
       $().showUp('.navbar');

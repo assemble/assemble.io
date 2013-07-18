@@ -1,6 +1,7 @@
 ---
-published: false
 section: getting started
+title: FAQ
+published: false
 ---
 
 ## Introduction to Assemble
@@ -9,24 +10,24 @@ section: getting started
 
 
 
-Dead simple site and component generator, built from the ground up as a [Grunt.js](http://gruntjs.com/) plugin.  
+Dead simple site and component generator, built from the ground up as a [Grunt.js](http://gruntjs.com/) plugin.
 
 
-> Assemble makes it dead simple to build modular sites and components from **templates** and **data**. 
+> Assemble makes it dead simple to build modular sites and components from **templates** and **data**.
 
-> Assemble is an "opinion aware" site generator that makes it dead simple to build sites and components 
+> Assemble is an "opinion aware" site generator that makes it dead simple to build sites and components
 
-With Assemble, you can use any directory structure and any naming conventions you want. 
+With Assemble, you can use any directory structure and any naming conventions you want.
 
 
-Just add templates and data and Assemble will produce a fully-grown  
+Just add templates and data and Assemble will produce a fully-grown
 
 Assemble is an easy-bake oven for web projects.
 
-Just water it with templates and data and Assemble will produce a fully-grown   
+Just water it with templates and data and Assemble will produce a fully-grown
 
 ## What differentiates Assemble from other site builders?
-Assemble was designed from the ground up as a plugin to [Grunt.js](http://gruntjs.com/), the fantastic JavaScript "task runner". So Assemble follows the same conventions as hundreds of other Grunt plugins, providing you with the flexibility to configure your build process however you want, _with or without Assemble_. 
+Assemble was designed from the ground up as a plugin to [Grunt.js](http://gruntjs.com/), the fantastic JavaScript "task runner". So Assemble follows the same conventions as hundreds of other Grunt plugins, providing you with the flexibility to configure your build process however you want, _with or without Assemble_.
 
 Assemble also offers strong conventions for working with templates and data. For example, your project might include a few of the following concepts in some form:
 
@@ -46,7 +47,7 @@ can be any extension
 
 runs it through Textile or Markdown and Liquid converters, and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind "GitHub Pages":http://pages.github.com, which you can use to host your project's page or blog right here from GitHub.
 
-See examples for plain HTML and CSS, scaffolds, client-side templates, mock-data, CSS pre-processors, markdown, YAML, JSON, sensible configuration defaults and a Grunt.js build system to make it work. 
+See examples for plain HTML and CSS, scaffolds, client-side templates, mock-data, CSS pre-processors, markdown, YAML, JSON, sensible configuration defaults and a Grunt.js build system to make it work.
 
 Assemble is great for gh-pages, documentation, static sites, mocking etc.
 
@@ -160,17 +161,17 @@ To get the most out of Assemble it's important to first understand the role that
 
 
 
-To establish context, 
+To establish context,
 
 
-In a nutshell, here are the major 
- and where Assemble fits into that picture. 
+In a nutshell, here are the major
+ and where Assemble fits into that picture.
 
 
 
 Assemble is really just the  here are the basic building blocks that Assemble works with to :
 
-* Templates basically are blocks of code (HTML, text, markdown, etc.) which, like pieces of a puzzle, will eventually be put together by Assemble. 
+* Templates basically are blocks of code (HTML, text, markdown, etc.) which, like pieces of a puzzle, will eventually be put together by Assemble.
 * Variables are used inside templates as placeholders that will eventually be replaced with real data
 
 ## Templates and Variables
@@ -194,7 +195,7 @@ Handlebars.js is the default template engine in Assemble, so our variables are w
 
 ## Data
 
-Now that it's time to add data, things get more interesting. Assembles allows you to work with several data formats inside your templates: 
+Now that it's time to add data, things get more interesting. Assembles allows you to work with several data formats inside your templates:
 
 * [JSON]() files, such as `my-data.json`
 * [YAML]() files, such as `my-data.yml`
@@ -209,7 +210,7 @@ When working with "external" data files, if we:
 a. name our file the same as our template, and
 b. add the path to the data file to the `options.data` object in the `assemble` task
 
-then Assemble will pick it up and use it automatically.  
+then Assemble will pick it up and use it automatically.
 
 Here is an example of what we might put inside of `my-template.json` to populate our template with data.
 
@@ -227,7 +228,7 @@ title: Assemble
 author: Brian Woodward
 ```
 
-And this template: 
+And this template:
 
 `my-template.hbs`
 

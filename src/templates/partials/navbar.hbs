@@ -3,13 +3,13 @@ component: navbar
 ---
 <div class="navbar">
   <div class="container">
-    <a class="navbar-brand" href="{{relative page.dest "index.html"}}">ASSEMBLE</a>
-    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <div class="nav-collapse collapse bs-navbar-collapse">
+    <a class="navbar-brand" href="{{relative page.dest "index.html"}}">ASSEMBLE</a>
+    <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
         <li{{#is title "Docs"}} class="active"{{/is}}>
           <a href="{{relative page.dest "docs"}}/Home.html">Docs</a>
@@ -25,4 +25,3 @@ component: navbar
     </div>
   </div>
 </div>
-

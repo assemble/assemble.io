@@ -3,8 +3,13 @@ title: Pages
 section: templates
 ---
 {{#draft}}
-globbing
 
+## Pages Arrays
+
+* YFM vs. Metadata: When a page is defined, and the page's "content" property includes a page that has YFM: does YFM get merged with metadata in JSON? If not, which one wins?
+* Templates: Are templates allowed in "content"? If so, which kind, lodash or hbs? I'm thinking both ;-)
+
+## globbing
 
 The `pages` variable will generate the list of pages process in a target. Technically, `pages` behaves like a collection, but since _it cannot be referred to in the YAML front matter of a page_ it is not referred to as such.
 {{/draft}}
@@ -53,7 +58,7 @@ And that `default.hbs` has the following contents:
 ```handlebars
 <ul>
   \{{#each pages}}
-    <li><a href="#">\{{../pagename}}</a></li>
+    <li><a href="#">\{{pagename}}</a></li>
   \{{/each}}
 </ul>
 ```
@@ -98,7 +103,7 @@ Then we change our template to use the `title` variable instead of the file name
 ```html
 <ul>
   \{{#each pages}}
-    <li><a href="#">\{{../page.title}}</a></li>
+    <li><a href="#">\{{title}}</a></li>
   \{{/each}}
 </ul>
 ```
@@ -120,7 +125,7 @@ We can even go a step further and make the rendered titles propercase:
 ```html
 <ul>
   \{{#each pages}}
-    <li><a href="#">\{{titleize ../page.title}}</a></li>
+    <li><a href="#">\{{titleize title}}</a></li>
   \{{/each}}
 </ul>
 ```
@@ -162,7 +167,26 @@ Exclude files from being rendered by prefixing source file patterns with `!`. Vi
 // All files in alpha order, but with bar.js at the end.
 {src: ['foo/*.js', '!foo/bar.js', 'foo/bar.js'], dest: ...}
 ```
+<!--
 
+If I have a data file like (this can be in any format that's convenient):
+
+````
+[
+  {name: "a", content: "content for a"},
+  {name: "b", content: "content for b"}
+]
+````
+
+And a template like: `<html> ... {{content}} ... </html>`
+
+Where I would like to generate two files:
+
+a.html: `<html> ... content for a ... </html>`
+b.html: `<html> ... content for b ... </html>`
+
+Is this possible to configure? I would not know the number of entries in the data file ahead of time.
+ -->
 
 {{#draft}}
 

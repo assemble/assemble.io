@@ -3,9 +3,10 @@ title: Built-in Variables
 section: configuration
 ---
 
-
+### Also see [Avoiding Collisions][errors] →
 
 ## "[Page][pages]" Variables
+
 The following variables are defined on the `page` object, which exposes data for the "current page" at build time:
 
 * `\{{basename}}` : Equivalent to node [path.basename][path-basename], returns the basename for the current page from the root of the context. Example: `\{{basename 'index.html'}}`, returns "index", can also be used with the [page|Pages] variable: `\{{basename page}}`.
@@ -81,6 +82,7 @@ Will render the HTML for the _non-minified_ script tag:
 
 Variables can be modified using using special tags called [helpers][helpers]. Helpers may also accept parameters, each of which is a [Handlebars expression](http://handlebarsjs.com/expressions.html).
 
+### See [Helpers][helpers] and [Custom Helpers][helpers] →
 
 
 {{#draft}}
