@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Pages | Assemble</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -53,16 +54,16 @@
     </script>
   </head>
   
-  <body style="background: white">
+  <body style="background: white" data-spy="scroll" data-target=".bs-sidebar">
     <div class="navbar">
-      <div class="container"> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
+      <div class="container">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
 
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="nav-collapse collapse bs-navbar-collapse">
+        <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
             <li> <a href="../docs/Home.html">Docs</a>
 
@@ -198,6 +199,8 @@
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
+              <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
+              </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
               </li>
             </ul>
@@ -278,7 +281,7 @@ title: home
             <p>Then we change our template to use the <code>title</code> variable instead of the file name:</p>
 <pre><code class="lang-html">&lt;ul&gt;
   {{#each pages}}
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{../page.title}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{title}}&lt;/a&gt;&lt;/li&gt;
   {{/each}}
 &lt;/ul&gt;</code></pre>
 
@@ -295,7 +298,7 @@ title: home
             <p>We can even go a step further and make the rendered titles propercase:</p>
 <pre><code class="lang-html">&lt;ul&gt;
   {{#each pages}}
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{titleize ../page.title}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{titleize title}}&lt;/a&gt;&lt;/li&gt;
   {{/each}}
 &lt;/ul&gt;</code></pre>
 
@@ -327,6 +330,15 @@ published: false
 // All files in alpha order, but with bar.js at the end.
 {src: [&#39;foo/*.js&#39;, &#39;!foo/bar.js&#39;, &#39;foo/bar.js&#39;], dest: ...}</code></pre>
 
+            <!-- If I have a data file like (this can be in any format that's convenient): ```` [ {name: "a", content: "content for a"}, {name: "b", content: "content for b"} ] ```` And a template like: `<html> ...  ... </html>`
+
+Where I would like to generate two files:
+
+a.html: `<html> ... content for a ... </html>`
+b.html: `<html> ... content for b ... </html>`
+
+Is this possible to configure? I would not know the number of entries in the data file ahead of time.
+ -->
             <hr>
             <div class="alert">
               <style type="text/css" media="screen">
@@ -385,9 +397,8 @@ published: false
       </div>
     </div>
     <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/highlight.js"></script>
-    <script src="assets/js/holder/holder.js"></script>
     <script src="assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');

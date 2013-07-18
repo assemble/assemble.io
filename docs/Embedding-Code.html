@@ -3,7 +3,7 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>options.assets | Assemble</title>
+    <title>Embedding Code | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -120,7 +120,7 @@
               </script>
             </div>
             <h1>
-              <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
+              <span class="text-muted">Docs /&nbsp;</span>content</h1>
           </div>
         </div>
       </div>
@@ -152,7 +152,7 @@
               </li>
               <li><a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a>
               </li>
-              <li class="active"><a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a>
+              <li><a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a>
               </li>
               <li><a href="options-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.collections']);">options.collections</a>
               </li>
@@ -199,7 +199,7 @@
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
+              <li class="active"><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
               </li>
@@ -215,69 +215,125 @@
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
-            <h1>options.assets</h1>
-            <h2>options.assets</h2>
+            <h1>Embedding Code</h1>
             <blockquote>
-              <p>&quot;Assets&quot; directory to be used by dest files in a target.</p>
+              <p>Assemble has many solutions for embedding code snippets, depending on your needs.</p>
             </blockquote>
-            <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
-            </p>
-            <p>
-              <em><code>options.assets</code> may be defined at the task- and/or target-levels.</em>
-            </p>
-            <h2>Overview</h2>
-            <p>Oftentimes an &quot;assets&quot; directory is used in projects for containing the CSS, JavaScripts, images and other similar files.</p>
-            <p>Once the <code>assets</code> variable is defined in the Gruntfile, you may use the <code>{{assets}}</code> variable anywhere in your templates and Assemble will generate a relative path from <code>dest</code> files to the specified <code>assets</code> directory.</p>
-            <h2>Example usage</h2>
-            <p>Given the following task configuration in your project&#39;s Grunfile:</p>
-<pre><code class="lang-js">assemble: {
-  options: { 
-    // Set the &quot;default&quot; assets dir at the task-level
-    assets: &#39;docs/assets&#39; 
-  },
-  docs: {
-    files: {
-      &#39;docs/&#39;: [&#39;src/pages/**/*.hbs&#39;]
-    }
-  },
-  components: {
-    files: {
-      &#39;docs/components/&#39;: [&#39;src/partials/**/*.hbs&#39;]
-    }
-  },
-  main: {
-    options: { 
-      // Override the task-level assets dir
-      assets: &#39;dist/assets&#39; 
+            <h4>Table of Contents</h4>
+            <ul>
+              <li>[Embedding Code with Markdown][#embedding-code-in-markdown]</li>
+              <li>[Embedding Code in HTML][#embedding-code-in-html]</li>
+              <li>[Helpers for Embedding Code][#helpers-for-embedding-code]</li>
+            </ul>
+            <h2>Embedding Code in Markdown</h2>
+            <p>If you&#39;re writing your code in markdown, the easiest way to embed snippets is to use <a href="http://github.github.com/github-flavored-markdown/" title="GitHub Flavored Markdown">&quot;fenced code blocks&quot;</a>, which also allows syntax highlighting. For examples in practice, see this assemble <a href="https://github.com/assemble/boilerplate-markdown/">boilerplate for markdown projects</a>, in particular take a look at the code in <a href="https://github.com/assemble/boilerplate-markdown/tree/master/src/templates/pages">these templates</a>.</p>
+            <p>Also see <a href="https://gist.github.com/jonschlinkert/5854601">&quot;A Better Markdown Cheatsheet&quot;</a>.</p>
+            <h3>Embedding options</h3>
+            <h4>Inline Code</h4>
+            <p>Wrap inline snippets of code with a backtick before and after the snippet: <pre><code>code</code></pre>.</p>
+            <p>For example, <code>&lt;section&gt;&lt;/section&gt;</code> should be wrapped as &quot;inline&quot;.</p>
+<pre><code class="lang-html">For example, `&lt;section&gt;&lt;/section&gt;` should be wrapped as &quot;inline&quot;.</code></pre>
+
+            <h4>Block code &quot;fences&quot;</h4>
+            <p>Use &quot;fences&quot; <code>``` </code> to block in multiple lines of code.</p>
+<pre>
+``` html
+Sample text here...
+```
+</pre>
+
+<pre><code>Sample text here...</code></pre>
+
+            <p>HTML:</p>
+<pre><code class="lang-html">&lt;pre&gt;
+  &lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;/pre&gt;</code></pre>
+
+            <h4>Indented code</h4>
+            <p>For code blocks, as an alternative to backticks you may indent several lines of code by at least four spaces.</p>
+<pre><code class="lang-js">    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code</code></pre>
+
+<pre><code>// Some comments
+line 1 of code
+line 2 of code
+line 3 of code</code></pre>
+
+            <h3>Syntax highlighting</h3>
+            <p>Assemble uses [Marked.js][marked] for processing markdown. &quot;A full-featured markdown parser and compiler, written in javascript. Built for speed&quot;. With Marked, you can use GitHub Flavored Markdown or &quot;GFM&quot; <a href="https://help.github.com/articles/github-flavored-markdown#syntax-highlighting">&quot;fenced&quot; code blocks</a> to achieve syntax highlighting with your snippets of code.</p>
+            <p>To activate it, simply add the file extension of the language you want to use directly after the first code &quot;fence&quot;, <code>``` js</code>, and syntax highlighting will automatically be applied in the rendered HTML. For example, to apply syntax highlighting to JavaScript code:</p>
+<pre>
+``` javascript
+grunt.initConfig({
+  assemble: {
+    options: {
+      assets: 'docs/assets',
+      data: 'src/data/*.{json,yml}',
+      helpers: 'src/custom-helpers.js',
+      partials: ['src/partials/**/*.{hbs,md}']
     },
-    files: {
-      &#39;dist/&#39;: [&#39;src/pages/**/*.hbs&#39;]
+    pages: {
+      options: {
+        layout: 'default.hbs'
+      },
+      files: {
+        './': ['src/templates/pages/index.hbs']
+      }
     }
   }
-  // other stuff
-}</code></pre>
+};
+```
+</pre>
 
-            <p>And given the following templates:</p>
-<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{assets}}/css/bootstrap.css&quot;&gt;</code></pre>
+            <p>Renders to:</p>
+<pre><code class="lang-javascript">grunt.initConfig({
+  assemble: {
+    options: {
+      assets: &#39;docs/assets&#39;,
+      data: &#39;src/data/*.{json,yml}&#39;,
+      helpers: &#39;src/custom-helpers.js&#39;,
+      partials: [&#39;src/partials/**/*.{hbs,md}&#39;]
+    },
+    pages: {
+      options: {
+        layout: &#39;default.hbs&#39;
+      },
+      files: {
+        &#39;./&#39;: [&#39;src/templates/pages/index.hbs&#39;]
+      }
+    }
+  }
+};</code></pre>
 
-            <p>The output HTML will render as follows:</p>
-            <p>For the <code>assemble.docs</code> target</p>
-<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/bootstrap.css&quot;&gt;</code></pre>
+            <p><strong>Note</strong> that whenever you embed handlebars templates
+              <em>and you don&#39;t want them to be processed</em>, you do have to escape them with a backslash, like this: <code>{{module-class}}</code>. Don&#39;t forget the close tags (I often do)... This is pretty cool because you can embed templates in your examples that <strong>should be processed</strong> as well. Makes it nice for maintaining documentation.</p>
+            <h4>Embedding Code in HTML</h4>
+            <p>Aside from using the obviously add all of the <code>&lt;pre&gt;</code> tags manually as in your example, or you can use the <code>&lt;p&gt;...&lt;/p&gt;</code> block helper to wrap sections of markdown inside your HTML:</p>
+<pre>
+<pre><code class="lang-html">// snippet here</code></pre>
 
-            <p>For the <code>assemble.components</code> target</p>
-<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/css/bootstrap.css&quot;&gt;</code></pre>
-
-            <p>For the <code>assemble.main</code> target</p>
-<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/bootstrap.css&quot;&gt;</code></pre>
-
-            <p><strong>Note</strong> that for <code>assets</code> to work predictably,
-              <em>a slash must follow the <code>{{assets}}</code> variable</em>
+            <p>
+              </pre>
             </p>
-            <h2>More information</h2>
+            <h4><a href="https://github.com/assemble/handlebars-helpers#jsfiddle">Helpers for Embedding Code</a>
+            </h4>
+            <p>You can use one of Assemble&#39;s built-in &quot;code&quot; helpers (from the <a href="https://github.com/assemble/handlebars-helpers">handlebars-helpers</a> library), or create a <a href="http://assemble.io/docs/Custom-Helpers.html">custom helper</a> that meets your needs.</p>
+            <p>Each &quot;code helper&quot; is useful for a different use case. Visit the documentation for each helper to learn more about them.</p>
             <ul>
-              <li><a href="Options.html">Options</a>
+              <li><code>{{embed}}</code>: <a href="https://github.com/assemble/handlebars-helpers#embed">https://github.com/assemble/handlebars-helpers#embed</a>
               </li>
-              <li><a href="Built-in-Variables.html">variables</a>
+              <li><code>{{gist}}</code>: <a href="https://github.com/assemble/handlebars-helpers#gist">https://github.com/assemble/handlebars-helpers#gist</a>
+              </li>
+              <li><code>{{jsfiddle}}</code>: <a href="https://github.com/assemble/handlebars-helpers#jsfiddle">https://github.com/assemble/handlebars-helpers#jsfiddle</a>
+              </li>
+            </ul>
+            <h2>Related info</h2>
+            <ul>
+              <li><a href="Helpers.html">Helpers</a>
+              </li>
+              <li><a href="Custom-Helpers.html">Custom helpers</a>
               </li>
             </ul>
             <hr>
