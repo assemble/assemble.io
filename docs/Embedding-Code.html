@@ -219,47 +219,60 @@
             <blockquote>
               <p>Assemble has many solutions for embedding code snippets, depending on your needs.</p>
             </blockquote>
+            <h2><a href="https://github.com/assemble/handlebars-helpers#jsfiddle">Helpers for Embedding Code</a>
+            </h2>
+            <p>You can use one of Assemble&#39;s built-in &quot;code&quot; helpers (from the <a href="https://github.com/assemble/handlebars-helpers">handlebars-helpers</a> library), or create a <a href="http://assemble.io/docs/Custom-Helpers.html">custom helper</a> that meets your needs.</p>
+            <p>Each &quot;code helper&quot; is useful for a different use case. Visit the documentation for each helper to learn more about them.</p>
+            <ul>
+              <li><code>{{embed}}</code>: <a href="https://github.com/assemble/handlebars-helpers#embed">https://github.com/assemble/handlebars-helpers#embed</a>
+              </li>
+              <li><code>{{gist}}</code>: <a href="https://github.com/assemble/handlebars-helpers#gist">https://github.com/assemble/handlebars-helpers#gist</a>
+              </li>
+              <li><code>{{jsfiddle}}</code>: <a href="https://github.com/assemble/handlebars-helpers#jsfiddle">https://github.com/assemble/handlebars-helpers#jsfiddle</a>
+              </li>
+            </ul>
             <h2>Embedding Code in Markdown</h2>
             <p>If you&#39;re writing your code in markdown, the easiest way to embed snippets is to use <a href="http://github.github.com/github-flavored-markdown/" title="GitHub Flavored Markdown">&quot;fenced code blocks&quot;</a>, which also allows syntax highlighting. For examples in practice, see this assemble <a href="https://github.com/assemble/boilerplate-markdown/">boilerplate for markdown projects</a>, in particular take a look at the code in <a href="https://github.com/assemble/boilerplate-markdown/tree/master/src/templates/pages">these templates</a>.</p>
             <p>Also see <a href="https://gist.github.com/jonschlinkert/5854601">&quot;A Better Markdown Cheatsheet&quot;</a>.</p>
             <h3>Embedding options</h3>
             <h4>Inline Code</h4>
-            <p>Wrap inline snippets of code with a backtick before and after the snippet: <pre><code>code</code></pre>.</p>
+            <p>Wrap inline snippets of code with a backtick before and after the snippet: <code><code>code</code></code>.</p>
             <p>For example, <code>&lt;section&gt;&lt;/section&gt;</code> should be wrapped as &quot;inline&quot;.</p>
 <pre><code class="lang-html">For example, `&lt;section&gt;&lt;/section&gt;` should be wrapped as &quot;inline&quot;.</code></pre>
 
             <h4>Block code &quot;fences&quot;</h4>
-            <p>Use &quot;fences&quot; <code>``` </code> to block in multiple lines of code.</p>
+            <p>Use &quot;fences&quot; <code>``` </code> to block in multiple lines of code:</p>
 <pre>
-``` html
-Sample text here...
+```
+options: {
+  helpers: 'src/helpers/helper-*.js'
+}
 ```
 </pre>
 
-<pre><code>Sample text here...</code></pre>
-
-            <p>HTML:</p>
-<pre><code class="lang-html">&lt;pre&gt;
-  &lt;p&gt;Sample text here...&lt;/p&gt;
-&lt;/pre&gt;</code></pre>
+            <p>Looks like this when rendered in markdown:</p>
+<pre><code>options: {
+  helpers: &#39;src/helpers/helper-*.js&#39;
+}</code></pre>
 
             <h4>Indented code</h4>
             <p>For code blocks, as an alternative to backticks you may indent several lines of code by at least four spaces.</p>
-<pre><code class="lang-js">    // Some comments
+<pre><code>    // Indent your code like this
     line 1 of code
     line 2 of code
     line 3 of code</code></pre>
 
-<pre><code>// Some comments
-line 1 of code
+            <p>And it will render to this:</p>
+<pre><code>line 1 of code
 line 2 of code
 line 3 of code</code></pre>
 
             <h3>Syntax highlighting</h3>
             <p>Assemble uses [Marked.js][marked] for processing markdown. &quot;A full-featured markdown parser and compiler, written in javascript. Built for speed&quot;. With Marked, you can use GitHub Flavored Markdown or &quot;GFM&quot; <a href="https://help.github.com/articles/github-flavored-markdown#syntax-highlighting">&quot;fenced&quot; code blocks</a> to achieve syntax highlighting with your snippets of code.</p>
-            <p>To activate it, simply add the file extension of the language you want to use directly after the first code &quot;fence&quot;, <code>``` js</code>, and syntax highlighting will automatically be applied in the rendered HTML. For example, to apply syntax highlighting to JavaScript code:</p>
+            <p>To activate it, simply add the file extension of the language you want to use directly after the first code &quot;fence&quot;, <code>``` js</code>, and syntax highlighting will automatically be applied in the rendered HTML.</p>
+            <p>For example, to apply syntax highlighting for JavaScript, you add either <code>js</code> or <code>javascript</code> after the first fence:</p>
 <pre>
-``` javascript
+```javascript
 grunt.initConfig({
   assemble: {
     options: {
@@ -281,7 +294,7 @@ grunt.initConfig({
 ```
 </pre>
 
-            <p>Renders to:</p>
+            <p>Which renders to:</p>
 <pre><code class="lang-javascript">grunt.initConfig({
   assemble: {
     options: {
@@ -306,23 +319,14 @@ grunt.initConfig({
             <h4>Embedding Code in HTML</h4>
             <p>Aside from using the obviously add all of the <code>&lt;pre&gt;</code> tags manually as in your example, or you can use the <code>&lt;p&gt;...&lt;/p&gt;</code> block helper to wrap sections of markdown inside your HTML:</p>
 <pre>
-<pre><code class="lang-html">// snippet here</code></pre>
+{{#markdown}}
+``` html
+// snippet here
 
-            <p>
-              </pre>
-            </p>
-            <h4><a href="https://github.com/assemble/handlebars-helpers#jsfiddle">Helpers for Embedding Code</a>
-            </h4>
-            <p>You can use one of Assemble&#39;s built-in &quot;code&quot; helpers (from the <a href="https://github.com/assemble/handlebars-helpers">handlebars-helpers</a> library), or create a <a href="http://assemble.io/docs/Custom-Helpers.html">custom helper</a> that meets your needs.</p>
-            <p>Each &quot;code helper&quot; is useful for a different use case. Visit the documentation for each helper to learn more about them.</p>
-            <ul>
-              <li><code>{{embed}}</code>: <a href="https://github.com/assemble/handlebars-helpers#embed">https://github.com/assemble/handlebars-helpers#embed</a>
-              </li>
-              <li><code>{{gist}}</code>: <a href="https://github.com/assemble/handlebars-helpers#gist">https://github.com/assemble/handlebars-helpers#gist</a>
-              </li>
-              <li><code>{{jsfiddle}}</code>: <a href="https://github.com/assemble/handlebars-helpers#jsfiddle">https://github.com/assemble/handlebars-helpers#jsfiddle</a>
-              </li>
-            </ul>
+```
+{{/markdown}}
+</pre>
+
             <h2>Related info</h2>
             <ul>
               <li><a href="Helpers.html">Helpers</a>
