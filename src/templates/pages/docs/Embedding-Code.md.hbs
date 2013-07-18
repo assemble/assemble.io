@@ -48,14 +48,17 @@ For example, `<section></section>` should be wrapped as "inline".
 Use "fences"  `` ``` `` to block in multiple lines of code:
 
 <pre>
+  <code class="lang-javascript">
 ```
 options: {
   helpers: 'src/helpers/helper-*.js'
 }
 ```
+  </code>
 </pre>
 
-Looks like this when rendered in markdown:
+
+Renders to this:
 
 ```
 options: {
@@ -75,7 +78,7 @@ For code blocks, as an alternative to backticks you may indent several lines of 
     line 3 of code
 ```
 
-And it will render to this:
+Renders to this:
 
     line 1 of code
     line 2 of code
@@ -86,12 +89,13 @@ And it will render to this:
 
 Assemble uses [Marked.js][marked] for processing markdown. "A full-featured markdown parser and compiler, written in javascript. Built for speed". With Marked, you can use GitHub Flavored Markdown or "GFM" ["fenced" code blocks][highlighting] to achieve syntax highlighting with your snippets of code.
 
-To activate it, simply add the file extension of the language you want to use directly after the first code "fence", ` ``` js `, and syntax highlighting will automatically be applied in the rendered HTML.
+To activate it, simply add the file extension of the language you want to use directly after the first code "fence", ` ```js `, and syntax highlighting will automatically be applied in the rendered HTML.
 
 
 For example, to apply syntax highlighting for JavaScript, you add either `js` or `javascript` after the first fence:
 
 <pre>
+  <code class="lang-javascript javascript">
 ```javascript
 grunt.initConfig({
   assemble: {
@@ -112,6 +116,7 @@ grunt.initConfig({
   }
 };
 ```
+  </code>
 </pre>
 
 Which renders to:
@@ -142,15 +147,18 @@ grunt.initConfig({
 
 #### Embedding Code in HTML
 
-Aside from using the  obviously add all of the `<pre>` tags manually as in your example, or you can use the `{{#markdown}}...{{/markdown}}` block helper to wrap sections of markdown inside your HTML:
+Aside from using the  obviously add all of the `<pre>` tags manually as in your example, or you can use the `\{{#markdown}}...\{{/markdown}}` block helper (see [Markdown Helpers](https://github.com/assemble/handlebars-helpers#markdown-helpers)) to wrap sections of markdown inside your HTML:
 
 <pre>
+  <code class="lang-javascript javascript">
 \{{#markdown}}
-``` html
-// snippet here
-
+``` js
+options: {
+  helpers: 'src/helpers/helper-*.js'
+}
 ```
 \{{/markdown}}
+  </code>
 </pre>
 
 
