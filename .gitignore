@@ -3,7 +3,7 @@ node_modules
 vendor
 tmp
 temp
-docs
+/docs
 src/generate
 
 *.sublime-*

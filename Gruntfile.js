@@ -155,6 +155,7 @@ module.exports = function(grunt) {
     'assemble:links',
     'assemble:pages',
     'assemble:docs',
+    'assemble:helpers',
     'prettify',
     'copy'
   ]);
