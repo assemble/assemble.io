@@ -243,14 +243,16 @@
             <h4>Block code &quot;fences&quot;</h4>
             <p>Use &quot;fences&quot; <code>``` </code> to block in multiple lines of code:</p>
 <pre>
+  <code class="lang-javascript">
 ```
 options: {
   helpers: 'src/helpers/helper-*.js'
 }
 ```
+  </code>
 </pre>
 
-            <p>Looks like this when rendered in markdown:</p>
+            <p>Renders to this:</p>
 <pre><code>options: {
   helpers: &#39;src/helpers/helper-*.js&#39;
 }</code></pre>
@@ -262,16 +264,17 @@ options: {
     line 2 of code
     line 3 of code</code></pre>
 
-            <p>And it will render to this:</p>
+            <p>Renders to this:</p>
 <pre><code>line 1 of code
 line 2 of code
 line 3 of code</code></pre>
 
             <h3>Syntax highlighting</h3>
             <p>Assemble uses [Marked.js][marked] for processing markdown. &quot;A full-featured markdown parser and compiler, written in javascript. Built for speed&quot;. With Marked, you can use GitHub Flavored Markdown or &quot;GFM&quot; <a href="https://help.github.com/articles/github-flavored-markdown#syntax-highlighting">&quot;fenced&quot; code blocks</a> to achieve syntax highlighting with your snippets of code.</p>
-            <p>To activate it, simply add the file extension of the language you want to use directly after the first code &quot;fence&quot;, <code>``` js</code>, and syntax highlighting will automatically be applied in the rendered HTML.</p>
+            <p>To activate it, simply add the file extension of the language you want to use directly after the first code &quot;fence&quot;, <code>```js</code>, and syntax highlighting will automatically be applied in the rendered HTML.</p>
             <p>For example, to apply syntax highlighting for JavaScript, you add either <code>js</code> or <code>javascript</code> after the first fence:</p>
 <pre>
+  <code class="lang-javascript javascript">
 ```javascript
 grunt.initConfig({
   assemble: {
@@ -292,6 +295,7 @@ grunt.initConfig({
   }
 };
 ```
+  </code>
 </pre>
 
             <p>Which renders to:</p>
@@ -317,14 +321,17 @@ grunt.initConfig({
             <p><strong>Note</strong> that whenever you embed handlebars templates
               <em>and you don&#39;t want them to be processed</em>, you do have to escape them with a backslash, like this: <code>{{module-class}}</code>. Don&#39;t forget the close tags (I often do)... This is pretty cool because you can embed templates in your examples that <strong>should be processed</strong> as well. Makes it nice for maintaining documentation.</p>
             <h4>Embedding Code in HTML</h4>
-            <p>Aside from using the obviously add all of the <code>&lt;pre&gt;</code> tags manually as in your example, or you can use the <code>&lt;p&gt;...&lt;/p&gt;</code> block helper to wrap sections of markdown inside your HTML:</p>
+            <p>Aside from using the obviously add all of the <code>&lt;pre&gt;</code> tags manually as in your example, or you can use the <code>{{#markdown}}...{{/markdown}}</code> block helper (see <a href="https://github.com/assemble/handlebars-helpers#markdown-helpers">Markdown Helpers</a>) to wrap sections of markdown inside your HTML:</p>
 <pre>
+  <code class="lang-javascript javascript">
 {{#markdown}}
-``` html
-// snippet here
-
+``` js
+options: {
+  helpers: 'src/helpers/helper-*.js'
+}
 ```
 {{/markdown}}
+  </code>
 </pre>
 
             <h2>Related info</h2>
