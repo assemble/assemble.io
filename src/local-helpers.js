@@ -5,9 +5,11 @@
 (function() {
 
   module.exports.register = function(Handlebars, options) {
-    var grunt  = require('grunt');
-    var path   = require('path');
-    var _      = require('lodash');
+    var grunt    = require('grunt');
+    var path     = require('path');
+    var util     = require('util');
+    var _        = require('lodash');
+    var assemble = require('assemble');
 
     var urlNormalize = function(filepath) {
       return filepath.replace(/\\/g, "/");
@@ -25,6 +27,16 @@
       return value === 'undefined' || toString.call(value) === '[object Function]' || (value.hash != null);
     };
 
+    var globFiles = function(src) {
+      var content = grunt.file.expand(src).map(grunt.file.read).join(grunt.util.normalizelf(grunt.util.linefeed));
+      return content;
+    };
+
+    // Handlebars.registerHelper('readYFM', function(src) {
+    //   var props = assemble.data.readYFM(src, {fromFile: true});
+    //   var str = "\n```json\n" + (util.inspect(props, true, null)) + "\n```\n";
+    //   return new Handlebars.SafeString(str);
+    // });
 
     Handlebars.registerHelper('links-gh-pages', function(str) {
       var content = grunt.file.expand(str).map(function(link) {

@@ -15,7 +15,6 @@ exports.init = function(grunt) {
 
   _.mixin({
 
-
     uppercase: function(str) {
       return str.toUpperCase();
     },
