@@ -1,0 +1,118 @@
+---
+title: Diagnostics for Docs
+description: >
+  Captures some data about pages to give a high-level overview of page status, metadata, published and unpublished pages, etc.
+---
+## YFM
+{{!readYFM page}}
+
+
+
+## Debug Info
+{{inspect page}}
+
+
+***
+
+
+### "\{{#each pages}}" Links
+{{#each pages}}[{{this.basename}}]({{relative ../page.dest this.dest}})
+{{/each}}
+
+
+***
+
+
+### \{{#pages}} context
+{{#pages}}
+#### {{this.filename}}
+assets:        {{assets}}
+src:           {{src}}
+dest:          {{dest}}
+absolute:
+dirname:       {{dirname}}
+filename:      {{filename}}
+pagename:      {{pagename}}
+basename:      {{basename}}
+extname:       {{extname}}
+ext:           {{ext}}
+{{/pages}}
+
+
+***
+
+
+### \{{#pages}} "this" context
+{{#pages}}
+#### {{this.filename}}
+this.assets:   {{this.assets}}
+this.src:      {{this.src}}
+this.dest:     {{this.dest}}
+this.absolute:
+this.dirname:  {{this.dirname}}
+this.filename: {{this.filename}}
+this.pagename: {{this.pagename}}
+this.basename: {{this.basename}}
+this.extname:  {{this.extname}}
+this.ext:      {{this.ext}}
+{{/pages}}
+
+
+***
+
+
+### \{{#each pages}} "this" context
+{{#each pages}}
+#### {{this.filename}}
+this.assets:   {{this.assets}}
+this.dest:     {{this.dest}}
+this.absolute:
+this.dirname:  {{this.dirname}}
+this.filename: {{this.filename}}
+this.pagename: {{this.pagename}}
+this.basename: {{this.basename}}
+this.extname:  {{this.extname}}
+this.ext:      {{this.ext}}
+{{/each}}
+
+
+***
+
+
+### \{{#each pages}}
+{{#each pages}}
+#### {{../filename}}
+page.assets:   {{../page.assets}}
+page.dest:     {{../page.dest}}
+page.absolute: {{../page.absolute}}
+page.dirname:  {{../page.dirname}}
+page.filename: {{../page.filename}}
+page.pagename: {{../page.pagename}}
+page.basename: {{../page.basename}}
+page.extname:  {{../page.extname}}
+page.ext:      {{../page.ext}}
+{{/each}}
+
+
+***
+
+
+### \{{#each pages}} "page" context
+{{#each pages}}
+#### {{../filename}}
+assets:        {{../assets}}
+dest:          {{../dest}}
+absolute:      {{../absolute}}
+dirname:       {{../dirname}}
+filename:      {{../filename}}
+pagename:      {{../pagename}}
+basename:      {{../basename}}
+extname:       {{../extname}}
+ext:           {{../ext}}
+{{/each}}
+
+
+***
+
+<!-- PAGE CONTENT FOR "{{title}}" -->
+{{> body }}

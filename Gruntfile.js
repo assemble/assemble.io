@@ -86,6 +86,30 @@ module.exports = function(grunt) {
         files: [
           { expand: true, flatten: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' }
         ]
+      },
+      helpers: {
+        options: {
+          layout: 'layout-helpers.hbs'
+        },
+        files: [
+          { expand: true, flatten: true, cwd: 'src/templates/pages/helpers', src: ['*.hbs'], dest: './docs/helpers', ext: '.html' }
+        ]
+      },
+      diagnostics: {
+        options: {
+          layout: 'layout-diagnostics.md.hbs',
+          ext: '.md'
+        },
+        files: [{
+            expand: true,
+            cwd: 'src/templates/pages',
+            src: ['*.hbs', 'docs/*.hbs', 'examples/*.hbs', 'helpers/**/*.hbs'],
+            dest: './tmp/diagnostics/',
+            rename: function(dest, src) {
+              return dest + src.substring(0, src.indexOf('.'));
+            }
+          }
+        ]
       }
     },
 
@@ -100,7 +124,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-
     copy: {
       docs: {
         files: [
@@ -113,7 +136,7 @@ module.exports = function(grunt) {
     // Before generating any new files,
     // remove files from previous build.
     clean: {
-      all: ['docs/*.html', '*.html']
+      all: ['*.html', 'docs/*.html', 'tmp/diagnostics/**/*.{html,md}']
     }
   });
 
@@ -126,7 +149,15 @@ module.exports = function(grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // Default task to be run.
-  grunt.registerTask('default', ['clean', 'less', 'assemble', 'prettify', 'copy']);
+  grunt.registerTask('default', [
+    'clean',
+    'less',
+    'assemble:links',
+    'assemble:pages',
+    'assemble:docs',
+    'prettify',
+    'copy'
+  ]);
 };
 
 
