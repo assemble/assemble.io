@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Pages | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/markdown.css">
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -184,7 +185,7 @@
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
               </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
@@ -199,6 +200,8 @@
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
+              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
@@ -216,101 +219,7 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Pages</h1>
-            <h3>Usage example</h3>
-            <p>Assuming our project is structured like this:</p>
-<pre><code>src/
-  layouts/default.hbs
-  docs/
-    index.hbs
-    api.hbs
-    cheatsheet.hbs
-  posts/
-    index.hbs
-    articles.hbs
-    projects.hbs
-    about.hbs
-    contact.hbs</code></pre>
-
-            <p>And the <code>assemble</code> task in our Gruntfile has the following targets:</p>
-<pre><code class="lang-javascript">assemble: {
-  options: {
-    layout: &#39;layouts/default.hbs&#39;
-  },
-  docs: {
-    files: {
-      &#39;docs/&#39;: [&#39;src/docs/pages/*.hbs&#39;],
-    }
-  },
-  blog: {
-    files: {
-      &#39;blog/&#39;: [&#39;src/blog/posts/*.hbs&#39;],
-    }
-  }
-}</code></pre>
-
-            <p>And that <code>default.hbs</code> has the following contents:</p>
-<pre><code class="lang-handlebars">&lt;ul&gt;
-  {{#each pages}}
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{pagename}}&lt;/a&gt;&lt;/li&gt;
-  {{/each}}
-&lt;/ul&gt;</code></pre>
-
-            <p>Then in <code>docs/index.html</code> the rendered content will be:</p>
-<pre><code class="lang-html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;index&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;api&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;cheatsheet&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
-            <p>And in <code>blog/index.html</code> the rendered content will be:</p>
-<pre><code class="lang-html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;index&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;articles&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;projects&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;about&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;contact&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
-            <h4>Using YFM with the <code>page</code> variable</h4>
-            <p>With a couple of simple modifications to the previous example, we can have the output reflect the <code>title</code> of each page, rather than the file name.</p>
-            <p>First, we add a <code>title:</code> to the YAML front matter of each page, like this:</p>
-<pre><code class="lang-yaml">---
-title: home
----</code></pre>
-
-            <p>Then we change our template to use the <code>title</code> variable instead of the file name:</p>
-<pre><code class="lang-html">&lt;ul&gt;
-  {{#each pages}}
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{title}}&lt;/a&gt;&lt;/li&gt;
-  {{/each}}
-&lt;/ul&gt;</code></pre>
-
-            <p>which renders to:</p>
-<pre><code class="lang-html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;home&lt;/a&gt;&lt;/li&gt;&lt;!-- text is now &quot;home&quot; instead of &quot;index&quot; --&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;articles&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;projects&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;about&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;contact&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
-            <h4>&quot;Titleizing&quot; the output</h4>
-            <p>We can even go a step further and make the rendered titles propercase:</p>
-<pre><code class="lang-html">&lt;ul&gt;
-  {{#each pages}}
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{titleize title}}&lt;/a&gt;&lt;/li&gt;
-  {{/each}}
-&lt;/ul&gt;</code></pre>
-
-            <p>which renders to:</p>
-<pre><code class="lang-html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Articles&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Projects&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
+            <h2>Rendering Pages</h2>
             <h3>Excluding pages</h3>
             <p><strong>From the YAML Front Matter of a page</strong>
             </p>
@@ -330,16 +239,18 @@ published: false
 // All files in alpha order, but with bar.js at the end.
 {src: [&#39;foo/*.js&#39;, &#39;!foo/bar.js&#39;, &#39;foo/bar.js&#39;], dest: ...}</code></pre>
 
-            <!-- If I have a data file like (this can be in any format that's convenient): ```` [ {name: "a", content: "content for a"}, {name: "b", content: "content for b"} ] ```` And a template like: `<html> ...  ... </html>`
-
-Where I would like to generate two files:
-
-a.html: `<html> ... content for a ... </html>`
-b.html: `<html> ... content for b ... </html>`
-
-Is this possible to configure? I would not know the number of entries in the data file ahead of time.
- -->
+            <h2>Related info</h2>
+            <ul>
+              <li><a href="Pages-Arrays.html">Pages Arrays</a>
+              </li>
+              <li><a href="Pages-Collections.html">Pages Collections</a>
+              </li>
+              <li><a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a>
+              </li>
+            </ul>
             <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Pages.md.hbs">See the template for this page → </a>
+            </p>
             <div class="alert">
               <style type="text/css" media="screen">
                 .alert iframe {

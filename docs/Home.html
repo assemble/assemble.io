@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Table of Contents | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/markdown.css">
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -184,7 +185,7 @@
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
               </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
@@ -199,6 +200,8 @@
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
+              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
@@ -220,29 +223,8 @@
               <p>Welcome to the documentation for Assemble!</p>
             </blockquote>
             <p><strong>Contributions welcome!</strong> &nbsp; <a href="https://github.com/assemble/assemble-docs/issues?state=open">Please let us know</a> if something needs to be fixed or updated. Thanks!</p>
-            <p>
-              <style>
-                .bs-social-buttons .twitter-follow-button {
-                  width: 160px !important;
-                }
-              </style>
-            </p>
-            <div class="bs-social">
-              <ul class="bs-social-buttons">
-                <li>
-                  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-                </li>
-                <li>
-                  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
-                </li>
-                <li class="follow-btn"> <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
-
-                </li>
-                <li class="tweet-btn"> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
-
-                </li>
-              </ul>
-            </div>
+            <h3>New Assemble Boilerplate!</h3>
+            <p><a href="https://github.com/assemble/assemble-bootstrap">assemble-bootstrap</a> is 1-to-1, complete port of Twitter Bootstrap 3.0.0 to Assemble and Grunt.js. No need for Ruby, Jekyll, or running a server to view the docs.</p>
             <h4>Getting Started</h4>
             <ul>
               <li><a href="About.html">About</a>
@@ -341,6 +323,8 @@
               </li>
             </ul>
             <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Home.md.hbs">See the template for this page → </a>
+            </p>
             <div class="alert">
               <style type="text/css" media="screen">
                 .alert iframe {

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>options.partials | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/markdown.css">
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -184,7 +185,7 @@
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
               </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
@@ -199,6 +200,8 @@
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
+              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
@@ -229,6 +232,11 @@
   }
 }</code></pre>
 
+            <h3>Tip</h3>
+            <p>Although this is not an &quot;officially supported&quot; feature, you can also pass partials in through the <code>options.helpers</code> object:</p>
+<pre><code class="lang-js">Handlebars.registerPartial(&#39;title&#39;, &#39;&lt;strong&gt;options.partials&lt;/strong&gt;&#39;);</code></pre>
+
+            <p>If you wish to register partials this way, follow the same practices as <a href="helpers">registering helpers</a>.</p>
             <h3>Task-target behavior</h3>
             <p>Any partials registered at the
               <em>task</em>level are are also available at the
@@ -259,6 +267,8 @@
 {{/module.panel-base}}</code></pre>
 
             <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/options-partials.md.hbs">See the template for this page → </a>
+            </p>
             <div class="alert">
               <style type="text/css" media="screen">
                 .alert iframe {

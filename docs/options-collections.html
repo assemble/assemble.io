@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>options.collections | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/markdown.css">
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -184,7 +185,7 @@
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
               </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
@@ -199,6 +200,8 @@
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
+              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
@@ -249,7 +252,7 @@
                   </td>
                   <td><code>page</code>
                   </td>
-                  <td>See <strong>Pages collection differences</strong> below</td>
+                  <td>See <a href="#pages-collection-differences">Pages collection differences</a> below</td>
                 </tr>
               </tbody>
             </table>
@@ -265,17 +268,45 @@
             <p>You may then add items to collections in the YAML front matter of any files that should include those collections:</p>
 <pre><code class="lang-yaml">---
 title: My Blog
-archives:
-  - 2013
-  - May
-  - 12
+widgets:
+- one
+- two
+- three
 ---</code></pre>
 
+            <h3>Collections Options</h3>
+            <ul>
+              <li><code>title:</code>: the name of the collection, plural form</li>
+              <li><code>inflection</code>: the name of an individual collection item, in <strong>singular</strong> form</li>
+              <li><code>sortorder</code>: direction in which to sort the collection. Accepted values are (case insensitive): <code>asc</code>|<code>ascending</code>, <code>desc</code>|<code>descending</code>.</li>
+              <li><code>sortby</code>: you may sort the collection by any field available in the page&#39;s data context</li>
+              <li><code>index</code>: the template to use for generating an index page for the collection. <code>src/templates/indices/archives.hbs</code>
+              </li>
+            </ul>
+<pre><code class="lang-js">options: {
+  collections: [
+    // Collections options
+    {
+      title: &#39;items&#39;,
+      inflection: &#39;nav-item&#39; // or whatever
+    },
+    {
+      title: &#39;archives&#39;,
+      inflection: &#39;post&#39; ,
+      sortorder: &#39;ascending&#39;, // or any of the following [&#39;asc&#39;, &#39;desc&#39;, &#39;descending&#39;] upper or lower case
+      sortby: &#39;datetime&#39;, // this is any
+      index: &#39;src/templates/indices/archives.hbs&#39;
+    }
+  ]
+}</code></pre>
+
+            <p>Basically, I&#39;m switching <code>sortby</code> and <code>sortorder</code> so that <code>sortby</code> tells us which field to use for sorting, and <code>sortorder</code> tells us if it&#39;s ascending or descending.</p>
+            <p>Also, with <code>sortby</code>, I think it should be open to any field within the <code>page</code>&#39;s data context. I think it should also include the collection item as an option, but I&#39;m not sure how to put that.</p>
             <h3>List of associate pages</h3>
             <p>Additionally, any collection item from the <code>collections</code> object can list the <a href="Pages.html">pages</a> associated with that collection. For example, each &quot;tag&quot; would list the <a href="Pages.html">pages</a> associated with that tag.</p>
-<pre><code class="lang-javascript">{ 
-  tag: &#39;news&#39;, 
-  pages: [&#39;one.html&#39;, &#39;two.html&#39;, &#39;three.html&#39;] 
+<pre><code class="lang-javascript">{
+  tag: &#39;news&#39;,
+  pages: [&#39;one.html&#39;, &#39;two.html&#39;, &#39;three.html&#39;]
 }</code></pre>
 
             <h2>Custom collections</h2>
@@ -286,16 +317,16 @@ default: <code>null</code>
             <p>Custom <code>collections</code> may be defined using the <code>collections</code> option:</p>
 <pre><code class="lang-javascript">assemble: {
   options: {
-    collections: [&#39;archives&#39;, &#39;posts&#39;]
+    collections: [&#39;widgets&#39;, &#39;posts&#39;]
   }
 }</code></pre>
 
             <p>And then in the YAML front matter of a page:</p>
 <pre><code class="lang-yaml">---
-archives:
-- 2013
-- May
-- 12
+widgets:
+- one
+- two
+- three
 ---</code></pre>
 
             <p>There are no restrictions on the number of collections created, you may specify as many custom collections as you require.</p>
@@ -352,6 +383,8 @@ categories:
 &lt;/ul&gt;</code></pre>
 
             <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/options-collections.md.hbs">See the template for this page → </a>
+            </p>
             <div class="alert">
               <style type="text/css" media="screen">
                 .alert iframe {

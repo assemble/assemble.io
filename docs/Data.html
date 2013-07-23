@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Data | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/markdown.css">
     <link rel="stylesheet" href="assets/css/assemble.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -184,7 +185,7 @@
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
               </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
@@ -199,6 +200,8 @@
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
+              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
@@ -265,7 +268,7 @@ author: Brian Woodward</code></pre>
 
             <h3>YAML front-matter example</h3>
             <p>Or, in cases where we only require simple metadata we can use YAML Front-matter to eliminate the need for an external data file:</p>
-<pre><code class="lang-yaml">---
+<pre><code class="lang-html">---
 title: Assemble
 author: Brian Woodward
 ---
@@ -279,7 +282,7 @@ author: Brian Woodward
             <h3>Underscore and <a href="YAML-front-matter.html">YAML front-matter</a>
             </h3>
             <p>Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:</p>
-<pre><code class="lang-yaml">---
+<pre><code class="lang-html">---
 title: &lt;%= some.title.variable %&gt;
 author: &lt;%= some.author.variable %&gt;
 ---
@@ -295,7 +298,7 @@ author: &lt;%= some.author.variable %&gt;
 }</code></pre>
 
             <p><code>myTemplate.hbs</code>:</p>
-<pre><code class="lang-handlebars">{{title}}</code></pre>
+<pre><code class="lang-html">{{title}}</code></pre>
 
             <p>When used in <code>myData.json</code>, the data can be accessed through the name of the file...</p>
             <p><code>myData.json</code>:</p>
@@ -304,7 +307,7 @@ author: &lt;%= some.author.variable %&gt;
 }</code></pre>
 
             <p><code>myTemplate.hbs</code>:</p>
-<pre><code class="lang-handlebars">{{myData.title}}</code></pre>
+<pre><code class="lang-html">{{myData.title}}</code></pre>
 
             <h2>Related information:</h2>
             <ul>
@@ -320,6 +323,8 @@ author: &lt;%= some.author.variable %&gt;
               </li>
             </ul>
             <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Data.md.hbs">See the template for this page → </a>
+            </p>
             <div class="alert">
               <style type="text/css" media="screen">
                 .alert iframe {
