@@ -10,7 +10,7 @@ The following built-in collections are available at the root of the context:
 | -------------- | ------------------- | ------------------------------ |
 | `tags`         | `tag`               | Used to specify tags associated with the current page. Multiple tags may be associated with each page. Useful for adding semantic **tags** or tag clouds to your content. |
 | `categories`   | `category`          | Used to specify categories associated with the current page. Multiple categories may be associated with each page. Similar to tags but more appropriate for categorizing pages by "broader" concepts. |
-| `pages`        | `page`              | See **Pages collection differences** below |
+| `pages`        | `page`              | See [Pages collection differences](#pages-collection-differences) below |
 
 
 ### Pages collection differences
@@ -18,7 +18,7 @@ The following built-in collections are available at the root of the context:
 "[Pages][pages]" and "page" differ from other collections and collection items in the following ways:
 
 * _Any files specified in the `src` of a given target_ will be the collection items associated with the "pages" object for that target.
-* Although a "page" is a collection item, there is currently no concept of "pages with related pages". In other words _there is no object which contains a collection of pages associated with a given page_. 
+* Although a "page" is a collection item, there is currently no concept of "pages with related pages". In other words _there is no object which contains a collection of pages associated with a given page_.
 
 
 ### Collection items
@@ -28,21 +28,53 @@ You may then add items to collections in the YAML front matter of any files that
 ```yaml
 ---
 title: My Blog
-archives:
-  - 2013
-  - May
-  - 12
+widgets:
+- one
+- two
+- three
 ---
 ```
 
+### Collections Options
+
+* `title:`: the name of the collection, plural form
+* `inflection`: the name of an individual collection item, in **singular** form
+* `sortorder`: direction in which to sort the collection. Accepted values are (case insensitive): `asc`|`ascending`, `desc`|`descending`.
+* `sortby`: you may sort the collection by any field available in the page's data context
+* `index`: the template to use for generating an index page for the collection. `src/templates/indices/archives.hbs`
+
+```js
+options: {
+  collections: [
+    // Collections options
+    {
+      title: 'items',
+      inflection: 'nav-item' // or whatever
+    },
+    {
+      title: 'archives',
+      inflection: 'post' ,
+      sortorder: 'ascending', // or any of the following ['asc', 'desc', 'descending'] upper or lower case
+      sortby: 'datetime', // this is any
+      index: 'src/templates/indices/archives.hbs'
+    }
+  ]
+}
+```
+
+Basically, I'm switching `sortby` and `sortorder` so that `sortby` tells us which field to use for sorting, and `sortorder` tells us if it's ascending or descending.
+
+Also, with `sortby`, I think it should be open to any field within the `page`'s data context. I think it should also include the collection item as an option, but I'm not sure how to put that.
+
+
 ### List of associate pages
 
-Additionally, any collection item from the `collections` object can list the [pages][pages] associated with that collection. For example, each "tag" would list the [pages][pages] associated with that tag. 
+Additionally, any collection item from the `collections` object can list the [pages][pages] associated with that collection. For example, each "tag" would list the [pages][pages] associated with that tag.
 
 ```javascript
-{ 
-  tag: 'news', 
-  pages: ['one.html', 'two.html', 'three.html'] 
+{
+  tag: 'news',
+  pages: ['one.html', 'two.html', 'three.html']
 }
 ```
 
@@ -59,7 +91,7 @@ Custom `collections` may be defined using the `collections` option:
 ```javascript
 assemble: {
   options: {
-    collections: ['archives', 'posts']
+    collections: ['widgets', 'posts']
   }
 }
 ```
@@ -70,14 +102,14 @@ And then in the YAML front matter of a page:
 
 ```yaml
 ---
-archives:
-- 2013
-- May
-- 12
+widgets:
+- one
+- two
+- three
 ---
 ```
 
-There are no restrictions on the number of collections created, you may specify as many custom collections as you require. 
+There are no restrictions on the number of collections created, you may specify as many custom collections as you require.
 
 
 ### Automatic inflection
@@ -148,7 +180,7 @@ categories:
 
 {{#draft}}
 
-Given we have a `tag` named `updates`: 
+Given we have a `tag` named `updates`:
 
 ```handlebars
 \{{#tags.updates.pages}}

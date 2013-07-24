@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>{{#if title}} {{title}} {{else}} {{titleize page.basename}} {{/if}} | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{#unless cheatsheet}}<link rel="stylesheet" href="{{assets}}/css/markdown.css">{{/unless}}
+    {{#if cheatsheet}}<link rel="stylesheet" href="{{assets}}/css/gist.css">{{/if}}
     <link rel="stylesheet" href="{{assets}}/css/assemble.css">
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="{{assets}}/js/html5shiv.js"></script>
@@ -23,13 +24,12 @@
   </head>
   <body style="background: white" data-spy="scroll" data-target=".bs-sidebar">
 
-    {{! NAVIGATION
-    =================================== }}
+    {{!-- NAVIGATION
+    =================================== --}}
     {{> navbar }}
 
-
-    {{! MASTHEAD
-    =================================== }}
+    {{!-- MASTHEAD
+    =================================== --}}
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -43,8 +43,8 @@
     <div class="container">
       <div class="row">
 
-        {{! VERTICAL NAV
-        =================================== }}
+        {{!-- VERTICAL NAV
+        =================================== --}}
         <div class="col col-lg-3">
           <div class="sidebar">
             <ul class="nav nav-pills nav-stacked">
@@ -124,20 +124,23 @@
           </div>
         </div>
 
-        {{! MAIN CONTENT
-        =================================== }}
+        {{!-- MAIN CONTENT
+        =================================== --}}
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>{{page.title}}</h1>
             {{#markdown}}
               {{> body }}
-              {{> generated-links.md }} {{! A helper automatically creates this partial with generated links from pages in "src/templates/pages/docs". Janky as hell, but it's a temporary. }}
+              {{!-- This partial uses a helper that automatically gererates links from pages the given path(s). --}}
+              {{> generated-links.md }}
+              {{> manually-defined-links.md }}
             {{/markdown}}
             <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/{{this.basename}}.md.hbs">See the template for this page → </a></p>
             <div class="alert">
 
-              {{! Special styles for GitHub Buttons
-              =========================================== }}
+              {{!-- Special styles for GitHub Buttons
+              =========================================== --}}
               <style type="text/css" media="screen">
                 .alert iframe {
                   float: right;
@@ -146,8 +149,8 @@
                 }
               </style>
 
-              {{! GITHUB BUTTONS (right aligned)
-              =========================================== }}
+              {{!-- GITHUB BUTTONS (right aligned)
+              =========================================== --}}
               {{> github-star-button }}
               {{> github-fork-button }}
 
@@ -159,8 +162,8 @@
       </div>
     </div>
 
-    {{! SCRIPTS
-    =================================== }}
+    {{!-- SCRIPTS
+    =================================== --}}
     <script src="{{assets}}/js/jquery.js"></script>
     <script src="{{assets}}/js/bootstrap.min.js"></script>
     <script src="{{assets}}/js/highlight.js"></script>

@@ -145,7 +145,6 @@ bundle:
   - <%= ghpages.component.docs %>
 
   # Utility classes and Overrides
-  - <%= ghpages.component.markdown %>
   - <%= bootstrap.component.utilities %>
   - <%= ghpages.overrides %>
 

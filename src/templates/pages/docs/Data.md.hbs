@@ -15,6 +15,7 @@ Cover:
 * lo-dash templates
 * yfm
 * .yml/.json
+* How large data files will slow down the build
 {{/draft}}
 
 ## Data Formats
@@ -78,7 +79,7 @@ And this template:
 
 Or, in cases where we only require simple metadata we can use YAML Front-matter to eliminate the need for an external data file:
 
-```yaml
+```html
 ---
 title: Assemble
 author: Brian Woodward
@@ -98,7 +99,7 @@ Outputs:
 
 Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:
 
-```yaml
+```html
 ---
 title: <%= some.title.variable %>
 author: <%= some.author.variable %>
@@ -123,7 +124,7 @@ Using `data.json` or `data.yml` should work, but works a little bit differently 
 
 `myTemplate.hbs`:
 
-```handlebars
+```html
 \{{title}}
 ```
 
@@ -138,10 +139,9 @@ When used in `myData.json`, the data can be accessed through the name of the fil
 
 `myTemplate.hbs`:
 
-```handlebars
+```html
 \{{myData.title}}
 ```
-
 
 
 ## Related information:

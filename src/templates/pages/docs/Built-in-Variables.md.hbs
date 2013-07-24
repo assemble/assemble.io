@@ -50,6 +50,8 @@ Collections can also be defined in YAML front matter:
 > [Learn more][options-collections] about collections →
 
 
+
+<a id="custom-variables"></a>
 ## Custom variables
 You may add any custom variable you require to the `assemble` task or target options. Custom variables are added to the _root of the data context_ and be available in any templates.
 
@@ -72,7 +74,7 @@ This template:
 <script src="dist/assets/script.js"></script>
 \{{/if}}
 ```
-Will render the HTML for the _non-minified_ script tag:
+Will render the HTML for the _non-minified_ &nbsp; script tag:
 
 ``` html
 <script src="dist/assets/script.js"></script>
@@ -82,7 +84,7 @@ Will render the HTML for the _non-minified_ script tag:
 
 Variables can be modified using using special tags called [helpers][helpers]. Helpers may also accept parameters, each of which is a [Handlebars expression](http://handlebarsjs.com/expressions.html).
 
-### See [Helpers][helpers] and [Custom Helpers][helpers] →
+### See [Helpers][helpers] and [Custom Helpers][custom-helpers] →
 
 
 {{#draft}}

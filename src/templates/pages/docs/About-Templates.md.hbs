@@ -1,26 +1,155 @@
 ---
-title: Templates Overview
+title: Template Basics
 section: templates
 ---
 
-> Using templates with Assemble
+> Assemble allows use of either Lo-Dash or Handlebars templates, depending on where the templates are used.
 
-* [Pages][pages]
-* [Partials][partials]
-* [Layouts][layouts]
-* [Helpers][helpers]
+
+## Separation of Concerns
+
+In general:
+
+* Lo-Dash templates are used for configuration and metadata. Lo-Dash may be used in the Gruntfile, JSON/YAML files, YAML front matter, etc.
+* Handlebars templates are used for content. These templates may be used in the content of pages or partials.
+
+
+_Note that there is **[one exception][pages-collections]** to this separation of concerns_, and these two libs also make a great team when you use them together.
+
+
+### [Lo-Dash templates](http://lodash.com/)
+
+#### Syntax
+A basic template looks like this:
+
+```yaml
+title: <%= pkg.name %>
+```
+#### Usage
+
+Lo-Dash templates can be used in:
+
+* Gruntfile
+* YAML/JSON files
+* YAML front matter of files (pages, partials, etc.)
+
+However, Lo-Dash templates **cannot be used in the "content of pages"**.
+
+Assemble only limits _where_ you can use Lo-Dash templates, beyond that you can do anything with Lo-Dash templates that you can do with JavaScript. Keep in mind, however, that the more logic you add to the YAML front matter of page for instance, the more complicated you make your pages and the more difficult your projects will be to maintain.
+
+
+### [Handlebars templates](http://handlebarsjs.com/)
+
+#### Syntax
+A basic expression looks like this:
+
+```html
+<h1>{{component.title}}</h1>
+```
+
+Usage: May be used only in the "content" of pages, e.g. _anywhere but the YAML front matter of a page._.
+
+Although Handlebars is most often used for generating HTML, you can also _generate_ JSON, XML, YAML, CSS, LESS, SASS and so on.
+
+This keeps Lo-Dash templates focused on configuration(ish) data, or data that is used directly by the build process, and Handlebars focused on rendering content with as little logic as possible.
+
+
+{{#todo}}
+* add links to resources for both libs. maybe cheatsheets
+{{/todo}}
+
+
+## Templating Basics
+
+Most templating languages share a few common features:
+
+
+## "Do"s and "Don't"s
+
+### Don't
+
+```json
+// alert.json
+{
+  "message": "this is an alert from {{site.name}}"
+}
+```
+
+Or this:
+
+```html
+---
+title: {{pkg.name}} # Oops! Can't use handlebars here!!!
+---
+
+<h1>{{title}}</h1>
+```
+
+Neither of those examples will because Handlebars templates can only be used **outside of the YAML front matter**.
+
+This won't work either:
+
+```html
+---
+title: My Site
+---
+<h1><%= title %></h1>
+Whoa! Nope, this won't work either. No Lo-Dash in the "content" part of the page!
+```
+
+Lo-Dash templates can only be used in the YAML front Matter (or in YAML/JSON files, or the Gruntfile).
+
+### Do
+
+This works:
+
+```json
+// alert.json
+{
+  "message": "this is an alert from <%= site.name %>"
+}
+```
+
+This works too:
+
+```html
+---
+title: <% pkg.name %> # Nice!!! Assuming you are reading in the package.json in the Gruntfile, this works!
+---
+
+<h1>{{title}}</h1>
+
+And this title will pull data from the YAML front matter. It's kind of like cheating, accept not.
+```
+
+So does this:
+
+```yaml
+# alert.yml
+modifier: alert-warning
+strong: Be advised!
+message: this is an alert from <%= site.name %> # pass in the site name
+```
+
+And then pass it along to `alert.hbs`:
+
+```html
+<div class="alert {{alert.modifier}}"><strong>{{ alert.strong }}</strong>{{ alert.message }}</div>
+```
+
+{{#draft}}
+
+## Higher-Level Template Conventions
 
 
 ## Layouts
 
-[layouts][layouts] make it simple to share common code across multiple pages in a project.
+* [layouts][layouts] are used for "wrapping" multiple pages with common code, like the `<head></head>`, footer and so on.
+* [Pages][pages] When we refer to "pages" we're referring to:
+    1. Any files that pass through the `src-dest` [file mapping](http://gruntjs.com/configuring-tasks#files) in the Assemble task
+    2. Files that are built using the actual [pages array](http://assemble.io/Pages.html).
+* [Partials][partials]
 
-
-
-{{#draft}}
-
-* Lo-Dash
-* Handlebars
 
 
 ## [Handlebars](http://handlebarsjs.com/)
@@ -92,7 +221,30 @@ Output:
 
 ## Lo-Dash
 
-TODO...
+
+```html
+---
+title: Home
+list: <% _.forEach(people, function(name) { %><li><%= name %></li><% }); %>
+people:
+- Jon Schlinkert
+- Brian Woodward
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <section class="people">
+      <ul>
+        {{{list}}}
+      </ul>
+    </section>
+  </body>
+</html>
+```
 
 
 
@@ -150,7 +302,9 @@ And it compiles to:
 
 ### Lo-Dash Templates in YAML Front Matter
 
-Although the Handlebars helpers from [helper lib][] can be extremely useful and powerful, they can only be used inside the content of a page. So there are certain situation where they fall short, such as when you want to make a string lowercase _and_ replace spaces in the string with dashes.
+Although the Handlebars helpers from [handlebars-helpers][handlebars-helpers] can be extremely useful and powerful, they can only be used inside the content of a page. So there are certain situation where they fall short, such as when you want to make a string lowercase _and_ replace spaces in the string with dashes.
+
+Also see the [Lo-Dash-Cheatsheet][cheatsheet-lo-dash].
 
 For example:
 
@@ -166,7 +320,7 @@ To this
 page-title
 ```
 
-We could use the `\{{hyphenate}}` Handlebars helper from [helper lib][] in the content of the page:
+We could use the `\{{hyphenate}}` Handlebars helper from [handlebars-helpers][handlebars-helpers] in the content of the page:
 
 ```handlebars
 ---
@@ -279,6 +433,11 @@ project:
 ```
 
 
+## Templates
+
+**Template Processors**
+
+
 ## Layout
 
 
@@ -295,19 +454,20 @@ components, widgets, modules...
 reusable blocks of code which are not
 
 
-
-## Templates
-
-
-**Template Processors**
-
-
 ## Data
 
   * "mock" data
   * content
   * microcopy
 
-Data-models,
 
 {{/draft}}
+
+
+## Related Information
+
+* [Pages][pages]
+* [Partials][partials]
+* [Layouts][layouts]
+* [Helpers][helpers]
+

@@ -1,8 +1,255 @@
 ---
-section: getting started
 title: FAQ
-published: false
+section: getting started
 ---
+{{#todo}}
+* list categories, by page
+* list categories for a given/specific page
+* list categories for "this" page
+* list pages for each category
+* generate links to/from each page in each category
+{{/todo}}
+
+
+## Generating a list from a collection
+
+The simplest way to generate a list from a collection is to create a block expression using the name of the collection, and the collection items inside.
+
+### Collection items from "all pages"
+
+To generate a list of [categories][options-collections] for all [pages][pages] in a [target][targets], add the following block expression to a page or a [layout][layouts] (depending on whether or not you want the list to render to a _specified page/pages_ or _all_ pages):
+
+```html
+<h2>All Categories</h2>
+<ul>
+\{{#categories}}
+  <li>\{{category}}</li>
+\{{/categories}}
+</ul>
+```
+Now, if two of the pages in our target have categories defined as such:
+
+```html
+---
+title: Page One
+categories:
+- apples
+- oranges
+---
+```
+and
+
+```html
+---
+title: Page Two
+categories:
+- grapes
+- bananas
+- coconuts
+---
+```
+
+The generated output will be a basic list containing the merged values from the `categories` collection of each page:
+
+```html
+<h2>All Categories</h2>
+<ul>
+  <li>apples</li>
+  <li>bananas</li>
+  <li>coconuts</li>
+  <li>grapes</li>
+  <li>oranges</li>
+</ul>
+```
+
+
+{{#draft}}
+### Collection items on a given page
+
+To generate a list of [categories][options-collections] for the a page, you would add the following to the page on which you want to generate the list:
+
+```html
+\{{#page.categories}}
+  \{{.}}
+\{{/page.categories}}
+```
+
+or we can use the `\{{#each categories}}...\{{/each}}` block expression with the name of the collection as a variable variable to get the list of pages in the current [target][targets].
+{{/draft}}
+
+
+## Dynamically building navigation
+
+Following the previous example, we'll use the `\{{#each}}...\{{/each}}` block expression with the [pages][pages] variable to get the list of pages in the current [target][targets].
+
+Then, using the `\{{#is}}...\{{/is}}` comparison helper from the [handlebars-helpers][handlebars-helpers] library, we can dynamically build navigation items by comparing a property (or properties) from the YAML front matter each page in the list with the given values.
+
+In other words, the `is` helper will ask: "does this page have a 'getting started' section? If 'true', then add the page as a list item, otherwise skip it". For example, this example shows two different sections being generated:
+
+```handlebars
+<h2>Getting Started</h2>
+\{{#each pages}}
+  \{{#is data.section "getting started"}}
+    <li> <a href="#">\{{data.title}}</a> </li>
+  \{{/is}}
+\{{/each}}
+
+<h2>Configuration</h2>
+\{{#each pages}}
+  \{{#is data.section "configuration"}}
+    <li> <a href="#">\{{data.title}}</a> </li>
+  \{{/is}}
+\{{/each}}
+```
+
+Any pages with the `section: getting-started` in the YAML front matter will render in the first list, and pages with `section: configuration` will render in the second list.
+
+\{{#todo}} update the docs once [Pages Arrays][pages-array] can achieve this as well.\{{/todo}}
+
+
+## Adding "active" links to navigation items
+
+If you want to add `class="active"` to a navigation item for the "current page", you can achieve this using the `\{{#is}}...\{{/is}}` [comparison helper](https://github.com/assemble/handlebars-helpers#comparisons-equal-helpers) from the [handlebars-helpers][handlebars-helpers] library.
+
+### Using YFM properties
+
+You can achieve this using many different variables, but relatively easy one is to compare the _[basename][built-in-variables] of the current page_ to the _given value_:
+
+```html
+<ul class="nav navbar-nav">
+  <li\{{#is basename "getting-started"}} class="active"\{{/is}}>
+    <a href="getting-started.html">Getting started</a>
+  </li>
+  <li\{{#is basename "css"}} class="active"\{{/is}}>
+    <a href="css.html">CSS</a>
+  </li>
+  <li\{{#is basename "components"}} class="active"\{{/is}}>
+    <a href="components.html">Components</a>
+  </li>
+  <li\{{#is basename "js"}} class="active"\{{/is}}>
+    <a href="javascript.html">JavaScript</a>
+  </li>
+  <li\{{#is basename "customize"}} class="active"\{{/is}}>
+    <a href="customize.html">Customize</a>
+  </li>
+</ul>
+```
+_The above example is from the navbar in [assemble-bootstrap](https://github.com/assemble/assemble-bootstrap)._
+
+### Without YFM
+
+However, if you don't use YFM (or don't want to use properties from YFM to create active links), you can compare the _destination of the current page_ to the _destination of the linked page_ to get a truthy or falsy value.
+
+```html
+\{{#is page.dest this.dest}} class="active"\{{/is}}
+```
+
+**The trick** with using this method is that the context must be correct for it to work. So if you are dynamically generating nav items, as in the [Dynamically build navigation][#dynamically-build-navigation] example, you will need to use `../../` to access the context of `pages` being generated:
+
+```html
+<h2>Getting Started</h2>
+\{{#each pages}}
+  \{{#is data.section "getting started"}}
+    <li\{{#is ../../page.dest this.dest}} class="active"\{{/is}}>
+      <a href="#">\{{data.title}}</a>
+    </li>
+  \{{/is}}
+\{{/each}}
+```
+
+## Generating relative paths for links
+
+To get the relative path from the _destination of the current page_ to the _destination of the linked page_, the [\{{relative}}](https://github.com/assemble/handlebars-helpers#relative) helper works quite well:
+
+```html
+\{{relative page.dest this.dest}}
+```
+
+As with the previous example, if you nest templates the context must be adjusted for this to work:
+
+```html
+<h2>Getting Started</h2>
+\{{#each pages}}
+  \{{#is data.section "getting started"}}
+    <li\{{#is ../../page.dest this.dest}} class="active"\{{/is}}>
+      <a href="\{{relative ../../page.dest this.dest}}">\{{data.title}}</a>
+    </li>
+  \{{/is}}
+\{{/each}}
+```
+
+{{#draft}}
+#### "Titleizing" strings
+
+We can even go a step further and make the rendered titles propercase:
+
+```html
+<ul>
+  \{{#each pages}}
+    <li><a href="#">\{{titleize title}}</a></li>
+  \{{/each}}
+</ul>
+```
+which renders to:
+
+```html
+<ul>
+  <li><a \{{#is basename "index"}} class="active"\{{/is}} href="index.html">Home</a></li>
+  <li><a \{{#is basename "our-vision"}} class="active"\{{/is}} href="our-vision.html">Our Vision</a></li>
+  <li><a \{{#is basename "our-mission"}} class="active"\{{/is}} href="our-mission.html">Our Mission</a></li>
+  <li><a \{{#is basename "our-values"}} class="active"\{{/is}} href="our-values.html">Our Values</a></li>
+</ul>
+```
+
+<ul class="nav nav-pills nav-stacked">
+  \{{#each pages}}
+    \{{#is data.section "toc"}}
+      <li\{{#is ../../page.dest this.dest}} class="active"\{{/is}}>
+        <a href="\{{relative ../../page.dest this.dest}}">\{{data.title}}</a>
+      </li>
+    \{{/is}}
+  \{{/each}}
+</ul>
+
+
+
+
+* Each page has a "See the templates for this page" link, so you can see how we build our own documentation.
+
+
+### [Target][targets]
+
+In the example below the `assemble` task is configured with three targets.
+
+This is a Grunt.js convention that we have found to be extremely powerful.
+
+* Grunt "plugins" power the "tasks" in a Gruntfile, and
+* Tasks can have one or more [targets][targets]
+
+Throughout the Assemble docs, anytime we refere to a target(s), we are refering specifically to the targets you have configured in the Assemble task in your Gruntfile. For example, the following task is configured with three targets, "docs", "blog", and "site":
+
+```js
+{
+  assemble: {
+    docs: {
+      'docs/': 'src/docs/*.hbs'
+    },
+    blog: {
+      'articles/': 'src/posts/*.hbs'
+    },
+    site: {
+      'site/': 'src/pages/*.hbs'
+    }
+  }
+}
+```
+
+#### "Current Target"
+
+In the Assemble documentation, whenever you see the term "current target", this refers to the _context of the target currently being run_. For example, [collections][collections] will only render with _collection items from the current target_. So, for instance, if you were to render a list of pages using `\{{#each pages}}...\{{/each}}`, only the pages that are specified in the currently running target will be included in the collection.
+
+
+
 
 ## Introduction to Assemble
 
@@ -265,3 +512,4 @@ Outputs:
 <h1>Assemble</h1>
 <p>Brian Woodward</p>
 ```
+{{/draft}}

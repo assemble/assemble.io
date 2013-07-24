@@ -27,7 +27,7 @@ Examples
 
 ## Registering Partials
 
-Assemble automatically registers any partial or array of partials supplied to `options.partials`, at the task or target level. 
+Assemble automatically registers any partial or array of partials supplied to `options.partials`, at the task or target level.
 
 ``` javascript
 assemble {
@@ -42,11 +42,22 @@ assemble {
 }
 ```
 
+### Tip
+
+Although this is not an "officially supported" feature, you can also pass partials in through the `options.helpers` object:
+
+```js
+Handlebars.registerPartial('title', '<strong>{{title}}</strong>');
+```
+
+If you wish to register partials this way, follow the same practices as [registering helpers](helpers).
+
+
 ### Task-target behavior
 
-Any partials registered at the _task_ level are are also available at the _target_ level. 
+Any partials registered at the _task_ level are are also available at the _target_ level.
 
-**Important!** It is standard in Grunt.js for target-level options to overwrite task-level options. However, assemble merges the list of partials defined at the task-level with the partials defined for each target. 
+**Important!** It is standard in Grunt.js for target-level options to overwrite task-level options. However, assemble merges the list of partials defined at the task-level with the partials defined for each target.
 
 
 ## Usage examples
