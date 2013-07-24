@@ -1,0 +1,37 @@
+#### \{{withSort}}
+_Uses the sorted collection inside the block._
+<br>Parameters: field `string` - String name of the field or property to sort by. (Optional)
+
+Data:
+
+```json
+"collection": [
+  {
+    "name": "Leela",
+    "deliveries": 8021
+  },
+  {
+    "name": "Bender",
+    "deliveries": 239
+  },
+  {
+    "name": "Fry",
+    "deliveries": -12
+  }
+]
+```
+Template:
+
+```html
+\{{#withSort collection "deliveries"}}
+  \{{name}}: \{{deliveries}} <br>
+\{{/withSort}}
+```
+
+Renders to:
+
+```html
+Fry: -12
+Bender: 239
+Leela: 8021
+```
