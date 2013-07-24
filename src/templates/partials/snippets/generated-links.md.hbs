@@ -1,18 +1,5 @@
-{{! hacky but it works. These helpers generate links for the wiki and gh-pages. }}
+{{!-- This is hacky but it works. The "generate-links" helper scans the docs directory to automatically generate links for the documentation. --}}
 
-{{links-gh-pages "src/templates/pages/docs/*.md.hbs"}}
 
-{{! add manually defined links }}
-
-[handlebars-helpers]: http://github.com/assemble/handlebars-helpers "Extensive collection of Handlebars helpers"
-
-[yfm]: YAML-front-matter.html
-[handlebars]: http://handlebarsjs.com
-
-{{! Grunt.js Links }}
-
-[examples]: https://github.com/assemble/assemble-examples "Assemble Examples"
-[files]: http://gruntjs.com/configuring-tasks#files
-[lodash]: http://gruntjs.com/configuring-tasks#templates
-[tasks-and-targets]: http://gruntjs.com/configuring-tasks#task-configuration-and-targets
-[files-object]: http://gruntjs.com/configuring-tasks#building-the-files-object-dynamically
+{{!-- the helper --}}
+{{generate-links 'src/templates/pages/docs/*.md.hbs'}}
