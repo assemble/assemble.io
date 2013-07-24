@@ -3,7 +3,7 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>options.layoutdir | Assemble</title>
+    <title>FAQ | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/markdown.css">
     <link rel="stylesheet" href="assets/css/assemble.css">
@@ -121,7 +121,7 @@
               </script>
             </div>
             <h1>
-              <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
+              <span class="text-muted">Docs /&nbsp;</span>getting started</h1>
           </div>
         </div>
       </div>
@@ -138,7 +138,7 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
-              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              <li class="active"><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
               </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
@@ -169,7 +169,7 @@
               </li>
               <li><a href="options-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layout']);">options.layout</a>
               </li>
-              <li class="active"><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
+              <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
               </li>
               <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
               </li>
@@ -220,131 +220,128 @@
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
-            <h1>options.layoutdir</h1>
-            <h2>options.layoutdir</h2>
-            <blockquote>
-              <p>Path to the directory to be used as the &quot;cwd&quot; for layouts</p>
-            </blockquote>
-            <p><code>layoutdir</code> makes maintaining <a href="options-layout.html">layouts</a> a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are stored without having to update the path to each layout used throughout your project. It could also reduce some clutter in the <a href="http://gruntjs.com">Gruntfile</a> and <a href="YAML-front-matter.html">YAML Front Matter</a>.</p>
-            <p>Additionally, a <code>layoutdir</code> can be defined for each <a href="http://gruntjs.com/configuring-tasks">targets</a>, allowing for even greater control over how <a href="Layouts.html">layouts</a> are used in your projects.</p>
-            <h2>Usage Examples</h2>
-            <h3>Without <code>layoutdir</code>
-            </h3>
-            <p>When <code>layoutdir</code> 
-              <em>is not defined</em>, each layout must be defined using the
-              <em>full path from the project root to the layout</em>:</p>
-<pre><code class="lang-js">assemble: {
-  options: {
-    layout: <span class="string">'src/templates/layouts/default-layout.hbs'</span>
-  },
-  docs: {
-    options: {
-      layout: <span class="string">'src/templates/layouts/docs-layout.hbs'</span>
-    },
-    ...
-  },
-  blog: {
-    options: {
-      layout: <span class="string">'src/templates/layouts/blog-layout.hbs'</span>
-    },
-    ...
-  }
-  <span class="comment">// etc.</span>
-}</code></pre>
+            <h1>FAQ</h1>
+            <h2>Generating a list from a collection</h2>
+            <p>The simplest way to generate a list from a collection is to create a block expression using the name of the collection, and the collection items inside.</p>
+            <h3>Collection items from &quot;all pages&quot;</h3>
+            <p>To generate a list of <a href="options-collections.html">categories</a> for all <a href="Pages.html">pages</a> in a <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>, add the following block expression to a page or a <a href="Layouts.html">layout</a> (depending on whether or not you want the list to render to a
+              <em>specified page/pages</em>or
+              <em>all</em>pages):</p>
+<pre><code class="lang-html">&lt;h2&gt;All Categories&lt;/h2&gt;
+&lt;ul&gt;
+{{#categories}}
+  &lt;li&gt;{{category}}&lt;/li&gt;
+{{/categories}}
+&lt;/ul&gt;</code></pre>
 
-            <p>This also applies to <a href="YAML-front-matter.html">YAML front matter</a> when it is necessary to &quot;override&quot; layouts at the page-level:</p>
-<pre><code class="lang-yaml">---
-title: Blog
-layout: src/templates/layouts/blog-layout.hbs
----</code></pre>
-
-            <h3>With <code>layoutdir</code>
-            </h3>
-            <p>When <code>layoutdir</code> is defined only require the name of the layout to be used (
-              <em>must include the file extension</em>):</p>
-<pre><code>assemble: {
-  options: {
-    layoutdir: &#39;src/templates/layouts&#39;,
-    layout: &#39;default-layout.hbs&#39;
-  },
-  docs: {
-    options: {
-      layout: &#39;docs-layout.hbs&#39;
-    },
-    ...
-  },
-  blog: {
-    options: {
-      layout: &#39;blog-layout.hbs&#39;
-    },
-    ...
-  }
-  // etc.
-}</code></pre>
-
-            <p>And in <a href="YAML-front-matter.html">YAML front matter</a>:</p>
-<pre><code class="lang-yaml">---
-title: Blog
-layout: blog-layout.hbs
----</code></pre>
-
-            <h2>A Word of Caution</h2>
-            <p>While <code>layoutdir</code> can make your project a little easier to manage, it is strongly recommended that you <strong>establish clear and consistent conventions for your layouts, and follow them</strong>. Otherwise, this feature might end up causing more problems than it solves.</p>
-            <p>Here are some recommendations.</p>
-            <ul>
-              <li>Use names such as <code>default-layout.hbs</code> versus simply <code>default.hbs</code>, and</li>
-              <li>Use a unique name for each layout used throughout a project.</li>
-            </ul>
-            <h3>Why clear naming conventions are important</h3>
-            <p>To understand why this is important, imagine that you&#39;re project has three &quot;sub-projects&quot;, or <a href="http://gruntjs.com/configuring-tasks">targets</a>: <code>components</code>, <code>docs</code> and <code>blog</code>, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own <code>layoutdir</code> as well, which creates potential for conventions that lead to using the wrong layout accidentally, such as this:</p>
-            <h4>Not recommended</h4>
-<pre><code class="lang-js">assemble: {
-  components: {
-    options: {
-      layoutdir: <span class="string">'src/components/layouts'</span>,
-      layout: <span class="string">'default.hbs'</span>
-    }
-    ...
-  },
-  docs: {
-    options: {
-      layoutdir: <span class="string">'src/docs/layouts'</span>,
-      layout: <span class="string">'default.hbs'</span>
-    }
-    ...
-  },
-  blog: {
-    options: {
-      layoutdir: <span class="string">'src/blog/layouts'</span>,
-      layout: <span class="string">'default.hbs'</span>
-    }
-    ...
-  }
-  <span class="comment">// etc.</span>
-}</code></pre>
-
-            <p>Note that the layout name is the same for each target, but the <code>layoutdir</code> is a different directory, indicating that there are three different &quot;default&quot; layouts.</p>
-            <p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the <a href="YAML-front-matter.html">YAML front matter</a> of individual pages, it is not a good idea to use the same name for multiple layouts,
-              <em>unless you are intentionally using this naming convention as a strategy</em>. The reason is that it gets very difficult to track which page is building from which layout when working inside the pages themselves.</p>
-            <h3>Difficult to follow</h3>
-            <p>Without <code>layoutdir</code>, you have the entire path to follow, but without it you must rely on the name of the layout itself to guide you.</p>
+            <p>Now, if two of the pages in our target have categories defined as such:</p>
 <pre><code class="lang-html">---
-title: Any Page
-layout: default.hbs
+title: Page One
+categories:
+- apples
+- oranges
 ---</code></pre>
 
-            <h3>Recommended</h3>
-            <p>Using a more descriptive name for the layout helps avoid confusion
-              <em>now</em>:</p>
+            <p>and</p>
 <pre><code class="lang-html">---
-title: Any Page
-layout: blog-default.hbs
+title: Page Two
+categories:
+- grapes
+- bananas
+- coconuts
 ---</code></pre>
 
-            <p>Of course, these are only recommendations and you will need to find a strategy that works for you and your team.</p>
-            <h4>Also see <a href="Layouts.html">Layouts</a> and <a href="options-layout.html">options.layout</a> →</h4>
+            <p>The generated output will be a basic list containing the merged values from the <code>categories</code> collection of each page:</p>
+<pre><code class="lang-html">&lt;h2&gt;All Categories&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;apples&lt;/li&gt;
+  &lt;li&gt;bananas&lt;/li&gt;
+  &lt;li&gt;coconuts&lt;/li&gt;
+  &lt;li&gt;grapes&lt;/li&gt;
+  &lt;li&gt;oranges&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h2>Dynamically building navigation</h2>
+            <p>Following the previous example, we&#39;ll use the <code>{{#each}}...{{/each}}</code> block expression with the <a href="Pages.html">pages</a> variable to get the list of pages in the current <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>.</p>
+            <p>Then, using the <code>{{#is}}...{{/is}}</code> comparison helper from the <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library, we can dynamically build navigation items by comparing a property (or properties) from the YAML front matter each page in the list with the given values.</p>
+            <p>In other words, the <code>is</code> helper will ask: &quot;does this page have a &#39;getting started&#39; section? If &#39;true&#39;, then add the page as a list item, otherwise skip it&quot;. For example, this example shows two different sections being generated:</p>
+<pre><code class="lang-handlebars">&lt;h2&gt;Getting Started&lt;/h2&gt;
+{{#each pages}}
+  {{#is data.section &quot;getting started&quot;}}
+    &lt;li&gt; &lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt; &lt;/li&gt;
+  {{/is}}
+{{/each}}
+
+&lt;h2&gt;Configuration&lt;/h2&gt;
+{{#each pages}}
+  {{#is data.section &quot;configuration&quot;}}
+    &lt;li&gt; &lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt; &lt;/li&gt;
+  {{/is}}
+{{/each}}</code></pre>
+
+            <p>Any pages with the <code>section: getting-started</code> in the YAML front matter will render in the first list, and pages with <code>section: configuration</code> will render in the second list.</p>
+            <p>{{#todo}} update the docs once [Pages Arrays][pages-array] can achieve this as well.{{/todo}}</p>
+            <h2>Adding &quot;active&quot; links to navigation items</h2>
+            <p>If you want to add <code>class=&quot;active&quot;</code> to a navigation item for the &quot;current page&quot;, you can achieve this using the <code>{{#is}}...{{/is}}</code>  <a href="https://github.com/assemble/handlebars-helpers#comparisons-equal-helpers">comparison helper</a> from the <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library.</p>
+            <h3>Using YFM properties</h3>
+            <p>You can achieve this using many different variables, but relatively easy one is to compare the
+              <em><a href="Built-in-Variables.html">basename</a> of the current page</em>to the
+              <em>given value</em>:</p>
+<pre><code class="lang-html">&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+  &lt;li{{#is basename &quot;getting-started&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;getting-started.html&quot;&gt;Getting started&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li{{#is basename &quot;css&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;css.html&quot;&gt;CSS&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li{{#is basename &quot;components&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;components.html&quot;&gt;Components&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li{{#is basename &quot;js&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;javascript.html&quot;&gt;JavaScript&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li{{#is basename &quot;customize&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;customize.html&quot;&gt;Customize&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p>
+              <em>The above example is from the navbar in <a href="https://github.com/assemble/assemble-bootstrap">assemble-bootstrap</a>.</em>
+            </p>
+            <h3>Without YFM</h3>
+            <p>However, if you don&#39;t use YFM (or don&#39;t want to use properties from YFM to create active links), you can compare the
+              <em>destination of the current page</em>to the
+              <em>destination of the linked page</em>to get a truthy or falsy value.</p>
+<pre><code class="lang-html">{{#is page.dest this.dest}} class=&quot;active&quot;{{/is}}</code></pre>
+
+            <p><strong>The trick</strong> with using this method is that the context must be correct for it to work. So if you are dynamically generating nav items, as in the [Dynamically build navigation][#dynamically-build-navigation] example, you will need to use <code>../../</code> to access the context of <code>pages</code> being generated:</p>
+<pre><code class="lang-html">&lt;h2&gt;Getting Started&lt;/h2&gt;
+{{#each pages}}
+  {{#is data.section &quot;getting started&quot;}}
+    &lt;li{{#is ../../page.dest this.dest}} class=&quot;active&quot;{{/is}}&gt;
+      &lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt;
+    &lt;/li&gt;
+  {{/is}}
+{{/each}}</code></pre>
+
+            <h2>Generating relative paths for links</h2>
+            <p>To get the relative path from the
+              <em>destination of the current page</em>to the
+              <em>destination of the linked page</em>, the <a href="https://github.com/assemble/handlebars-helpers#relative">{{relative}}</a> helper works quite well:</p>
+<pre><code class="lang-html">{{relative page.dest this.dest}}</code></pre>
+
+            <p>As with the previous example, if you nest templates the context must be adjusted for this to work:</p>
+<pre><code class="lang-html">&lt;h2&gt;Getting Started&lt;/h2&gt;
+{{#each pages}}
+  {{#is data.section &quot;getting started&quot;}}
+    &lt;li{{#is ../../page.dest this.dest}} class=&quot;active&quot;{{/is}}&gt;
+      &lt;a href=&quot;{{relative ../../page.dest this.dest}}&quot;&gt;{{data.title}}&lt;/a&gt;
+    &lt;/li&gt;
+  {{/is}}
+{{/each}}</code></pre>
+
             <hr>
-            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/options-layoutdir.md.hbs">See the template for this page → </a>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/FAQ.md.hbs">See the template for this page → </a>
             </p>
             <div class="alert">
               <style type="text/css" media="screen">

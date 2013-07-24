@@ -66,19 +66,19 @@
 
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a>
-
+            <li> <a href="../docs/Home.html">Docs</a> 
             </li>
-            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
+            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li>
               <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
                 <i class="glyphicon glypicon-large glyphicon-download"></i>
               </a>
             </li>
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
@@ -138,6 +138,8 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
+              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
               <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
@@ -178,15 +180,13 @@
               </li>
               <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
               </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
               <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+              </li>
+              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
               </li>
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
               <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -197,14 +197,16 @@
               </li>
               <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
               </li>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+              </li>
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+              </li>
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
@@ -245,27 +247,27 @@
             <p>Since you can create as many <a href="http://gruntjs.com/configuring-tasks">targets</a> as you require, defining layouts in the Gruntfile is a great way of quickly setting up your layout &quot;defaults&quot;. In the <code>assemble</code> task in your Gruntfile.js, you can define a layout at the task-level, and/or a different layout for each build target:</p>
 <pre><code class="lang-javascript">assemble: {
   options: {
-    layout: &#39;layouts/default.hbs&#39;
+    layout: <span class="string">'layouts/default.hbs'</span>
   },
   site: {
     files: {
-      &#39;site/&#39;: [&#39;templates/pages/*.hbs&#39;]
+      <span class="string">'site/'</span>: [<span class="string">'templates/pages/*.hbs'</span>]
     }
   },
   blog: {
     options: {
-      layout: &#39;layout/post.hbs&#39;
+      layout: <span class="string">'layout/post.hbs'</span>
     },
     files: {
-      &#39;blog/&#39;: [&#39;templates/posts/*.hbs&#39;]
+      <span class="string">'blog/'</span>: [<span class="string">'templates/posts/*.hbs'</span>]
     }
   },
   docs: {
     options: {
-      layout: &#39;layouts/docs.hbs&#39;
+      layout: <span class="string">'layouts/docs.hbs'</span>
     },
     files: {
-      &#39;docs/&#39;: [&#39;templates/docs/*.hbs&#39;]
+      <span class="string">'docs/'</span>: [<span class="string">'templates/docs/*.hbs'</span>]
     }
   }
 }</code></pre>
@@ -319,9 +321,9 @@ layout: path/to/layout.hbs
             <p>In this example, instead of adding adding the traditional head and footer we&#39;ll add some link references to make sure the same ones are used on every generated page. This makes it easier to maintain links and it also cuts down on potential for broken links:</p>
 <pre><code class="lang-markdown">{{&gt; body }}
 
-* * *
+<span class="bullet">* </span><span class="bullet">* *</span>
 
-_This page was generated using Grunt and [assemble][repo] on {{ today }}._
+<span class="emphasis">_This page was generated using Grunt and [assemble][repo] on {{ today }}._</span>
 
 [org]: https://github.com/assemble
 [repo]: https://github.com/assemble/assemble
@@ -329,15 +331,15 @@ _This page was generated using Grunt and [assemble][repo] on {{ today }}._
 [wiki]: https://github.com/assemble/assemble/wiki</code></pre>
 
             <h4>README Layout</h4>
-<pre><code class="lang-markdown"># {{pkg.name}} {{travis-badge}}
+<pre><code class="lang-markdown"><span class="header"># {{pkg.name}} {{travis-badge}}</span>
 
-&gt; {{pkg.description}}
+<span class="blockquote">&gt; {{pkg.description}}</span>
 
 {{&gt; body }}
 
-* * *
+<span class="bullet">* </span><span class="bullet">* *</span>
 
-_This readme was generated using Grunt and [assemble][repo] on {{ today }}._
+<span class="emphasis">_This readme was generated using Grunt and [assemble][repo] on {{ today }}._</span>
 
 [org]: https://github.com/assemble
 [repo]: https://github.com/assemble/assemble

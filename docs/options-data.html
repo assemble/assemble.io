@@ -66,19 +66,19 @@
 
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a>
-
+            <li> <a href="../docs/Home.html">Docs</a> 
             </li>
-            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
+            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li>
               <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
                 <i class="glyphicon glypicon-large glyphicon-download"></i>
               </a>
             </li>
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
@@ -138,6 +138,8 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
+              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
               <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
@@ -178,15 +180,13 @@
               </li>
               <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
               </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
               <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+              </li>
+              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
               </li>
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
               <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -197,14 +197,16 @@
               </li>
               <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
               </li>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+              </li>
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+              </li>
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
@@ -224,10 +226,10 @@
             <p>You must first define the paths to any data files you wish to use via the <code>options.data</code> object in the <code>assemble</code> task or target, then Assemble will automatically supply data to your templates:</p>
 <pre><code class="lang-js">assemble: {
   options: {
-    data: &#39;src/data/*.json&#39;
+    data: <span class="string">'src/data/*.json'</span>
   },
   files: {
-    &#39;site/&#39;: [&#39;src/pages/*.hbs&#39;]
+    <span class="string">'site/'</span>: [<span class="string">'src/pages/*.hbs'</span>]
   }
 }</code></pre>
 
@@ -238,9 +240,9 @@
             </p>
             <p>Given a data file, such as <code>widget.json</code> or <code>widget.yml</code> :</p>
 <pre><code class="lang-json">{
-  &quot;name&quot;: &quot;This is a square widget&quot;,
-  &quot;modifier&quot;: &quot;widget-square&quot;
-}</code></pre>
+  "<span class="attribute">name</span>": <span class="value"><span class="string">"This is a square widget"</span></span>,
+  "<span class="attribute">modifier</span>": <span class="value"><span class="string">"widget-square"</span>
+}</span></code></pre>
 
             <p>With the following Handlebars expressions in out template, <code>widget.hbs</code>:</p>
 <pre><code class="lang-html">&lt;div class=&quot;widget {{ widget.modifier }}&quot;&gt;{{ widget.name }}&lt;/div&gt;</code></pre>
@@ -254,10 +256,10 @@
 <pre><code class="lang-js">assemble {
   myProject: {
     options: {
-      data: &#39;package.json&#39;
+      data: <span class="string">'package.json'</span>
     },
     files: {
-      &#39;dest&#39;: [&#39;src/templates/**/*.hbs&#39;]
+      <span class="string">'dest'</span>: [<span class="string">'src/templates/**/*.hbs'</span>]
     }
   }
 }</code></pre>
@@ -278,16 +280,16 @@
             <p><strong>package.json example #2</strong>
             </p>
             <p>Assuming we add the following code to our Gruntfile</p>
-<pre><code class="lang-js">pkg: grunt.file.readJSON(&#39;package.json&#39;),
+<pre><code class="lang-js">pkg: grunt.file.readJSON(<span class="string">'package.json'</span>),
 
 assemble {
   myProject: {
     options: {
-      pkg: &#39;&lt;%= pkg %&gt;&#39;,
-      data: &#39;other/data/*.json&#39;
+      pkg: <span class="string">'&lt;%= pkg %&gt;'</span>,
+      data: <span class="string">'other/data/*.json'</span>
     },
     files: {
-      &#39;dest&#39;: [&#39;src/templates/**/*.hbs&#39;]
+      <span class="string">'dest'</span>: [<span class="string">'src/templates/**/*.hbs'</span>]
     }
   }
 }</code></pre>

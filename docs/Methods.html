@@ -66,19 +66,19 @@
 
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a>
-
+            <li> <a href="../docs/Home.html">Docs</a> 
             </li>
-            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
+            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li>
               <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
                 <i class="glyphicon glypicon-large glyphicon-download"></i>
               </a>
             </li>
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
@@ -138,6 +138,8 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
+              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
               <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
@@ -178,15 +180,13 @@
               </li>
               <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
               </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
               <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+              </li>
+              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
               </li>
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
               <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -197,14 +197,16 @@
               </li>
               <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
               </li>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+              </li>
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+              </li>
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
@@ -221,16 +223,16 @@
             <h1>Methods</h1>
             <h2>The &quot;assemble&quot; object</h2>
             <p>Methods to the assemble object can be created using:</p>
-<pre><code class="lang-javascript">var assemble = require(&#39;assemble&#39;).init(this);</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> assemble = require(<span class="string">'assemble'</span>).init(<span class="keyword">this</span>);</code></pre>
 
             <ul>
               <li>the <code>this</code> object is from the grunt task, and can be accessed in assemble &quot;steps&quot; through <code>assemble.task</code>
               </li>
               <li>the <code>init</code> method does some initial option configuration and sets the following properties on the assemble object:</li>
             </ul>
-<pre><code class="lang-javascript">assemble.task;    // refers to the grunt task
-assemble.options; // refers to the task.options merged with assemble defaults
-assemble.files;   // refers to the task.files</code></pre>
+<pre><code class="lang-javascript">assemble.task;    <span class="comment">// refers to the grunt task</span>
+assemble.options; <span class="comment">// refers to the task.options merged with assemble defaults</span>
+assemble.files;   <span class="comment">// refers to the task.files</span></code></pre>
 
             <h3><code>init</code> method</h3>
             <p>Describes <code>init</code> method to <code>assemble.engine</code>, and exposes engine on <code>assemble.engine</code>.</p>
@@ -238,14 +240,14 @@ assemble.files;   // refers to the task.files</code></pre>
             <p>If you don&#39;t wish to use Handlebars as your templates engine, you may add your own engine by providing an <code>init</code> function that takes in options from the assemble task/target. You may also override the <code>init</code> function in the task/target options by providing an <code>initializeEngine</code> function that takes the engine and the options:</p>
 <pre><code class="lang-js">assemble: {
   options: {
-    engine: &#39;consolidate&#39;,
-    initializeEngine: function(engine, options) {
+    engine: <span class="string">'consolidate'</span>,
+    initializeEngine: <span class="keyword">function</span>(engine, options) {
       engine.engine.swig.init(options);
     }
   },
   docs: {
     files: {
-      &#39;docs/&#39;: [&#39;src/templates/**/*.tmpl&#39;]
+      <span class="string">'docs/'</span>: [<span class="string">'src/templates/**/*.tmpl'</span>]
     }
   }
 }</code></pre>
@@ -265,34 +267,34 @@ assemble.files;   // refers to the task.files</code></pre>
             <p>Example of how this would be setup in the <code>options</code> of the assemble task or target:</p>
 <pre><code class="lang-javascript">assemble: {
   options: {
-    registerFunctions: function(engine) {
-      var helperFunctions = {};
-      helperFunctions[&#39;foo&#39;] = function() { return &#39;bar&#39;; };
+    registerFunctions: <span class="keyword">function</span>(engine) {
+      <span class="keyword">var</span> helperFunctions = {};
+      helperFunctions[<span class="string">'foo'</span>] = <span class="keyword">function</span>() { <span class="keyword">return</span> <span class="string">'bar'</span>; };
       engine.engine.registerFunctions(helperFunctions);
     }
   },
   site: {
     files: {
-      &#39;dist/&#39;: [&#39;src/templates/**/*.tmpl&#39;]
+      <span class="string">'dist/'</span>: [<span class="string">'src/templates/**/*.tmpl'</span>]
     }
   }
 }</code></pre>
 
             <h4>Register Partials</h4>
             <p>Call <code>registerPartial</code> by passing in an engine:</p>
-<pre><code class="lang-javascript">registerPartial(assemble.engine, &#39;partialName&#39;, content);</code></pre>
+<pre><code class="lang-javascript">registerPartial(assemble.engine, <span class="string">'partialName'</span>, content);</code></pre>
 
             <p>Example of how this would be setup in the <code>options</code> of the assemble task or target:</p>
 <pre><code class="lang-javascript">assemble: {
   options: {
-    registerPartial: function(engine, name, content) {
-      var tmpl = engine.compile(content);
+    registerPartial: <span class="keyword">function</span>(engine, name, content) {
+      <span class="keyword">var</span> tmpl = engine.compile(content);
       engine.engine.registerPartial(name, tmpl);
     }
   },
   blog: {
     files: {
-      &#39;dist/blog/&#39;: [&#39;src/templates/**/*.tmpl&#39;]
+      <span class="string">'dist/blog/'</span>: [<span class="string">'src/templates/**/*.tmpl'</span>]
     }
   }
 }</code></pre>
@@ -307,18 +309,18 @@ assemble.files;   // refers to the task.files</code></pre>
               <li><code>next</code> is a callback function that needs to be called when finished executing this step</li>
             </ol>
             <p>See the following example:</p>
-<pre><code class="lang-javascript">assemble.step(function(assemble, next) {
-  // do some code here
-  // you can add properties to assemble which can be accessed in later steps
-  assemble.myCustomProperty = { foo: &#39;bar&#39; };
+<pre><code class="lang-javascript">assemble.step(<span class="keyword">function</span>(assemble, next) {
+  <span class="comment">// do some code here</span>
+  <span class="comment">// you can add properties to assemble which can be accessed in later steps</span>
+  assemble.myCustomProperty = { foo: <span class="string">'bar'</span> };
 
-  // always call next when finished and pass back the assemble object
+  <span class="comment">// always call next when finished and pass back the assemble object</span>
   next(assemble);
 });</code></pre>
 
             <h4>the <code>step</code> function</h4>
             <p>The <code>step</code> function also returns the current assemble object so it&#39;s chainable...</p>
-<pre><code class="lang-javascript">var assemble = require(&#39;assemble&#39;).init(this)
+<pre><code class="lang-javascript"><span class="keyword">var</span> assemble = require(<span class="string">'assemble'</span>).init(<span class="keyword">this</span>)
     .step(step1)
     .step(step2)
     .step(step3)
@@ -327,74 +329,74 @@ assemble.files;   // refers to the task.files</code></pre>
 
             <h4>the <code>build</code> function</h4>
             <p>The <code>build</code> function takes a callback that is called when the build process is complete. The build process calls the steps that were previously setup, passing in the <code>assemble</code> object.</p>
-<pre><code class="lang-javascript">assemble.build(function(err, result) {
-  if(err) {
+<pre><code class="lang-javascript">assemble.build(<span class="keyword">function</span>(err, result) {
+  <span class="keyword">if</span>(err) {
     console.log(err);
-    return;
+    <span class="keyword">return</span>;
   }
-  console.log(&#39;finished building&#39;);
+  console.log(<span class="string">'finished building'</span>);
 });</code></pre>
 
             <h3>Example custom Grunt.js plugin, &quot;<code>steps</code>&quot;</h3>
             <p>This shows how to create a custom Grunt plugin using Assemble steps.</p>
-<pre><code class="lang-js">grunt.registerMultiTask(&#39;steps&#39;, &#39;examples of using steps in assemble&#39;, function() {
+<pre><code class="lang-js">grunt.registerMultiTask(<span class="string">'steps'</span>, <span class="string">'examples of using steps in assemble'</span>, <span class="keyword">function</span>() {
 
-  var done = this.async();
+  <span class="keyword">var</span> done = <span class="keyword">this</span>.async();
 
-  grunt.verbose.writeln((&#39;Running &#39; + this.name + &#39; - &#39; + this.target).cyan);
+  grunt.verbose.writeln((<span class="string">'Running '</span> + <span class="keyword">this</span>.name + <span class="string">' - '</span> + <span class="keyword">this</span>.target).cyan);
 
-  // require assemble
-  var assemble = require(&#39;assemble&#39;);
+  <span class="comment">// require assemble</span>
+  <span class="keyword">var</span> assemble = require(<span class="string">'assemble'</span>);
 
-  // initalize assemble with the currently running task
-  assemble = assemble.init(this);
+  <span class="comment">// initalize assemble with the currently running task</span>
+  assemble = assemble.init(<span class="keyword">this</span>);
 
-  // let&#39;s see what assemble has now
-  grunt.verbose.writeln(require(&#39;util&#39;).inspect(assemble));
-  grunt.verbose.writeln(&#39;&#39;);
+  <span class="comment">// let's see what assemble has now</span>
+  grunt.verbose.writeln(require(<span class="string">'util'</span>).inspect(assemble));
+  grunt.verbose.writeln(<span class="string">''</span>);
 
-  // you can see there are some defaults that assemble sets up
-  // add the steps you want to execute
+  <span class="comment">// you can see there are some defaults that assemble sets up</span>
+  <span class="comment">// add the steps you want to execute</span>
 
-  // add a custom string property to the assemble object
-  assemble.step(function(assemble, next) {
-    grunt.log.writeln(&#39;running step 1&#39;);
-    assemble.step1 = &#39;This is step 1&#39;;
+  <span class="comment">// add a custom string property to the assemble object</span>
+  assemble.step(<span class="keyword">function</span>(assemble, next) {
+    grunt.log.writeln(<span class="string">'running step 1'</span>);
+    assemble.step1 = <span class="string">'This is step 1'</span>;
     next(assemble);
   });
 
-  // add a custom object property to the assemble object
-  assemble.step(function(assemble, next) {
-    grunt.log.writeln(&#39;running step 2&#39;);
+  <span class="comment">// add a custom object property to the assemble object</span>
+  assemble.step(<span class="keyword">function</span>(assemble, next) {
+    grunt.log.writeln(<span class="string">'running step 2'</span>);
     assemble.step2 = {
-      data: &#39;This is step 2&#39;
+      data: <span class="string">'This is step 2'</span>
     };
     next(assemble);
   });
 
-  // add a custom array property to the assemble object
-  assemble.step(function(assemble, next) {
-    grunt.log.writeln(&#39;running step 3&#39;);
-    assemble.step3 = [&#39;This is step 3&#39;];
+  <span class="comment">// add a custom array property to the assemble object</span>
+  assemble.step(<span class="keyword">function</span>(assemble, next) {
+    grunt.log.writeln(<span class="string">'running step 3'</span>);
+    assemble.step3 = [<span class="string">'This is step 3'</span>];
     next(assemble);
   });
 
-  // the last step will use the custom properties set up in the first 3 steps
-  assemble.step(function(assemble, next) {
-    grunt.log.writeln(&#39;running step 4&#39;);
+  <span class="comment">// the last step will use the custom properties set up in the first 3 steps</span>
+  assemble.step(<span class="keyword">function</span>(assemble, next) {
+    grunt.log.writeln(<span class="string">'running step 4'</span>);
 
-    grunt.log.writeln(&#39;  data from other steps: &#39;);
-    grunt.log.writeln(&#39;    &#39; + assemble.step1);
-    grunt.log.writeln(&#39;    &#39; + assemble.step2.data);
-    grunt.log.writeln(&#39;    &#39; + assemble.step3[0]);
-    grunt.log.writeln(&#39;&#39;);
+    grunt.log.writeln(<span class="string">'  data from other steps: '</span>);
+    grunt.log.writeln(<span class="string">'    '</span> + assemble.step1);
+    grunt.log.writeln(<span class="string">'    '</span> + assemble.step2.data);
+    grunt.log.writeln(<span class="string">'    '</span> + assemble.step3[<span class="number">0</span>]);
+    grunt.log.writeln(<span class="string">''</span>);
 
     next(assemble);
   });
 
-  // now run build
-  assemble.build(function(err, results) {
-    grunt.log.writeln(&#39;build finished&#39;);
+  <span class="comment">// now run build</span>
+  assemble.build(<span class="keyword">function</span>(err, results) {
+    grunt.log.writeln(<span class="string">'build finished'</span>);
     done();
   });
 
@@ -402,25 +404,25 @@ assemble.files;   // refers to the task.files</code></pre>
 
             <h3>Example Gruntfile with <code>steps</code> task</h3>
             <p>The following code is for an entire <code>Gruntfile.js</code>, with an example of how to use <code>step</code> and <code>build</code> in the simpilest way.</p>
-<pre><code class="lang-javascript">module.exports = function(grunt) {
+<pre><code class="lang-javascript">module.exports = <span class="keyword">function</span>(grunt) {
 
-  // Project configuration.
+  <span class="comment">// Project configuration.</span>
   grunt.initConfig({
     steps: {
       target1: {
-        // do something
+        <span class="comment">// do something</span>
       },
       target2: {
-        // do something else
+        <span class="comment">// do something else</span>
       }
     }
   });
 
-  // Load npm plugins to provide necessary tasks.
-  grunt.loadNpmTasks(&#39;grunt-contrib-jshint&#39;);
+  <span class="comment">// Load npm plugins to provide necessary tasks.</span>
+  grunt.loadNpmTasks(<span class="string">'grunt-contrib-jshint'</span>);
 
-  // Default task.
-  grunt.registerTask(&#39;default&#39;, [&#39;jshint&#39;, &#39;steps&#39;]);
+  <span class="comment">// Default task.</span>
+  grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'jshint'</span>, <span class="string">'steps'</span>]);
 };</code></pre>
 
             <hr>

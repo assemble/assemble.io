@@ -66,19 +66,19 @@
 
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a>
-
+            <li> <a href="../docs/Home.html">Docs</a> 
             </li>
-            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
+            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li>
               <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
                 <i class="glyphicon glypicon-large glyphicon-download"></i>
               </a>
             </li>
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
@@ -138,6 +138,8 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
+              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
               <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
@@ -178,15 +180,13 @@
               </li>
               <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
               </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
               <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+              </li>
+              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
               </li>
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
               <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -197,14 +197,16 @@
               </li>
               <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
               </li>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+              </li>
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li class="active"><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+              </li>
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
@@ -229,13 +231,30 @@
               <li>Write document fragments in markdown, so they can be &quot;included&quot; or used as partials within other larger documents</li>
               <li>Write sections of markdown directly inside HTML documents (referred to as &quot;inline markdown&quot;)</li>
             </ul>
+            <h3>&quot;Include&quot; extenal content</h3>
+            <p>Use the markdown expression, <code>{{md}}</code>, to enable importing of external markdown content.</p>
+            <p><strong>Example #1: using full path</strong>
+            </p>
+<pre><code class="lang-handlebars">{{md ../path/to/content.md}}</code></pre>
+
+            <p><strong>Example #2: using variables</strong>
+Or use a variable instead of setting the path directly inside the template. For example you can add the content variable to the <a href="https://github.com/assemble/assemble/wiki/YAML-Front-Matter">YAML Front-Matter</a>:</p>
+<pre><code class="lang-yaml">---
+page:
+  title: Home
+content: ../path/to/content.md
+---</code></pre>
+
+            <p>then use it like this:</p>
+<pre><code class="lang-handlebars">{{md content}}</code></pre>
+
             <h3>Markdown &quot;includes&quot;</h3>
             <p>Using the <code>{{md}}</code> markdown helper, you can import markdown formatted content from another file, and render it to HTML. For example:</p>
             <p>Assuming we have a file named <code>index.hbs</code>, and we add the following:</p>
 <pre><code class="lang-handlebars">{{md &#39;../path/to/content.md&#39;}}</code></pre>
 
             <p>And give that <code>content.md</code> contains the following:</p>
-<pre><code class="lang-markdown"># Getting Started
+<pre><code class="lang-markdown"><span class="header"># Getting Started</span>
 Lorem Ipsum...</code></pre>
 
             <p>When we run <code>grunt assemble</code>, a file named <code>index.html</code> will be rendered containing:</p>
@@ -251,28 +270,28 @@ content: ../path/to/content.md
 
             <h3>Markdown block expression</h3>
             <p>The <code>{{#markdown}}...{{/markdown}}</code> block expression is used to &quot;wrap&quot; markdown content that is written &quot;inline&quot; directly inside HTML documents:</p>
-<pre><code class="lang-markdown">&lt;h1&gt; My Site &lt;/h1&gt;
+<pre><code class="lang-markdown"><span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span></span> My Site <span class="xml"><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span>
 
 {{#markdown}}
-## Inline Markdown is awesome
+<span class="header">## Inline Markdown is awesome</span>
 
-&gt; this is markdown content
+<span class="blockquote">&gt; this is markdown content</span>
 
-* useful for simple content
-* great for blog posts
-* easier on the eyes than angle brackets
-* even links look prettier
+<span class="bullet">* </span>useful for simple content
+<span class="bullet">* </span>great for blog posts
+<span class="bullet">* </span>easier on the eyes than angle brackets
+<span class="bullet">* </span>even links look prettier
 
-### Pretty links
+<span class="header">### Pretty links</span>
 
-[Visit Assemble](http://github.com/assemble/assemble)
+<span class="link_label">[Visit Assemble]</span>(<span class="link_url">http://github.com/assemble/assemble</span>)
 
-### Even Prettier links
+<span class="header">### Even Prettier links</span>
 
 Embed handlebars templates to make them even prettier.
 
 {{#page.links}}
-[{{text}}]({{href}})
+<span class="link_label">[{{text}}]</span>(<span class="link_url">{{href}}</span>)
 {{/page.links}}
 
 {{/markdown}}</code></pre>

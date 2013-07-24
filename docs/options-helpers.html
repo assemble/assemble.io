@@ -66,19 +66,19 @@
 
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a>
-
+            <li> <a href="../docs/Home.html">Docs</a> 
             </li>
-            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
+            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li>
               <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
                 <i class="glyphicon glypicon-large glyphicon-download"></i>
               </a>
             </li>
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
@@ -138,6 +138,8 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
+              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
               <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
@@ -178,15 +180,13 @@
               </li>
               <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
               </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
               <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+              </li>
+              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
               </li>
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
               <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -197,14 +197,16 @@
               </li>
               <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
               </li>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+              </li>
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+              </li>
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
@@ -236,7 +238,7 @@
             <p>Globbing patterns may be used to specify paths to the helpers to be loaded:</p>
 <pre><code class="lang-js">assemble: {
   options: {
-    helpers: [&#39;./lib/helpers/**/*.js&#39;]
+    helpers: [<span class="string">'./lib/helpers/**/*.js'</span>]
   }
 }</code></pre>
 
@@ -245,13 +247,13 @@
             </blockquote>
             <h3>Registering custom helpers</h3>
             <p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function passing in the engine, otherwise each method is registered as a helper. For example, the following will result in 2 helpers being registered:</p>
-<pre><code class="lang-js">module.exports.foo = function(msg) { return msg; };
-module.exports.bar = function(msg) { return msg; };</code></pre>
+<pre><code class="lang-js">module.exports.foo = <span class="keyword">function</span>(msg) { <span class="keyword">return</span> msg; };
+module.exports.bar = <span class="keyword">function</span>(msg) { <span class="keyword">return</span> msg; };</code></pre>
 
             <p>And this will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
-<pre><code class="lang-js">module.exports.register = function(Handlebars, options) {
-  Handlebars.registerHelper(&#39;foo&#39;, function(msg) {
-    return msg;
+<pre><code class="lang-js">module.exports.register = <span class="keyword">function</span>(Handlebars, options) {
+  Handlebars.registerHelper(<span class="string">'foo'</span>, <span class="keyword">function</span>(msg) {
+    <span class="keyword">return</span> msg;
   });
 };</code></pre>
 
@@ -262,21 +264,21 @@ module.exports.bar = function(msg) { return msg; };</code></pre>
             <p>Given our <code>Gruntfile.js</code> has the following <code>assemble</code> task configuration:</p>
 <pre><code class="lang-js">assemble: {
   options: {
-    version: &#39;0.1.0&#39;, // or we could use &#39;&lt;%= pkg.version %&gt;&#39;
-    helpers: [&#39;lib/helpers/**/*.js&#39;]
+    version: <span class="string">'0.1.0'</span>, <span class="comment">// or we could use '&lt;%= pkg.version %&gt;'</span>
+    helpers: [<span class="string">'lib/helpers/**/*.js'</span>]
   },
   blog: {
     files: {
-      &#39;articles/&#39;: [&#39;src/posts/*.md&#39;]
+      <span class="string">'articles/'</span>: [<span class="string">'src/posts/*.md'</span>]
     }
   }
 }</code></pre>
 
             <p>And given we have defined a custom helper, <code>opt</code>, which gets properties from the <code>assemble.options</code> object and returns them:</p>
-<pre><code class="lang-js">module.exports.register = register = function(Handlebars, options) {
+<pre><code class="lang-js">module.exports.register = register = <span class="keyword">function</span>(Handlebars, options) {
 
-  Handlebars.registerHelper(&#39;opt&#39;, function(key) {
-    return options[key] || &#39;&#39;;
+  Handlebars.registerHelper(<span class="string">'opt'</span>, <span class="keyword">function</span>(key) {
+    <span class="keyword">return</span> options[key] || <span class="string">''</span>;
   });
 
 };</code></pre>

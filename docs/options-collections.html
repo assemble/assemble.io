@@ -66,19 +66,19 @@
 
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a>
-
+            <li> <a href="../docs/Home.html">Docs</a> 
             </li>
-            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
+            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li>
               <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
                 <i class="glyphicon glypicon-large glyphicon-download"></i>
               </a>
             </li>
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
@@ -138,6 +138,8 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
+              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
               <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
@@ -178,15 +180,13 @@
               </li>
               <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
               </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
               <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+              </li>
+              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
               </li>
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
               <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -197,14 +197,16 @@
               </li>
               <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
               </li>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+              </li>
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+              </li>
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
@@ -285,17 +287,17 @@ widgets:
             </ul>
 <pre><code class="lang-js">options: {
   collections: [
-    // Collections options
+    <span class="comment">// Collections options</span>
     {
-      title: &#39;items&#39;,
-      inflection: &#39;nav-item&#39; // or whatever
+      title: <span class="string">'items'</span>,
+      inflection: <span class="string">'nav-item'</span> <span class="comment">// or whatever</span>
     },
     {
-      title: &#39;archives&#39;,
-      inflection: &#39;post&#39; ,
-      sortorder: &#39;ascending&#39;, // or any of the following [&#39;asc&#39;, &#39;desc&#39;, &#39;descending&#39;] upper or lower case
-      sortby: &#39;datetime&#39;, // this is any
-      index: &#39;src/templates/indices/archives.hbs&#39;
+      title: <span class="string">'archives'</span>,
+      inflection: <span class="string">'post'</span> ,
+      sortorder: <span class="string">'ascending'</span>, <span class="comment">// or any of the following ['asc', 'desc', 'descending'] upper or lower case</span>
+      sortby: <span class="string">'datetime'</span>, <span class="comment">// this is any</span>
+      index: <span class="string">'src/templates/indices/archives.hbs'</span>
     }
   ]
 }</code></pre>
@@ -305,8 +307,8 @@ widgets:
             <h3>List of associate pages</h3>
             <p>Additionally, any collection item from the <code>collections</code> object can list the <a href="Pages.html">pages</a> associated with that collection. For example, each &quot;tag&quot; would list the <a href="Pages.html">pages</a> associated with that tag.</p>
 <pre><code class="lang-javascript">{
-  tag: &#39;news&#39;,
-  pages: [&#39;one.html&#39;, &#39;two.html&#39;, &#39;three.html&#39;]
+  tag: <span class="string">'news'</span>,
+  pages: [<span class="string">'one.html'</span>, <span class="string">'two.html'</span>, <span class="string">'three.html'</span>]
 }</code></pre>
 
             <h2>Custom collections</h2>
@@ -317,7 +319,7 @@ default: <code>null</code>
             <p>Custom <code>collections</code> may be defined using the <code>collections</code> option:</p>
 <pre><code class="lang-javascript">assemble: {
   options: {
-    collections: [&#39;widgets&#39;, &#39;posts&#39;]
+    collections: [<span class="string">'widgets'</span>, <span class="string">'posts'</span>]
   }
 }</code></pre>
 

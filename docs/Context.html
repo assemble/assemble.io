@@ -66,19 +66,19 @@
 
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a>
-
+            <li> <a href="../docs/Home.html">Docs</a> 
             </li>
-            <!--<li> <a href="../examples.html">Examples</a> </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
+            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li>
               <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
                 <i class="glyphicon glypicon-large glyphicon-download"></i>
               </a>
             </li>
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
             <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
@@ -138,6 +138,8 @@
             <ul class="nav nav-pills nav-stacked">
               <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
               </li>
+              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              </li>
               <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
               </li>
               <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
@@ -178,15 +180,13 @@
               </li>
               <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
               </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
               <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+              </li>
+              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
               </li>
             </ul>
             <span class="nav-section-title">Templates</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
               <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
               </li>
               <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -197,14 +197,16 @@
               </li>
               <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
               </li>
+              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+              </li>
             </ul>
             <span class="nav-section-title">Content</span>
             <ul class="nav nav-pills nav-stacked">
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
               <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
               </li>
               <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+              </li>
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
               </li>
             </ul>
             <span class="nav-section-title">Development</span>
@@ -223,16 +225,14 @@
               <p>In Assemble, context is the current JSON data object that templates can use.</p>
             </blockquote>
             <p>If you are unfamiliar with how Handlebar templates work, please visit the <a href="http://handlebarsjs.com/">Handlebar documentation</a> for more information. Also see Assemble&#39;s documentation for <a href="About-Templates.html">templates</a> and <a href="Data.html">Data</a>.</p>
-            <p>
-              <a id="context-in-handlebars"></a>
-            </p>
+            <p>&lt;a id=&quot;context-in-handlebars&quot;&gt;&lt;/a&gt;</p>
             <h2>Context in Handlebars</h2>
             <p>In Handlebars, every template has a context. Blocks such as <code>{{#if}}</code> create &quot;inline&quot; templates, and the <code>{{#if}}</code> helper then determines the context in which to render the template.</p>
             <p>Some helpers, like <code>{{#if}}</code>, will preserve the current context, while others such as <code>{{#each}}</code> and <code>{{#with}}</code>,
               <em>will change the context</em>in different ways.
               <em>Helpers can even change the context to something completely different if they want</em>:</p>
 <pre><code class="lang-js">options.fn({
-  published: true
+  published: <span class="literal">true</span>
 })</code></pre>
 
             <p>Handlebars also supports
@@ -241,16 +241,14 @@
             <p>
               <em>The information in this section was mostly taken from <a href="https://github.com/wycats/handlebars.js/issues/196#issuecomment-8581551">this conversation</a>, and edited to make sense for Assemble.</em>
             </p>
-            <p>
-              <a id="the-context-object"></a>
-            </p>
+            <p>&lt;a id=&quot;the-context-object&quot;&gt;&lt;/a&gt;</p>
             <h2>The &quot;context&quot; object</h2>
             <p>The context object is just a <a href="JSON.html">JSON data</a> object that when passed to the compiled template function becomes the value of this inside your template. You must use the name of the associated <a href="Data.html">data file</a> to access properties and call helper methods on the context object.</p>
             <h3>Example</h3>
             <p>Given we have a data file <code>alert.json</code> that contains the following properties:</p>
 <pre><code class="lang-json">{
-  &quot;title&quot;: &quot;Heads up!&quot;
-}</code></pre>
+  "<span class="attribute">title</span>": <span class="value"><span class="string">"Heads up!"</span>
+}</span></code></pre>
 
             <p>In our template <code>alert.hbs</code>, we will now look up the properites of <code>alert.json</code> by using the name of the file, <code>alert</code>, as the current context. So to retrieve the <code>title</code> property, we would do this:</p>
 <pre><code class="lang-handlebars">&lt;h1&gt;{{alert.title}}&lt;/h1&gt;</code></pre>
@@ -258,9 +256,7 @@
             <p>Which renders to:</p>
 <pre><code class="lang-html">&lt;h1&gt;Heads up!&lt;/h1&gt;</code></pre>
 
-            <p>
-              <a id="root-context"></a>
-            </p>
+            <p>&lt;a id=&quot;root-context&quot;&gt;&lt;/a&gt;</p>
             <h2>Root context</h2>
             <p>In Assemble, the root of the context is where the data object starts. Everything under the root is a child property. Also, when a variable is at &quot;the root of the context&quot; the variable may be used as-is, or &quot;raw&quot;, enabling you to look up properties
               <em>for the &quot;current&quot; object</em>without nesting the context
@@ -279,16 +275,14 @@
 &lt;/html&gt;</code></pre>
 
             <p>Since the <code>{{title}}</code> variable is inside a <a href="Layouts.html">layout</a>, we do not need to nest the <code>title</code> within the context of the <code>data</code> object. In other words, by default, layouts</p>
-            <p>
-              <a id="the-data-object"></a>
-            </p>
+            <p>&lt;a id=&quot;the-data-object&quot;&gt;&lt;/a&gt;</p>
             <h2>The &quot;data&quot; object</h2>
             <p>When data is added directly to a file named <code>data.json</code> (or <code>data.yml</code>) it will be loaded
               <em>directly into the root of the context</em>by Assemble. Note that your templates will need to be namespaced differently than if you put data into a file called <code>myData.json</code>.</p>
             <p>For example, given we have a file named <code>data.json</code> with:</p>
 <pre><code class="lang-json">{
-  &quot;title&quot;: &quot;My Title&quot;
-}</code></pre>
+  "<span class="attribute">title</span>": <span class="value"><span class="string">"My Title"</span>
+}</span></code></pre>
 
             <p>Inside <code>myTemplate.hbs</code>, we would use:</p>
 <pre><code class="lang-handlebars">{{title}}</code></pre>
@@ -296,15 +290,13 @@
             <p>However, using the same example but with a file named <code>myData.json</code>, the data must now be accessed using the name of the file.</p>
             <p>So, given we have <code>myData.json</code> with:</p>
 <pre><code class="lang-json">{
-  &quot;title&quot;: &quot;My Title&quot;
-}</code></pre>
+  "<span class="attribute">title</span>": <span class="value"><span class="string">"My Title"</span>
+}</span></code></pre>
 
             <p>Out template, <code>myTemplate.hbs</code>, would have:</p>
 <pre><code class="lang-handlebars">{{myData.title}}</code></pre>
 
-            <p>
-              <a id="this-expression"></a>
-            </p>
+            <p>&lt;a id=&quot;this-expression&quot;&gt;&lt;/a&gt;</p>
             <h2>&quot;this&quot; expression</h2>
             <p>You can use the <code>this</code> expression in any context to refer to the current context.</p>
             <p>For example (from <a href="http://handlebarsjs.com/">http://handlebarsjs.com/</a>), inside the <code>{{#each}}</code> block, you can use <code>this</code> to reference the element being iterated over.</p>
@@ -316,8 +308,8 @@
 
             <p>when used with this context, <code>people.json</code>:</p>
 <pre><code class="lang-json">[
-  &quot;Jon Schlinkert&quot;,
-  &quot;Brian Woodward&quot;
+  <span class="string">"Jon Schlinkert"</span>,
+  <span class="string">"Brian Woodward"</span>
 ]</code></pre>
 
             <p>will result in:</p>
