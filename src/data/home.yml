@@ -18,10 +18,11 @@ teaser:
   masthead:
     linkable: true
     modifier: ""
-    title: <strong>Design. Templates. Data.</strong>
-    subtitle: See how Assemble bridges the gap between design and development.
+    title: |
+      Effeckt uses Assemble!
+    subtitle: "The H5BP project from Paul Irish, Chris Coyer, Dennis Gaebel..."
     ideas: <strong>Built with Assemble</strong> It has never been easier to build static sites.
-    url: docs/Home.html
+    url: https://github.com/h5bp/Effeckt.css
 
   footer:
     static: true
