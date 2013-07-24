@@ -29,8 +29,16 @@ module.exports = function(grunt) {
         }
       },
       main: {
-        src:  ['<%= ghpages.bundle.docs %>'],
+        src: ['<%= ghpages.bundle.docs %>'],
         dest: 'docs/assets/css/assemble.css'
+      },
+      gist: {
+        src: ['src/less/docs/gist-overrides.less'],
+        dest: 'docs/assets/css/gist.css'
+      },
+      markdown: {
+        src: ['src/less/components/markdown.less'],
+        dest: 'docs/assets/css/markdown.css'
       }
     },
 
@@ -49,34 +57,13 @@ module.exports = function(grunt) {
         ],
         partials: ['src/templates/partials/**/*.{hbs,md}']
       },
-      // readme: {
-      //   options: {
-      //     ext: '',
-      //     partials: 'src/readme/sections/*.hbs',
-      //     data: [
-      //       '<%= config.assemble_master %>/package.json'
-      //     ]
-      //   },
-      //   files: [
-      //     { expand: true, flatten: true, cwd: 'src/assemble/', src: ['sections/*.hbs', '!index.hbs'], dest: '<%= config.assemble_master %>/docs/' },
-      //     { expand: true, flatten: true, cwd: 'src/assemble/', src: ['README.md.hbs'], dest: 'src/assemble/' }
-      //   ]
-      // },
       links: {
         options: {
           ext: '.hbs',
           layout: false
         },
         files: [
-          { expand: true, flatten: true, cwd: 'src/templates/partials/snippets', src: ['generated-links.md.hbs'], dest: 'src/templates/partials/' },
-        ]
-      },
-      pages: {
-        options: {
-          layout: 'layout-landing.hbs'
-        },
-        files: [
-          { expand: true, cwd: 'src/templates/pages', src: ['*.hbs'], dest: './' }
+          { expand: true, src: ['src/templates/partials/snippets/generated-links.md.hbs'], dest: 'src/templates/partials/' },
         ]
       },
       docs: {
@@ -84,7 +71,8 @@ module.exports = function(grunt) {
           layout: 'layout-docs.hbs'
         },
         files: [
-          { expand: true, flatten: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' }
+          { expand: true, cwd: 'src/templates/pages', src: ['*.hbs'], dest: './' },
+          { expand: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' }
         ]
       },
       helpers: {
@@ -92,22 +80,21 @@ module.exports = function(grunt) {
           layout: 'layout-helpers.hbs'
         },
         files: [
-          { expand: true, flatten: true, cwd: 'src/templates/pages/helpers', src: ['*.hbs'], dest: './docs/helpers', ext: '.html' }
+          { expand: true, cwd: 'src', src: ['templates/pages/helpers/*.hbs', 'content/helpers/**/*.hbs'], dest: './docs/helpers', ext: '.html' }
         ]
       },
       diagnostics: {
         options: {
           layout: 'layout-diagnostics.md.hbs',
-          ext: '.md'
+          ext: '.html'
         },
-        files: [{
+        files: [
+          {
             expand: true,
             cwd: 'src/templates/pages',
             src: ['*.hbs', 'docs/*.hbs', 'examples/*.hbs', 'helpers/**/*.hbs'],
             dest: './tmp/diagnostics/',
-            rename: function(dest, src) {
-              return dest + src.substring(0, src.indexOf('.'));
-            }
+            ext: '/index'
           }
         ]
       }
@@ -136,7 +123,8 @@ module.exports = function(grunt) {
     // Before generating any new files,
     // remove files from previous build.
     clean: {
-      all: ['*.html', 'docs/*.html', 'tmp/diagnostics/**/*.{html,md}']
+      all: ['*.html', 'docs/*.html'],
+      tmp: ['tmp/diagnostics/**/*.{html,md}']
     }
   });
 
@@ -153,9 +141,9 @@ module.exports = function(grunt) {
     'clean',
     'less',
     'assemble:links',
-    'assemble:pages',
     'assemble:docs',
-    'assemble:helpers',
+    // 'assemble:helpers',
+    // 'assemble:diagnostics',
     'prettify',
     'copy'
   ]);
