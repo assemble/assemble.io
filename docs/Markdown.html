@@ -165,6 +165,8 @@
             </li>
             <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
+            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
           </ul>
@@ -230,32 +232,32 @@
           <p>
             <strong>Example #1: using full path</strong>
           </p>
-<pre><code class="language-handlebars">{{md ../path/to/content.md}}</code></pre>
+<pre><code class="language-handlebars"><span class="comment">{{md</span> <span class="string">.</span><span class="string">.</span><span class="comment">/path/to/content</span>.<span class="comment">md}}</code></pre>
           <p>
             <strong>Example #2: using variables</strong>Or use a variable instead of setting the path directly inside the template. For example you can add the content variable to the <a href="https://github.com/assemble/assemble/wiki/YAML-Front-Matter">YAML Front-Matter</a>:</p>
-<pre><code class="language-yaml">---
-page:
-  title: Home
-content: ../path/to/content.md
----</code></pre>
+<pre><code class="language-yaml"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<span class="comment">page:</span>
+  <span class="comment">title:</span> <span class="comment">Home</span>
+<span class="comment">content:</span> <span class="string">.</span><span class="string">.</span><span class="comment">/path/to/content</span>.<span class="comment">md</span>
+<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
           <p>then use it like this:</p>
-<pre><code class="language-handlebars">{{md content}}</code></pre>
+<pre><code class="language-handlebars"><span class="variable">{{md content}}</span></code></pre>
           <h3>Markdown &quot;includes&quot;</h3>
           <p>Using the <code>{{md}}</code> markdown helper, you can import markdown formatted content from another file, and render it to HTML. For example:</p>
           <p>Assuming we have a file named <code>index.hbs</code>, and we add the following:</p>
-<pre><code class="language-handlebars">{{md &#39;../path/to/content.md&#39;}}</code></pre>
+<pre><code class="language-handlebars"><span class="comment">{{md</span> <span class="comment">'</span>.<span class="string">.</span><span class="comment">/path/to/content</span>.<span class="comment">md'}}</code></pre>
           <p>And give that <code>content.md</code> contains the following:</p>
-<pre><code class="language-markdown"><span class="header"># Getting Started</span>
-Lorem Ipsum...</code></pre>
+<pre><code class="language-markdown"><span class="comment"># Getting Started</span>
+<span class="title">Lorem</span> Ipsum...</code></pre>
           <p>When we run <code>grunt assemble</code>, a file named <code>index.html</code> will be rendered containing:</p>
-<pre><code class="language-html">&lt;h1&gt;Getting Started&lt;/h1&gt;
+<pre><code class="language-html"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Getting Started<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
 Lorem Ipsum...</code></pre>
           <p>The same can be accomplished by specifying the path to the file in the YAML Front Matter:</p>
-<pre><code class="language-handlebars">---
-content: ../path/to/content.md
----
+<pre><code class="language-handlebars"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<span class="comment">content:</span> <span class="string">.</span><span class="string">.</span><span class="comment">/path/to/content</span>.<span class="comment">md</span>
+<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
 
-{{md content}}</code></pre>
+<span class="comment">{{md</span> <span class="comment">content}}</code></pre>
           <h3>Markdown block expression</h3>
           <p>The <code>{{#markdown}}...{{/markdown}}</code> block expression is used to &quot;wrap&quot; markdown content that is written &quot;inline&quot; directly inside HTML documents:</p>
 <pre><code class="language-markdown"><span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span></span> My Site <span class="xml"><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span>
@@ -284,95 +286,13 @@ Embed handlebars templates to make them even prettier.
 
 {{/markdown}}</code></pre>
           <p>In a layout, can also wrap the <code>{{&gt; body }}</code> tag with the <code>{{#markdown}}...{{/markdown}}</code> block helper to convert any HTML pages that use that layout to markdown:</p>
-<pre><code class="language-handlebars">{{#markdown}}
-  {{&gt; body }}
-{{/markdown}}</code></pre>
-          <h3>Markdown options</h3>
-          <p>Assemble uses <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> for processing markdown. Any options from marked can be defined on the <code>marked</code> object in the assemble options (example using all options):</p>
-<pre><code class="language-js">assemble: {
-  options: {
-    marked: {
-      breaks: <span class="literal">false</span>,
-      gfm: <span class="literal">true</span>,
-      highlight: <span class="keyword">function</span>(code, lang, callback) {
-        pygmentize({
-          lang: lang,
-          format: <span class="string">'html'</span>
-        }, code, <span class="keyword">function</span>(err, result) {
-          callback(err, result.toString());
-        });
-      },
-      langPrefix: <span class="string">'language-'</span>,
-      pedantic: <span class="literal">false</span>,
-      sanitize: <span class="literal">false</span>,
-      silent: <span class="literal">false</span>,
-      smartLists: <span class="literal">false</span>,
-      smartypants: <span class="literal">false</span>,
-      tables: <span class="literal">true</span>
-    }
-  },
-  ...
-}</code></pre>
-          <p><em>Please visit the <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> project to learn more about available options.</em> (the following is from the <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> readme).</p>
-          <h3>gfm</h3>
-          <p>Type: <code>Boolean</code>
-            Default: <code>true</code>
-          </p>
-          <p>Enable <a href="https://help.github.com/articles/github-flavored-markdown">GitHub flavored markdown</a>.</p>
-          <h3>highlight</h3>
-          <p>Type: <code>Function</code>
-          </p>
-          <p>A function to highlight code blocks. The function takes three arguments: <code>code</code>, <code>lang</code>, and <code>callback</code>. The above example uses async highlighting with <a href="https://github.com/rvagg/node-pygmentize-bundled">node-pygementize-bundled</a>, and here is a synchronous example using <a href="https://github.com/isagalaev/highlight.js">highlight.js</a> which doesn&#39;t require the <code>callback</code> argument:</p>
-<pre><code class="language-js">options: {
-  highlight: <span class="function"><span class="keyword">function</span> <span class="params">(lang, code)</span> {</span>
-    <span class="keyword">return</span> hljs.highlightAuto(lang, code).value;
-  }
-}</code></pre>
-          <h4>highlight arguments</h4>
-          <p>Type: <code>String</code>
-          </p>
+<pre><code class="language-handlebars"><span class="variable">{{#markdown}}</span>
+  <span class="variable">{{&gt; body }}</span>
+<span class="variable">{{/markdown}}</span></code></pre>
+          <h2>Related Information</h2>
           <ul>
-            <li><code>code</code>: The section of code to pass to the highlighter.</li>
-            <li><code>lang</code>: The programming language specified in the code block.</li>
-            <li><code>callback</code>: The callback function to call when using an async highlighter.</li>
+            <li>[options.marked][options-markded]</li>
           </ul>
-          <h3>tables</h3>
-          <p>Type: <code>Boolean</code>
-            Default: <code>true</code>
-          </p>
-          <p>Enable GFM <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables">tables</a>. This option requires the <code>gfm</code> option to be true.</p>
-          <h3>breaks</h3>
-          <p>Type: <code>Boolean</code>
-            Default: <code>false</code>
-          </p>
-          <p>Enable GFM <a href="https://help.github.com/articles/github-flavored-markdown#newlines">line breaks</a>. This option requires the <code>gfm</code> option to be true.</p>
-          <h3>pedantic</h3>
-          <p>Type: <code>Boolean</code>
-            Default: <code>false</code>
-          </p>
-          <p>Conform to obscure parts of <code>markdown.pl</code> as much as possible. Don&#39;t fix any of the original markdown bugs or poor behavior.</p>
-          <h3>sanitize</h3>
-          <p>Type: <code>Boolean</code>
-            Default: <code>true</code>
-          </p>
-          <p>Sanitize the output. Ignore any HTML that has been input.</p>
-          <h3>smartLists</h3>
-          <p>Type: <code>Boolean</code>
-            Default: <code>true</code>
-          </p>
-          <p>Use smarter list behavior than the original markdown. May eventually be default with the old behavior moved into <code>pedantic</code>.</p>
-          <h3>smartypants</h3>
-          <p>Type: <code>Boolean</code>
-            Default: <code>false</code>
-          </p>
-          <p>Use &quot;smart&quot; typograhic punctuation for things like quotes and dashes.</p>
-          <h3>langPrefix</h3>
-          <p>Type: <code>String</code>
-            Default: <code>lang-</code>
-          </p>
-          <p>Set the prefix for code block classes.</p>
-          <h4>Marked License</h4>
-          <p>Marked Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License). See the Marked.js <a href="https://github.com/chjj/marked/blob/master/LICENSE">LICENSE</a> and <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">repo</a> for more info.</p>
           <hr>
           <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Markdown.md.hbs">See the template for this page → </a>
           </p>

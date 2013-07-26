@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>External Libraries | Assemble</title>
+  <title>options.marked | Assemble</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/markdown.css">
   <link rel="stylesheet" href="assets/css/assemble.css">
@@ -115,7 +115,7 @@
             </script>
           </div>
           <h1>
-            <span class="text-muted">Docs /&nbsp;</span>development</h1>
+            <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@
             </li>
             <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
-            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            <li class="active"><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
             </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
@@ -207,7 +207,7 @@
           </ul>
           <span class="nav-section-title">Development</span>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a>
+            <li><a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a>
             </li>
             <li><a href="Methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Methods']);">Methods</a>
             </li>
@@ -216,93 +216,95 @@
       </div>
       <div class="col col-lg-9">
         <div class="panel panel-docs">
-          <h1>External Libraries</h1>
-          <blockquote>
-            <p>&quot;Thank you!&quot; to the creators and contributors of these amazing libraries. Our projects are easier to maintain because of you! — Assemble Team</p>
-          </blockquote>
-          <h2><a href="http://gruntjs.com">Grunt.js</a>
-          </h2>
-          <blockquote>
-            <p>The JavaScript Task Runner</p>
-          </blockquote>
-          <p>Assemble wouldn&#39;t exist without Grunt.js.</p>
-          <p>The advantage of building Assemble on top of Grunt, is that the Grunt ecosystem is already well established, popular, and includes hundreds if not thousands of plugins to choose from. So if you use Assemble for generating sites, components, or other <a href="About-Templates.html">about-templates</a>, you can use any other Grunt.js plugin to automate virtually any other part of your build with very little effort.</p>
-          <p>Not to mention, if there isn&#39;t already a plugin that does what you need, it&#39;s really easy to create and publish your own!</p>
-          <h2><a href="http://handlebarsjs.com/">Handlebars</a>
-          </h2>
-          <blockquote>
-            <p>Handlebars provides the power necessary to let you build semantic templates effectively with no frustration.</p>
-          </blockquote>
-          <p>Handlebars is the default template engine that ships with Assemble. In their own words:</p>
-          <p><em>Handlebars.js is an extension to the Mustache templating language created by Chris Wanstrath. Handlebars.js and Mustache are both logicless templating languages that keep the view and the code separated like we all know they should be.</em>
+          <h1>options.marked</h1>
+          <h2>options.marked</h2>
+          <p>Assemble uses <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> for processing markdown. Any options from marked can be defined on the <code>marked</code> object in the assemble options. This is an example of using all options:</p>
+<pre><code class="language-js"><span class="method">assemble:</span> {
+  <span class="method">options:</span> {
+    <span class="method">marked:</span> {
+      <span class="method">breaks:</span> <span class="keyword">false</span>,
+      <span class="method">gfm:</span> <span class="keyword">true</span>,
+      <span class="method">highlight:</span> function(code, lang, callback) {
+        pygmentize({
+          <span class="method">lang:</span> lang,
+          <span class="method">format:</span> <span class="string">'html'</span>
+        }, code, function(err, result) {
+          callback(err, result.toString());
+        });
+      },
+      <span class="method">langPrefix:</span> <span class="string">'language-'</span>,
+      <span class="method">pedantic:</span> <span class="keyword">false</span>,
+      <span class="method">sanitize:</span> <span class="keyword">false</span>,
+      <span class="method">silent:</span> <span class="keyword">false</span>,
+      <span class="method">smartLists:</span> <span class="keyword">false</span>,
+      <span class="method">smartypants:</span> <span class="keyword">false</span>,
+      <span class="method">tables:</span> <span class="keyword">true</span>
+    }
+  },
+  ...
+}</code></pre>
+          <p><em>Please visit the <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> project to learn more about available options.</em> (the following is from the <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> readme).</p>
+          <h3>gfm</h3>
+          <p>Type: <code>Boolean</code>
+            Default: <code>true</code>
           </p>
-          <h2><a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">Handlebars Helpers</a>
-          </h2>
-          <p>More than
-            <strong>110 Handlebars helpers</strong>from <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> are included by default, so they are all available for use anywhere in your <a href="About-Templates.html">about-templates</a>. Most of the helpers in <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> can be used with any Handlebars project, but some of them were created specifically for use with Assemble.</p>
-          <p>Here are just a few examples:</p>
+          <p>Enable <a href="https://help.github.com/articles/github-flavored-markdown">GitHub flavored markdown</a>.</p>
+          <h3>highlight</h3>
+          <p>Type: <code>Function</code>
+          </p>
+          <p>A function to highlight code blocks. The function takes three arguments: <code>code</code>, <code>lang</code>, and <code>callback</code>. The above example uses async highlighting with <a href="https://github.com/rvagg/node-pygmentize-bundled">node-pygementize-bundled</a>, and here is a synchronous example using <a href="https://github.com/isagalaev/highlight.js">highlight.js</a> which doesn&#39;t require the <code>callback</code> argument:</p>
+<pre><code class="language-js"><span class="tag">options</span>: <span class="rules">{
+  <span class="rule"><span class="attribute">highlight</span>:<span class="value"> function (lang, code) {
+    return hljs.<span class="function">highlightAuto(lang, code)</span>.value;</span></span>
+  <span class="rule">}</span></span>
+}</code></pre>
+          <h4>highlight arguments</h4>
+          <p>Type: <code>String</code>
+          </p>
           <ul>
-            <li>
-              <strong>pagename</strong>: Returns the full-name of a given file. Usage: <code>{{filename &quot;docs/toc.md&quot;}}</code> would return: <code>toc.md</code>.</li>
-            <li>
-              <strong>basename</strong>: Returns the basename of a given file. Usage: <code>{{basename &quot;docs/toc.md&quot;}}</code> would return: <code>toc</code>
-            </li>
-            <li>
-              <strong>relative</strong>: Returns the derived relative path from file A to file B. Usage: <code>{{relative &quot;file/a&quot; &quot;file/b&quot;}}</code>. This can also be used with the <code>page</code> and <code>pages</code> variables.</li>
-            <li>
-              <strong>markdown</strong>: Markdown block helper enables writing markdown inside HTML and then renders the markdown as HTML inline with the rest of the page. Usage: <code>{{#markdown}}{{/markdown}}</code>
-            </li>
-            <li>
-              <strong>md</strong>: Markdown helper used to read in a file and inject the rendered markdown into the HTML. Usage: <code>{{md &#39;file/to/include.md&#39;}}</code>
-            </li>
-            <li>
-              <strong>embed</strong>: Embeds code from an external file as preformatted text. The first parameter (required) takes a path to the file you want to embed. The second parameter (optional) allows forcing syntax highlighting for a specific language. Usage: <code>{{embed &#39;path/to/file.js&#39;}}</code> or <code>{{embed &#39;path/to/file.hbs&#39; &#39;html&#39;}}</code>
-            </li>
-            <li>
-              <strong>gist</strong>: Similar to <code>{{embed}}</code> but for GitHub Gists.</li>
+            <li><code>code</code>: The section of code to pass to the highlighter.</li>
+            <li><code>lang</code>: The programming language specified in the code block.</li>
+            <li><code>callback</code>: The callback function to call when using an async highlighter.</li>
           </ul>
-          <blockquote>
-            <p>Go to <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> for a comprehensive list, or <a href="Helpers.html">Helpers</a> to learn about Assemble-specific helpers →</p>
-          </blockquote>
-          <h2><a href="http://lodash.com/">Lo-Dash Methods</a>
-          </h2>
-          <blockquote>
-            <p>A low-level utility library delivering consistency, customization, performance, and extra features.</p>
-          </blockquote>
-          <p>The <a href="http://lodash.com/">Lo-Dash</a> library, exposed by Grunt.js, offers a number of powerful object, array, function, and collections utility methods (and more). Visit the <a href="http://gruntjs.com/">Grunt.js docs</a> to learn more about using Lo-Dash templates with Grunt.js.</p>
-          <h2><a href="https://github.com/epeli/underscore.string">Underscore String</a>
-          </h2>
-          <blockquote>
-            <p>String manipulation extensions for Underscore.js javascript library.</p>
-          </blockquote>
-          <p>Underscore.string offers dozens of really useful string utility methods. From the <a href="http://gruntjs.com/api/grunt.util#grunt.util._">Grunt.js docs</a>: &quot;Note that Underscore.string is mixed into grunt.util.<em> but is also available as grunt.util.</em>.str for methods that conflict with existing Lo-Dash methods.&quot; Please <a href="http://gruntjs.com/api/grunt.util#grunt.util._">visit the Grunt.js documentation</a> to learn more.</p>
-          <p>Here is a preview of the methods available from <a href="https://github.com/epeli/underscore.string">Underscore.string</a>:</p>
-          <ul>
-            <li><code>&lt;%= _.capitalize(title) %&gt;</code>
-            </li>
-            <li><code>&lt;%= _.humanize(title) %&gt;</code>
-            </li>
-            <li><code>&lt;%= _.numberFormat(123456789.123, 5, &#39;.&#39;, &#39;,&#39;) %&gt;</code> =&gt; &quot;123,456,789.12300&quot;</li>
-            <li><code>&lt;%= _.clean(&#39; foo    bar   &#39;) %&gt;</code> =&gt; &quot;foo bar&quot;</li>
-            <li><code>&lt;%= _.unescapeHTML(&#39;&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;&#39;) %&gt;</code> =&gt; &quot;<code>&lt;div&gt;Blah blah blah\&lt;/div&gt;</code>&quot;</li>
-          </ul>
-          <blockquote>
-            <p>Visit <a href="https://github.com/epeli/underscore.string">Underscore.string</a> to learn more →</p>
-          </blockquote>
-          <h2><a href="">marked</a>
-          </h2>
-          <blockquote>
-            <p>A full-featured markdown parser and compiler, written in javascript. Built for speed.</p>
-          </blockquote>
-          <p>Assemble uses <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> for processing markdown.</p>
-          <p>Marked Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License). See Marked <a href="https://github.com/chjj/marked/blob/master/LICENSE">LICENSE</a> and <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">repo</a> for more info.</p>
-          <h2><a href="">js-yaml</a>
-          </h2>
-          <blockquote>
-            <p>JavaScript YAML parser and dumper. Very fast.</p>
-          </blockquote>
+          <h3>tables</h3>
+          <p>Type: <code>Boolean</code>
+            Default: <code>true</code>
+          </p>
+          <p>Enable GFM <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables">tables</a>. This option requires the <code>gfm</code> option to be true.</p>
+          <h3>breaks</h3>
+          <p>Type: <code>Boolean</code>
+            Default: <code>false</code>
+          </p>
+          <p>Enable GFM <a href="https://help.github.com/articles/github-flavored-markdown#newlines">line breaks</a>. This option requires the <code>gfm</code> option to be true.</p>
+          <h3>pedantic</h3>
+          <p>Type: <code>Boolean</code>
+            Default: <code>false</code>
+          </p>
+          <p>Conform to obscure parts of <code>markdown.pl</code> as much as possible. Don&#39;t fix any of the original markdown bugs or poor behavior.</p>
+          <h3>sanitize</h3>
+          <p>Type: <code>Boolean</code>
+            Default: <code>true</code>
+          </p>
+          <p>Sanitize the output. Ignore any HTML that has been input.</p>
+          <h3>smartLists</h3>
+          <p>Type: <code>Boolean</code>
+            Default: <code>true</code>
+          </p>
+          <p>Use smarter list behavior than the original markdown. May eventually be default with the old behavior moved into <code>pedantic</code>.</p>
+          <h3>smartypants</h3>
+          <p>Type: <code>Boolean</code>
+            Default: <code>false</code>
+          </p>
+          <p>Use &quot;smart&quot; typograhic punctuation for things like quotes and dashes.</p>
+          <h3>langPrefix</h3>
+          <p>Type: <code>String</code>
+            Default: <code>lang-</code>
+          </p>
+          <p>Set the prefix for code block classes.</p>
+          <h4>Marked License</h4>
+          <p>Marked Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License). See the Marked.js <a href="https://github.com/chjj/marked/blob/master/LICENSE">LICENSE</a> and <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">repo</a> for more info.</p>
           <hr>
-          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/External-Libraries.md.hbs">See the template for this page → </a>
+          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/options-marked.md.hbs">See the template for this page → </a>
           </p>
           <div class="alert">
             <style type="text/css" media="screen">

@@ -165,6 +165,8 @@
             </li>
             <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
+            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
           </ul>
@@ -223,16 +225,16 @@
           <p>Oftentimes you will need more than one layout for your project, so layouts can be defined using the <code>options.layout</code> variable at the task or target-level, or they can be specified at the page-level by adding a <code>layout</code> property to the <a href="YAML-front-matter.html">YFM</a>.</p>
           <h2>The <code>{{&gt; body }}</code> tag</h2>
           <p>Although layouts are optional, the <code>{{&gt; body }}</code> tag is required for content to be pulled into a layout.</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;{{title}}&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- the body tag is used to &quot;pull in&quot; content from pages --&gt;
-    {{&gt; body }}
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="variable">{{title}}</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="comment">&lt;!-- the body tag is used to "pull in" content from pages --&gt;</span>
+    <span class="variable">{{&gt; body }}</span>
+  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre>
           <h4>Also see <a href="Layouts.html">Layouts</a> and <a href="options-layoutdir.html">layoutdir</a> →</h4>
           <h2>Related info:</h2>
           <ul>

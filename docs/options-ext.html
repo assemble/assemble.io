@@ -165,6 +165,8 @@
             </li>
             <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
+            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
           </ul>
@@ -237,7 +239,7 @@
           </ul>
           <h2>Extensions map</h2>
           <h3>Whitelisted extensions</h3>
-          <p>As of Fri Jul 26 2013 04:50:09, Assemble&#39;s extensions map &quot;whitelists&quot; the following extensions:</p>
+          <p>As of Fri Jul 26 2013 04:59:29, Assemble&#39;s extensions map &quot;whitelists&quot; the following extensions:</p>
           <p>
             <strong>Handlebars extensions</strong>
           </p>
@@ -284,11 +286,11 @@
           <p>If you need Assemble to process templates in files with an extension that isn&#39;t in <a href="https://github.com/assemble/assemble/blob/master/lib/engine/extensions.yml">extensions.yml</a>, you must <em>explicitly define the template engine in the task/target options to force Assemble to process your templates.</em>
           </p>
           <p>So given this example:</p>
-<pre><code class="language-js">assemble: {
-  options: {
-    engine: <span class="string">"Handlebars"</span> <span class="comment">// case insensitive</span>
+<pre><code class="language-js"><span class="method">assemble:</span> {
+  <span class="method">options:</span> {
+    <span class="method">engine:</span> <span class="comment">"Handlebars"</span> // case insensitive
   },
-  files: {
+  <span class="method">files:</span> {
     <span class="string">'dist/'</span>: [<span class="string">'src/pages/*.snickerdoodle'</span>]
   }
 }</code></pre>
@@ -306,14 +308,14 @@
           </ul>
           <p>Here is what we need to do:</p>
           <h4>Example configuration:</h4>
-<pre><code class="language-js">assemble: {
-  options: {
-    data: <span class="string">'src/data/readme.yml'</span>,
-    partials: <span class="string">'src/content/*.hbs'</span>,
-    ext: <span class="string">''</span> <span class="comment">// add the "empty" ext property</span>
+<pre><code class="language-js"><span class="method">assemble:</span> {
+  <span class="method">options:</span> {
+    <span class="method">data:</span> <span class="string">'src/data/readme.yml'</span>,
+    <span class="method">partials:</span> <span class="string">'src/content/*.hbs'</span>,
+    <span class="method">ext:</span> <span class="string">''</span> // add the <span class="comment">"empty"</span> ext property
   },
-  readme: {
-    files: {
+  <span class="method">readme:</span> {
+    <span class="method">files:</span> {
       <span class="string">'./'</span>: [<span class="string">'src/templates/README.md.hbs'</span>]
     }
   }
@@ -327,11 +329,11 @@
             <li>Blog posts written in markdown, converted to HTML for a live site.</li>
             <li>gh-pages documentation</li>
           </ul>
-<pre><code class="language-js">assemble: {
-  options: {
-    engine: <span class="string">"Handlebars"</span> <span class="comment">// case insensitive</span>
+<pre><code class="language-js"><span class="method">assemble:</span> {
+  <span class="method">options:</span> {
+    <span class="method">engine:</span> <span class="comment">"Handlebars"</span> // case insensitive
   },
-  files: {
+  <span class="method">files:</span> {
     <span class="string">'dist/'</span>: [<span class="string">'src/pages/*.md.hbs'</span>]
   }
 }</code></pre>

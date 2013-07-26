@@ -165,6 +165,8 @@
             </li>
             <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
+            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
           </ul>
@@ -219,17 +221,17 @@
           <p>Describes <code>init</code> method to <code>assemble.engine</code>, and exposes engine on <code>assemble.engine</code>.</p>
           <h3>Custom Engines</h3>
           <p>If you don&#39;t wish to use Handlebars as your templates engine, you may add your own engine by providing an <code>init</code> function that takes in options from the assemble task/target. You may also override the <code>init</code> function in the task/target options by providing an <code>initializeEngine</code> function that takes the engine and the options:</p>
-<pre><code class="language-js">assemble: {
-  options: {
+<pre><code class="language-js"><span class="tag">assemble</span>: <span class="rules">{
+  <span class="rule"><span class="attribute">options</span>:<span class="value"> {
     engine: <span class="string">'consolidate'</span>,
-    initializeEngine: <span class="keyword">function</span>(engine, options) {
-      engine.engine.swig.init(options);
-    }
+    initializeEngine: <span class="function">function(engine, options)</span> {
+      engine.engine.swig.<span class="function">init(options)</span>;</span></span>
+    <span class="rule">}</span></span>
   },
-  docs: {
-    files: {
+  <span class="tag">docs</span>: <span class="rules">{
+    <span class="rule"><span class="attribute">files</span>:<span class="value"> {
       <span class="string">'docs/'</span>: [<span class="string">'src/templates/**/*.tmpl'</span>]
-    }
+    }</span></span></span>
   }
 }</code></pre>
           <p>Assemble will attempt to load an engine and automatically add it&#39;s own wrapper methods around it while holding an instance of the engine. This is a way for engine plugin authors to write adapters between other engines and assemble&#39;s wrapper. To make these functions on the options useful, we&#39;ve exposed the underlying engine through the <code>assemble.engine</code> object so

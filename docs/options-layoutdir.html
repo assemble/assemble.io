@@ -165,6 +165,8 @@
             </li>
             <li class="active"><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
+            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
           </ul>
@@ -233,48 +235,48 @@
     options: {
       layout: <span class="string">'src/templates/layouts/docs-layout.hbs'</span>
     },
-    ...
+    <span class="keyword">...</span>
   },
   blog: {
     options: {
       layout: <span class="string">'src/templates/layouts/blog-layout.hbs'</span>
     },
-    ...
+    <span class="keyword">...</span>
   }
-  <span class="comment">// etc.</span>
+  // etc.
 }</code></pre>
           <p>This also applies to <a href="YAML-front-matter.html">YAML front matter</a> when it is necessary to &quot;override&quot; layouts at the page-level:</p>
-<pre><code class="language-yaml">---
-title: Blog
-layout: src/templates/layouts/blog-layout.hbs
----</code></pre>
+<pre><code class="language-yaml"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<span class="comment">title:</span> <span class="comment">Blog</span>
+<span class="comment">layout:</span> <span class="comment">src/templates/layouts/blog</span>-<span class="comment">layout</span>.<span class="comment">hbs</span>
+<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
           <h3>With <code>layoutdir</code>
           </h3>
           <p>When <code>layoutdir</code> is defined only require the name of the layout to be used (<em>must include the file extension</em>):</p>
 <pre><code>assemble: {
   options: {
-    layoutdir: &#39;src/templates/layouts&#39;,
-    layout: &#39;default-layout.hbs&#39;
+    layoutdir: <span class="string">'src/templates/layouts'</span>,
+    layout: <span class="string">'default-layout.hbs'</span>
   },
   docs: {
     options: {
-      layout: &#39;docs-layout.hbs&#39;
+      layout: <span class="string">'docs-layout.hbs'</span>
     },
-    ...
+    <span class="keyword">...</span>
   },
   blog: {
     options: {
-      layout: &#39;blog-layout.hbs&#39;
+      layout: <span class="string">'blog-layout.hbs'</span>
     },
-    ...
+    <span class="keyword">...</span>
   }
   // etc.
 }</code></pre>
           <p>And in <a href="YAML-front-matter.html">YAML front matter</a>:</p>
-<pre><code class="language-yaml">---
-title: Blog
-layout: blog-layout.hbs
----</code></pre>
+<pre><code class="language-yaml"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<span class="comment">title:</span> <span class="comment">Blog</span>
+<span class="comment">layout:</span> <span class="comment">blog</span>-<span class="comment">layout</span>.<span class="comment">hbs</span>
+<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
           <h2>A Word of Caution</h2>
           <p>While <code>layoutdir</code> can make your project a little easier to manage, it is strongly recommended that you
             <strong>establish clear and consistent conventions for your layouts, and follow them</strong>. Otherwise, this feature might end up causing more problems than it solves.</p>
@@ -292,38 +294,38 @@ layout: blog-layout.hbs
       layoutdir: <span class="string">'src/components/layouts'</span>,
       layout: <span class="string">'default.hbs'</span>
     }
-    ...
+    <span class="keyword">...</span>
   },
   docs: {
     options: {
       layoutdir: <span class="string">'src/docs/layouts'</span>,
       layout: <span class="string">'default.hbs'</span>
     }
-    ...
+    <span class="keyword">...</span>
   },
   blog: {
     options: {
       layoutdir: <span class="string">'src/blog/layouts'</span>,
       layout: <span class="string">'default.hbs'</span>
     }
-    ...
+    <span class="keyword">...</span>
   }
-  <span class="comment">// etc.</span>
+  // etc.
 }</code></pre>
           <p>Note that the layout name is the same for each target, but the <code>layoutdir</code> is a different directory, indicating that there are three different &quot;default&quot; layouts.</p>
           <p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the <a href="YAML-front-matter.html">YAML front matter</a> of individual pages, it is not a good idea to use the same name for multiple layouts, <em>unless you are intentionally using this naming convention as a strategy</em>. The reason is that it gets very difficult to track which page is building from which layout when working inside the pages themselves.</p>
           <h3>Difficult to follow</h3>
           <p>Without <code>layoutdir</code>, you have the entire path to follow, but without it you must rely on the name of the layout itself to guide you.</p>
-<pre><code class="language-html">---
-title: Any Page
-layout: default.hbs
----</code></pre>
+<pre><code class="language-html"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<span class="comment">title:</span> <span class="comment">Any</span> <span class="comment">Page</span>
+<span class="comment">layout:</span> <span class="comment">default</span>.<span class="comment">hbs</span>
+<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
           <h3>Recommended</h3>
           <p>Using a more descriptive name for the layout helps avoid confusion <em>now</em>:</p>
-<pre><code class="language-html">---
-title: Any Page
-layout: blog-default.hbs
----</code></pre>
+<pre><code class="language-html"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<span class="comment">title:</span> <span class="comment">Any</span> <span class="comment">Page</span>
+<span class="comment">layout:</span> <span class="comment">blog</span>-<span class="comment">default</span>.<span class="comment">hbs</span>
+<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
           <p>Of course, these are only recommendations and you will need to find a strategy that works for you and your team.</p>
           <h4>Also see <a href="Layouts.html">Layouts</a> and <a href="options-layout.html">options.layout</a> →</h4>
           <hr>

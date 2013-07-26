@@ -165,6 +165,8 @@
             </li>
             <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
+            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
           </ul>
@@ -221,57 +223,57 @@
           </blockquote>
           <p>For the most part helper expressions follow this pattern: <code>{{ helper_name variable_name }}</code>.</p>
           <p>For example:</p>
-<pre><code>&lt;title&gt;{{ uppercase title }}&lt;/title&gt;</code></pre>
+<pre><code><span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="variable">{{ uppercase title }}</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></code></pre>
           <p>Renders to:</p>
-<pre><code>&lt;title&gt;PAGE TITLE&lt;/title&gt;</code></pre>
+<pre><code><span class="tag">&lt;<span class="title">title</span>&gt;</span>PAGE TITLE<span class="tag">&lt;/<span class="title">title</span>&gt;</span></code></pre>
           <h2>Custom helpers</h2>
           <p>Custom helpers may be loaded with the current engine via <code>options: { helpers: []}</code> in the assemble task or target. But <em>any helpers registered at the target level will override task-level helpers</em>.</p>
           <p>Globbing patterns may be used to specify paths to the helpers to be loaded:</p>
-<pre><code class="language-js">assemble: {
-  options: {
+<pre><code class="language-js"><span class="tag">assemble</span>: <span class="rules">{
+  <span class="rule"><span class="attribute">options</span>:<span class="value"> {
     helpers: [<span class="string">'./lib/helpers/**/*.js'</span>]
-  }
+  }</span></span></span>
 }</code></pre>
           <blockquote>
             <p>For more info see <a href="Custom-Helpers.html">Custom Helpers</a>. Or download <a href="https://github.com/assemble/grunt-init-helper">grunt-init-helper</a> to generate helpers →</p>
           </blockquote>
           <h3>Registering custom helpers</h3>
           <p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function passing in the engine, otherwise each method is registered as a helper. For example, the following will result in 2 helpers being registered:</p>
-<pre><code class="language-js">module.exports.foo = <span class="keyword">function</span>(msg) { <span class="keyword">return</span> msg; };
-module.exports.bar = <span class="keyword">function</span>(msg) { <span class="keyword">return</span> msg; };</code></pre>
+<pre><code class="language-js"><span class="transposed_variable">module.</span><span class="transposed_variable">exports.</span>foo = <span class="keyword">function</span>(msg) <span class="cell">{ return msg; }</span>;
+<span class="transposed_variable">module.</span><span class="transposed_variable">exports.</span>bar = <span class="keyword">function</span>(msg) <span class="cell">{ return msg; }</span>;</code></pre>
           <p>And this will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
-<pre><code class="language-js">module.exports.register = <span class="keyword">function</span>(Handlebars, options) {
-  Handlebars.registerHelper(<span class="string">'foo'</span>, <span class="keyword">function</span>(msg) {
-    <span class="keyword">return</span> msg;
-  });
+<pre><code class="language-js"><span class="transposed_variable">module.</span><span class="transposed_variable">exports.</span>register = <span class="keyword">function</span>(Handlebars, options) <span class="cell">{
+  Handlebars.registerHelper(<span class="string">'foo'</span>, function(msg) {
+    return msg;
+  }</span>);
 };</code></pre>
           <p>The <code>Handlebars.registerHelper</code> method takes the name of the helper and the helper function as arguments. Handlebars.js then takes whatever is returned from the helper function and writes it out to the template, <em>so be sure to always return a string from your custom helpers</em>.</p>
           <h2>Passing <code>assemble.options</code> into helpers</h2>
           <p>Any <code>assemble.options</code> may be passed to custom helpers when the helper defines the <code>register</code> method. For example:</p>
           <p>Given our <code>Gruntfile.js</code> has the following <code>assemble</code> task configuration:</p>
-<pre><code class="language-js">assemble: {
-  options: {
-    version: <span class="string">'0.1.0'</span>, <span class="comment">// or we could use '&lt;%= pkg.version %&gt;'</span>
+<pre><code class="language-js"><span class="tag">assemble</span>: <span class="rules">{
+  <span class="rule"><span class="attribute">options</span>:<span class="value"> {
+    version: <span class="string">'0.1.0'</span>, // or we could use <span class="string">'&lt;%= pkg.version %&gt;'</span>
     helpers: [<span class="string">'lib/helpers/**/*.js'</span>]
-  },
-  blog: {
-    files: {
+  }</span></span></span>,
+  <span class="tag">blog</span>: <span class="rules">{
+    <span class="rule"><span class="attribute">files</span>:<span class="value"> {
       <span class="string">'articles/'</span>: [<span class="string">'src/posts/*.md'</span>]
-    }
+    }</span></span></span>
   }
 }</code></pre>
           <p>And given we have defined a custom helper, <code>opt</code>, which gets properties from the <code>assemble.options</code> object and returns them:</p>
-<pre><code class="language-js">module.exports.register = register = <span class="keyword">function</span>(Handlebars, options) {
+<pre><code class="language-js">module.<span class="keyword">exports</span>.<span class="keyword">register</span> = <span class="keyword">register</span> = <span class="keyword">function</span>(Handlebars, options) <span class="comment">{
 
-  Handlebars.registerHelper(<span class="string">'opt'</span>, <span class="keyword">function</span>(key) {
-    <span class="keyword">return</span> options[key] || <span class="string">''</span>;
-  });
+  Handlebars.registerHelper('opt', function(key) {
+    return options[key] || '';
+  }</span>);
 
 };</code></pre>
           <p>We can now user our helper in a Handlebars template like this:</p>
-<pre><code class="language-html">&lt;div&gt;Version: v{{opt &#39;version&#39;}}&lt;/div&gt;</code></pre>
+<pre><code class="language-html"><span class="tag">&lt;<span class="title">div</span>&gt;</span>Version: v<span class="variable">{{opt 'version'}}</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
           <p>And the output would be:</p>
-<pre><code class="language-html">&lt;div&gt;Version: v0.1.0&lt;/div&gt;</code></pre>
+<pre><code class="language-html"><span class="tag">&lt;<span class="title">div</span>&gt;</span>Version: v0.1.0<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
           <h2>Related Info</h2>
           <ul>
             <li><a href="Helpers.html">Helpers</a>

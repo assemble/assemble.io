@@ -165,6 +165,8 @@
             </li>
             <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
+            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
           </ul>
@@ -227,15 +229,15 @@
           <p>That just about covers it, so let&#39;s get started!</p>
           <h2>Setup</h2>
           <h3>1. git clone assemble</h3>
-<pre><code class="language-shell">git clone https://github.com/assemble/assemble.git &quot;my-project&quot;</code></pre>
+<pre><code class="language-shell"><span class="title">git</span> clone <span class="url">https://github.com/assemble/assemble.git</span> <span class="string">"my-project"</span></code></pre>
           <p>then</p>
-<pre><code class="language-shell">cd my-project</code></pre>
+<pre><code class="language-shell"><span class="title">cd</span> my-project</code></pre>
           <h3>2. Install necessary packages</h3>
-<pre><code class="language-shell">npm i assemble grunt</code></pre>
+<pre><code class="language-shell"><span class="title">npm</span> i assemble grunt</code></pre>
           <h3>3. Build</h3>
-<pre><code class="language-shell">grunt assemble</code></pre>
+<pre><code class="language-shell"><span class="title">grunt</span> assemble</code></pre>
           <p>If everything builds properly, then run:</p>
-<pre><code class="language-shell">grunt test</code></pre>
+<pre><code class="language-shell"><span class="title">grunt</span> test</code></pre>
           <p>And all tests should pass.</p>
           <h3>4. Time to customize!</h3>
           <p>IIdeally, you should start with a nice clean Gruntfile and a brand new <code>src</code> directory, but this is a great way to start learning by example. If you get stuck or need inspiration, just head over to <a href="http://assemble.io">Assemble&#39;s documentation</a>, or take a look at <a href="https://github.com/assemble/assemble-examples">some other examples</a>.</p>

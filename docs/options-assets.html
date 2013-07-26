@@ -165,6 +165,8 @@
             </li>
             <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
             </li>
+            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+            </li>
             <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
             </li>
           </ul>
@@ -228,41 +230,41 @@
           <p>Once the <code>assets</code> variable is defined in the Gruntfile, you may use the <code>{{assets}}</code> variable anywhere in your templates and Assemble will generate a relative path from <code>dest</code> files to the specified <code>assets</code> directory.</p>
           <h2>Example usage</h2>
           <p>Given the following task configuration in your project&#39;s Grunfile:</p>
-<pre><code class="language-js">assemble: {
-  options: { 
-    <span class="comment">// Set the "default" assets dir at the task-level</span>
-    assets: <span class="string">'docs/assets'</span> 
+<pre><code class="language-js"><span class="method">assemble:</span> {
+  <span class="method">options:</span> { 
+    // <span class="class">Set</span> the <span class="comment">"default"</span> assets dir at the task-level
+    <span class="method">assets:</span> <span class="string">'docs/assets'</span> 
   },
-  docs: {
-    files: {
+  <span class="method">docs:</span> {
+    <span class="method">files:</span> {
       <span class="string">'docs/'</span>: [<span class="string">'src/pages/**/*.hbs'</span>]
     }
   },
-  components: {
-    files: {
+  <span class="method">components:</span> {
+    <span class="method">files:</span> {
       <span class="string">'docs/components/'</span>: [<span class="string">'src/partials/**/*.hbs'</span>]
     }
   },
-  main: {
-    options: { 
-      <span class="comment">// Override the task-level assets dir</span>
-      assets: <span class="string">'dist/assets'</span> 
+  <span class="method">main:</span> {
+    <span class="method">options:</span> { 
+      // <span class="class">Override</span> the task-level assets dir
+      <span class="method">assets:</span> <span class="string">'dist/assets'</span> 
     },
-    files: {
+    <span class="method">files:</span> {
       <span class="string">'dist/'</span>: [<span class="string">'src/pages/**/*.hbs'</span>]
     }
   }
-  <span class="comment">// other stuff</span>
+  // other stuff
 }</code></pre>
           <p>And given the following templates:</p>
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{assets}}/css/bootstrap.css&quot;&gt;</code></pre>
+<pre><code class="language-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"<span class="variable">{{assets}}</span>/css/bootstrap.css"</span>&gt;</span></code></pre>
           <p>The output HTML will render as follows:</p>
           <p>For the <code>assemble.docs</code> target</p>
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/bootstrap.css&quot;&gt;</code></pre>
+<pre><code class="language-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"assets/css/bootstrap.css"</span>&gt;</span></code></pre>
           <p>For the <code>assemble.components</code> target</p>
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/css/bootstrap.css&quot;&gt;</code></pre>
+<pre><code class="language-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"../assets/css/bootstrap.css"</span>&gt;</span></code></pre>
           <p>For the <code>assemble.main</code> target</p>
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/bootstrap.css&quot;&gt;</code></pre>
+<pre><code class="language-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"assets/css/bootstrap.css"</span>&gt;</span></code></pre>
           <p>
             <strong>Note</strong>that for <code>assets</code> to work predictably, <em>a slash must follow the <code>{{assets}}</code> variable</em>
           </p>
