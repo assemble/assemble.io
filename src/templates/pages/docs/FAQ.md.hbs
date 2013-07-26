@@ -63,8 +63,6 @@ The generated output will be a basic list containing the merged values from the 
 </ul>
 ```
 
-
-{{#draft}}
 ### Collection items on a given page
 
 To generate a list of [categories][options-collections] for the a page, you would add the following to the page on which you want to generate the list:
@@ -74,9 +72,13 @@ To generate a list of [categories][options-collections] for the a page, you woul
   \{{.}}
 \{{/page.categories}}
 ```
+Or we can use: `\{{#each page.categories}}...\{{/each}}`.
 
-or we can use the `\{{#each categories}}...\{{/each}}` block expression with the name of the collection as a variable variable to get the list of pages in the current [target][targets].
-{{/draft}}
+
+
+
+
+block expression with the name of the collection as a variable variable to get the list of pages in the current [target][targets]
 
 
 ## Dynamically building navigation

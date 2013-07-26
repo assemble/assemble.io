@@ -1,6 +1,6 @@
 /*
- * gh-pages for Assemble
- * https://github.com/assemble/assemble-examples/
+ * Documentation for Assemble
+ * https://github.com/assemble/assemble-docs/
  *
  * Copyright (c) 2013 Upstage
  * Licensed under the MIT license.
@@ -9,9 +9,11 @@
 'use strict';
 
 module.exports = function(grunt) {
-
+  var hljs = require('highlight.js');
   // Internal lib
   grunt.util._.mixin(require('./src/mixins').init(grunt));
+
+
 
   // Project configuration.
   grunt.initConfig({
@@ -45,6 +47,20 @@ module.exports = function(grunt) {
     // Templates
     assemble: {
       options: {
+        marked: {
+          breaks: false,
+          gfm: true,
+          langPrefix: 'language-',
+          pedantic: false,
+          sanitize: false,
+          silent: false,
+          smartLists: false,
+          smartypants: false,
+          tables: true,
+          highlight: function (lang, code) {
+            return hljs.highlightAuto(lang, code).value;
+          }
+        },
         flatten: true,
         production: true,
         today: '<%= grunt.template.today() %>',
