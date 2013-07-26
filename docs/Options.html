@@ -1,360 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <head>
-    <meta charset="UTF-8">
-    <title>Options Overview | Assemble</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/markdown.css">
-    <link rel="stylesheet" href="assets/css/assemble.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond/respond.min.js"></script>
-    <![endif]-->
-    <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      var pluginUrl =
-        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-      _gaq.push(['_setAccount', 'UA-33358518-5']);
-      _gaq.push(['_trackPageview']);
-      (function()
-      {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-    <script type="application/ld+json">
-      [
-        {
-          "@context": "http://schema.org",
-          "@type": "Person",
-          "name": "Jon Schlinkert",
-          "description": "Co-creator of Assemble.",
-          "url": "https://github.com/jonschlinkert"
-        },
-        {
-          "@context": "http://schema.org",
-          "@type": "Person",
-          "name": "Brian Woodward",
-          "description": "Co-creator of Assemble.",
-          "url": "https://github.com/doowb"
-        }
-      ]
-    </script>
-  </head>
-  
-  <body style="background: white" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar">
-      <div class="container">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
 
-        <div class="nav-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a> 
-            </li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
-            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
-            <li>
-              <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
-                <i class="glyphicon glypicon-large glyphicon-download"></i>
-              </a>
-            </li>
-            <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
-            </li>
-          </ul>
+<head>
+  <meta charset="UTF-8">
+  <title>Options Overview | Assemble</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/markdown.css">
+  <link rel="stylesheet" href="assets/css/assemble.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="assets/ico/favicon.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl =
+      '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-33358518-5']);
+    _gaq.push(['_trackPageview']);
+    (function()
+    {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script type="application/ld+json">
+    [
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Jon Schlinkert",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/jonschlinkert"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Brian Woodward",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/doowb"
+    }]
+  </script>
+</head>
+
+<body style="background: white" data-spy="scroll" data-target=".bs-sidebar">
+  <div class="navbar">
+    <div class="container">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li> <a href="../docs/Home.html">Docs</a> 
+          </li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+          <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+          <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+          <!--<li> <a href="../blog.html">Blog</a> </li>-->
+          <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+          </li>
+          <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <header class="masthead subhead">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-12">
+          <style type="text/css" media="screen">
+            #custom-tweet-button > a {
+              float: right;
+              display: inline-block;
+              padding: 8px 16px 8px 36px;
+              margin: 15px 0 0 0;
+              background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
+              background-color: transparent;
+              border: none;
+              border-radius: 4px;
+            }
+            #custom-tweet-button > a:hover {
+              background-color: rgba(255, 255, 255, .07);
+            }
+          </style>
+          <div id="custom-tweet-button"> <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
+            <script>
+              ! function(d, s, id)
+              {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id))
+                {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = "https://platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              }(document, "script", "twitter-wjs");
+            </script>
+          </div>
+          <h1>
+            <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
         </div>
       </div>
     </div>
-    <header class="masthead subhead">
-      <div class="container">
-        <div class="row">
-          <div class="col col-lg-12">
-            <style type="text/css" media="screen">
-              #custom-tweet-button > a {
-                float: right;
-                display: inline-block;
-                padding: 8px 16px 8px 36px;
-                margin: 15px 0 0 0;
-                background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
-                background-color: transparent;
-                border: none;
-                border-radius: 4px;
-              }
-              #custom-tweet-button > a:hover {
-                background-color: rgba(255, 255, 255, .07);
-              }
-            </style>
-            <div id="custom-tweet-button"> <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
-
-              <script>
-                ! function(d, s, id)
-                {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (!d.getElementById(id))
-                  {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "https://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                  }
-                }(document, "script", "twitter-wjs");
-              </script>
-            </div>
-            <h1>
-              <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
-          </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3">
+        <div class="sidebar">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Getting Started</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
+            </li>
+            <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+            </li>
+            <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
+            </li>
+            <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
+            </li>
+            <li><a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Configuration</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a>
+            </li>
+            <li><a href="Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a>
+            </li>
+            <li class="active"><a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a>
+            </li>
+            <li><a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a>
+            </li>
+            <li><a href="options-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.collections']);">options.collections</a>
+            </li>
+            <li><a href="options-data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.data']);">options.data</a>
+            </li>
+            <li><a href="options-engine.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.engine']);">options.engine</a>
+            </li>
+            <li><a href="options-ext.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.ext']);">options.ext</a>
+            </li>
+            <li><a href="options-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.helpers']);">options.helpers</a>
+            </li>
+            <li><a href="options-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layout']);">options.layout</a>
+            </li>
+            <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
+            </li>
+            <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Data</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Context']);">Context</a>
+            </li>
+            <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
+            </li>
+            <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+            </li>
+            <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Templates</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
+            </li>
+            <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
+            </li>
+            <li><a href="Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a>
+            </li>
+            <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
+            </li>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            </li>
+            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Content</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
+            </li>
+            <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+            </li>
+            <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Development</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a>
+            </li>
+            <li><a href="Methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Methods']);">Methods</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
-    <div class="container">
-      <div class="row">
-        <div class="col col-lg-3">
-          <div class="sidebar">
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Getting Started</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
-              </li>
-              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
-              </li>
-              <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
-              </li>
-              <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
-              </li>
-              <li><a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Configuration</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a>
-              </li>
-              <li><a href="Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a>
-              </li>
-              <li class="active"><a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a>
-              </li>
-              <li><a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a>
-              </li>
-              <li><a href="options-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.collections']);">options.collections</a>
-              </li>
-              <li><a href="options-data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.data']);">options.data</a>
-              </li>
-              <li><a href="options-engine.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.engine']);">options.engine</a>
-              </li>
-              <li><a href="options-ext.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.ext']);">options.ext</a>
-              </li>
-              <li><a href="options-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.helpers']);">options.helpers</a>
-              </li>
-              <li><a href="options-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layout']);">options.layout</a>
-              </li>
-              <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
-              </li>
-              <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Data</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Context']);">Context</a>
-              </li>
-              <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
-              </li>
-              <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
-              </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Templates</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
-              </li>
-              <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
-              </li>
-              <li><a href="Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a>
-              </li>
-              <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
-              </li>
-              <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
-              </li>
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Content</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
-              </li>
-              <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
-              </li>
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Development</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a>
-              </li>
-              <li><a href="Methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Methods']);">Methods</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col col-lg-9">
-          <div class="panel panel-docs">
-            <h1>Options Overview</h1>
-            <blockquote>
-              <p>Comprehensive list of options available in Assemble</p>
-            </blockquote>
-            <p>Most options are defined in the <code>assemble</code> task or target options in the Gruntfile, some options may only be defined inside the <a href="YAML-front-matter.html">YAML front matter</a> of a file, and some may be defined in either location.</p>
-            <p>Additionally, options may be defined in &quot;external&quot; <a href="JSON.html">JSON</a> or <a href="YAML.html">YAML</a> configuration files.</p>
-            <p>For the purposes of clarity, we will refer to options that are defined in the Gruntfile as &quot;configuration&quot; options, and options that are defined in the YFM as &quot;page&quot; options.</p>
-            <h2>Configuration options</h2>
-            <p>These options are defined in the <code>assemble</code> task in your project&#39;s Gruntfile. Any option may be defined at the <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">task or target</a> level.</p>
-            <table>
-              <thead>
-                <tr>
-                  <th>Option</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a href="options-assets.html">assets</a>
-                  </td>
-                  <td>directory that contains commonly used &quot;assets&quot; for a project, such as images, fonts, javascripts and stylesheets. Assemble will generate a relative path from dest files to the given <code>assets</code> directory.</td>
-                </tr>
-                <tr>
-                  <td><a href="options-collections.html">collections</a>
-                  </td>
-                  <td>Built-in collections for <code>tags</code>, <code>categories</code> and <code>pages</code> are available at the root of the context.</td>
-                </tr>
-                <tr>
-                  <td><a href="options-data.html">data</a>
-                  </td>
-                  <td>path to data files to supply the data that will be passed into templates.</td>
-                </tr>
-                <tr>
-                  <td><a href="options-engine.html">engine</a>
-                  </td>
-                  <td>engine to be used for processing templates. Handlebars is the default.</td>
-                </tr>
-                <tr>
-                  <td><a href="options-ext.html">ext</a>
-                  </td>
-                  <td>extension to be used for <code>dest</code> files.</td>
-                </tr>
-                <tr>
-                  <td><a href="options-helpers.html">helpers</a>
-                  </td>
-                  <td>path to custom helper(s) to be registered and used by the current template engine. Handlebars is the default.</td>
-                </tr>
-                <tr>
-                  <td><a href="options-layout.html">layout</a><strong> * </strong>
-                  </td>
-                  <td><a href="Layouts.html">Layouts</a> are optional and assemble will build <a href="Pages.html">pages</a> without one. However, when a layout is specified the file
-                    <em>must contain a <code>{{&gt; body }}</code>
-                    </em>tag, since this tag indicates where the content from each file in a target should be inserted.</td>
-                </tr>
-                <tr>
-                  <td><a href="options-layoutdir.html">layoutdir</a><strong> * </strong>
-                  </td>
-                  <td><a href="Layouts.html">Layouts</a> are optional and assemble will build <a href="Pages.html">pages</a> without one. However, when a layout is specified the file
-                    <em>must contain a <code>{{&gt; body }}</code>
-                    </em>tag, since this tag indicates where the content from each file in a target should be inserted.</td>
-                </tr>
-                <tr>
-                  <td><a href="options-partials.html">partials</a>
-                  </td>
-                  <td>the partials or &quot;includes&quot; to be used with <a href="Pages.html">pages</a>.</td>
-                </tr>
-              </tbody>
-            </table>
-            <p><strong>*Note</strong> that when a layout is used the <a href="Layouts.html">{{&gt; body }}</a> tag must be included inside the layout in order for content from pages to be &quot;pulled in&quot;.</p>
-            <h2>Task Options</h2>
-            <p>These options are defined in the <code>assemble</code> task in your Gruntfile.</p>
-            <h3><a href="options-data.html">options.data</a>
-            </h3>
-            <p>Type: <code>String|Array</code> (optional) Default: <code>src/data</code>
-            </p>
-            <p>Retrieves data from any specified <code>JSON</code> and/or <code>YAML</code> files to populate the templates when rendered. Data gets passed through the <code>data</code> object to the options on the assemble task, and then to the context in your templates. Also useful for specifying [configuration][] data.</p>
-<pre><code class="lang-js">options: { data: <span class="string">'src/data/**/*.{json,yml}'</span> }</code></pre>
-
-            <p>Note that <code>assemble</code> merges the task and target-level data for <code>options.data</code>.</p>
-            <blockquote>
-              <p>Learn more about <a href="Data.html">data</a> →</p>
-            </blockquote>
-            <h3><a href="options-layout.html">options.layout</a>
-            </h3>
-            <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
-            </p>
-            <p>Layouts are optional and may be defined at the task and/or <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a> level.
-              <em>Unlike Jekyll</em>, Assemble requires a file extension since you are not limited to using a single file type.</p>
-<pre><code class="lang-js">options: { layout: <span class="string">'src/layouts/default.hbs'</span> }</code></pre>
-
-            <blockquote>
-              <p>Learn more about <a href="Layouts.html">layouts</a> →</p>
-            </blockquote>
-            <h3><a href="options-layoutdir.html">options.layoutdir</a>
-            </h3>
-            <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
-            </p>
-            <p>Path to the directory that is to be used as the &quot;cwd&quot; for layouts.</p>
-<pre><code class="lang-js">options: { layoutdir: <span class="string">'src/layouts'</span> }</code></pre>
-
-            <p>When <code>layoutdir</code> is defined, then a <code>layout</code> may defined without the path:</p>
-<pre><code class="lang-js">options: { layout: <span class="string">'default.hbs'</span> }</code></pre>
-
-            <p>or</p>
-<pre><code class="lang-yaml">---
+      <div class="col col-lg-9">
+        <div class="panel panel-docs">
+          <h1>Options Overview</h1>
+          <blockquote>
+            <p>Comprehensive list of options available in Assemble</p>
+          </blockquote>
+          <p>Most options are defined in the <code>assemble</code> task or target options in the Gruntfile, some options may only be defined inside the <a href="YAML-front-matter.html">YAML front matter</a> of a file, and some may be defined in either location.</p>
+          <p>Additionally, options may be defined in &quot;external&quot; <a href="JSON.html">JSON</a> or <a href="YAML.html">YAML</a> configuration files.</p>
+          <p>For the purposes of clarity, we will refer to options that are defined in the Gruntfile as &quot;configuration&quot; options, and options that are defined in the YFM as &quot;page&quot; options.</p>
+          <h2>Configuration options</h2>
+          <p>These options are defined in the <code>assemble</code> task in your project&#39;s Gruntfile. Any option may be defined at the <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">task or target</a> level.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Option</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="options-assets.html">assets</a>
+                </td>
+                <td>directory that contains commonly used &quot;assets&quot; for a project, such as images, fonts, javascripts and stylesheets. Assemble will generate a relative path from dest files to the given <code>assets</code> directory.</td>
+              </tr>
+              <tr>
+                <td><a href="options-collections.html">collections</a>
+                </td>
+                <td>Built-in collections for <code>tags</code>, <code>categories</code> and <code>pages</code> are available at the root of the context.</td>
+              </tr>
+              <tr>
+                <td><a href="options-data.html">data</a>
+                </td>
+                <td>path to data files to supply the data that will be passed into templates.</td>
+              </tr>
+              <tr>
+                <td><a href="options-engine.html">engine</a>
+                </td>
+                <td>engine to be used for processing templates. Handlebars is the default.</td>
+              </tr>
+              <tr>
+                <td><a href="options-ext.html">ext</a>
+                </td>
+                <td>extension to be used for <code>dest</code> files.</td>
+              </tr>
+              <tr>
+                <td><a href="options-helpers.html">helpers</a>
+                </td>
+                <td>path to custom helper(s) to be registered and used by the current template engine. Handlebars is the default.</td>
+              </tr>
+              <tr>
+                <td><a href="options-layout.html">layout</a>
+                  <strong>*</strong>
+                </td>
+                <td><a href="Layouts.html">Layouts</a> are optional and assemble will build <a href="Pages.html">pages</a> without one. However, when a layout is specified the file <em>must contain a <code>{{&gt; body }}</code></em> tag, since this tag indicates where the content from each file in a target should be inserted.</td>
+              </tr>
+              <tr>
+                <td><a href="options-layoutdir.html">layoutdir</a>
+                  <strong>*</strong>
+                </td>
+                <td><a href="Layouts.html">Layouts</a> are optional and assemble will build <a href="Pages.html">pages</a> without one. However, when a layout is specified the file <em>must contain a <code>{{&gt; body }}</code></em> tag, since this tag indicates where the content from each file in a target should be inserted.</td>
+              </tr>
+              <tr>
+                <td><a href="options-partials.html">partials</a>
+                </td>
+                <td>the partials or &quot;includes&quot; to be used with <a href="Pages.html">pages</a>.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            <strong>*Note</strong>that when a layout is used the <a href="Layouts.html">{{&gt; body }}</a> tag must be included inside the layout in order for content from pages to be &quot;pulled in&quot;.</p>
+          <h2>Task Options</h2>
+          <p>These options are defined in the <code>assemble</code> task in your Gruntfile.</p>
+          <h3><a href="options-data.html">options.data</a>
+          </h3>
+          <p>Type: <code>String|Array</code> (optional) Default: <code>src/data</code>
+          </p>
+          <p>Retrieves data from any specified <code>JSON</code> and/or <code>YAML</code> files to populate the templates when rendered. Data gets passed through the <code>data</code> object to the options on the assemble task, and then to the context in your templates. Also useful for specifying [configuration][] data.</p>
+<pre><code class="language-js">options: { data: <span class="string">'src/data/**/*.{json,yml}'</span> }</code></pre>
+          <p>Note that <code>assemble</code> merges the task and target-level data for <code>options.data</code>.</p>
+          <blockquote>
+            <p>Learn more about <a href="Data.html">data</a> →</p>
+          </blockquote>
+          <h3><a href="options-layout.html">options.layout</a>
+          </h3>
+          <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
+          </p>
+          <p>Layouts are optional and may be defined at the task and/or <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a> level. <em>Unlike Jekyll</em>, Assemble requires a file extension since you are not limited to using a single file type.</p>
+<pre><code class="language-js">options: { layout: <span class="string">'src/layouts/default.hbs'</span> }</code></pre>
+          <blockquote>
+            <p>Learn more about <a href="Layouts.html">layouts</a> →</p>
+          </blockquote>
+          <h3><a href="options-layoutdir.html">options.layoutdir</a>
+          </h3>
+          <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
+          </p>
+          <p>Path to the directory that is to be used as the &quot;cwd&quot; for layouts.</p>
+<pre><code class="language-js">options: { layoutdir: <span class="string">'src/layouts'</span> }</code></pre>
+          <p>When <code>layoutdir</code> is defined, then a <code>layout</code> may defined without the path:</p>
+<pre><code class="language-js">options: { layout: <span class="string">'default.hbs'</span> }</code></pre>
+          <p>or</p>
+<pre><code class="language-yaml">---
 layout: default.hbs
 ---</code></pre>
-
-            <h3><a href="options-assets.html">options.assets</a>
-            </h3>
-            <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
-            </p>
-            <p>Path to the &quot;assets&quot; or &quot;public&quot; directory that will be used by dest files. Assemble uses path in the <code>assets</code> option to generate a relative path from dest files to the given &quot;assets&quot; directory. The &quot;assets&quot; folder commonly contains the CSS, JavaScripts, images and other similar files for a project. The <code>assets</code> option may be defined at the task or target-level.</p>
-<pre><code class="lang-js">options: { assets: <span class="string">'docs/assets'</span> }</code></pre>
-
-            <h3><a href="options-partials.html">options.partials</a>
-            </h3>
-            <p>Type: <code>String|Array</code> (optional) Default: <code>undefined</code>
-            </p>
-            <p>Specifies the Handlebars partials files, or paths to the directories of files to be used.</p>
-<pre><code class="lang-js">options: { partials: <span class="string">'src/partials/**/*.hbs'</span> }</code></pre>
-
-            <p>
-              <em><strong>Note that <code>assemble</code> merges the task and target-level data for <code>options.partials</code>.</strong>
-              </em>
-            </p>
-            <blockquote>
-              <p>Learn more about <a href="Partials.html">partials</a> →</p>
-            </blockquote>
-            <h3><a href="options-ext.html">options.ext</a>
-            </h3>
-            <p>Type: <code>String</code> (optional) Default: <code>.html</code>
-            </p>
-            <p>Specify the file extension to be used for destination files. For example:</p>
-<pre><code class="lang-js">assemble: {
+          <h3><a href="options-assets.html">options.assets</a>
+          </h3>
+          <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
+          </p>
+          <p>Path to the &quot;assets&quot; or &quot;public&quot; directory that will be used by dest files. Assemble uses path in the <code>assets</code> option to generate a relative path from dest files to the given &quot;assets&quot; directory. The &quot;assets&quot; folder commonly contains the CSS, JavaScripts, images and other similar files for a project. The <code>assets</code> option may be defined at the task or target-level.</p>
+<pre><code class="language-js">options: { assets: <span class="string">'docs/assets'</span> }</code></pre>
+          <h3><a href="options-partials.html">options.partials</a>
+          </h3>
+          <p>Type: <code>String|Array</code> (optional) Default: <code>undefined</code>
+          </p>
+          <p>Specifies the Handlebars partials files, or paths to the directories of files to be used.</p>
+<pre><code class="language-js">options: { partials: <span class="string">'src/partials/**/*.hbs'</span> }</code></pre>
+          <p><em><strong>Note that <code>assemble</code> merges the task and target-level data for <code>options.partials</code>.</strong></em>
+          </p>
+          <blockquote>
+            <p>Learn more about <a href="Partials.html">partials</a> →</p>
+          </blockquote>
+          <h3><a href="options-ext.html">options.ext</a>
+          </h3>
+          <p>Type: <code>String</code> (optional) Default: <code>.html</code>
+          </p>
+          <p>Specify the file extension to be used for destination files. For example:</p>
+<pre><code class="language-js">assemble: {
   <span class="comment">// Build sitemap from JSON and templates</span>
   sitemap: {
     options: { ext: <span class="string">'.xml'</span>},
@@ -370,55 +353,52 @@ layout: default.hbs
     }
   }
 }</code></pre>
-
-            <blockquote>
-              <p>Learn more about the <a href="options-ext.html">ext option</a> →</p>
-            </blockquote>
-            <h3><a href="options-engine.html">options.engine</a>
-            </h3>
-            <p>Type: <code>String</code> (optional) Default: <code>handlebars</code>
-            </p>
-            <p>The engine to use for processing client-side templates. Assemble ships Handlebars as the default template engine, to learn more about adding other template engines please read the documentation on <a href="Methods.html">assemble methods</a>.</p>
-            <p>Also, we welcome pull requests for additional template engines. If you have questions please create an [Issue][assemble-issues].</p>
-            <h3><a href="options-helpers.html">options.helpers</a>
-            </h3>
-            <p>Type: <code>String|Array</code> (optional) Default: 100+ helpers from <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a>
-            </p>
-            <p>Assemble depends on <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a>, an external library which includes more than <strong>100 Handlebars helpers</strong>. So any helpers from that project may be used in your templates.</p>
-            <p>If you wish for Assemble to use custom helpers with Handlebars or any specified template engine, just provide the path to the helper or helpers in <code>options.helpers</code> :</p>
-<pre><code class="lang-js">options: { helpers: <span class="string">'your/custom/helpers'</span> }</code></pre>
-
-            <h3>options.removeHbsWhitespace</h3>
-            <p>Type: <code>Boolean</code>
-Default: <code>false</code>
-            </p>
-            <p>Remove extraneous whitespace added by Handlebars in rendered files.
-              <em>Use at your own risk, this is an experimental option and may be removed.</em>
-            </p>
-            <h2><a href="YAML-front-matter.html">YAML Front-Matter Options</a>
-            </h2>
-            <p>These options are defined in the <a href="YAML-front-matter.html">YAML front matter</a> of a page.</p>
-            <h3><a href="options-layout.html">options.layout</a>
-            </h3>
-            <p>type: <code>string</code>
-default: <code>undefined</code>
-            </p>
-            <p>Specifies the <a href="Layouts.html">layout</a> file to be used. Layouts defined in <a href="YAML-front-matter.html">YFM</a> will override layouts defined in the Gruntfile.</p>
-            <h3>options.published</h3>
-            <p>type: <code>boolean</code>
-default: true</p>
-            <p>Defining <code>published: false</code> in the <a href="YAML-front-matter.html">YAML front matter</a> of a page will:</p>
-            <ul>
-              <li>Prevent the page from rendering</li>
-              <li>Omit the page from the <code>pages</code> collection.</li>
-            </ul>
-            <h2>Custom Options</h2>
-            <p>Custom, user-defined variables may be specified in the [Options][options-overview] of the assemble task or target. Any variables defined in the options will be added to the
-              <em>root of the data context</em>and thus they will also be available in any templates.</p>
-            <h3>Example usage</h3>
-            <p>A common use case for defining custom variables in the options is for easily including or excluding content based on current &quot;development status&quot;.</p>
-            <p>For example, assuming we have defined a custom option, <code>production</code>:</p>
-<pre><code class="lang-js">assemble: {
+          <blockquote>
+            <p>Learn more about the <a href="options-ext.html">ext option</a> →</p>
+          </blockquote>
+          <h3><a href="options-engine.html">options.engine</a>
+          </h3>
+          <p>Type: <code>String</code> (optional) Default: <code>handlebars</code>
+          </p>
+          <p>The engine to use for processing client-side templates. Assemble ships Handlebars as the default template engine, to learn more about adding other template engines please read the documentation on <a href="Methods.html">assemble methods</a>.</p>
+          <p>Also, we welcome pull requests for additional template engines. If you have questions please create an [Issue][assemble-issues].</p>
+          <h3><a href="options-helpers.html">options.helpers</a>
+          </h3>
+          <p>Type: <code>String|Array</code> (optional) Default: 100+ helpers from <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a>
+          </p>
+          <p>Assemble depends on <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a>, an external library which includes more than
+            <strong>100 Handlebars helpers</strong>. So any helpers from that project may be used in your templates.</p>
+          <p>If you wish for Assemble to use custom helpers with Handlebars or any specified template engine, just provide the path to the helper or helpers in <code>options.helpers</code> :</p>
+<pre><code class="language-js">options: { helpers: <span class="string">'your/custom/helpers'</span> }</code></pre>
+          <h3>options.removeHbsWhitespace</h3>
+          <p>Type: <code>Boolean</code>
+            Default: <code>false</code>
+          </p>
+          <p>Remove extraneous whitespace added by Handlebars in rendered files. <em>Use at your own risk, this is an experimental option and may be removed.</em>
+          </p>
+          <h2><a href="YAML-front-matter.html">YAML Front-Matter Options</a>
+          </h2>
+          <p>These options are defined in the <a href="YAML-front-matter.html">YAML front matter</a> of a page.</p>
+          <h3><a href="options-layout.html">options.layout</a>
+          </h3>
+          <p>type: <code>string</code>
+            default: <code>undefined</code>
+          </p>
+          <p>Specifies the <a href="Layouts.html">layout</a> file to be used. Layouts defined in <a href="YAML-front-matter.html">YFM</a> will override layouts defined in the Gruntfile.</p>
+          <h3>options.published</h3>
+          <p>type: <code>boolean</code>
+            default: true</p>
+          <p>Defining <code>published: false</code> in the <a href="YAML-front-matter.html">YAML front matter</a> of a page will:</p>
+          <ul>
+            <li>Prevent the page from rendering</li>
+            <li>Omit the page from the <code>pages</code> collection.</li>
+          </ul>
+          <h2>Custom Options</h2>
+          <p>Custom, user-defined variables may be specified in the [Options][options-overview] of the assemble task or target. Any variables defined in the options will be added to the <em>root of the data context</em> and thus they will also be available in any templates.</p>
+          <h3>Example usage</h3>
+          <p>A common use case for defining custom variables in the options is for easily including or excluding content based on current &quot;development status&quot;.</p>
+          <p>For example, assuming we have defined a custom option, <code>production</code>:</p>
+<pre><code class="language-js">assemble: {
   options: {
     production: <span class="literal">false</span>
   },
@@ -426,106 +406,100 @@ default: true</p>
     <span class="string">'site/'</span>: [<span class="string">'src/pages/*.hbs'</span>]
   }
 }</code></pre>
-
-            <p>And we add the <code>production</code> variable to our templates:</p>
-<pre><code class="lang-html">{{#if production}}
+          <p>And we add the <code>production</code> variable to our templates:</p>
+<pre><code class="language-html">{{#if production}}
   &lt;script src=&quot;dist/assets/script.min.js&quot;&gt;&lt;/script&gt;
 {{else}}
   &lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;
 {{/if}}</code></pre>
-
-            <p>Since <code>production: false</code> is defined in the Assemble <a href="Options.html">task options</a>, the following HTML will be rendered with the
-              <em>non-minified</em>version of the script:</p>
-<pre><code class="lang-html">&lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;</code></pre>
-
-            <h2><a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">Grunt.js</a> Options</h2>
-            <p>The following is just a handful of options that can be used in your Gruntfile. Please visit the <a href="http://gruntjs.com/api/grunt.file">Grunt documentation</a> to learn more.</p>
-            <ul>
-              <li><code>expand</code> Set to <code>true</code> to enable the following options:</li>
-              <li><code>cwd</code> All <code>src</code> matches are relative to (but don&#39;t include) this path.</li>
-              <li><code>src</code> Pattern(s) to match, relative to the <code>cwd</code>.</li>
-              <li><code>dest</code> Destination path prefix.</li>
-              <li><code>ext</code> Replace any existing extension with this value in generated <code>dest</code> paths.</li>
-              <li><code>flatten</code> Remove all path parts from generated <code>dest</code> paths.</li>
-              <li><code>rename</code> This function is called for each matched <code>src</code> file, (after extension renaming and flattening). The <code>dest</code> and matched <code>src</code> path are passed in, and this function must return a new <code>dest</code> value. If the same <code>dest</code> is returned more than once, each <code>src</code> which used it will be added to an array of sources for it.</li>
-            </ul>
-            <h2>Related info:</h2>
-            <ul>
-              <li>
-                <p><a href="Built-in-Variables.html">Variables</a>
-                </p>
-              </li>
-              <li>
-                <p><a href="YAML.html">YAML Options</a>
-                </p>
-              </li>
-            </ul>
-            <hr>
-            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Options.md.hbs">See the template for this page → </a>
-            </p>
-            <div class="alert">
-              <style type="text/css" media="screen">
-                .alert iframe {
-                  float: right;
-                  margin: 7px -30px 0 0;
-                  vertical-align: text-top;
-                }
-              </style>
-              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+          <p>Since <code>production: false</code> is defined in the Assemble <a href="Options.html">task options</a>, the following HTML will be rendered with the <em>non-minified</em> version of the script:</p>
+<pre><code class="language-html">&lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;</code></pre>
+          <h2><a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">Grunt.js</a> Options</h2>
+          <p>The following is just a handful of options that can be used in your Gruntfile. Please visit the <a href="http://gruntjs.com/api/grunt.file">Grunt documentation</a> to learn more.</p>
+          <ul>
+            <li><code>expand</code> Set to <code>true</code> to enable the following options:</li>
+            <li><code>cwd</code> All <code>src</code> matches are relative to (but don&#39;t include) this path.</li>
+            <li><code>src</code> Pattern(s) to match, relative to the <code>cwd</code>.</li>
+            <li><code>dest</code> Destination path prefix.</li>
+            <li><code>ext</code> Replace any existing extension with this value in generated <code>dest</code> paths.</li>
+            <li><code>flatten</code> Remove all path parts from generated <code>dest</code> paths.</li>
+            <li><code>rename</code> This function is called for each matched <code>src</code> file, (after extension renaming and flattening). The <code>dest</code> and matched <code>src</code> path are passed in, and this function must return a new <code>dest</code> value. If the same <code>dest</code> is returned more than once, each <code>src</code> which used it will be added to an array of sources for it.</li>
+          </ul>
+          <h2>Related info:</h2>
+          <ul>
+            <li>
+              <p><a href="Built-in-Variables.html">Variables</a>
               </p>
-            </div>
-            <footer class="bs-footer">
-              <div class="more-info">
-                <div class="container">
-                  <style>
-                    .bs-social-buttons .twitter-follow-button {
-                      width: 160px !important;
-                    }
-                  </style>
-                  <div class="bs-social">
-                    <ul class="bs-social-buttons">
-                      <li>
-                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-                      </li>
-                      <li>
-                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
-                      </li>
-                      <li class="follow-btn"> <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
-
-                      </li>
-                      <li class="tweet-btn"> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
-
-                      </li>
-                    </ul>
-                  </div>
+            </li>
+            <li>
+              <p><a href="YAML.html">YAML Options</a>
+              </p>
+            </li>
+          </ul>
+          <hr>
+          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Options.md.hbs">See the template for this page → </a>
+          </p>
+          <div class="alert">
+            <style type="text/css" media="screen">
+              .alert iframe {
+                float: right;
+                margin: 7px -30px 0 0;
+                vertical-align: text-top;
+              }
+            </style>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+            </p>
+          </div>
+          <footer class="bs-footer">
+            <div class="more-info">
+              <div class="container">
+                <style>
+                  .bs-social-buttons .twitter-follow-button {
+                    width: 160px !important;
+                  }
+                </style>
+                <div class="bs-social">
+                  <ul class="bs-social-buttons">
+                    <li>
+                      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                    </li>
+                    <li>
+                      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+                    </li>
+                    <li class="follow-btn"> <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
+                    </li>
+                    <li class="tweet-btn"> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
-              <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-              <ul class="footer-links">
-                <li><a href="http://assemble.io/blog">Blog</a>
-                </li>
-                <li class="muted">&middot;</li>
-                <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
-                </li>
-                <li class="muted">&middot;</li>
-                <li><a href="https://github.com/assemble/assemble/">Repo</a>
-                </li>
-              </ul>
-            </footer>
-          </div>
+            </div>
+            <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
+            <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+            <ul class="footer-links">
+              <li><a href="http://assemble.io/blog">Blog</a>
+              </li>
+              <li class="muted">&middot;</li>
+              <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
+              </li>
+              <li class="muted">&middot;</li>
+              <li><a href="https://github.com/assemble/assemble/">Repo</a>
+              </li>
+            </ul>
+          </footer>
         </div>
       </div>
     </div>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/highlight.js"></script>
-    <script src="assets/js/showup.js"></script>
-    <script>
-      $().showUp('.navbar');
-    </script>
-  </body>
+  </div>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/highlight.js"></script>
+  <script src="assets/js/showup.js"></script>
+  <script>
+    $().showUp('.navbar');
+  </script>
+</body>
 
 </html>

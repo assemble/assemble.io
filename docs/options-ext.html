@@ -1,296 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <head>
-    <meta charset="UTF-8">
-    <title>options.ext | Assemble</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/markdown.css">
-    <link rel="stylesheet" href="assets/css/assemble.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond/respond.min.js"></script>
-    <![endif]-->
-    <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      var pluginUrl =
-        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-      _gaq.push(['_setAccount', 'UA-33358518-5']);
-      _gaq.push(['_trackPageview']);
-      (function()
-      {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-    <script type="application/ld+json">
-      [
-        {
-          "@context": "http://schema.org",
-          "@type": "Person",
-          "name": "Jon Schlinkert",
-          "description": "Co-creator of Assemble.",
-          "url": "https://github.com/jonschlinkert"
-        },
-        {
-          "@context": "http://schema.org",
-          "@type": "Person",
-          "name": "Brian Woodward",
-          "description": "Co-creator of Assemble.",
-          "url": "https://github.com/doowb"
-        }
-      ]
-    </script>
-  </head>
-  
-  <body style="background: white" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar">
-      <div class="container">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
 
-        <div class="nav-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li> <a href="../docs/Home.html">Docs</a> 
-            </li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
-            <!--<li> <a href="../Examples.html">Examples</a> </li>-->
-            <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
-            <!--<li> <a href="../blog.html">Blog</a> </li>-->
-            <li>
-              <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
-                <i class="glyphicon glypicon-large glyphicon-download"></i>
-              </a>
-            </li>
-            <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
-            </li>
-          </ul>
+<head>
+  <meta charset="UTF-8">
+  <title>options.ext | Assemble</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/markdown.css">
+  <link rel="stylesheet" href="assets/css/assemble.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="assets/ico/favicon.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl =
+      '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-33358518-5']);
+    _gaq.push(['_trackPageview']);
+    (function()
+    {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script type="application/ld+json">
+    [
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Jon Schlinkert",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/jonschlinkert"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Brian Woodward",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/doowb"
+    }]
+  </script>
+</head>
+
+<body style="background: white" data-spy="scroll" data-target=".bs-sidebar">
+  <div class="navbar">
+    <div class="container">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li> <a href="../docs/Home.html">Docs</a> 
+          </li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
+          <!--<li> <a href="../Examples.html">Examples</a> </li>-->
+          <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
+          <!--<li> <a href="../blog.html">Blog</a> </li>-->
+          <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+          </li>
+          <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <header class="masthead subhead">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-12">
+          <style type="text/css" media="screen">
+            #custom-tweet-button > a {
+              float: right;
+              display: inline-block;
+              padding: 8px 16px 8px 36px;
+              margin: 15px 0 0 0;
+              background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
+              background-color: transparent;
+              border: none;
+              border-radius: 4px;
+            }
+            #custom-tweet-button > a:hover {
+              background-color: rgba(255, 255, 255, .07);
+            }
+          </style>
+          <div id="custom-tweet-button"> <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
+            <script>
+              ! function(d, s, id)
+              {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id))
+                {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = "https://platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              }(document, "script", "twitter-wjs");
+            </script>
+          </div>
+          <h1>
+            <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
         </div>
       </div>
     </div>
-    <header class="masthead subhead">
-      <div class="container">
-        <div class="row">
-          <div class="col col-lg-12">
-            <style type="text/css" media="screen">
-              #custom-tweet-button > a {
-                float: right;
-                display: inline-block;
-                padding: 8px 16px 8px 36px;
-                margin: 15px 0 0 0;
-                background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
-                background-color: transparent;
-                border: none;
-                border-radius: 4px;
-              }
-              #custom-tweet-button > a:hover {
-                background-color: rgba(255, 255, 255, .07);
-              }
-            </style>
-            <div id="custom-tweet-button"> <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
-
-              <script>
-                ! function(d, s, id)
-                {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (!d.getElementById(id))
-                  {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "https://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                  }
-                }(document, "script", "twitter-wjs");
-              </script>
-            </div>
-            <h1>
-              <span class="text-muted">Docs /&nbsp;</span>configuration</h1>
-          </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3">
+        <div class="sidebar">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Getting Started</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
+            </li>
+            <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+            </li>
+            <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
+            </li>
+            <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
+            </li>
+            <li><a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Configuration</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a>
+            </li>
+            <li><a href="Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a>
+            </li>
+            <li><a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a>
+            </li>
+            <li><a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a>
+            </li>
+            <li><a href="options-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.collections']);">options.collections</a>
+            </li>
+            <li><a href="options-data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.data']);">options.data</a>
+            </li>
+            <li><a href="options-engine.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.engine']);">options.engine</a>
+            </li>
+            <li class="active"><a href="options-ext.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.ext']);">options.ext</a>
+            </li>
+            <li><a href="options-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.helpers']);">options.helpers</a>
+            </li>
+            <li><a href="options-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layout']);">options.layout</a>
+            </li>
+            <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
+            </li>
+            <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Data</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Context']);">Context</a>
+            </li>
+            <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
+            </li>
+            <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+            </li>
+            <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Templates</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
+            </li>
+            <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
+            </li>
+            <li><a href="Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a>
+            </li>
+            <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
+            </li>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            </li>
+            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Content</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
+            </li>
+            <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+            </li>
+            <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
+            </li>
+          </ul>
+          <span class="nav-section-title">Development</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a>
+            </li>
+            <li><a href="Methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Methods']);">Methods</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
-    <div class="container">
-      <div class="row">
-        <div class="col col-lg-3">
-          <div class="sidebar">
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Getting Started</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
-              </li>
-              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
-              </li>
-              <li><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
-              </li>
-              <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
-              </li>
-              <li><a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Configuration</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a>
-              </li>
-              <li><a href="Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a>
-              </li>
-              <li><a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a>
-              </li>
-              <li><a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a>
-              </li>
-              <li><a href="options-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.collections']);">options.collections</a>
-              </li>
-              <li><a href="options-data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.data']);">options.data</a>
-              </li>
-              <li><a href="options-engine.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.engine']);">options.engine</a>
-              </li>
-              <li class="active"><a href="options-ext.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.ext']);">options.ext</a>
-              </li>
-              <li><a href="options-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.helpers']);">options.helpers</a>
-              </li>
-              <li><a href="options-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layout']);">options.layout</a>
-              </li>
-              <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
-              </li>
-              <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Data</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Context']);">Context</a>
-              </li>
-              <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
-              </li>
-              <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
-              </li>
-              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Templates</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
-              </li>
-              <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
-              </li>
-              <li><a href="Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a>
-              </li>
-              <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
-              </li>
-              <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
-              </li>
-              <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Content</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
-              </li>
-              <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
-              </li>
-              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-              </li>
-            </ul>
-            <span class="nav-section-title">Development</span>
-            <ul class="nav nav-pills nav-stacked">
-              <li><a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a>
-              </li>
-              <li><a href="Methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Methods']);">Methods</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col col-lg-9">
-          <div class="panel panel-docs">
-            <h1>options.ext</h1>
-            <h2>options.ext</h2>
-            <blockquote>
-              <p>Specify the file extension to use on dest files. Extensions can be specified at the task and target-levels.</p>
-            </blockquote>
-            <p>Type: <code>String</code> (optional) Default: <code>.html</code>
-            </p>
-            <h2>Overview</h2>
-            <p>When planning out the strategy for your build targets, <a href="About-Templates.html">about-templates</a> and <a href="Data.html">data</a>, don&#39;t forget to take the <code>ext</code> variable into consideration. <code>ext</code> opens up a few doors by &quot;bending the rules&quot; around how your source files will be compiled or rendered.</p>
-            <p>In 90% of cases, the <code>ext</code> option will not be needed, and simply using the <code>.hbs</code> file extension on your <a href="About-Templates.html">about-templates</a> will suffice. However, in scenarios where you are using mixed content, say HTML and markdown with Handelbars templates embedded in one or both formats, you may need to use the <code>ext</code> option to esure that you get the output you need.</p>
-            <h3>Mixed content: Markdown and HTML together</h3>
-            <p>Consider the following scenario:</p>
-            <ul>
-              <li>Your page content and/or blog posts will be written in <a href="Markdown.html">markdown</a> format</li>
-              <li>You want to embed Handlebars templates in your markdown content for certain types of metadata, such as links, date/time, etc.</li>
-              <li>Your page <a href="Layouts.html">layouts</a> are made from HTML, but they also with embedded with Handlebars templates</li>
-              <li>
-                <p>Your end goal is for all of your markdown content to be rendered to HTML in the output.</p>
-                <p>and you want your need to compile some markdown files to HTML, and you want to use other markdown files as &quot;includes&quot; or &quot;partials&quot; inside other markdown files, in which case you want the markdown files to be rendered
-                  <em>as markdown</em>in the output. You may even want to embed Handlebars templates inside your markdown files to be parsed and compiled.</p>
-              </li>
-            </ul>
-            <h2>Extensions map</h2>
-            <h3>Whitelisted extensions</h3>
-            <p>As of Wed Jul 24 2013 14:01:45, Assemble&#39;s extensions map &quot;whitelists&quot; the following extensions:</p>
-            <p><strong>Handlebars extensions</strong>
-            </p>
-            <ul>
-              <li><code>handlebar</code>
-              </li>
-              <li><code>handlebars</code>
-              </li>
-              <li><code>hb</code>
-              </li>
-              <li><code>hbars</code>
-              </li>
-              <li><code>hbrs</code>
-              </li>
-              <li><code>hbs</code>
-              </li>
-              <li><code>hbt</code>
-              </li>
-              <li><code>htm</code>
-              </li>
-              <li><code>html</code>
-              </li>
-              <li><code>mustache</code>
-              </li>
-              <li><code>template</code>
-              </li>
-              <li><code>tmpl</code>
-              </li>
-              <li><code>tpl</code>
-              </li>
-            </ul>
-            <p><strong>Markdown extensions</strong>
-            </p>
-            <ul>
-              <li><code>markd</code>
-              </li>
-              <li><code>markdown</code>
-              </li>
-              <li><code>md</code>
-              </li>
-            </ul>
-            <h3>Forcing non-whitelisted extensions</h3>
-            <p>If you need Assemble to process templates in files with an extension that isn&#39;t in <a href="https://github.com/assemble/assemble/blob/master/lib/engine/extensions.yml">extensions.yml</a>, you must
-              <em>explicitly define the template engine in the task/target options to force Assemble to process your templates.</em>
-            </p>
-            <p>So given this example:</p>
-<pre><code class="lang-js">assemble: {
+      <div class="col col-lg-9">
+        <div class="panel panel-docs">
+          <h1>options.ext</h1>
+          <h2>options.ext</h2>
+          <blockquote>
+            <p>Specify the file extension to use on dest files. Extensions can be specified at the task and target-levels.</p>
+          </blockquote>
+          <p>Type: <code>String</code> (optional) Default: <code>.html</code>
+          </p>
+          <h2>Overview</h2>
+          <p>When planning out the strategy for your build targets, <a href="About-Templates.html">about-templates</a> and <a href="Data.html">data</a>, don&#39;t forget to take the <code>ext</code> variable into consideration. <code>ext</code> opens up a few doors by &quot;bending the rules&quot; around how your source files will be compiled or rendered.</p>
+          <p>In 90% of cases, the <code>ext</code> option will not be needed, and simply using the <code>.hbs</code> file extension on your <a href="About-Templates.html">about-templates</a> will suffice. However, in scenarios where you are using mixed content, say HTML and markdown with Handelbars templates embedded in one or both formats, you may need to use the <code>ext</code> option to esure that you get the output you need.</p>
+          <h3>Mixed content: Markdown and HTML together</h3>
+          <p>Consider the following scenario:</p>
+          <ul>
+            <li>Your page content and/or blog posts will be written in <a href="Markdown.html">markdown</a> format</li>
+            <li>You want to embed Handlebars templates in your markdown content for certain types of metadata, such as links, date/time, etc.</li>
+            <li>Your page <a href="Layouts.html">layouts</a> are made from HTML, but they also with embedded with Handlebars templates</li>
+            <li>
+              <p>Your end goal is for all of your markdown content to be rendered to HTML in the output.</p>
+              <p>and you want your need to compile some markdown files to HTML, and you want to use other markdown files as &quot;includes&quot; or &quot;partials&quot; inside other markdown files, in which case you want the markdown files to be rendered <em>as markdown</em> in the output. You may even want to embed Handlebars templates inside your markdown files to be parsed and compiled.</p>
+            </li>
+          </ul>
+          <h2>Extensions map</h2>
+          <h3>Whitelisted extensions</h3>
+          <p>As of Fri Jul 26 2013 04:50:09, Assemble&#39;s extensions map &quot;whitelists&quot; the following extensions:</p>
+          <p>
+            <strong>Handlebars extensions</strong>
+          </p>
+          <ul>
+            <li><code>handlebar</code>
+            </li>
+            <li><code>handlebars</code>
+            </li>
+            <li><code>hb</code>
+            </li>
+            <li><code>hbars</code>
+            </li>
+            <li><code>hbrs</code>
+            </li>
+            <li><code>hbs</code>
+            </li>
+            <li><code>hbt</code>
+            </li>
+            <li><code>htm</code>
+            </li>
+            <li><code>html</code>
+            </li>
+            <li><code>mustache</code>
+            </li>
+            <li><code>template</code>
+            </li>
+            <li><code>tmpl</code>
+            </li>
+            <li><code>tpl</code>
+            </li>
+          </ul>
+          <p>
+            <strong>Markdown extensions</strong>
+          </p>
+          <ul>
+            <li><code>markd</code>
+            </li>
+            <li><code>markdown</code>
+            </li>
+            <li><code>md</code>
+            </li>
+          </ul>
+          <h3>Forcing non-whitelisted extensions</h3>
+          <p>If you need Assemble to process templates in files with an extension that isn&#39;t in <a href="https://github.com/assemble/assemble/blob/master/lib/engine/extensions.yml">extensions.yml</a>, you must <em>explicitly define the template engine in the task/target options to force Assemble to process your templates.</em>
+          </p>
+          <p>So given this example:</p>
+<pre><code class="language-js">assemble: {
   options: {
     engine: <span class="string">"Handlebars"</span> <span class="comment">// case insensitive</span>
   },
@@ -298,23 +292,21 @@
     <span class="string">'dist/'</span>: [<span class="string">'src/pages/*.snickerdoodle'</span>]
   }
 }</code></pre>
-
-            <p>So now that we have defined an engine, Handlebars, Assemble knows to use that engine to process templates with the <code>.snickerdoodle</code> extension. Even better, your templates will also be compiled into delicious Christmas cookies with cinnamon and sugar sprinkled on top.</p>
-            <h2>Example usage</h2>
-            <p>Here are some examples that cover common use cases.</p>
-            <h3>Markdown-to-markdown</h3>
-            <p>If your repo is on GitHub, it&#39;s a safe bet you&#39;re using markdown format on your READMEs and wikis. Here we&#39;re going to show you how to use templates to generate markdown files, so if you work on big projects, or a lot of projects, you can potentially reduce the amount of time you spend updating documentation, changelogs, links, common metadata and so on.</p>
-            <p>Now, of course there are many ways to accomplish the same goal, this is an example so we&#39;re going for simplicity. Here&#39;s what we want to accomplish:</p>
-            <ul>
-              <li><code>src</code> content
-                <em>written</em>in markdown</li>
-              <li><code>src</code> content contains templates,</li>
-              <li>Metadata for templates must come from a single source, say <code>package.json</code> (this is arbitrary, you can use more than one file if you want, <code>.yml</code> format is fine too)</li>
-              <li>generated <code>dest</code> files must remain in markdown format. In other words, we want Assemble to process the templates, but not to convert the markdown to HTML.</li>
-            </ul>
-            <p>Here is what we need to do:</p>
-            <h4>Example configuration:</h4>
-<pre><code class="lang-js">assemble: {
+          <p>So now that we have defined an engine, Handlebars, Assemble knows to use that engine to process templates with the <code>.snickerdoodle</code> extension. Even better, your templates will also be compiled into delicious Christmas cookies with cinnamon and sugar sprinkled on top.</p>
+          <h2>Example usage</h2>
+          <p>Here are some examples that cover common use cases.</p>
+          <h3>Markdown-to-markdown</h3>
+          <p>If your repo is on GitHub, it&#39;s a safe bet you&#39;re using markdown format on your READMEs and wikis. Here we&#39;re going to show you how to use templates to generate markdown files, so if you work on big projects, or a lot of projects, you can potentially reduce the amount of time you spend updating documentation, changelogs, links, common metadata and so on.</p>
+          <p>Now, of course there are many ways to accomplish the same goal, this is an example so we&#39;re going for simplicity. Here&#39;s what we want to accomplish:</p>
+          <ul>
+            <li><code>src</code> content <em>written</em> in markdown</li>
+            <li><code>src</code> content contains templates,</li>
+            <li>Metadata for templates must come from a single source, say <code>package.json</code> (this is arbitrary, you can use more than one file if you want, <code>.yml</code> format is fine too)</li>
+            <li>generated <code>dest</code> files must remain in markdown format. In other words, we want Assemble to process the templates, but not to convert the markdown to HTML.</li>
+          </ul>
+          <p>Here is what we need to do:</p>
+          <h4>Example configuration:</h4>
+<pre><code class="language-js">assemble: {
   options: {
     data: <span class="string">'src/data/readme.yml'</span>,
     partials: <span class="string">'src/content/*.hbs'</span>,
@@ -326,17 +318,16 @@
     }
   }
 }</code></pre>
-
-            <p>Our goal here is to tell the <code>assemble</code> task to treat the <code>src</code> markdown files as regular content. In other words we don&#39;t want the task to convert the markdown files to HTML, so we use a sort of trick that allows us to write our README content in markdown along with embedded Handlebars templates.</p>
-            <p>Our goal here is to tell the <code>assemble</code> task.</p>
-            <p>Here, we tell the <code>assemble</code> task not to use an extension on <code>dest</code> files by leaving <code>ext: &#39;&#39;</code> blank. We do this because our templates have the extenions <code>.md.hbs</code> and assemble only slices off the last extension at build time. So by 1) telling assemble not to add another extension to the rendered templates, and 2) by naming our template files with the <code>.md.hbs</code> extension, we</p>
-            <h3>markdown-to-HTML</h3>
-            <p>Common use cases:</p>
-            <ul>
-              <li>Blog posts written in markdown, converted to HTML for a live site.</li>
-              <li>gh-pages documentation</li>
-            </ul>
-<pre><code class="lang-js">assemble: {
+          <p>Our goal here is to tell the <code>assemble</code> task to treat the <code>src</code> markdown files as regular content. In other words we don&#39;t want the task to convert the markdown files to HTML, so we use a sort of trick that allows us to write our README content in markdown along with embedded Handlebars templates.</p>
+          <p>Our goal here is to tell the <code>assemble</code> task.</p>
+          <p>Here, we tell the <code>assemble</code> task not to use an extension on <code>dest</code> files by leaving <code>ext: &#39;&#39;</code> blank. We do this because our templates have the extenions <code>.md.hbs</code> and assemble only slices off the last extension at build time. So by 1) telling assemble not to add another extension to the rendered templates, and 2) by naming our template files with the <code>.md.hbs</code> extension, we</p>
+          <h3>markdown-to-HTML</h3>
+          <p>Common use cases:</p>
+          <ul>
+            <li>Blog posts written in markdown, converted to HTML for a live site.</li>
+            <li>gh-pages documentation</li>
+          </ul>
+<pre><code class="language-js">assemble: {
   options: {
     engine: <span class="string">"Handlebars"</span> <span class="comment">// case insensitive</span>
   },
@@ -344,74 +335,71 @@
     <span class="string">'dist/'</span>: [<span class="string">'src/pages/*.md.hbs'</span>]
   }
 }</code></pre>
-
-            <p>Rendered pages will have the <code>.html</code> extension by default.</p>
-            <hr>
-            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/options-ext.md.hbs">See the template for this page → </a>
+          <p>Rendered pages will have the <code>.html</code> extension by default.</p>
+          <hr>
+          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/options-ext.md.hbs">See the template for this page → </a>
+          </p>
+          <div class="alert">
+            <style type="text/css" media="screen">
+              .alert iframe {
+                float: right;
+                margin: 7px -30px 0 0;
+                vertical-align: text-top;
+              }
+            </style>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
             </p>
-            <div class="alert">
-              <style type="text/css" media="screen">
-                .alert iframe {
-                  float: right;
-                  margin: 7px -30px 0 0;
-                  vertical-align: text-top;
-                }
-              </style>
-              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
-              </p>
-            </div>
-            <footer class="bs-footer">
-              <div class="more-info">
-                <div class="container">
-                  <style>
-                    .bs-social-buttons .twitter-follow-button {
-                      width: 160px !important;
-                    }
-                  </style>
-                  <div class="bs-social">
-                    <ul class="bs-social-buttons">
-                      <li>
-                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-                      </li>
-                      <li>
-                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
-                      </li>
-                      <li class="follow-btn"> <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
-
-                      </li>
-                      <li class="tweet-btn"> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
-
-                      </li>
-                    </ul>
-                  </div>
+          </div>
+          <footer class="bs-footer">
+            <div class="more-info">
+              <div class="container">
+                <style>
+                  .bs-social-buttons .twitter-follow-button {
+                    width: 160px !important;
+                  }
+                </style>
+                <div class="bs-social">
+                  <ul class="bs-social-buttons">
+                    <li>
+                      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                    </li>
+                    <li>
+                      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+                    </li>
+                    <li class="follow-btn"> <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
+                    </li>
+                    <li class="tweet-btn"> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
-              <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-              <ul class="footer-links">
-                <li><a href="http://assemble.io/blog">Blog</a>
-                </li>
-                <li class="muted">&middot;</li>
-                <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
-                </li>
-                <li class="muted">&middot;</li>
-                <li><a href="https://github.com/assemble/assemble/">Repo</a>
-                </li>
-              </ul>
-            </footer>
-          </div>
+            </div>
+            <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
+            <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+            <ul class="footer-links">
+              <li><a href="http://assemble.io/blog">Blog</a>
+              </li>
+              <li class="muted">&middot;</li>
+              <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
+              </li>
+              <li class="muted">&middot;</li>
+              <li><a href="https://github.com/assemble/assemble/">Repo</a>
+              </li>
+            </ul>
+          </footer>
         </div>
       </div>
     </div>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/highlight.js"></script>
-    <script src="assets/js/showup.js"></script>
-    <script>
-      $().showUp('.navbar');
-    </script>
-  </body>
+  </div>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/highlight.js"></script>
+  <script src="assets/js/showup.js"></script>
+  <script>
+    $().showUp('.navbar');
+  </script>
+</body>
 
 </html>
