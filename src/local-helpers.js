@@ -32,6 +32,12 @@
       return content;
     };
 
+
+    Handlebars.registerHelper('decode', function(src) {
+      return new Handlebars.SafeString(new Buffer(src, 'base64').toString('binary'));
+    });
+
+
     // Handlebars.registerHelper('readYFM', function(src) {
     //   var props = assemble.data.readYFM(src, {fromFile: true});
     //   var str = "\n```json\n" + (util.inspect(props, true, null)) + "\n```\n";

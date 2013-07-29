@@ -56,12 +56,8 @@ module.exports = function(grunt) {
           silent: false,
           smartLists: false,
           smartypants: false,
-          tables: true,
-          highlight: function (lang, code) {
-            return hljs.highlightAuto(lang, code).value;
-          }
+          tables: true
         },
-        flatten: true,
         production: true,
         today: '<%= grunt.template.today() %>',
         layoutdir: 'src/templates/layouts',
@@ -71,7 +67,9 @@ module.exports = function(grunt) {
           'src/data/*.{json,yml}',
           'package.json'
         ],
-        partials: ['src/templates/partials/**/*.{hbs,md}']
+        partials: [
+          'src/templates/partials/**/*.{hbs,md}'
+        ]
       },
       links: {
         options: {
@@ -79,7 +77,7 @@ module.exports = function(grunt) {
           layout: false
         },
         files: [
-          { expand: true, src: ['src/templates/partials/snippets/generated-links.md.hbs'], dest: 'src/templates/partials/' },
+          { expand: true, flatten: true, src: ['src/templates/partials/snippets/generated-links.md.hbs'], dest: 'src/templates/partials/' },
         ]
       },
       docs: {
@@ -87,8 +85,8 @@ module.exports = function(grunt) {
           layout: 'layout-docs.hbs'
         },
         files: [
-          { expand: true, cwd: 'src/templates/pages', src: ['*.hbs'], dest: './' },
-          { expand: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' }
+          { expand: true, flatten: true, cwd: 'src/templates/pages', src: ['*.hbs'], dest: './' },
+          { expand: true, flatten: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' }
         ]
       },
       helpers: {
@@ -96,7 +94,15 @@ module.exports = function(grunt) {
           layout: 'layout-helpers.hbs'
         },
         files: [
-          { expand: true, cwd: 'src', src: ['templates/pages/helpers/*.hbs', 'content/helpers/**/*.hbs'], dest: './docs/helpers', ext: '.html' }
+          { expand: true, flatten: true, cwd: 'src', src: ['templates/pages/helpers/*.hbs'], dest: './docs/helpers', ext: '.html' }
+        ]
+      },
+      boilerplates: {
+        options: {
+          layout: 'layout-boilerplates.hbs'
+        },
+        files: [
+          { expand: true, flatten: true, cwd: 'src', src: ['templates/pages/boilerplates/*.hbs'], dest: './docs/boilerplates', ext: '.html' }
         ]
       },
       diagnostics: {
@@ -115,7 +121,19 @@ module.exports = function(grunt) {
         ]
       }
     },
-
+    github: {
+      options: {
+        filters: {'type': 'public'}
+      },
+      readme: {
+        src: '/repos/assemble/assemble/readme',
+        dest: 'src/data/readme.json'
+      },
+      repos: {
+        src: '/orgs/assemble/repos',
+        dest: 'src/data/repos.json'
+      }
+    },
     prettify: {
       options: {
         prettifyrc: '.prettifyrc'
@@ -150,6 +168,7 @@ module.exports = function(grunt) {
   // Load npm and local plugins.
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
+  grunt.loadNpmTasks('grunt-github-api');
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // Default task to be run.
@@ -158,7 +177,8 @@ module.exports = function(grunt) {
     'less',
     'assemble:links',
     'assemble:docs',
-    // 'assemble:helpers',
+    'assemble:helpers',
+    'assemble:boilerplates',
     // 'assemble:diagnostics',
     'prettify',
     'copy'
