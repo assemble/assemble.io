@@ -54,17 +54,23 @@
   <style>
     /* Temporarily override subhead styling for development */
     .subhead {
-      background-color: #960f0f;
+      background-color: #edf1f1;
     }
-    body .panel-docs blockquote {
-      border-left-color: #cc2727;
-    }
-    body a {
-      color: #cc2727;
+    .subhead h1 {
+      color: #3c6868;
     }
     .subhead .text-muted {
       font-weight: thinner;
-      color: #be6969;
+      color: #d0dcdd;
+    }
+    body .panel-docs blockquote {
+      border-left-color: #3c6868;
+    }
+    body a, .alert .alert-link {
+      color: #3c6868;
+    }
+    body a:hover, .alert .alert-link:hover {
+      color: #35a7a7
     }
   </style>
 </head>
@@ -81,9 +87,9 @@
         <ul class="nav navbar-nav">
           <li> <a href="../../docs/Home.html">Docs</a> 
           </li>
-          <li> <a href="../helpers/index.html">Helpers</a> 
-          </li>
           <li> <a href="../boilerplates/index.html">Boilerplates</a> 
+          </li>
+          <li> <a href="../helpers/index.html">Helpers</a> 
           </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
