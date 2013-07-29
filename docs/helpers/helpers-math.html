@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Math | Assemble</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/assemble.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl =
+      '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-33358518-5']);
+    _gaq.push(['_trackPageview']);
+    (function()
+    {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script type="application/ld+json">
+    [
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Jon Schlinkert",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/jonschlinkert"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Brian Woodward",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/doowb"
+    }]
+  </script>
+  <style>
+    /* Temporarily override subhead styling for development */
+    .subhead {
+      background-color: #33b5e5;
+    }
+    .subhead .text-muted {
+      color: #b5e4f5;
+    }
+  </style>
+</head>
+
+<body style="background: white">
+  <div class="navbar">
+    <div class="container">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> <a class="navbar-brand" href="../../index.html">ASSEMBLE</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li> <a href="../../docs/Home.html">Docs</a> 
+          </li>
+          <li> <a href="../helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="../boilerplates/index.html">Boilerplates</a> 
+          </li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <!--<li> <a href="../../Examples.html">Examples</a> </li>-->
+          <!--<li> <a href="../../tutorials.html">Tutorials</a> </li> -->
+          <!--<li> <a href="../../blog.html">Blog</a> </li>-->
+          <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+          </li>
+          <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <header class="masthead subhead">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-12">
+          <h1>
+            <span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Math</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3">
+        <div class="sidebar">
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="index.html">Overview</a> 
+            </li>
+          </ul>
+          <span class="nav-section-title">Helpers</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-code.html">Code</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-collections.html">Collections</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-content.html">Content</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-data.html">Data</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-dates.html">Dates</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-html.html">HTML</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-inflections.html">Inflections</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-logging.html">Logging</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-markdown.html">Markdown</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-math.html">Math</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-misc.html">Miscellaneous</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-numbers.html">Numbers</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-path.html">Path</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-readme.html">Readme</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-strings.html">Strings</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-url.html">URL</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-special.html">special</a> 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col col-lg-9">
+        <div class="panel panel-docs">
+          <h1>Math</h1>
+          <p>
+            <h4>{{add}}</h4>
+          </p>
+          <p>
+            <p><em>Returns the sum of two numbers.</em>
+              <br>Parameters: value <code>int</code> - The number to add to the expression. (Required)</p>
+          </p>
+          <p>
+            <p>Data:</p>
+          </p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{add value 5}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>10</code></pre>
+          <h4>{{ceil}}</h4>
+          <p><em>Returns the value rounded up to the nearest integer.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.6</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{ceil value}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>6</code></pre>
+          <h4>{{divide}}</h4>
+          <p><em>Returns the division of two numbers.</em>
+            <br>Parameters: value <code>int</code> - The number to divide the expression. (Required)</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{divide value 5}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>1</code></pre>
+          <h4>{{floor}}</h4>
+          <p><em>Returns the value rounded down to the nearest integer.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.6</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{floor value}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>5</code></pre>
+          <h4>{{multiply}}</h4>
+          <p><em>Returns the multiplication of two numbers.</em>
+            <br>Parameters: value <code>int</code> - The number to multiply the expression. (Required)</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{multiply value 5}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>25</code></pre>
+          <h4>{{round}}</h4>
+          <p><em>Returns the value rounded to the nearest integer.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.69</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{round value}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>6</code></pre>
+          <h4>{{subtract}}</h4>
+          <p><em>Returns the difference of two numbers. Opposite of <code>add</code></em>
+            <br>Parameters: value <code>int</code> - The number to subtract from the expression. (Required)_</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{subtract value 5}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>0</code></pre>
+          <h4>{{sum}}</h4>
+          <p><em>Returns the sum of multiple numbers. Similar to <code>{{#add}}</code> block helper but accepts multiple arguments.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = {
+  a: <span class="number">1</span>,
+  b: <span class="number">2</span>,
+  c: <span class="number">3</span>
+}</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{sum value.a value.b value.c}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>6</code></pre>
+          <hr>
+          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/helpers/helpers-math.hbs">See the template for this page → </a>
+          </p>
+          <div class="alert">
+            <style type="text/css" media="screen">
+              .alert iframe {
+                float: right;
+                margin: 7px -30px 0 0;
+                vertical-align: text-top;
+              }
+            </style>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap.js"></script>
+  <script src="../assets/js/highlight.js"></script>
+  <script src="../assets/js/holder/holder.js"></script>
+  <script src="../assets/js/showup.js"></script>
+  <script>
+    $().showUp('.navbar');
+  </script>
+</body>
+
+</html>

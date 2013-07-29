@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Numbers | Assemble</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/assemble.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl =
+      '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-33358518-5']);
+    _gaq.push(['_trackPageview']);
+    (function()
+    {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script type="application/ld+json">
+    [
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Jon Schlinkert",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/jonschlinkert"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Brian Woodward",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/doowb"
+    }]
+  </script>
+  <style>
+    /* Temporarily override subhead styling for development */
+    .subhead {
+      background-color: #33b5e5;
+    }
+    .subhead .text-muted {
+      color: #b5e4f5;
+    }
+  </style>
+</head>
+
+<body style="background: white">
+  <div class="navbar">
+    <div class="container">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> <a class="navbar-brand" href="../../index.html">ASSEMBLE</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li> <a href="../../docs/Home.html">Docs</a> 
+          </li>
+          <li> <a href="../helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="../boilerplates/index.html">Boilerplates</a> 
+          </li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <!--<li> <a href="../../Examples.html">Examples</a> </li>-->
+          <!--<li> <a href="../../tutorials.html">Tutorials</a> </li> -->
+          <!--<li> <a href="../../blog.html">Blog</a> </li>-->
+          <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+          </li>
+          <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <header class="masthead subhead">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-12">
+          <h1>
+            <span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Numbers</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3">
+        <div class="sidebar">
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="index.html">Overview</a> 
+            </li>
+          </ul>
+          <span class="nav-section-title">Helpers</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-code.html">Code</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-collections.html">Collections</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-content.html">Content</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-data.html">Data</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-dates.html">Dates</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-html.html">HTML</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-inflections.html">Inflections</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-logging.html">Logging</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-markdown.html">Markdown</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-math.html">Math</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-misc.html">Miscellaneous</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-numbers.html">Numbers</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-path.html">Path</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-readme.html">Readme</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-strings.html">Strings</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-url.html">URL</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-special.html">special</a> 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col col-lg-9">
+        <div class="panel panel-docs">
+          <h1>Numbers</h1>
+          <p>
+            <h4>{{addCommas}}</h4>
+          </p>
+          <p>
+            <p><em>Adds commas to a number.</em>
+            </p>
+          </p>
+          <p>
+            <p>Parameters: <code>none</code>
+            </p>
+          </p>
+          <p>
+            <p>Data:</p>
+          </p>
+<pre><code class="language-javascript">value = <span class="number">2222222</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{addCommas value}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>2,222,222</code></pre>
+          <h4>{{toAbbr}}</h4>
+          <p><em>Returns the number in abbreviation formats based on a value. The number is rounded to a particular decimal place.</em>
+          </p>
+          <p>Parameters: digits <code>int</code> - The number of digits to appear after the decimal point. (Optional)</p>
+          <p>Default: <code>2</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">123456789</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{toAbbr value}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>123.457m</code></pre>
+          <h4>{{toExponential}}</h4>
+          <p><em>Returns the number in exponential notation with one digit before the decimal point, rounded to <code>fractions</code> digits after the decimal point.</em>
+          </p>
+          <p>Parameters: fractions <code>int</code> - An integer specifying the number of digits after the decimal point. (Optional)</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{toExponential value 5}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>5.00000e+0</code></pre>
+          <h4>{{toFixed}}</h4>
+          <p><em>Returns exactly <code>digits</code> after the decimal place. The number is rounded if necessary, and the fractional part is padded with zeros if necessary so that it has the specified length.</em>
+          </p>
+          <p>Parameters: digits <code>int</code> - The number of digits to appear after the decimal point. (Optional)</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.53231</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{toFixed value 3}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>5.532</code></pre>
+          <h4>{{toFloat}}</h4>
+          <p><em>Returns a floating point number.</em>
+          </p>
+          <p>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="string">'22.2abc'</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{toFloat value}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>22.2</code></pre>
+          <h4>{{toInt}}</h4>
+          <p><em>Returns an integer.</em>
+          </p>
+          <p>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="string">'22.2abc'</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{toInt value}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>22</code></pre>
+          <h4>{{toPrecision}}</h4>
+          <p><em>Returns the number in fixed-point or exponential notation rounded to <code>precision</code> significant digits.</em>
+          </p>
+          <p>Parameters: precision <code>int</code> - The number of digits. If omitted, it returns the entire number (without any formatting). (Optional)</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">555.322</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{toPrecision value 4}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>555.3</code></pre>
+          <hr>
+          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/helpers/helpers-numbers.hbs">See the template for this page → </a>
+          </p>
+          <div class="alert">
+            <style type="text/css" media="screen">
+              .alert iframe {
+                float: right;
+                margin: 7px -30px 0 0;
+                vertical-align: text-top;
+              }
+            </style>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap.js"></script>
+  <script src="../assets/js/highlight.js"></script>
+  <script src="../assets/js/holder/holder.js"></script>
+  <script src="../assets/js/showup.js"></script>
+  <script>
+    $().showUp('.navbar');
+  </script>
+</body>
+
+</html>

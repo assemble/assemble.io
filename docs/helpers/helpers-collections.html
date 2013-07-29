@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Collections | Assemble</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/assemble.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl =
+      '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-33358518-5']);
+    _gaq.push(['_trackPageview']);
+    (function()
+    {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script type="application/ld+json">
+    [
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Jon Schlinkert",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/jonschlinkert"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Brian Woodward",
+      "description": "Co-creator of Assemble.",
+      "url": "https://github.com/doowb"
+    }]
+  </script>
+  <style>
+    /* Temporarily override subhead styling for development */
+    .subhead {
+      background-color: #33b5e5;
+    }
+    .subhead .text-muted {
+      color: #b5e4f5;
+    }
+  </style>
+</head>
+
+<body style="background: white">
+  <div class="navbar">
+    <div class="container">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> <a class="navbar-brand" href="../../index.html">ASSEMBLE</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li> <a href="../../docs/Home.html">Docs</a> 
+          </li>
+          <li> <a href="../helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="../boilerplates/index.html">Boilerplates</a> 
+          </li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <!--<li> <a href="../../Examples.html">Examples</a> </li>-->
+          <!--<li> <a href="../../tutorials.html">Tutorials</a> </li> -->
+          <!--<li> <a href="../../blog.html">Blog</a> </li>-->
+          <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+          </li>
+          <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <header class="masthead subhead">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-12">
+          <h1>
+            <span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Collections</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3">
+        <div class="sidebar">
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="index.html">Overview</a> 
+            </li>
+          </ul>
+          <span class="nav-section-title">Helpers</span>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-code.html">Code</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-collections.html">Collections</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-content.html">Content</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-data.html">Data</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-dates.html">Dates</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-html.html">HTML</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-inflections.html">Inflections</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-logging.html">Logging</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-markdown.html">Markdown</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-math.html">Math</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-misc.html">Miscellaneous</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-numbers.html">Numbers</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-path.html">Path</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-readme.html">Readme</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-strings.html">Strings</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-url.html">URL</a> 
+            </li>
+          </ul>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="helpers-special.html">special</a> 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col col-lg-9">
+        <div class="panel panel-docs">
+          <h1>Collections</h1>
+          <p>
+            <h4>{{after}}</h4>
+          </p>
+          <p>
+            <p><em>Returns all of the items in the collection after the specified count.</em>
+              <br>Parameters: count <code>int</code> - How many items to omit from the beginning. (Required)</p>
+          </p>
+          <p>
+            <p>Data:</p>
+          </p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{after collection 5}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">Leela, Professor Farnsworth, Scruffy</code></pre>
+          <h4>{{any}}</h4>
+          <p><em>Conditionally render a block if the collection isn&#39;t empty. Opposite of <code>empty</code></em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [&quot;Professor Farnswor&quot;]</code></pre>
+          <p>Templates:</p>
+<pre><code class="language-html">{{#any collection}}
+  Good news everyone!
+{{else}}
+  Bad news everyone!
+{{/any}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Good news everyone!</code></pre>
+          <h4>{{before}}</h4>
+          <p><em>Returns all of the items in the collection before the specified count. Opposite of <code>after</code>.</em>
+            <br>Parameters: count <code>int</code> - How many items to omit from the end. (Required)</p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{before collection 5}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">Amy Wong, Bender, Dr. Zoidberg</code></pre>
+          <h4>{{eachIndex}}</h4>
+          <p><em>Current implementation of the default Handlebars loop helper {{#each}} adding index (0-based index) to the loop context.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [&quot;Professor Farnsworth&quot;, &quot;Fry&quot;, &quot;Bend&quot;]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#eachIndex collection}}
+  {{this}} is {{index}}
+{{/eachIndex}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Professor Farnsworth is 0, Fry is 1, Bender is 2</code></pre>
+          <h4>{{eachProperty}}</h4>
+          <p><em>Uses the key and value of each property in an object to render a block.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: {
+  &quot;one&quot;: 1,
+  &quot;two&quot;: 2
+}</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#eachProperty object}}
+    {{key}} - {{value}}&lt;br/&gt;
+{{/eachProperty }}</code></pre>
+          <p>Renders to:</p>
+<pre><code>one - 1
+two - 2</code></pre>
+          <h4>{{empty}}</h4>
+          <p><em>Conditionally render a block if the collection is empty.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: []</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#empty collection}}
+    Good news everyone!
+{{else}}
+    Bad news everyone!
+{{/empty}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Good news everyone!</code></pre>
+          <h4>{{first}}</h4>
+          <p><em>Returns the first item in a collection.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{first collection}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">Amy Wong</code></pre>
+          <h4>{{inArray}}</h4>
+          <p><em>Conditionally render a block if a specified value is in the collection.</em>
+            <br>Parameters: value <code>string|int</code> - A value to test against. (Required)</p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [&quot;Professor Farnsworth&quot;, &quot;Fry&quot;, &quot;Bend&quot;]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#inArray collection &quot;Fry&quot;}}
+  I&#39;m walking on sunshine!
+{{else}}
+  I&#39;m walking on darkness.
+{{/inArray}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">I&#39;m walking on sunshine!</code></pre>
+          <h4>{{join}}</h4>
+          <p><em>Joins all elements of a collection into a string using a separator if specified.</em>
+            <br>Parameters: separator <code>string</code> - A string to use as a separator between the items. (Optional)</p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{join collection &quot; &amp; &quot;}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Amy Wong &amp; Bender &amp; Dr. Zoidberg &amp; Fry &amp; Hermes Conrad &amp; Leela &amp; Professor Farnsworth &amp; Scruffy</code></pre>
+          <h4>{{last}}</h4>
+          <p><em>Returns the last item in a collection. Opposite of <code>first</code>.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{last collection}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Scruffy</code></pre>
+          <h4>{{length}}</h4>
+          <p><em>Returns the length of the collection.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{length collection}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">8</code></pre>
+          <h4>{{lengthEqual}}</h4>
+          <p><em>Conditionally render a block based on the length of a collection.</em>
+            <br>Parameters: length <code>int</code> - The value to test against. (Required)</p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  {
+    &quot;name&quot;: &quot;Leela&quot;,
+    &quot;deliveries&quot;: 8021
+  },
+  {
+    &quot;name&quot;: &quot;Bender&quot;,
+    &quot;deliveries&quot;: 239
+  },
+  {
+    &quot;name&quot;: &quot;Fry&quot;,
+    &quot;deliveries&quot;: -12
+  }
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#lengthEqual collection 3}}
+  There are 3 people in Planet Express.
+{{else}}
+  This is not Planet Express.
+{{/lengthEqual}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>There are 3 people in Planet Express.</code></pre>
+          <h4>{{sort}}</h4>
+          <p><em>Returns the collection sorted.</em>
+            Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{sort collection}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Amy Wong, Bender, Dr. Zoidberg, Fry, Hermes Conrad, Leela, Professor Farnsworth, Scruffy</code></pre>
+          <h4>{{withAfter}}</h4>
+          <p><em>Use all of the items in the collection after the specified count inside a block.</em>
+            <br>Parameters: count <code>int</code> - How many items to omit from the beginning. (Required)</p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#withAfter collection 5}}
+    {{titleize this}}
+{{/withAfter}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">Leela Professor Farnsworth Scruffy</code></pre>
+          <h4>{{withBefore}}</h4>
+          <p><em>Use all of the items in the collection before the specified count inside a block. Opposite of <code>withAfter</code>.</em>
+            <br>Parameters: count <code>int</code> - How many items to omit from the end. (Required)</p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#withBefore collection 5}}
+    {{reverse this}}
+{{/withBefore}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">gnoW ymA redneB grebdioZ .rD</code></pre>
+          <h4>{{withFirst}}</h4>
+          <p><em>Use the first item in a collection inside a block.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#withFirst collection}}
+  &lt;p&gt;{{this}} is smart.&lt;/p&gt;
+{{/withFirst}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">&lt;p&gt;Amy Wong is smart.&lt;/p&gt;</code></pre>
+          <h4>{{withLast}}</h4>
+          <p><em>Use the last item in a collection inside a block. Opposite of <code>withFirst</code>.</em>
+            <br>Parameters: <code>none</code>
+          </p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#withLast collection}}
+  &lt;p&gt;{{this}} is lazy.&lt;/p&gt;
+{{/withLast}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">&lt;p&gt;Scruffy is lazy.&lt;/p&gt;</code></pre>
+          <h4>{{withSort}}</h4>
+          <p><em>Uses the sorted collection inside the block.</em>
+            <br>Parameters: field <code>string</code> - String name of the field or property to sort by. (Optional)</p>
+          <p>Data:</p>
+<pre><code class="language-json">&quot;collection&quot;: [
+  {
+    &quot;name&quot;: &quot;Leela&quot;,
+    &quot;deliveries&quot;: 8021
+  },
+  {
+    &quot;name&quot;: &quot;Bender&quot;,
+    &quot;deliveries&quot;: 239
+  },
+  {
+    &quot;name&quot;: &quot;Fry&quot;,
+    &quot;deliveries&quot;: -12
+  }
+]</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#withSort collection &quot;deliveries&quot;}}
+  {{name}}: {{deliveries}} &lt;br&gt;
+{{/withSort}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">Fry: -12
+Bender: 239
+Leela: 8021</code></pre>
+          <hr>
+          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/helpers/helpers-collections.hbs">See the template for this page → </a>
+          </p>
+          <div class="alert">
+            <style type="text/css" media="screen">
+              .alert iframe {
+                float: right;
+                margin: 7px -30px 0 0;
+                vertical-align: text-top;
+              }
+            </style>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+            <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap.js"></script>
+  <script src="../assets/js/highlight.js"></script>
+  <script src="../assets/js/holder/holder.js"></script>
+  <script src="../assets/js/showup.js"></script>
+  <script>
+    $().showUp('.navbar');
+  </script>
+</body>
+
+</html>
