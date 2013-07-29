@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li class="active"><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -226,13 +231,13 @@
           </h2>
           <h3>1. Install grunt-init</h3>
           <p>If you haven&#39;t already done so, install [Grunt][grunt] and <a href="http:/gruntjs.com">grunt-init</a>:</p>
-<pre><code class="language-bash"><span class="title">npm</span> i -g grunt-cli grunt-init</code></pre>
+<pre><code class="language-bash">npm i -g grunt-cli grunt-init</code></pre>
           <p><em><strong>Windows users</strong>, see <a href="http:/gruntjs.com">the documentation</a> for the correct destination directory path</em>.</p>
           <p>
             <br>Once grunt-init is installed, place the template in your <code>~/.grunt-init/</code> directory. It&#39;s recommended that you use <code>git clone</code> to install this template into that directory as follows:</p>
           <h3>2. Install <a href="https://github.com/assemble/grunt-init-helper">grunt-init-helper</a>
           </h3>
-<pre><code class="language-bash">git clone https://github<span class="preprocessor">.com</span>/assemble/grunt-init-helper<span class="preprocessor">.git</span> ~/<span class="preprocessor">.grunt</span>-init/helper</code></pre>
+<pre><code class="language-bash">git clone https://github.com/assemble/grunt-init-helper.git ~/.grunt-init/helper</code></pre>
           <h3>3. Install dependencies</h3>
           <p>Then, in the directory where your custom helpers will be stored, run <code>grunt-init helper</code> and follow the prompts to generate a new helper with placeholder code that should be customized.</p>
           <p>
@@ -258,7 +263,7 @@
           </ul>
           <h2>Related info</h2>
           <ul>
-            <li><a href="About-Templates.html">Learn about Templates</a>
+            <li><a href="Templates-Overview.html">Learn about Templates</a>
             </li>
             <li><a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers Github repo</a>
             </li>

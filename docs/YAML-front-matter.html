@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -232,8 +237,8 @@ title: YAML Front Matter
 description: A very simple way to add structured data to a page.
 ---
 
-<span class="tag">&lt;<span class="title">h1</span>&gt;</span> <span class="variable">{{ title }}</span> <span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-<span class="tag">&lt;<span class="title">p</span>&gt;</span> <span class="variable">{{ description }}</span> <span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+&lt;h1&gt; {{ title }} &lt;/h1&gt;
+&lt;p&gt; {{ description }} &lt;/p&gt;
 
 Page content here...</code></pre>
           <h2>YFM &quot;Variables&quot;</h2>
@@ -246,18 +251,18 @@ Page content here...</code></pre>
           <p>If set, allows to specify tags attributed to given entry. Tag pages are generated automatically. Entry may belong to more than one tag, use YAML List to specify multiple tags.</p>
           <h3>Custom Variables</h3>
           <p>Any variables in the front-matter that are not predefined are mixed into the data that is sent to the Liquid templating engine during the conversion. For instance, if you set a title, you can use that in your layout to set the page title:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="variable">{{ page.title }}</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;title&gt;{{ page.title }}&lt;/title&gt;</code></pre>
           <h2>Using Lo-Dash templates in YFM</h2>
           <h3>Metadata &quot;conduit&quot;</h3>
           <p>This may not be obvious at first, is that YAML Front-Matter acts as a kind of &quot;conduit&quot; for passing information to pages via Lo-Dash templates.</p>
           <p>So you could do this:</p>
 <pre><code class="language-javascript">grunt.initConfig({
-  <span class="method">assemble:</span> {
-    <span class="method">component:</span> {
-      <span class="method">options:</span> {
-        <span class="method">data:</span> <span class="string">'page.json'</span>
+  assemble: {
+    component: {
+      options: {
+        data: <span class="string">'page.json'</span>
       },
-      <span class="method">files:</span> {
+      files: {
         <span class="string">'index.html'</span>: [<span class="string">'src/pages/*.hbs'</span>]
       }
     }
@@ -273,50 +278,50 @@ Page content here...</code></pre>
   }</span>
 }</span></code></pre>
           <p>And in the YFM of the page, use underscore templates:</p>
-<pre><code class="language-html"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
-<span class="comment">title:</span> &lt;<span class="comment">%=</span> <span class="comment">page</span>.<span class="comment">index</span>.<span class="comment">title</span> <span class="comment">%</span>&gt;
-<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<pre><code class="language-html">---
+title: &lt;%= page.index.title %&gt;
+---
 
-<span class="comment">YAML</span> <span class="comment">front</span> <span class="comment">matter</code></pre>
+YAML front matter</code></pre>
           <p>Alternatively, inside the Grunfile you can use <code>grunt.config.set</code> to define the data to be used for a given variable:</p>
-<pre><code class="language-js">grunt.config.<span class="operator"><span class="keyword">set</span>(<span class="string">'page.index.title'</span>, <span class="string">'Home'</span>);</span></code></pre>
+<pre><code class="language-js">grunt.config.set(<span class="string">'page.index.title'</span>, <span class="string">'Home'</span>);</code></pre>
           <h3>Example usage</h3>
 <pre><code class="language-html">---
 title:
-list: <span class="xml"><span class="vbscript">&lt;% _.forEach(people, <span class="keyword">function</span>(name) { %&gt;</span><span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="vbscript">&lt;%= name %&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span><span class="vbscript">&lt;% }); %&gt;</span>
+list: &lt;% _.forEach(people, function(name) { %&gt;&lt;li&gt;&lt;%= name %&gt;&lt;/li&gt;&lt;% }); %&gt;
 people:
 - Jon Schlinkert
 - Brian Woodward
 ---
-<span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span>YAML front matter<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"people"</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;YAML front matter&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;section class=&quot;people&quot;&gt;
+      &lt;ul&gt;
         [object Object]
-      <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">section</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></code></pre>
-          <pre><code class="language-yaml"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
-<span class="comment">layout:</span> <span class="comment">default</span>.<span class="comment">hbs</span>
-<span class="comment">title:</span> <span class="comment">Early</span> <span class="comment">humans</span> <span class="comment">discovered</span>.<span class="string">.</span><span class="string">.</span>
-<span class="comment">description:</span> <span class="comment">Lots</span> <span class="comment">of</span> <span class="comment">things</span>, <span class="comment">because</span> <span class="comment">they</span> <span class="comment">were</span> <span class="comment">early</span> <span class="comment">humans</span>.
-<span class="comment">date:</span> <span class="comment">2013</span>-<span class="comment">07</span>-<span class="comment">04</span>
-<span class="comment">categories:</span>
-<span class="literal">-</span> <span class="comment">anthropology</span>
-<span class="literal">-</span> <span class="comment">unibrows</span>
-<span class="literal">-</span> <span class="comment">various</span> <span class="comment">wooly</span> <span class="comment">animals</span>
-<span class="comment">tags:</span>
-<span class="literal">-</span> <span class="comment">rocks</span>
-<span class="literal">-</span> <span class="comment">wheel</span>
-<span class="literal">-</span> <span class="comment">30</span> <span class="comment">inch</span> <span class="comment">wooden</span> <span class="comment">rims</span>
-<span class="comment">published:</span> <span class="comment">false</span>
-<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
+      &lt;/ul&gt;
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <pre><code class="language-yaml">---
+layout: default.hbs
+title: Early humans discovered...
+description: Lots of things, because they were early humans.
+date: 2013-07-04
+categories:
+- anthropology
+- unibrows
+- various wooly animals
+tags:
+- rocks
+- wheel
+- 30 inch wooden rims
+published: false
+---</code></pre>
           <pre><code class="language-html">---
 title: My Blog
 description: Like I said, my bloggg!
@@ -327,79 +332,79 @@ example:
     - two
     - three
 ---
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"page-header"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="variable">{{title}}</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"lead"</span>&gt;</span><span class="variable">{{description}}</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+&lt;div class=&quot;page-header&quot;&gt;
+  &lt;h1&gt;{{title}}&lt;/h1&gt;
+  &lt;p class=&quot;lead&quot;&gt;{{description}}&lt;/p&gt;
+&lt;/div&gt;
 
-<span class="tag">&lt;<span class="title">ul</span>&gt;</span>
-  <span class="variable">{{#each example.custom.variables}}</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="variable">{{.}}</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="variable">{{/each}}</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></pre>
+&lt;ul&gt;
+  {{#each example.custom.variables}}
+  &lt;li&gt;{{.}}&lt;/li&gt;
+  {{/each}}
+&lt;/ul&gt;</code></pre>
           <h2>YAML Front-Matter in Partials</h2>
 <pre><code class="language-html">---
-title: <span class="vbscript">&lt;%= component.name || pkg.name %&gt;</span>
+title: &lt;%= component.name || pkg.name %&gt;
 ---
-<span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="variable">{{ titleize title }}</span> Component<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"<span class="variable">{{assets}}</span>/css/<span class="variable">{{title}}</span>.css"</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
-      <span class="comment">&lt;!-- {{title}} --&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span3"</span>&gt;</span>
-          <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"dropdown"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span>&gt;</span>User Settings<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"dropdown-menu"</span>&gt;</span>
-              <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>My Profile<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-              <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>Friend Requests<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-              <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>Account Settings<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-              <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>Support<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-              <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>Log Out<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-            <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-          <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;/<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- /{{title}} --&gt;</span>
-      <span class="variable">{{&gt; body }}</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"<span class="variable">{{assets}}</span>/js/<span class="variable">{{title}}</span>.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;{{ titleize title }} Component&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{assets}}/css/{{title}}.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;!-- {{title}} --&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;span3&quot;&gt;
+          &lt;div class=&quot;dropdown&quot;&gt;
+            &lt;div&gt;User Settings&lt;/div&gt;
+            &lt;ul class=&quot;dropdown-menu&quot;&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;My Profile&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Friend Requests&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Account Settings&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Log Out&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;&lt;!-- /{{title}} --&gt;
+      {{&gt; body }}
+    &lt;/div&gt;
+    &lt;script src=&quot;{{assets}}/js/{{title}}.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
           <h3>Rendering Lists</h3>
           <p>Use <a href="http://en.wikipedia.org/wiki/YAML#Associative_arrays_of_lists">YAML Associative Arrays</a> for rendering lists of information.</p>
           <p>Indented Blocks, common in YAML data files, use indentation and new lines to separate the <code>key: value</code> pairs</p>
 <pre><code class="language-yaml">---
-<span class="method">title:</span> <span class="class">Associative</span> arrays
-<span class="method">people:</span>
-  <span class="method">name:</span> <span class="class">John</span> <span class="class">Smith</span>
-  <span class="method">age:</span> <span class="number">33</span>
+title: Associative arrays
+people:
+  name: John Smith
+  age: 33
 
-<span class="method">morePeople:</span> {<span class="method">name:</span> <span class="class">Grace</span> <span class="class">Jones</span>, <span class="method">age:</span> <span class="number">21</span>}
+morePeople: {name: Grace Jones, age: 21}
 ---</code></pre>
           <p>Inline Blocks such as <code>morePeople</code>, common in YAML data streams, use comma+space to separate the <code>key: value</code> pairs between braces:</p>
           <p>Used in templates like this:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"page-header"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="variable">{{{title}}</span>}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<pre><code class="language-html">&lt;div class=&quot;page-header&quot;&gt;
+  &lt;h1&gt;{{{title}}}&lt;/h1&gt;
+&lt;/div&gt;
 
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"examples"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">h4</span>&gt;</span>Associative arrays<span class="tag">&lt;/<span class="title">h4</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">dl</span> <span class="attribute">class</span>=<span class="value">"dl-horizontal"</span>&gt;</span>
-    <span class="variable">{{#people}}</span>
-      <span class="tag">&lt;<span class="title">dt</span>&gt;</span>Name:<span class="tag">&lt;/<span class="title">dt</span>&gt;</span> <span class="tag">&lt;<span class="title">dd</span>&gt;</span><span class="variable">{{name}}</span><span class="tag">&lt;/<span class="title">dd</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">dt</span>&gt;</span>Age:<span class="tag">&lt;/<span class="title">dt</span>&gt;</span>  <span class="tag">&lt;<span class="title">dd</span>&gt;</span><span class="variable">{{age}}</span><span class="tag">&lt;/<span class="title">dd</span>&gt;</span>
-    <span class="variable">{{/people}}</span>
-    <span class="variable">{{#morePeople}}</span>
-      <span class="tag">&lt;<span class="title">dt</span>&gt;</span>Name:<span class="tag">&lt;/<span class="title">dt</span>&gt;</span> <span class="tag">&lt;<span class="title">dd</span>&gt;</span><span class="variable">{{name}}</span><span class="tag">&lt;/<span class="title">dd</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">dt</span>&gt;</span>Age:<span class="tag">&lt;/<span class="title">dt</span>&gt;</span>  <span class="tag">&lt;<span class="title">dd</span>&gt;</span><span class="variable">{{age}}</span><span class="tag">&lt;/<span class="title">dd</span>&gt;</span>
-    <span class="variable">{{/morePeople}}</span>
-  <span class="tag">&lt;/<span class="title">dl</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+&lt;div class=&quot;examples&quot;&gt;
+  &lt;h4&gt;Associative arrays&lt;/h4&gt;
+  &lt;dl class=&quot;dl-horizontal&quot;&gt;
+    {{#people}}
+      &lt;dt&gt;Name:&lt;/dt&gt; &lt;dd&gt;{{name}}&lt;/dd&gt;
+      &lt;dt&gt;Age:&lt;/dt&gt;  &lt;dd&gt;{{age}}&lt;/dd&gt;
+    {{/people}}
+    {{#morePeople}}
+      &lt;dt&gt;Name:&lt;/dt&gt; &lt;dd&gt;{{name}}&lt;/dd&gt;
+      &lt;dt&gt;Age:&lt;/dt&gt;  &lt;dd&gt;{{age}}&lt;/dd&gt;
+    {{/morePeople}}
+  &lt;/dl&gt;
+&lt;/div&gt;</code></pre>
           <h3><a href="https://assemble/assemble/test/actual/yaml">More examples</a>
           </h3>
           <p>See some great usage examples in assemble&#39;s <a href="https://github.com/assemble/assemble/tree/master/test/actual/yfm">YAML test files</a>:</p>

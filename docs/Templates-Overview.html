@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Template Basics | Assemble</title>
+  <title>Templates Overview | Assemble</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/markdown.css">
   <link rel="stylesheet" href="assets/css/assemble.css">
@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -115,7 +118,7 @@
             </script>
           </div>
           <h1>
-            <span class="text-muted">Docs /&nbsp;</span>templates</h1>
+            <span class="text-muted">Docs /&nbsp;</span>[object Object]</h1>
         </div>
       </div>
     </div>
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li class="active"><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -216,7 +221,7 @@
       </div>
       <div class="col col-lg-9">
         <div class="panel panel-docs">
-          <h1>Template Basics</h1>
+          <h1>Templates Overview</h1>
           <blockquote>
             <p>Assemble allows use of either Lo-Dash or Handlebars templates, depending on where the templates are used.</p>
           </blockquote>
@@ -231,7 +236,7 @@
           </h3>
           <h4>Syntax</h4>
           <p>A basic template looks like this:</p>
-<pre><code class="language-yaml">title: <span class="xml"><span class="vbscript">&lt;%= pkg.name %&gt;</span></span></code></pre>
+<pre><code class="language-yaml">title: &lt;%= pkg.name %&gt;</code></pre>
           <h4>Usage</h4>
           <p>Lo-Dash templates can be used in:</p>
           <ul>
@@ -246,7 +251,7 @@
           </h3>
           <h4>Syntax</h4>
           <p>A basic expression looks like this:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;h1&gt;&lt;/h1&gt;</code></pre>
           <p>Usage: May be used only in the &quot;content&quot; of pages, e.g. <em>anywhere but the YAML front matter of a page.</em>.</p>
           <p>Although Handlebars is most often used for generating HTML, you can also <em>generate</em> JSON, XML, YAML, CSS, LESS, SASS and so on.</p>
           <p>This keeps Lo-Dash templates focused on configuration(ish) data, or data that is used directly by the build process, and Handlebars focused on rendering content with as little logic as possible.</p>
@@ -254,46 +259,46 @@
           <p>Most templating languages share a few common features:</p>
           <h2>&quot;Do&quot;s and &quot;Don&#39;t&quot;s</h2>
           <h3>Don&#39;t</h3>
-<pre><code class="language-json"><span class="comment">// alert.json</span>
+<pre><code class="language-json">// alert.json
 {
-  <span class="string">"message"</span>: <span class="string">"this is an alert from "</span>
+  &quot;message&quot;: &quot;this is an alert from &quot;
 }</code></pre>
           <p>Or this:</p>
-<pre><code class="language-html"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
-<span class="comment">title:</span>  <span class="comment">#</span> <span class="comment">Oops!</span> <span class="comment">Can't</span> <span class="comment">use</span> <span class="comment">handlebars</span> <span class="comment">here!!!</span>
-<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<pre><code class="language-html">---
+title:  # Oops! Can&#39;t use handlebars here!!!
+---
 
-&lt;<span class="comment">h1</span>&gt;<span class="comment">Template</span> <span class="comment">Basics</span>&lt;<span class="comment">/h1</span>&gt;</code></pre>
+&lt;h1&gt;Templates Overview&lt;/h1&gt;</code></pre>
           <p>Neither of those examples will because Handlebars templates can only be used
             <strong>outside of the YAML front matter</strong>.</p>
           <p>This won&#39;t work either:</p>
 <pre><code class="language-html">---
 title: My Site
 ---
-<span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="vbscript">&lt;%= title %&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-Whoa! Nope, this won't work either. No Lo-Dash in the "content" part of the page!</span></code></pre>
+&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+Whoa! Nope, this won&#39;t work either. No Lo-Dash in the &quot;content&quot; part of the page!</code></pre>
           <p>Lo-Dash templates can only be used in the YAML front Matter (or in YAML/JSON files, or the Gruntfile).</p>
           <h3>Do</h3>
           <p>This works:</p>
-<pre><code class="language-json"><span class="comment">// alert.json</span>
+<pre><code class="language-json">// alert.json
 {
-  <span class="string">"message"</span>: <span class="string">"this is an alert from &lt;%= site.name %&gt;"</span>
+  "message": "this is an alert from &lt;%= site.name %&gt;"
 }</code></pre>
           <p>This works too:</p>
-<pre><code class="language-html"><span class="comment">---</span>
-title: &lt;% pkg.name %&gt; # Nice!!! Assuming you are reading <span class="keyword">in</span> the <span class="keyword">package</span>.json <span class="keyword">in</span> the Gruntfile, this works!
-<span class="comment">---</span>
+<pre><code class="language-html">---
+title: &lt;% pkg.name %&gt; # Nice!!! Assuming you are reading in the package.json in the Gruntfile, this works!
+---
 
-&lt;h1&gt;Template Basics&lt;/h1&gt;
+&lt;h1&gt;Templates Overview&lt;/h1&gt;
 
-<span class="keyword">And</span> this title will pull data from the YAML front matter. It<span class="attribute">'s</span> kind <span class="keyword">of</span> like cheating, accept <span class="keyword">not</span>.</code></pre>
+And this title will pull data from the YAML front matter. It&#39;s kind of like cheating, accept not.</code></pre>
           <p>So does this:</p>
-<pre><code class="language-yaml"><span class="preprocessor"># alert.yml</span>
-<span class="label">modifier:</span> alert-warning
-<span class="label">strong:</span> Be advised!
-<span class="label">message:</span> this is an alert from &lt;%= site<span class="preprocessor">.name</span> %&gt; <span class="preprocessor"># pass in the site name</span></code></pre>
+<pre><code class="language-yaml"># alert.yml
+modifier: alert-warning
+strong: Be advised!
+message: this is an alert from &lt;%= site.name %&gt; # pass in the site name</code></pre>
           <p>And then pass it along to <code>alert.hbs</code>:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"alert alert-info"</span>&gt;</span><span class="tag">&lt;<span class="title">strong</span>&gt;</span>External data example<span class="tag">&lt;/<span class="title">strong</span>&gt;</span>This alert was assembled from a partial and YAML data fron in &amp;#x27;./src/data/&amp;#x60;.<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;div class=&quot;alert alert-info&quot;&gt;&lt;strong&gt;External data example&lt;/strong&gt;This alert was assembled from a partial and YAML data fron in &amp;#x27;./src/data/&amp;#x60;.&lt;/div&gt;</code></pre>
           <h2>Related Information</h2>
           <ul>
             <li><a href="Pages.html">Pages</a>
@@ -306,7 +311,7 @@ title: &lt;% pkg.name %&gt; # Nice!!! Assuming you are reading <span class="keyw
             </li>
           </ul>
           <hr>
-          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/About-Templates.md.hbs">See the template for this page → </a>
+          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Templates-Overview.md.hbs">See the template for this page → </a>
           </p>
           <div class="alert">
             <style type="text/css" media="screen">

@@ -4441,26 +4441,24 @@ a.list-group-item.active > .badge,
   border: none;
   box-shadow: none;
 }
-.panel ul,
 .panel ul {
   padding-left: 20px;
   margin: 30px 0;
   list-style: none;
 }
-.panel ul li,
-.panel ul li {
-  margin: 2em 0;
+.panel ul:last-of-type {
+  margin: 30px 0 30px;
 }
-.panel ul li ul,
+.panel ul li {
+  margin: 1em 0;
+}
 .panel ul li ul {
   margin: 0 0 30px;
   list-style: disc outside;
 }
-.panel ul li ul li,
 .panel ul li ul li {
   margin: 1em 0;
 }
-.panel hr + ul,
 .panel hr + ul {
   padding: 0;
 }

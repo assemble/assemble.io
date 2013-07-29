@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -241,10 +246,10 @@
             <li><code>layout</code> : the layout to be used for the current page. Overrides any layouts defined in the <code>assemble.options</code>, at the task and target level,</li>
             <li><code>published</code> : Use <code>published: false</code> in the <a href="YAML-front-matter.html">YAML Front Matter</a> of a page to exclude the page from being rendered.</li>
           </ul>
-<pre><code class="language-yaml"><span class="comment">---</span>
-title: Just testing <span class="keyword">some</span> stuff <span class="function_start"><span class="keyword">on</span> <span class="title">this</span></span> page, <span class="keyword">it</span> should <span class="keyword">not</span> be published
-published: <span class="constant">false</span>
-<span class="comment">---</span></code></pre>
+<pre><code class="language-yaml">---
+title: Just testing some stuff on this page, it should not be published
+published: false
+---</code></pre>
           <h3>Collections</h3>
           <p>Collections can also be defined in YAML front matter:</p>
           <ul>
@@ -264,18 +269,18 @@ published: <span class="constant">false</span>
           <p>For example, given that the custom variable <code>production</code> is set to <code>false</code> :</p>
 <pre><code class="language-js">assemble: {
   options: {
-    production: false
+    production: <span class="literal">false</span>
   },
-  <span class="keyword">...</span>
+  ...
 }</code></pre>
           <p>This template:</p>
-<pre><code class="language-html"><span class="variable">{{#if production}}</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"dist/assets/script.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="variable">{{else}}</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"dist/assets/script.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="variable">{{/if}}</span></code></pre>
+<pre><code class="language-html">{{#if production}}
+&lt;script src=&quot;dist/assets/script.min.js&quot;&gt;&lt;/script&gt;
+{{else}}
+&lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;
+{{/if}}</code></pre>
           <p>Will render the HTML for the <em>non-minified</em> &nbsp; script tag:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"dist/assets/script.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;</code></pre>
           <h2>Helpers</h2>
           <p>Variables can be modified using using special tags called <a href="Helpers.html">helpers</a>. Helpers may also accept parameters, each of which is a <a href="http://handlebarsjs.com/expressions.html">Handlebars expression</a>.</p>
           <h3>See <a href="Helpers.html">Helpers</a> and <a href="Custom-Helpers.html">Custom Helpers</a> →</h3>

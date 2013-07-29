@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -229,15 +234,15 @@
           <p>That just about covers it, so let&#39;s get started!</p>
           <h2>Setup</h2>
           <h3>1. git clone assemble</h3>
-<pre><code class="language-shell"><span class="title">git</span> clone <span class="url">https://github.com/assemble/assemble.git</span> <span class="string">"my-project"</span></code></pre>
+<pre><code class="language-shell">git clone https://github.com/assemble/assemble.git &quot;my-project&quot;</code></pre>
           <p>then</p>
-<pre><code class="language-shell"><span class="title">cd</span> my-project</code></pre>
+<pre><code class="language-shell">cd my-project</code></pre>
           <h3>2. Install necessary packages</h3>
-<pre><code class="language-shell"><span class="title">npm</span> i assemble grunt</code></pre>
+<pre><code class="language-shell">npm i assemble grunt</code></pre>
           <h3>3. Build</h3>
-<pre><code class="language-shell"><span class="title">grunt</span> assemble</code></pre>
+<pre><code class="language-shell">grunt assemble</code></pre>
           <p>If everything builds properly, then run:</p>
-<pre><code class="language-shell"><span class="title">grunt</span> test</code></pre>
+<pre><code class="language-shell">grunt test</code></pre>
           <p>And all tests should pass.</p>
           <h3>4. Time to customize!</h3>
           <p>IIdeally, you should start with a nice clean Gruntfile and a brand new <code>src</code> directory, but this is a great way to start learning by example. If you get stuck or need inspiration, just head over to <a href="http://assemble.io">Assemble&#39;s documentation</a>, or take a look at <a href="https://github.com/assemble/assemble-examples">some other examples</a>.</p>

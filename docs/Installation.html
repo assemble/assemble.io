@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -222,23 +227,23 @@
           </p>
           <p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to read the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins.</p>
           <p>Then install the plugin with this command:</p>
-<pre><code class="language-shell"><span class="comment">$</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="comment">assemble</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span>-<span class="comment">dev</code></pre>
+<pre><code class="language-shell">$ npm install assemble --save-dev</code></pre>
           <p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
-<pre><code class="language-js"><span class="filename">grunt.loadNpmTasks('assemble');</code></pre>
+<pre><code class="language-js">grunt.loadNpmTasks(<span class="string">'assemble'</span>);</code></pre>
           <p>When completed, you&#39;ll be able to run the various <code>grunt</code> commands available</p>
           <h2>The &quot;assemble&quot; task</h2>
-<pre><code class="language-js"><span class="method">assemble:</span> {
-  <span class="method">options:</span> {
-    <span class="method">assets:</span> <span class="comment">"path/to/assets"</span>,
-    <span class="method">data:</span>   <span class="comment">"path/to/config.json"</span>
+<pre><code class="language-js">assemble: {
+  options: {
+    assets: <span class="string">"path/to/assets"</span>,
+    data:   <span class="string">"path/to/config.json"</span>
   },
-  <span class="method">project:</span> {
-    <span class="method">options:</span> {
-      <span class="method">layout:</span> <span class="comment">"path/to/default-layout.hbs"</span>,
-      <span class="method">partials:</span> <span class="comment">"path/to/partials/**/*.hbs"</span>
+  project: {
+    options: {
+      layout: <span class="string">"path/to/default-layout.hbs"</span>,
+      partials: <span class="string">"path/to/partials/**/*.hbs"</span>
     },
-    <span class="method">files:</span> {
-      <span class="string">'dest'</span>: <span class="comment">"path/to/pages/**/*.hbs"</span>
+    files: {
+      <span class="string">'dest'</span>: <span class="string">"path/to/pages/**/*.hbs"</span>
       ]
     }
   }
@@ -250,16 +255,16 @@ grunt.loadNpmTasks(<span class="string">'assemble'</span>);</code></pre>
           <p>The <code>options</code> object is optional and may be omitted if not needed.</p>
 <pre><code class="language-js">grunt.initConfig({
   concat: {
-    <span class="keyword">options</span>: {
-      // Task-level <span class="keyword">options</span> may go here, overriding task defaults
+    options: {
+      <span class="comment">// Task-level options may go here, overriding task defaults</span>
     },
     foo: {
-      <span class="keyword">options</span>: {
-        // <span class="string">"foo"</span> target <span class="keyword">options</span> may go here, overriding task-level <span class="keyword">options</span>
+      options: {
+        <span class="comment">// "foo" target options may go here, overriding task-level options</span>
       }
     },
     bar: {
-      // No <span class="keyword">options</span> specified; this target will use task-level <span class="keyword">options</span>
+      <span class="comment">// No options specified; this target will use task-level options</span>
     }
   }
 });</code></pre>

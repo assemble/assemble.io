@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -220,16 +225,16 @@
           <blockquote>
             <p>In Assemble, context is the current JSON data object that templates can use.</p>
           </blockquote>
-          <p>If you are unfamiliar with how Handlebar templates work, please visit the <a href="http://handlebarsjs.com/">Handlebar documentation</a> for more information. Also see Assemble&#39;s documentation for <a href="About-Templates.html">templates</a> and <a href="Data.html">Data</a>.</p>
+          <p>If you are unfamiliar with how Handlebar templates work, please visit the <a href="http://handlebarsjs.com/">Handlebar documentation</a> for more information. Also see Assemble&#39;s documentation for <a href="Templates-Overview.html">templates</a> and <a href="Data.html">Data</a>.</p>
           <p>
             <a id="context-in-handlebars"></a>
           </p>
           <h2>Context in Handlebars</h2>
           <p>In Handlebars, every template has a context. Blocks such as <code>{{#if}}</code> create &quot;inline&quot; templates, and the <code>{{#if}}</code> helper then determines the context in which to render the template.</p>
           <p>Some helpers, like <code>{{#if}}</code>, will preserve the current context, while others such as <code>{{#each}}</code> and <code>{{#with}}</code>, <em>will change the context</em> in different ways. <em>Helpers can even change the context to something completely different if they want</em>:</p>
-<pre><code class="language-js"><span class="tag">options</span><span class="class">.fn</span>(<span class="rules">{
-  <span class="rule"><span class="attribute">published</span>:<span class="value"> true
-}</span></span></span>)</code></pre>
+<pre><code class="language-js">options.fn({
+  published: <span class="literal">true</span>
+})</code></pre>
           <p>Handlebars also supports <em>nested contexts</em>, making it possible to look up properties nested below the current context. Nested handlebars paths can also include <code>../</code> segments, which evaluate their paths against a parent context.</p>
           <p>The <code>../</code> path means &quot;look this up on the context of the parent template&quot;. In some cases, that will amount to the parent in the current object (with). In other cases, it will not. In cases like if, which preserve the context, <code>../</code> will happen to point to the same object, but this is just a coincidence. In all cases, <code>../</code> is lexically bound to the parent template.</p>
           <p><em>The information in this section was mostly taken from <a href="https://github.com/wycats/handlebars.js/issues/196#issuecomment-8581551">this conversation</a>, and edited to make sense for Assemble.</em>
@@ -245,9 +250,9 @@
   "<span class="attribute">title</span>": <span class="value"><span class="string">"Heads up!"</span>
 }</span></code></pre>
           <p>In our template <code>alert.hbs</code>, we will now look up the properites of <code>alert.json</code> by using the name of the file, <code>alert</code>, as the current context. So to retrieve the <code>title</code> property, we would do this:</p>
-<pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="variable">{{alert.title}}</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></code></pre>
+<pre><code class="language-handlebars">&lt;h1&gt;{{alert.title}}&lt;/h1&gt;</code></pre>
           <p>Which renders to:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Heads up!<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;h1&gt;Heads up!&lt;/h1&gt;</code></pre>
           <p>
             <a id="root-context"></a>
           </p>
@@ -255,16 +260,16 @@
           <p>In Assemble, the root of the context is where the data object starts. Everything under the root is a child property. Also, when a variable is at &quot;the root of the context&quot; the variable may be used as-is, or &quot;raw&quot;, enabling you to look up properties <em>for the &quot;current&quot; object</em> without nesting the context <em>within</em> the current object. In other words, the &quot;path&quot; of the current object does not need to be appended to the variable, so instead of <code>about_us.title</code>, you may simply use <code>title</code>.</p>
           <h3>Example</h3>
           <p>In <code>layout.hbs</code> we will use <code>{{title}}</code> to lookup the <code>title</code> property on each page that is passed into the layout.</p>
-<pre><code class="language-handlebars"><span class="doctype">&lt;!doctype html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="variable">{{title}}</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="variable">{{&gt; body }}</span>
-  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre>
+<pre><code class="language-handlebars">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    {{&gt; body }}
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
           <p>Since the <code>{{title}}</code> variable is inside a <a href="Layouts.html">layout</a>, we do not need to nest the <code>title</code> within the context of the <code>data</code> object. In other words, by default, layouts</p>
           <p>
             <a id="the-data-object"></a>
@@ -276,35 +281,35 @@
   "<span class="attribute">title</span>": <span class="value"><span class="string">"My Title"</span>
 }</span></code></pre>
           <p>Inside <code>myTemplate.hbs</code>, we would use:</p>
-<pre><code class="language-handlebars"><span class="variable">{{title}}</span></code></pre>
+<pre><code class="language-handlebars">{{title}}</code></pre>
           <p>However, using the same example but with a file named <code>myData.json</code>, the data must now be accessed using the name of the file.</p>
           <p>So, given we have <code>myData.json</code> with:</p>
 <pre><code class="language-json">{
   "<span class="attribute">title</span>": <span class="value"><span class="string">"My Title"</span>
 }</span></code></pre>
           <p>Out template, <code>myTemplate.hbs</code>, would have:</p>
-<pre><code class="language-handlebars">{{myData<span class="variable">.title</span>}}</code></pre>
+<pre><code class="language-handlebars">{{myData.title}}</code></pre>
           <p>
             <a id="this-expression"></a>
           </p>
           <h2>&quot;this&quot; expression</h2>
           <p>You can use the <code>this</code> expression in any context to refer to the current context.</p>
           <p>For example (from <a href="http://handlebarsjs.com/">http://handlebarsjs.com/</a>), inside the <code>{{#each}}</code> block, you can use <code>this</code> to reference the element being iterated over.</p>
-<pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"people-list"</span>&gt;</span>
-  <span class="variable">{{#each people}}</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="variable">{{this}}</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="variable">{{/each}}</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></pre>
+<pre><code class="language-handlebars">&lt;ul class=&quot;people-list&quot;&gt;
+  {{#each people}}
+  &lt;li&gt;{{this}}&lt;/li&gt;
+  {{/each}}
+&lt;/ul&gt;</code></pre>
           <p>when used with this context, <code>people.json</code>:</p>
 <pre><code class="language-json">[
   <span class="string">"Jon Schlinkert"</span>,
   <span class="string">"Brian Woodward"</span>
 ]</code></pre>
           <p>will result in:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"people-list"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Jon Schlinkert<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Brian Woodward<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;ul class=&quot;people-list&quot;&gt;
+  &lt;li&gt;Jon Schlinkert&lt;/li&gt;
+  &lt;li&gt;Brian Woodward&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
           <hr>
           <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Context.md.hbs">See the template for this page → </a>
           </p>

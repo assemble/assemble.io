@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -230,41 +235,41 @@
           <p>Once the <code>assets</code> variable is defined in the Gruntfile, you may use the <code>{{assets}}</code> variable anywhere in your templates and Assemble will generate a relative path from <code>dest</code> files to the specified <code>assets</code> directory.</p>
           <h2>Example usage</h2>
           <p>Given the following task configuration in your project&#39;s Grunfile:</p>
-<pre><code class="language-js"><span class="method">assemble:</span> {
-  <span class="method">options:</span> { 
-    // <span class="class">Set</span> the <span class="comment">"default"</span> assets dir at the task-level
-    <span class="method">assets:</span> <span class="string">'docs/assets'</span> 
+<pre><code class="language-js">assemble: {
+  options: { 
+    <span class="comment">// Set the "default" assets dir at the task-level</span>
+    assets: <span class="string">'docs/assets'</span> 
   },
-  <span class="method">docs:</span> {
-    <span class="method">files:</span> {
+  docs: {
+    files: {
       <span class="string">'docs/'</span>: [<span class="string">'src/pages/**/*.hbs'</span>]
     }
   },
-  <span class="method">components:</span> {
-    <span class="method">files:</span> {
+  components: {
+    files: {
       <span class="string">'docs/components/'</span>: [<span class="string">'src/partials/**/*.hbs'</span>]
     }
   },
-  <span class="method">main:</span> {
-    <span class="method">options:</span> { 
-      // <span class="class">Override</span> the task-level assets dir
-      <span class="method">assets:</span> <span class="string">'dist/assets'</span> 
+  main: {
+    options: { 
+      <span class="comment">// Override the task-level assets dir</span>
+      assets: <span class="string">'dist/assets'</span> 
     },
-    <span class="method">files:</span> {
+    files: {
       <span class="string">'dist/'</span>: [<span class="string">'src/pages/**/*.hbs'</span>]
     }
   }
-  // other stuff
+  <span class="comment">// other stuff</span>
 }</code></pre>
           <p>And given the following templates:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"<span class="variable">{{assets}}</span>/css/bootstrap.css"</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{assets}}/css/bootstrap.css&quot;&gt;</code></pre>
           <p>The output HTML will render as follows:</p>
           <p>For the <code>assemble.docs</code> target</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"assets/css/bootstrap.css"</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/bootstrap.css&quot;&gt;</code></pre>
           <p>For the <code>assemble.components</code> target</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"../assets/css/bootstrap.css"</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/css/bootstrap.css&quot;&gt;</code></pre>
           <p>For the <code>assemble.main</code> target</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"assets/css/bootstrap.css"</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/bootstrap.css&quot;&gt;</code></pre>
           <p>
             <strong>Note</strong>that for <code>assets</code> to work predictably, <em>a slash must follow the <code>{{assets}}</code> variable</em>
           </p>

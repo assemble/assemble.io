@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -221,17 +226,17 @@
           <p>Describes <code>init</code> method to <code>assemble.engine</code>, and exposes engine on <code>assemble.engine</code>.</p>
           <h3>Custom Engines</h3>
           <p>If you don&#39;t wish to use Handlebars as your templates engine, you may add your own engine by providing an <code>init</code> function that takes in options from the assemble task/target. You may also override the <code>init</code> function in the task/target options by providing an <code>initializeEngine</code> function that takes the engine and the options:</p>
-<pre><code class="language-js"><span class="tag">assemble</span>: <span class="rules">{
-  <span class="rule"><span class="attribute">options</span>:<span class="value"> {
+<pre><code class="language-js">assemble: {
+  options: {
     engine: <span class="string">'consolidate'</span>,
-    initializeEngine: <span class="function">function(engine, options)</span> {
-      engine.engine.swig.<span class="function">init(options)</span>;</span></span>
-    <span class="rule">}</span></span>
+    initializeEngine: <span class="keyword">function</span>(engine, options) {
+      engine.engine.swig.init(options);
+    }
   },
-  <span class="tag">docs</span>: <span class="rules">{
-    <span class="rule"><span class="attribute">files</span>:<span class="value"> {
+  docs: {
+    files: {
       <span class="string">'docs/'</span>: [<span class="string">'src/templates/**/*.tmpl'</span>]
-    }</span></span></span>
+    }
   }
 }</code></pre>
           <p>Assemble will attempt to load an engine and automatically add it&#39;s own wrapper methods around it while holding an instance of the engine. This is a way for engine plugin authors to write adapters between other engines and assemble&#39;s wrapper. To make these functions on the options useful, we&#39;ve exposed the underlying engine through the <code>assemble.engine</code> object so

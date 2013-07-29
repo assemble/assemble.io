@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -222,16 +227,16 @@
           </blockquote>
           <h2>Layout example</h2>
           <p>Layouts are optional, but the <code>{{&gt; body }}</code> tag is required for content to be pulled into a layout.</p>
-<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="variable">{{title}}</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="comment">&lt;!-- the body "pulls in" content from pages --&gt;</span>
-    <span class="variable">{{&gt; body }}</span>
-  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- the body &quot;pulls in&quot; content from pages --&gt;
+    {{&gt; body }}
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
           <h2>Granular control</h2>
           <ol>
             <li>
@@ -243,28 +248,28 @@
           </ol>
           <h3>Multiple layouts</h3>
           <p>Since you can create as many <a href="http://gruntjs.com/configuring-tasks">targets</a> as you require, defining layouts in the Gruntfile is a great way of quickly setting up your layout &quot;defaults&quot;. In the <code>assemble</code> task in your Gruntfile.js, you can define a layout at the task-level, and/or a different layout for each build target:</p>
-<pre><code class="language-javascript"><span class="method">assemble:</span> {
-  <span class="method">options:</span> {
-    <span class="method">layout:</span> <span class="string">'layouts/default.hbs'</span>
+<pre><code class="language-javascript">assemble: {
+  options: {
+    layout: <span class="string">'layouts/default.hbs'</span>
   },
-  <span class="method">site:</span> {
-    <span class="method">files:</span> {
+  site: {
+    files: {
       <span class="string">'site/'</span>: [<span class="string">'templates/pages/*.hbs'</span>]
     }
   },
-  <span class="method">blog:</span> {
-    <span class="method">options:</span> {
-      <span class="method">layout:</span> <span class="string">'layout/post.hbs'</span>
+  blog: {
+    options: {
+      layout: <span class="string">'layout/post.hbs'</span>
     },
-    <span class="method">files:</span> {
+    files: {
       <span class="string">'blog/'</span>: [<span class="string">'templates/posts/*.hbs'</span>]
     }
   },
-  <span class="method">docs:</span> {
-    <span class="method">options:</span> {
-      <span class="method">layout:</span> <span class="string">'layouts/docs.hbs'</span>
+  docs: {
+    options: {
+      layout: <span class="string">'layouts/docs.hbs'</span>
     },
-    <span class="method">files:</span> {
+    files: {
       <span class="string">'docs/'</span>: [<span class="string">'templates/docs/*.hbs'</span>]
     }
   }
@@ -272,9 +277,9 @@
           <h2>Page-specific Layouts</h2>
           <p>If you require a higher level of granularity than defining layouts in the Gruntfile, you may also define layouts on a page-by-page basis, thus overriding both the task-level (&quot;global&quot;) defaults and the target-level defaults.</p>
           <p>To do so, just add the layout to the <a href="YAML-front-matter.html">YFM</a> of the page like this:</p>
-<pre><code class="language-yaml"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
-<span class="comment">layout:</span> <span class="comment">path/to/layout</span>.<span class="comment">hbs</span>
-<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
+<pre><code class="language-yaml">---
+layout: path/to/layout.hbs
+---</code></pre>
           <h2>Disabling Layouts</h2>
           <ul>
             <li>
@@ -285,62 +290,62 @@
           <h2>Example usage</h2>
           <p>Your imagination is the only limit to what can be done with layouts, so these are just examples.</p>
           <h3>Advanced layout</h3>
-<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="variable">{{title}}</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
 
-    <span class="comment">&lt;!-- HEADER --&gt;</span>
-    <span class="tag">&lt;<span class="title">header</span> <span class="attribute">class</span>=<span class="value">"masthead subhead"</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
-          <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col col-lg-12"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"text-muted"</span>&gt;</span>Docs /&amp;nbsp;<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="variable">{{#if section}}</span><span class="variable">{{ section }}</span> <span class="variable">{{else}}</span><span class="variable">{{basename}}</span><span class="variable">{{/if}}</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-          <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
+    &lt;!-- HEADER --&gt;
+    &lt;header class=&quot;masthead subhead&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+          &lt;div class=&quot;col col-lg-12&quot;&gt;
+            &lt;h1&gt;&lt;span class=&quot;text-muted&quot;&gt;Docs /&amp;nbsp;&lt;/span&gt; {{#if section}}{{ section }} {{else}}{{basename}}{{/if}}&lt;/h1&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
 
-    <span class="comment">&lt;!-- CONTENT --&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
-      <span class="variable">{{&gt; body }}</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    &lt;!-- CONTENT --&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      {{&gt; body }}
+    &lt;/div&gt;
 
-    <span class="comment">&lt;!-- FOOTER --&gt;</span>
-    <span class="variable">{{&gt; footer }}</span>
-  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre>
+    &lt;!-- FOOTER --&gt;
+    {{&gt; footer }}
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
           <h3>Layouts for other formats</h3>
           <h4>Markdown layouts</h4>
           <p>Layouts don&#39;t have to be HTML, they can be whatever language you want them to be. If you&#39;re generating markdown pages instead of HTML, maybe for a project wiki or other markdown documentation, then you&#39;ll want to use a markdown formatted <code>layout</code>.</p>
           <p>In this example, instead of adding adding the traditional head and footer we&#39;ll add some link references to make sure the same ones are used on every generated page. This makes it easier to maintain links and it also cuts down on potential for broken links:</p>
 <pre><code class="language-markdown">{{&gt; body }}
 
-* * *
+<span class="bullet">* </span><span class="bullet">* *</span>
 
-_This page was generated using Grunt <span class="keyword">and</span> [assemble][repo] <span class="literal">on</span> {{ today }}._
+<span class="emphasis">_This page was generated using Grunt and [assemble][repo] on {{ today }}._</span>
 
-[org]: https:<span class="regexp">//gi</span>thub.com/assemble
-[repo]: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/assemble/</span>assemble
-[issues]: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/assemble/assemble/i</span>ssues
-[docs]: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/assemble/</span>assemble-docs</code></pre>
+[org]: https://github.com/assemble
+[repo]: https://github.com/assemble/assemble
+[issues]: https://github.com/assemble/assemble/issues
+[docs]: https://github.com/assemble/assemble-docs</code></pre>
           <h4>README Layout</h4>
-<pre><code class="language-markdown"><span class="comment"># {{pkg.name}} {{travis-badge}}</span>
+<pre><code class="language-markdown"><span class="header"># {{pkg.name}} {{travis-badge}}</span>
 
-&gt; {{pkg.description}}
+<span class="blockquote">&gt; {{pkg.description}}</span>
 
 {{&gt; body }}
 
-* * *
+<span class="bullet">* </span><span class="bullet">* *</span>
 
-_This readme was generated using Grunt <span class="keyword">and</span> [assemble][repo] <span class="literal">on</span> {{ today }}._
+<span class="emphasis">_This readme was generated using Grunt and [assemble][repo] on {{ today }}._</span>
 
-[org]: https:<span class="regexp">//gi</span>thub.com/assemble
-[repo]: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/assemble/</span>assemble
-[issues]: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/assemble/assemble/i</span>ssues
-[docs]: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/assemble/</span>assemble-docs</code></pre>
+[org]: https://github.com/assemble
+[repo]: https://github.com/assemble/assemble
+[issues]: https://github.com/assemble/assemble/issues
+[docs]: https://github.com/assemble/assemble-docs</code></pre>
           <h2>Layout FAQ</h2>
           <ul>
             <li>Layouts are optional</li>
@@ -348,7 +353,7 @@ _This readme was generated using Grunt <span class="keyword">and</span> [assembl
             <li>Layouts may be defined in the Gruntfile or in <a href="YAML-front-matter.html">YFM</a> of a page.</li>
             <li>A layout defined for a target will override a layout defined at the task level.</li>
             <li>A layout defined in <a href="YAML-front-matter.html">YFM</a> will override a layout defined in the Gruntfile</li>
-            <li><a href="About-Templates.html">Lo-dash templates</a> can be used in YAML front-matter to specificy a layout.</li>
+            <li><a href="Templates-Overview.html">Lo-dash templates</a> can be used in YAML front-matter to specificy a layout.</li>
           </ul>
           <h2>Related info</h2>
           <ul>
@@ -358,7 +363,7 @@ _This readme was generated using Grunt <span class="keyword">and</span> [assembl
             </li>
             <li><a href="Partials.html">Partials</a>
             </li>
-            <li><a href="About-Templates.html">about-templates</a>
+            <li><a href="Templates-Overview.html">templates-overview</a>
             </li>
             <li><a href="YAML-front-matter.html">YFM</a>
             </li>

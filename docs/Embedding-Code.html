@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -239,7 +244,7 @@
           <h4>Inline Code</h4>
           <p>Wrap inline snippets of code with a backtick before and after the snippet: <code><code>code</code></code>.</p>
           <p>For example, <code>&lt;section&gt;&lt;/section&gt;</code> should be wrapped as &quot;inline&quot;.</p>
-<pre><code class="language-html">For example, `<span class="tag">&lt;<span class="title">section</span>&gt;</span><span class="tag">&lt;/<span class="title">section</span>&gt;</span>` should be wrapped as "inline".</code></pre>
+<pre><code class="language-html">For example, `&lt;section&gt;&lt;/section&gt;` should be wrapped as &quot;inline&quot;.</code></pre>
           <h4>Block code &quot;fences&quot;</h4>
           <p>Use &quot;fences&quot; <code>``` </code> to block in multiple lines of code:</p>
 <pre>
@@ -252,19 +257,19 @@ options: {
   </code>
 </pre>
           <p>Renders to this:</p>
-<pre><code><span class="tag">options</span>: <span class="rules">{
-  <span class="rule"><span class="attribute">helpers</span>:<span class="value"> <span class="string">'src/helpers/helper-*.js'</span>
-}</span></span></span></code></pre>
+<pre><code>options: {
+  helpers: &#39;src/helpers/helper-*.js&#39;
+}</code></pre>
           <h4>Indented code</h4>
           <p>For code blocks, as an alternative to backticks you may indent several lines of code by at least four spaces.</p>
-<pre><code>    <span class="regexp">//</span> Indent your code like <span class="keyword">this</span>
-    line <span class="number">1</span> <span class="keyword">of</span> code
-    line <span class="number">2</span> <span class="keyword">of</span> code
-    line <span class="number">3</span> <span class="keyword">of</span> code</code></pre>
+<pre><code>    // Indent your code like this
+    line 1 of code
+    line 2 of code
+    line 3 of code</code></pre>
           <p>Renders to this:</p>
-<pre><code><span class="title">line</span> <span class="number">1</span> <span class="keyword">of</span> code
-<span class="title">line</span> <span class="number">2</span> <span class="keyword">of</span> code
-<span class="title">line</span> <span class="number">3</span> <span class="keyword">of</span> code</code></pre>
+<pre><code>line 1 of code
+line 2 of code
+line 3 of code</code></pre>
           <h3>Syntax highlighting</h3>
           <p>Assemble uses [Marked.js][marked] for processing markdown. &quot;A full-featured markdown parser and compiler, written in javascript. Built for speed&quot;. With Marked, you can use GitHub Flavored Markdown or &quot;GFM&quot; <a href="https://help.github.com/articles/github-flavored-markdown#syntax-highlighting">&quot;fenced&quot; code blocks</a> to achieve syntax highlighting with your snippets of code.</p>
           <p>To activate it, simply add the file extension of the language you want to use directly after the first code &quot;fence&quot;, <code>```js</code>, and syntax highlighting will automatically be applied in the rendered HTML.</p>
@@ -295,18 +300,18 @@ grunt.initConfig({
 </pre>
           <p>Which renders to:</p>
 <pre><code class="language-javascript">grunt.initConfig({
-  <span class="method">assemble:</span> {
-    <span class="method">options:</span> {
-      <span class="method">assets:</span> <span class="string">'docs/assets'</span>,
-      <span class="method">data:</span> <span class="string">'src/data/*.{json,yml}'</span>,
-      <span class="method">helpers:</span> <span class="string">'src/custom-helpers.js'</span>,
-      <span class="method">partials:</span> [<span class="string">'src/partials/**/*.{hbs,md}'</span>]
+  assemble: {
+    options: {
+      assets: <span class="string">'docs/assets'</span>,
+      data: <span class="string">'src/data/*.{json,yml}'</span>,
+      helpers: <span class="string">'src/custom-helpers.js'</span>,
+      partials: [<span class="string">'src/partials/**/*.{hbs,md}'</span>]
     },
-    <span class="method">pages:</span> {
-      <span class="method">options:</span> {
-        <span class="method">layout:</span> <span class="string">'default.hbs'</span>
+    pages: {
+      options: {
+        layout: <span class="string">'default.hbs'</span>
       },
-      <span class="method">files:</span> {
+      files: {
         <span class="string">'./'</span>: [<span class="string">'src/templates/pages/index.hbs'</span>]
       }
     }

@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -219,26 +224,26 @@
           <h1>options.marked</h1>
           <h2>options.marked</h2>
           <p>Assemble uses <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> for processing markdown. Any options from marked can be defined on the <code>marked</code> object in the assemble options. This is an example of using all options:</p>
-<pre><code class="language-js"><span class="method">assemble:</span> {
-  <span class="method">options:</span> {
-    <span class="method">marked:</span> {
-      <span class="method">breaks:</span> <span class="keyword">false</span>,
-      <span class="method">gfm:</span> <span class="keyword">true</span>,
-      <span class="method">highlight:</span> function(code, lang, callback) {
+<pre><code class="language-js">assemble: {
+  options: {
+    marked: {
+      breaks: <span class="literal">false</span>,
+      gfm: <span class="literal">true</span>,
+      highlight: <span class="keyword">function</span>(code, lang, callback) {
         pygmentize({
-          <span class="method">lang:</span> lang,
-          <span class="method">format:</span> <span class="string">'html'</span>
-        }, code, function(err, result) {
+          lang: lang,
+          format: <span class="string">'html'</span>
+        }, code, <span class="keyword">function</span>(err, result) {
           callback(err, result.toString());
         });
       },
-      <span class="method">langPrefix:</span> <span class="string">'language-'</span>,
-      <span class="method">pedantic:</span> <span class="keyword">false</span>,
-      <span class="method">sanitize:</span> <span class="keyword">false</span>,
-      <span class="method">silent:</span> <span class="keyword">false</span>,
-      <span class="method">smartLists:</span> <span class="keyword">false</span>,
-      <span class="method">smartypants:</span> <span class="keyword">false</span>,
-      <span class="method">tables:</span> <span class="keyword">true</span>
+      langPrefix: <span class="string">'language-'</span>,
+      pedantic: <span class="literal">false</span>,
+      sanitize: <span class="literal">false</span>,
+      silent: <span class="literal">false</span>,
+      smartLists: <span class="literal">false</span>,
+      smartypants: <span class="literal">false</span>,
+      tables: <span class="literal">true</span>
     }
   },
   ...
@@ -253,10 +258,10 @@
           <p>Type: <code>Function</code>
           </p>
           <p>A function to highlight code blocks. The function takes three arguments: <code>code</code>, <code>lang</code>, and <code>callback</code>. The above example uses async highlighting with <a href="https://github.com/rvagg/node-pygmentize-bundled">node-pygementize-bundled</a>, and here is a synchronous example using <a href="https://github.com/isagalaev/highlight.js">highlight.js</a> which doesn&#39;t require the <code>callback</code> argument:</p>
-<pre><code class="language-js"><span class="tag">options</span>: <span class="rules">{
-  <span class="rule"><span class="attribute">highlight</span>:<span class="value"> function (lang, code) {
-    return hljs.<span class="function">highlightAuto(lang, code)</span>.value;</span></span>
-  <span class="rule">}</span></span>
+<pre><code class="language-js">options: {
+  highlight: <span class="function"><span class="keyword">function</span> <span class="params">(lang, code)</span> {</span>
+    <span class="keyword">return</span> hljs.highlightAuto(lang, code).value;
+  }
 }</code></pre>
           <h4>highlight arguments</h4>
           <p>Type: <code>String</code>

@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -221,41 +226,41 @@
           <p>The simplest way to generate a list from a collection is to create a block expression using the name of the collection, and the collection items inside.</p>
           <h3>Collection items from &quot;all pages&quot;</h3>
           <p>To generate a list of <a href="options-collections.html">categories</a> for all <a href="Pages.html">pages</a> in a <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>, add the following block expression to a page or a <a href="Layouts.html">layout</a> (depending on whether or not you want the list to render to a <em>specified page/pages</em> or <em>all</em> pages):</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>All Categories<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-<span class="tag">&lt;<span class="title">ul</span>&gt;</span>
-<span class="variable">{{#categories}}</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="variable">{{category}}</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="variable">{{/categories}}</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;h2&gt;All Categories&lt;/h2&gt;
+&lt;ul&gt;
+{{#categories}}
+  &lt;li&gt;{{category}}&lt;/li&gt;
+{{/categories}}
+&lt;/ul&gt;</code></pre>
           <p>Now, if two of the pages in our target have categories defined as such:</p>
-<pre><code class="language-html"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
-<span class="comment">title:</span> <span class="comment">Page</span> <span class="comment">One</span>
-<span class="comment">categories:</span>
-<span class="literal">-</span> <span class="comment">apples</span>
-<span class="literal">-</span> <span class="comment">oranges</span>
-<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
+<pre><code class="language-html">---
+title: Page One
+categories:
+- apples
+- oranges
+---</code></pre>
           <p>and</p>
-<pre><code class="language-html"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
-<span class="comment">title:</span> <span class="comment">Page</span> <span class="comment">Two</span>
-<span class="comment">categories:</span>
-<span class="literal">-</span> <span class="comment">grapes</span>
-<span class="literal">-</span> <span class="comment">bananas</span>
-<span class="literal">-</span> <span class="comment">coconuts</span>
-<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
+<pre><code class="language-html">---
+title: Page Two
+categories:
+- grapes
+- bananas
+- coconuts
+---</code></pre>
           <p>The generated output will be a basic list containing the merged values from the <code>categories</code> collection of each page:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>All Categories<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-<span class="tag">&lt;<span class="title">ul</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>apples<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>bananas<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>coconuts<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>grapes<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>oranges<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;h2&gt;All Categories&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;apples&lt;/li&gt;
+  &lt;li&gt;bananas&lt;/li&gt;
+  &lt;li&gt;coconuts&lt;/li&gt;
+  &lt;li&gt;grapes&lt;/li&gt;
+  &lt;li&gt;oranges&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
           <h3>Collection items on a given page</h3>
           <p>To generate a list of <a href="options-collections.html">categories</a> for the a page, you would add the following to the page on which you want to generate the list:</p>
-<pre><code class="language-html"><span class="variable">{{#page.categories}}</span>
-  <span class="variable">{{.}}</span>
-<span class="variable">{{/page.categories}}</span></code></pre>
+<pre><code class="language-html">{{#page.categories}}
+  {{.}}
+{{/page.categories}}</code></pre>
           <p>Or we can use: <code>{{#each page.categories}}...{{/each}}</code>.</p>
           <p>block expression with the name of the collection as a variable variable to get the list of pages in the current <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>
           </p>
@@ -263,69 +268,69 @@
           <p>Following the previous example, we&#39;ll use the <code>{{#each}}...{{/each}}</code> block expression with the <a href="Pages.html">pages</a> variable to get the list of pages in the current <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>.</p>
           <p>Then, using the <code>{{#is}}...{{/is}}</code> comparison helper from the <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library, we can dynamically build navigation items by comparing a property (or properties) from the YAML front matter each page in the list with the given values.</p>
           <p>In other words, the <code>is</code> helper will ask: &quot;does this page have a &#39;getting started&#39; section? If &#39;true&#39;, then add the page as a list item, otherwise skip it&quot;. For example, this example shows two different sections being generated:</p>
-<pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>Getting Started<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-<span class="variable">{{#each pages}}</span>
-  <span class="variable">{{#is data.section "getting started"}}</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span> <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span><span class="variable">{{data.title}}</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="variable">{{/is}}</span>
-<span class="variable">{{/each}}</span>
+<pre><code class="language-handlebars">&lt;h2&gt;Getting Started&lt;/h2&gt;
+{{#each pages}}
+  {{#is data.section &quot;getting started&quot;}}
+    &lt;li&gt; &lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt; &lt;/li&gt;
+  {{/is}}
+{{/each}}
 
-<span class="tag">&lt;<span class="title">h2</span>&gt;</span>Configuration<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-<span class="variable">{{#each pages}}</span>
-  <span class="variable">{{#is data.section "configuration"}}</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span> <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span><span class="variable">{{data.title}}</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="variable">{{/is}}</span>
-<span class="variable">{{/each}}</span></code></pre>
+&lt;h2&gt;Configuration&lt;/h2&gt;
+{{#each pages}}
+  {{#is data.section &quot;configuration&quot;}}
+    &lt;li&gt; &lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt; &lt;/li&gt;
+  {{/is}}
+{{/each}}</code></pre>
           <p>Any pages with the <code>section: getting-started</code> in the YAML front matter will render in the first list, and pages with <code>section: configuration</code> will render in the second list.</p>
           <p>{{#todo}} update the docs once [Pages Arrays][pages-array] can achieve this as well.{{/todo}}</p>
           <h2>Adding &quot;active&quot; links to navigation items</h2>
           <p>If you want to add <code>class=&quot;active&quot;</code> to a navigation item for the &quot;current page&quot;, you can achieve this using the <code>{{#is}}...{{/is}}</code>  <a href="https://github.com/assemble/handlebars-helpers#comparisons-equal-helpers">comparison helper</a> from the <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library.</p>
           <h3>Using YFM properties</h3>
           <p>You can achieve this using many different variables, but relatively easy one is to compare the <em><a href="Built-in-Variables.html">basename</a> of the current page</em> to the <em>given value</em>:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"nav navbar-nav"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li{{#is</span> <span class="attribute">basename</span> "<span class="attribute">getting-started</span>"}} <span class="attribute">class</span>=<span class="value">"active"</span><span class="variable">{{/is}}</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"getting-started.html"</span>&gt;</span>Getting started<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li{{#is</span> <span class="attribute">basename</span> "<span class="attribute">css</span>"}} <span class="attribute">class</span>=<span class="value">"active"</span><span class="variable">{{/is}}</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"css.html"</span>&gt;</span>CSS<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li{{#is</span> <span class="attribute">basename</span> "<span class="attribute">components</span>"}} <span class="attribute">class</span>=<span class="value">"active"</span><span class="variable">{{/is}}</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"components.html"</span>&gt;</span>Components<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li{{#is</span> <span class="attribute">basename</span> "<span class="attribute">js</span>"}} <span class="attribute">class</span>=<span class="value">"active"</span><span class="variable">{{/is}}</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"javascript.html"</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li{{#is</span> <span class="attribute">basename</span> "<span class="attribute">customize</span>"}} <span class="attribute">class</span>=<span class="value">"active"</span><span class="variable">{{/is}}</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"customize.html"</span>&gt;</span>Customize<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+  &lt;li{{#is basename &quot;getting-started&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;getting-started.html&quot;&gt;Getting started&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li{{#is basename &quot;css&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;css.html&quot;&gt;CSS&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li{{#is basename &quot;components&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;components.html&quot;&gt;Components&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li{{#is basename &quot;js&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;javascript.html&quot;&gt;JavaScript&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li{{#is basename &quot;customize&quot;}} class=&quot;active&quot;{{/is}}&gt;
+    &lt;a href=&quot;customize.html&quot;&gt;Customize&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
           <p><em>The above example is from the navbar in <a href="https://github.com/assemble/assemble-bootstrap">assemble-bootstrap</a>.</em>
           </p>
           <h3>Without YFM</h3>
           <p>However, if you don&#39;t use YFM (or don&#39;t want to use properties from YFM to create active links), you can compare the <em>destination of the current page</em> to the <em>destination of the linked page</em> to get a truthy or falsy value.</p>
-<pre><code class="language-html">{{#<span class="keyword">is</span> page.dest <span class="keyword">this</span>.dest}} <span class="keyword">class</span>=<span class="string">"active"</span>{{/<span class="keyword">is</span>}}</code></pre>
+<pre><code class="language-html">{{#is page.dest this.dest}} class=&quot;active&quot;{{/is}}</code></pre>
           <p>
             <strong>The trick</strong>with using this method is that the context must be correct for it to work. So if you are dynamically generating nav items, as in the [Dynamically build navigation][#dynamically-build-navigation] example, you will need to use <code>../../</code> to access the context of <code>pages</code> being generated:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>Getting Started<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-<span class="variable">{{#each pages}}</span>
-  <span class="variable">{{#is data.section "getting started"}}</span>
-    <span class="tag">&lt;<span class="title">li{{#is</span> <span class="attribute">..</span>/<span class="attribute">..</span>/<span class="attribute">page.dest</span> <span class="attribute">this.dest</span>}} <span class="attribute">class</span>=<span class="value">"active"</span><span class="variable">{{/is}}</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span><span class="variable">{{data.title}}</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="variable">{{/is}}</span>
-<span class="variable">{{/each}}</span></code></pre>
+<pre><code class="language-html">&lt;h2&gt;Getting Started&lt;/h2&gt;
+{{#each pages}}
+  {{#is data.section &quot;getting started&quot;}}
+    &lt;li{{#is ../../page.dest this.dest}} class=&quot;active&quot;{{/is}}&gt;
+      &lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt;
+    &lt;/li&gt;
+  {{/is}}
+{{/each}}</code></pre>
           <h2>Generating relative paths for links</h2>
           <p>To get the relative path from the <em>destination of the current page</em> to the <em>destination of the linked page</em>, the <a href="https://github.com/assemble/handlebars-helpers#relative">{{relative}}</a> helper works quite well:</p>
-<pre><code class="language-html">{{relative page<span class="variable">.dest</span> <span class="keyword">this</span><span class="variable">.dest</span>}}</code></pre>
+<pre><code class="language-html">{{relative page.dest this.dest}}</code></pre>
           <p>As with the previous example, if you nest templates the context must be adjusted for this to work:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>Getting Started<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-<span class="variable">{{#each pages}}</span>
-  <span class="variable">{{#is data.section "getting started"}}</span>
-    <span class="tag">&lt;<span class="title">li{{#is</span> <span class="attribute">..</span>/<span class="attribute">..</span>/<span class="attribute">page.dest</span> <span class="attribute">this.dest</span>}} <span class="attribute">class</span>=<span class="value">"active"</span><span class="variable">{{/is}}</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"<span class="variable">{{relative ../../page.dest this.dest}}</span>"</span>&gt;</span><span class="variable">{{data.title}}</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="variable">{{/is}}</span>
-<span class="variable">{{/each}}</span></code></pre>
+<pre><code class="language-html">&lt;h2&gt;Getting Started&lt;/h2&gt;
+{{#each pages}}
+  {{#is data.section &quot;getting started&quot;}}
+    &lt;li{{#is ../../page.dest this.dest}} class=&quot;active&quot;{{/is}}&gt;
+      &lt;a href=&quot;{{relative ../../page.dest this.dest}}&quot;&gt;{{data.title}}&lt;/a&gt;
+    &lt;/li&gt;
+  {{/is}}
+{{/each}}</code></pre>
           <hr>
           <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/FAQ.md.hbs">See the template for this page → </a>
           </p>

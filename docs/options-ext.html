@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -224,8 +229,8 @@
           <p>Type: <code>String</code> (optional) Default: <code>.html</code>
           </p>
           <h2>Overview</h2>
-          <p>When planning out the strategy for your build targets, <a href="About-Templates.html">about-templates</a> and <a href="Data.html">data</a>, don&#39;t forget to take the <code>ext</code> variable into consideration. <code>ext</code> opens up a few doors by &quot;bending the rules&quot; around how your source files will be compiled or rendered.</p>
-          <p>In 90% of cases, the <code>ext</code> option will not be needed, and simply using the <code>.hbs</code> file extension on your <a href="About-Templates.html">about-templates</a> will suffice. However, in scenarios where you are using mixed content, say HTML and markdown with Handelbars templates embedded in one or both formats, you may need to use the <code>ext</code> option to esure that you get the output you need.</p>
+          <p>When planning out the strategy for your build targets, <a href="Templates-Overview.html">templates-overview</a> and <a href="Data.html">data</a>, don&#39;t forget to take the <code>ext</code> variable into consideration. <code>ext</code> opens up a few doors by &quot;bending the rules&quot; around how your source files will be compiled or rendered.</p>
+          <p>In 90% of cases, the <code>ext</code> option will not be needed, and simply using the <code>.hbs</code> file extension on your <a href="Templates-Overview.html">templates-overview</a> will suffice. However, in scenarios where you are using mixed content, say HTML and markdown with Handelbars templates embedded in one or both formats, you may need to use the <code>ext</code> option to esure that you get the output you need.</p>
           <h3>Mixed content: Markdown and HTML together</h3>
           <p>Consider the following scenario:</p>
           <ul>
@@ -239,7 +244,7 @@
           </ul>
           <h2>Extensions map</h2>
           <h3>Whitelisted extensions</h3>
-          <p>As of Fri Jul 26 2013 04:59:29, Assemble&#39;s extensions map &quot;whitelists&quot; the following extensions:</p>
+          <p>As of Sun Jul 28 2013 23:37:52, Assemble&#39;s extensions map &quot;whitelists&quot; the following extensions:</p>
           <p>
             <strong>Handlebars extensions</strong>
           </p>
@@ -286,11 +291,11 @@
           <p>If you need Assemble to process templates in files with an extension that isn&#39;t in <a href="https://github.com/assemble/assemble/blob/master/lib/engine/extensions.yml">extensions.yml</a>, you must <em>explicitly define the template engine in the task/target options to force Assemble to process your templates.</em>
           </p>
           <p>So given this example:</p>
-<pre><code class="language-js"><span class="method">assemble:</span> {
-  <span class="method">options:</span> {
-    <span class="method">engine:</span> <span class="comment">"Handlebars"</span> // case insensitive
+<pre><code class="language-js">assemble: {
+  options: {
+    engine: <span class="string">"Handlebars"</span> <span class="comment">// case insensitive</span>
   },
-  <span class="method">files:</span> {
+  files: {
     <span class="string">'dist/'</span>: [<span class="string">'src/pages/*.snickerdoodle'</span>]
   }
 }</code></pre>
@@ -308,14 +313,14 @@
           </ul>
           <p>Here is what we need to do:</p>
           <h4>Example configuration:</h4>
-<pre><code class="language-js"><span class="method">assemble:</span> {
-  <span class="method">options:</span> {
-    <span class="method">data:</span> <span class="string">'src/data/readme.yml'</span>,
-    <span class="method">partials:</span> <span class="string">'src/content/*.hbs'</span>,
-    <span class="method">ext:</span> <span class="string">''</span> // add the <span class="comment">"empty"</span> ext property
+<pre><code class="language-js">assemble: {
+  options: {
+    data: <span class="string">'src/data/readme.yml'</span>,
+    partials: <span class="string">'src/content/*.hbs'</span>,
+    ext: <span class="string">''</span> <span class="comment">// add the "empty" ext property</span>
   },
-  <span class="method">readme:</span> {
-    <span class="method">files:</span> {
+  readme: {
+    files: {
       <span class="string">'./'</span>: [<span class="string">'src/templates/README.md.hbs'</span>]
     }
   }
@@ -329,11 +334,11 @@
             <li>Blog posts written in markdown, converted to HTML for a live site.</li>
             <li>gh-pages documentation</li>
           </ul>
-<pre><code class="language-js"><span class="method">assemble:</span> {
-  <span class="method">options:</span> {
-    <span class="method">engine:</span> <span class="comment">"Handlebars"</span> // case insensitive
+<pre><code class="language-js">assemble: {
+  options: {
+    engine: <span class="string">"Handlebars"</span> <span class="comment">// case insensitive</span>
   },
-  <span class="method">files:</span> {
+  files: {
     <span class="string">'dist/'</span>: [<span class="string">'src/pages/*.md.hbs'</span>]
   }
 }</code></pre>

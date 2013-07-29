@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -220,18 +225,18 @@
           <h2>Registering Partials</h2>
           <p>Assemble automatically registers any partial or array of partials supplied to <code>options.partials</code>, at the task or target level.</p>
 <pre><code class="language-javascript">assemble {
-  <span class="method">docs:</span> {
-    <span class="method">options:</span> {
-      <span class="method">partials:</span> [<span class="string">'src/templates/partials/**/*.md'</span>]
+  docs: {
+    options: {
+      partials: [<span class="string">'src/templates/partials/**/*.md'</span>]
     },
-    <span class="method">files:</span> {
+    files: {
       <span class="string">'docs/'</span>: [<span class="string">'src/templates/pages/*.md'</span>]
     }
   }
 }</code></pre>
           <h3>Tip</h3>
           <p>Although this is not an &quot;officially supported&quot; feature, you can also pass partials in through the <code>options.helpers</code> object:</p>
-<pre><code class="language-js">Handlebars.registerPartial('title', '<span class="tag">&lt;<span class="title">strong</span>&gt;</span>options.partials<span class="tag">&lt;/<span class="title">strong</span>&gt;</span>');</code></pre>
+<pre><code class="language-js">Handlebars.registerPartial(<span class="string">'title'</span>, <span class="string">'&lt;strong&gt;options.partials&lt;/strong&gt;'</span>);</code></pre>
           <p>If you wish to register partials this way, follow the same practices as <a href="helpers">registering helpers</a>.</p>
           <h3>Task-target behavior</h3>
           <p>Any partials registered at the <em>task</em> level are are also available at the <em>target</em> level.</p>
@@ -241,23 +246,23 @@
           <h3>Ways to apply context to partials</h3>
           <h4>&quot;Inline&quot;</h4>
           <p>You can establish context inside the partials:</p>
-<pre><code class="language-handlebars">{{&gt; <span class="module"><span class="keyword">module</span> <span class="keyword">module</span>.panel-primary}}
-{{&gt; <span class="keyword">module</span> <span class="keyword">module</span>.panel-info}}
-{{&gt; <span class="keyword">module</span> <span class="keyword">module</span>.panel-success}}
-{{&gt; <span class="keyword">module</span> <span class="keyword">module</span>.panel-warning}}
-{{&gt; <span class="keyword">module</span> <span class="keyword">module</span>.panel-danger}}
-{{&gt; <span class="keyword">module</span> <span class="keyword">module</span>.panel-query}}</code></pre>
+<pre><code class="language-handlebars">{{&gt; module module.panel-primary}}
+{{&gt; module module.panel-info}}
+{{&gt; module module.panel-success}}
+{{&gt; module module.panel-warning}}
+{{&gt; module module.panel-danger}}
+{{&gt; module module.panel-query}}</code></pre>
           <h4>Block expressions</h4>
           <p>Wrap partials in block expressions and either set the context on the partial:</p>
-<pre><code class="language-handlebars">{{<span class="comment">#module}}</span>
-  {{&gt; <span class="class"><span class="keyword">module</span> <span class="title">panel</span>-<span class="title">inverse</span>}}</span>
-  {{&gt; <span class="class"><span class="keyword">module</span> <span class="title">panel</span>-<span class="title">success</span>}}</span>
-  {{&gt; <span class="class"><span class="keyword">module</span> <span class="title">panel</span>-<span class="title">info</span>}}</span>
-{{<span class="regexp">/module}}</code></pre>
+<pre><code class="language-handlebars">{{#module}}
+  {{&gt; module panel-inverse}}
+  {{&gt; module panel-success}}
+  {{&gt; module panel-info}}
+{{/module}}</code></pre>
           <p>Or on the section tags:</p>
-<pre><code class="language-handlebars">{{<span class="comment">#module.panel-base}}</span>
-  {{&gt; <span class="class"><span class="keyword">module</span> }}</span>
-{{<span class="regexp">/module.panel-base}}</code></pre>
+<pre><code class="language-handlebars">{{#module.panel-base}}
+  {{&gt; module }}
+{{/module.panel-base}}</code></pre>
           <hr>
           <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/options-partials.md.hbs">See the template for this page → </a>
           </p>

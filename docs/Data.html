@@ -66,9 +66,12 @@
         <ul class="nav navbar-nav">
           <li> <a href="../docs/Home.html">Docs</a> 
           </li>
+          <li> <a href="helpers/index.html">Helpers</a> 
+          </li>
+          <li> <a href="boilerplates/index.html">Boilerplates</a> 
+          </li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../Helpers.html/index.html">Helpers</a> </li>-->
           <!--<li> <a href="../Examples.html">Examples</a> </li>-->
           <!--<li> <a href="../tutorials.html">Tutorials</a> </li> -->
           <!--<li> <a href="../blog.html">Blog</a> </li>-->
@@ -125,7 +128,7 @@
       <div class="col col-lg-3">
         <div class="sidebar">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'toc/Table of Contents']);">Table of Contents</a>
+            <li><a href="Home.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
             </li>
           </ul>
           <span class="nav-section-title">Getting Started</span>
@@ -183,6 +186,8 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
+            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            </li>
             <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
             </li>
             <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
@@ -191,9 +196,9 @@
             </li>
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
-            <li><a href="About-Templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Template Basics']);">Template Basics</a>
+            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -235,15 +240,15 @@
           <h2>Usage examples</h2>
           <p>Let&#39;s start by creating a template, which can be any kind of markdown, text, xml or markup/HTML that we want to use. For this example our template is going to be HTML, and since I&#39;m feeling creative let&#39;s call it <code>my-template.hbs</code>.</p>
           <p>Now, focusing only on the <code>head</code> of our HTML document, let&#39;s add template variables for <code>title</code> and <code>author</code> so that we can later replace them with real data:</p>
-<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="variable">{{title}}</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"author"</span> <span class="attribute">content</span>=<span class="value">"<span class="variable">{{author}}</span>"</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;{{author}}&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
           <p>Handlebars.js is the default template engine in Assemble, so our variables are wrapped in &quot;Handlebars expressions&quot;: <code>{{</code> and <code>}}</code>.</p>
           <h3>JSON example</h3>
           <p>Here is an example of what we might put inside of <code>my-template.json</code> to populate our template with data.</p>
@@ -254,12 +259,12 @@
           <h3>YAML example</h3>
           <p>Here is the same in YAML format: <code>my-template.yml</code>
           </p>
-<pre><code class="language-yaml"><span class="attribute">title</span>: <span class="string">Assemble</span>
-<span class="attribute">author</span>: <span class="string">Brian Woodward</span></code></pre>
+<pre><code class="language-yaml">title: Assemble
+author: Brian Woodward</code></pre>
           <p>And this template:</p>
           <p><code>my-template.hbs</code>
           </p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="variable">{{ title }}</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;h1&gt;{{ title }}&lt;/h1&gt;</code></pre>
           <h3>YAML front-matter example</h3>
           <p>Or, in cases where we only require simple metadata we can use YAML Front-matter to eliminate the need for an external data file:</p>
 <pre><code class="language-html">---
@@ -267,20 +272,20 @@ title: Assemble
 author: Brian Woodward
 ---
 
-<span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>{{ title }}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span></code></pre>
+&lt;h1&gt;{{ title }}&lt;/h1&gt;</code></pre>
           <p>Outputs:</p>
-<pre><code class="language-html"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Assemble<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-<span class="tag">&lt;<span class="title">p</span>&gt;</span>Brian Woodward<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
+<pre><code class="language-html">&lt;h1&gt;Assemble&lt;/h1&gt;
+&lt;p&gt;Brian Woodward&lt;/p&gt;</code></pre>
           <h3>Underscore and <a href="YAML-front-matter.html">YAML front-matter</a>
           </h3>
           <p>Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:</p>
 <pre><code class="language-html">---
-title: <span class="vbscript">&lt;%= some.title.variable %&gt;</span>
-author: <span class="vbscript">&lt;%= some.author.variable %&gt;</span>
+title: &lt;%= some.title.variable %&gt;
+author: &lt;%= some.author.variable %&gt;
 ---
 
-<span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="variable">{{ title }}</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-<span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="variable">{{ author }}</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
+&lt;h1&gt;{{ title }}&lt;/h1&gt;
+&lt;p&gt;{{ author }}&lt;/p&gt;</code></pre>
           <h2>The &quot;data&quot; Object</h2>
           <p>Using <code>data.json</code> or <code>data.yml</code> should work, but works a little bit differently than if you put data into a file called <code>myData.json</code>. When the data is in <code>data.json</code>, it&#39;s loaded directly into the root of the context...</p>
           <p><code>data.json</code>:</p>
@@ -288,14 +293,14 @@ author: <span class="vbscript">&lt;%= some.author.variable %&gt;</span>
   "<span class="attribute">title</span>": <span class="value"><span class="string">"My Title"</span>
 }</span></code></pre>
           <p><code>myTemplate.hbs</code>:</p>
-<pre><code class="language-html"><span class="variable">{{title}}</span></code></pre>
+<pre><code class="language-html">{{title}}</code></pre>
           <p>When used in <code>myData.json</code>, the data can be accessed through the name of the file...</p>
           <p><code>myData.json</code>:</p>
 <pre><code class="language-json">{
   "<span class="attribute">title</span>": <span class="value"><span class="string">"My Title"</span>
 }</span></code></pre>
           <p><code>myTemplate.hbs</code>:</p>
-<pre><code class="language-html">{{myData<span class="variable">.title</span>}}</code></pre>
+<pre><code class="language-html">{{myData.title}}</code></pre>
           <h2>Related information:</h2>
           <ul>
             <li><a href="options-data.html">options.data</a>
@@ -304,7 +309,7 @@ author: <span class="vbscript">&lt;%= some.author.variable %&gt;</span>
             </li>
             <li><a href="Context.html">Context</a>
             </li>
-            <li><a href="About-Templates.html">about-templates</a>
+            <li><a href="Templates-Overview.html">templates-overview</a>
             </li>
             <li><a href="Built-in-Variables.html">Variables</a>
             </li>
