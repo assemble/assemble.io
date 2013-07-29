@@ -1,24 +1,5 @@
 ---
-title: Code Helpers
+title: Code
 section: helpers-code
-helpers: ['src/content/helpers/code/*.md.hbs']
 ---
-
-<style>
-  .subhead {
-    background-color: #73438b;
-  }
-  .subhead .text-muted {
-    color: #ae92bd;
-  }
-</style>
-
-{{! THE HELPERS
-=========================================== }}
-<div class="container">
-  <div class="panel panel-docs">
-    {{#each sections}}
-    <h2>{{md this}}</h2>
-    {{/each}}
-  </div>
-</div>
+{{md 'src/content/helpers/code/*.*'}}

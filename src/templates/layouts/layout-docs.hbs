@@ -49,8 +49,8 @@
           <div class="sidebar">
             <ul class="nav nav-pills nav-stacked">
               {{#each pages}}
-                {{#is data.section "toc"}}
-                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{#is data.section "Introduction"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.section}}</a></li>
                 {{/is}}
               {{/each}}
             </ul>
@@ -92,6 +92,11 @@
               Templates
             </span>
             <ul class="nav nav-pills nav-stacked">
+              {{#each pages}}
+                {{#is data.title "Templates Overview"}}
+                <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>
+                {{/is}}
+              {{/each}}
               {{#each pages}}
                 {{#is data.section "templates"}}
                 <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '{{data.section}}/{{data.title}}']);">{{data.title}}</a></li>

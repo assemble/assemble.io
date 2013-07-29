@@ -101,11 +101,11 @@ or this:
 
 ```html
 <ul>
-  {{#each pages}}
-    {{#data}}
-    <li><a href="#">{{title}}</a></li>
-    {{/data}}
-  {{/each}}
+  \{{#each pages}}
+    \{{#data}}
+    <li><a href="#">\{{title}}</a></li>
+    \{{/data}}
+  \{{/each}}
 </ul>
 ```
 
@@ -121,15 +121,18 @@ renders to:
 </ul>
 ```
 
+{{#draft}}
+
+
 ## Data, Context and Why it Works this Way
 
 ### Why `\{{data.title}}`?
 
-Remember this passage from the previous section?
-
 > "we cannot use the context of each page as the first path..."
 
-What this means is that _we need to get the `title` of **each page** without having to write out the **context of each page**_. That would defeat the purpose of using the `\{{#each}}` expression. However, although this isn't supported (for good reason), if we were to explicitly use the context of each page it might look something like this:
+Remember this passage from the previous section?
+
+This means that _we need to get the `title` of **each page** without having to write out the **context of each page**_. The reason the `\{{#each}}` expression exists to avoid having to do this kind of thing (and more). However, although this isn't supported (for good reason), if we were to explicitly use the context of each page it might look something like this:
 
 ```html
 <ul>
@@ -155,7 +158,6 @@ The first reason is that their might be a `title` property on the very same page
 
 
 
-{{#draft}}
 
 NOTE: If you're reading this unpublished content, know that these features haven't even been released. So it's probably best to _not_ try to use them ;-) Sorry.
 
