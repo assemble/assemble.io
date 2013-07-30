@@ -185,24 +185,12 @@
           <p>
             <h4>{{parseJSON}}</h4>
           </p>
-          <p>
+          <blockquote>
             <p>This block helper parses &quot;inline&quot; JSON and passes it into the templates or partial contained therein.</p>
+          </blockquote>
+          <p>Credit: <a href="https://github.com/keeganstreet">Keegan Street</a> from <a href="https://github.com/assemble/assemble/issues/228#issuecomment-20855238">this issue</a>
           </p>
-          <p>
-            <blockquote>
-          </p>
-          <p>
-            <p>Instead of having to write out the same HTML over and over again, we can define it once in a partial and then include that partial inline whenever we need it. Typically Handlebars requires data to be defined separately from templates. But in this use case it is easier to define the options for the partial where we include the partial. These options aren&#39;t &quot;data&quot; that should be separated from the template; they are really just options for the template.
-              <br>-- Keegan Street (@keeganstreet)</p>
-            </blockquote>
-          </p>
-          <p>
-            <p>Credit: Keegan Street (@keeganstreet) <a href="https://github.com/assemble/assemble/issues/228#issuecomment-20855238">Read more...</a>
-            </p>
-          </p>
-          <p>
-            <p>The helper:</p>
-          </p>
+          <p>The helper:</p>
 <pre><code class="language-js">parseJSON = <span class="keyword">function</span>(data, options) {
   <span class="keyword">return</span> options.fn(JSON.parse(data));
 };</code></pre>
@@ -215,6 +203,10 @@
 <pre><code class="language-html">{{#parseJSON &#39;{&quot;id&quot;: &quot;firstname&quot;, &quot;label&quot;: &quot;First name&quot;}&#39;}}
   {{&gt; input }}
 {{/parseJSON}}</code></pre>
+          <blockquote>
+            <p>Instead of having to write out the same HTML over and over again, we can define it once in a partial and then include that partial inline whenever we need it. Typically Handlebars requires data to be defined separately from templates. But in this use case it is easier to define the options for the partial where we include the partial. These options aren&#39;t &quot;data&quot; that should be separated from the template; they are really just options for the template.
+              <br>-- Keegan Street (@keeganstreet)</p>
+          </blockquote>
           <hr>
           <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-data.hbs">See the template for this page → </a>
           </p>
