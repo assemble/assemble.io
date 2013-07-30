@@ -12,8 +12,8 @@ component: navbar
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
         <li{{#is data.section "docs"}} class="active"{{/is}}> <a href="{{relative page.dest "docs"}}/Home.html">Docs</a> </li>
+        <!--<li{{#is data.section "boilerplates"}} class="active"{{/is}}> <a href="{{relative page.dest "docs/boilerplates"}}/index.html">Boilerplates</a> </li>-->
         <li{{#is data.section "helpers"}} class="active"{{/is}}> <a href="{{relative page.dest "docs/helpers"}}/index.html">Helpers</a> </li>
-        <li{{#is data.section "boilerplates"}} class="active"{{/is}}> <a href="{{relative page.dest "docs/boilerplates"}}/index.html">Boilerplates</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <!--<li{{#is basename "Examples"}} class="active"{{/is}}> <a href="{{relative page.dest "Examples.html"}}">Examples</a> </li>-->
