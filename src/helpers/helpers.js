@@ -33,8 +33,12 @@
     };
 
 
-    Handlebars.registerHelper('decode', function(src) {
-      return new Handlebars.SafeString(new Buffer(src, 'base64').toString('binary'));
+Handlebars.registerHelper('decode', function(encoded) {
+  return new Handlebars.SafeString(new Buffer(encoded || '', 'base64').toString('utf8'));
+});
+
+    Handlebars.registerHelper('encode', function(unencoded) {
+      return new Buffer(unencoded || '').toString('base64');
     });
 
 

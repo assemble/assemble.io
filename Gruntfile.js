@@ -11,7 +11,7 @@
 module.exports = function(grunt) {
   var hljs = require('highlight.js');
   // Internal lib
-  grunt.util._.mixin(require('./src/mixins').init(grunt));
+  grunt.util._.mixin(require('./src/helpers/mixins').init(grunt));
 
 
 
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
         production: true,
         today: '<%= grunt.template.today() %>',
         layoutdir: 'src/templates/layouts',
-        helpers: 'src/local-helpers.js',
+        helpers: 'src/helpers/helpers.js',
         assets: 'docs/assets',
         data: [
           'src/data/*.{json,yml}',
