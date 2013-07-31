@@ -121,6 +121,43 @@ renders to:
 </ul>
 ```
 
+## Pages Per Collection Item  <a id="pages-per-collection-item" name="pages-per-collection-item" class="anchor"><span class="glyphicon glyphicon-link"></span></a>
+
+To get a list all of the pages in a given target with certain tag, such as `foo`, we would "wrap" the `\{{#each tags}}...\{{/each}}` block around the `\{{#each pages}}...\{{/each}}` block, like this:
+
+```html
+\{{#each tags}}
+  \{{#is tag "foo"}}
+  <h1>\{{tag}}</h1>
+  <ul>
+    \{{#each pages}}
+      <li>\{{data.title}}</li>
+    \{{/each}}
+  </ul>
+  \{{/is}}
+\{{/each}}
+```
+
+### Sorting
+
+Now, if we also want to _sort the pages_ by say, `date`, we would instead use `\{{#withSort pages}}`...`\{{/withSort}}` along with the second parameter that we wish to sort by, in this case `date`:
+
+```html
+\{{#each tags}}
+  \{{#is tag "foo"}}
+  <h1>\{{tag}}</h1>
+  <ul>
+    \{{#withSort pages data.date}}
+      <li>\{{data.title}}</li>
+    \{{/withSort}}
+  </ul>
+  \{{/is}}
+\{{/each}}
+```
+
+_Note that you may only use dot notation for sorting, names like `a['my.page']` will be interpreted as `a.my.page` and thus will not work._
+
+
 {{#draft}}
 
 
