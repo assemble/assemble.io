@@ -495,7 +495,11 @@ two - 2</code></pre>
 {{/withLast}}</code></pre>
           <p>Renders to:</p>
 <pre><code class="language-html">&lt;p&gt;Scruffy is lazy.&lt;/p&gt;</code></pre>
-          <h4>{{withSort}}</h4>
+          <h4>{{withSort}}
+            <a id="withSort" name="withSort" class="anchor">
+              <span class="glyphicon glyphicon-link"></span>
+            </a>
+          </h4>
           <p><em>Uses the sorted collection inside the block.</em>
             <br>Parameters: field <code>string</code> - String name of the field or property to sort by. (Optional)</p>
           <p>Data:</p>
@@ -519,6 +523,32 @@ two - 2</code></pre>
 {{/withSort}}</code></pre>
           <p>Renders to:</p>
 <pre><code class="language-html">Fry: -12
+Bender: 239
+Leela: 8021</code></pre>
+          <p>Also, if you have the sortable variable inside another variable, you can use dot-notation (e.g. <code>{{deliveries.value}}</code>) to sort.</p>
+          <p>Data:</p>
+<pre><code class="language-js">{
+  <span class="string">"collection"</span>: [
+    {
+      <span class="string">"name"</span>: <span class="string">"Leela"</span>,
+      <span class="string">"deliveries"</span>: {<span class="string">"value"</span>: <span class="number">8021</span>, <span class="string">"priority"</span>: <span class="string">"high"</span>}
+    },
+    {
+      <span class="string">"name"</span>: <span class="string">"Bender"</span>,
+      <span class="string">"deliveries"</span>: {<span class="string">"value"</span>: <span class="number">239</span>, <span class="string">"priority"</span>: <span class="string">"normal"</span>}
+    },
+    {
+      <span class="string">"name"</span>: <span class="string">"Fry"</span>,
+      <span class="string">"deliveries"</span>: {<span class="string">"value"</span>: -<span class="number">12</span>, <span class="string">"priority"</span>: <span class="string">"low"</span>}
+    }
+  ]
+}</code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#withSort collection &quot;deliveries.value&quot;}}
+  {{name}}: {{deliveries.value}} &lt;br&gt;
+{{/withSort}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Fry: -12
 Bender: 239
 Leela: 8021</code></pre>
           <hr>

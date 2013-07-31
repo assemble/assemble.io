@@ -299,6 +299,36 @@ title: Home
   &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
+          <h2>Pages Per Collection Item
+            <a id="pages-per-collection-item" name="pages-per-collection-item" class="anchor">
+              <span class="glyphicon glyphicon-link"></span>
+            </a>
+          </h2>
+          <p>To get a list all of the pages in a given target with certain tag, such as <code>foo</code>, we would &quot;wrap&quot; the <code>{{#each tags}}...{{/each}}</code> block around the <code>{{#each pages}}...{{/each}}</code> block, like this:</p>
+<pre><code class="language-html">{{#each tags}}
+  {{#is tag &quot;foo&quot;}}
+  &lt;h1&gt;{{tag}}&lt;/h1&gt;
+  &lt;ul&gt;
+    {{#each pages}}
+      &lt;li&gt;{{data.title}}&lt;/li&gt;
+    {{/each}}
+  &lt;/ul&gt;
+  {{/is}}
+{{/each}}</code></pre>
+          <h3>Sorting</h3>
+          <p>Now, if we also want to <em>sort the pages</em> by say, <code>date</code>, we would instead use <code>{{#withSort pages}}</code>...<code>{{/withSort}}</code> along with the second parameter that we wish to sort by, in this case <code>date</code>:</p>
+<pre><code class="language-html">{{#each tags}}
+  {{#is tag &quot;foo&quot;}}
+  &lt;h1&gt;{{tag}}&lt;/h1&gt;
+  &lt;ul&gt;
+    {{#withSort pages data.date}}
+      &lt;li&gt;{{data.title}}&lt;/li&gt;
+    {{/withSort}}
+  &lt;/ul&gt;
+  {{/is}}
+{{/each}}</code></pre>
+          <p><em>Note that you may only use dot notation for sorting, names like <code>a[&#39;my.page&#39;]</code> will be interpreted as <code>a.my.page</code> and thus will not work.</em>
+          </p>
           <hr>
           <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Pages-Collections.md.hbs">See the template for this page → </a>
           </p>

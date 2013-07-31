@@ -4411,6 +4411,26 @@ a.list-group-item.active > .badge,
 .swatch:hover .swatch-tooltip {
   display: block;
 }
+.anchor {
+  color: transparent;
+  float: left;
+  margin: 2px 0 0 -30px;
+}
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover {
+  cursor: pointer;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor {
+  color: #33b5e5;
+  cursor: pointer;
+}
 .glyphicon-large:before {
   font-size: 24px;
 }
