@@ -6,6 +6,22 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700,800);
 
 
+.anchor {
+  color: transparent;
+  float: left;
+  margin: 2px 0 0 -30px;
+}
+
+h1, h2, h3, h4, h5 {
+  &:hover {
+    cursor: pointer;
+    .anchor {
+      color: @link-color;
+      cursor: pointer;
+    }
+  }
+}
+
 
 .glyphicon-large:before {
   font-size: 24px;
