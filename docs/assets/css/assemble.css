@@ -4413,14 +4413,19 @@ a.list-group-item.active > .badge,
 }
 .anchor {
   color: transparent;
-  float: left;
-  margin: 2px 0 0 -30px;
+  color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: -2px;
+  left: -35px;
+  display: block;
+  padding: 5px;
+  width: 40px;
 }
-h1:hover,
-h2:hover,
-h3:hover,
-h4:hover,
-h5:hover {
+h1,
+h2,
+h3,
+h4,
+h5 {
   cursor: pointer;
 }
 h1:hover .anchor,
