@@ -86,7 +86,8 @@ module.exports = function(grunt) {
         },
         files: [
           { expand: true, flatten: true, cwd: 'src/templates/pages', src: ['*.hbs'], dest: './' },
-          { expand: true, flatten: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' }
+          { expand: true, flatten: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' },
+          { expand: true, flatten: true, cwd: 'src/templates/pages/docs/contributing', src: ['*.hbs'], dest: 'contributing/', ext: '.html' }
         ]
       },
       helpers: {
@@ -121,9 +122,15 @@ module.exports = function(grunt) {
         ]
       }
     },
+
+
     github: {
       options: {
-        filters: {'type': 'public'}
+        filters: {type: 'public'}
+      },
+      pkg: {
+        src: '/repos/assemble/**/contents/package.json',
+        dest: 'src/data/pkg.json'
       },
       readme: {
         src: '/repos/assemble/assemble/readme',
@@ -134,6 +141,8 @@ module.exports = function(grunt) {
         dest: 'src/data/repos.json'
       }
     },
+
+
     prettify: {
       options: {
         prettifyrc: '.prettifyrc'
@@ -148,6 +157,7 @@ module.exports = function(grunt) {
     copy: {
       docs: {
         files: [
+          {expand: true, cwd: 'contributing', src: ['**'],     dest: '../assemble-docs-gh-pages/contributing'},
           {expand: true, cwd: 'docs', src: ['**'],     dest: '../assemble-docs-gh-pages/docs'},
           {expand: true, cwd: './',   src: ['*.html'], dest: '../assemble-docs-gh-pages/'}
         ]

@@ -8,13 +8,18 @@
 
 .anchor {
   color: transparent;
-  float: left;
-  margin: 2px 0 0 -30px;
+  color: rgba(0,0,0,0);
+  position: absolute;
+  top: -2px;
+  left: -35px;
+  display: block;
+  padding: 5px;
+  width: 40px;
 }
 
 h1, h2, h3, h4, h5 {
+  cursor: pointer;
   &:hover {
-    cursor: pointer;
     .anchor {
       color: @link-color;
       cursor: pointer;

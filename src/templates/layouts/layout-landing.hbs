@@ -24,16 +24,20 @@
   </head>
   <body>
 
-    {{! NAVIGATION }}
+    {{! NAVIGATION
+    =================================== --}}
     {{> navbar }}
 
-    {{! MAIN CONTENT }}
+
+    {{! MAIN CONTENT
+    =================================== --}}
     {{> body }}
 
-    <script src="{{assets}}/js/jquery.js"></script>
-    <script src="{{assets}}/js/holder.js"></script>
-    <script src="{{assets}}/js/highlight.js"></script>
-    <script src="{{assets}}/js/showup.js"></script>
+
+    {{!-- SCRIPTS
+    =================================== --}}
+    {{> javascripts }}
+    <script src="{{assets}}/js/holder/holder.js"></script>
     <script>
       $().showUp('.navbar');
     </script>
