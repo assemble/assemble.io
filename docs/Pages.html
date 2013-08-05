@@ -54,7 +54,7 @@
   </script>
 </head>
 
-<body style="background: white">
+<body style="background: white" data-spy="scroll" data-target=".bs-sidebar">
   <div class="navbar">
     <div class="container">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
@@ -236,7 +236,7 @@ published: false
           <p>
             <strong>From the Gruntfile</strong>
           </p>
-          <p>Exclude files from being rendered by prefixing source file patterns with <code>!</code>. Visit the Grunt.js doce to <a href="http://gruntjs.com/configuring-tasks#globbing-patterns">learn more about globbing</a> patterns.</p>
+          <p>Exclude files from being rendered by prefixing source file patterns with <code>!</code>. Visit the Grunt.js docs to <a href="http://gruntjs.com/configuring-tasks#globbing-patterns">learn more about globbing</a> patterns.</p>
           <h5><a href="http://gruntjs.com/configuring-tasks#globbing-patterns">Quoted from the Grunt.js docs</a> →</h5>
 <pre><code class="language-javascript"><span class="comment">// All files except for bar.js, in alpha order:</span>
 {src: [<span class="string">'foo/*.js'</span>, <span class="string">'!foo/bar.js'</span>], dest: ...}
