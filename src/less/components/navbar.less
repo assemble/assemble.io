@@ -3,6 +3,9 @@
 // -----------------------------------------
 
 
+
+
+
 // Navbar Transitions
 // ---------------------------------
 
@@ -25,9 +28,19 @@
   }
 }
 
+.navbar-fixed-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: @zindex-navbar-fixed;
+  border-radius: 0;
+}
+.navbar-fixed-top {
+  top: 0;
+}
+
 // Navbar
 .navbar {
-  .box-shadow(0 0 5px rgba(0,0,0,.15));
   // Override bootstrap styles and extend
   // with new styles
   &:extend(
@@ -39,6 +52,9 @@
   &:hover {
     background: #fff;
   }
+  .box-shadow(0 0 5px rgba(0,0,0,.15));
+  border-radius: 0;
+
   // Increase icon size
   .navbar-nav > li > a .glyphicon {
     font-size: 24px;

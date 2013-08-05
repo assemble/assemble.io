@@ -25,13 +25,12 @@ module.exports = function(grunt) {
 
     less: {
       options: {
-        paths: ['src/less', 'src/less/components', 'vendor/bootstrap/less'],
         imports: {
-          less: '<%= ghpages.globals %>'
+          reference: '<%= ghpages.globals %>'
         }
       },
       main: {
-        src: ['<%= ghpages.bundle.docs %>'],
+        src: ['<%= bootstrap.bundle.docs %>', '<%= ghpages.bundle.docs %>'],
         dest: 'docs/assets/css/assemble.css'
       },
       gist: {

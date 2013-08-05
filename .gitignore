@@ -7,4 +7,6 @@ temp
 src/generate
 
 *.sublime-*
+*.zip
+*.rar
 TODO.md

@@ -77,22 +77,34 @@ component:
   responsive_utilities: responsive-utilities.less
 
 # Docs CSS
-docs: ./src/less/docs/docs.css
+docs: ./src/less/docs/docs.less
 
 
 # =====================================================
 # LESS Bundles
 # =====================================================
+globals:
+  # - <%= bootstrap.component.variables %>
+  - <%= bootstrap.component.mixins %>
+  - <%= bootstrap.component.normalize %>
+  - <%= bootstrap.component.print %>
 
 # Components grouped based on 'bootstrap.less'
 bundle:
-  globals:
-  # - <%= bootstrap.component.variables %>
-  - <%= bootstrap.component.mixins %>
-
-  reset:
+  docs:
   - <%= bootstrap.component.normalize %>
   - <%= bootstrap.component.print %>
+  - <%= bootstrap.component.scaffolding %>
+  - <%= bootstrap.component.code %>
+  - <%= bootstrap.component.grid %>
+  - <%= bootstrap.component.glyphicons %>
+  - <%= bootstrap.component.panels %>
+  - <%= bootstrap.component.navs %>
+  - <%= bootstrap.component.navbar %>
+  - <%= bootstrap.component.thumbnails %>
+  - <%= bootstrap.component.labels %>
+  - <%= bootstrap.component.badges %>
+  - <%= bootstrap.component.utilities %>
 
   # Components: Core
   core:

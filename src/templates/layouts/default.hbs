@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <title>{{#if title}} {{title}} {{else}} {{titleize page.basename}} {{/if}} | Assemble</title>
-    <meta name="description" content="{{#if description}} {{description}} | {{/if}} {{package.description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    {{#unless cheatsheet}}<link rel="stylesheet" href="{{assets}}/css/markdown.css">{{/unless}}
+    {{#if cheatsheet}}<link rel="stylesheet" href="{{assets}}/css/gist.css">{{/if}}
     <link rel="stylesheet" href="{{assets}}/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -14,6 +14,7 @@
     <script src="{{assets}}/js/respond/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Favicons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{assets}}/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{assets}}/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{assets}}/ico/apple-touch-icon-72-precomposed.png">
@@ -22,24 +23,21 @@
     {{> analytics }}
     {{> metadata }}
   </head>
-   <body>
+  <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
 
-    {{! NAVIGATION
+    {{!-- NAVIGATION
     =================================== --}}
     {{> navbar }}
 
 
-    {{! MAIN CONTENT
+    {{!-- Content
     =================================== --}}
     {{> body }}
 
 
     {{!-- SCRIPTS
     =================================== --}}
-    <script src="docs/assets/js/jquery.js"></script>
-    <script src="docs/assets/js/holder.js"></script>
-    <script src="docs/assets/js/highlight.js"></script>
-    <script src="docs/assets/js/showup.js"></script>
+    {{> javascripts }}
     <script>
       $().showUp('.navbar');
     </script>

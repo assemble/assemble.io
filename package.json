@@ -1,7 +1,7 @@
 {
   "name": "assemble-docs",
   "description": "Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": {
     "name": "assemble",
     "url": "https://assemble.io/"
@@ -27,8 +27,8 @@
     "node": ">= 0.8.0"
   },
   "devDependencies": {
-    "assemble": "~0.4.0",
-    "assemble-less": "~0.4.8",
+    "assemble": "~0.4.3",
+    "assemble-less": "~0.5.0",
     "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-copy": "~0.4.1",
