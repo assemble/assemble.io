@@ -228,10 +228,8 @@ table {
 body {
   position: relative;
   /* For scrollyspy */
-
   padding-top: 50px;
   /* Account for fixed navbar */
-
 }
 /* Top nav and header
 -------------------------------------------------- */
@@ -282,7 +280,6 @@ body {
   font-size: 21px;
   color: #b94a48;
   /* redeclare to override the `.jumbotron a` */
-
   background-color: #fff;
   border-color: #e5e5e5;
 }
@@ -290,7 +287,6 @@ body {
 .bs-masthead .btn:active {
   color: #fff;
   /* redeclare to override the `.jumbotron a` */
-
   background-color: #b94a48;
   border-color: #b94a48;
 }
@@ -537,7 +533,6 @@ body {
   min-height: 110px;
   overflow: hidden;
   /* cut the drop shadows off */
-
 }
 .bs-navbar-top-example .navbar-fixed-top,
 .bs-navbar-bottom-example .navbar-fixed-bottom {
@@ -706,7 +701,6 @@ body {
   list-style: none;
   overflow: hidden;
   /* clear floats */
-
 }
 .responsive-utilities-test li {
   position: relative;
@@ -788,7 +782,6 @@ input.focused {
   outline: 0;
   outline: thin dotted \9;
   /* IE6-9 */
-
   -moz-box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
   box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
 }
@@ -818,7 +811,6 @@ input.focused {
   font-size: inherit;
   color: #333;
   /* Effectively the base text color */
-
 }
 .highlight pre .lineno {
   display: inline-block;
@@ -854,7 +846,6 @@ input.focused {
   .bs-sidebar.affix {
     position: fixed;
     /* Undo the static from mobile-first approach */
-  
     top: 50px;
     width: 160px;
   }
@@ -862,7 +853,6 @@ input.focused {
   .bs-top {
     display: block;
     /* Unhide */
-  
     float: left;
     padding: 7px 15px;
     font-weight: 500;
