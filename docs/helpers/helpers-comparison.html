@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Numbers | Assemble</title>
+  <title>Comparison | Assemble</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../assets/css/markdown.css">
   <link rel="stylesheet" href="../../assets/css/assemble.css">
@@ -96,7 +96,7 @@
       <div class="row">
         <div class="col col-lg-12">
           <h1>
-            <span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Numbers</h1>
+            <span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Comparison</h1>
         </div>
       </div>
     </div>
@@ -186,92 +186,198 @@
       </div>
       <div class="col col-lg-9">
         <div class="panel panel-docs">
-          <h1>Numbers</h1>
+          <h1>Comparison</h1>
           <p>
-            <h4>{{addCommas}}</h4>
+            <h4>{{and}}</h4>
           </p>
           <p>
-            <p><em>Adds commas to a number.</em>
+            <p><em>Conditionally render a block if both values are truthy.</em>
             </p>
           </p>
           <p>
-            <p>Parameters: <code>none</code>
-            </p>
+            <p>Parameters: values <code>string|int</code> - the values to test against.</p>
           </p>
           <p>
             <p>Data:</p>
           </p>
-<pre><code class="language-javascript">value = <span class="number">2222222</span></code></pre>
+<pre><code class="language-javascript">great = <span class="literal">true</span>
+magnificent = <span class="literal">true</span></code></pre>
           <p>Template:</p>
-<pre><code class="language-html">{{addCommas value}}</code></pre>
+<pre><code class="language-html">{{#and great magnificent}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/and}}</code></pre>
           <p>Renders to:</p>
-<pre><code>2,222,222</code></pre>
-          <h4>{{toAbbr}}</h4>
-          <p><em>Returns the number in abbreviation formats based on a value. The number is rounded to a particular decimal place.</em>
-          </p>
-          <p>Parameters: digits <code>int</code> - The number of digits to appear after the decimal point. (Optional)</p>
-          <p>Default: <code>2</code>
-          </p>
+<pre><code>Kiss my shiny metal ass!</code></pre>
+          <h4>{{gt}}</h4>
+          <p>
+            <strong>Same as <code>if_gt</code>, consider consolidating</strong>
+<em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
+            <br>Parameters: value <code>string|int</code> - the value to test against.</p>
           <p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">123456789</span></code></pre>
+<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
           <p>Template:</p>
-<pre><code class="language-html">{{toAbbr value}}</code></pre>
+<pre><code class="language-html">{{#gt number 8}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/gt}}</code></pre>
           <p>Renders to:</p>
-<pre><code>123.457m</code></pre>
-          <h4>{{toExponential}}</h4>
-          <p><em>Returns the number in exponential notation with one digit before the decimal point, rounded to <code>fractions</code> digits after the decimal point.</em>
+<pre><code>Never mind :(</code></pre>
+          <h4>{{gte}}</h4>
+          <p>
+            <strong>Same as <code>if_gteq</code>, consider consolidating</strong>
+<em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y).</em>
+            <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#gte number 5}}
+  Kiss my shiny metal ass!
+{{else}}
+  Never mind :(
+{{/gte}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Kiss my shiny metal ass!</code></pre>
+          <h4>{{if_gt}}</h4>
+          <p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
+            Parameters: <code>none</code>
           </p>
-          <p>Parameters: fractions <code>int</code> - An integer specifying the number of digits after the decimal point. (Optional)</p>
-          <p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
-          <p>Template:</p>
-<pre><code class="language-html">{{toExponential value 5}}</code></pre>
-          <p>Renders to:</p>
-<pre><code>5.00000e+0</code></pre>
-          <h4>{{toFixed}}</h4>
-          <p><em>Returns exactly <code>digits</code> after the decimal place. The number is rounded if necessary, and the fractional part is padded with zeros if necessary so that it has the specified length.</em>
+<pre><code class="language-html">{{#if_gt x compare=y}} ... {{/if_gt}}</code></pre>
+          <h4>{{if_gteq}}</h4>
+          <p><em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y).</em>
+            Parameters: <code>none</code>
           </p>
-          <p>Parameters: digits <code>int</code> - The number of digits to appear after the decimal point. (Optional)</p>
+<pre><code class="language-html">{{#if_gteq x compare=y}} ... {{/if_gteq}}</code></pre>
+          <h4>{{is}}</h4>
+          <p><em>Conditionally render a block if the condition is true (if x = y).</em>
+          </p>
+          <p>Parameters: <code>string|int</code> (the value to test against) Default: <code>undefined</code>
+          </p>
+          <h5>Example #1:</h5>
           <p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">5.53231</span></code></pre>
+<pre><code class="language-javascript">---
+number = <span class="number">5</span>
+---</code></pre>
           <p>Template:</p>
-<pre><code class="language-html">{{toFixed value 3}}</code></pre>
+<pre><code class="language-html">{{#is number 5}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/is}}</code></pre>
           <p>Renders to:</p>
-<pre><code>5.532</code></pre>
-          <h4>{{toFloat}}</h4>
-          <p><em>Returns a floating point number.</em>
+<pre><code>Kiss my shiny metal ass!</code></pre>
+          <h5>Example #2:</h5>
+          <p>If you are using <a href="">Assemble</a>, data from <em>YAML front matter</em> or any specified <code>JSON</code> and/or <code>YAML</code> source files will get passed through to the context in your templates.</p>
+          <p>Data and Templates:</p>
+<pre><code class="language-html">---
+page:
+  title: About Us
+---
+
+{{#is page.title &quot;Home&quot;}}
+    &lt;h1&gt; About Us &lt;/h1&gt;
+{{else}}
+    &lt;h1&gt; My Blog &lt;/h1&gt;
+{{/is}}</code></pre>
+          <p>Renders to:</p>
+<pre><code class="language-html">&lt;h1&gt; About Us &lt;/h1&gt;</code></pre>
+          <h4>{{ifeq}}</h4>
+          <p>
+            <strong>Alias for <code>is</code>. Considering consolidating</strong>
+          </p>
+          <p><em>Conditionally render a block if the condition is true (If x = y).</em>
           </p>
           <p>Parameters: <code>none</code>
           </p>
+<pre><code class="language-html">{{#ifeq x compare=y}} ... {{/ifeq}}</code></pre>
+          <h4>{{isnt}}</h4>
+          <p><em>Conditionally render a block if the condition is false. Opposite of <code>is</code>.</em>
+            <br>Parameters: value <code>string|int</code> - the value to test against.</p>
           <p>Data:</p>
-<pre><code class="language-javascript">value = <span class="string">'22.2abc'</span></code></pre>
+<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
           <p>Template:</p>
-<pre><code class="language-html">{{toFloat value}}</code></pre>
+<pre><code class="language-html">{{#isnt number 5}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/isnt}}</code></pre>
           <p>Renders to:</p>
-<pre><code>22.2</code></pre>
-          <h4>{{toInt}}</h4>
-          <p><em>Returns an integer.</em>
+<pre><code>Never mind :(</code></pre>
+          <h4>{{lt}}</h4>
+          <p><em>Conditionally render a block if the value is less than a given number. Opposite of <code>gt</code>.</em>
+            <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#lt number 3}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/lt}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Never mind :(</code></pre>
+          <h4>{{lte}}</h4>
+          <p><em>Conditionally render a block if the value is less or equal than a given number. Opposite of <code>gte</code>.</em>
+            <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#lte number 5}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/lte}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Kiss my shiny metal ass!</code></pre>
+          <h4>{{or}}</h4>
+          <p><em>Conditionally render a block if one of the values is truthy.</em>
+          </p>
+          <p>Parameters: values <code>string|int</code> - the values to test against.</p>
+          <p>Data:</p>
+<pre><code class="language-javascript">great = no
+magnificent = <span class="literal">true</span></code></pre>
+          <p>Template:</p>
+<pre><code class="language-html">{{#or great magnificent}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/or}}</code></pre>
+          <p>Renders to:</p>
+<pre><code>Kiss my shiny metal ass!</code></pre>
+          <h4>{{unless_eq}}</h4>
+          <p>
+            <strong>Alias for <code>isnt</code>
+            </strong>
+          </p>
+          <p><em>Conditionally render a block if the condition is false (Unless x = y). Opposite of <code>is</code>.</em>
           </p>
           <p>Parameters: <code>none</code>
           </p>
-          <p>Data:</p>
-<pre><code class="language-javascript">value = <span class="string">'22.2abc'</span></code></pre>
-          <p>Template:</p>
-<pre><code class="language-html">{{toInt value}}</code></pre>
-          <p>Renders to:</p>
-<pre><code>22</code></pre>
-          <h4>{{toPrecision}}</h4>
-          <p><em>Returns the number in fixed-point or exponential notation rounded to <code>precision</code> significant digits.</em>
+<pre><code class="language-html">{{#unless_eq x compare=y}} ... {{/unless_eq}}</code></pre>
+          <h4>{{unless_gt}}</h4>
+          <p><em>Unless greater than (Unless x &gt; y)</em>
+            Parameters: <code>none</code>
           </p>
-          <p>Parameters: precision <code>int</code> - The number of digits. If omitted, it returns the entire number (without any formatting). (Optional)</p>
-          <p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">555.322</span></code></pre>
-          <p>Template:</p>
-<pre><code class="language-html">{{toPrecision value 4}}</code></pre>
-          <p>Renders to:</p>
-<pre><code>555.3</code></pre>
+<pre><code class="language-html">{{#unless_gt x compare=y}} ... {{/unless_gt}}</code></pre>
+          <h4>{{unless_gteq}}</h4>
+          <p><em>&quot;Unless x &gt;= y&quot;. Render block, unless given value is greater than or equal to.</em>
+          </p>
+          <p>Parameters: <code>none</code>
+          </p>
+<pre><code class="language-html">{{#unless_gteq x compare=y}} ... {{/unless_gteq}}</code></pre>
+          <h4>{{unless_lt}}</h4>
+          <p><em>Render block, unless value is less than a given number (Unless x &lt; y)</em>.</p>
+          <p>Parameters: <code>none</code>
+          </p>
+<pre><code class="language-html">{{#unless_lt x compare=y}} ... {{/unless_lt}}</code></pre>
+          <h4>{{unless_lteq}}</h4>
+          <p><em>Render block, unless value is less than or equal to a given number (Unless x &lt;= y)</em>.</p>
+          <p>Parameters: <code>none</code>
+          </p>
+<pre><code class="language-html">{{#unless_lteq x compare=y}} ... {{/unless_lteq}}</code></pre>
           <hr>
-          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-numbers.hbs">See the template for this page → </a>
+          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-comparison.hbs">See the template for this page → </a>
           </p>
           <div class="alert">
             <style type="text/css" media="screen">
