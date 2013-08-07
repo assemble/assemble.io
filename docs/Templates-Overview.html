@@ -118,7 +118,7 @@
             </script>
           </div>
           <h1>
-            <span class="text-muted">Docs /&nbsp;</span>[object Object]</h1>
+            <span class="text-muted">Docs /&nbsp;</span>templates</h1>
         </div>
       </div>
     </div>
@@ -186,7 +186,7 @@
           </ul>
           <span class="nav-section-title">Templates</span>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Templates Overview']);">Templates Overview</a>
+            <li class="active"><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
             </li>
             <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
             </li>
@@ -199,6 +199,8 @@
             <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
             </li>
             <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+            </li>
+            <li class="active"><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
             </li>
           </ul>
           <span class="nav-section-title">Content</span>
@@ -253,7 +255,7 @@
           </h3>
           <h4>Syntax</h4>
           <p>A basic expression looks like this:</p>
-<pre><code class="language-html">&lt;h1&gt;&lt;/h1&gt;</code></pre>
+<pre><code class="language-html">&lt;h1&gt;{{component.title}}&lt;/h1&gt;</code></pre>
           <p>Usage: May be used only in the &quot;content&quot; of pages, e.g. <em>anywhere but the YAML front matter of a page.</em>.</p>
           <p>Although Handlebars is most often used for generating HTML, you can also <em>generate</em> JSON, XML, YAML, CSS, LESS, SASS and so on.</p>
           <p>This keeps Lo-Dash templates focused on configuration(ish) data, or data that is used directly by the build process, and Handlebars focused on rendering content with as little logic as possible.</p>
@@ -263,14 +265,14 @@
           <h3>Don&#39;t</h3>
 <pre><code class="language-json">// alert.json
 {
-  &quot;message&quot;: &quot;this is an alert from &quot;
+  &quot;message&quot;: &quot;this is an alert from {{site.name}}&quot;
 }</code></pre>
           <p>Or this:</p>
 <pre><code class="language-html">---
-title:  # Oops! Can&#39;t use handlebars here!!!
+title: {{pkg.name}} # Oops! Can&#39;t use handlebars here!!!
 ---
 
-&lt;h1&gt;Templates Overview&lt;/h1&gt;</code></pre>
+&lt;h1&gt;{{title}}&lt;/h1&gt;</code></pre>
           <p>Neither of those examples will because Handlebars templates can only be used
             <strong>outside of the YAML front matter</strong>.</p>
           <p>This won&#39;t work either:</p>
@@ -291,7 +293,7 @@ Whoa! Nope, this won&#39;t work either. No Lo-Dash in the &quot;content&quot; pa
 title: &lt;% pkg.name %&gt; # Nice!!! Assuming you are reading in the package.json in the Gruntfile, this works!
 ---
 
-&lt;h1&gt;Templates Overview&lt;/h1&gt;
+&lt;h1&gt;{{title}}&lt;/h1&gt;
 
 And this title will pull data from the YAML front matter. It&#39;s kind of like cheating, accept not.</code></pre>
           <p>So does this:</p>
@@ -300,7 +302,7 @@ modifier: alert-warning
 strong: Be advised!
 message: this is an alert from &lt;%= site.name %&gt; # pass in the site name</code></pre>
           <p>And then pass it along to <code>alert.hbs</code>:</p>
-<pre><code class="language-html">&lt;div class=&quot;alert alert-info&quot;&gt;&lt;strong&gt;External data example&lt;/strong&gt;This alert was assembled from a partial and YAML data fron in &amp;#x27;./src/data/&amp;#x60;.&lt;/div&gt;</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;alert {{alert.modifier}}&quot;&gt;&lt;strong&gt;{{ alert.strong }}&lt;/strong&gt;{{ alert.message }}&lt;/div&gt;</code></pre>
           <h2>Related Information</h2>
           <ul>
             <li><a href="Pages.html">Pages</a>
