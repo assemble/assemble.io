@@ -1,0 +1,6 @@
+###
+# Site variables
+###
+
+production: <%= production %>
+destination: ./_gh_pages/

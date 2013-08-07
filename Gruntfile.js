@@ -17,7 +17,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     // Metadata for templates
-    pkg: grunt.file.readJSON('package.json'),
+    pkg      : grunt.file.readJSON('package.json'),
+    site     : grunt.file.readYAML('src/data/site.yml'),
     bootstrap: grunt.file.readYAML('src/less/bootstrap.yml'),
     ghpages  : grunt.file.readYAML('src/less/ghpages.yml'),
 
@@ -27,15 +28,15 @@ module.exports = function(grunt) {
       },
       main: {
         src: ['<%= bootstrap.bundle.docs %>', '<%= ghpages.bundle.docs %>'],
-        dest: '_gh_pages/assets/css/assemble.css'
+        dest: '<%= site.destination %>/assets/css/assemble.css'
       },
       gist: {
         src: ['src/less/docs/gist-overrides.less'],
-        dest: '_gh_pages/assets/css/gist.css'
+        dest: '<%= site.destination %>/assets/css/gist.css'
       },
       markdown: {
         src: ['src/less/components/markdown.less'],
-        dest: '_gh_pages/assets/css/markdown.css'
+        dest: '<%= site.destination %>/assets/css/markdown.css'
       }
     },
 
@@ -46,7 +47,7 @@ module.exports = function(grunt) {
         marked: {sanitize: false},
         helpers: 'src/helpers/*.js',
         production: true,
-        assets: '_gh_pages/assets',
+        assets: '<%= site.destination %>/assets',
         layoutdir: 'src/templates/layouts',
         partials: ['src/templates/partials/**/*.{hbs,md}'],
         data: ['src/data/*.{json,yml}', 'package.json']
@@ -64,14 +65,14 @@ module.exports = function(grunt) {
             flatten: true,
             cwd: 'src/templates/pages',
             src: ['*.hbs'],
-            dest: '_gh_pages/'
+            dest: '<%= site.destination %>/'
           },
           {
             expand: true,
             flatten: true,
             cwd: 'src/templates/pages/docs',
             src: ['*.hbs'],
-            dest: '_gh_pages/docs/',
+            dest: '<%= site.destination %>/docs/',
             ext: '.html'
           },
           {
@@ -79,7 +80,7 @@ module.exports = function(grunt) {
             flatten: true,
             cwd: 'src/templates/pages/contributing',
             src: ['*.hbs'],
-            dest: '_gh_pages/contributing/',
+            dest: '<%= site.destination %>/contributing/',
             ext: '.html'
           }
         ]
@@ -92,7 +93,7 @@ module.exports = function(grunt) {
             flatten: true,
             cwd: 'src',
             src: ['templates/pages/helpers/*.hbs'],
-            dest: '_gh_pages/helpers',
+            dest: '<%= site.destination %>/helpers',
             ext: '.html'
           }
         ]
@@ -105,7 +106,7 @@ module.exports = function(grunt) {
             flatten: true,
             cwd: 'src',
             src: ['templates/pages/boilerplates/*.hbs'],
-            dest: '_gh_pages/boilerplates/',
+            dest: '<%= site.destination %>/boilerplates/',
             ext: '.html'
           }
         ]
@@ -134,8 +135,8 @@ module.exports = function(grunt) {
       options: {prettifyrc: '.prettifyrc'},
       docs: {
         files: [
-          {expand: true, cwd: '_gh_pages/docs/', ext: '.html', src: ['**/*.html'], dest: '_gh_pages/docs/'},
-          {expand: true, cwd: '_gh_pages/',      ext: '.html', src: ['*.html'],    dest: '_gh_pages/'}
+          {expand: true, cwd: '<%= site.destination %>/docs/', ext: '.html', src: ['**/*.html'], dest: '<%= site.destination %>/docs/'},
+          {expand: true, cwd: '<%= site.destination %>/',      ext: '.html', src: ['*.html'],    dest: '<%= site.destination %>/'}
         ]
       }
     },
@@ -143,16 +144,16 @@ module.exports = function(grunt) {
     copy: {
       docs: {
         files: [
-          {expand: true, cwd: 'contributing', src: ['**'],     dest: '../assemble-docs-gh-pages/contributing'},
-          {expand: true, cwd: 'docs', src: ['**'],     dest: '../assemble-docs-gh-pages/docs'},
-          {expand: true, cwd: './',   src: ['*.html'], dest: '../assemble-docs-gh-pages/'}
+          {expand: true, cwd: 'contributing', src: ['**'],     dest: '<%= site.destination %>/contributing'},
+          {expand: true, cwd: 'docs', src: ['**'],     dest: '<%= site.destination %>/docs'},
+          {expand: true, cwd: './',   src: ['*.html'], dest: '<%= site.destination %>/'}
         ]
       }
     },
 
     // Before generating any new files, remove files from previous build.
     clean: {
-      ghpages: ['_gh_pages/**/*.{html,css,js}']
+      ghpages: ['<%= site.destination %>/**/*.html']
     }
   });
 
@@ -169,11 +170,11 @@ module.exports = function(grunt) {
   // Default task to be run.
   grunt.registerTask('default', [
     'clean:ghpages',
-    'less',
     'assemble:links',
     'assemble:docs',
     'assemble:helpers',
     'assemble:boilerplates',
-    'prettify'
+    'prettify',
+    'less'
   ]);
 };

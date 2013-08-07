@@ -5,7 +5,7 @@
   "teaser": {
     "class": "teaser",
     "inner": "container",
-    "content": "<p> <a href=\"docs/Home.html\">Get Started &rarr;</a> </p>"
+    "content": "<p> <a href=\"docs/\">Get Started &rarr;</a> </p>"
   },
   "panel-base": {
     "class": "panel",
