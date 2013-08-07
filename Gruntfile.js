@@ -9,11 +9,9 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var hljs = require('highlight.js');
+
   // Internal lib
   grunt.util._.mixin(require('./src/helpers/mixins').init(grunt));
-
-
 
   // Project configuration.
   grunt.initConfig({
@@ -25,110 +23,101 @@ module.exports = function(grunt) {
 
     less: {
       options: {
-        imports: {
-          reference: '<%= ghpages.globals %>'
-        }
+        imports: {reference: '<%= ghpages.globals %>'}
       },
       main: {
         src: ['<%= bootstrap.bundle.docs %>', '<%= ghpages.bundle.docs %>'],
-        dest: 'docs/assets/css/assemble.css'
+        dest: '_gh_pages/assets/css/assemble.css'
       },
       gist: {
         src: ['src/less/docs/gist-overrides.less'],
-        dest: 'docs/assets/css/gist.css'
+        dest: '_gh_pages/assets/css/gist.css'
       },
       markdown: {
         src: ['src/less/components/markdown.less'],
-        dest: 'docs/assets/css/markdown.css'
+        dest: '_gh_pages/assets/css/markdown.css'
       }
     },
 
     // Templates
     assemble: {
       options: {
-        marked: {
-          breaks: false,
-          gfm: true,
-          langPrefix: 'language-',
-          pedantic: false,
-          sanitize: false,
-          silent: false,
-          smartLists: false,
-          smartypants: false,
-          tables: true
-        },
-        production: true,
         today: '<%= grunt.template.today() %>',
+        marked: {sanitize: false},
+        helpers: 'src/helpers/*.js',
+        production: true,
+        assets: '_gh_pages/assets',
         layoutdir: 'src/templates/layouts',
-        helpers: 'src/helpers/helpers.js',
-        assets: 'docs/assets',
-        data: [
-          'src/data/*.{json,yml}',
-          'package.json'
-        ],
-        partials: [
-          'src/templates/partials/**/*.{hbs,md}'
-        ]
+        partials: ['src/templates/partials/**/*.{hbs,md}'],
+        data: ['src/data/*.{json,yml}', 'package.json']
       },
       links: {
-        options: {
-          ext: '.hbs',
-          layout: false
-        },
-        files: [
-          { expand: true, flatten: true, src: ['src/templates/partials/snippets/generated-links.md.hbs'], dest: 'src/templates/partials/' },
-        ]
+        options: {ext: '.hbs'},
+        src: 'src/templates/partials/link-template.md.hbs',
+        dest: 'src/templates/partials/generated-links.md.hbs',
       },
       docs: {
-        options: {
-          layout: 'layout-docs.hbs'
-        },
-        files: [
-          { expand: true, flatten: true, cwd: 'src/templates/pages', src: ['*.hbs'], dest: './' },
-          { expand: true, flatten: true, cwd: 'src/templates/pages/docs', src: ['*.hbs'], dest: 'docs/', ext: '.html' },
-          { expand: true, flatten: true, cwd: 'src/templates/pages/docs/contributing', src: ['*.hbs'], dest: 'contributing/', ext: '.html' }
-        ]
-      },
-      helpers: {
-        options: {
-          layout: 'layout-helpers.hbs'
-        },
-        files: [
-          { expand: true, flatten: true, cwd: 'src', src: ['templates/pages/helpers/*.hbs'], dest: './docs/helpers', ext: '.html' }
-        ]
-      },
-      boilerplates: {
-        options: {
-          layout: 'layout-boilerplates.hbs'
-        },
-        files: [
-          { expand: true, flatten: true, cwd: 'src', src: ['templates/pages/boilerplates/*.hbs'], dest: './docs/boilerplates', ext: '.html' }
-        ]
-      },
-      diagnostics: {
-        options: {
-          layout: 'layout-diagnostics.md.hbs',
-          ext: '.html'
-        },
+        options: {layout: 'layout-docs.hbs'},
         files: [
           {
             expand: true,
+            flatten: true,
             cwd: 'src/templates/pages',
-            src: ['*.hbs', 'docs/*.hbs', 'examples/*.hbs', 'helpers/**/*.hbs'],
-            dest: './tmp/diagnostics/',
-            ext: '/index'
+            src: ['*.hbs'],
+            dest: '_gh_pages/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            cwd: 'src/templates/pages/docs',
+            src: ['*.hbs'],
+            dest: '_gh_pages/docs/',
+            ext: '.html'
+          },
+          {
+            expand: true,
+            flatten: true,
+            cwd: 'src/templates/pages/contributing',
+            src: ['*.hbs'],
+            dest: '_gh_pages/contributing/',
+            ext: '.html'
+          }
+        ]
+      },
+      helpers: {
+        options: {layout: 'layout-helpers.hbs'},
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            cwd: 'src',
+            src: ['templates/pages/helpers/*.hbs'],
+            dest: '_gh_pages/helpers',
+            ext: '.html'
+          }
+        ]
+      },
+      boilerplates: {
+        options: {layout: 'layout-boilerplates.hbs'},
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            cwd: 'src',
+            src: ['templates/pages/boilerplates/*.hbs'],
+            dest: '_gh_pages/boilerplates/',
+            ext: '.html'
           }
         ]
       }
     },
-
 
     github: {
       options: {
         filters: {type: 'public'}
       },
       pkg: {
-        src: '/repos/assemble/**/contents/package.json',
+        src: '/repos/assemble/assemble/contents/pkg-assemble.json',
         dest: 'src/data/pkg.json'
       },
       readme: {
@@ -141,18 +130,16 @@ module.exports = function(grunt) {
       }
     },
 
-
     prettify: {
-      options: {
-        prettifyrc: '.prettifyrc'
-      },
+      options: {prettifyrc: '.prettifyrc'},
       docs: {
         files: [
-          {expand: true, cwd: 'docs/', ext: '.html', src: ['**/*.html'], dest: 'docs/'},
-          {expand: true, cwd: './',    ext: '.html', src: ['*.html'],    dest: './'}
+          {expand: true, cwd: '_gh_pages/docs/', ext: '.html', src: ['**/*.html'], dest: '_gh_pages/docs/'},
+          {expand: true, cwd: '_gh_pages/',      ext: '.html', src: ['*.html'],    dest: '_gh_pages/'}
         ]
       }
     },
+
     copy: {
       docs: {
         files: [
@@ -163,11 +150,9 @@ module.exports = function(grunt) {
       }
     },
 
-    // Before generating any new files,
-    // remove files from previous build.
+    // Before generating any new files, remove files from previous build.
     clean: {
-      all: ['*.html', 'docs/*.html'],
-      tmp: ['tmp/diagnostics/**/*.{html,md}']
+      ghpages: ['_gh_pages/**/*.{html,css,js}']
     }
   });
 
@@ -180,18 +165,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-github-api');
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+
   // Default task to be run.
   grunt.registerTask('default', [
-    'clean',
+    'clean:ghpages',
     'less',
     'assemble:links',
     'assemble:docs',
     'assemble:helpers',
     'assemble:boilerplates',
-    // 'assemble:diagnostics',
-    'prettify',
-    'copy'
+    'prettify'
   ]);
 };
-
-

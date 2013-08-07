@@ -5,6 +5,7 @@ tmp
 temp
 /docs
 src/generate
+_gh_pages
 
 *.sublime-*
 *.zip
