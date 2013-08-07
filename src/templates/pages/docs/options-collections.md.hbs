@@ -37,10 +37,15 @@ widgets:
 
 ### Collections Options
 
-* `title:`: the name of the collection, plural form
+#### Implemented
+
+* `name:`: the name of the collection, plural form
 * `inflection`: the name of an individual collection item, in **singular** form
 * `sortorder`: direction in which to sort the collection. Accepted values are (case insensitive): `asc`|`ascending`, `desc`|`descending`.
 * `sortby`: you may sort the collection by any field available in the page's data context
+
+#### Planned
+
 * `index`: the template to use for generating an index page for the collection. `src/templates/indices/archives.hbs`
 
 ```js
@@ -48,11 +53,11 @@ options: {
   collections: [
     // Collections options
     {
-      title: 'items',
+      name: 'items',
       inflection: 'nav-item' // or whatever
     },
     {
-      title: 'archives',
+      name: 'archives',
       inflection: 'post' ,
       sortorder: 'ascending', // or any of the following ['asc', 'desc', 'descending'] upper or lower case
       sortby: 'datetime', // this is any
@@ -61,11 +66,6 @@ options: {
   ]
 }
 ```
-
-Basically, I'm switching `sortby` and `sortorder` so that `sortby` tells us which field to use for sorting, and `sortorder` tells us if it's ascending or descending.
-
-Also, with `sortby`, I think it should be open to any field within the `page`'s data context. I think it should also include the collection item as an option, but I'm not sure how to put that.
-
 
 ### List of associate pages
 
@@ -103,9 +103,9 @@ And then in the YAML front matter of a page:
 ```yaml
 ---
 widgets:
-- one
-- two
-- three
+  - one
+  - two
+  - three
 ---
 ```
 
@@ -128,10 +128,10 @@ Declaring tags and categories for a page within the page's [YAML front matter][y
 ``` yaml
 ---
 tags:
-- feature
-- priority
+  - feature
+  - priority
 categories:
-- open
+  - open
 ---
 ```
 
