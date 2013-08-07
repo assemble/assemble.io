@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Code  | Assemble</title>
+    <title> Readme  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/markdown.css">
+    <link rel="stylesheet" href="../../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
+        <li> <a href="../../docs/">Docs</a> </li>
+        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Code</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Readme</h1>
       </div>
     </div>
   </div>
@@ -182,73 +182,82 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>Code</h1>
-        <p><h4>{{embed}}</h4></p>
-<p><p><em>Embed code from specified file(s)</em></p></p>
-<p><p>Parameters:
-<em> <code>String|File</code> : path to the file you want to embed
-</em> <code>String|Language (optional)</code>: Optional second parameter to &quot;force&quot; a specific language to use fo syntax highlighting.</p></p>
-<p><p>Unless overridden by a given extension, the helper will automatically use the extension of the specified file as the language to use for syntax highlighting. You may also force the helper to use a language that is different than the extension of the file.</p></p>
-<p><p>For example, here we will force highlighting as <code>javascript</code> instead of <code>json</code></p></p>
-<pre><code class="language-html">{{ embed &#39;src/example.json&#39; &#39;js&#39; }}</code></pre>
-<p>When embedding a markdown snippet (<code>.md|markdown|markd</code>), the helper automatically converts any code fences inside the snippet (&quot;<code>` `````&quot;) to their unicode equivalent (&quot;</code>&#x60;&#x60;&#x60;`&quot;)</p>
-<pre><code class="language-html">{{embed &#39;src/example.md&#39;}}</code></pre>
-<p><strong>File globbing</strong></p>
-<p>The <code>embed</code> helper also accepts globbing patterns:</p>
-<pre><code class="language-html">{{embed &#39;src/code-examples/*.*&#39;}}</code></pre>
-<p>When globbing file is used, the code from each file will be embedded separately, and the file extension of each file will be used to identify the language to use for syntax highlighting. You may of course override the language, but whatever language you use will be applied to every embedded file.</p>
-<p><em>use globbing carefully! Until you have the hang of it try to be on the safe side and be more specific with your patterns</em></p>
-<h4>{{gist}}</h4>
-<p><em>Embed public GitHub Gists by adding only the Id of the Gist. The helper also accepts an optional second parameter for targeting a specific file on the Gist..</em></p>
-<p>Parameters: <code>String</code>
-Default: <code>undefined</code>
-Usage: <code>{{ gist [id] }}</code></p>
-<p>Example:</p>
-<pre><code class="language-html">{{gist &#39;5193239&#39;}}</code></pre>
-<p>Output:</p>
-<pre><code class="language-html">&lt;script src=&quot;https://gist.github.com/5193239.js&quot;&gt;&lt;/script&gt;</code></pre>
-<h4>{{jsfiddle}} <a id="jsfiddle" name="jsfiddle" class="anchor"><span class="glyphicon glyphicon-link"></span></a></h4>
-<p><em>Easily embed a <a href="http://jsfiddle.net">jsFiddle</a> in a page, requiring only the ID of the fiddle.</em></p>
-<p>Credit: <a href="http://octopress.org/docs/plugins/jsfiddle-tag/">octopress</a></p>
-<p>Parameters: <code>{{ jsfiddle &quot;id&quot; &quot;tabs&quot; &quot;skin&quot; &quot;height&quot; &quot;width&quot; }}</code>
-  <em> <code>id</code>: full URL to the fiddle excluding <code>http://jsfiddle.net</code>
-  </em> <code>tabs</code>: tabs to be displayed, and the order specified
-  <em> <code>skin</code>: the skin to be used, <code>light</code> or <code>presentation</code> are the only options available.
-  </em> <code>height</code>: the height of the rendered <code>&lt;iframe&gt;</code>
-  * <code>width</code>: the width of the rendered <code>&lt;iframe&gt;</code></p>
-<p>Template:</p>
-<pre><code class="language-html">{{ jsfiddle &#39;ccWP7&#39; }}</code></pre>
-<h5>Fiddle tabs</h5>
-<p>You may also adjust the tabs shown and/or the order in which tabs are displayed.</p>
-<p>Default tabs and display order: <code>js,resources,html,css,result</code></p>
-<p>Options:
-<em> <code>js</code>, <code>html</code>, <code>css</code>: tabs for displaying code
-</em> <code>result</code>: tab for displaying the rendered result of the code
-* <code>resources</code>: tabs for displaying the list of external resources used. This tab will not be displayed if no resources were used.</p>
-<p>Template:</p>
-<pre><code class="language-html">{{jsfiddle &#39;ccWP7&#39; &#39;result,js,html,css&#39;}}</code></pre>
+        <h1>Readme</h1>
+        <p><h4>{{authors}}</h4></p>
+<p><p>Generates a list of markdown-formatted project authors from the AUTHORS file in the root of a project. Since Handlebars enforces case sensitivity with helper names, this helper comes in two different flavors: <code>{{AUTHORS}}</code> or <code>{{authors}}</code>.</p></p>
+<p><p>Params: <code>none</code>
+Usage: <code>{{authors}}</code> or <code>{{authors &quot;path/to/AUTHORS&quot;}}</code></p></p>
+<p><p>For data, we&#39;ll use the <code>AUTHORS</code> file in the root of our project. We format it this way so that NPM can:</p></p>
+<pre><code>Brian Woodward (http://github.com/doowb)
+Jon Schlinkert (http://github.com/jonschlinkert)</code></pre>
+<p>Template (lowercase version):</p>
+<pre><code class="language-html">{{authors}}</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-html">&lt;iframe
-  style=&quot;width: 100%; height: 210px&quot;
-  src=&quot;http://jsfiddle.net/ccWP7/embedded/
-  result,js,html,css/&quot;&gt;&lt;/iframe&gt;</code></pre>
-<p>You may remove the tabs you don&#39;t need:</p>
-<p>Template:</p>
-<pre><code class="language-html">{{jsfiddle &#39;ccWP7&#39; &#39;js,result&#39;}}</code></pre>
+<pre><code>* [Brian Woodward](http://github.com/doowb)
+* [Jon Schlinkert](http://github.com/jonschlinkert)</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-html">&lt;iframe style=&quot;width: 100%; height: 210px&quot;
-  src=&quot;http://jsfiddle.net/abc123/embedded/js,
-  result/&quot;&gt;&lt;/iframe&gt;</code></pre>
-<h4>Fiddle skins</h4>
-<p>A third <em>optional</em> parameter may be used to specify the &quot;skin&quot; for the fiddle. At time of writing, the only skins available are <code>light</code> and <code>presentation</code>.
-However as <a href="http://jsfiddle.net">jsFiddle</a> announces new skins they may be used immediately.</p>
-<p>Default: <code>light</code></p>
+<pre><code class="language-markdown"><span class="strong">**Jon Schlinkert**</span>
+
+<span class="bullet">+ </span><span class="link_label">[http://twitter.com/jonschlinkert]</span>(<span class="link_url">http://twitter.com/jonschlinkert</span>)
+<span class="bullet">+ </span><span class="link_label">[http://github.com/jonschlinkert]</span>(<span class="link_url">http://github.com/jonschlinkert</span>)
+
+<span class="strong">**Brian Woodward**</span>
+
+<span class="bullet">+ </span><span class="link_label">[http://twitter.com/doowb]</span>(<span class="link_url">http://twitter.com/doowb</span>)
+<span class="bullet">+ </span><span class="link_label">[http://github.com/doowb]</span>(<span class="link_url">http://github.com/doowb</span>)</code></pre>
+<h4>{{changelog}}</h4>
+<p>A few convenience helpers that read data in YAML format, and do interesting things with the data. Well... they &quot;do things&quot; with the data. Anyway I guess only nerds like me find it interesting.</p>
+<p><strong>NOTE</strong>: These helpers will throw an error if the source files are not  valid YAML format, using the following conventions:</p>
+<p>A couple things to keep in mind about YAML:</p>
+<ul>
+<li>YAML is picky, so don&#39;t be surprised if the parser throws an error from improperly placed quotation marks.</li>
+<li>Seriously, don&#39;t be surprised. If you even come onto the issues and act surprised when it happens, an automated message will tell you to read the first bullet.</li>
+</ul>
+<p>Example of the format to follow in your <code>CHANGELOG</code> file:</p>
+<pre><code class="language-yaml">v0.1.2
+  date: &quot;2014-04-09&quot;
+  changes:
+    - The future sucks.
+    - This is my third and last commmit from the future.
+v0.1.1
+  date: &quot;2014-04-08&quot;
+  changes:
+    - Second commit from the future.
+    - The future is more boring that I thought it would be.
+v0.1.0
+  date: &quot;2014-03-07&quot;
+  changes:
+    - First commit... from the future. Yes!</code></pre>
+<p>Of coure, you are under no obligation to make your changelog entries as interesting as these, and you may record your entries at any point in whatever timeline you prefer, but whatever you write must be valid YAML when you do it.</p>
+<p>The output will look like this:</p>
+<pre><code class="language-markdown"><span class="bullet">* </span>2013-03-15    v0.1.2    Update README.md with documentation, examples.
+<span class="bullet">* </span>2013-03-06    v0.1.0    First commit.</code></pre>
+<ul>
+<li>More info here: <a href="https://github.com/nodeca/js-yaml">js-yaml</a></li>
+<li>See the tests here: <a href="test/helpers/special_test.js">test/helpers/special_test.js</a></li>
+</ul>
+<h3>Travis CI</h3>
+<h4>{{travis}}</h4>
+<p><em>Creates a &quot;full&quot; Travis CI link in markdown format</em>.</p>
+<p>Params: <code>branch</code>
+Type: <code>String</code>
+Usage: <code>{{travis [branch]}}</code></p>
 <p>Template:</p>
-<pre><code class="language-html">{{jsfiddle &#39;ccWP7&#39; &#39;result,js,html,css&#39; &#39;presentation&#39;}}</code></pre>
+<pre><code class="language-html">{{travis}}`</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-html">&lt;iframe style=&quot;width: 100%; height: 210px&quot;
-  src=&quot;http://jsfiddle.net/ccWP7/embedded/js,
-  result/presentation/&quot;&gt;&lt;/iframe&gt;</code></pre>
+<pre><code class="language-markdown"><span class="header"># [helper-lib v2.0.0](https://github.com/assemble/helper-lib)[![Build Status](https://travis-ci.org/assemble/helper-lib.png)](https://travis-ci.org/assemble/helper-lib)</span></code></pre>
+<p>Template with branch:</p>
+<pre><code class="language-html">{{travis &#39;master&#39;}}</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-markdown"><span class="header"># [helper-lib v2.0.0](https://github.com/assemble/helper-lib)[![Build Status](https://travis-ci.org/assemble/helper-lib.png?branch=master)](https://travis-ci.org/assemble/helper-lib)</span></code></pre>
+<h4>{{travis-badge}}</h4>
+<p><em>Creates a Travis CI link in markdown format</em>.</p>
+<p>Params: <code>none</code>
+Usage: <code>{{travis-badge}}</code></p>
+<p>Template</p>
+<pre><code class="language-html">{{travis}}`</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-markdown"><span class="link_label">[![Build Status](https://travis-ci.org/assemble/helper-lib.png)]</span>(<span class="link_url">https://travis-ci.org/assemble/helper-lib</span>)</code></pre>
 
 
 
@@ -259,7 +268,7 @@ However as <a href="http://jsfiddle.net">jsFiddle</a> announces new skins they m
 
 
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-code.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-readme.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -322,9 +331,9 @@ However as <a href="http://jsfiddle.net">jsFiddle</a> announces new skins they m
 
 
     
-    <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/highlight.js"></script>
+<script src="../../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

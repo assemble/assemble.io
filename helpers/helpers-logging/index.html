@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Inflections  | Assemble</title>
+    <title> Logging  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/markdown.css">
+    <link rel="stylesheet" href="../../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
+        <li> <a href="../../docs/">Docs</a> </li>
+        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Inflections</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Logging</h1>
       </div>
     </div>
   </div>
@@ -182,33 +182,93 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>Inflections</h1>
-        <p><h4>{{inflect}}</h4></p>
-<p><p><em>Returns the plural or singular form of a word based on a count.</em></p></p>
-<p><p>Parameters:
-<em> singular <code>string</code> - The singular form of the word. (Required)
-</em> plural <code>string</code> - The plural form of the word. (Required)
-* include <code>boolean</code> - whether or not to include the count before the word. (Optional)</p></p>
+        <h1>Logging</h1>
+        <p><h4>{{debug}}</h4></p>
+<p><p><em>Simple <code>console.debug()</code> that shows the current context.</em></p></p>
+<p><p>Parameters: <code>none</code></p></p>
 <p><p>Data:</p></p>
-<pre><code class="language-javascript">enemies = <span class="number">0</span>
-friends = <span class="number">1</span></code></pre>
+<pre><code class="language-javascript">{
+  <span class="string">"collection"</span>: [
+    {
+      <span class="string">"name"</span>: <span class="string">"Leela"</span>,
+      <span class="string">"deliveries"</span>: <span class="number">8021</span>
+    },
+    {
+      <span class="string">"name"</span>: <span class="string">"Bender"</span>,
+      <span class="string">"deliveries"</span>: <span class="number">239</span>
+    },
+    {
+      <span class="string">"name"</span>: <span class="string">"Fry"</span>,
+      <span class="string">"deliveries"</span>: <span class="number">1</span>
+    }
+  ]
+}</code></pre>
 <p>Template:</p>
-<pre><code class="language-html">{{inflect enemies &quot;enemy&quot; &quot;enemies&quot;}}
-{{inflect friends &quot;friend&quot; &quot;friends&quot; true}}</code></pre>
+<pre><code class="language-html">{{#withFirst collection}}
+   {{debug name}}
+{{/withFirst}}</code></pre>
 <p>Renders to:</p>
-<pre><code>enemies
-1 friend</code></pre>
-<h4>{{ordinalize}}</h4>
-<p><em>Turns a number into an ordinal string. Taken from the templating library <a href="https://github.com/jeremyruppel/walrus">Walrus</a> by <a href="https://github.com/jeremyruppel">Jeremy Ruppel</a>.</em></p>
+<pre><code class="language-javascript">Context: { deliveries: <span class="number">8021</span>, name: <span class="string">"Leela"</span> }
+Value: Leela</code></pre>
+<h4>{{expandJSON}}</h4>
+<p><em>Return a stringified array of the expanded file paths that match the given globbing pattern(s)</em></p>
+<p>Parameters: <code>String</code>
+Default: <code>undefined</code></p>
+<p>Template:</p>
+<pre><code class="language-html">{{expandJSON &#39;src/**/*.md&#39;}}</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-javascript">[
+  <span class="string">"src/content/blockquotes.md"</span>,
+  <span class="string">"src/content/chapters/01-getting-started.md"</span>,
+  <span class="string">"src/content/chapters/02-language-features.md"</span>,
+  <span class="string">"src/content/chapters/03-advanced-materials.md"</span>,
+  <span class="string">"src/content/code.md"</span>,
+  <span class="string">"src/content/emphasis.md"</span>,
+  <span class="string">"src/content/headings.md"</span>,
+  <span class="string">"src/content/images.md"</span>,
+  <span class="string">"src/content/links.md"</span>,
+  <span class="string">"src/content/lists.md"</span>,
+  <span class="string">"src/content/markdown-here.md"</span>,
+  <span class="string">"src/content/paragraphs.md"</span>,
+  <span class="string">"src/content/post.md"</span>,
+  <span class="string">"src/content/reference-links.md"</span>,
+  <span class="string">"src/content/reference.md"</span>,
+  <span class="string">"src/content/tables.md"</span>,
+  <span class="string">"src/content/test.md"</span>
+]</code></pre>
+<h4>{{expandYAML}}</h4>
+<p><em>Return a unique, YAML-formatted array of all file or directory paths that match the given globbing pattern(s)</em></p>
+<ul>
+<li>Parameters: <code>String</code></li>
+<li>Default: <code>undefined</code></li>
+</ul>
+<p>Template:</p>
+<pre><code class="language-html">{{expandYAML &#39;src/**/*.md&#39;}}</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-yaml">- &quot;src/content/blockquotes.md&quot;
+- &quot;src/content/chapters/01-getting-started.md&quot;
+- &quot;src/content/chapters/02-language-features.md&quot;
+- &quot;src/content/chapters/03-advanced-materials.md&quot;
+- &quot;src/content/code.md&quot;
+- &quot;src/content/emphasis.md&quot;
+- &quot;src/content/headings.md&quot;
+- &quot;src/content/images.md&quot;
+- &quot;src/content/links.md&quot;
+- &quot;src/content/lists.md&quot;
+- &quot;src/content/markdown-here.md&quot;
+- &quot;src/content/paragraphs.md&quot;
+- &quot;src/content/post.md&quot;
+- &quot;src/content/reference-links.md&quot;
+- &quot;src/content/reference.md&quot;
+- &quot;src/content/tables.md&quot;
+- &quot;src/content/test.md&quot;</code></pre>
+<h4>{{log}}</h4>
+<p><em>Simple <code>console.log()</code></em></p>
 <p>Parameters: <code>none</code></p>
-<p>Template:</p>
-<pre><code class="language-html">{{ordinalize 3}}
-{{ordinalize 1}}
-{{ordinalize 22}}</code></pre>
+<p>Template</p>
+<pre><code class="language-html">{{log &quot;Hi console :)&quot;}}</code></pre>
 <p>Renders to:</p>
-<pre><code>3rd
-1st
-22nd</code></pre>
+<pre><code class="language-bash">Hi console :)</code></pre>
 
 
 
@@ -219,7 +279,7 @@ friends = <span class="number">1</span></code></pre>
 
 
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-inflections.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-logging.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -282,9 +342,9 @@ friends = <span class="number">1</span></code></pre>
 
 
     
-    <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/highlight.js"></script>
+<script src="../../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

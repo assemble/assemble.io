@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Math  | Assemble</title>
+    <title> Overview  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/markdown.css">
+    <link rel="stylesheet" href="../../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
+        <li> <a href="../../docs/">Docs</a> </li>
+        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Math</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Overview</h1>
       </div>
     </div>
   </div>
@@ -182,94 +182,39 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>Math</h1>
-        <p><h4>{{add}}</h4></p>
-<p><p><em>Returns the sum of two numbers.</em>
-<br>Parameters: value <code>int</code> - The number to add to the expression. (Required)</p></p>
-<p><p>Data:</p></p>
-<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{add value 5}}</code></pre>
-<p>Renders to:</p>
-<pre><code>10</code></pre>
-<h4>{{ceil}}</h4>
-<p><em>Returns the value rounded up to the nearest integer.</em>
-<br>Parameters: <code>none</code></p>
-<p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">5.6</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{ceil value}}</code></pre>
-<p>Renders to:</p>
-<pre><code>6</code></pre>
-<h4>{{divide}}</h4>
-<p><em>Returns the division of two numbers.</em>
-<br>Parameters: value <code>int</code> - The number to divide the expression. (Required)</p>
-<p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{divide value 5}}</code></pre>
-<p>Renders to:</p>
-<pre><code>1</code></pre>
-<h4>{{floor}}</h4>
-<p><em>Returns the value rounded down to the nearest integer.</em>
-<br>Parameters: <code>none</code></p>
-<p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">5.6</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{floor value}}</code></pre>
-<p>Renders to:</p>
-<pre><code>5</code></pre>
-<h4>{{multiply}}</h4>
-<p><em>Returns the multiplication of two numbers.</em>
-<br>Parameters: value <code>int</code> - The number to multiply the expression. (Required)</p>
-<p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{multiply value 5}}</code></pre>
-<p>Renders to:</p>
-<pre><code>25</code></pre>
-<h4>{{round}}</h4>
-<p><em>Returns the value rounded to the nearest integer.</em>
-<br>Parameters: <code>none</code></p>
-<p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">5.69</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{round value}}</code></pre>
-<p>Renders to:</p>
-<pre><code>6</code></pre>
-<h4>{{subtract}}</h4>
-<p><em>Returns the difference of two numbers. Opposite of <code>add</code></em>
-<br>Parameters: value <code>int</code> - The number to subtract from the expression. (Required)_</p>
-<p>Data:</p>
-<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{subtract value 5}}</code></pre>
-<p>Renders to:</p>
-<pre><code>0</code></pre>
-<h4>{{sum}}</h4>
-<p><em>Returns the sum of multiple numbers. Similar to <code>{{#add}}</code> block helper but accepts multiple arguments.</em>
-<br>Parameters: <code>none</code></p>
-<p>Data:</p>
-<pre><code class="language-javascript">value = {
-  a: <span class="number">1</span>,
-  b: <span class="number">2</span>,
-  c: <span class="number">3</span>
-}</code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{sum value.a value.b value.c}}</code></pre>
-<p>Renders to:</p>
-<pre><code>6</code></pre>
-
-
-
-
-
-
-
-
+        <h1>Overview</h1>
+        <blockquote>
+<p>Documentation for the helpers in the <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library. If you find any errors or have suggestions for improvement <a href="https://github.com/assemble/assemble/issues">please let us know</a>. <strong>Contributors are welcome!</strong></p>
+</blockquote>
+<p>Get the <a href="https://github.com/assemble/grunt-init-helper">helper generator →</a> for Assemble.</p>
+<h2>Helper features unique to Assemble</h2>
+<ul>
+<li>File globbing using <a href="https://github.com/isaacs/minimatch">minimatch</a> patterns</li>
+<li>Access to <a href="https://github.com/assemble/assemble">assemble</a> options.</li>
+<li>Ability to render either markdown or HTML conditionally, based on the file extension of the generated file.</li>
+</ul>
+<h2>Handlebars Helpers Basics</h2>
+<p>Handlebars.js ships with some built-in helpers, such as <code>{{#each}}</code>, <code>{{#if}}</code> and <code>{{#unless}}</code>. Here is how helpers work:</p>
+<ul>
+<li>A Handlebars helper call is a simple identifier, followed by zero or more parameters (separated by space).</li>
+<li>Each parameter is a Handlebars expression.</li>
+<li>Handlebars helpers can be accessed from any context in a template.</li>
+</ul>
+<p><a href="https://github.com/wycats/handlebars.js">Handlebars.js</a> is currently the default template library for <a href="http://github.com/assemble/assemble">assemble</a>.</p>
+<h2>Creating Custom Helpers</h2>
+<blockquote>
+<p>Contributors welcome! Consider improving this library by adding your own helpers.</p>
+</blockquote>
+<p>Handlebars makes it pretty easy to add custom helpers. Just register your function into Handlebars with the <code>Handlebars.registerHelper</code> method and that helper will be available to any template you compile afterwards.</p>
+<p>Handlebars allows two different kinds of helpers:</p>
+<ul>
+<li><strong>Expression helpers</strong> are basically regular functions that take the name of the helper and the helper function as arguments. Once an expression helper is registered, it can be called anywhere in your templates, then Handlebars takes the expression&#39;s return value and writes it into the template.</li>
+<li><strong>Block helpers</strong> There are a few block helpers included by default with Handlebars, <code>{{#each}}</code>, <code>{{#if}}</code> and <code>{{#unless}}</code>. Custom block helpers are registered the same way as exptression helpers, but the difference is that Handlebars will pass the contents of the block compiled into a function to the helper.</li>
+</ul>
+<p>Learn about <a href="../Custom-Helpers.html">adding custom helpers</a> to Assemble.</p>
 
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-math.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/index.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -332,9 +277,9 @@
 
 
     
-    <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/highlight.js"></script>
+<script src="../../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

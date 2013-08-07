@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Strings  | Assemble</title>
+    <title> Numbers  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/markdown.css">
+    <link rel="stylesheet" href="../../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
+        <li> <a href="../../docs/">Docs</a> </li>
+        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Strings</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Numbers</h1>
       </div>
     </div>
   </div>
@@ -182,95 +182,71 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>Strings</h1>
-        <p><h4>{{capitalizeEach}}</h4></p>
-<p><p><em>Capitalizes each word in a string.</em>
-<br>Parameters: <code>none</code></p></p>
-<pre><code class="language-html">{{capitalizeEach &quot;capitalize EACH word in this sentence&quot;}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Capitalize EACH Word In This Sentence</code></pre>
-<h4>{{capitalizeFirst}}</h4>
-<p><em>Capitalizes the first word in a string.</em>
-<br>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{capitalizeFirst &quot;capitalize first word in this sentence&quot;}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Capitalize first word in this sentence</code></pre>
-<h4>{{center}}</h4>
-<p><em>Centers a string using non-breaking spaces.</em>
-<br>Parameters: spaces: <code>int</code> - The number of spaces. (Required)</p>
-<pre><code class="language-html">{{center &quot;Bender should not be allowed on tv.&quot; 10}}</code></pre>
-<p>Renders to:</p>
-<pre><code>|              Bender should not be allowed on tv.              |</code></pre>
-<h4>{{dashify}}</h4>
-<p><em>Same as <code>hyphenate</code>, but replaces dots in string with hyphens.</em>
-<br>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{dashify &quot;make.this.all.hyphenated&quot;}}</code></pre>
-<p>Renders to:</p>
-<pre><code>make-this-all-hyphenated</code></pre>
-<h4>{{formatPhoneNumber}}</h4>
-<p><em>Output a formatted phone number</em></p>
-<p>Credit: <a href="http://blog.teamtreehouse.com/handlebars-js-part-2-partials-and-helpers">Treehouse Blog</a></p>
-<p>Data:</p>
-<pre><code class="language-javascript">number: <span class="number">4444444444</span></code></pre>
+        <h1>Numbers</h1>
+        <p><h4>{{addCommas}}</h4></p>
+<p><p><em>Adds commas to a number.</em></p></p>
+<p><p>Parameters: <code>none</code></p></p>
+<p><p>Data:</p></p>
+<pre><code class="language-javascript">value = <span class="number">2222222</span></code></pre>
 <p>Template:</p>
-<pre><code class="language-html">{{formatPhoneNumber number}}</code></pre>
+<pre><code class="language-html">{{addCommas value}}</code></pre>
 <p>Renders to:</p>
-<pre><code>(444) 444-4444</code></pre>
-<h4>{{hyphenate}}</h4>
-<p><em>Replace spaces in string with hyphens.</em>
-<br>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{hyphenate &quot;make this all hyphenated&quot;}}</code></pre>
-<p>Result:</p>
-<pre><code>make-this-all-hyphenated</code></pre>
-<h4>{{lowercase}}</h4>
-<p><em>Turns a string to lowercase.</em>
-<br>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{lowercase &quot;MAKE THIS ALL LOWERCASE&quot;}}</code></pre>
+<pre><code>2,222,222</code></pre>
+<h4>{{toAbbr}}</h4>
+<p><em>Returns the number in abbreviation formats based on a value. The number is rounded to a particular decimal place.</em></p>
+<p>Parameters: digits <code>int</code> - The number of digits to appear after the decimal point. (Optional)</p>
+<p>Default: <code>2</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">123456789</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toAbbr value}}</code></pre>
 <p>Renders to:</p>
-<pre><code>make this all lowercase</code></pre>
-<h4>{{occurrences}}</h4>
-<p><em>Evaluate string A, and count the occurrences of string B within string A</em>
-<br>Default: <code>undefined</code>
-<br>Parameters:
-<em> <code>String A</code> (required): The string to evaluate
-</em> <code>String B</code> (required): The string to look for and count in &quot;string A&quot;</p>
-<pre><code class="language-html">{{occurrences &quot;evaluate this string&quot; &quot;i&quot;}}</code></pre>
-<p>Result:</p>
-<pre><code>2</code></pre>
-<h4>{{reverse}}</h4>
-<p><em>Reverses a string.</em>
-<br>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{reverse &quot;bender should NOT be allowed on TV.&quot;}}</code></pre>
+<pre><code>123.457m</code></pre>
+<h4>{{toExponential}}</h4>
+<p><em>Returns the number in exponential notation with one digit before the decimal point, rounded to <code>fractions</code> digits after the decimal point.</em></p>
+<p>Parameters: fractions <code>int</code> - An integer specifying the number of digits after the decimal point. (Optional)</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toExponential value 5}}</code></pre>
 <p>Renders to:</p>
-<pre><code>.VT no dewolla eb TON dluohs redneb</code></pre>
-<h4>{{sentence}}</h4>
-<p><em>Capitalizes the first word of each sentence in a string and converts the rest of the sentence to lowercase.</em>
-Parameters: <code>none</code></p>
-<pre><code class="language-html">{{sentence &quot;capitalize the FIRST word in each sentence. but make the OTHER words lowercase.&quot;}}</code></pre>
+<pre><code>5.00000e+0</code></pre>
+<h4>{{toFixed}}</h4>
+<p><em>Returns exactly <code>digits</code> after the decimal place. The number is rounded if necessary, and the fractional part is padded with zeros if necessary so that it has the specified length.</em></p>
+<p>Parameters: digits <code>int</code> - The number of digits to appear after the decimal point. (Optional)</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.53231</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toFixed value 3}}</code></pre>
 <p>Renders to:</p>
-<pre><code>Capitalize the first word in each sentence. But make the other words lowercase.</code></pre>
-<h4>{{titleize}}</h4>
-<p><em>Capitalizes all words within a string. Taken from the templating library <a href="https://github.com/jeremyruppel/walrus">Walrus</a> by <a href="https://github.com/jeremyruppel">Jeremy Ruppel</a>.</em>
-<br>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{titleize &quot;capitalize EACH word in this sentence&quot;}}</code></pre>
+<pre><code>5.532</code></pre>
+<h4>{{toFloat}}</h4>
+<p><em>Returns a floating point number.</em></p>
+<p>Parameters: <code>none</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="string">'22.2abc'</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toFloat value}}</code></pre>
 <p>Renders to:</p>
-<pre><code>Capitalize Each Word In This Sentence.</code></pre>
-<h4>{{truncate}}</h4>
-<p><em>Truncates a string given a specified <code>length</code>, providing a custom string to denote an <code>omission</code>.</em>
-<br>Parameters:</p>
-<ul>
-<li>length: <code>int</code>- The number of characters to keep (Required).</li>
-<li>omission: <code>string</code> - A string to denote an omission (Optional).</li>
-</ul>
-<pre><code class="language-html">{{truncate &quot;Bender should not be allowed on tv.&quot; 31 &quot;...&quot;}}</code></pre>
+<pre><code>22.2</code></pre>
+<h4>{{toInt}}</h4>
+<p><em>Returns an integer.</em></p>
+<p>Parameters: <code>none</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="string">'22.2abc'</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toInt value}}</code></pre>
 <p>Renders to:</p>
-<pre><code>Bender should not be allowed...</code></pre>
-<h4>{{uppercase}}</h4>
-<p><em>Turns a string to uppercase. Opposite of <code>{{lowercase}}</code>.</em>
-<br>Parameters: <code>none</code></p>
-<pre><code class="language-html"> {{uppercase &quot;make this all uppercase&quot;}}</code></pre>
+<pre><code>22</code></pre>
+<h4>{{toPrecision}}</h4>
+<p><em>Returns the number in fixed-point or exponential notation rounded to <code>precision</code> significant digits.</em></p>
+<p>Parameters: precision <code>int</code> - The number of digits. If omitted, it returns the entire number (without any formatting). (Optional)</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">555.322</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toPrecision value 4}}</code></pre>
 <p>Renders to:</p>
-<pre><code>MAKE THIS ALL UPPERCASE</code></pre>
+<pre><code>555.3</code></pre>
 
 
 
@@ -281,7 +257,7 @@ Parameters: <code>none</code></p>
 
 
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-strings.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-numbers.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -344,9 +320,9 @@ Parameters: <code>none</code></p>
 
 
     
-    <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/highlight.js"></script>
+<script src="../../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

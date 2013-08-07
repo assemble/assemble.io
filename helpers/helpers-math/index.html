@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Content  | Assemble</title>
+    <title> Math  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/markdown.css">
+    <link rel="stylesheet" href="../../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
+        <li> <a href="../../docs/">Docs</a> </li>
+        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Content</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Math</h1>
       </div>
     </div>
   </div>
@@ -182,44 +182,83 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>Content</h1>
-        <p><h4>{{copy}}</h4></p>
-<p><p><strong>example helpers, not for actual use!</strong>
-Why do this? The goal is to inspire other concepts that build from this one.</p></p>
-<p><p><em>Example helper, copies file A to path B.</em>
-<br>Parameters: <code>String</code>
-<br> Default: <code>undefined</code></p></p>
-<p><p>Example:</p></p>
-<pre><code class="language-html">{{copy &#39;a.html&#39; &#39;../dir/b.txt&#39;}}</code></pre>
-<h4>{{glob}}</h4>
-<p><strong>example helpers, not for actual use!</strong>
-Why do this? The goal is to inspire other concepts that build from this one.</p>
-<p><em>Use globbing patterns to embed content from specified file or files.</em>
-<br>Parameters: <code>String</code>
-<br> Default: <code>undefined</code></p>
-<p>Examples:</p>
-<pre><code class="language-html">{{glob &#39;src/files/*.md&#39;}}
-{{glob &#39;src/files/*.{txt,md}&#39;}}</code></pre>
-<h4>{{include}}</h4>
-<p><em>Include external files.</em></p>
-<p><br>Pattern: <code>{{include [name] [data]}}</code>
-<br>Parameters:</p>
-<ul>
-<li>name (required): <code>[string]</code> - The name or path of the file in which your template is defined. (Required)</li>
-<li>data (optional): <code>[int|string|collection]</code> - Data you want to use inside the include.</li>
-</ul>
-<p>Data (collection): <code>planet-express.json</code></p>
-<pre><code class="language-javascript">[
-  <span class="string">"Professor Farnsworth"</span>,
-  <span class="string">"Fry"</span>,
-  <span class="string">"Bender"</span>
-]</code></pre>
-<p>Include (partial to be &quot;included&quot;): <code>planet-express.hbs</code></p>
-<pre><code class="language-html">{{sort this}}</code></pre>
+        <h1>Math</h1>
+        <p><h4>{{add}}</h4></p>
+<p><p><em>Returns the sum of two numbers.</em>
+<br>Parameters: value <code>int</code> - The number to add to the expression. (Required)</p></p>
+<p><p>Data:</p></p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
 <p>Template:</p>
-<pre><code class="language-html">&lt;p&gt;{{include &quot;planet-express.hbs&quot; data}}&lt;/p&gt;</code></pre>
+<pre><code class="language-html">{{add value 5}}</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-html">&lt;p&gt;Bender, Fry, Professor Farnsworth&lt;/p&gt;</code></pre>
+<pre><code>10</code></pre>
+<h4>{{ceil}}</h4>
+<p><em>Returns the value rounded up to the nearest integer.</em>
+<br>Parameters: <code>none</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.6</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{ceil value}}</code></pre>
+<p>Renders to:</p>
+<pre><code>6</code></pre>
+<h4>{{divide}}</h4>
+<p><em>Returns the division of two numbers.</em>
+<br>Parameters: value <code>int</code> - The number to divide the expression. (Required)</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{divide value 5}}</code></pre>
+<p>Renders to:</p>
+<pre><code>1</code></pre>
+<h4>{{floor}}</h4>
+<p><em>Returns the value rounded down to the nearest integer.</em>
+<br>Parameters: <code>none</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.6</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{floor value}}</code></pre>
+<p>Renders to:</p>
+<pre><code>5</code></pre>
+<h4>{{multiply}}</h4>
+<p><em>Returns the multiplication of two numbers.</em>
+<br>Parameters: value <code>int</code> - The number to multiply the expression. (Required)</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{multiply value 5}}</code></pre>
+<p>Renders to:</p>
+<pre><code>25</code></pre>
+<h4>{{round}}</h4>
+<p><em>Returns the value rounded to the nearest integer.</em>
+<br>Parameters: <code>none</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.69</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{round value}}</code></pre>
+<p>Renders to:</p>
+<pre><code>6</code></pre>
+<h4>{{subtract}}</h4>
+<p><em>Returns the difference of two numbers. Opposite of <code>add</code></em>
+<br>Parameters: value <code>int</code> - The number to subtract from the expression. (Required)_</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{subtract value 5}}</code></pre>
+<p>Renders to:</p>
+<pre><code>0</code></pre>
+<h4>{{sum}}</h4>
+<p><em>Returns the sum of multiple numbers. Similar to <code>{{#add}}</code> block helper but accepts multiple arguments.</em>
+<br>Parameters: <code>none</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = {
+  a: <span class="number">1</span>,
+  b: <span class="number">2</span>,
+  c: <span class="number">3</span>
+}</code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{sum value.a value.b value.c}}</code></pre>
+<p>Renders to:</p>
+<pre><code>6</code></pre>
 
 
 
@@ -230,7 +269,7 @@ Why do this? The goal is to inspire other concepts that build from this one.</p>
 
 
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-content.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-math.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -293,9 +332,9 @@ Why do this? The goal is to inspire other concepts that build from this one.</p>
 
 
     
-    <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/highlight.js"></script>
+<script src="../../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

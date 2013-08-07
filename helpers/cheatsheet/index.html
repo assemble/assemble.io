@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Data  | Assemble</title>
+    <title> Helpers Cheatsheet  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/markdown.css">
+    <link rel="stylesheet" href="../../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
+        <li> <a href="../../docs/">Docs</a> </li>
+        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Data</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Helpers Cheatsheet</h1>
       </div>
     </div>
   </div>
@@ -182,40 +182,10 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>Data</h1>
-        <p><h4>{{parseJSON}}</h4></p>
-<blockquote>
-<p>This block helper parses &quot;inline&quot; JSON and passes it into the templates or partial contained therein.</p>
-</blockquote>
-<p>Credit: <a href="https://github.com/keeganstreet">Keegan Street</a> from <a href="https://github.com/assemble/assemble/issues/228#issuecomment-20855238">this issue</a></p>
-<p>The helper:</p>
-<pre><code class="language-js">parseJSON = <span class="keyword">function</span>(data, options) {
-  <span class="keyword">return</span> options.fn(JSON.parse(data));
-};</code></pre>
-<p>Templates (here we are using a partial, <code>input.hbs</code>):</p>
-<pre><code class="language-html">&lt;div&gt;
-  &lt;label for=&quot;{{id}}&quot;&gt;{{label}}&lt;/label&gt;
-  &lt;input type=&quot;text&quot; id=&quot;{{id}}&quot;&gt;
-&lt;/div&gt;</code></pre>
-<p>And we include our partial like this:</p>
-<pre><code class="language-html">{{#parseJSON &#39;{&quot;id&quot;: &quot;firstname&quot;, &quot;label&quot;: &quot;First name&quot;}&#39;}}
-  {{&gt; input }}
-{{/parseJSON}}</code></pre>
-<blockquote>
-<p>Instead of having to write out the same HTML over and over again, we can define it once in a partial and then include that partial inline whenever we need it. Typically Handlebars requires data to be defined separately from  templates. But in this use case it is easier to define the options for the partial where we include the partial. These options aren&#39;t &quot;data&quot; that should be separated from the template; they are really just options for the template. <br>
--- Keegan Street (@keeganstreet)</p>
-</blockquote>
-
-
-
-
-
-
-
-
-
+        <h1>Helpers Cheatsheet</h1>
+        
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-data.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/cheatsheet.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -278,9 +248,9 @@
 
 
     
-    <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/highlight.js"></script>
+<script src="../../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

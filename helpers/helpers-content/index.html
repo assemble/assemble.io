@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Overview  | Assemble</title>
+    <title> Content  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/markdown.css">
+    <link rel="stylesheet" href="../../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
+    <script src="../../assets/js/html5shiv.js"></script>
+    <script src="../../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
+        <li> <a href="../../docs/">Docs</a> </li>
+        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Overview</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Content</h1>
       </div>
     </div>
   </div>
@@ -182,39 +182,55 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>Overview</h1>
-        <blockquote>
-<p>Documentation for the helpers in the <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library. If you find any errors or have suggestions for improvement <a href="https://github.com/assemble/assemble/issues">please let us know</a>. <strong>Contributors are welcome!</strong></p>
-</blockquote>
-<p>Get the <a href="https://github.com/assemble/grunt-init-helper">helper generator →</a> for Assemble.</p>
-<h2>Helper features unique to Assemble</h2>
+        <h1>Content</h1>
+        <p><h4>{{copy}}</h4></p>
+<p><p><strong>example helpers, not for actual use!</strong>
+Why do this? The goal is to inspire other concepts that build from this one.</p></p>
+<p><p><em>Example helper, copies file A to path B.</em>
+<br>Parameters: <code>String</code>
+<br> Default: <code>undefined</code></p></p>
+<p><p>Example:</p></p>
+<pre><code class="language-html">{{copy &#39;a.html&#39; &#39;../dir/b.txt&#39;}}</code></pre>
+<h4>{{glob}}</h4>
+<p><strong>example helpers, not for actual use!</strong>
+Why do this? The goal is to inspire other concepts that build from this one.</p>
+<p><em>Use globbing patterns to embed content from specified file or files.</em>
+<br>Parameters: <code>String</code>
+<br> Default: <code>undefined</code></p>
+<p>Examples:</p>
+<pre><code class="language-html">{{glob &#39;src/files/*.md&#39;}}
+{{glob &#39;src/files/*.{txt,md}&#39;}}</code></pre>
+<h4>{{include}}</h4>
+<p><em>Include external files.</em></p>
+<p><br>Pattern: <code>{{include [name] [data]}}</code>
+<br>Parameters:</p>
 <ul>
-<li>File globbing using <a href="https://github.com/isaacs/minimatch">minimatch</a> patterns</li>
-<li>Access to <a href="https://github.com/assemble/assemble">assemble</a> options.</li>
-<li>Ability to render either markdown or HTML conditionally, based on the file extension of the generated file.</li>
+<li>name (required): <code>[string]</code> - The name or path of the file in which your template is defined. (Required)</li>
+<li>data (optional): <code>[int|string|collection]</code> - Data you want to use inside the include.</li>
 </ul>
-<h2>Handlebars Helpers Basics</h2>
-<p>Handlebars.js ships with some built-in helpers, such as <code>{{#each}}</code>, <code>{{#if}}</code> and <code>{{#unless}}</code>. Here is how helpers work:</p>
-<ul>
-<li>A Handlebars helper call is a simple identifier, followed by zero or more parameters (separated by space).</li>
-<li>Each parameter is a Handlebars expression.</li>
-<li>Handlebars helpers can be accessed from any context in a template.</li>
-</ul>
-<p><a href="https://github.com/wycats/handlebars.js">Handlebars.js</a> is currently the default template library for <a href="http://github.com/assemble/assemble">assemble</a>.</p>
-<h2>Creating Custom Helpers</h2>
-<blockquote>
-<p>Contributors welcome! Consider improving this library by adding your own helpers.</p>
-</blockquote>
-<p>Handlebars makes it pretty easy to add custom helpers. Just register your function into Handlebars with the <code>Handlebars.registerHelper</code> method and that helper will be available to any template you compile afterwards.</p>
-<p>Handlebars allows two different kinds of helpers:</p>
-<ul>
-<li><strong>Expression helpers</strong> are basically regular functions that take the name of the helper and the helper function as arguments. Once an expression helper is registered, it can be called anywhere in your templates, then Handlebars takes the expression&#39;s return value and writes it into the template.</li>
-<li><strong>Block helpers</strong> There are a few block helpers included by default with Handlebars, <code>{{#each}}</code>, <code>{{#if}}</code> and <code>{{#unless}}</code>. Custom block helpers are registered the same way as exptression helpers, but the difference is that Handlebars will pass the contents of the block compiled into a function to the helper.</li>
-</ul>
-<p>Learn about <a href="../Custom-Helpers.html">adding custom helpers</a> to Assemble.</p>
+<p>Data (collection): <code>planet-express.json</code></p>
+<pre><code class="language-javascript">[
+  <span class="string">"Professor Farnsworth"</span>,
+  <span class="string">"Fry"</span>,
+  <span class="string">"Bender"</span>
+]</code></pre>
+<p>Include (partial to be &quot;included&quot;): <code>planet-express.hbs</code></p>
+<pre><code class="language-html">{{sort this}}</code></pre>
+<p>Template:</p>
+<pre><code class="language-html">&lt;p&gt;{{include &quot;planet-express.hbs&quot; data}}&lt;/p&gt;</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-html">&lt;p&gt;Bender, Fry, Professor Farnsworth&lt;/p&gt;</code></pre>
+
+
+
+
+
+
+
+
 
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/index.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-content.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -277,9 +293,9 @@
 
 
     
-    <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/highlight.js"></script>
+<script src="../../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>
