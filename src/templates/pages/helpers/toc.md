@@ -1,8 +1,6 @@
+{{#draft}}
 ## Table of Contents
 
-WIP...
-
-{{#draft}}
 
 ### [Code](#code)
 * [\{{embed}}](#embed)
