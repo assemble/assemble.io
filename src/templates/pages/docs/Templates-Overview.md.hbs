@@ -1,5 +1,6 @@
 ---
 title: Templates Overview
+section: templates
 ---
 
 > Assemble allows use of either Lo-Dash or Handlebars templates, depending on where the templates are used.
@@ -43,7 +44,7 @@ Assemble only limits _where_ you can use Lo-Dash templates, beyond that you can 
 A basic expression looks like this:
 
 ```html
-<h1>{{component.title}}</h1>
+<h1>\{{component.title}}</h1>
 ```
 
 Usage: May be used only in the "content" of pages, e.g. _anywhere but the YAML front matter of a page._.
@@ -70,7 +71,7 @@ Most templating languages share a few common features:
 ```json
 // alert.json
 {
-  "message": "this is an alert from {{site.name}}"
+  "message": "this is an alert from \{{site.name}}"
 }
 ```
 
@@ -78,10 +79,10 @@ Or this:
 
 ```html
 ---
-title: {{pkg.name}} # Oops! Can't use handlebars here!!!
+title: \{{pkg.name}} # Oops! Can't use handlebars here!!!
 ---
 
-<h1>{{title}}</h1>
+<h1>\{{title}}</h1>
 ```
 
 Neither of those examples will because Handlebars templates can only be used **outside of the YAML front matter**.
@@ -116,7 +117,7 @@ This works too:
 title: <% pkg.name %> # Nice!!! Assuming you are reading in the package.json in the Gruntfile, this works!
 ---
 
-<h1>{{title}}</h1>
+<h1>\{{title}}</h1>
 
 And this title will pull data from the YAML front matter. It's kind of like cheating, accept not.
 ```
@@ -133,7 +134,7 @@ message: this is an alert from <%= site.name %> # pass in the site name
 And then pass it along to `alert.hbs`:
 
 ```html
-<div class="alert {{alert.modifier}}"><strong>{{ alert.strong }}</strong>{{ alert.message }}</div>
+<div class="alert \{{alert.modifier}}"><strong>\{{ alert.strong }}</strong>\{{ alert.message }}</div>
 ```
 
 {{#draft}}
@@ -233,12 +234,12 @@ people:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>{{title}}</title>
+    <title>\{{title}}</title>
   </head>
   <body>
     <section class="people">
       <ul>
-        {{{list}}}
+        \{{{list}}}
       </ul>
     </section>
   </body>
