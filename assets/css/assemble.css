@@ -4291,13 +4291,6 @@ body {
   padding: 5px;
   width: 40px;
 }
-h1,
-h2,
-h3,
-h4,
-h5 {
-  cursor: pointer;
-}
 h1:hover .anchor,
 h2:hover .anchor,
 h3:hover .anchor,
