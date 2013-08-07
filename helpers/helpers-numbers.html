@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Code  | Assemble</title>
+    <title> Numbers  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/markdown.css">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../../assets/css/assemble.css">
+    <link rel="stylesheet" href="../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../../assets/js/html5shiv.js"></script>
-    <script src="../../assets/js/respond/respond.min.js"></script>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../../docs/">Docs</a> </li>
-        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../../helpers/">Helpers</a> </li>
+        <li> <a href="../docs/">Docs</a> </li>
+        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Code</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Numbers</h1>
       </div>
     </div>
   </div>
@@ -182,73 +182,71 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>Code</h1>
-        <p><h4>{{embed}}</h4></p>
-<p><p><em>Embed code from specified file(s)</em></p></p>
-<p><p>Parameters:
-<em> <code>String|File</code> : path to the file you want to embed
-</em> <code>String|Language (optional)</code>: Optional second parameter to &quot;force&quot; a specific language to use fo syntax highlighting.</p></p>
-<p><p>Unless overridden by a given extension, the helper will automatically use the extension of the specified file as the language to use for syntax highlighting. You may also force the helper to use a language that is different than the extension of the file.</p></p>
-<p><p>For example, here we will force highlighting as <code>javascript</code> instead of <code>json</code></p></p>
-<pre><code class="language-html">{{ embed &#39;src/example.json&#39; &#39;js&#39; }}</code></pre>
-<p>When embedding a markdown snippet (<code>.md|markdown|markd</code>), the helper automatically converts any code fences inside the snippet (&quot;<code>` `````&quot;) to their unicode equivalent (&quot;</code>&#x60;&#x60;&#x60;`&quot;)</p>
-<pre><code class="language-html">{{embed &#39;src/example.md&#39;}}</code></pre>
-<p><strong>File globbing</strong></p>
-<p>The <code>embed</code> helper also accepts globbing patterns:</p>
-<pre><code class="language-html">{{embed &#39;src/code-examples/*.*&#39;}}</code></pre>
-<p>When globbing file is used, the code from each file will be embedded separately, and the file extension of each file will be used to identify the language to use for syntax highlighting. You may of course override the language, but whatever language you use will be applied to every embedded file.</p>
-<p><em>use globbing carefully! Until you have the hang of it try to be on the safe side and be more specific with your patterns</em></p>
-<h4>{{gist}}</h4>
-<p><em>Embed public GitHub Gists by adding only the Id of the Gist. The helper also accepts an optional second parameter for targeting a specific file on the Gist..</em></p>
-<p>Parameters: <code>String</code>
-Default: <code>undefined</code>
-Usage: <code>{{ gist [id] }}</code></p>
-<p>Example:</p>
-<pre><code class="language-html">{{gist &#39;5193239&#39;}}</code></pre>
-<p>Output:</p>
-<pre><code class="language-html">&lt;script src=&quot;https://gist.github.com/5193239.js&quot;&gt;&lt;/script&gt;</code></pre>
-<h4>{{jsfiddle}} <a id="jsfiddle" name="jsfiddle" class="anchor"><span class="glyphicon glyphicon-link"></span></a></h4>
-<p><em>Easily embed a <a href="http://jsfiddle.net">jsFiddle</a> in a page, requiring only the ID of the fiddle.</em></p>
-<p>Credit: <a href="http://octopress.org/docs/plugins/jsfiddle-tag/">octopress</a></p>
-<p>Parameters: <code>{{ jsfiddle &quot;id&quot; &quot;tabs&quot; &quot;skin&quot; &quot;height&quot; &quot;width&quot; }}</code>
-  <em> <code>id</code>: full URL to the fiddle excluding <code>http://jsfiddle.net</code>
-  </em> <code>tabs</code>: tabs to be displayed, and the order specified
-  <em> <code>skin</code>: the skin to be used, <code>light</code> or <code>presentation</code> are the only options available.
-  </em> <code>height</code>: the height of the rendered <code>&lt;iframe&gt;</code>
-  * <code>width</code>: the width of the rendered <code>&lt;iframe&gt;</code></p>
+        <h1>Numbers</h1>
+        <p><h4>{{addCommas}}</h4></p>
+<p><p><em>Adds commas to a number.</em></p></p>
+<p><p>Parameters: <code>none</code></p></p>
+<p><p>Data:</p></p>
+<pre><code class="language-javascript">value = <span class="number">2222222</span></code></pre>
 <p>Template:</p>
-<pre><code class="language-html">{{ jsfiddle &#39;ccWP7&#39; }}</code></pre>
-<h5>Fiddle tabs</h5>
-<p>You may also adjust the tabs shown and/or the order in which tabs are displayed.</p>
-<p>Default tabs and display order: <code>js,resources,html,css,result</code></p>
-<p>Options:
-<em> <code>js</code>, <code>html</code>, <code>css</code>: tabs for displaying code
-</em> <code>result</code>: tab for displaying the rendered result of the code
-* <code>resources</code>: tabs for displaying the list of external resources used. This tab will not be displayed if no resources were used.</p>
-<p>Template:</p>
-<pre><code class="language-html">{{jsfiddle &#39;ccWP7&#39; &#39;result,js,html,css&#39;}}</code></pre>
+<pre><code class="language-html">{{addCommas value}}</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-html">&lt;iframe
-  style=&quot;width: 100%; height: 210px&quot;
-  src=&quot;http://jsfiddle.net/ccWP7/embedded/
-  result,js,html,css/&quot;&gt;&lt;/iframe&gt;</code></pre>
-<p>You may remove the tabs you don&#39;t need:</p>
+<pre><code>2,222,222</code></pre>
+<h4>{{toAbbr}}</h4>
+<p><em>Returns the number in abbreviation formats based on a value. The number is rounded to a particular decimal place.</em></p>
+<p>Parameters: digits <code>int</code> - The number of digits to appear after the decimal point. (Optional)</p>
+<p>Default: <code>2</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">123456789</span></code></pre>
 <p>Template:</p>
-<pre><code class="language-html">{{jsfiddle &#39;ccWP7&#39; &#39;js,result&#39;}}</code></pre>
+<pre><code class="language-html">{{toAbbr value}}</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-html">&lt;iframe style=&quot;width: 100%; height: 210px&quot;
-  src=&quot;http://jsfiddle.net/abc123/embedded/js,
-  result/&quot;&gt;&lt;/iframe&gt;</code></pre>
-<h4>Fiddle skins</h4>
-<p>A third <em>optional</em> parameter may be used to specify the &quot;skin&quot; for the fiddle. At time of writing, the only skins available are <code>light</code> and <code>presentation</code>.
-However as <a href="http://jsfiddle.net">jsFiddle</a> announces new skins they may be used immediately.</p>
-<p>Default: <code>light</code></p>
+<pre><code>123.457m</code></pre>
+<h4>{{toExponential}}</h4>
+<p><em>Returns the number in exponential notation with one digit before the decimal point, rounded to <code>fractions</code> digits after the decimal point.</em></p>
+<p>Parameters: fractions <code>int</code> - An integer specifying the number of digits after the decimal point. (Optional)</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5</span></code></pre>
 <p>Template:</p>
-<pre><code class="language-html">{{jsfiddle &#39;ccWP7&#39; &#39;result,js,html,css&#39; &#39;presentation&#39;}}</code></pre>
+<pre><code class="language-html">{{toExponential value 5}}</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-html">&lt;iframe style=&quot;width: 100%; height: 210px&quot;
-  src=&quot;http://jsfiddle.net/ccWP7/embedded/js,
-  result/presentation/&quot;&gt;&lt;/iframe&gt;</code></pre>
+<pre><code>5.00000e+0</code></pre>
+<h4>{{toFixed}}</h4>
+<p><em>Returns exactly <code>digits</code> after the decimal place. The number is rounded if necessary, and the fractional part is padded with zeros if necessary so that it has the specified length.</em></p>
+<p>Parameters: digits <code>int</code> - The number of digits to appear after the decimal point. (Optional)</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">5.53231</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toFixed value 3}}</code></pre>
+<p>Renders to:</p>
+<pre><code>5.532</code></pre>
+<h4>{{toFloat}}</h4>
+<p><em>Returns a floating point number.</em></p>
+<p>Parameters: <code>none</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="string">'22.2abc'</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toFloat value}}</code></pre>
+<p>Renders to:</p>
+<pre><code>22.2</code></pre>
+<h4>{{toInt}}</h4>
+<p><em>Returns an integer.</em></p>
+<p>Parameters: <code>none</code></p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="string">'22.2abc'</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toInt value}}</code></pre>
+<p>Renders to:</p>
+<pre><code>22</code></pre>
+<h4>{{toPrecision}}</h4>
+<p><em>Returns the number in fixed-point or exponential notation rounded to <code>precision</code> significant digits.</em></p>
+<p>Parameters: precision <code>int</code> - The number of digits. If omitted, it returns the entire number (without any formatting). (Optional)</p>
+<p>Data:</p>
+<pre><code class="language-javascript">value = <span class="number">555.322</span></code></pre>
+<p>Template:</p>
+<pre><code class="language-html">{{toPrecision value 4}}</code></pre>
+<p>Renders to:</p>
+<pre><code>555.3</code></pre>
 
 
 
@@ -259,7 +257,7 @@ However as <a href="http://jsfiddle.net">jsFiddle</a> announces new skins they m
 
 
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-code.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-numbers.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -322,9 +320,9 @@ However as <a href="http://jsfiddle.net">jsFiddle</a> announces new skins they m
 
 
     
-    <script src="../../assets/js/jquery.js"></script>
-<script src="../../assets/js/highlight.js"></script>
-<script src="../../assets/js/showup.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/highlight.js"></script>
+<script src="../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

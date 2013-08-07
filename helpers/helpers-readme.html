@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> URL  | Assemble</title>
+    <title> Readme  | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/markdown.css">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
     
-    <link rel="stylesheet" href="../../assets/css/assemble.css">
+    <link rel="stylesheet" href="../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="../../assets/js/html5shiv.js"></script>
-    <script src="../../assets/js/respond/respond.min.js"></script>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond/respond.min.js"></script>
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
     
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -68,17 +68,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../../">ASSEMBLE</a>
+    <a class="navbar-brand" href="../">ASSEMBLE</a>
     <div class="nav-collapse collapse">
       <ul class="nav navbar-nav">
-        <li> <a href="../../docs/">Docs</a> </li>
-        <!--<li> <a href="../../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../../helpers/">Helpers</a> </li>
+        <li> <a href="../docs/">Docs</a> </li>
+        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
+        <li> <a href="../helpers/">Helpers</a> </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../../blog/">Blog</a> </li>-->
+        <!--<li> <a href="../examples/">Examples</a> </li>-->
+        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
+        <!--<li> <a href="../blog/">Blog</a> </li>-->
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
       </ul>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;URL</h1>
+        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Readme</h1>
       </div>
     </div>
   </div>
@@ -182,61 +182,82 @@
     
     <div class="col col-lg-9">
       <div class="panel panel-docs">
-        <h1>URL</h1>
-        <p><p>URL helpers are <a href="http://nodejs.org/api/url.html">node.js</a> <code>url</code> utilities for URL resolution and parsing. As with node.js:</p></p>
-<p><blockquote></p>
-<p><p>&quot;Parsed URL objects have some or all of the following fields, depending on whether or not they exist in the URL string. Any parts that are not in the URL string will not be in the parsed object.&quot;</p></p>
-<p><h4>{{urlParse}}</h4></p>
-<p><p><em>Take a URL string, and return an object.</em></p>
-</blockquote></p>
-<p><p>Params:
-<em> <code>url</code>
-</em> Output format: <code>yaml</code> or <code>json</code>. Default: <code>json</code></p></p>
-<p><p>Template:</p></p>
-<pre><code class="language-html">{{urlParse &quot;http://example.com/one&quot;}}</code></pre>
+        <h1>Readme</h1>
+        <p><h4>{{authors}}</h4></p>
+<p><p>Generates a list of markdown-formatted project authors from the AUTHORS file in the root of a project. Since Handlebars enforces case sensitivity with helper names, this helper comes in two different flavors: <code>{{AUTHORS}}</code> or <code>{{authors}}</code>.</p></p>
+<p><p>Params: <code>none</code>
+Usage: <code>{{authors}}</code> or <code>{{authors &quot;path/to/AUTHORS&quot;}}</code></p></p>
+<p><p>For data, we&#39;ll use the <code>AUTHORS</code> file in the root of our project. We format it this way so that NPM can:</p></p>
+<pre><code>Brian Woodward (http://github.com/doowb)
+Jon Schlinkert (http://github.com/jonschlinkert)</code></pre>
+<p>Template (lowercase version):</p>
+<pre><code class="language-html">{{authors}}</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-json">{
-  "<span class="attribute">protocol</span>": <span class="value"><span class="string">"http:"</span></span>,
-  "<span class="attribute">slashes</span>": <span class="value"><span class="literal">true</span></span>,
-  "<span class="attribute">auth</span>": <span class="value"><span class="literal">null</span></span>,
-  "<span class="attribute">host</span>": <span class="value"><span class="string">"example.com"</span></span>,
-  "<span class="attribute">port</span>": <span class="value"><span class="literal">null</span></span>,
-  "<span class="attribute">hostname</span>": <span class="value"><span class="string">"example.com"</span></span>,
-  "<span class="attribute">hash</span>": <span class="value"><span class="literal">null</span></span>,
-  "<span class="attribute">search</span>": <span class="value"><span class="literal">null</span></span>,
-  "<span class="attribute">query</span>": <span class="value"><span class="literal">null</span></span>,
-  "<span class="attribute">pathname</span>": <span class="value"><span class="string">"/one"</span></span>,
-  "<span class="attribute">path</span>": <span class="value"><span class="string">"/one"</span></span>,
-  "<span class="attribute">href</span>": <span class="value"><span class="string">"http://example.com/one"</span>
-}</span></code></pre>
-<p>Or with <code>yaml</code> as the second param:</p>
-<pre><code class="language-html">{{urlParse &quot;http://foo.com/bar/baz?key=value&quot; &quot;yaml&quot;}}</code></pre>
+<pre><code>* [Brian Woodward](http://github.com/doowb)
+* [Jon Schlinkert](http://github.com/jonschlinkert)</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-yaml">protocol: &quot;http:&quot;
-slashes: true
-auth: null
-host: &quot;foo.com&quot;
-port: null
-hostname: &quot;foo.com&quot;
-hash: null
-search: &quot;?key=value&quot;
-query: &quot;key=value&quot;
-pathname: &quot;/bar/baz&quot;
-path: &quot;/bar/baz?key=value&quot;
-href: &quot;http://foo.com/bar/baz?key=value&quot;
-parse:
-format:
-resolve:
-resolveObject:
-parseHost:</code></pre>
-<h4>{{urlResolve}}</h4>
-<p><em>Take a base URL, and a href URL, and resolve them as a browser would for an anchor tag.</em></p>
-<p><br>Template:</p>
-<pre><code class="language-html">{{urlResolve url href}}</code></pre>
-<p>Example:</p>
-<pre><code class="language-html">&lt;a href=&quot;{{urlResolve &quot;http://example.com/one&quot; &quot;/two&quot;}}&quot;&gt;&lt;/a&gt;</code></pre>
+<pre><code class="language-markdown"><span class="strong">**Jon Schlinkert**</span>
+
+<span class="bullet">+ </span><span class="link_label">[http://twitter.com/jonschlinkert]</span>(<span class="link_url">http://twitter.com/jonschlinkert</span>)
+<span class="bullet">+ </span><span class="link_label">[http://github.com/jonschlinkert]</span>(<span class="link_url">http://github.com/jonschlinkert</span>)
+
+<span class="strong">**Brian Woodward**</span>
+
+<span class="bullet">+ </span><span class="link_label">[http://twitter.com/doowb]</span>(<span class="link_url">http://twitter.com/doowb</span>)
+<span class="bullet">+ </span><span class="link_label">[http://github.com/doowb]</span>(<span class="link_url">http://github.com/doowb</span>)</code></pre>
+<h4>{{changelog}}</h4>
+<p>A few convenience helpers that read data in YAML format, and do interesting things with the data. Well... they &quot;do things&quot; with the data. Anyway I guess only nerds like me find it interesting.</p>
+<p><strong>NOTE</strong>: These helpers will throw an error if the source files are not  valid YAML format, using the following conventions:</p>
+<p>A couple things to keep in mind about YAML:</p>
+<ul>
+<li>YAML is picky, so don&#39;t be surprised if the parser throws an error from improperly placed quotation marks.</li>
+<li>Seriously, don&#39;t be surprised. If you even come onto the issues and act surprised when it happens, an automated message will tell you to read the first bullet.</li>
+</ul>
+<p>Example of the format to follow in your <code>CHANGELOG</code> file:</p>
+<pre><code class="language-yaml">v0.1.2
+  date: &quot;2014-04-09&quot;
+  changes:
+    - The future sucks.
+    - This is my third and last commmit from the future.
+v0.1.1
+  date: &quot;2014-04-08&quot;
+  changes:
+    - Second commit from the future.
+    - The future is more boring that I thought it would be.
+v0.1.0
+  date: &quot;2014-03-07&quot;
+  changes:
+    - First commit... from the future. Yes!</code></pre>
+<p>Of coure, you are under no obligation to make your changelog entries as interesting as these, and you may record your entries at any point in whatever timeline you prefer, but whatever you write must be valid YAML when you do it.</p>
+<p>The output will look like this:</p>
+<pre><code class="language-markdown"><span class="bullet">* </span>2013-03-15    v0.1.2    Update README.md with documentation, examples.
+<span class="bullet">* </span>2013-03-06    v0.1.0    First commit.</code></pre>
+<ul>
+<li>More info here: <a href="https://github.com/nodeca/js-yaml">js-yaml</a></li>
+<li>See the tests here: <a href="test/helpers/special_test.js">test/helpers/special_test.js</a></li>
+</ul>
+<h3>Travis CI</h3>
+<h4>{{travis}}</h4>
+<p><em>Creates a &quot;full&quot; Travis CI link in markdown format</em>.</p>
+<p>Params: <code>branch</code>
+Type: <code>String</code>
+Usage: <code>{{travis [branch]}}</code></p>
+<p>Template:</p>
+<pre><code class="language-html">{{travis}}`</code></pre>
 <p>Renders to:</p>
-<pre><code class="language-html">&lt;a href=&quot;http://example.com/two&quot;&gt;&lt;/a&gt;</code></pre>
+<pre><code class="language-markdown"><span class="header"># [helper-lib v2.0.0](https://github.com/assemble/helper-lib)[![Build Status](https://travis-ci.org/assemble/helper-lib.png)](https://travis-ci.org/assemble/helper-lib)</span></code></pre>
+<p>Template with branch:</p>
+<pre><code class="language-html">{{travis &#39;master&#39;}}</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-markdown"><span class="header"># [helper-lib v2.0.0](https://github.com/assemble/helper-lib)[![Build Status](https://travis-ci.org/assemble/helper-lib.png?branch=master)](https://travis-ci.org/assemble/helper-lib)</span></code></pre>
+<h4>{{travis-badge}}</h4>
+<p><em>Creates a Travis CI link in markdown format</em>.</p>
+<p>Params: <code>none</code>
+Usage: <code>{{travis-badge}}</code></p>
+<p>Template</p>
+<pre><code class="language-html">{{travis}}`</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-markdown"><span class="link_label">[![Build Status](https://travis-ci.org/assemble/helper-lib.png)]</span>(<span class="link_url">https://travis-ci.org/assemble/helper-lib</span>)</code></pre>
 
 
 
@@ -247,7 +268,7 @@ parseHost:</code></pre>
 
 
         <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-url.hbs">See the template for this page → </a></p>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-readme.hbs">See the template for this page → </a></p>
         <div class="alert">
 
           
@@ -310,9 +331,9 @@ parseHost:</code></pre>
 
 
     
-    <script src="../../assets/js/jquery.js"></script>
-<script src="../../assets/js/highlight.js"></script>
-<script src="../../assets/js/showup.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/highlight.js"></script>
+<script src="../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>
