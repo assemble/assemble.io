@@ -1,8 +1,0 @@
-{{#if lessjs}}
-{{testtt "vendor"}}
-<link rel="stylesheet/less" type="text/css" href="{{assets}}/styles.less" />
-<script src="{{assets}}/js/less.js" type="text/javascript"></script>
-{{!dumptruck "node_modules/assemble-less/node_modules/less/dist/less-1.4.0.js" "/js/less.js"}}
-{{else}}
-{{!destroy "/js/less.js"}}
-{{/if}}

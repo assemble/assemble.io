@@ -1,0 +1,26 @@
+{
+  "marked": {
+    "breaks": false,
+    "gfm": true,
+    "langPrefix": "language-",
+    "pedantic": false,
+    "sanitize": false,
+    "silent": false,
+    "smartLists": false,
+    "smartypants": false,
+    "tables": true
+  },
+  "flatten": true,
+  "production": true,
+  "today": "<%= grunt.template.today() %>",
+  "layoutdir": "src/templates/layouts",
+  "helpers": "src/local-helpers.js",
+  "assets": "docs/assets",
+  "data": [
+    "src/data/*.{json,yml}",
+    "package.json"
+  ],
+  "partials": [
+    "src/templates/partials/**/*.{hbs,md}"
+  ]
+}

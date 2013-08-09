@@ -1,4 +1,0 @@
----
-strong: External data example
-message: This alert was assembled from a partial and YAML data fron in './src/data/`.
-modifier: alert-info
