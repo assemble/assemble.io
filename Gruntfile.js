@@ -13,6 +13,9 @@ module.exports = function(grunt) {
   // Internal lib
   grunt.util._.mixin(require('./src/helpers/mixins').init(grunt));
 
+  // Report elapsed execution time of grunt tasks.
+  require('time-grunt')(grunt);
+
   // Project configuration.
   grunt.initConfig({
 
@@ -54,8 +57,8 @@ module.exports = function(grunt) {
       },
       links: {
         options: {ext: '.hbs'},
-        src: 'src/templates/partials/link-template.md.hbs',
-        dest: 'src/templates/partials/generated-links.md.hbs',
+        src: 'src/templates/partials/snippets/links-template.md.hbs',
+        dest: 'src/templates/partials/snippets/links-generated.md.hbs',
       },
       docs: {
         options: {layout: 'layout-docs.hbs'},
@@ -117,14 +120,14 @@ module.exports = function(grunt) {
       options: {
         filters: {type: 'public'}
       },
-      pkg: {
-        src: '/repos/assemble/assemble/contents/pkg-assemble.json',
-        dest: 'src/data/pkg.json'
-      },
-      readme: {
-        src: '/repos/assemble/assemble/readme',
-        dest: 'src/data/readme.json'
-      },
+      // pkg: {
+      //   src: '/repos/assemble/assemble/contents/package.json',
+      //   dest: 'src/data/pkg-assemble.json'
+      // },
+      // readme: {
+      //   src: '/repos/assemble/assemble/readme',
+      //   dest: 'src/data/README.md'
+      // },
       repos: {
         src: '/orgs/assemble/repos',
         dest: 'src/data/repos.json'

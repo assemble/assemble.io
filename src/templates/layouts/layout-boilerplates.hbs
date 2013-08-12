@@ -47,13 +47,13 @@
   </head>
   <body style="background: white">
 
-    {{! NAVIGATION
-    =================================== }}
+    {{!-- NAVIGATION
+    =================================== --}}
     {{> navbar }}
 
 
-    {{! MASTHEAD
-    =================================== }}
+    {{!-- MASTHEAD
+    =================================== --}}
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -66,8 +66,8 @@
     <div class="container">
       <div class="row">
 
-        {{! VERTICAL NAV
-        =================================== }}
+        {{!-- VERTICAL NAV
+        =================================== --}}
         <div class="col col-lg-3">
           <div class="sidebar">
 
@@ -82,16 +82,15 @@
           </div>
         </div>
 
-        {{! MAIN CONTENT
-        =================================== }}
+        {{!-- MAIN CONTENT
+        =================================== --}}
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>{{page.title}}</h1>
             {{#markdown}}
               {{> body }}
-              {{!-- This partial uses a helper that automatically gererates links from pages the given path(s). --}}
-              {{> generated-links.md }}
-              {{> manually-defined-links.md }}
+
+              {{> links-generated.md }} {{!-- helper for generating links --}}
             {{/markdown}}
             <hr>
             <div class="alert">
@@ -108,8 +107,8 @@
 
               {{!-- GITHUB BUTTONS (right aligned)
               =========================================== --}}
-              {{> github-star-button }}
-              {{> github-fork-button }}
+              {{> btn-github-star }}
+              {{> btn-github-fork }}
 
               <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a></p>
             </div>

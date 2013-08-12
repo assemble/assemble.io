@@ -131,10 +131,12 @@ strong: Be advised!
 message: this is an alert from <%= site.name %> # pass in the site name
 ```
 
-And then pass it along to `alert.hbs`:
+And then pass it to `alert.hbs`:
 
 ```html
-<div class="alert \{{alert.modifier}}"><strong>\{{ alert.strong }}</strong>\{{ alert.message }}</div>
+<div class="alert \{{alert.modifier}}">
+  <strong>\{{ alert.strong }}</strong>\{{ alert.message }}
+</div>
 ```
 
 {{#draft}}

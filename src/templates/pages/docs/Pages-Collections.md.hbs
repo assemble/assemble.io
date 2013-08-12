@@ -173,11 +173,11 @@ This means that _we need to get the `title` of **each page** without having to w
 
 ```html
 <ul>
-  <li><a href="#">{{index.title}}</a></li>
-  <li><a href="#">{{blog.title}}</a></li>
-  <li><a href="#">{{project.title}}</a></li>
-  <li><a href="#">{{about.title}}</a></li>
-  <li><a href="#">{{contact.title}}</a></li>
+  <li><a href="#">\{{index.title}}</a></li>
+  <li><a href="#">\{{blog.title}}</a></li>
+  <li><a href="#">\{{project.title}}</a></li>
+  <li><a href="#">\{{about.title}}</a></li>
+  <li><a href="#">\{{contact.title}}</a></li>
 </ul>
 ```
 
@@ -379,7 +379,7 @@ Add the `pages` object "long-format" to your configuration file, and create sub-
       "content": "path/to/contact-us.md"
     },
     "post": {
-      "title": "{{ page.title }}",
+      "title": "\{{ page.title }}",
       "slug": "<%= grunt.template.today(\"yyyy\")-<%= post-name %>",
       "layout": "path/to/layouts-type4/two-column.hbs",
       //"content": "<%= theme.content %>" // the 'content' object in the theme.json file, might reference content.md
@@ -399,7 +399,7 @@ Add the `pages` object "long-format" to your configuration file, and create sub-
       "content": "<%= products %>/products.yml"
     },
     "product": {
-      "title": "{{ page.title }}",
+      "title": "\{{ page.title }}",
       "slug": "products",
       "layout": "path/to/layouts-products/product-example.hbs",
       "content": "<%= products %>/product-types1/product.yml"

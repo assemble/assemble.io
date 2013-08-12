@@ -47,7 +47,7 @@ If ERB-style delimiters aren't your cup of tea, you can change Underscore's temp
       interpolate : /\{\{(.%2B?)\}\}/g
     };
 
-    var template = _.template("Hello {{ name }}!");
+    var template = _.template("Hello \{{ name }}!");
     template({name : "Mustache"});
     =&gt; "Hello Mustache!"
 

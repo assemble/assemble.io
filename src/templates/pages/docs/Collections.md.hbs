@@ -14,6 +14,44 @@ For a given collection, all items in the "current" target will be added to the c
 For example, if we wish to render a list of all of the pages in the `pages` collection, we will only see the pages in the "current target".
 
 
+## Pages for each Collection Item
+
+If you want to list all of the pages in a target that have a certain tag, such as `Test`, you could would "wrap" the `\{{#each tags}}...\{{/each}}` block around the `\{{#each pages}}...\{{/each}}`
+block. Something like this:
+
+```html
+\{{#each tags}}
+  \{{#is tag "Test"}}
+  <h1>\{{tag}}</h1>
+  <ul>
+    \{{#each pages}}
+      <li>\{{data.title}}</li>
+    \{{/each}}
+  </ul>
+  \{{/is}}
+\{{/each}}
+```
+
+However, if you also want to sort the pages by say, `date`, you would instead use `\{{#withSort pages}}`...`\{{/withSort}}` along with a second parameter, in this case `date`:
+
+```html
+\{{#each tags}}
+  \{{#is tag "Test"}}
+  <h1>\{{tag}}</h1>
+  <ul>
+    \{{#withSort pages data.date}}
+      <li>\{{data.title}}</li>
+    \{{/withSort}}
+  </ul>
+  \{{/is}}
+\{{/each}}
+```
+
+Note that you may only use dot notation for sorting, names like `a['my.page']` will be interpreted as `a.my.page` and thus will not work.
+
+
+
+
 ## Related Information
 
 * [FAQ][faq]

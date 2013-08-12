@@ -108,7 +108,7 @@ And in the YFM of the page, use underscore templates:
 title: <%= page.index.title %>
 ---
 
-{{ title }}
+\{{ title }}
 ```
 
 Alternatively, inside the Grunfile you can use `grunt.config.set` to define the data to be used for a given variable:
@@ -131,12 +131,12 @@ people:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>{{title}}</title>
+    <title>\{{title}}</title>
   </head>
   <body>
     <section class="people">
       <ul>
-        {{{list}}}
+        \{{{list}}}
       </ul>
     </section>
   </body>
