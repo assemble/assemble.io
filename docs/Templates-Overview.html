@@ -301,8 +301,10 @@ And this title will pull data from the YAML front matter. It&#39;s kind of like 
 modifier: alert-warning
 strong: Be advised!
 message: this is an alert from &lt;%= site.name %&gt; # pass in the site name</code></pre>
-          <p>And then pass it along to <code>alert.hbs</code>:</p>
-<pre><code class="language-html">&lt;div class=&quot;alert {{alert.modifier}}&quot;&gt;&lt;strong&gt;{{ alert.strong }}&lt;/strong&gt;{{ alert.message }}&lt;/div&gt;</code></pre>
+          <p>And then pass it to <code>alert.hbs</code>:</p>
+<pre><code class="language-html">&lt;div class=&quot;alert {{alert.modifier}}&quot;&gt;
+  &lt;strong&gt;{{ alert.strong }}&lt;/strong&gt;{{ alert.message }}
+&lt;/div&gt;</code></pre>
           <h2>Related Information</h2>
           <ul>
             <li><a href="Pages.html">Pages</a>

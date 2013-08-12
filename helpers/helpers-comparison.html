@@ -212,7 +212,6 @@ magnificent = <span class="literal">true</span></code></pre>
 {{/gt}}</code></pre>
 <p>Renders to:</p>
 <pre><code>Never mind :(</code></pre>
-<p><strong>Same as <code>if_gt</code>, consider consolidating</strong></p>
 <h4>{{gte}}</h4>
 <p><em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y)</em>.
 <br>Parameters: value <code>string|int</code> - the value to test against.</p>
@@ -225,7 +224,6 @@ magnificent = <span class="literal">true</span></code></pre>
 {{/gte}}</code></pre>
 <p>Renders to:</p>
 <pre><code>Kiss my shiny metal ass!</code></pre>
-<p><strong>Same as <code>if_gteq</code>, consider consolidating</strong></p>
 <h4>{{if_gt}}</h4>
 <p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
 Parameters: <code>none</code></p>
@@ -252,7 +250,7 @@ number = <span class="number">5</span>
 <p>Renders to:</p>
 <pre><code>Kiss my shiny metal ass!</code></pre>
 <h5>Example #2:</h5>
-<p>If you are using <a href="">Assemble</a>, data from <em>YAML front matter</em> or any specified <code>JSON</code> and/or <code>YAML</code> source files will get passed through to the context in your templates.</p>
+<p>If you are using data from <em>YAML front matter</em> or any specified <code>JSON</code> and/or <code>YAML</code> source files will get passed through to the context in your templates.</p>
 <p>Data and Templates:</p>
 <pre><code class="language-html">---
 page:
@@ -345,7 +343,6 @@ Parameters: <code>none</code></p>
 <p><em>Render block, unless value is less than or equal to a given number (Unless x &lt;= y)</em>.</p>
 <p>Parameters: <code>none</code></p>
 <pre><code class="language-html">{{#unless_lteq x compare=y}} ... {{/unless_lteq}}</code></pre>
-
 
 
 
