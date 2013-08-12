@@ -193,7 +193,7 @@
 <p><p>Unless overridden by a given extension, the helper will automatically use the extension of the specified file as the language to use for syntax highlighting. You may also force the helper to use a language that is different than the extension of the file.</p></p>
 <p><p>For example, here we will force highlighting as <code>javascript</code> instead of <code>json</code></p></p>
 <pre><code class="language-html">{{ embed &#39;src/example.json&#39; &#39;js&#39; }}</code></pre>
-<p>When embedding a markdown snippet (<code>.md|markdown|markd</code>), the helper automatically converts any code fences inside the snippet (&quot;<code>` `````&quot;) to their unicode equivalent (&quot;</code>&#x60;&#x60;&#x60;`&quot;)</p>
+<p>When embedding a markdown snippet (<code>.md|markdown|markd</code>), the helper automatically converts any code fences inside the snippet (<code>``` </code>) to their unicode equivalent (&quot;<code>&amp;#x60;&amp;#x60;&amp;#x60;</code>&quot;)</p>
 <pre><code class="language-html">{{embed &#39;src/example.md&#39;}}</code></pre>
 <p><strong>File globbing</strong></p>
 <p>The <code>embed</code> helper also accepts globbing patterns:</p>
