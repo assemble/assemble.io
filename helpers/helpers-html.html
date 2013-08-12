@@ -185,73 +185,41 @@
     <div class="col col-lg-9">
       <div class="panel panel-docs">
         <h1>HTML</h1>
-        <p><h4>{{blockquote}}</h4></p>
-<p><p><strong>Planned...</strong></p></p>
-<p><p><em>Create a blockquote. Outputs a string with a given attribution as a quote.</em></p></p>
-<p><p>Template:</p></p>
-<pre><code class="language-html">{{#blockquote &#39;@doowb&#39; &#39;http://github.com/source/for/your/quote&#39; &#39;This is the title&#39; }}
-  This is your quote.
-{{/blockquote}}</code></pre>
-<p>Renders to:</p>
-<pre><code class="language-html">&lt;blockquote&gt;
-  &lt;p&gt;This is your quote.&lt;/p&gt;
-  &lt;footer&gt;
-    &lt;strong&gt;@doowb&lt;/strong&gt;
-    &lt;cite&gt;
-      &lt;a href=&quot;http://github.com/source/for/your/quote&quot;&gt;This is the title&lt;/a&gt;
-    &lt;/cite&gt;
-  &lt;/footer&gt;
-&lt;/blockquote&gt;</code></pre>
-<h4>{{br}}</h4>
-<p><em>Renders <code>&lt;br&gt;</code> elements in the output, based on the number given as a parameter. Not really recommended for general use, but it&#39;s here if you need it.</em></p>
-<p>Parameters: <code>Integer|Count</code>, <code>Optional</code></p>
-<p>The number of <code>br</code> elements to render.</p>
-<p><code>template.hbs</code></p>
+        <p><h4>{{br}}</h4></p>
+<p><p><em>Renders <code>&lt;br&gt;</code> elements in the output, based on the number given as a parameter. Not really recommended for general use, but it&#39;s here if you need it.</em></p></p>
+<p><p>Parameters: <code>Integer|Count</code>, <code>Optional</code></p></p>
+<p><p>The number of <code>br</code> elements to render.</p></p>
+<p><p><code>template.hbs</code></p></p>
 <pre><code class="language-html">{{br 5}}</code></pre>
 <p>renders to:</p>
 <pre><code class="language-html">`&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;`</code></pre>
 <h4>{{doctype}}</h4>
 <p><em>Easy way to add an uncommonly used doctype.</em></p>
-<p>Default: HTML 5 (<code>&lt;!DOCTYPE html&gt;</code>), although tThis is probably only useful on projects that use anything besides HTML 5.</p>
+<p>Default is HTML 5 (<code>&lt;!DOCTYPE html&gt;</code>) although this is probably only useful on projects that use anything besides HTML 5.</p>
 <p>Template:</p>
 <pre><code class="language-html">{{DOCTYPE &#39;svg 1.1&#39;}}</code></pre>
 <p>Renders to:</p>
 <pre><code class="language-html">&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</code></pre>
 <p>Available doctypes:</p>
 <p><strong>HTML 5 (default)</strong>
-<em> <code>&lt;!DOCTYPE html&gt;</code>
-</em> examples: <code>{{doctype &#39;5&#39;}}</code>, <code>{{doctype &#39;html5&#39;}}</code>
-* aliases: <code>5</code>, <code>html</code>, <code>html5</code></p>
+* <code>{{doctype &#39;5&#39;}}</code> | aliases: <code>html</code>, <code>html5</code></p>
 <p><strong>XML</strong>
 <em> <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</code>
-</em> example: <code>{{doctype &#39;xml&#39;}}</code>
-* aliases: <code>xml</code></p>
+</em> <code>{{doctype &#39;xml&#39;}}</code></p>
 <p><strong>XHTML</strong>
-<em> <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code>
-</em> example: <code>{{doctype &#39;strict&#39;}}</code>
-<em> aliases: <code>strict</code>
-</em> <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</code>
-<em> aliases: <code>transitional</code>
-</em> <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</code>
-<em> aliases: <code>frameset</code>
-</em> <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</code>
-<em> aliases: <code>1.1</code>, <code>xhtml 1.1</code>
-</em> <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML Basic 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd&quot;&gt;</code>
-<em> aliases: <code>basic</code>
-</em> <code>&lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.2//EN&quot; &quot;http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd&quot;&gt;</code>
-* aliases: <code>mobile</code></p>
+<em> <code>{{doctype &#39;basic&#39;}}</code>
+</em> <code>{{doctype &#39;strict&#39;}}</code>
+<em> <code>{{doctype &#39;transitional&#39;}}</code>
+</em> <code>{{doctype &#39;frameset&#39;}}</code>
+<em> <code>{{doctype &#39;1.1&#39;}}</code> | aliases: <code>1.1</code>, <code>xhtml 1.1</code>
+</em> <code>{{doctype &#39;mobile&#39;}}</code></p>
 <p><strong>HTML 4.01</strong>
-<em> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code>
-</em> aliases: <code>4</code>, <code>4.01</code>, <code>4.01 strict</code>
-<em> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code>
-</em> aliases: <code>4.01 trans</code>
-<em> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</code>
-</em> aliases: <code>4.01 frameset</code></p>
+<em> <code>{{doctype &#39;4&#39;}}</code> | aliases: <code>4.01</code>, <code>4.01 strict</code>
+</em> <code>{{doctype &#39;4.01 trans&#39;}}</code>
+* <code>{{doctype &#39;4.01 frameset&#39;}}</code></p>
 <p><strong>SVG</strong>
-<em> <code>&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</code>
-</em> aliases: <code>svg</code>, <code>svg 1.1</code>, <code>svg1.1</code>
-<em> <code>&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.0//EN&quot; &quot;http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd&quot;&gt;</code>
-</em> aliases: <code>svg 1.0</code>, <code>svg1.0</code>, <code>svg1</code></p>
+<em> <code>{{doctype &#39;svg&#39;}}</code> | aliases: <code>svg</code>, <code>svg 1.1</code>, <code>svg1.1</code>
+</em> <code>{{doctype &#39;svg 1.0&#39;}}</code> | aliases: <code>svg 1.0</code>, <code>svg1.0</code>, <code>svg1</code></p>
 <h4>{{exticon}}</h4>
 <p><em>Generate the appropriate icon based on the extension of the given file.</em></p>
 <p>Since this helper generates classes that are very specific, feel free to copy the code and use it as inspiration for your a helper that works for you.</p>
@@ -292,26 +260,6 @@
   &lt;li&gt; Bender - 239 deliveries &lt;/li&gt;
   &lt;li&gt; Fry - 1 delivery &lt;/li&gt;
 &lt;/ol&gt;</code></pre>
-<h4>{{timeline}}</h4>
-<p><strong>Planned...</strong></p>
-<p><em>Iterates through an array, letting the contents know whether a timeline entry belongs in the left or right column.</em></p>
-<p>Parameters:</p>
-<ul>
-<li><code>array</code> to iterate over,</li>
-<li><code>string</code>: CSS class name for left columns</li>
-<li><code>string</code>: CSS class name for right columns</li>
-</ul>
-<p>Credit: by <a href="http://github.com/jonschlinkert">@jonschlinkert</a>, and based on striped helper from <a href="http://blog.teamtreehouse.com/handlebars-js-part-2-partials-and-helpers">treehouse blog</a></p>
-<p>Usage:</p>
-<pre><code class="language-html">&lt;div class=&quot;timeline&quot;&gt;
- {{#timeline myArray &quot;left&quot; &quot;right&quot;}}
- &lt;div class=&quot;{{columnClass}}&quot;&gt;
-   {{&gt; entry}}
- &lt;/div&gt;
- {{else}}
-   &lt;em&gt;There aren&#39;t any entries.&lt;/em&gt;
- {{/timeline}}
-&lt;/div&gt;</code></pre>
 <h4>{{ul}}</h4>
 <p><em>Creates an unordered list.</em></p>
 <p>Parameters: <code>Hash|HTML attributes</code>, <code>Optional</code></p>
