@@ -192,21 +192,15 @@
 <p><h4>{{_dirname}}</h4></p>
 <p><p><em>Return the directory name of a path. Similar to the Unix dirname command.</em></p></p>
 <p><p>Template:</p></p>
-<pre><code class="language-html">{{_dirname &#39;/foo/bar/baz/asdf/quux&#39;}}
-
-Renders to:</code></pre>
-<p>&#39;/foo/bar/baz/asdf&#39;</p>
-<pre><code>
-#### {{_extname}}
-_&quot;Return the extension of the path, from the last &#39;.&#39; to end of string in the last portion of the path. If there is no &#39;.&#39; in the last portion of the path or the first character of it is &#39;.&#39;, then it returns an empty string.&quot;_
-
-Parameters: `string` (the value to test against).
-Default: `none`
-
-Template:
-
-```html
-{{_extname &#39;index.html&#39;}}</code></pre>
+<pre><code class="language-html">{{_dirname &#39;/foo/bar/baz/asdf/quux&#39;}}</code></pre>
+<p>Renders to:</p>
+<pre><code>&#39;/foo/bar/baz/asdf&#39;</code></pre>
+<h4>{{_extname}}</h4>
+<p><em>&quot;Return the extension of the path, from the last &#39;.&#39; to end of string in the last portion of the path. If there is no &#39;.&#39; in the last portion of the path or the first character of it is &#39;.&#39;, then it returns an empty string.&quot;</em></p>
+<p>Parameters: <code>string</code> (the value to test against).
+Default: <code>none</code></p>
+<p>Template:</p>
+<pre><code class="language-html">{{_extname &#39;index.html&#39;}}</code></pre>
 <p>Renders to:</p>
 <pre><code>.html</code></pre>
 <p>Template:</p>
