@@ -2,15 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Comparison  | Assemble</title>
+    <title>Comparison | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/css/markdown.css">
-    
     <link rel="stylesheet" href="../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
     <!--[if lt IE 9]>
     <script src="../assets/js/html5shiv.js"></script>
     <script src="../assets/js/respond/respond.min.js"></script>
@@ -22,400 +21,423 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
-    
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  var pluginUrl =
-    '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-33358518-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <script type="application/ld+json">
-[
-  {
-    "@context" : "http://schema.org",
-    "@type" : "Person",
-    "name" : "Jon Schlinkert",
-    "description" : "Co-creator of Assemble.",
-    "url" : "https://github.com/jonschlinkert"
-  },
-  {
-    "@context" : "http://schema.org",
-    "@type" : "Person",
-    "name" : "Brian Woodward",
-    "description" : "Co-creator of Assemble.",
-    "url" : "https://github.com/doowb"
-  }
-]
-</script>
+      [
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Jon Schlinkert",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/jonschlinkert"
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Brian Woodward",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/doowb"
+      }]
+    </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+    <div class="navbar">
+      <div class="container">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">ASSEMBLE</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="../docs/">Docs</a> 
+            </li>
 
-    
-    
-<div class="navbar">
-  <div class="container">
-    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
-    <div class="nav-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
-        <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
-        <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
-      </ul>
-    </div>
-  </div>
-</div>
+            <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
+            <li> <a href="../helpers/">Helpers</a> 
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
 
+            <!--<li> <a href="../examples/">Examples</a> </li>-->
 
-    
-    
-<style>
-  /* Temporarily override subhead styling for development */
-  .subhead {
-    background-color: #33b5e5;
-  }
-  .subhead .text-muted {
-    color: #b5e4f5;
-  }
-</style>
+            <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
 
-<header class="masthead subhead">
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Comparison</h1>
+            <!--<li> <a href="../blog/">Blog</a> </li>-->
+            <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+            </li>
+            <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-<div class="container">
-  <div class="row">
-
-    
-    <div class="col col-lg-3">
-      <div class="sidebar">
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="./">Overview</a> </li>
-        </ul>
-
-        <span class="nav-section-title">
+    <style>
+      /* Temporarily override subhead styling for development */
+      .subhead {
+        background-color: #33b5e5;
+      }
+      .subhead .text-muted {
+        color: #b5e4f5;
+      }
+    </style>
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Comparison</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="./">Overview</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
           Helpers
         </span>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-code.html">Code</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-collections.html">Collections</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-comparison.html">Comparison</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-content.html">Content</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-data.html">Data</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-dates.html">Dates</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-html.html">HTML</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-inflections.html">Inflections</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-logging.html">Logging</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-markdown.html">Markdown</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-math.html">Math</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-misc.html">Miscellaneous</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-numbers.html">Numbers</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-path.html">Path</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-readme.html">Readme</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-strings.html">Strings</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-url.html">URL</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-special.html">special</a> </li>
-        </ul>
-
-      </div>
-    </div>
-
-    
-    <div class="col col-lg-9">
-      <div class="panel panel-docs">
-        <h1>Comparison</h1>
-        <p><h4>{{and}}</h4></p>
-<p><p><em>Conditionally render a block if both values are truthy.</em></p></p>
-<p><p>Parameters: values <code>string|int</code> - the values to test against.</p></p>
-<p><p>Data:</p></p>
-<pre><code class="language-javascript">great = <span class="literal">true</span>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-code.html">Code</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-collections.html">Collections</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-comparison.html">Comparison</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-content.html">Content</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-data.html">Data</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-dates.html">Dates</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-html.html">HTML</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-inflections.html">Inflections</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-logging.html">Logging</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-markdown.html">Markdown</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-math.html">Math</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-misc.html">Miscellaneous</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-numbers.html">Numbers</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-path.html">Path</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-readme.html">Readme</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-strings.html">Strings</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-url.html">URL</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-special.html">special</a> 
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>Comparison</h1>
+            <p>
+              <h4>{{and}}</h4>
+            </p>
+            <p>
+              <p><em>Conditionally render a block if both values are truthy.</em>
+              </p>
+            </p>
+            <p>
+              <p>Parameters: values <code>string|int</code> - the values to test against.</p>
+            </p>
+            <p>
+              <p>Data:</p>
+            </p>
+            <pre><code class="language-javascript">great = <span class="literal">true</span>
 magnificent = <span class="literal">true</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{#and great magnificent}}
+            <p>Template:</p>
+            <pre><code class="language-html">{{#and great magnificent}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
 {{/and}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Kiss my shiny metal ass!</code></pre>
-<h4>{{gt}}</h4>
-<p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
-<br>Parameters: value <code>string|int</code> - the value to test against.</p>
-<p>Data:</p>
-<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{#gt number 8}}
+            <p>Renders to:</p>
+            <pre><code>Kiss my shiny metal ass!</code></pre>
+            <h4>{{gt}}</h4>
+            <p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
+              <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+            <p>Data:</p>
+            <pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#gt number 8}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
 {{/gt}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Never mind :(</code></pre>
-<h4>{{gte}}</h4>
-<p><em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y)</em>.
-<br>Parameters: value <code>string|int</code> - the value to test against.</p>
-<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{#gte number 5}}
+            <p>Renders to:</p>
+            <pre><code>Never mind :(</code></pre>
+            <h4>{{gte}}</h4>
+            <p><em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y)</em>.
+              <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+            <pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#gte number 5}}
   Kiss my shiny metal ass!
 {{else}}
   Never mind :(
 {{/gte}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Kiss my shiny metal ass!</code></pre>
-<h4>{{if_gt}}</h4>
-<p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
-Parameters: <code>none</code></p>
-<pre><code class="language-html">{{#if_gt x compare=y}} ... {{/if_gt}}</code></pre>
-<h4>{{if_gteq}}</h4>
-<p><em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y).</em>
-Parameters: <code>none</code></p>
-<pre><code class="language-html">{{#if_gteq x compare=y}} ... {{/if_gteq}}</code></pre>
-<h4>{{is}}</h4>
-<p><em>Conditionally render a block if the condition is true (if x = y).</em></p>
-<p>Parameters: <code>string|int</code> (the value to test against)
-Default: <code>undefined</code></p>
-<h5>Example #1:</h5>
-<p>Data:</p>
-<pre><code class="language-javascript">---
+            <p>Renders to:</p>
+            <pre><code>Kiss my shiny metal ass!</code></pre>
+            <h4>{{if_gt}}</h4>
+            <p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
+              Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{#if_gt x compare=y}} ... {{/if_gt}}</code></pre>
+            <h4>{{if_gteq}}</h4>
+            <p><em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y).</em>
+              Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{#if_gteq x compare=y}} ... {{/if_gteq}}</code></pre>
+            <h4>{{is}}</h4>
+            <p><em>Conditionally render a block if the condition is true (if x = y).</em>
+            </p>
+            <p>Parameters: <code>string|int</code> (the value to test against) Default: <code>undefined</code>
+            </p>
+            <h5>Example #1:</h5>
+            <p>Data:</p>
+            <pre><code class="language-javascript">---
 number = <span class="number">5</span>
 ---</code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{#is number 5}}
+            <p>Template:</p>
+            <pre><code class="language-html">{{#is number 5}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
 {{/is}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Kiss my shiny metal ass!</code></pre>
-<h5>Example #2:</h5>
-<p>If you are using data from <em>YAML front matter</em> or any specified <code>JSON</code> and/or <code>YAML</code> source files will get passed through to the context in your templates.</p>
-<p>Data and Templates:</p>
-<pre><code class="language-html">---
+            <p>Renders to:</p>
+            <pre><code>Kiss my shiny metal ass!</code></pre>
+            <h5>Example #2:</h5>
+            <p>If you are using data from <em>YAML front matter</em> or any specified <code>JSON</code> and/or <code>YAML</code> source files will get passed through to the context in your templates.</p>
+            <p>Data and Templates:</p>
+            <pre><code class="language-html">---
 page:
   title: About Us
 ---
-
 {{#is page.title &quot;Home&quot;}}
     &lt;h1&gt; About Us &lt;/h1&gt;
 {{else}}
     &lt;h1&gt; My Blog &lt;/h1&gt;
 {{/is}}</code></pre>
-<p>Renders to:</p>
-<pre><code class="language-html">&lt;h1&gt; About Us &lt;/h1&gt;</code></pre>
-<h4>{{ifeq}}</h4>
-<p><strong>Alias for <code>is</code>. Considering consolidating</strong></p>
-<p><em>Conditionally render a block if the condition is true (If x = y).</em></p>
-<p>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{#ifeq x compare=y}} ... {{/ifeq}}</code></pre>
-<h4>{{isnt}}</h4>
-<p><em>Conditionally render a block if the condition is false. Opposite of <code>is</code>.</em>
-<br>Parameters: value <code>string|int</code> - the value to test against.</p>
-<p>Data:</p>
-<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{#isnt number 5}}
+            <p>Renders to:</p>
+            <pre><code class="language-html">&lt;h1&gt; About Us &lt;/h1&gt;</code></pre>
+            <h4>{{ifeq}}</h4>
+            <p><strong>Alias for <code>is</code>. Considering consolidating</strong>
+            </p>
+            <p><em>Conditionally render a block if the condition is true (If x = y).</em>
+            </p>
+            <p>Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{#ifeq x compare=y}} ... {{/ifeq}}</code></pre>
+            <h4>{{isnt}}</h4>
+            <p><em>Conditionally render a block if the condition is false. Opposite of <code>is</code>.</em>
+              <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+            <p>Data:</p>
+            <pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#isnt number 5}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
 {{/isnt}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Never mind :(</code></pre>
-<h4>{{lt}}</h4>
-<p><em>Conditionally render a block if the value is less than a given number. Opposite of <code>gt</code>.</em>
-<br>Parameters: value <code>string|int</code> - the value to test against.</p>
-<p>Data:</p>
-<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{#lt number 3}}
+            <p>Renders to:</p>
+            <pre><code>Never mind :(</code></pre>
+            <h4>{{lt}}</h4>
+            <p><em>Conditionally render a block if the value is less than a given number. Opposite of <code>gt</code>.</em>
+              <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+            <p>Data:</p>
+            <pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#lt number 3}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
 {{/lt}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Never mind :(</code></pre>
-<h4>{{lte}}</h4>
-<p><em>Conditionally render a block if the value is less or equal than a given number. Opposite of <code>gte</code>.</em>
-<br>Parameters: value <code>string|int</code> - the value to test against.</p>
-<p>Data:</p>
-<pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{#lte number 5}}
+            <p>Renders to:</p>
+            <pre><code>Never mind :(</code></pre>
+            <h4>{{lte}}</h4>
+            <p><em>Conditionally render a block if the value is less or equal than a given number. Opposite of <code>gte</code>.</em>
+              <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+            <p>Data:</p>
+            <pre><code class="language-javascript">number = <span class="number">5</span></code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#lte number 5}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
 {{/lte}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Kiss my shiny metal ass!</code></pre>
-<h4>{{or}}</h4>
-<p><em>Conditionally render a block if one of the values is truthy.</em></p>
-<p>Parameters: values <code>string|int</code> - the values to test against.</p>
-<p>Data:</p>
-<pre><code class="language-javascript">great = no
+            <p>Renders to:</p>
+            <pre><code>Kiss my shiny metal ass!</code></pre>
+            <h4>{{or}}</h4>
+            <p><em>Conditionally render a block if one of the values is truthy.</em>
+            </p>
+            <p>Parameters: values <code>string|int</code> - the values to test against.</p>
+            <p>Data:</p>
+            <pre><code class="language-javascript">great = no
 magnificent = <span class="literal">true</span></code></pre>
-<p>Template:</p>
-<pre><code class="language-html">{{#or great magnificent}}
+            <p>Template:</p>
+            <pre><code class="language-html">{{#or great magnificent}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
 {{/or}}</code></pre>
-<p>Renders to:</p>
-<pre><code>Kiss my shiny metal ass!</code></pre>
-<h4>{{unless_eq}}</h4>
-<p><strong>Alias for <code>isnt</code></strong></p>
-<p><em>Conditionally render a block if the condition is false (Unless x = y). Opposite of <code>is</code>.</em></p>
-<p>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{#unless_eq x compare=y}} ... {{/unless_eq}}</code></pre>
-<h4>{{unless_gt}}</h4>
-<p><em>Unless greater than (Unless x &gt; y)</em>
-Parameters: <code>none</code></p>
-<pre><code class="language-html">{{#unless_gt x compare=y}} ... {{/unless_gt}}</code></pre>
-<h4>{{unless_gteq}}</h4>
-<p><em>&quot;Unless x &gt;= y&quot;. Render block, unless given value is greater than or equal to.</em></p>
-<p>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{#unless_gteq x compare=y}} ... {{/unless_gteq}}</code></pre>
-<h4>{{unless_lt}}</h4>
-<p><em>Render block, unless value is less than a given number (Unless x &lt; y)</em>.</p>
-<p>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{#unless_lt x compare=y}} ... {{/unless_lt}}</code></pre>
-<h4>{{unless_lteq}}</h4>
-<p><em>Render block, unless value is less than or equal to a given number (Unless x &lt;= y)</em>.</p>
-<p>Parameters: <code>none</code></p>
-<pre><code class="language-html">{{#unless_lteq x compare=y}} ... {{/unless_lteq}}</code></pre>
-
-
-
-
-
-
-
-
-        <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-comparison.hbs">See the template for this page → </a></p>
-        <div class="alert">
-
-          
-          <style type="text/css" media="screen">
-            .alert iframe {
-              float: right;
-              margin: 7px -30px 0 0;
-              vertical-align: text-top;
-            }
-          </style>
-
-          
-          <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-          <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-
-          <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a></p>
+            <p>Renders to:</p>
+            <pre><code>Kiss my shiny metal ass!</code></pre>
+            <h4>{{unless_eq}}</h4>
+            <p><strong>Alias for <code>isnt</code></strong>
+            </p>
+            <p><em>Conditionally render a block if the condition is false (Unless x = y). Opposite of <code>is</code>.</em>
+            </p>
+            <p>Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{#unless_eq x compare=y}} ... {{/unless_eq}}</code></pre>
+            <h4>{{unless_gt}}</h4>
+            <p><em>Unless greater than (Unless x &gt; y)</em>
+              Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{#unless_gt x compare=y}} ... {{/unless_gt}}</code></pre>
+            <h4>{{unless_gteq}}</h4>
+            <p><em>&quot;Unless x &gt;= y&quot;. Render block, unless given value is greater than or equal to.</em>
+            </p>
+            <p>Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{#unless_gteq x compare=y}} ... {{/unless_gteq}}</code></pre>
+            <h4>{{unless_lt}}</h4>
+            <p><em>Render block, unless value is less than a given number (Unless x &lt; y)</em>.</p>
+            <p>Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{#unless_lt x compare=y}} ... {{/unless_lt}}</code></pre>
+            <h4>{{unless_lteq}}</h4>
+            <p><em>Render block, unless value is less than or equal to a given number (Unless x &lt;= y)</em>.</p>
+            <p>Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{#unless_lteq x compare=y}} ... {{/unless_lteq}}</code></pre>
+            <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-comparison.hbs">See the template for this page → </a>
+            </p>
+            <div class="alert">
+              <style type="text/css" media="screen">
+                .alert iframe {
+                  float: right;
+                  margin: 7px -30px 0 0;
+                  vertical-align: text-top;
+                }
+              </style>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+              </p>
+            </div>
+            <footer class="bs-footer">
+              <div class="more-info">
+                <div class="container">
+                  <style>
+                    .bs-social-buttons .twitter-follow-button {
+                      width: 160px !important;
+                    }
+                  </style>
+                  <div class="bs-social">
+                    <ul class="bs-social-buttons">
+                      <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                      </li>
+                      <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+                      </li>
+                      <li class="follow-btn">
+                        <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
+                      </li>
+                      <li class="tweet-btn">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
+              <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+              <ul class="footer-links">
+                <li><a href="http://assemble.io/blog">Blog</a>
+                </li>
+                <li class="muted">&middot;</li>
+                <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
+                </li>
+                <li class="muted">&middot;</li>
+                <li><a href="https://github.com/assemble/assemble/">Repo</a>
+                </li>
+              </ul>
+            </footer>
+          </div>
         </div>
-        
-<footer class="bs-footer">
-  <div class="more-info">
-    <div class="container">
-      
-<style>.bs-social-buttons .twitter-follow-button { width: 160px !important; }</style>
-<div class="bs-social">
-  <ul class="bs-social-buttons">
-    <li>
-      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-    </li>
-    <li>
-      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
-    </li>
-    <li class="follow-btn">
-      <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
-    </li>
-    <li class="tweet-btn">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
-    </li>
-  </ul>
-</div>
-
-    </div>
-  </div>
-
-  <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
-  <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-  <ul class="footer-links">
-    <li><a href="http://assemble.io/blog">Blog</a></li>
-    <li class="muted">&middot;</li>
-    <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a></li>
-    <li class="muted">&middot;</li>
-    <li><a href="https://github.com/assemble/assemble/">Repo</a></li>
-  </ul>
-</footer>
       </div>
     </div>
-  </div>
-</div>
-
-
-    
     <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../assets/js/highlight.js"></script>
+    <script src="../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

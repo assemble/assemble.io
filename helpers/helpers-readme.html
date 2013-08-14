@@ -2,15 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Readme  | Assemble</title>
+    <title>Readme | Assemble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/css/markdown.css">
-    
     <link rel="stylesheet" href="../assets/css/assemble.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
     <!--[if lt IE 9]>
     <script src="../assets/js/html5shiv.js"></script>
     <script src="../assets/js/respond/respond.min.js"></script>
@@ -22,201 +21,218 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
-    
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  var pluginUrl =
-    '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-33358518-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <script type="application/ld+json">
-[
-  {
-    "@context" : "http://schema.org",
-    "@type" : "Person",
-    "name" : "Jon Schlinkert",
-    "description" : "Co-creator of Assemble.",
-    "url" : "https://github.com/jonschlinkert"
-  },
-  {
-    "@context" : "http://schema.org",
-    "@type" : "Person",
-    "name" : "Brian Woodward",
-    "description" : "Co-creator of Assemble.",
-    "url" : "https://github.com/doowb"
-  }
-]
-</script>
+      [
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Jon Schlinkert",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/jonschlinkert"
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Brian Woodward",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/doowb"
+      }]
+    </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+    <div class="navbar">
+      <div class="container">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">ASSEMBLE</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="../docs/">Docs</a> 
+            </li>
 
-    
-    
-<div class="navbar">
-  <div class="container">
-    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="../">ASSEMBLE</a>
-    <div class="nav-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li> <a href="../docs/">Docs</a> </li>
-        <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-        <li> <a href="../helpers/">Helpers</a> </li>
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-        <!--<li> <a href="../examples/">Examples</a> </li>-->
-        <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-        <!--<li> <a href="../blog/">Blog</a> </li>-->
-        <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
-        <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> </li>
-      </ul>
-    </div>
-  </div>
-</div>
+            <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
+            <li> <a href="../helpers/">Helpers</a> 
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
 
+            <!--<li> <a href="../examples/">Examples</a> </li>-->
 
-    
-    
-<style>
-  /* Temporarily override subhead styling for development */
-  .subhead {
-    background-color: #33b5e5;
-  }
-  .subhead .text-muted {
-    color: #b5e4f5;
-  }
-</style>
+            <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
 
-<header class="masthead subhead">
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-12">
-        <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Readme</h1>
+            <!--<li> <a href="../blog/">Blog</a> </li>-->
+            <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+            </li>
+            <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-<div class="container">
-  <div class="row">
-
-    
-    <div class="col col-lg-3">
-      <div class="sidebar">
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="./">Overview</a> </li>
-        </ul>
-
-        <span class="nav-section-title">
+    <style>
+      /* Temporarily override subhead styling for development */
+      .subhead {
+        background-color: #33b5e5;
+      }
+      .subhead .text-muted {
+        color: #b5e4f5;
+      }
+    </style>
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;Readme</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="./">Overview</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
           Helpers
         </span>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-code.html">Code</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-collections.html">Collections</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-comparison.html">Comparison</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-content.html">Content</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-data.html">Data</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-dates.html">Dates</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-html.html">HTML</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-inflections.html">Inflections</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-logging.html">Logging</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-markdown.html">Markdown</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-math.html">Math</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-misc.html">Miscellaneous</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-numbers.html">Numbers</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-path.html">Path</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-readme.html">Readme</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-strings.html">Strings</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-url.html">URL</a> </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
-          <li> <a href="helpers-special.html">special</a> </li>
-        </ul>
-
-      </div>
-    </div>
-
-    
-    <div class="col col-lg-9">
-      <div class="panel panel-docs">
-        <h1>Readme</h1>
-        <p><h4>{{authors}}</h4></p>
-<p><p>Generates a list of markdown-formatted project authors from the AUTHORS file in the root of a project. Since Handlebars enforces case sensitivity with helper names, this helper comes in two different flavors: <code>{{AUTHORS}}</code> or <code>{{authors}}</code>.</p></p>
-<p><p>Params: <code>none</code>
-Usage: <code>{{authors}}</code> or <code>{{authors &quot;path/to/AUTHORS&quot;}}</code></p></p>
-<p><p>For data, we&#39;ll use the <code>AUTHORS</code> file in the root of our project. We format it this way so that NPM can:</p></p>
-<pre><code>Brian Woodward (http://github.com/doowb)
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-code.html">Code</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-collections.html">Collections</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-comparison.html">Comparison</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-content.html">Content</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-data.html">Data</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-dates.html">Dates</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-html.html">HTML</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-inflections.html">Inflections</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-logging.html">Logging</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-markdown.html">Markdown</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-math.html">Math</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-misc.html">Miscellaneous</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-numbers.html">Numbers</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-path.html">Path</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-readme.html">Readme</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-strings.html">Strings</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-url.html">URL</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li> <a href="helpers-special.html">special</a> 
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>Readme</h1>
+            <p>
+              <h4>{{authors}}</h4>
+            </p>
+            <p>
+              <p>Generates a list of markdown-formatted project authors from the AUTHORS file in the root of a project. Since Handlebars enforces case sensitivity with helper names, this helper comes in two different flavors: <code>{{AUTHORS}}</code> or <code>{{authors}}</code>.</p>
+            </p>
+            <p>
+              <p>Params: <code>none</code>
+                Usage: <code>{{authors}}</code> or <code>{{authors &quot;path/to/AUTHORS&quot;}}</code>
+              </p>
+            </p>
+            <p>
+              <p>For data, we&#39;ll use the <code>AUTHORS</code> file in the root of our project. We format it this way so that NPM can:</p>
+            </p>
+            <pre><code>Brian Woodward (http://github.com/doowb)
 Jon Schlinkert (http://github.com/jonschlinkert)</code></pre>
-<p>Template (lowercase version):</p>
-<pre><code class="language-html">{{authors}}</code></pre>
-<p>Renders to:</p>
-<pre><code>* [Brian Woodward](http://github.com/doowb)
+            <p>Template (lowercase version):</p>
+            <pre><code class="language-html">{{authors}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code>* [Brian Woodward](http://github.com/doowb)
 * [Jon Schlinkert](http://github.com/jonschlinkert)</code></pre>
-<p>Renders to:</p>
-<pre><code class="language-markdown"><span class="strong">**Jon Schlinkert**</span>
-
+            <p>Renders to:</p>
+            <pre><code class="language-markdown"><span class="strong">**Jon Schlinkert**</span>
 <span class="bullet">+ </span><span class="link_label">[http://twitter.com/jonschlinkert]</span>(<span class="link_url">http://twitter.com/jonschlinkert</span>)
 <span class="bullet">+ </span><span class="link_label">[http://github.com/jonschlinkert]</span>(<span class="link_url">http://github.com/jonschlinkert</span>)
-
 <span class="strong">**Brian Woodward**</span>
-
 <span class="bullet">+ </span><span class="link_label">[http://twitter.com/doowb]</span>(<span class="link_url">http://twitter.com/doowb</span>)
 <span class="bullet">+ </span><span class="link_label">[http://github.com/doowb]</span>(<span class="link_url">http://github.com/doowb</span>)</code></pre>
-<h4>{{changelog}}</h4>
-<p>A few convenience helpers that read data in YAML format, and do interesting things with the data. Well... they &quot;do things&quot; with the data. Anyway I guess only nerds like me find it interesting.</p>
-<p><strong>NOTE</strong>: These helpers will throw an error if the source files are not  valid YAML format, using the following conventions:</p>
-<p>A couple things to keep in mind about YAML:</p>
-<ul>
-<li>YAML is picky, so don&#39;t be surprised if the parser throws an error from improperly placed quotation marks.</li>
-<li>Seriously, don&#39;t be surprised. If you even come onto the issues and act surprised when it happens, an automated message will tell you to read the first bullet.</li>
-</ul>
-<p>Example of the format to follow in your <code>CHANGELOG</code> file:</p>
-<pre><code class="language-yaml">v0.1.2
+            <h4>{{changelog}}</h4>
+            <p>A few convenience helpers that read data in YAML format, and do interesting things with the data. Well... they &quot;do things&quot; with the data. Anyway I guess only nerds like me find it interesting.</p>
+            <p><strong>NOTE</strong>: These helpers will throw an error if the source files are not valid YAML format, using the following conventions:</p>
+            <p>A couple things to keep in mind about YAML:</p>
+            <ul>
+              <li>YAML is picky, so don&#39;t be surprised if the parser throws an error from improperly placed quotation marks.</li>
+              <li>Seriously, don&#39;t be surprised. If you even come onto the issues and act surprised when it happens, an automated message will tell you to read the first bullet.</li>
+            </ul>
+            <p>Example of the format to follow in your <code>CHANGELOG</code> file:</p>
+            <pre><code class="language-yaml">v0.1.2
   date: &quot;2014-04-09&quot;
   changes:
     - The future sucks.
@@ -230,109 +246,102 @@ v0.1.0
   date: &quot;2014-03-07&quot;
   changes:
     - First commit... from the future. Yes!</code></pre>
-<p>Of coure, you are under no obligation to make your changelog entries as interesting as these, and you may record your entries at any point in whatever timeline you prefer, but whatever you write must be valid YAML when you do it.</p>
-<p>The output will look like this:</p>
-<pre><code class="language-markdown"><span class="bullet">* </span>2013-03-15    v0.1.2    Update README.md with documentation, examples.
+            <p>Of coure, you are under no obligation to make your changelog entries as interesting as these, and you may record your entries at any point in whatever timeline you prefer, but whatever you write must be valid YAML when you do it.</p>
+            <p>The output will look like this:</p>
+            <pre><code class="language-markdown"><span class="bullet">* </span>2013-03-15    v0.1.2    Update README.md with documentation, examples.
 <span class="bullet">* </span>2013-03-06    v0.1.0    First commit.</code></pre>
-<ul>
-<li>More info here: <a href="https://github.com/nodeca/js-yaml">js-yaml</a></li>
-<li>See the tests here: <a href="test/helpers/special_test.js">test/helpers/special_test.js</a></li>
-</ul>
-<h3>Travis CI</h3>
-<h4>{{travis}}</h4>
-<p><em>Creates a &quot;full&quot; Travis CI link in markdown format</em>.</p>
-<p>Params: <code>branch</code>
-Type: <code>String</code>
-Usage: <code>{{travis [branch]}}</code></p>
-<p>Template:</p>
-<pre><code class="language-html">{{travis}}`</code></pre>
-<p>Renders to:</p>
-<pre><code class="language-markdown"><span class="header"># [assemble v9.1.0](https://github.com/assemble/assemble)[![Build Status](https://travis-ci.org/assemble/assemble.png)](https://travis-ci.org/assemble/assemble)</span></code></pre>
-<p>Template with branch:</p>
-<pre><code class="language-html">{{travis &#39;master&#39;}}</code></pre>
-<p>Renders to:</p>
-<pre><code class="language-markdown"><span class="header"># [assemble v9.1.0](https://github.com/assemble/assemble)[![Build Status](https://travis-ci.org/assemble/assemble.png?branch=master)](https://travis-ci.org/assemble/assemble)</span></code></pre>
-<h4>{{travis-badge}}</h4>
-<p><em>Creates a Travis CI link in markdown format</em>.</p>
-<p>Params: <code>none</code>
-Usage: <code>{{travis-badge}}</code></p>
-<p>Template</p>
-<pre><code class="language-html">{{travis}}`</code></pre>
-<p>Renders to:</p>
-<pre><code class="language-markdown"><span class="link_label">[![Build Status](https://travis-ci.org/assemble/assemble.png)]</span>(<span class="link_url">https://travis-ci.org/assemble/assemble</span>)</code></pre>
-
-
-
-
-
-
-
-
-        <hr>
-        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-readme.hbs">See the template for this page → </a></p>
-        <div class="alert">
-
-          
-          <style type="text/css" media="screen">
-            .alert iframe {
-              float: right;
-              margin: 7px -30px 0 0;
-              vertical-align: text-top;
-            }
-          </style>
-
-          
-          <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-          <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-
-          <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a></p>
+            <ul>
+              <li>More info here: <a href="https://github.com/nodeca/js-yaml">js-yaml</a>
+              </li>
+              <li>See the tests here: <a href="test/helpers/special_test.js">test/helpers/special_test.js</a>
+              </li>
+            </ul>
+            <h3>Travis CI</h3>
+            <h4>{{travis}}</h4>
+            <p><em>Creates a &quot;full&quot; Travis CI link in markdown format</em>.</p>
+            <p>Params: <code>branch</code>
+              Type: <code>String</code>
+              Usage: <code>{{travis [branch]}}</code>
+            </p>
+            <p>Template:</p>
+            <pre><code class="language-html">{{travis}}`</code></pre>
+            <p>Renders to:</p>
+            <pre><code class="language-markdown"><span class="header"># [assemble v9.1.0](https://github.com/assemble/assemble)[![Build Status](https://travis-ci.org/assemble/assemble.png)](https://travis-ci.org/assemble/assemble)</span></code></pre>
+            <p>Template with branch:</p>
+            <pre><code class="language-html">{{travis &#39;master&#39;}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code class="language-markdown"><span class="header"># [assemble v9.1.0](https://github.com/assemble/assemble)[![Build Status](https://travis-ci.org/assemble/assemble.png?branch=master)](https://travis-ci.org/assemble/assemble)</span></code></pre>
+            <h4>{{travis-badge}}</h4>
+            <p><em>Creates a Travis CI link in markdown format</em>.</p>
+            <p>Params: <code>none</code>
+              Usage: <code>{{travis-badge}}</code>
+            </p>
+            <p>Template</p>
+            <pre><code class="language-html">{{travis}}`</code></pre>
+            <p>Renders to:</p>
+            <pre><code class="language-markdown"><span class="link_label">[![Build Status](https://travis-ci.org/assemble/assemble.png)]</span>(<span class="link_url">https://travis-ci.org/assemble/assemble</span>)</code></pre>
+            <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-readme.hbs">See the template for this page → </a>
+            </p>
+            <div class="alert">
+              <style type="text/css" media="screen">
+                .alert iframe {
+                  float: right;
+                  margin: 7px -30px 0 0;
+                  vertical-align: text-top;
+                }
+              </style>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+              </p>
+            </div>
+            <footer class="bs-footer">
+              <div class="more-info">
+                <div class="container">
+                  <style>
+                    .bs-social-buttons .twitter-follow-button {
+                      width: 160px !important;
+                    }
+                  </style>
+                  <div class="bs-social">
+                    <ul class="bs-social-buttons">
+                      <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                      </li>
+                      <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+                      </li>
+                      <li class="follow-btn">
+                        <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
+                      </li>
+                      <li class="tweet-btn">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
+              <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+              <ul class="footer-links">
+                <li><a href="http://assemble.io/blog">Blog</a>
+                </li>
+                <li class="muted">&middot;</li>
+                <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
+                </li>
+                <li class="muted">&middot;</li>
+                <li><a href="https://github.com/assemble/assemble/">Repo</a>
+                </li>
+              </ul>
+            </footer>
+          </div>
         </div>
-        
-<footer class="bs-footer">
-  <div class="more-info">
-    <div class="container">
-      
-<style>.bs-social-buttons .twitter-follow-button { width: 160px !important; }</style>
-<div class="bs-social">
-  <ul class="bs-social-buttons">
-    <li>
-      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-    </li>
-    <li>
-      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
-    </li>
-    <li class="follow-btn">
-      <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
-    </li>
-    <li class="tweet-btn">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
-    </li>
-  </ul>
-</div>
-
-    </div>
-  </div>
-
-  <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
-  <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-  <ul class="footer-links">
-    <li><a href="http://assemble.io/blog">Blog</a></li>
-    <li class="muted">&middot;</li>
-    <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a></li>
-    <li class="muted">&middot;</li>
-    <li><a href="https://github.com/assemble/assemble/">Repo</a></li>
-  </ul>
-</footer>
       </div>
     </div>
-  </div>
-</div>
-
-
-    
     <script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/highlight.js"></script>
-<script src="../assets/js/showup.js"></script>
+    <script src="../assets/js/highlight.js"></script>
+    <script src="../assets/js/showup.js"></script>
     <script>
       $().showUp('.navbar');
     </script>

@@ -1,242 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Installation | Assemble</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
+    <link rel="stylesheet" href="../assets/css/assemble.css">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Installation | Assemble</title>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/css/markdown.css">
-  <link rel="stylesheet" href="../assets/css/assemble.css">
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
     <script src="../assets/js/html5shiv.js"></script>
     <script src="../assets/js/respond/respond.min.js"></script>
     <![endif]-->
-  <!-- Favicons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-  <link rel="shortcut icon" href="../assets/ico/favicon.png">
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    var pluginUrl =
-      '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-    _gaq.push(['_setAccount', 'UA-33358518-5']);
-    _gaq.push(['_trackPageview']);
-    (function()
-    {
-      var ga = document.createElement('script');
-      ga.type = 'text/javascript';
-      ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  <script type="application/ld+json">
-    [
-    {
-      "@context": "http://schema.org",
-      "@type": "Person",
-      "name": "Jon Schlinkert",
-      "description": "Co-creator of Assemble.",
-      "url": "https://github.com/jonschlinkert"
-    },
-    {
-      "@context": "http://schema.org",
-      "@type": "Person",
-      "name": "Brian Woodward",
-      "description": "Co-creator of Assemble.",
-      "url": "https://github.com/doowb"
-    }]
-  </script>
-</head>
 
-<body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-  <div class="navbar">
-    <div class="container">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button> <a class="navbar-brand" href="../">ASSEMBLE</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li> <a href="../docs/">Docs</a> 
-          </li>
-          <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-          <li> <a href="../helpers/">Helpers</a> 
-          </li>
-        </ul>
-        <ul class="nav navbar-nav pull-right">
-          <!--<li> <a href="../examples/">Examples</a> </li>-->
-          <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
-          <!--<li> <a href="../blog/">Blog</a> </li>-->
-          <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
-          </li>
-          <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
-          </li>
-        </ul>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="application/ld+json">
+      [
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Jon Schlinkert",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/jonschlinkert"
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Brian Woodward",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/doowb"
+      }]
+    </script>
+  </head>
+  <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+    <div class="navbar">
+      <div class="container">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">ASSEMBLE</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="../docs/">Docs</a> 
+            </li>
+
+            <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
+            <li> <a href="../helpers/">Helpers</a> 
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+
+            <!--<li> <a href="../examples/">Examples</a> </li>-->
+
+            <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
+
+            <!--<li> <a href="../blog/">Blog</a> </li>-->
+            <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+            </li>
+            <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <header class="masthead subhead">
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <style type="text/css" media="screen">
+              #custom-tweet-button > a {
+                float: right;
+                display: inline-block;
+                padding: 8px 16px 8px 36px;
+                margin: 15px 0 0 0;
+                background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
+                background-color: transparent;
+                border: none;
+                border-radius: 4px;
+              }
+              #custom-tweet-button > a:hover {
+                background-color: rgba(255, 255, 255, .07);
+              }
+            </style>
+            <div id="custom-tweet-button">
+              <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
+              <script>
+                ! function(d, s, id)
+                {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (!d.getElementById(id))
+                  {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }
+                }(document, "script", "twitter-wjs");
+              </script>
+            </div>
+            <h1><span class="text-muted">Docs /&nbsp;</span> getting started </h1>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="container">
       <div class="row">
-        <div class="col col-lg-12">
-          <style type="text/css" media="screen">
-            #custom-tweet-button > a {
-              float: right;
-              display: inline-block;
-              padding: 8px 16px 8px 36px;
-              margin: 15px 0 0 0;
-              background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
-              background-color: transparent;
-              border: none;
-              border-radius: 4px;
-            }
-            #custom-tweet-button > a:hover {
-              background-color: rgba(255, 255, 255, .07);
-            }
-          </style>
-          <div id="custom-tweet-button"> <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
-            <script>
-              ! function(d, s, id)
-              {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (!d.getElementById(id))
-                {
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = "https://platform.twitter.com/widgets.js";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }
-              }(document, "script", "twitter-wjs");
-            </script>
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Getting Started
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
+              </li>
+              <li class="active"><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
+              </li>
+              <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
+              </li>
+              <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
+              </li>
+              <li><a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a>
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Configuration
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a>
+              </li>
+              <li><a href="Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a>
+              </li>
+              <li><a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a>
+              </li>
+              <li><a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a>
+              </li>
+              <li><a href="options-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.collections']);">options.collections</a>
+              </li>
+              <li><a href="options-data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.data']);">options.data</a>
+              </li>
+              <li><a href="options-engine.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.engine']);">options.engine</a>
+              </li>
+              <li><a href="options-ext.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.ext']);">options.ext</a>
+              </li>
+              <li><a href="options-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.helpers']);">options.helpers</a>
+              </li>
+              <li><a href="options-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layout']);">options.layout</a>
+              </li>
+              <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
+              </li>
+              <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
+              </li>
+              <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Data
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="Context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Context']);">Context</a>
+              </li>
+              <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
+              </li>
+              <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
+              </li>
+              <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Templates
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
+              </li>
+              <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
+              </li>
+              <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
+              </li>
+              <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
+              </li>
+              <li><a href="Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a>
+              </li>
+              <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
+              </li>
+              <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
+              </li>
+              <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Content
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
+              </li>
+              <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
+              </li>
+              <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Development
+            </span>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a>
+              </li>
+              <li><a href="Methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Methods']);">Methods</a>
+              </li>
+              <li><a href="../contributing/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Contributing to Assemble']);">Contributing to Assemble</a>
+              </li>
+            </ul>
           </div>
-          <h1>
-            <span class="text-muted">Docs /&nbsp;</span>getting started</h1>
         </div>
-      </div>
-    </div>
-  </header>
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-3">
-        <div class="sidebar">
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Introduction/Welcome!']);">Introduction</a>
-            </li>
-          </ul>
-          <span class="nav-section-title">Getting Started</span>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a>
-            </li>
-            <li class="active"><a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a>
-            </li>
-            <li><a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a>
-            </li>
-            <li><a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a>
-            </li>
-            <li><a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a>
-            </li>
-          </ul>
-          <span class="nav-section-title">Configuration</span>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a>
-            </li>
-            <li><a href="Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a>
-            </li>
-            <li><a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a>
-            </li>
-            <li><a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a>
-            </li>
-            <li><a href="options-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.collections']);">options.collections</a>
-            </li>
-            <li><a href="options-data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.data']);">options.data</a>
-            </li>
-            <li><a href="options-engine.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.engine']);">options.engine</a>
-            </li>
-            <li><a href="options-ext.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.ext']);">options.ext</a>
-            </li>
-            <li><a href="options-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.helpers']);">options.helpers</a>
-            </li>
-            <li><a href="options-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layout']);">options.layout</a>
-            </li>
-            <li><a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a>
-            </li>
-            <li><a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a>
-            </li>
-            <li><a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a>
-            </li>
-          </ul>
-          <span class="nav-section-title">Data</span>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="Context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Context']);">Context</a>
-            </li>
-            <li><a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a>
-            </li>
-            <li><a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a>
-            </li>
-            <li><a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a>
-            </li>
-          </ul>
-          <span class="nav-section-title">Templates</span>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
-            </li>
-            <li><a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a>
-            </li>
-            <li><a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a>
-            </li>
-            <li><a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a>
-            </li>
-            <li><a href="Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a>
-            </li>
-            <li><a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a>
-            </li>
-            <li><a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a>
-            </li>
-            <li><a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a>
-            </li>
-          </ul>
-          <span class="nav-section-title">Content</span>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a>
-            </li>
-            <li><a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a>
-            </li>
-            <li><a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a>
-            </li>
-          </ul>
-          <span class="nav-section-title">Development</span>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a>
-            </li>
-            <li><a href="Methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Methods']);">Methods</a>
-            </li>
-            <li><a href="../contributing/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Contributing to Assemble']);">Contributing to Assemble</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col col-lg-9">
-        <div class="panel panel-docs">
-          <h1>Installation</h1>
-          <h2>Install the &quot;assemble&quot; plugin</h2>
-          <p>This plugin requires Grunt <code>~0.4.1</code>
-          </p>
-          <p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to read the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins.</p>
-          <p>Then install the plugin with this command:</p>
-<pre><code class="language-shell">$ npm install assemble --save-dev</code></pre>
-          <p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
-<pre><code class="language-js">grunt.loadNpmTasks(<span class="string">'assemble'</span>);</code></pre>
-          <p>When completed, you&#39;ll be able to run the various <code>grunt</code> commands available</p>
-          <h2>The &quot;assemble&quot; task</h2>
-<pre><code class="language-js">assemble: {
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>Installation</h1>
+            <h2>Install the &quot;assemble&quot; plugin</h2>
+            <p>This plugin requires Grunt <code>~0.4.1</code>
+            </p>
+            <p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to read the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as
+              well as install and use Grunt plugins.</p>
+            <p>Then install the plugin with this command:</p>
+            <pre><code class="language-shell">$ npm install assemble --save-dev</code></pre>
+            <p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
+            <pre><code class="language-js">grunt.loadNpmTasks(<span class="string">'assemble'</span>);</code></pre>
+            <p>When completed, you&#39;ll be able to run the various <code>grunt</code> commands available</p>
+            <h2>The &quot;assemble&quot; task</h2>
+            <pre><code class="language-js">assemble: {
   options: {
     assets: <span class="string">"path/to/assets"</span>,
     data:   <span class="string">"path/to/config.json"</span>
@@ -253,11 +272,12 @@
   }
 }
 grunt.loadNpmTasks(<span class="string">'assemble'</span>);</code></pre>
-          <h2>Grunt.js Options</h2>
-          <p>Following is a brief exerpt from the Grunt.js wiki, please see <a href="http://gruntjs.com/configuring-tasks">Grunt.js docs</a> for more information. Grunt.js offers far more functionality than what we reference here.</p>
-          <p>Inside a task configuration, an <code>options</code> property may be specified to override built-in defaults. In addition, each target may have an <code>options</code> property which is specific to that target. Target-level options will override task-level options.</p>
-          <p>The <code>options</code> object is optional and may be omitted if not needed.</p>
-<pre><code class="language-js">grunt.initConfig({
+            <h2>Grunt.js Options</h2>
+            <p>Following is a brief exerpt from the Grunt.js wiki, please see <a href="http://gruntjs.com/configuring-tasks">Grunt.js docs</a> for more information. Grunt.js offers far more functionality than what we reference here.</p>
+            <p>Inside a task configuration, an <code>options</code> property may be specified to override built-in defaults. In addition, each target may have an <code>options</code> property which is specific to that target. Target-level options will override
+              task-level options.</p>
+            <p>The <code>options</code> object is optional and may be omitted if not needed.</p>
+            <pre><code class="language-js">grunt.initConfig({
   concat: {
     options: {
       <span class="comment">// Task-level options may go here, overriding task defaults</span>
@@ -272,110 +292,109 @@ grunt.loadNpmTasks(<span class="string">'assemble'</span>);</code></pre>
     }
   }
 });</code></pre>
-          <h3><a href="http://gruntjs.com/configuring-tasks#files">Building the Files Object Dynamically</a>
-          </h3>
-          <p>
-            <strong>From <a href="http://gruntjs.com/configuring-tasks#files">Gruntjs.com: Configuring Tasks</a>
-            </strong>
-          </p>
-          <p>When you want to process many individual files, a few additional properties may be used to build a files list dynamically. These properties may be specified in both &quot;Compact&quot; and &quot;Files Array&quot; mapping formats.</p>
-          <ul>
-            <li><code>expand</code> Set to <code>true</code> to enable the following options:</li>
-            <li><code>cwd</code> All <code>src</code> matches are relative to (but don&#39;t include) this path.</li>
-            <li><code>src</code> Pattern(s) to match, relative to the <code>cwd</code>.</li>
-            <li><code>dest</code> Destination path prefix.</li>
-            <li><code>ext</code> Replace any existing extension with this value in generated <code>dest</code> paths.</li>
-            <li><code>flatten</code> Remove all path parts from generated <code>dest</code> paths.</li>
-            <li><code>rename</code> This function is called for each matched <code>src</code> file, (after extension renaming and flattening). The <code>dest</code> and matched <code>src</code> path are passed in, and this function must return a new <code>dest</code> value. If the same <code>dest</code> is returned more than once, each <code>src</code> which used it will be added to an array of sources for it.</li>
-          </ul>
-          <h2>Related info</h2>
-          <ul>
-            <li><a href="Built-in-Variables.html">variables</a>
-            </li>
-            <li><a href="Options.html">Options</a>
-            </li>
-            <li><a href="Methods.html">Methods</a>
-            </li>
-          </ul>
-          <h4><a href="Built-in-Variables.html">Next →</a>
-          </h4>
-          <p>
-            <!-- JSON-LD markup -->
-          </p>
-          <script type="application/ld+json">
-            {
-              "@context": "http://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "Installation",
-              "url": "https://github.com/assemble/assemble/",
-              "publisher": "ASSEMBLE",
-              "applicationCategory": "getting started",
-              "downloadUrl": "https://github.com/assemble/assemble/archive/master.zip"
-            }
-          </script>
-          <hr>
-          <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Installation.md.hbs">See the template for this page → </a>
-          </p>
-          <div class="alert">
-            <style type="text/css" media="screen">
-              .alert iframe {
-                float: right;
-                margin: 7px -30px 0 0;
-                vertical-align: text-top;
-              }
-            </style>
-            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-            <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-            <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+            <h3><a href="http://gruntjs.com/configuring-tasks#files">Building the Files Object Dynamically</a></h3>
+            <p><strong>From <a href="http://gruntjs.com/configuring-tasks#files">Gruntjs.com: Configuring Tasks</a></strong>
             </p>
-          </div>
-          <footer class="bs-footer">
-            <div class="more-info">
-              <div class="container">
-                <style>
-                  .bs-social-buttons .twitter-follow-button {
-                    width: 160px !important;
-                  }
-                </style>
-                <div class="bs-social">
-                  <ul class="bs-social-buttons">
-                    <li>
-                      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-                    </li>
-                    <li>
-                      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
-                    </li>
-                    <li class="follow-btn"> <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
-                    </li>
-                    <li class="tweet-btn"> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
-            <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-            <ul class="footer-links">
-              <li><a href="http://assemble.io/blog">Blog</a>
+            <p>When you want to process many individual files, a few additional properties may be used to build a files list dynamically. These properties may be specified in both &quot;Compact&quot; and &quot;Files Array&quot; mapping formats.</p>
+            <ul>
+              <li><code>expand</code> Set to <code>true</code> to enable the following options:</li>
+              <li><code>cwd</code> All <code>src</code> matches are relative to (but don&#39;t include) this path.</li>
+              <li><code>src</code> Pattern(s) to match, relative to the <code>cwd</code>.</li>
+              <li><code>dest</code> Destination path prefix.</li>
+              <li><code>ext</code> Replace any existing extension with this value in generated <code>dest</code> paths.</li>
+              <li><code>flatten</code> Remove all path parts from generated <code>dest</code> paths.</li>
+              <li><code>rename</code> This function is called for each matched <code>src</code> file, (after extension renaming and flattening). The <code>dest</code> and matched <code>src</code> path are passed in, and this function must return a new <code>dest</code> value.
+                If the same <code>dest</code> is returned more than once, each <code>src</code> which used it will be added to an array of sources for it.</li>
+            </ul>
+            <h2>Related info</h2>
+            <ul>
+              <li><a href="Built-in-Variables.html">variables</a>
               </li>
-              <li class="muted">&middot;</li>
-              <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
+              <li><a href="Options.html">Options</a>
               </li>
-              <li class="muted">&middot;</li>
-              <li><a href="https://github.com/assemble/assemble/">Repo</a>
+              <li><a href="Methods.html">Methods</a>
               </li>
             </ul>
-          </footer>
+            <h4><a href="Built-in-Variables.html">Next →</a></h4>
+            <p>
+
+              <!-- JSON-LD markup -->
+            </p>
+            <script type="application/ld+json">
+              {
+                "@context": "http://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Installation",
+                "url": "https://github.com/assemble/assemble/",
+                "publisher": "ASSEMBLE",
+                "applicationCategory": "getting started",
+                "downloadUrl": "https://github.com/assemble/assemble/archive/master.zip"
+              }
+            </script>
+            <hr>
+            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Installation.md.hbs">See the template for this page → </a>
+            </p>
+            <div class="alert">
+              <style type="text/css" media="screen">
+                .alert iframe {
+                  float: right;
+                  margin: 7px -30px 0 0;
+                  vertical-align: text-top;
+                }
+              </style>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+              </p>
+            </div>
+            <footer class="bs-footer">
+              <div class="more-info">
+                <div class="container">
+                  <style>
+                    .bs-social-buttons .twitter-follow-button {
+                      width: 160px !important;
+                    }
+                  </style>
+                  <div class="bs-social">
+                    <ul class="bs-social-buttons">
+                      <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                      </li>
+                      <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+                      </li>
+                      <li class="follow-btn">
+                        <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
+                      </li>
+                      <li class="tweet-btn">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
+              <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+              <ul class="footer-links">
+                <li><a href="http://assemble.io/blog">Blog</a>
+                </li>
+                <li class="muted">&middot;</li>
+                <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
+                </li>
+                <li class="muted">&middot;</li>
+                <li><a href="https://github.com/assemble/assemble/">Repo</a>
+                </li>
+              </ul>
+            </footer>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="../assets/js/jquery.js"></script>
-  <script src="../assets/js/highlight.js"></script>
-  <script src="../assets/js/showup.js"></script>
-  <script>
-    $().showUp('.navbar');
-  </script>
-</body>
-
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/highlight.js"></script>
+    <script src="../assets/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
 </html>
