@@ -307,7 +307,6 @@ layout: path/to/layout.hbs
             </ul>
             <h2>Example usage</h2>
             <p>Your imagination is the only limit to what can be done with layouts, so these are just examples.</p>
-            <h3>Advanced layout</h3>
             <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -330,6 +329,60 @@ layout: path/to/layout.hbs
     &lt;/div&gt;
     &lt;!-- FOOTER --&gt;
     {{&gt; footer }}
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>
+              <a name="nested-layouts" id="nested-layouts"></a>
+            </p>
+            <h2>Nested Layouts</h2>
+            <p>Layouts can be nested inside other layouts. This enables highly granular control over how pages and layouts are organized. A common strategy is to use a basic &quot;master&quot; or &quot;default&quot; layout for a site, which contains only
+              the most common, bare necessities for a site. This default layout is then inherited by other more specialized layouts.</p>
+            <p>For example, your default layout may contain the <code>&lt;head&gt;&lt;/head&gt;</code>, footer, common link and script tags for a site:</p>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    {{&gt; header }}
+  &lt;/head&gt;
+  &lt;body&gt;
+    {{&gt; body }}
+    &lt;section id=&quot;footer&quot;&gt;
+      {{&gt; footer }}
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>And more specialize layouts might contain side navigation for a section of the site, like this:</p>
+            <pre><code class="language-html">&lt;header class=&quot;masthead subhead&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h1&gt;&lt;span class=&quot;text-muted&quot;&gt;Docs /&amp;nbsp;&lt;/span&gt;{{titleize basename}}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+&lt;ul class=&quot;nav nav-pills nav-stacked&quot;&gt;
+  {{#each pages}}
+  &lt;li&gt;&lt;a href=&quot;{{relative ../page.dest this.dest}}&quot;&gt;{{data.title}}&lt;/a&gt;&lt;/li&gt;
+  {{/each}}
+&lt;/ul&gt;
+{{&gt; body }}</code></pre>
+            <p>At build time layouts are &quot;flattened&quot; first before pages are passed in. In other words, the above example becomes this first:</p>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    {{&gt; header }}
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header class=&quot;masthead subhead&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;h1&gt;&lt;span class=&quot;text-muted&quot;&gt;Docs /&amp;nbsp;&lt;/span&gt;{{titleize basename}}&lt;/h1&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;ul class=&quot;nav nav-pills nav-stacked&quot;&gt;
+      {{#each pages}}
+      &lt;li&gt;&lt;a href=&quot;{{relative ../page.dest this.dest}}&quot;&gt;{{data.title}}&lt;/a&gt;&lt;/li&gt;
+      {{/each}}
+    &lt;/ul&gt;
+    {{&gt; body }}
+    &lt;section id=&quot;footer&quot;&gt;
+      {{&gt; footer }}
+    &lt;/section&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
             <h3>Layouts for other formats</h3>
