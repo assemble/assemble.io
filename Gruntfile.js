@@ -25,6 +25,7 @@ module.exports = function(grunt) {
     bootstrap: grunt.file.readYAML('src/less/bootstrap.yml'),
     ghpages  : grunt.file.readYAML('src/less/ghpages.yml'),
 
+
     less: {
       options: {
         imports: {reference: '<%= ghpages.globals %>'}
@@ -43,13 +44,15 @@ module.exports = function(grunt) {
       }
     },
 
+
     // Templates
     assemble: {
       options: {
-        today: '<%= grunt.template.today() %>',
+        prettify: {indent: 2},
         marked: {sanitize: false},
-        helpers: 'src/helpers/*.js',
         production: true,
+        helpers: 'src/helpers/*.js',
+        today: '<%= grunt.template.today() %>',
         assets: '<%= site.destination %>/assets',
         layoutdir: 'src/templates/layouts',
         partials: ['src/templates/partials/**/*.{hbs,md}'],
@@ -89,17 +92,34 @@ module.exports = function(grunt) {
         ]
       },
       helpers: {
-        options: {layout: 'layout-helpers.hbs'},
-        files: [
-          {
-            expand: true,
-            flatten: true,
-            cwd: 'src',
-            src: ['templates/pages/helpers/*.hbs'],
-            dest: '<%= site.destination %>/helpers',
-            ext: '.html'
-          }
-        ]
+        files: {
+          '<%= site.destination %>/helpers/': ['src/templates/pages/helpers/index.hbs']
+        },
+        options: {
+          flatten: true,
+          engine: 'handlebars',
+          layout: 'layout-helpers.hbs',
+          pages: [
+            {filename: 'helpers-comparison',  data: {title: 'Comparison'},  content: '\n{{md "src/content/helpers/comparison/*.*"}}'},
+            {filename: 'helpers-code',        data: {title: 'Code'},        content: '\n{{md "src/content/helpers/code/*.*"}}'},
+            {filename: 'helpers-collections', data: {title: 'Collections'}, content: '\n{{md "src/content/helpers/collections/*.*"}}'},
+            {filename: 'helpers-comparison',  data: {title: 'Comparison'},  content: '\n{{md "src/content/helpers/comparison/*.*"}}'},
+            {filename: 'helpers-content',     data: {title: 'Content'},     content: '\n{{md "src/content/helpers/content/*.*"}}'},
+            {filename: 'helpers-data',        data: {title: 'Data'},        content: '\n{{md "src/content/helpers/data/*.*"}}'},
+            {filename: 'helpers-dates',       data: {title: 'Dates'},       content: '\n{{md "src/content/helpers/dates/*.*"}}'},
+            {filename: 'helpers-html',        data: {title: 'HTML'},        content: '\n{{md "src/content/helpers/html/*.*"}}'},
+            {filename: 'helpers-inflections', data: {title: 'Inflections'}, content: '\n{{md "src/content/helpers/inflections/*.*"}}'},
+            {filename: 'helpers-logging',     data: {title: 'Logging'},     content: '\n{{md "src/content/helpers/logging/*.*"}}'},
+            {filename: 'helpers-markdown',    data: {title: 'Markdown'},    content: '\n{{md "src/content/helpers/markdown/*.*"}}'},
+            {filename: 'helpers-math',        data: {title: 'Math'},        content: '\n{{md "src/content/helpers/math/*.*"}}'},
+            {filename: 'helpers-misc',        data: {title: 'Misc'},        content: '\n{{md "src/content/helpers/misc/*.*"}}'},
+            {filename: 'helpers-numbers',     data: {title: 'Numbers'},     content: '\n{{md "src/content/helpers/numbers/*.*"}}'},
+            {filename: 'helpers-path',        data: {title: 'Path'},        content: '\n{{md "src/content/helpers/path/*.*"}}'},
+            {filename: 'helpers-readme',      data: {title: 'Readme'},      content: '\n{{md "src/content/helpers/readme/*.*"}}'},
+            {filename: 'helpers-strings',     data: {title: 'Strings'},     content: '\n{{md "src/content/helpers/strings/*.*"}}'},
+            {filename: 'helpers-url',         data: {title: 'URL'},         content: '\n{{md "src/content/helpers/url/*.*"}}'},
+          ]
+        }
       },
       boilerplates: {
         options: {layout: 'layout-boilerplates.hbs'},
@@ -112,34 +132,6 @@ module.exports = function(grunt) {
             dest: '<%= site.destination %>/boilerplates/',
             ext: '.html'
           }
-        ]
-      }
-    },
-
-    github: {
-      options: {
-        filters: {type: 'public'}
-      },
-      // pkg: {
-      //   src: '/repos/assemble/assemble/contents/package.json',
-      //   dest: 'src/data/pkg-assemble.json'
-      // },
-      // readme: {
-      //   src: '/repos/assemble/assemble/readme',
-      //   dest: 'src/data/README.md'
-      // },
-      repos: {
-        src: '/orgs/assemble/repos',
-        dest: 'src/data/repos.json'
-      }
-    },
-
-    prettify: {
-      options: {prettifyrc: '.prettifyrc'},
-      docs: {
-        files: [
-          {expand: true, cwd: '<%= site.destination %>/docs/', ext: '.html', src: ['**/*.html'], dest: '<%= site.destination %>/docs/'},
-          {expand: true, cwd: '<%= site.destination %>/',      ext: '.html', src: ['*.html'],    dest: '<%= site.destination %>/'}
         ]
       }
     },
@@ -169,7 +161,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-github-api');
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-
   // Default task to be run.
   grunt.registerTask('default', [
     'clean:ghpages',
@@ -177,7 +168,6 @@ module.exports = function(grunt) {
     'assemble:docs',
     'assemble:helpers',
     'assemble:boilerplates',
-    'prettify',
     'less'
   ]);
 };

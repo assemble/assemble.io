@@ -109,7 +109,7 @@ We use two (maybe three) Grunt tasks to automate this entire process:
 and this template:
 
 ```html
-{{decode readme.content}}
+\{{decode readme.content}}
 ```
 ####
 
