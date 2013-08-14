@@ -351,7 +351,10 @@ layout: path/to/layout.hbs
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
             <p>And more specialize layouts might contain side navigation for a section of the site, like this:</p>
-            <pre><code class="language-html">&lt;header class=&quot;masthead subhead&quot;&gt;
+            <pre><code class="language-html">---
+layout: default.hbs
+---
+&lt;header class=&quot;masthead subhead&quot;&gt;
   &lt;div class=&quot;container&quot;&gt;
     &lt;h1&gt;&lt;span class=&quot;text-muted&quot;&gt;Docs /&amp;nbsp;&lt;/span&gt;{{titleize basename}}&lt;/h1&gt;
   &lt;/div&gt;
