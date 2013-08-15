@@ -33,8 +33,8 @@ layout: layout-landing.hbs
   <div class="panel panel-clear">
     <section class="gallery">
       <div class="row">
-        {{#each thumbnails}}
-          {{> gallery . }}
+        {{#each gallery}}
+          {{> thumbnail . }}
         {{/each}}
       </div>
     </section>
