@@ -92,34 +92,13 @@ module.exports = function(grunt) {
         ]
       },
       helpers: {
-        files: {
-          '<%= site.destination %>/helpers/': ['src/templates/pages/helpers/index.hbs']
-        },
         options: {
           flatten: true,
           engine: 'handlebars',
           layout: 'layout-helpers.hbs',
-          pages: [
-            {filename: 'helpers-comparison',  data: {title: 'Comparison'},  content: '\n{{md "src/content/helpers/comparison/*.*"}}'},
-            {filename: 'helpers-code',        data: {title: 'Code'},        content: '\n{{md "src/content/helpers/code/*.*"}}'},
-            {filename: 'helpers-collections', data: {title: 'Collections'}, content: '\n{{md "src/content/helpers/collections/*.*"}}'},
-            {filename: 'helpers-comparison',  data: {title: 'Comparison'},  content: '\n{{md "src/content/helpers/comparison/*.*"}}'},
-            {filename: 'helpers-content',     data: {title: 'Content'},     content: '\n{{md "src/content/helpers/content/*.*"}}'},
-            {filename: 'helpers-data',        data: {title: 'Data'},        content: '\n{{md "src/content/helpers/data/*.*"}}'},
-            {filename: 'helpers-dates',       data: {title: 'Dates'},       content: '\n{{md "src/content/helpers/dates/*.*"}}'},
-            {filename: 'helpers-html',        data: {title: 'HTML'},        content: '\n{{md "src/content/helpers/html/*.*"}}'},
-            {filename: 'helpers-inflections', data: {title: 'Inflections'}, content: '\n{{md "src/content/helpers/inflections/*.*"}}'},
-            {filename: 'helpers-logging',     data: {title: 'Logging'},     content: '\n{{md "src/content/helpers/logging/*.*"}}'},
-            {filename: 'helpers-markdown',    data: {title: 'Markdown'},    content: '\n{{md "src/content/helpers/markdown/*.*"}}'},
-            {filename: 'helpers-math',        data: {title: 'Math'},        content: '\n{{md "src/content/helpers/math/*.*"}}'},
-            {filename: 'helpers-misc',        data: {title: 'Misc'},        content: '\n{{md "src/content/helpers/misc/*.*"}}'},
-            {filename: 'helpers-numbers',     data: {title: 'Numbers'},     content: '\n{{md "src/content/helpers/numbers/*.*"}}'},
-            {filename: 'helpers-path',        data: {title: 'Path'},        content: '\n{{md "src/content/helpers/path/*.*"}}'},
-            {filename: 'helpers-readme',      data: {title: 'Readme'},      content: '\n{{md "src/content/helpers/readme/*.*"}}'},
-            {filename: 'helpers-strings',     data: {title: 'Strings'},     content: '\n{{md "src/content/helpers/strings/*.*"}}'},
-            {filename: 'helpers-url',         data: {title: 'URL'},         content: '\n{{md "src/content/helpers/url/*.*"}}'},
-          ]
-        }
+          pages: grunt.file.readJSON('src/templates/pages/helpers.json').pages
+        },
+        files: {'<%= site.destination %>/helpers/': ['src/templates/pages/helpers/index.hbs']}
       },
       boilerplates: {
         options: {layout: 'layout-boilerplates.hbs'},
