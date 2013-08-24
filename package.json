@@ -42,6 +42,8 @@
   },
   "keywords": [
     "assemble",
+    "assembledocs",
+    "assembleinternal",
     "assemble docs",
     "assemble documentation",
     "grunt task",
