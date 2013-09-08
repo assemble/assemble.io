@@ -7,53 +7,57 @@
 
 var _ = require('lodash');
 
-module.exports.register = register = function(Handlebars, options) {
+module.exports.register = function(Handlebars, options) {
   var prettify = require('js-beautify').html;
+  var assembleOptions = options;
 
   /**
    * Prettify HTML output
-   * @param   {indent} hash [the level to indent output HTML] @default [2]
    * @example:
-   *   {{#prettify indent="6"}}
+   *   {{#prettify indent="2"}}
    *     {{> body }}
    *   {{/prettify}}
    */
   Handlebars.registerHelper('prettify', function (options) {
-    var hash = options.hash;
-    opts = _.extend(hash, opts);
-    // reduce multiple newlines to a single newline then add a newline above each comment.
-    return prettifyHTML(options.fn(this).replace(/(\n|\r){2,}/g, '\n').replace(/(\s*<!--)/g, '\n$1'),
-      _.extend(opts, options.hash)
-    );
+    var hash = _.extend(options.hash, assembleOptions.prettify);
+    var content = prettifyHTML(options.fn(this), hash);
+
+    // Reduce multiple newlines to a single newline
+    if(assembleOptions.prettify.condense === true) {
+      content = content.replace(/(\n|\r){2,}/g, '\n');
+    }
+    // Add a single newline above code comments.
+    if(assembleOptions.prettify.padcomments === true) {
+      content = content.replace(/(\s*<!--)/g, '\n$1');
+    }
+    return content.replace(/(<\/(a|span|strong|h1|h2|h3|h4|h5|h6)>(?!(,|\.|!|\?|;|:)))/g, '$1 ');
   });
 
   /**
    * Default options passed to js-beautify.
-   * @param {hash arguments} [Options received as hash arguments will override these defaults.]
-   * @param {task options}   [Options defined in the Assemble task/target overrides hash arguments.]
+   * @param {hash arguments} [Options received as hash arguments will override defaults.]
+   * @param {task options}   [Options defined in the task/target override hash arguments.]
    */
-  var opts = {
-    condense: true,
+  var defaults = {
     indent_size: 2,
-    indent_char: " ",
     indent_inner_html: true,
-    indent_scripts: "normal",
-    brace_style: "expand",
-    preserve_newline: false,
-    max_preserve_newline: 0
+    unformatted: ['code', 'pre', 'em', 'strong']
   };
-  opts = _.extend(opts, options.prettify);
+  defaults = _.extend(assembleOptions.prettify, defaults);
+  defaults.indent_size = defaults.indent;
 
-  // Alias
-  opts.indent_size = opts.indent;
-
-  // Format HTML with js-beautify, pass in options.
-  var prettifyHTML = function(source, opts) {
+  /**
+   * Format HTML with js-beautify, pass in options.
+   * @param   {String} source  [The un-prettified HTML.]
+   * @param   {Object} options [Object of options passed to js-beautify.]
+   * @returns {String}         [Stunning HTML.]
+   */
+  var prettifyHTML = function(source, options) {
     try {
-      return prettify(source, opts);
+      return prettify(source, options);
     } catch (e) {
-      grunt.log.error(e);
-      grunt.fail.warn('HTML beautification failed.');
+      console.error(e);
+      console.warn('HTML beautification failed.');
     }
   };
 };

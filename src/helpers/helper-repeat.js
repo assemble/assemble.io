@@ -1,4 +1,4 @@
-module.exports.register = register = function(Handlebars, options) {
+module.exports.register = function(Handlebars, options) {
 
   /**
    * Duplicate the content in the encapsulated block n times.
