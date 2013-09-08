@@ -1,0 +1,35 @@
+---
+layout: default.hbs
+area: docs
+---
+
+<div class="container">
+  <div class="row">
+
+    {{! vertical navigation
+    =================================== }}
+    <div class="col col-lg-3">
+      <div class="sidebar">
+        {{> sidenav-docs }}
+      </div>
+    </div>
+
+    {{! main content
+    =================================== }}
+    <div class="col col-lg-9">
+      <div class="panel panel-docs">
+        <h1>{{page.title}}</h1>
+        {{#markdown}}
+          {{> body }}
+          {{!-- This partial uses a helper that automatically gererates links from pages in the given path(s). --}}
+          {{> links-generated.md }}
+        {{/markdown}}
+        <hr>
+        <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/{{area}}/{{this.basename}}.hbs">See the template for this page → </a></p>
+
+        {{> footer }}
+      </div>
+    </div>
+
+  </div>
+</div>
