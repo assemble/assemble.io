@@ -1,6 +1,6 @@
 <ul class="nav nav-pills nav-stacked">
   {{#each pages}}
-    {{#is data.section "Introduction"}}
+    {{#is data.section "Welcome"}}
     <li{{#is ../../page.dest this.dest}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}" {{> click-tracker }}>{{data.section}}</a></li>
     {{/is}}
   {{/each}}
