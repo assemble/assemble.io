@@ -7,7 +7,7 @@
 // -------------------------
 
 .alert {
-  padding: 10px 25px;
+  padding: 10px 35px 10px 15px;
   margin-bottom: @line-height-computed;
   color: @alert-text;
   background-color: @alert-bg;
@@ -25,13 +25,9 @@
     border-top-color: darken(@alert-border, 5%);
   }
   // Provide class for links that match alerts
-  p, .alert-link {
-    font: bold normal @font-size-base/3em @font-family-base;
-    color: darken(@link-color, 15%);
-  }
-  p {
-    color: #000;
-    margin: 0;
+  .alert-link {
+    font-weight: 500;
+    color: darken(@alert-text, 10%);
   }
 
   // Adjust close link position
@@ -65,9 +61,9 @@
 
   > p,
   > ul {
-  margin-bottom: 0;
-}
+    margin-bottom: 0;
+  }
   p + p {
-  margin-top: 5px;
-}
+    margin-top: 5px;
+  }
 }

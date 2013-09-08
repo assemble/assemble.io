@@ -5,21 +5,24 @@
 @code-label-color: #960f4a;
 @code-label-bg-color: #fcf0f7;
 
+// Inline and block style
 code,
 pre {
   padding: 0 3px 2px;
   font-family: @font-family-monospace;
   border-radius: 3px;
 }
+
+// Inline code "labels"
 code {
+  padding: 2px 6px 3px;
   color: @code-label-color;
   background-color: @code-label-bg-color;
-  padding: 2px 6px 3px;
   line-height: 1.5;
   white-space: nowrap;
 }
 
-// code
+// Code blocks
 pre {
   color: @gray-light;
   padding: 20px;
