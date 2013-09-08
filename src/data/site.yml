@@ -3,4 +3,4 @@
 ###
 
 production: <%= production %>
-destination: ./_gh_pages/
+destination: ./_gh_pages

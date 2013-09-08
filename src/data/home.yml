@@ -1,40 +1,39 @@
+---
+banner:
+  text: "Get Started with Assemble"
+ideas:
+  one: |
+      Documentation. Sites. Components. <br>It has never been easier to leverage the full
+      force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.
+  three: "<strong>Built with Assemble</strong> It has never been easier to build static sites."
+  two: |
+      Finally, a tool that closes the gap between developers and designers.
+      The bridge between designers and developers.
+      Want leverage? You got it, now go build something.
+      Workflow between design and development has never been easier.
+      Assemble makes it easy for designers and developers stay on the same page.
+      It has never been easier to build static sites.
 jumbotron:
-  title: build something
-  lead: >
-    Documentation. Sites. Components. <br>It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.
-  ideas: >
-    Finally, a tool that closes the gap between developers and designers.
-    The bridge between designers and developers.
-    Want leverage? You got it, now go build something.
-    Workflow between design and development has never been easier.
-    Designers and developers unite.
-    Assemble makes it easy for designers and developers stay on the same page.
-    It has never been easier to build static sites.
   btn:
     modifier: btn-inverse
-    text: Download Assemble
-
+    text: "Download Assemble"
+  lead: "It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now."
+  #lead: "Assemble is a Grunt-based static site generator."
+  title: "build something"
 teaser:
+  footer:
+    button:
+      href: "#"
+      modifier: "button-jade button-large pull-right"
+      text: "Visit Assemble on GitHub"
+    link: "#"
+    modifier: "banner-inverse banner-large"
+    static: true
+    subtitle: ""
+    title: "<p>Get started with some examples.</p>"
   masthead:
     linkable: true
     modifier: ""
-    title: |
-      Effeckt uses Assemble!
     subtitle: "The H5BP project from Paul Irish, Chris Coyer, Dennis Gaebel..."
-    ideas: <strong>Built with Assemble</strong> It has never been easier to build static sites.
-    url: https://github.com/h5bp/Effeckt.css
-
-  footer:
-    static: true
-    modifier: banner-inverse banner-large
-    title: <p>Get started with some examples.</p>
-    subtitle: ""
-    link: '#'
-    button:
-      modifier: button-jade button-large pull-right
-      href: '#'
-      text: Visit Assemble on GitHub
-
-# "banner" at the
-banner:
-  text: Get Started with Assemble
+    title: "Effeckt uses Assemble!"
+    url: "https://github.com/h5bp/Effeckt.css"

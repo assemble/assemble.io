@@ -59,7 +59,7 @@ component:
   teaser     : <%= ghpages.less %>/components/teaser.less
   band       : <%= ghpages.less %>/components/band.less
   thumbnails : <%= ghpages.less %>/components/thumbnails.less
-  labels     : <%= ghpages.less %>/components/labels.less
+  labels     : <%= ghpages.less %>/components/label-groups.less
   masthead   : <%= ghpages.less %>/components/masthead.less
 
   # Components: Examples

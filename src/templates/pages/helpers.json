@@ -1,22 +1,150 @@
 {
+  "layout": "helpers.hbs",
+  "area": "helpers",
   "pages": [
-    {"filename": "helpers-comparison",  "data": {"title": "Comparison"},  "content": "\n{{md \"src/content/helpers/comparison/*.*\"}}"},
-    {"filename": "helpers-code",        "data": {"title": "Code"},        "content": "\n{{md \"src/content/helpers/code/*.*\"}}"},
-    {"filename": "helpers-collections", "data": {"title": "Collections"}, "content": "\n{{md \"src/content/helpers/collections/*.*\"}}"},
-    {"filename": "helpers-comparison",  "data": {"title": "Comparison"},  "content": "\n{{md \"src/content/helpers/comparison/*.*\"}}"},
-    {"filename": "helpers-content",     "data": {"title": "Content"},     "content": "\n{{md \"src/content/helpers/content/*.*\"}}"},
-    {"filename": "helpers-data",        "data": {"title": "Data"},        "content": "\n{{md \"src/content/helpers/data/*.*\"}}"},
-    {"filename": "helpers-dates",       "data": {"title": "Dates"},       "content": "\n{{md \"src/content/helpers/dates/*.*\"}}"},
-    {"filename": "helpers-html",        "data": {"title": "HTML"},        "content": "\n{{md \"src/content/helpers/html/*.*\"}}"},
-    {"filename": "helpers-inflections", "data": {"title": "Inflections"}, "content": "\n{{md \"src/content/helpers/inflections/*.*\"}}"},
-    {"filename": "helpers-logging",     "data": {"title": "Logging"},     "content": "\n{{md \"src/content/helpers/logging/*.*\"}}"},
-    {"filename": "helpers-markdown",    "data": {"title": "Markdown"},    "content": "\n{{md \"src/content/helpers/markdown/*.*\"}}"},
-    {"filename": "helpers-math",        "data": {"title": "Math"},        "content": "\n{{md \"src/content/helpers/math/*.*\"}}"},
-    {"filename": "helpers-misc",        "data": {"title": "Misc"},        "content": "\n{{md \"src/content/helpers/misc/*.*\"}}"},
-    {"filename": "helpers-numbers",     "data": {"title": "Numbers"},     "content": "\n{{md \"src/content/helpers/numbers/*.*\"}}"},
-    {"filename": "helpers-path",        "data": {"title": "Path"},        "content": "\n{{md \"src/content/helpers/path/*.*\"}}"},
-    {"filename": "helpers-readme",      "data": {"title": "Readme"},      "content": "\n{{md \"src/content/helpers/readme/*.*\"}}"},
-    {"filename": "helpers-strings",     "data": {"title": "Strings"},     "content": "\n{{md \"src/content/helpers/strings/*.*\"}}"},
-    {"filename": "helpers-url",         "data": {"title": "URL"},         "content": "\n{{md \"src/content/helpers/url/*.*\"}}"}
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Comparison"
+      },
+      "content": "\n{{md 'src/content/helpers/comparison/*.*'}}",
+      "filename": "helpers-comparison"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Code"
+      },
+      "content": "\n{{md 'src/content/helpers/code/*.*'}}",
+      "filename": "helpers-code"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Collections"
+      },
+      "content": "\n{{md 'src/content/helpers/collections/*.*'}}",
+      "filename": "helpers-collections"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Comparison"
+      },
+      "content": "\n{{md 'src/content/helpers/comparison/*.*'}}",
+      "filename": "helpers-comparison"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Content"
+      },
+      "content": "\n{{md 'src/content/helpers/content/*.*'}}",
+      "filename": "helpers-content"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Data"
+      },
+      "content": "\n{{md 'src/content/helpers/data/*.*'}}",
+      "filename": "helpers-data"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Dates"
+      },
+      "content": "\n{{md 'src/content/helpers/dates/*.*'}}",
+      "filename": "helpers-dates"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "HTML"
+      },
+      "content": "\n{{md 'src/content/helpers/html/*.*'}}",
+      "filename": "helpers-html"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Inflections"
+      },
+      "content": "\n{{md 'src/content/helpers/inflections/*.*'}}",
+      "filename": "helpers-inflections"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Logging"
+      },
+      "content": "\n{{md 'src/content/helpers/logging/*.*'}}",
+      "filename": "helpers-logging"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Markdown"
+      },
+      "content": "\n{{md 'src/content/helpers/markdown/*.*'}}",
+      "filename": "helpers-markdown"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Math"
+      },
+      "content": "\n{{md 'src/content/helpers/math/*.*'}}",
+      "filename": "helpers-math"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Misc"
+      },
+      "content": "\n{{md 'src/content/helpers/misc/*.*'}}",
+      "filename": "helpers-misc"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Numbers"
+      },
+      "content": "\n{{md 'src/content/helpers/numbers/*.*'}}",
+      "filename": "helpers-numbers"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Path"
+      },
+      "content": "\n{{md 'src/content/helpers/path/*.*'}}",
+      "filename": "helpers-path"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Readme"
+      },
+      "content": "\n{{md 'src/content/helpers/readme/*.*'}}",
+      "filename": "helpers-readme"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Strings"
+      },
+      "content": "\n{{md 'src/content/helpers/strings/*.*'}}",
+      "filename": "helpers-strings"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "URL"
+      },
+      "content": "\n{{md 'src/content/helpers/url/*.*'}}",
+      "filename": "helpers-url"
+    }
   ]
 }
