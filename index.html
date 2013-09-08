@@ -2,12 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Welcome to Assemble.io! | Assemble</title>
-    <meta name="description" content=" Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Assemble</title>
+    <meta name="description" content=" Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data. |  Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/markdown.css">
     <link rel="stylesheet" href="assets/css/assemble.css">
+
+    <!-- Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
@@ -15,6 +20,8 @@
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
@@ -27,8 +34,7 @@
       _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
       _gaq.push(['_setAccount', 'UA-33358518-5']);
       _gaq.push(['_trackPageview']);
-      (function()
-      {
+      (function() {
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
@@ -38,15 +44,13 @@
       })();
     </script>
     <script type="application/ld+json">
-      [
-      {
+      [{
         "@context": "http://schema.org",
         "@type": "Person",
         "name": "Jon Schlinkert",
         "description": "Co-creator of Assemble.",
         "url": "https://github.com/jonschlinkert"
-      },
-      {
+      }, {
         "@context": "http://schema.org",
         "@type": "Person",
         "name": "Brian Woodward",
@@ -55,34 +59,40 @@
       }]
     </script>
   </head>
-  <body>
+  <body style="" data-spy="scroll" data-target=".bs-sidebar">
     <div class="navbar">
       <div class="container">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span> 
         </button>
-        <a class="navbar-brand" href="./">ASSEMBLE</a>
-        <div class="nav-collapse collapse">
+        <a class="navbar-brand" href="./">ASSEMBLE</a> 
+        <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="docs/">Docs</a> 
+            <li>
+              <a href="docs/">Docs</a> 
             </li>
 
-            <!--<li> <a href="boilerplates/">Boilerplates</a> </li>-->
-            <li> <a href="helpers/">Helpers</a> 
+            <!--<li> <a href="boilerplates/">Boilerplates</a>  </li>-->
+            <li>
+              <a href="helpers/">Helpers</a> 
             </li>
           </ul>
           <ul class="nav navbar-nav pull-right">
 
-            <!--<li> <a href="examples/">Examples</a> </li>-->
+            <!--<li> <a href="examples/">Examples</a>  </li>-->
 
-            <!--<li> <a href="tutorials/">Tutorials</a> </li> -->
+            <!--<li> <a href="tutorials/">Tutorials</a>  </li> -->
 
-            <!--<li> <a href="blog/">Blog</a> </li>-->
-            <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+            <!--<li> <a href="blog/">Blog</a>  </li>-->
+            <li>
+              <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
+                <i class="glyphicon glypicon-large glyphicon-download"></i>
+              </a> 
             </li>
-            <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+            <li>
+              <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
         </div>
@@ -92,19 +102,22 @@
       <div class="container">
         <div class="row">
           <div class="col col-lg-6">
-            <h1> BUILD SOMETHING </h1>
-            <p class="lead">Documentation. Sites. Components.
-              <br>It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.
-            </p>
-            <p> <a class="btn btn-inverse" href="https://github.com/assemble/assemble/archive/master.zip">Download Assemble</a> 
+            <h1>BUILD SOMETHING</h1> 
+            <p class="lead">It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.</p>
+            <p>
+              <a class="btn btn-inverse" href="https://github.com/assemble/assemble/archive/master.zip">Download Assemble</a> 
             </p>
           </div>
           <div class="col col-lg-6">
             <blockquote class="twitter-tweet">
-              <p><a href="https://twitter.com/_mattbailey">@_mattbailey</a> no problem! That Assemble module has just completely changed my life . Thanks! <a href="https://twitter.com/search?q=%23webdev&amp;src=hash">#webdev</a>  <a href="https://twitter.com/search?q=%23nodejs&amp;src=hash">#nodejs</a> 
-                <a
-                href="https://twitter.com/search?q=%23frontend&amp;src=hash">#frontend</a> <a href="https://twitter.com/search?q=%23development&amp;src=hash">#development</a>
-              </p>&mdash; Przemyslaw Bobak (@bobek_balinek) <a href="https://twitter.com/bobek_balinek/statuses/346937578773172224">June 18, 2013</a>
+              <p>
+                <a href="https://twitter.com/_mattbailey">@_mattbailey</a> no problem! That Assemble module has just completely changed my life . Thanks!
+                <a href="https://twitter.com/search?q=%23webdev&amp;src=hash">#webdev</a> 
+                <a href="https://twitter.com/search?q=%23nodejs&amp;src=hash">#nodejs</a> 
+                <a href="https://twitter.com/search?q=%23frontend&amp;src=hash">#frontend</a> 
+                <a href="https://twitter.com/search?q=%23development&amp;src=hash">#development</a> 
+              </p>&mdash; Przemyslaw Bobak (@bobek_balinek)
+              <a href="https://twitter.com/bobek_balinek/statuses/346937578773172224">June 18, 2013</a> 
             </blockquote>
             <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
@@ -122,17 +135,11 @@
     </style>
     <div class="teaser ">
       <a class="teaser-content" href="https://github.com/h5bp/Effeckt.css">
-    
-    
-      Effeckt uses Assemble!
-    
-    
-      <em> The H5BP project from Paul Irish, Chris Coyer, Dennis Gaebel... </em>
-    
-    
-    <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-    <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-  </a>
+        Effeckt uses Assemble!
+        <em> The H5BP project from Paul Irish, Chris Coyer, Dennis Gaebel... </em>
+        <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+      </a> 
     </div>
     <div class="container">
       <div class="panel panel-clear">
@@ -140,33 +147,33 @@
           <div class="row">
             <div class="col col-lg-4">
               <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/#fff:#000" alt="">
-              </a>
+                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
+              </a> 
             </div>
             <div class="col col-lg-4">
               <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/#fff:#000" alt="">
-              </a>
+                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
+              </a> 
             </div>
             <div class="col col-lg-4">
               <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/#fff:#000" alt="">
-              </a>
+                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
+              </a> 
             </div>
             <div class="col col-lg-4">
               <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/#fff:#000" alt="">
-              </a>
+                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
+              </a> 
             </div>
             <div class="col col-lg-4">
               <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/#fff:#000" alt="">
-              </a>
+                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
+              </a> 
             </div>
             <div class="col col-lg-4">
               <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/#fff:#000" alt="">
-              </a>
+                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
+              </a> 
             </div>
           </div>
         </section>
@@ -174,11 +181,13 @@
     </div>
     <div class="banner">
       <div class="container">
-        <p> <a href="docs/Home.html">Get Started with Assemble</a> 
+        <p>
+          <a href="docs/Home.html">Get Started with Assemble</a> 
         </p>
       </div>
     </div>
     <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/holder.js"></script>
     <script src="assets/js/highlight.js"></script>
     <script src="assets/js/showup.js"></script>

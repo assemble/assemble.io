@@ -2,11 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>HTML | Assemble</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    <title>HTML | Assemble</title>
+    <meta name="description" content=" Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../assets/css/markdown.css">
     <link rel="stylesheet" href="../assets/css/assemble.css">
+
+    <!-- Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
@@ -28,8 +34,7 @@
       _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
       _gaq.push(['_setAccount', 'UA-33358518-5']);
       _gaq.push(['_trackPageview']);
-      (function()
-      {
+      (function() {
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
@@ -39,15 +44,13 @@
       })();
     </script>
     <script type="application/ld+json">
-      [
-      {
+      [{
         "@context": "http://schema.org",
         "@type": "Person",
         "name": "Jon Schlinkert",
         "description": "Co-creator of Assemble.",
         "url": "https://github.com/jonschlinkert"
-      },
-      {
+      }, {
         "@context": "http://schema.org",
         "@type": "Person",
         "name": "Brian Woodward",
@@ -59,31 +62,37 @@
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
     <div class="navbar">
       <div class="container">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span> 
         </button>
-        <a class="navbar-brand" href="../">ASSEMBLE</a>
-        <div class="nav-collapse collapse">
+        <a class="navbar-brand" href="../">ASSEMBLE</a> 
+        <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="../docs/">Docs</a> 
+            <li>
+              <a href="../docs/">Docs</a> 
             </li>
 
-            <!--<li> <a href="../boilerplates/">Boilerplates</a> </li>-->
-            <li> <a href="../helpers/">Helpers</a> 
+            <!--<li> <a href="../boilerplates/">Boilerplates</a>  </li>-->
+            <li>
+              <a href="../helpers/">Helpers</a> 
             </li>
           </ul>
           <ul class="nav navbar-nav pull-right">
 
-            <!--<li> <a href="../examples/">Examples</a> </li>-->
+            <!--<li> <a href="../examples/">Examples</a>  </li>-->
 
-            <!--<li> <a href="../tutorials/">Tutorials</a> </li> -->
+            <!--<li> <a href="../tutorials/">Tutorials</a>  </li> -->
 
-            <!--<li> <a href="../blog/">Blog</a> </li>-->
-            <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])"><i class="glyphicon glypicon-large glyphicon-download"></i></a>
+            <!--<li> <a href="../blog/">Blog</a>  </li>-->
+            <li>
+              <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
+                <i class="glyphicon glypicon-large glyphicon-download"></i>
+              </a> 
             </li>
-            <li> <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+            <li>
+              <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
         </div>
@@ -102,7 +111,8 @@
       <div class="container">
         <div class="row">
           <div class="col col-lg-12">
-            <h1><span class="text-muted">HELPERS&nbsp;/</span>&nbsp;HTML</h1>
+            <h1>
+              <span class="text-muted">helpers&nbsp;/</span> &nbsp;HTML</h1> 
           </div>
         </div>
       </div>
@@ -112,91 +122,112 @@
         <div class="col col-lg-3">
           <div class="sidebar">
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="./">Overview</a> 
+              <li>
+                <a href="./">Overview</a> 
               </li>
             </ul>
             <span class="nav-section-title">
-          Helpers
-        </span>
+              Helpers
+            </span> 
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-code.html">Code</a> 
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-code.html">Code</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-collections.html">Collections</a> 
+              <li>
+                <a href="helpers-collections.html">Collections</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-comparison.html">Comparison</a> 
+              <li>
+                <a href="helpers-comparison.html">Comparison</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-content.html">Content</a> 
+              <li>
+                <a href="helpers-content.html">Content</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-data.html">Data</a> 
+              <li>
+                <a href="helpers-data.html">Data</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-dates.html">Dates</a> 
+              <li>
+                <a href="helpers-dates.html">Dates</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-html.html">HTML</a> 
+              <li>
+                <a href="helpers-html.html">HTML</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-inflections.html">Inflections</a> 
+              <li>
+                <a href="helpers-inflections.html">Inflections</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-logging.html">Logging</a> 
+              <li>
+                <a href="helpers-logging.html">Logging</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-markdown.html">Markdown</a> 
+              <li>
+                <a href="helpers-markdown.html">Markdown</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-math.html">Math</a> 
+              <li>
+                <a href="helpers-math.html">Math</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-misc.html">Miscellaneous</a> 
+              <li>
+                <a href="helpers-misc.html">Miscellaneous</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-numbers.html">Numbers</a> 
+              <li>
+                <a href="helpers-numbers.html">Numbers</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-path.html">Path</a> 
+              <li>
+                <a href="helpers-path.html">Path</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-readme.html">Readme</a> 
+              <li>
+                <a href="helpers-readme.html">Readme</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-strings.html">Strings</a> 
+              <li>
+                <a href="helpers-strings.html">Strings</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-url.html">URL</a> 
+              <li>
+                <a href="helpers-url.html">URL</a> 
               </li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-              <li> <a href="helpers-special.html">special</a> 
+              <li>
+                <a href="helpers-special.html">special</a> 
               </li>
             </ul>
           </div>
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
-            <h1>HTML</h1>
+            <h1>HTML</h1> 
             <p>
-              <h4>{{br}}</h4>
+              <h4>{{br}}</h4> 
             </p>
             <p>
               <p><em>Renders <code>&lt;br&gt;</code> elements in the output, based on the number given as a parameter. Not really recommended for general use, but it&#39;s here if you need it.</em>
@@ -216,7 +247,7 @@
             <pre><code class="language-html">{{br 5}}</code></pre>
             <p>renders to:</p>
             <pre><code class="language-html">`&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;`</code></pre>
-            <h4>{{doctype}}</h4>
+            <h4>{{doctype}}</h4> 
             <p><em>Easy way to add an uncommonly used doctype.</em>
             </p>
             <p>Default is HTML 5 (<code>&lt;!DOCTYPE html&gt;</code>) although this is probably only useful on projects that use anything besides HTML 5.</p>
@@ -225,16 +256,16 @@
             <p>Renders to:</p>
             <pre><code class="language-html">&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</code></pre>
             <p>Available doctypes:</p>
-            <p><strong>HTML 5 (default)</strong>
+            <p><strong>HTML 5 (default)</strong> 
               *
               <br>- <code>{{doctype &#39;5&#39;}}</code> | aliases: <code>html</code>, <code>html5</code>
             </p>
-            <p><strong>XML</strong>
+            <p><strong>XML</strong> 
               <em><br>- <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</code>
 </em>
               <br>- <code>{{doctype &#39;xml&#39;}}</code>
             </p>
-            <p><strong>XHTML</strong>
+            <p><strong>XHTML</strong> 
               <em><br>- <code>{{doctype &#39;basic&#39;}}</code>
 </em>
               <br>- <code>{{doctype &#39;strict&#39;}}</code>
@@ -245,19 +276,19 @@
 </em>
               <br>- <code>{{doctype &#39;mobile&#39;}}</code>
             </p>
-            <p><strong>HTML 4.01</strong>
+            <p><strong>HTML 4.01</strong> 
               <em><br>- <code>{{doctype &#39;4&#39;}}</code> | aliases: <code>4.01</code>, <code>4.01 strict</code>
 </em>
               <br>- <code>{{doctype &#39;4.01 trans&#39;}}</code>
               *
               <br>- <code>{{doctype &#39;4.01 frameset&#39;}}</code>
             </p>
-            <p><strong>SVG</strong>
+            <p><strong>SVG</strong> 
               <em><br>- <code>{{doctype &#39;svg&#39;}}</code> | aliases: <code>svg</code>, <code>svg 1.1</code>, <code>svg1.1</code>
 </em>
               <br>- <code>{{doctype &#39;svg 1.0&#39;}}</code> | aliases: <code>svg 1.0</code>, <code>svg1.0</code>, <code>svg1</code>
             </p>
-            <h4>{{exticon}}</h4>
+            <h4>{{exticon}}</h4> 
             <p><em>Generate the appropriate icon based on the extension of the given file.</em>
             </p>
             <p>Since this helper generates classes that are very specific, feel free to copy the code and use it as inspiration for your a helper that works for you.</p>
@@ -275,7 +306,7 @@
 &lt;img src=&quot;img/txt-icon.png&quot;&gt;&lt;i&gt;file.txt&lt;/i&gt;
 &lt;img src=&quot;img/csv-icon.png&quot;&gt;&lt;i&gt;file.csv&lt;/i&gt;
 &lt;img src=&quot;img/other-icon.png&quot;&gt;&lt;i&gt;file&lt;/i&gt;</code></pre>
-            <h4>{{ol}}</h4>
+            <h4>{{ol}}</h4> 
             <p><em>Same as the <code>ul</code> helper but creates and ordered list. Returns <code>&lt;br&gt;</code> tags based on a count.</em>
             </p>
             <p>Parameters: <code>Hash</code>, <code>HTML attributes</code>, <code>Optional</code>
@@ -283,12 +314,12 @@
             <p>HTML attributes to use on the <code>ol</code> element.</p>
             <p>Data:</p>
             <pre><code class="language-javascript">collection = [
-  name: <span class="string">'Leela'</span>
+  name: <span class="string">'Leela'</span> 
   deliveries: <span class="number">8021</span>,
-  name: <span class="string">'Bender'</span>
+  name: <span class="string">'Bender'</span> 
   deliveries: <span class="number">239</span>,
-  name: <span class="string">'Fry'</span>
-  deliveries: <span class="number">1</span>
+  name: <span class="string">'Fry'</span> 
+  deliveries: <span class="number">1</span> 
 ]</code></pre>
             <p>Template:</p>
             <pre><code class="language-html">{{#ol collection class=&quot;deliveries-list&quot;}}
@@ -300,7 +331,7 @@
   &lt;li&gt; Bender - 239 deliveries &lt;/li&gt;
   &lt;li&gt; Fry - 1 delivery &lt;/li&gt;
 &lt;/ol&gt;</code></pre>
-            <h4>{{ul}}</h4>
+            <h4>{{ul}}</h4> 
             <p><em>Creates an unordered list.</em>
             </p>
             <p>Parameters: <code>Hash|HTML attributes</code>, <code>Optional</code>
@@ -308,12 +339,12 @@
             <p>HTML attributes to use on the <code>ul</code> element.</p>
             <p>Data:</p>
             <pre><code class="language-javascript">collection = [
-  name: <span class="string">'Leela'</span>
+  name: <span class="string">'Leela'</span> 
   deliveries: <span class="number">8021</span>,
-  name: <span class="string">'Bender'</span>
+  name: <span class="string">'Bender'</span> 
   deliveries: <span class="number">239</span>,
-  name: <span class="string">'Fry'</span>
-  deliveries: <span class="number">1</span>
+  name: <span class="string">'Fry'</span> 
+  deliveries: <span class="number">1</span> 
 ]</code></pre>
             <p>Template:</p>
             <pre><code class="language-html">{{#ul collection class=&quot;deliveries-list&quot;}}
@@ -326,7 +357,8 @@
   &lt;li&gt; Fry - 1 delivery &lt;/li&gt;
 &lt;/ul&gt;</code></pre>
             <hr>
-            <p><a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-html.hbs">See the template for this page → </a>
+            <p>
+              <a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/helpers-html.hbs">See the template for this page →</a> 
             </p>
             <div class="alert">
               <style type="text/css" media="screen">
@@ -338,53 +370,17 @@
               </style>
               <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
               <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-              <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a>
+              <p>Find an error?
+                <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a> 
               </p>
             </div>
-            <footer class="bs-footer">
-              <div class="more-info">
-                <div class="container">
-                  <style>
-                    .bs-social-buttons .twitter-follow-button {
-                      width: 160px !important;
-                    }
-                  </style>
-                  <div class="bs-social">
-                    <ul class="bs-social-buttons">
-                      <li>
-                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-                      </li>
-                      <li>
-                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=assemble&repo=assemble&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
-                      </li>
-                      <li class="follow-btn">
-                        <a href="https://twitter.com/assemblejs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow @assemblejs</a>
-                      </li>
-                      <li class="tweet-btn">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://assemble.io" data-count="horizontal" data-via="assemblejs" data-related="jonschlnkert:Jon Schlinkert,doowb:Brian Woodward">Tweet</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <p>Website design by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a>. Assemble built by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
-              <p>Code licensed under <a href="https://github.com/assemble/assemble/LICENSE-MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-              <ul class="footer-links">
-                <li><a href="http://assemble.io/blog">Blog</a>
-                </li>
-                <li class="muted">&middot;</li>
-                <li><a href="https://github.com/assemble/assemble/issues?state=open">Issues</a>
-                </li>
-                <li class="muted">&middot;</li>
-                <li><a href="https://github.com/assemble/assemble/">Repo</a>
-                </li>
-              </ul>
-            </footer>
           </div>
         </div>
       </div>
     </div>
     <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
     <script>
