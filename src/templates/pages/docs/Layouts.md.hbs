@@ -1,4 +1,5 @@
 ---
+area: docs
 title: Layouts
 section: templates
 categories:
@@ -15,7 +16,7 @@ tags:
 
 Layouts are optional, but the `\{{> body }}` tag is required for content to be pulled into a layout.
 
-```html
+```handlebars
 <!DOCTYPE html>
 <html>
   <head>
@@ -84,14 +85,14 @@ layout: path/to/layout.hbs
 
 ## Disabling Layouts
 
-* **Pages**: add `layout: false` to the YAML front matter of any page that should build without a layout.
-* **Targets**: add `layout: false` to the options of any target that should build pages without a layout.
+* **Pages**: add `layout: false` or `layout: none` to the YAML front matter of any page that should build without a layout.
+* **Targets**: add `layout: false` or `layout: none` to the options of any target that should build pages without a layout.
 
 
 ## Example usage
 Your imagination is the only limit to what can be done with layouts, so these are just examples.
 
-```html
+```handlebars
 <!DOCTYPE html>
 <html>
   <head>
@@ -128,7 +129,7 @@ Layouts can be nested inside other layouts. This enables highly granular control
 
 For example, your default layout may contain the `<head></head>`, footer, common link and script tags for a site:
 
-```html
+```handlebars
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -147,7 +148,10 @@ For example, your default layout may contain the `<head></head>`, footer, common
 
 And more specialize layouts might contain side navigation for a section of the site, like this:
 
-```html
+```handlebars
+---
+layout: default.hbs
+---
 <header class="masthead subhead">
   <div class="container">
     <h1><span class="text-muted">Docs /&nbsp;</span>\{{titleize basename}}</h1>
@@ -165,7 +169,7 @@ And more specialize layouts might contain side navigation for a section of the s
 
 At build time layouts are "flattened" first before pages are passed in. In other words, the above example becomes this first:
 
-```html
+```handlebars
 <!DOCTYPE html>
 <html lang="en">
   <head>
