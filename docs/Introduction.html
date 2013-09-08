@@ -355,7 +355,7 @@
               </li>
             </ul>
             <p>This is a good opportunity to use nested layouts that might look something like this:</p>
-            <h4>Layout #1: parent layout</h4> 
+            <h4>Example Layout #1: parent layout</h4> 
             <p>Our parent layout will only contain the most commonly required, generalized elements. We&#39;ll call this layout <code>parent-layout.hbs</code>:</p>
             <pre><code class="language-handlebars">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -369,7 +369,7 @@
     &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <h4>Layout #2: child layout</h4> 
+            <h4>Example Layout #2: child layout</h4> 
             <p>Our &quot;child&quot; layout will contain additional markup for our sidebar, but it should also inherit all of the markup from the parent layout (since layouts are &quot;flattened&quot; before pages are rendered). For the markup to be inherited,
               we need to <strong>specify a parent layout for our child layout</strong>.</p>
             <p>Specifying a <em>layout for a layout</em> works the exact same way as specifying a layout for any reguar page. It can be defined in the <code>options.layout</code> property in the Assemble task config in the Gruntfile (at the task and/or target
@@ -399,6 +399,35 @@ layout: parent-layout.hbs
 &lt;/div&gt;</code></pre>
             <p>You might recall that the <code>{{&gt; body }}</code> tag is the &quot;insertion point&quot; in a layout, specifying exactly where the content from each page will be passed in. Layouts are no different. A child layout will be inserted (flattened)
               into the parent layout at the point of the <code>{{&gt; body }}</code> tag.</p>
+            <h4>Example &quot;flattened&quot; result</h4> 
+            <p>Continuing with the example from the previous section, the flattened layout for pages that use the &quot;child&quot; layout might look something like this during build:</p>
+            <pre><code class="language-handlebars">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;main.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-lg-3&quot;&gt;
+        &lt;div class=&quot;sidebar&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;Buttons&lt;/a&gt;
+          &lt;ul class=&quot;nav&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;#button-expand-left&quot;&gt;&lt;/a&gt;Expand Left&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#button-expand-right&quot;&gt;&lt;/a&gt;Expand Right&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#button-expand-up&quot;&gt;&lt;/a&gt;Expand Up&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#button-expand-down&quot;&gt;&lt;/a&gt;Expand Down&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-lg-9&quot;&gt;
+        {{&gt; body }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
             <h2>Layout FAQ</h2> 
             <ul>
               <li>Layouts are optional. If you don&#39;t need one, don&#39;t define one.</li>
