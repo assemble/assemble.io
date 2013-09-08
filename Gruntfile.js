@@ -8,7 +8,7 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Internal lib
   grunt.util._.mixin(require('./src/helpers/mixins').init(grunt));
@@ -20,17 +20,19 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     // Metadata for templates
-    pkg      : grunt.file.readJSON('package.json'),
-    helpers  : grunt.file.readJSON('src/templates/pages/helpers.json'), // config for "helpers" docs
+    pkg: grunt.file.readJSON('package.json'),
+    helpers: grunt.file.readJSON('src/templates/pages/helpers.json'), // config for "helpers" docs
 
-    site     : grunt.file.readYAML('src/data/site.yml'),
+    site: grunt.file.readYAML('src/data/site.yml'),
     bootstrap: grunt.file.readYAML('src/less/bootstrap.yml'),
-    ghpages  : grunt.file.readYAML('src/less/ghpages.yml'),
+    ghpages: grunt.file.readYAML('src/less/ghpages.yml'),
 
 
     less: {
       options: {
-        imports: {reference: '<%= ghpages.globals %>'}
+        imports: {
+          reference: '<%= ghpages.globals %>'
+        }
       },
       main: {
         src: ['<%= bootstrap.bundle.docs %>', '<%= ghpages.bundle.docs %>'],
@@ -53,10 +55,7 @@ module.exports = function(grunt) {
           condense: true,
           padcomments: true
         },
-        marked: {
-          sanitize: false,
-          mentions: true
-        },
+        marked: {sanitize: false},
         production: true,
         helpers: 'src/helpers/*.js',
         today: '<%= grunt.template.today() %>',
@@ -69,31 +68,31 @@ module.exports = function(grunt) {
         layoutdir: 'src/templates/layouts',
         layout: 'default.hbs'
       },
+      // Build links for navigation. Hacky and temporary
       links: {
-        options: {
-          ext: '.hbs'
-        },
+        options: {ext: '.hbs'},
         src: 'src/templates/includes/snippets/links-template.md.hbs',
         dest: 'src/templates/includes/snippets/links-generated.md.hbs',
       },
       docs: {
-        options: {
-          layout: 'docs.hbs'
-        },
-        files: [{
+        options: {layout: 'docs.hbs'},
+        files: [
+        {
           expand: true,
           flatten: true,
           cwd: 'src/templates/pages',
           src: ['*.hbs'],
           dest: '<%= site.destination %>/'
-        }, {
+        },
+        {
           expand: true,
           flatten: true,
           cwd: 'src/templates/pages/docs',
           src: ['*.hbs'],
           dest: '<%= site.destination %>/docs/',
           ext: '.html'
-        }, {
+        },
+        {
           expand: true,
           flatten: true,
           cwd: 'src/templates/pages/contributing',
@@ -114,10 +113,9 @@ module.exports = function(grunt) {
         },
       },
       boilerplates: {
-        options: {
-          layout: 'boilerplates.hbs'
-        },
-        files: [{
+        options: {layout: 'boilerplates.hbs'},
+        files: [
+        {
           expand: true,
           flatten: true,
           cwd: 'src',
@@ -131,9 +129,9 @@ module.exports = function(grunt) {
     copy: {
       docs: {
         files: [
-          {expand: true, cwd: 'contributing', src: ['**'],     dest: '<%= site.destination %>/contributing'},
-          {expand: true, cwd: 'docs',         src: ['**'],     dest: '<%= site.destination %>/docs'},
-          {expand: true, cwd: './',           src: ['*.html'], dest: '<%= site.destination %>/'}
+          {expand: true, cwd: 'contributing', src: ['**'], dest: '<%= site.destination %>/contributing'},
+          {expand: true, cwd: 'docs', src: ['**'], dest: '<%= site.destination %>/docs'},
+          {expand: true, cwd: './', src: ['*.html'], dest: '<%= site.destination %>/'}
         ]
       }
     },
