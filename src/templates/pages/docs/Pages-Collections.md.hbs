@@ -1,4 +1,5 @@
 ---
+area: docs
 title: Pages Collections
 section: templates
 ---
@@ -77,6 +78,73 @@ When we build the project, and pages from the `block` target will render with:
 </ul>
 ```
 
+## \{{#each pages}} Usage Examples
+
+Let's say our target has two pages with the following content:
+
+Page #1: `src/templates/one.hbs`
+
+```html
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
+
+Page #2: `src/templates/two.hbs`
+
+```html
+---
+title: Home
+---
+
+<h1>{{title}}</h1>
+```
+
+
+#### \{{page}}
+
+The following templates:
+
+```handlebars
+\{{#each pages}}
+  \{{{page}}}
+\{{/each}}
+```
+
+will return the concatenated "content" of each page in the target, with YFM stripped from each page, and templates returned _unrendered_:
+
+```handlebars
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+
+<h1>{{title}}</h1>
+```
+
+
+#### \{{src}}
+
+The following templates:
+
+```handlebars
+\{{#each pages}}
+  \{{{src}}}
+\{{/each}}
+```
+
+will return the `src` path of each page in the target:
+
+```html
+src/templates/one.hbs
+src/templates/two.hbs
+```
+
+
+
 
 #### Using YFM with the `page` variable
 
@@ -90,7 +158,7 @@ title: Home
 
 Next we will modify our template to use the `title` variable instead of the file name. Since we cannot use the context of each page as the first path ([see "Data, Context and Why it Works this Way"](#data-title-explanation)), to make sure we get the correct `title` we must add the `data` variable, giving us access to the root of the context:
 
-```html
+```handlebars
 <ul>
   \{{#each pages}}
     <li><a href="#">\{{data.title}}</a></li>

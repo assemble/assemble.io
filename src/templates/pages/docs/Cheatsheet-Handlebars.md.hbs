@@ -1,8 +1,20 @@
 ---
+area: docs
 title: Handlebars Cheatsheet
 section: templates
 published: false
 ---
+
+TODO:
+
+* '.'
+* '..'
+* '{{> partial . }}'
+* '{{> partial this }}'
+* '{{#each .}}{{> partial this }}{{/each}}'
+
+
+
 ## Syntax
 
 In this cheatsheet, to simplify, models are represented as JSON.
@@ -213,6 +225,23 @@ Handlebars.registerHelper('link_to', function (context) {
 });
 ```
 
+Handlebars also allows for name conflict resolution between helpers and data fields via a `this` reference:
+
+```html
+<p>{{./name}} or {{this/name}} or {{this.name}}</p>
+```
+
+Any of the above would cause the `name` field on the current context to be used rather than a helper of the same name.
+
+Partials:
+
+```html
+{{#each items}}
+  {{! Passes the current item in items to your partial }}
+  {{> item-template this}}
+{{/each}}
+```
+
 #### hash args
 
 Template:
@@ -266,6 +295,11 @@ Inline another template's contents (inherits context)
 ```js
 Handlebars.registerPartial('link', '<a href="/people/\{{id}}">\{{name}}</a>')
 ```
+
+TODO:
+
+* partials with variables
+
 
 
 ## Inlining Templates

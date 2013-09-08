@@ -1,4 +1,5 @@
 ---
+area: docs
 title: FAQ
 section: getting started
 ---
@@ -10,6 +11,10 @@ section: getting started
 * list pages for each category
 * generate links to/from each page in each category
 {{/todo}}
+
+## Just the FAQs
+
+First and foremost, on each page of Assemble's live documentation you will find a "See the templates for this page" link, so you can take a look behind the curtains and get a peek at how we build our own docs. Of course, you can also fork or download the entire project if you want to go deeper with it (or make a pull request, you thoughtful and charitable community member you!).
 
 
 ## Generating a list from a collection
@@ -72,13 +77,7 @@ To generate a list of [categories][options-collections] for the a page, you woul
   \{{.}}
 \{{/page.categories}}
 ```
-Or we can use: `\{{#each page.categories}}...\{{/each}}`.
-
-
-
-
-
-block expression with the name of the collection as a variable variable to get the list of pages in the current [target][targets]
+Or we can use: `\{{#each page.categories}}...\{{/each}}` block expression with the name of the collection as a variable to get the list of pages in the current [target][targets]
 
 
 ## Dynamically building navigation
@@ -204,6 +203,7 @@ which renders to:
 </ul>
 ```
 
+```handlebars
 <ul class="nav nav-pills nav-stacked">
   \{{#each pages}}
     \{{#is data.section "toc"}}
@@ -213,23 +213,35 @@ which renders to:
     \{{/is}}
   \{{/each}}
 </ul>
+```
 
+## Grunt conventions
 
+If you're not familiar with Grunt, here are some very high level FAQs to get you oriented:
 
-
-* Each page has a "See the templates for this page" link, so you can see how we build our own documentation.
+* Grunt itself is a "task runner", which means that Grunt will run whatever tasks you need for your project.
+* Grunt tasks are configured in the `Gruntfile.js` of your project
+* Each task in the Gruntfile is powered by a Grunt "plugin"
+* Plugins are typically external to the Gruntfile, but not always. If you develop a very small plugin for a specific project and you want to store it in the Gruntfile, go for it.
+* You can either `npm install` plugins or add your own locally.
+* When adding a plugin via `npm install`, you must register the task using `grunt.loadNpmTasks('assemble');` outside of the `grunt.initConfig({...}):` object.
+* If you develop a Grunt plugin or otherwise add one locally, the convention is to store the plugin in the `./tasks` directory of your project.
+* Local plugins are registered with `grunt.loadTasks('tasks');` outside of the `grunt.initConfig({...}):` object.
+* Each task can have one or more [targets][targets]
+* Each target can have a different configuration for dynamically building `src` and `dest` files lists.
+* Options can be defined at both the task-level and the target-level.
+* Options defined at the target level will typically override options defined at the task level. This can be modified with custom programming.
 
 
 ### [Target][targets]
 
-In the example below the `assemble` task is configured with three targets.
+Please read [Task Configuration and Targets][tasks-targets] on the Grunt website for more information.
 
-This is a Grunt.js convention that we have found to be extremely powerful.
-
-* Grunt "plugins" power the "tasks" in a Gruntfile, and
-* Tasks can have one or more [targets][targets]
+Grunt offers a ton of flexibility regarding how task and targets are configured, and Assemble takes full advantage of this. Each target in a task can have a completely different configuration. Options and files can be defined specifically for each target, while also inheriting options defined at the task level.
 
 Throughout the Assemble docs, anytime we refere to a target(s), we are refering specifically to the targets you have configured in the Assemble task in your Gruntfile. For example, the following task is configured with three targets, "docs", "blog", and "site":
+
+In the following example, the `assemble` task is configured with three targets:
 
 ```js
 {
@@ -247,11 +259,89 @@ Throughout the Assemble docs, anytime we refere to a target(s), we are refering 
 }
 ```
 
-#### "Current Target"
-
-In the Assemble documentation, whenever you see the term "current target", this refers to the _context of the target currently being run_. For example, [collections][collections] will only render with _collection items from the current target_. So, for instance, if you were to render a list of pages using `\{{#each pages}}...\{{/each}}`, only the pages that are specified in the currently running target will be included in the collection.
+This is just one aspect of Grunt's conventions that we have found to be extremely useful and powerful. Oftentimes we see developers looking for overly complicated workarounds to difficult issues that could very easily be solved by just adding another target to the assemble task (or even by adding another supplemental task).
 
 
+### "Current Target"
+
+Throughout Assemble's docs, when you see the term "current target", this refers to the _context of the target currently being run_.
+
+If we use the targets from the previous section as an example, if you run `grunt assemble:docs`, then the `docs` target would be the "current target". If you run `grunt assemble` and each target is executed successively (`docs`, `blog` and `site`), then "current target" would refer to the output that you should expect to see from files specified in a given target.
+
+For example, [collections][collections] will only render with _collection items from files defined in the current target_. So when `\{{#each pages}}...\{{/each}}` is used to render a list of pages, only the pages that are specified in the currently running target will be included in the collection. If we again use the targets from the previous section as an example, if we assume that the layout used by the `site` target contains `\{{#each pages}}...\{{/each}}`, then after running `grunt assemble` we will find that files in the `site/` directory will include the list of pages defined in the `site` target (and only in the `site` target).
+
+This is what is meant by "current target".
+
+<a name="files-configuration" id="files-configuration"></a>
+### Files Configuration
+
+Please read  [Building the Files Object Dynamically][files-object] on the Grunt website for more information.
+
+Grunt offers a few different options for dynamically building files lists. Throughout this documentation you will see the following concepts referred to repeatedly, so this is good information to have:
+
+#### "src-dest" format
+
+```js
+assemble: {
+  options: {},
+  blog: {
+    options: {},
+    src:  'src/templates/posts/*.hbs',
+    dest: 'dest/posts/'
+  }
+}
+```
+
+#### "files-object" format
+
+```js
+assemble: {
+  options: {},
+  docs: {
+    options: {},
+    files: {
+      'dest/posts/': ['src/templates/posts/*.hbs'],
+      'dest/archives/': ['src/templates/archives/*.hbs']
+    }
+  }
+}
+```
+
+#### "files-array" format
+
+This format allows multiple src-dest files mappings for a target, and each mapping may have additional options defined for it allowing a higher level of granularity.
+
+```js
+assemble: {
+  options: {},
+  blog: {
+    options: {},
+    // additional options/properties may be defined in each mapping
+    files: [
+      {
+        expand: true,
+        flatten: true,
+        cwd: 'src/templates/posts',
+        src: ['*.hbs'],
+        dest: 'dest/posts/',
+        ext: '.html'
+      },
+      {
+        expand: true,
+        flatten: true,
+        cwd: 'src/templates/archives',
+        src: ['*.hbs'],
+        dest: 'dest/archives/',
+        ext: '.html'
+      }
+    ]
+  }
+}
+```
+
+
+[tasks-targets]: http://gruntjs.com/configuring-tasks#task-configuration-and-targets
+[files-object]: http://gruntjs.com/configuring-tasks#building-the-files-object-dynamically
 
 
 ## Introduction to Assemble

@@ -1,4 +1,5 @@
 ---
+area: docs
 title: Methods
 section: development
 categories:
@@ -49,7 +50,7 @@ assemble: {
 }
 ```
 
-Assemble will attempt to load an engine and automatically add it's own wrapper methods around it while holding an instance of the engine. This is a way for engine plugin authors to write adapters between other engines and assemble's wrapper. To make these functions on the options useful, we've exposed the underlying engine through the `assemble.engine` object so **developers can use the raw engine**. 
+Assemble will attempt to load an engine and automatically add it's own wrapper methods around it while holding an instance of the engine. This is a way for engine plugin authors to write adapters between other engines and assemble's wrapper. To make these functions on the options useful, we've exposed the underlying engine through the `assemble.engine` object so **developers can use the raw engine**.
 
 This is particularly useful when **a)** a library such as [consolidate][] is used, where the engine is `consolidate`, and **b)** the developer wants to use another engine such as [handlebars](https://github.com/wycats/handlebars.js), [swig](https://github.com/paularmstrong/swig), [mustache](https://github.com/janl/mustache.js) etc.
 
@@ -61,7 +62,7 @@ Admittedly, the `engine.engine` syntax is strange. This is "alpha", so feedback 
 
 #### Register Helpers
 
-If you require helpers custom helpers beyond those included in [handlebars-helpers](http://github.com/assemble/handlebars-helpers), [they can be loaded][options-helpers] with the current engine via `options: { helpers: []}` in the assemble task or target. 
+If you require helpers custom helpers beyond those included in [handlebars-helpers](http://github.com/assemble/handlebars-helpers), [they can be loaded][options-helpers] with the current engine via `options: { helpers: []}` in the assemble task or target.
 
 You may also call `registerFunctions` by passing in an engine. This is used if you need to register custom **helpers** (filters, etc.):
 
@@ -118,7 +119,7 @@ Also see: [options.partials][options-partials]
 
 [consolidate]: https://github.com/visionmedia/consolidate.js/
 
- 
+
 ### assemble steps
 
 There are also methods to setup the assemble steps, and then execute the build:
@@ -170,7 +171,7 @@ assemble.build(function(err, result) {
 
 ### Example custom Grunt.js plugin, "`steps`"
 
-This shows how to create a custom Grunt plugin using Assemble steps. 
+This shows how to create a custom Grunt plugin using Assemble steps.
 
 ``` js
 grunt.registerMultiTask('steps', 'examples of using steps in assemble', function() {
