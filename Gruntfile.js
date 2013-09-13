@@ -11,7 +11,7 @@
 module.exports = function (grunt) {
 
   // Internal lib
-  grunt.util._.mixin(require('./src/helpers/mixins').init(grunt));
+  grunt.util._.mixin(require('./src/extensions/mixins'));
 
   // Report elapsed execution time of grunt tasks.
   require('time-grunt')(grunt);
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
         },
         marked: {sanitize: false},
         production: true,
-        helpers: 'src/helpers/*.js',
+        helpers: 'src/extensions/*.js',
         today: '<%= grunt.template.today() %>',
         assets: '<%= site.destination %>/assets',
         partials: [
@@ -100,6 +100,15 @@ module.exports = function (grunt) {
           dest: '<%= site.destination %>/contributing/',
           ext: '.html'
         }]
+      },
+      blog: {
+        options: {
+          flatten: true,
+          layout: 'blog.hbs'
+        },
+        files: {
+          '<%= site.destination %>/blog/index.html': ['src/templates/pages/blog.hbs']
+        },
       },
       helpers: {
         options: {

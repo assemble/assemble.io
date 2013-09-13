@@ -82,7 +82,7 @@ If, for example:
 
 This is a good opportunity to use nested layouts that might look something like this:
 
-#### Layout #1: parent layout
+#### Example Layout #1: parent layout
 
 Our parent layout will only contain the most commonly required, generalized elements. We'll call this layout `parent-layout.hbs`:
 
@@ -101,7 +101,7 @@ Our parent layout will only contain the most commonly required, generalized elem
 </html>
 ```
 
-#### Layout #2: child layout
+#### Example Layout #2: child layout
 
 Our "child" layout will contain additional markup for our sidebar, but it should also inherit all of the markup from the parent layout (since layouts are "flattened" before pages are rendered). For the markup to be inherited, we need to **specify a parent layout for our child layout**.
 
@@ -136,6 +136,41 @@ layout: parent-layout.hbs
 You might recall that the `\{{> body }}` tag is the "insertion point" in a layout, specifying exactly where the content from each page will be passed in. Layouts are no different. A child layout will be inserted (flattened) into the parent layout at the point of the `\{{> body }}` tag.
 
 
+#### Example "flattened" result
+
+Continuing with the example from the previous section, the flattened layout for pages that use the "child" layout might look something like this during build:
+
+```handlebars
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>\{{title}}</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="sidebar">
+          <a href="#">Buttons</a>
+          <ul class="nav">
+            <li><a href="#button-expand-left"></a>Expand Left</li>
+            <li><a href="#button-expand-right"></a>Expand Right</li>
+            <li><a href="#button-expand-up"></a>Expand Up</li>
+            <li><a href="#button-expand-down"></a>Expand Down</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        \{{> body }}
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
+```
+
+
 ## Layout FAQ
 
 * Layouts are optional. If you don't need one, don't define one.
@@ -155,8 +190,11 @@ As with CSS, the more specific layout wins:
 | **Layout property** (YFM)   | Defined in the YAML front matter of a page.               | Page and/or sub-page level |
 
 
-{{#draft}}
 
+
+
+
+{{#draft}}
 * `default.hbs`: the default layout for the project, and it's the only layout that would really be "needed" in an actual project, since it wraps the demo pages
 * `component.hbs`: a child layout that inherits the default layout, this is a specialized "inner layout" for wrapping components with certain details about the "current demo".
 
@@ -173,8 +211,11 @@ Introduce:
 * pages
 * data
 * src-dest/files-objects/files-arrays
-
 {{/draft}}
+
+
+
+
 
 TBC... (please feel comfortable [requesting more documentation](http://github.com/assemble/assemble/issues) or specific information about anything that you think would be helpful.)
 
