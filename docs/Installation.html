@@ -321,7 +321,14 @@
     }
   }
 }
-grunt.loadNpmTasks(<span class="string">'assemble'</span> );</code></pre>
+grunt.loadNpmTasks(<span class="string">'assemble'</span> );
+grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'assemble'</span> ]);</code></pre>
+            <h3>add &quot;grunt-newer&quot; to speed up builds</h3> 
+            <p>We also highly recommend that you install
+              <a href="https://github.com/tschaub/grunt-newer">grunt-newer</a>, a must-have task that tells grunt to run tasks against only the files that have been modified since the previous build.</p>
+            <pre><code class="language-js">grunt.loadNpmTasks(<span class="string">'assemble'</span> );
+grunt.loadNpmTasks(<span class="string">'grunt-newer'</span> );
+grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'newer:assemble'</span> ]);</code></pre>
             <h2>Grunt.js Options</h2> 
             <p>Following is a brief exerpt from the Grunt.js wiki, please see
               <a href="http://gruntjs.com/configuring-tasks">Grunt.js docs</a> for more information. Grunt.js offers far more functionality than what we reference here.</p>

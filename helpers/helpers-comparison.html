@@ -250,6 +250,23 @@ magnificent = <span class="literal">true</span> </code></pre>
 {{/and}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Kiss my shiny metal ass!</code></pre>
+            <h4>{{contains}}</h4> 
+            <p><em>Searches a string for the given value, and conditionally renders one block of content or another based on the result.</em>
+            </p>
+            <p>Parameters: <code>String</code> (the value to test against) Default: <code>undefined</code>
+            </p>
+            <p>Data:</p>
+            <pre><code class="language-yaml">---
+truth: Assemble is the best static site generator for node.js!
+---</code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#contains truth &quot;best&quot;}}
+    Absolutely true.
+{{else}}
+    This is a lie.
+{{/contains}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code>Absolutely true.</code></pre>
             <h4>{{gt}}</h4> 
             <p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
               <br>Parameters: value <code>string|int</code> - the value to test against.</p>
