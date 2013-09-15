@@ -107,8 +107,8 @@ module.exports = function (grunt) {
           layout: 'blog.hbs'
         },
         files: {
-          '<%= site.destination %>/blog/index.html': ['src/templates/pages/blog.hbs']
-        },
+          '<%= site.destination %>/blog/': ['src/templates/pages/blog/*.hbs']
+        }
       },
       helpers: {
         options: {
@@ -165,6 +165,7 @@ module.exports = function (grunt) {
     'clean:ghpages',
     'assemble:helpers',
     'assemble',
-    'less'
+    'newer:less',
+    'sync'
   ]);
 };

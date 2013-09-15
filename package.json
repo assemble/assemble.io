@@ -6,6 +6,7 @@
     "name": "assemble",
     "url": "https://assemble.io/"
   },
+  "main": "Gruntfile.js",
   "contributors": [
     {
       "name": "Jon Schlinkert",
@@ -38,7 +39,9 @@
     "js-beautify": "~1.4.0",
     "lodash": "~1.3.1",
     "matchdep": "~0.1.2",
-    "time-grunt": "~0.1.1"
+    "time-grunt": "~0.1.1",
+    "grunt-newer": "~0.5.1",
+    "grunt-sync-pkg": "~0.1.0"
   },
   "keywords": [
     "assemble",

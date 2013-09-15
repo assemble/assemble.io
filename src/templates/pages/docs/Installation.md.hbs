@@ -28,6 +28,7 @@ When completed, you'll be able to run the various `grunt` commands available
 
 
 ## The "assemble" task
+
 ```js
 assemble: {
   options: {
@@ -46,6 +47,18 @@ assemble: {
   }
 }
 grunt.loadNpmTasks('assemble');
+grunt.registerTask('default', ['assemble']);
+```
+
+### add "grunt-newer" to speed up builds
+
+We also highly recommend that you install [grunt-newer](https://github.com/tschaub/grunt-newer), a must-have task that tells grunt to run tasks against only the files that have been modified since the previous build.
+
+```js
+grunt.loadNpmTasks('assemble');
+grunt.loadNpmTasks('grunt-newer');
+
+grunt.registerTask('default', ['newer:assemble']);
 ```
 
 
