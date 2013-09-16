@@ -245,15 +245,40 @@
             </p>
             <pre><code class="language-html">{{copy &#39;a.html&#39; &#39;../dir/b.txt&#39;}}</code></pre>
             <h4>{{glob}}</h4> 
-            <p><strong>example helpers, not for actual use!</strong> 
-              Why do this? The goal is to inspire other concepts that build from this one.</p>
-            <p><em>Use globbing patterns to embed content from specified file or files.</em>
+            <p><strong>example helper</strong>: This helper is intended to be instructive, to help with creating new helpers that use these features.</p>
+            <p><em>Use minimatch patterns to include content from specified file or files.</em>
               <br>Parameters: <code>String</code>
               <br>Default: <code>undefined</code>
             </p>
             <p>Examples:</p>
-            <pre><code class="language-html">{{glob &#39;src/files/*.md&#39;}}
+            <pre><code class="language-handlebars">{{glob &#39;src/files/*.md&#39;}}
 {{glob &#39;src/files/*.{txt,md}&#39;}}</code></pre>
+            <h4>{{globWithContext}}</h4> 
+            <p><strong>example helper</strong>: This helper is intended to be instructive, to help with creating new helpers that use these features.</p>
+            <p><em>Use minimatch patterns to include content from specified file or files.</em>
+              <br>Parameters: <code>String</code>
+              <br>Default: <code>undefined</code>
+            </p>
+            <p>Content:</p>
+            <p>This is the content of file we&#39;re going to include with our <code>globWithContent</code> helper (this helper allows you to include content from multiple files, but we&#39;re going to specify one for the example).</p>
+            <pre><code class="language-markdown"><span class="link_label">[{{link.text}}]</span> (<span class="link_url">{{link.url}}</span> )</code></pre>
+            <p>Data (context):</p>
+            <pre><code class="language-yaml">---
+href:
+  link:
+    text: Click Me
+    url: http://assemble.io
+---</code></pre>
+            <p>The</p>
+            <pre><code class="language-handlebars">{{globWithContext &#39;./src/**/test.md&#39; href}}</code></pre>
+            <p>Data (context):</p>
+            <pre><code class="language-yaml">---
+link:
+  text: Click Me
+  url: http://assemble.io
+---</code></pre>
+            <pre><code class="language-handlebars">{{globWithContext &#39;./src/**/test.md&#39; this}}
+{{globWithContext &#39;./src/**/test.md&#39; this}}</code></pre>
             <h4>{{include}}</h4> 
             <p><em>Include external files.</em>
             </p>

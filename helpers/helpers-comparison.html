@@ -228,18 +228,29 @@
           <div class="panel panel-docs">
             <h1>Comparison</h1> 
             <p>
-              <h4>{{and}}</h4> 
+              <h4>{{lt}}</h4> 
             </p>
             <p>
-              <p><em>Conditionally render a block if both values are truthy.</em>
-              </p>
-            </p>
-            <p>
-              <p>Parameters: values <code>string|int</code> - the values to test against.</p>
+              <p><em>Conditionally render a block if the value is less than a given number. Opposite of <code>gt</code>.</em>
+                <br>Parameters: value <code>string|int</code> - the value to test against.</p>
             </p>
             <p>
               <p>Data:</p>
             </p>
+            <pre><code class="language-javascript">number = <span class="number">5</span> </code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#lt number 3}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/lt}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code>Never mind :(</code></pre>
+            <h4>{{and}}</h4> 
+            <p><em>Conditionally render a block if both values are truthy.</em>
+            </p>
+            <p>Parameters: values <code>string|int</code> - the values to test against.</p>
+            <p>Data:</p>
             <pre><code class="language-javascript">great = <span class="literal">true</span> 
 magnificent = <span class="literal">true</span> </code></pre>
             <p>Template:</p>
@@ -250,23 +261,6 @@ magnificent = <span class="literal">true</span> </code></pre>
 {{/and}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Kiss my shiny metal ass!</code></pre>
-            <h4>{{contains}}</h4> 
-            <p><em>Searches a string for the given value, and conditionally renders one block of content or another based on the result.</em>
-            </p>
-            <p>Parameters: <code>String</code> (the value to test against) Default: <code>undefined</code>
-            </p>
-            <p>Data:</p>
-            <pre><code class="language-yaml">---
-truth: Assemble is the best static site generator for node.js!
----</code></pre>
-            <p>Template:</p>
-            <pre><code class="language-html">{{#contains truth &quot;best&quot;}}
-    Absolutely true.
-{{else}}
-    This is a lie.
-{{/contains}}</code></pre>
-            <p>Renders to:</p>
-            <pre><code>Absolutely true.</code></pre>
             <h4>{{gt}}</h4> 
             <p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
               <br>Parameters: value <code>string|int</code> - the value to test against.</p>
@@ -355,19 +349,23 @@ page:
 {{/isnt}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Never mind :(</code></pre>
-            <h4>{{lt}}</h4> 
-            <p><em>Conditionally render a block if the value is less than a given number. Opposite of <code>gt</code>.</em>
-              <br>Parameters: value <code>string|int</code> - the value to test against.</p>
+            <h4>{{contains}}</h4> 
+            <p><em>Searches a string for the given value, and conditionally renders one block of content or another based on the result.</em>
+            </p>
+            <p>Parameters: <code>String</code> (the value to test against) Default: <code>undefined</code>
+            </p>
             <p>Data:</p>
-            <pre><code class="language-javascript">number = <span class="number">5</span> </code></pre>
+            <pre><code class="language-yaml">---
+truth: Assemble is the best static site generator for node.js!
+---</code></pre>
             <p>Template:</p>
-            <pre><code class="language-html">{{#lt number 3}}
-    Kiss my shiny metal ass!
+            <pre><code class="language-html">{{#contains truth &quot;best&quot;}}
+    Absolutely true.
 {{else}}
-    Never mind :(
-{{/lt}}</code></pre>
+    This is a lie.
+{{/contains}}</code></pre>
             <p>Renders to:</p>
-            <pre><code>Never mind :(</code></pre>
+            <pre><code>Absolutely true.</code></pre>
             <h4>{{lte}}</h4> 
             <p><em>Conditionally render a block if the value is less or equal than a given number. Opposite of <code>gte</code>.</em>
               <br>Parameters: value <code>string|int</code> - the value to test against.</p>

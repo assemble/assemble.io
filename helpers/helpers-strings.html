@@ -228,23 +228,23 @@
           <div class="panel panel-docs">
             <h1>Strings</h1> 
             <p>
-              <h4>{{capitalizeEach}}</h4> 
+              <h4>{{lowercase}}</h4> 
             </p>
             <p>
-              <p><em>Capitalizes each word in a string.</em>
+              <p><em>Turns a string to lowercase.</em>
                 <br>Parameters: <code>none</code>
               </p>
+            </p>
+            <pre><code class="language-html">{{lowercase &quot;MAKE THIS ALL LOWERCASE&quot;}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code>make this all lowercase</code></pre>
+            <h4>{{capitalizeEach}}</h4> 
+            <p><em>Capitalizes each word in a string.</em>
+              <br>Parameters: <code>none</code>
             </p>
             <pre><code class="language-html">{{capitalizeEach &quot;capitalize EACH word in this sentence&quot;}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Capitalize EACH Word In This Sentence</code></pre>
-            <h4>{{capitalizeFirst}}</h4> 
-            <p><em>Capitalizes the first word in a string.</em>
-              <br>Parameters: <code>none</code>
-            </p>
-            <pre><code class="language-html">{{capitalizeFirst &quot;capitalize first word in this sentence&quot;}}</code></pre>
-            <p>Renders to:</p>
-            <pre><code>Capitalize first word in this sentence</code></pre>
             <h4>{{center}}</h4> 
             <p><em>Centers a string using non-breaking spaces.</em>
               <br>Parameters: spaces: <code>int</code> - The number of spaces. (Required)</p>
@@ -277,13 +277,13 @@
             <pre><code class="language-html">{{hyphenate &quot;make this all hyphenated&quot;}}</code></pre>
             <p>Result:</p>
             <pre><code>make-this-all-hyphenated</code></pre>
-            <h4>{{lowercase}}</h4> 
-            <p><em>Turns a string to lowercase.</em>
+            <h4>{{capitalizeFirst}}</h4> 
+            <p><em>Capitalizes the first word in a string.</em>
               <br>Parameters: <code>none</code>
             </p>
-            <pre><code class="language-html">{{lowercase &quot;MAKE THIS ALL LOWERCASE&quot;}}</code></pre>
+            <pre><code class="language-html">{{capitalizeFirst &quot;capitalize first word in this sentence&quot;}}</code></pre>
             <p>Renders to:</p>
-            <pre><code>make this all lowercase</code></pre>
+            <pre><code>Capitalize first word in this sentence</code></pre>
             <h4>{{occurrences}}</h4> 
             <p><em>Evaluate string A, and count the occurrences of string B within string A</em>
               <br>Default: <code>undefined</code>

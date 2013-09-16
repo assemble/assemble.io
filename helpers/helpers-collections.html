@@ -228,11 +228,12 @@
           <div class="panel panel-docs">
             <h1>Collections</h1> 
             <p>
-              <h4>{{after}}</h4> 
+              <h4>{{last}}</h4> 
             </p>
             <p>
-              <p><em>Returns all of the items in the collection after the specified count.</em>
-                <br>Parameters: count <code>int</code> - How many items to omit from the beginning. (Required)</p>
+              <p><em>Returns the last item in a collection. Opposite of <code>first</code>.</em>
+                <br>Parameters: <code>none</code>
+              </p>
             </p>
             <p>
               <p>Data:</p>
@@ -248,23 +249,27 @@
   &quot;Scruffy&quot;
 ]</code></pre>
             <p>Template:</p>
+            <pre><code class="language-html">{{last collection}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code>Scruffy</code></pre>
+            <h4>{{after}}</h4> 
+            <p><em>Returns all of the items in the collection after the specified count.</em>
+              <br>Parameters: count <code>int</code> - How many items to omit from the beginning. (Required)</p>
+            <p>Data:</p>
+            <pre><code class="language-json">&quot;collection&quot;: [
+  &quot;Amy Wong&quot;,
+  &quot;Bender&quot;,
+  &quot;Dr. Zoidberg&quot;,
+  &quot;Fry&quot;,
+  &quot;Hermes Conrad&quot;,
+  &quot;Leela&quot;,
+  &quot;Professor Farnsworth&quot;,
+  &quot;Scruffy&quot;
+]</code></pre>
+            <p>Template:</p>
             <pre><code class="language-html">{{after collection 5}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">Leela, Professor Farnsworth, Scruffy</code></pre>
-            <h4>{{any}}</h4> 
-            <p><em>Conditionally render a block if the collection isn&#39;t empty. Opposite of <code>empty</code></em>
-              <br>Parameters: <code>none</code>
-            </p>
-            <p>Data:</p>
-            <pre><code class="language-json">&quot;collection&quot;: [&quot;Professor Farnswor&quot;]</code></pre>
-            <p>Templates:</p>
-            <pre><code class="language-html">{{#any collection}}
-  Good news everyone!
-{{else}}
-  Bad news everyone!
-{{/any}}</code></pre>
-            <p>Renders to:</p>
-            <pre><code>Good news everyone!</code></pre>
             <h4>{{before}}</h4> 
             <p><em>Returns all of the items in the collection before the specified count. Opposite of <code>after</code>.</em>
               <br>Parameters: count <code>int</code> - How many items to omit from the end. (Required)</p>
@@ -375,25 +380,20 @@ two - 2</code></pre>
             <pre><code class="language-html">{{join collection &quot; &amp; &quot;}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Amy Wong &amp; Bender &amp; Dr. Zoidberg &amp; Fry &amp; Hermes Conrad &amp; Leela &amp; Professor Farnsworth &amp; Scruffy</code></pre>
-            <h4>{{last}}</h4> 
-            <p><em>Returns the last item in a collection. Opposite of <code>first</code>.</em>
+            <h4>{{any}}</h4> 
+            <p><em>Conditionally render a block if the collection isn&#39;t empty. Opposite of <code>empty</code></em>
               <br>Parameters: <code>none</code>
             </p>
             <p>Data:</p>
-            <pre><code class="language-json">&quot;collection&quot;: [
-  &quot;Amy Wong&quot;,
-  &quot;Bender&quot;,
-  &quot;Dr. Zoidberg&quot;,
-  &quot;Fry&quot;,
-  &quot;Hermes Conrad&quot;,
-  &quot;Leela&quot;,
-  &quot;Professor Farnsworth&quot;,
-  &quot;Scruffy&quot;
-]</code></pre>
-            <p>Template:</p>
-            <pre><code class="language-html">{{last collection}}</code></pre>
+            <pre><code class="language-json">&quot;collection&quot;: [&quot;Professor Farnswor&quot;]</code></pre>
+            <p>Templates:</p>
+            <pre><code class="language-html">{{#any collection}}
+  Good news everyone!
+{{else}}
+  Bad news everyone!
+{{/any}}</code></pre>
             <p>Renders to:</p>
-            <pre><code>Scruffy</code></pre>
+            <pre><code>Good news everyone!</code></pre>
             <h4>{{length}}</h4> 
             <p><em>Returns the length of the collection.</em>
               <br>Parameters: <code>none</code>
