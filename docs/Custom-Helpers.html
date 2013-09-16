@@ -298,7 +298,58 @@
             </blockquote>
             <p>To make it easier for Assemble users to consume custom helpers created by other users, we offer the following conventions and recommendations for your consideration.</p>
             <h3>Also see
-              <a href="Helpers.html">Helpers</a> →</h3> 
+              <a href="Helpers.html">Helpers</a> |
+              <a href="options-helpers.html">options.helpers</a> →</h3> 
+            <h2>Registering custom helpers</h2> 
+            <p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function, passing in the engine. Otherwise each method is registered as a helper. For
+              example, the following will result in 2 helpers being registered:</p>
+            <pre><code class="language-js">module.exports.foo = <span class="keyword">function</span> (str) { <span class="keyword">return</span>  str; };
+module.exports.bar = <span class="keyword">function</span> (str) { <span class="keyword">return</span>  str; };</code></pre>
+            <p>And this will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
+            <pre><code class="language-js">module.exports.register = <span class="keyword">function</span> (Handlebars, options) {
+  Handlebars.registerHelper(<span class="string">'foo'</span>, <span class="keyword">function</span> (str) {
+    <span class="keyword">return</span>  str;
+  });
+};</code></pre>
+            <p>The <code>Handlebars.registerHelper</code> method takes the name of the helper and the helper function as arguments. Handlebars.js then takes whatever is returned from the helper function and writes it out to the template, <em>so be sure to always return a string from your custom helpers</em>.</p>
+            <h2>Loading Helpers</h2> 
+            <p>Minimatch patterns can be used in the <code>helpers</code> option, and they&#39;ll look inside your devDependencies for any node modules that it finds. If it finds modules, it will attempt to load those as helpers.</p>
+            <p>Requirements for use:</p>
+            <ul>
+              <li>Install the module and save to devDependcies
+                <ul>
+                  <li><code>npm install my-custom-helper-module --save-dev</code>
+                  </li>
+                </ul>
+              </li>
+              <li>Add a pattern or the entire name to use that module in the options
+                <ul>
+                  <li><code>options: { helpers: [&#39;*-helper-module&#39;] } }</code>
+                  </li>
+                </ul>
+              </li>
+              <li>Enjoy</li>
+            </ul>
+            <h2>Developing Custom Helpers</h2> 
+            <h3>Passing <code>assemble.options</code> into helpers</h3> 
+            <p>Any value from <code>assemble.options</code> may be passed to helpers when the helper defines the <code>register</code> method. For example:</p>
+            <p>Given our <code>Gruntfile.js</code> has the following <code>assemble</code> task configuration:</p>
+            <pre><code class="language-js">assemble: {
+  options: {
+    version: <span class="string">'0.1.0'</span>, <span class="comment">// or we could use '&lt;%= pkg.version %&gt;'</span> 
+  },
+  ...
+}</code></pre>
+            <p>And given we have defined a custom helper, <code>opt</code>, which gets properties from the <code>assemble.options</code> object and returns them:</p>
+            <pre><code class="language-js">module.exports.register = <span class="keyword">function</span> (Handlebars, options) {
+  Handlebars.registerHelper(<span class="string">'opt'</span>, <span class="keyword">function</span> (key) {
+    <span class="keyword">return</span>  options[key] || <span class="string">''</span>;
+  });
+};</code></pre>
+            <p>We can now user our helper in a Handlebars template like this:</p>
+            <pre><code class="language-html">&lt;div&gt;Version: v{{opt &#39;version&#39;}}&lt;/div&gt;</code></pre>
+            <p>And the output would be something like:</p>
+            <pre><code class="language-html">&lt;div&gt;Version: v0.1.0&lt;/div&gt;</code></pre>
             <h2>Quickstart using
               <a href="https://github.com/gruntjs/grunt-init">grunt-init</a> 
             </h2> 
@@ -345,11 +396,20 @@
                 <a href="Templates-Overview.html">Learn about Templates</a> 
               </li>
               <li>
-                <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers Github repo</a> 
+                <a href="Helpers.html">Helpers</a> 
+              </li>
+              <li>
+                <a href="options-helpers.html">options.helpers</a> 
+              </li>
+              <li>
+                <a href="Options.html">Options</a> 
               </li>
             </ul>
             <h3>External Links</h3> 
             <ul>
+              <li>
+                <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers Github repo</a> 
+              </li>
               <li>
                 <a href="http://handlebarsjs.com/block_helpers.html" title="Block Helpers">Handlebarsjs.com Block Helpers</a> 
               </li>
