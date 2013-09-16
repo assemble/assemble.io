@@ -30,9 +30,7 @@ module.exports = function (grunt) {
 
     less: {
       options: {
-        imports: {
-          reference: '<%= ghpages.globals %>'
-        }
+        imports: {reference: '<%= ghpages.globals %>'}
       },
       main: {
         src: ['<%= bootstrap.bundle.docs %>', '<%= ghpages.bundle.docs %>'],
@@ -50,12 +48,13 @@ module.exports = function (grunt) {
 
     assemble: {
       options: {
+        marked: {sanitize: false},
         prettify: {
           indent: 2,
           condense: true,
           padcomments: true
         },
-        marked: {sanitize: false},
+        flatten: true,
         production: true,
         helpers: 'src/extensions/*.js',
         today: '<%= grunt.template.today() %>',
@@ -70,68 +69,57 @@ module.exports = function (grunt) {
       },
       // Build links for navigation. Hacky and temporary
       links: {
-        options: {ext: '.hbs'},
+        options: {ext: '.hbs', flatten: false},
         src: 'src/templates/includes/snippets/links-template.md.hbs',
-        dest: 'src/templates/includes/snippets/links-generated.md.hbs',
+        dest: 'src/templates/includes/snippets/generated-links.md.hbs',
       },
       docs: {
-        options: {layout: 'docs.hbs'},
         files: [
-        {
-          expand: true,
-          flatten: true,
-          cwd: 'src/templates/pages',
-          src: ['*.hbs'],
-          dest: '<%= site.destination %>/'
-        },
-        {
-          expand: true,
-          flatten: true,
-          cwd: 'src/templates/pages/docs',
-          src: ['*.hbs'],
-          dest: '<%= site.destination %>/docs/',
-          ext: '.html'
-        },
-        {
-          expand: true,
-          flatten: true,
-          cwd: 'src/templates/pages/contributing',
-          src: ['*.hbs'],
-          dest: '<%= site.destination %>/contributing/',
-          ext: '.html'
-        }]
+          {
+            expand: true,
+            cwd: 'src/templates/pages',
+            src: ['*.hbs'],
+            dest: '<%= site.destination %>/'
+          },
+          {
+            expand: true,
+            cwd: 'src/templates/pages/docs',
+            src: ['*.hbs'],
+            dest: '<%= site.destination %>/docs/',
+            ext: '.html'
+          },
+          {
+            expand: true,
+            cwd: 'src/templates/pages/contributing',
+            src: ['*.hbs'],
+            dest: '<%= site.destination %>/contributing/',
+            ext: '.html'
+          }
+        ]
       },
       blog: {
-        options: {
-          flatten: true,
-          layout: 'blog.hbs'
-        },
+        options: {layout: 'blog.hbs'},
         files: {
           '<%= site.destination %>/blog/': ['src/templates/pages/blog/*.hbs']
         }
       },
+      // Helpers pages config, see: src/templates/pages/helpers.json
       helpers: {
-        options: {
-          flatten: true,
-          engine: 'handlebars',
-          layout: 'helpers.hbs',
-          pages: '<%= helpers.pages %>' // 'src/templates/pages/helpers.json'
-        },
+        options: {pages: '<%= helpers.pages %>'},
         files: {
           '<%= site.destination %>/helpers/': ['src/templates/pages/helpers/index.hbs']
         },
       },
       boilerplates: {
-        options: {layout: 'boilerplates.hbs'},
         files: [
-        {
-          expand: true,
-          flatten: true,
-          cwd: 'src',
-          src: ['templates/pages/boilerplates/*.hbs'],
-          dest: '<%= site.destination %>/boilerplates/',
-          ext: '.html'
-        }]
+          {
+            expand: true,
+            cwd: 'src/templates/pages/boilerplates/',
+            src: ['*.hbs'],
+            dest: '<%= site.destination %>/boilerplates/',
+            ext: '.html'
+          }
+        ]
       }
     },
 

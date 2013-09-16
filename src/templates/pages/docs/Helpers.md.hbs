@@ -1,6 +1,7 @@
 ---
-area: docs
 title: Helpers
+
+area: docs
 section: templates
 ---
 
@@ -26,11 +27,7 @@ Most helpers from [handlebars-helpers][] can be used with any Handlebars project
 * **embed**: Embeds code from an external file as preformatted text. The first parameter requires a path to the file you want to embed. The second optional parameter allows forcing syntax highlighting for a specific language. Usage: `\{{embed 'path/to/file.js'}}` or `\{{embed 'path/to/file.hbs' 'html'}}`
 * **jsFiddle**: Embed a jsFiddle, second parameter sets the desired tabs. Usage: `\{{jsfiddle [id] [tabs]}}`
 * **gist**: Downloads and embeds public GitHub Gists by adding only the Id of the Gist. Usage: `\{{gist [id] [file]}}`
-{{#draft}}
-* **authors**: Reads in data from an "AUTHORS" file to generate markdown formatted author or list of authors for a README.md. Accepts a second optional parameter to a different file than the default. Usage: `\{{authors}}` or `\{{ authors [file] }}`
-* **changelog**: Reads in data from an "CHANGELOG" file to generate markdown formatted changelog or list of changelog entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: `\{{changelog [src]}}`
-* **roadmap**: Reads in data from an "ROADMAP" file to generate markdown formatted roadmap or list of roadmap entries for a README.md. Accepts a second optional parameter to change to a different file than the default. Usage: `\{{roadmap [src]}}`
-{{/draft}}
+
 
 Many additional helpers are available in the following categories:
 

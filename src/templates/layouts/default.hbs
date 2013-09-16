@@ -1,36 +1,45 @@
-{{#prettify}}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  {{> head }}
-  </head>
-  <body style="{{#isnt title "Home"}}background: white;{{/isnt}}" data-spy="scroll" data-target=".bs-sidebar">
+---
+layout: base.hbs
+---
 
-    {{!-- global navigation
+{{!-- page content
+=================================== --}}
+<div class="container">
+  <div class="row">
+
+    {{!-- side navigation
     =================================== --}}
-    {{> navbar }}
+    <div class="col col-lg-3">
+      <div class="sidebar">
+        {{#is area 'helpers'}}
+          {{> sidenav-helpers }}
+        {{/is}}
+        {{#is area 'blog'}}
+          {{> sidenav-blog }}
+        {{/is}}
+        {{#is area 'boilerplates'}}
+          {{> sidenav-boilerplates }}
+        {{/is}}
+        {{#is area 'docs'}}
+          {{> sidenav-docs }}
+        {{/is}}
+      </div>
+    </div>
 
-    {{!-- masthead
-    =================================== --}}
-    {{#is area 'helpers'}}
-      {{> masthead-helpers }}
-    {{/is}}
-    {{#is area 'docs'}}
-      {{> masthead-docs }}
-    {{/is}}
+    {{!> edit-template-link }}
 
-
-    {{!-- page content
-    =================================== --}}
-    {{> body }}
-
-
-    {{!-- footer scripts
-    =================================== --}}
-    {{> javascripts }}
-    <script>
-      $().showUp('.navbar');
-    </script>
-  </body>
-</html>
-{{/prettify}}
+    {{! main content
+    =================================== }}
+    <div class="col col-lg-9">
+      <div class="panel panel-docs">
+        <h1>{{page.title}}</h1>
+        {{#markdown}}
+          {{> body }} {{> generated-links.md }}
+        {{/markdown}}
+        <hr>
+        <p><a href="{{site.templates.view}}/{{area}}/{{this.basename}}.hbs">See the template for this page → </a></p>
+        {{> footer }}
+      </div>
+    </div>
+  </div>
+</div>

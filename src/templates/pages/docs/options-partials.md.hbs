@@ -1,7 +1,9 @@
 ---
 title: options.partials
-section: configuration
 shortname: partials
+
+area: docs
+section: configuration
 
 categories:
 - options
@@ -47,7 +49,7 @@ assemble {
 Although this is not an "officially supported" feature, you can also pass partials in through the `options.helpers` object:
 
 ```js
-Handlebars.registerPartial('title', '<strong>{{title}}</strong>');
+Handlebars.registerPartial('title', '<strong>\{{title}}</strong>');
 ```
 
 If you wish to register partials this way, follow the same practices as [registering helpers](helpers).

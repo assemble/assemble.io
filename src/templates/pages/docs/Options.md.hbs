@@ -1,12 +1,8 @@
 ---
 title: Options Overview
+
+area: docs
 section: configuration
-categories:
-- options
-- variables
-tags:
-- options
-- configuration
 ---
 
 > Comprehensive list of options available in Assemble
@@ -26,13 +22,13 @@ These options are defined in the `assemble` task in your project's Gruntfile. An
 | -------- | ----------- |
 | [assets][options-assets] | directory that contains commonly used "assets" for a project, such as images, fonts, javascripts and stylesheets. Assemble will generate a relative path  from dest files to the given `assets` directory. |
 | [collections][options-collections] | Built-in collections for `tags`, `categories` and `pages` are available at the root of the context. |
-| [data][options-data] | path to data files to supply the data that will be passed into templates. |
-| [engine][options-engine] | engine to be used for processing templates. Handlebars is the default. |
-| [ext][options-ext] | extension to be used for `dest` files. |
-| [helpers][options-helpers] | path to custom helper(s) to be registered and used by the current template engine. Handlebars is the default. |
-| [layout][options-layout]** * ** | [Layouts][] are optional and assemble will build [pages][] without one. However, when a layout is specified the file _must contain a `\{{> body }}`_ tag,  since this tag indicates where the content from each file in a target should be inserted. |
+| [data][options-data]               | path to data files to supply the data that will be passed into templates. |
+| [engine][options-engine]           | engine to be used for processing templates. Handlebars is the default. |
+| [ext][options-ext]                 | extension to be used for `dest` files. |
+| [helpers][options-helpers]         | path to custom helper(s) to be registered and used by the current template engine. Handlebars is the default. |
+| [layout][options-layout]** * **    | [Layouts][] are optional and assemble will build [pages][] without one. However, when a layout is specified the file _must contain a `\{{> body }}`_ tag,  since this tag indicates where the content from each file in a target should be inserted. |
 | [layoutdir][options-layoutdir]** * ** | [Layouts][] are optional and assemble will build [pages][] without one. However, when a layout is specified the file _must contain a `\{{> body }}`_ tag,  since this tag indicates where the content from each file in a target should be inserted. |
-| [partials][options-partials] | the partials or "includes" to be used with [pages][]. |
+| [partials][options-partials]       | the partials or "includes" to be used with [pages][]. |
 
 ***Note** that when a layout is used the [\{{> body }}][Layouts] tag must be included inside the layout in order for content from pages to be "pulled in".
 

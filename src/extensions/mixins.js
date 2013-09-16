@@ -9,7 +9,7 @@
 'use strict';
 
 
-module.exports = exports = function(grunt) {
+module.exports = function(grunt) {
   var _ = grunt.util._; // lodash
   var exports = {};
 

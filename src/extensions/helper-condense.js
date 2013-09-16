@@ -1,4 +1,4 @@
-module.exports.register = register = function(Handlebars, options) {
+module.exports.register = function(Handlebars, options) {
 
   /**
    * Collapse multiple newlines into one.
