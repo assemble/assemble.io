@@ -235,14 +235,26 @@
             </blockquote>
             <p>Get the
               <a href="https://github.com/assemble/grunt-init-helper">helper generator →</a> for Assemble.</p>
-            <h2>Helper features unique to Assemble</h2> 
+            <h2>Highlighted features unique to Assemble</h2> 
             <ul>
               <li>File globbing using
-                <a href="https://github.com/isaacs/minimatch">minimatch</a> patterns</li>
-              <li>Access to
+                <a href="https://github.com/isaacs/minimatch">minimatch</a> patterns. See the
+                <a href="https://github.com/assemble/handlebars-helpers/blob/master/lib/helpers/helpers-files.js#L20-L49"><code>{{glob}}</code> helper</a> for an example.</li>
+              <li>Access to native
                 <a href="https://github.com/assemble/assemble">assemble</a> options.</li>
+              <li>Helper options can be defined using Assemble task or target options. For example, in the Gruntfile for your project you can define indentation level for the
+                <a href="https://github.com/helpers/helper-prettify">{{prettify}}</a> helper like this: <code>assemble: { options: { prettify: { indent: 2 }}}</code>
+              </li>
               <li>Ability to render either markdown or HTML conditionally, based on the file extension of the generated file.</li>
+              <li>Many more features...</li>
             </ul>
+            <h2>Contributing</h2> 
+            <p>The simplest way to contribute is to show your support by starring the project!</p>
+            <h2>Using Custom Helpers</h2> 
+            <blockquote>
+              <p>Contributors welcome! Please consider adding your helpers to this library!</p>
+            </blockquote>
+            <p>Handlebars makes it pretty easy to add custom helpers. Just register your function into Handlebars with the <code>Handlebars.registerHelper</code> method and that helper will be available to any template you compile afterwards.</p>
             <h2>Handlebars Helpers Basics</h2> 
             <p>Handlebars.js ships with some built-in helpers, such as <code>{{#each}}</code>, <code>{{#if}}</code> and <code>{{#unless}}</code>. Here is how helpers work:</p>
             <ul>
@@ -253,11 +265,7 @@
             <p>
               <a href="https://github.com/wycats/handlebars.js">Handlebars.js</a> is currently the default template library for
               <a href="http://github.com/assemble/assemble">assemble</a>.</p>
-            <h2>Creating Custom Helpers</h2> 
-            <blockquote>
-              <p>Contributors welcome! Consider improving this library by adding your own helpers.</p>
-            </blockquote>
-            <p>Handlebars makes it pretty easy to add custom helpers. Just register your function into Handlebars with the <code>Handlebars.registerHelper</code> method and that helper will be available to any template you compile afterwards.</p>
+            <h3>Helper types</h3> 
             <p>Handlebars allows two different kinds of helpers:</p>
             <ul>
               <li><strong>Expression helpers</strong>  are basically regular functions that take the name of the helper and the helper function as arguments. Once an expression helper is registered, it can be called anywhere in your templates, then Handlebars
@@ -280,7 +288,7 @@
             </ul>
             <hr>
             <p>
-              <a href="https://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/index.hbs">See the template for this page →</a> 
+              <a href="http://github.com/assemble/assemble-docs/blob/master/src/templates/pages/helpers/index.hbs">See the template for this page →</a> 
             </p>
             <div class="alert">
               <style type="text/css" media="screen">
