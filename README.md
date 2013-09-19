@@ -8,6 +8,12 @@
 #### [Visit the docs →](http://assemble.io/)
 
 
+## Contributing
+
+All contributions are welcome! The simplest way to show your support for this project (or any project) is to "star" it.
+
+
+
 ## Authors
 
 **Jon Schlinkert**

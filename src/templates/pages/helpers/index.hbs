@@ -9,11 +9,25 @@ section: helpers
 Get the [helper generator →](https://github.com/assemble/grunt-init-helper) for Assemble.
 
 
-## Helper features unique to Assemble
+## Highlighted features unique to Assemble
 
-* File globbing using [minimatch](https://github.com/isaacs/minimatch) patterns
-* Access to [assemble](https://github.com/assemble/assemble) options.
+* File globbing using [minimatch](https://github.com/isaacs/minimatch) patterns. See the [`\{{glob}}` helper](https://github.com/assemble/handlebars-helpers/blob/master/lib/helpers/helpers-files.js#L20-L49) for an example.
+* Access to native [assemble](https://github.com/assemble/assemble) options.
+* Helper options can be defined using Assemble task or target options. For example, in the Gruntfile for your project you can define indentation level for the [\{{prettify}}](https://github.com/helpers/helper-prettify) helper like this: `assemble: { options: { prettify: { indent: 2 }}}`
 * Ability to render either markdown or HTML conditionally, based on the file extension of the generated file.
+* Many more features...
+
+
+## Contributing
+
+The simplest way to contribute is to show your support by starring the project!
+
+## Using Custom Helpers
+
+> Contributors welcome! Please consider adding your helpers to this library!
+
+Handlebars makes it pretty easy to add custom helpers. Just register your function into Handlebars with the `Handlebars.registerHelper` method and that helper will be available to any template you compile afterwards.
+
 
 
 ## Handlebars Helpers Basics
@@ -25,12 +39,7 @@ Handlebars.js ships with some built-in helpers, such as `\{{#each}}`, `\{{#if}}`
 
 [Handlebars.js](https://github.com/wycats/handlebars.js) is currently the default template library for [assemble](http://github.com/assemble/assemble).
 
-
-## Creating Custom Helpers
-
-> Contributors welcome! Consider improving this library by adding your own helpers.
-
-Handlebars makes it pretty easy to add custom helpers. Just register your function into Handlebars with the `Handlebars.registerHelper` method and that helper will be available to any template you compile afterwards.
+### Helper types
 
 Handlebars allows two different kinds of helpers:
 

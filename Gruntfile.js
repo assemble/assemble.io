@@ -48,15 +48,16 @@ module.exports = function (grunt) {
 
     assemble: {
       options: {
+        // assemblerc: '.assemblerc',
         marked: {sanitize: false},
         prettify: {
           indent: 2,
           condense: true,
           padcomments: true
         },
-        flatten: true,
         production: true,
-        helpers: 'src/extensions/*.js',
+        flatten: true,
+        helpers: ['src/extensions/*.js', 'helper-prettify'],
         today: '<%= grunt.template.today() %>',
         assets: '<%= site.destination %>/assets',
         partials: [
