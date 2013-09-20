@@ -42,7 +42,8 @@
     "time-grunt": "~0.1.1",
     "grunt-newer": "~0.5.1",
     "grunt-sync-pkg": "~0.1.0",
-    "helper-prettify": "~0.1.3"
+    "helper-prettify": "~0.1.3",
+    "grunt-readme": "~0.1.1"
   },
   "keywords": [
     "assemble",

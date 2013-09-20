@@ -1,16 +1,16 @@
 # [Assemble Documentation](http://assemble.io/)
 
-> Assemble makes it dead simple to build modular sites, documentation and components from reusable templates and data.
+> Assemble is a component and static site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.
 
-
-#### [See examples →](https://github.com/assemble/assemble-examples/)
 
 #### [Visit the docs →](http://assemble.io/)
 
+#### [Get boilerplates →](https://github.com/assemble/assemble-boilerplates/)
+
+
 
 ## Contributing
-
-All contributions are welcome! The simplest way to show your support for this project (or any project) is to "star" it.
+All contributions are welcome! The simplest way to show your support for this project is to **"star" it**. Please see [Contributing to Assemble](http://assemble.io/contributing) for more information.
 
 
 
@@ -27,7 +27,7 @@ All contributions are welcome! The simplest way to show your support for this pr
 + [http://github.com/doowb](http://github.com/doowb)
 
 
-## Copyright and license
-Copyright 2013 Assemble
 
-[MIT License](LICENSE-MIT)
+## Copyright and license
+Copyright (c) 2013 Assemble
+Released under the [MIT License](LICENSE-MIT).
