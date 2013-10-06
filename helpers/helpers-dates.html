@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dates | Assemble</title>
-    <meta name="description" content=" Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.">
+    <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../assets/css/markdown.css">
@@ -258,6 +258,138 @@
 11:38PM
 2012-07-26
 20120726T233805-0004</code></pre>
+            <h1>{{moment}}</h1> 
+            <blockquote>
+              <p>A helper to master time! Combining the powers of Assemble, Handlebars.js and Moment.js.</p>
+            </blockquote>
+            <p>The moment.js has plenty of features and these examples are just the tip of the iceberg of what
+              <a href="http://momentjs.com/docs/">moment.js</a> can do.</p>
+            <p>As a tip, remember that <code>{{moment method=null}}</code> means <code>moment().method()</code> and <code>{{moment somedate method=&quot;something&quot;}}</code> means <code>moment(somedate).method(&quot;something&quot;)</code>. Also, the handlebars
+              syntax does not let you pass some values (like arrays and objects) directly from the tag, so you may need to use the yaml frontmatter to run those.</p>
+            <h2>Getting started</h2> 
+            <p>Install the helper:</p>
+            <pre><code class="language-bash">npm i helper-moment --save-dev</code></pre>
+            <p>Now add the helper to Assemble&#39;s options:</p>
+            <pre><code class="language-js">assemble: {
+  options: {
+    <span class="comment">// Assemble will automatically resolve the path</span> 
+    helpers: <span class="string">'helper-moment'</span> 
+  }
+}</code></pre>
+            <h2>Examples</h2> 
+            <p>YAML front matter is not required, but we&#39;ll use it hear to supply our example data for purposes of demonstration:</p>
+            <pre><code class="language-handlebars">---
+example: &lt;%= new Date(&quot;Sun Jun 30 2011 01:53:23 GMT+0300 (EEST)&quot;) %&gt;
+exampletextdate: &#39;Sun, 30 Jun 2012 11:19:15 +0300&#39;
+inputformats: [&quot;ddd, DD MMM YYYY HH:mm:ss ZZ&quot;, &quot;MMMM YYYY&quot;]
+daysadd:
+  days: 5
+timeago:
+  years: 5
+duration:
+  hours: 2
+  minutes: 33}
+---
+Unix timestamp of now
+{{moment}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>1372599296756</code></pre>
+            <h3>Current time with formatting</h3> 
+            <pre><code class="language-handlebars">{{moment format=&quot;HH:mm:ss&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>16:34:56</code></pre>
+            <h3>Specific time with formatting</h3> 
+            <pre><code class="language-handlebars">{{moment example format=&quot;HH:mm:ss&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>01:53:23</code></pre>
+            <h3>Specific unix timestamp with formatting</h3> 
+            <pre><code class="language-handlebars">{{moment unixtimestamp format=&quot;HH:mm:ss&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>19:17:56</code></pre>
+            <h3>Specific datetime with formatting</h3> 
+            <pre><code class="language-handlebars">{{moment example format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>Sunday, 30 June 2013 01:53:23 +0300</code></pre>
+            <h2>Language support</h2> 
+            <pre><code class="language-handlebars">{{moment example lang=&quot;fi&quot; format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>sunnuntai, 30 kesäkuu 2013 01:53:23 +0300</code></pre>
+            <p>Is the added date valid?</p>
+            <pre><code class="language-handlebars">{{moment example isValid=null}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>true</code></pre>
+            <h3>Input as a string, with defined format</h3> 
+            <pre><code class="language-handlebars">{{moment [exampletextdate,&quot;ddd, DD MMM YYYY HH:mm:ss ZZ&quot;] format=&quot;MMMM YYYY&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>June 2013</code></pre>
+            <h2>Multiple formats</h2> 
+            <p>When multiple formats are used, moment.js attempts to use the &quot;correct&quot; one</p>
+            <pre><code class="language-handlebars">{{moment [exampletextdate,formats] format=&quot;MMMM YYYY&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>June 2013</code></pre>
+            <h3>Specific datetime with formatting, converted to UTC</h3> 
+            <pre><code class="language-handlebars">{{moment example UTC=null format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>Saturday, 29 June 2013 22:53:23 +0000</code></pre>
+            <h3>Getters and setters</h3> 
+            <p>Example: get week of year, depends on lang (see
+              <a href="http://momentjs.com/docs/#/get-set/">moment.js</a> documentation for more details)</p>
+            <pre><code class="language-handlebars">The week number in Finland is {{moment example lang=&quot;fi&quot; week=null}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>The week number in Finland is 26</code></pre>
+            <h2>
+              <a href="http://momentjs.com/docs/#/manipulating/">Manipulating</a> 
+            </h2> 
+            <p>See the
+              <a href="http://momentjs.com/docs/#/manipulating/">moment.js/manipulating</a> documentation for more details.</p>
+            <h3>add days</h3> 
+            <pre><code class="language-handlebars">{{moment example format=&quot;dddd&quot;}}-{{moment example add=daysadd format=&quot;dddd&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>Sunday-Friday</code></pre>
+            <h3>subtract years</h3> 
+            <pre><code class="language-handlebars">{{moment example subtract=timeago format=&quot;YYYY&quot;}}-{{moment example format=&quot;YYYY&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>2008-2013</code></pre>
+            <h3>startOf month</h3> 
+            <pre><code class="language-handlebars">{{moment example startOf=&quot;month&quot; format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>Saturday, 01 June 2013 00:00:00 +0300</code></pre>
+            <h3>endOf week</h3> 
+            <pre><code class="language-handlebars">{{moment example endOf=&quot;week&quot; format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>Saturday, 06 July 2013 23:59:59 +0300</code></pre>
+            <h3>Time from now</h3> 
+            <pre><code>After this page is rendered, the week will end {{moment endOf=&quot;week&quot; fromNow=null}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>After this page is rendered, the week will end in 6 days</code></pre>
+            <h3>Time from X</h3> 
+            <pre><code>This helper was coded {{moment from=example}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>This helper was coded in 15 hours</code></pre>
+            <h3>Calendar time</h3> 
+            <pre><code>The coding started {{moment example calendar=null}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>The coding started Today at 1:53 AM</code></pre>
+            <h3>Diff</h3> 
+            <pre><code class="language-handlebars">The difference between those two moments is {{moment diff=example}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>The difference between those two moments is 52893769</code></pre>
+            <h3>Days in Month</h3> 
+            <pre><code class="language-handlebars">This month has {{moment daysInMonth=null}} days</code></pre>
+            <p>Results in:</p>
+            <pre><code>This month has 30 days</code></pre>
+            <h3>Days in Month</h3> 
+            <pre><code class="language-handlebars">This month has {{moment daysInMonth=null}} days</code></pre>
+            <p>Results in:</p>
+            <pre><code>This month has 30 days</code></pre>
+            <h3>Duration, with humanization</h3> 
+            <pre><code class="language-handlebars">The event will last {{duration duration humanize=null}}</code></pre>
+            <p>Results in:</p>
+            <pre><code>The event will last 3 hours</code></pre>
+            <h2>Copyright and license</h2> 
+            <p>Copyright 2013 Mikko Tapionlinna Licensed under the
+              <a href="LICENSE-MIT">MIT License</a> 
+            </p>
             <h4>{{now}}</h4> 
             <p><em>Returns the current date.</em>
               <br>Parameters: format <code>String</code> - The format string, according to these tokens:

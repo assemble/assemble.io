@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layouts | Assemble</title>
-    <meta name="description" content=" Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.">
+    <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../assets/css/markdown.css">
@@ -177,7 +177,7 @@
             </span> 
             <ul class="nav nav-pills nav-stacked">
               <li>
-                <a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a> 
+                <a href="Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Collections']);">Collections</a> 
               </li>
               <li>
                 <a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a> 
@@ -187,6 +187,9 @@
               </li>
               <li class="active">
                 <a href="Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a> 
+              </li>
+              <li>
+                <a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a> 
               </li>
               <li>
                 <a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a> 
@@ -220,13 +223,13 @@
             </span> 
             <ul class="nav nav-pills nav-stacked">
               <li>
+                <a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a> 
+              </li>
+              <li>
                 <a href="Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a> 
               </li>
               <li>
                 <a href="Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a> 
-              </li>
-              <li>
-                <a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a> 
               </li>
               <li>
                 <a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a> 
@@ -293,8 +296,186 @@
           <div class="panel panel-docs">
             <h1>Layouts</h1> 
             <blockquote>
-              <p>Layouts are used for &quot;wrapping&quot; the content of individual pages with common HTNL, such as a &quot;header&quot; and &quot;footer&quot;.</p>
+              <p>Layouts are used for &quot;wrapping&quot; the content of individual pages with common elements, such as the <code>&lt;head&gt;&lt;/head&gt;</code> and footer sections, which usually contain necessities such as <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags.</p>
             </blockquote>
+            <h2>Basic Layout</h2> 
+            <p>A very simple layout might look something like this:</p>
+            <pre><code class="language-handlebars">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    {{&gt; body }}
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>Where <code>{{&gt; body }}</code> is the point of insertion for content from any pages that use this layout.</p>
+            <h3>Defining layouts</h3> 
+            <p>In the Assemble task options you can either specify a general layout to be used for all pages in a project:</p>
+            <pre><code class="language-js">assemble: {
+  options: {
+    layout: <span class="string">'layouts/default.hbs'</span> 
+  }
+}</code></pre>
+            <h3>Multiple layouts</h3> 
+            <p>When your project has different types or groupings of pages, such as &quot;docs&quot;, &quot;blog&quot; and &quot;examples&quot; for instance, and there are certain design or structural elements that are unique to each grouping, it often makes
+              sense to:</p>
+            <ol>
+              <li>Create a different targets in the assemble task to accomodate each grouping,</li>
+              <li>Give each target (e.g. each grouping of pages) its own special layout containing the unique elements required by each grouping. For example, every page in the <code>blog</code> target might have a right sidebar, whereas every page in the <code>docs</code> target
+                might have a left sideabar:</li>
+            </ol>
+            <p>For example:</p>
+            <pre><code class="language-js">assemble: {
+  options: {
+    layout: <span class="string">'default.hbs'</span>,
+    layoutdir: <span class="string">'layouts'</span> 
+  },
+  docs: {
+    <span class="comment">// override task-level layout</span> 
+    options: {layout: <span class="string">'docs-layout.hbs'</span> },
+    files: {<span class="string">'docs/'</span>: [<span class="string">'src/docs/*.hbs'</span> ]},
+  },
+  site: {
+    <span class="comment">// override task-level layout</span> 
+    options: {layout: <span class="string">'site-layout.hbs'</span> },
+    files: {<span class="string">'site/'</span>: [<span class="string">'src/site/*.hbs'</span> ]},
+  }
+  <span class="comment">// ... other targets</span> 
+}</code></pre>
+            <h3>Nested layouts</h3> 
+            <p>Layouts can also be &quot;stacked&quot; so that the parent-most layouts contain the most commonly used elements while &quot;child layouts&quot; contain elements that are only necessary for specific pages or groupings of pages.</p>
+            <p>If, for example:</p>
+            <ul>
+              <li>all pages will require the same <code>&lt;script&gt;&lt;/script&gt;</code> and <code>&lt;link&gt;</code> tags,</li>
+              <li>some pages in your project should be rendered <em>with a sidebar</em>
+              </li>
+              <li>and some <em>without a sidebar</em>
+              </li>
+            </ul>
+            <p>This is a good opportunity to use nested layouts that might look something like this:</p>
+            <h4>Example Layout #1: parent layout</h4> 
+            <p>Our parent layout will only contain the most commonly required, generalized elements. We&#39;ll call this layout <code>parent-layout.hbs</code>:</p>
+            <pre><code class="language-handlebars">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;main.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    {{&gt; body }}
+    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <h4>Example Layout #2: child layout</h4> 
+            <p>Our &quot;child&quot; layout will contain additional markup for our sidebar, but it should also inherit all of the markup from the parent layout (since layouts are &quot;flattened&quot; before pages are rendered). For the markup to be inherited,
+              we need to <strong>specify a parent layout for our child layout</strong>.</p>
+            <p>Specifying a <em>layout for a layout</em> works the exact same way as specifying a layout for any reguar page. It can be defined in the <code>options.layout</code> property in the Assemble task config in the Gruntfile (at the task and/or target
+              level), or the layout can be specified in the child layout&#39;s YAML front matter. Here is an example of the latter:</p>
+            <p><code>child-layout.hbs</code>
+            </p>
+            <pre><code class="language-html">---
+layout: parent-layout.hbs
+---
+&lt;!-- Only the child layout should have this sidebar! --&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-3&quot;&gt;
+    &lt;div class=&quot;sidebar&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;Buttons&lt;/a&gt;
+      &lt;ul class=&quot;nav&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#button-expand-left&quot;&gt;&lt;/a&gt;Expand Left&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#button-expand-right&quot;&gt;&lt;/a&gt;Expand Right&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#button-expand-up&quot;&gt;&lt;/a&gt;Expand Up&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#button-expand-down&quot;&gt;&lt;/a&gt;Expand Down&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-lg-9&quot;&gt;
+    &lt;!-- render content from pages that specify this layout --&gt;
+    {{&gt; body }}
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p>You might recall that the <code>{{&gt; body }}</code> tag is the &quot;insertion point&quot; in a layout, specifying exactly where the content from each page will be passed in. Layouts are no different. A child layout will be inserted (flattened)
+              into the parent layout at the point of the <code>{{&gt; body }}</code> tag.</p>
+            <h4>Example &quot;flattened&quot; result</h4> 
+            <p>Continuing with the example from the previous section, the flattened layout for pages that use the &quot;child&quot; layout might look something like this during build:</p>
+            <pre><code class="language-handlebars">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;main.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-lg-3&quot;&gt;
+        &lt;div class=&quot;sidebar&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;Buttons&lt;/a&gt;
+          &lt;ul class=&quot;nav&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;#button-expand-left&quot;&gt;&lt;/a&gt;Expand Left&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#button-expand-right&quot;&gt;&lt;/a&gt;Expand Right&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#button-expand-up&quot;&gt;&lt;/a&gt;Expand Up&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#button-expand-down&quot;&gt;&lt;/a&gt;Expand Down&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-lg-9&quot;&gt;
+        {{&gt; body }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <h2>Layout FAQ</h2> 
+            <ul>
+              <li>Layouts are optional. If you don&#39;t need one, don&#39;t define one.</li>
+              <li>At build time, nested layouts are &quot;flattened&quot; before content is passed in from pages (child layouts are progressively &quot;merged&quot; into their respective parent layouts until there are no parent layouts left in the stack.)</li>
+              <li>Layouts can be defined at the <strong>task-level</strong>, <strong>target-level</strong>, in the <strong>YAML front-matter</strong>  of a page, or in the <code>data.layout</code> property for pages defined in an <code>options.pages</code> collection.</li>
+            </ul>
+            <p><strong>Layout Specificity</strong> 
+            </p>
+            <p>As with CSS, the more specific layout wins:</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Level</th>
+                  <th>Description</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>none</strong> 
+                  </td>
+                  <td>Layouts are optional.</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Task</strong> 
+                  </td>
+                  <td>Defined at the task-level of the assemble task.</td>
+                  <td>Project level</td>
+                </tr>
+                <tr>
+                  <td><strong>Target</strong> 
+                  </td>
+                  <td>Defined at the target-level in the assemble task.</td>
+                  <td>Sub-project level</td>
+                </tr>
+                <tr>
+                  <td><strong>Layout property</strong>  (data)</td>
+                  <td>Defined in the <code>data: {}</code> object in a <code>pages</code> collection.</td>
+                  <td>Page and/or sub-page level</td>
+                </tr>
+                <tr>
+                  <td><strong>Layout property</strong>  (YFM)</td>
+                  <td>Defined in the YAML front matter of a page.</td>
+                  <td>Page and/or sub-page level</td>
+                </tr>
+              </tbody>
+            </table>
             <h2>Layout example</h2> 
             <p>Layouts are optional, but the <code>{{&gt; body }}</code> tag is required for content to be pulled into a layout.</p>
             <pre><code class="language-handlebars">&lt;!DOCTYPE html&gt;

@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contributing to Assemble | Assemble</title>
-    <meta name="description" content=" Documentation site for Assemble, the Grunt-based site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.">
+    <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../assets/css/markdown.css">
@@ -177,7 +177,7 @@
             </span> 
             <ul class="nav nav-pills nav-stacked">
               <li>
-                <a href="../docs/Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a> 
+                <a href="../docs/Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Collections']);">Collections</a> 
               </li>
               <li>
                 <a href="../docs/Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a> 
@@ -187,6 +187,9 @@
               </li>
               <li>
                 <a href="../docs/Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a> 
+              </li>
+              <li>
+                <a href="../docs/Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a> 
               </li>
               <li>
                 <a href="../docs/Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a> 
@@ -220,13 +223,13 @@
             </span> 
             <ul class="nav nav-pills nav-stacked">
               <li>
+                <a href="../docs/Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a> 
+              </li>
+              <li>
                 <a href="../docs/Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a> 
               </li>
               <li>
                 <a href="../docs/Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a> 
-              </li>
-              <li>
-                <a href="../docs/Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a> 
               </li>
               <li>
                 <a href="../docs/options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a> 
@@ -321,6 +324,11 @@
               <li>CSS changes must be done in <code>.less</code> files first, never just the compiled files</li>
               <li>Try not to pollute your pull request with unintended changes--keep them simple and small</li>
             </ul>
+            <h2>Code Examples</h2> 
+            <p><strong>Please use correct language definitions</strong>  next to the markdown backticks in code examples, <em>even if the language is not supported by GitHub Flavored Markdown</em>. This is important because we want to ensure that when a develper
+              searches for &quot;handlebars&quot;, Assemble&#39;s relevant documentation will show up in the results. B</p>
+            <p>For example, the Handlebars is not supported as a &quot;language&quot;, so you might be tempted to use <code>```html</code> so that you can take advantage of code highlighting, but you should still do <code>```handlebars</code>. The same is true
+              for the LESS language, please use <code>```less</code> instead of <code>```css</code>.</p>
             <h2>Coding standards: HTML</h2> 
             <ul>
               <li>Always use proper indentation</li>
