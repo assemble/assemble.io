@@ -16,12 +16,16 @@ assemble: {
       breaks: false,
       gfm: true,
       highlight: function(code, lang, callback) {
-        pygmentize({
-          lang: lang,
-          format: 'html'
-        }, code, function(err, result) {
-          callback(err, result.toString());
-        });
+        pygmentize(
+          {
+            lang: lang,
+            format: 'html'
+          },
+          code,
+          function(err, result) {
+            callback(err, result.toString());
+          }
+        );
       },
       langPrefix: 'language-',
       pedantic: false,
