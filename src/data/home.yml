@@ -1,6 +1,3 @@
----
-banner:
-  text: "Get Started with Assemble"
 ideas:
   one: |
       Documentation. Sites. Components. <br>It has never been easier to leverage the full
@@ -13,27 +10,3 @@ ideas:
       Workflow between design and development has never been easier.
       Assemble makes it easy for designers and developers stay on the same page.
       It has never been easier to build static sites.
-jumbotron:
-  btn:
-    modifier: btn-inverse
-    text: "Download Assemble"
-  lead: "It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now."
-  #lead: "Assemble is a Grunt-based static site generator."
-  title: "build something"
-teaser:
-  footer:
-    button:
-      href: "#"
-      modifier: "button-jade button-large pull-right"
-      text: "Visit Assemble on GitHub"
-    link: "#"
-    modifier: "banner-inverse banner-large"
-    static: true
-    subtitle: ""
-    title: "<p>Get started with some examples.</p>"
-  masthead:
-    linkable: true
-    modifier: ""
-    subtitle: "The H5BP project from Paul Irish, Chris Coyer, Dennis Gaebel..."
-    title: "Effeckt uses Assemble!"
-    url: "https://github.com/h5bp/Effeckt.css"
