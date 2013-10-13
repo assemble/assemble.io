@@ -7,11 +7,7 @@
         {{> btn-tweet }}
         <h1>
           <span class="text-muted">Docs /&nbsp;</span>
-          {{#if section}}
-            {{section}}
-          {{else}}
-            {{basename}}
-          {{/if}}
+          {{default section this.basename}}
         </h1>
       </div>
     </div>
