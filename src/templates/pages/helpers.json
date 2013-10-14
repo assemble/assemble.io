@@ -8,7 +8,7 @@
         "title": "Compose"
       },
       "content": "\n{{md 'src/content/helpers/special/helper-compose.md'}}",
-      "filename": "compose"
+      "filename": "helper-compose"
     },
     {
       "data": {
@@ -16,7 +16,7 @@
         "title": "Aggregate"
       },
       "content": "\n{{md 'src/content/helpers/special/helper-aggregate.md'}}",
-      "filename": "aggregate"
+      "filename": "helper-aggregate"
     },
     {
       "data": {

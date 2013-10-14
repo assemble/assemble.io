@@ -1,8 +1,8 @@
-# \{{compose}} [![NPM version](https://badge.fury.io/js/helper-compose.png)](http://badge.fury.io/js/helper-compose)
+### \{{compose}} [![NPM version](https://badge.fury.io/js/helper-compose.png)](http://badge.fury.io/js/helper-compose)
 
 > \{{compose}} handlebars helper. Inlines content from multiple files optionally using wildcard (globbing/minimatch) patterns, extracts YAML front matter to pass to context for each file. Accepts compare function as 3rd parameter for sorting inlined files.
 
-## Quickstart
+#### Quickstart
 In the root of your project, run the following in the command line:
 
 ```bash
@@ -34,7 +34,7 @@ With that completed, you may now use the `\{{compose}}` helper in your templates
 ```
 
 
-## Context & Lo-Dash templates
+### Context & Lo-Dash templates
 
 The helper will also process any valid Lo-Dash templates in the YAML front matter of targeted files, using `grunt.config.data` and the context of the "current" file. For example:
 
@@ -51,21 +51,21 @@ heading: <%= blog.title %> | Blog <%= post %>
 
 
 
-## Options
+### Options
 
-### cwd
+#### cwd
 Type: `String` (optional)
 Default value: `''`
 
 The `cwd` for paths defined in the helper.
 
-### sep
+#### sep
 Type: `String`
 Default value: `\n`
 
 The separator to append after each inlined file.
 
-### compare
+#### compare
 Type: `Function`
 Default value: `function(a, b) {return a.index >= b.index ? 1 : -1;}`
 
@@ -75,9 +75,9 @@ Compare function for sorting the aggregated files.
 
 
 
-## Defining options
+### Defining options
 
-### "assemble" task options
+#### "assemble" task options
 
 > If you use Grunt and [Assemble](http://assemble.io), you can pass options from the `assemble` task in the Gruntfile to the helper.
 
@@ -103,21 +103,21 @@ Note that the options are defined in `options: {compose: {}}`, which is a [custo
 
 
 
-## Examples
+### Examples
 
 See examples of the `\{{compose}}` helper being used in the [yfm project](https://github.com/assemble/yfm):
 
-### example templates and content
+#### example templates and content
 * [the helper itself](https://github.com/assemble/yfm/blob/master/test/fixtures/compose.hbs)
 * [content being composed by the helper](https://github.com/assemble/yfm/tree/master/test/fixtures/compose)
 * [the compiled result](https://github.com/assemble/yfm/blob/master/test/actual/compose.html)
 
-### example options and context
+#### example options and context
 * [defining helper options](https://github.com/assemble/yfm/blob/master/Gruntfile.js#L31-L35)
 * [config data used in examples](https://github.com/assemble/yfm/blob/master/Gruntfile.js#L19)
 
 
-### all options
+#### all options
 
 ```js
 assemble: {
@@ -133,7 +133,7 @@ assemble: {
 }
 ```
 
-### cwd option
+#### cwd option
 
 Instead of doing this:
 
@@ -165,7 +165,7 @@ and then define paths in the templates like this:
 \{{/compose}}
 ```
 
-## Usage example
+### Usage example
 
 Given you have this config in your project's gruntfile:
 
@@ -245,7 +245,7 @@ The result, `blog/index.html` would contain something like:
 ```
 
 
-## Author
+### Author
 
 **Jon Schlinkert**
 
@@ -253,6 +253,6 @@ The result, `blog/index.html` would contain something like:
 + [github/jonschlinkert](http://github.com/jonschlinkert)
 
 
-## License and Copyright
+### License and Copyright
 Licensed under the [MIT License](./LICENSE-MIT)
 Copyright (c) Jon Schlinkert, contributors.

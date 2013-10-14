@@ -4,18 +4,28 @@
 
 {{!TODO: add sections for swig filters and lodash mixins }}
 
-<span class="nav-section-title">
-  Handlebars Helpers
-</span>
-
-<ul class="nav nav-pills nav-stacked">
+{{! <ul class="nav nav-pills nav-stacked"> }}
   {{!#each pages}}
     {{!#is data.area "helpers"}}
       {{!> sidenav-link }}
     {{!/is}}
   {{!/each}}
+{{! </ul> }}
+
+<span class="nav-section-title">
+  Special Helpers
+</span>
+
+<ul class="nav nav-pills nav-stacked">
+  <li> <a href="helper-compose.html">Compose</a> </li>
+</ul>
+<ul class="nav nav-pills nav-stacked">
+  <li> <a href="helper-aggregate.html">Aggregate</a> </li>
 </ul>
 
+<span class="nav-section-title">
+  Categories
+</span>
 <ul class="nav nav-pills nav-stacked">
   <li> <a href="helpers-code.html">Code</a> </li>
 </ul>
@@ -66,7 +76,4 @@
 </ul>
 <ul class="nav nav-pills nav-stacked">
   <li> <a href="helpers-url.html">URL</a> </li>
-</ul>
-<ul class="nav nav-pills nav-stacked">
-  <li> <a href="helpers-special.html">special</a> </li>
 </ul>
