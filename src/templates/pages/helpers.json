@@ -5,17 +5,33 @@
     {
       "data": {
         "area": "<%= helpers.area %>",
+        "title": "Compose"
+      },
+      "content": "\n{{md 'src/content/helpers/special/helper-compose.md'}}",
+      "filename": "compose"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
+        "title": "Aggregate"
+      },
+      "content": "\n{{md 'src/content/helpers/special/helper-aggregate.md'}}",
+      "filename": "aggregate"
+    },
+    {
+      "data": {
+        "area": "<%= helpers.area %>",
         "title": "Comparison"
       },
-      "content": "\n{{md 'src/content/helpers/comparison/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/comparison/*.md'}}",
       "filename": "helpers-comparison"
-    },
+    },    
     {
       "data": {
         "area": "<%= helpers.area %>",
         "title": "Code"
       },
-      "content": "\n{{md 'src/content/helpers/code/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/code/*.md'}}",
       "filename": "helpers-code"
     },
     {
@@ -23,7 +39,7 @@
         "area": "<%= helpers.area %>",
         "title": "Collections"
       },
-      "content": "\n{{md 'src/content/helpers/collections/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/collections/*.md'}}",
       "filename": "helpers-collections"
     },
     {
@@ -31,7 +47,7 @@
         "area": "<%= helpers.area %>",
         "title": "Comparison"
       },
-      "content": "\n{{md 'src/content/helpers/comparison/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/comparison/*.md'}}",
       "filename": "helpers-comparison"
     },
     {
@@ -39,7 +55,7 @@
         "area": "<%= helpers.area %>",
         "title": "Content"
       },
-      "content": "\n{{md 'src/content/helpers/content/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/content/*.md'}}",
       "filename": "helpers-content"
     },
     {
@@ -47,7 +63,7 @@
         "area": "<%= helpers.area %>",
         "title": "Data"
       },
-      "content": "\n{{md 'src/content/helpers/data/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/data/*.md'}}",
       "filename": "helpers-data"
     },
     {
@@ -55,7 +71,7 @@
         "area": "<%= helpers.area %>",
         "title": "Dates"
       },
-      "content": "\n{{md 'src/content/helpers/dates/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/dates/*.md'}}",
       "filename": "helpers-dates"
     },
     {
@@ -63,7 +79,7 @@
         "area": "<%= helpers.area %>",
         "title": "HTML"
       },
-      "content": "\n{{md 'src/content/helpers/html/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/html/*.md'}}",
       "filename": "helpers-html"
     },
     {
@@ -71,7 +87,7 @@
         "area": "<%= helpers.area %>",
         "title": "Inflections"
       },
-      "content": "\n{{md 'src/content/helpers/inflections/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/inflections/*.md'}}",
       "filename": "helpers-inflections"
     },
     {
@@ -79,7 +95,7 @@
         "area": "<%= helpers.area %>",
         "title": "Logging"
       },
-      "content": "\n{{md 'src/content/helpers/logging/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/logging/*.md'}}",
       "filename": "helpers-logging"
     },
     {
@@ -87,7 +103,7 @@
         "area": "<%= helpers.area %>",
         "title": "Markdown"
       },
-      "content": "\n{{md 'src/content/helpers/markdown/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/markdown/*.md'}}",
       "filename": "helpers-markdown"
     },
     {
@@ -95,7 +111,7 @@
         "area": "<%= helpers.area %>",
         "title": "Math"
       },
-      "content": "\n{{md 'src/content/helpers/math/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/math/*.md'}}",
       "filename": "helpers-math"
     },
     {
@@ -103,7 +119,7 @@
         "area": "<%= helpers.area %>",
         "title": "Misc"
       },
-      "content": "\n{{md 'src/content/helpers/misc/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/misc/*.md'}}",
       "filename": "helpers-misc"
     },
     {
@@ -111,7 +127,7 @@
         "area": "<%= helpers.area %>",
         "title": "Numbers"
       },
-      "content": "\n{{md 'src/content/helpers/numbers/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/numbers/*.md'}}",
       "filename": "helpers-numbers"
     },
     {
@@ -119,7 +135,7 @@
         "area": "<%= helpers.area %>",
         "title": "Path"
       },
-      "content": "\n{{md 'src/content/helpers/path/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/path/*.md'}}",
       "filename": "helpers-path"
     },
     {
@@ -127,7 +143,7 @@
         "area": "<%= helpers.area %>",
         "title": "Readme"
       },
-      "content": "\n{{md 'src/content/helpers/readme/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/readme/*.md'}}",
       "filename": "helpers-readme"
     },
     {
@@ -135,7 +151,7 @@
         "area": "<%= helpers.area %>",
         "title": "Strings"
       },
-      "content": "\n{{md 'src/content/helpers/strings/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/strings/*.md'}}",
       "filename": "helpers-strings"
     },
     {
@@ -143,7 +159,7 @@
         "area": "<%= helpers.area %>",
         "title": "URL"
       },
-      "content": "\n{{md 'src/content/helpers/url/*.*'}}",
+      "content": "\n{{md 'src/content/helpers/url/*.md'}}",
       "filename": "helpers-url"
     }
   ]

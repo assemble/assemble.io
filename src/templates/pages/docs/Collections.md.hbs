@@ -3,15 +3,13 @@ title: Collections
 
 area: docs
 section: templates
-
-published: false
 ---
 
 ## Collections
 
 What is included in a collection?
 
-For a given collection, all items in the "current" target will be added to the collection.
+For any given collection, only items found in the [current target] will be added to the collection by Assemble.
 
 For example, if we wish to render a list of all of the pages in the `pages` collection, we will only see the pages in the "current target".
 
@@ -50,6 +48,74 @@ However, if you also want to sort the pages by say, `date`, you would instead us
 ```
 
 Note that you may only use dot notation for sorting, names like `a['my.page']` will be interpreted as `a.my.page` and thus will not work.
+
+
+
+## Sorting
+
+Now, if we also want to _sort the pages_ by say, `date`, we would instead use `\{{#withSort pages}}`...`\{{/withSort}}` along with the second parameter that we wish to sort by,
+in this case `date`:
+
+```html
+\{{#each tags}}
+  \{{#is tag "foo"}}
+  <h1>\{{tag}}</h1>
+  <ul>
+    \{{#withSort pages data.date}}
+      <li>\{{data.title}}</li>
+    \{{/withSort}}
+  </ul>
+  \{{/is}}
+\{{/each}}
+```
+
+_Note that you may only use dot notation for sorting, names like `a['my.page']` will be interpreted as `a.my.page` and thus will not work._
+
+### Sort order
+
+Collections options can be configured to sort:
+
+* `ascending` (or alias `asc`)
+* `descending` (or alias `desc`)
+* a property in the page `data` context
+
+
+```js
+assemble: {
+  options: {
+    collections: [
+      {
+        // the name of the collection
+        title: 'tags',
+        // the order in which to sort
+        sortorder: 'desc'
+      }
+    ]
+  }
+}
+```
+
+"Pages" collections can also be sorted:
+
+```js
+assemble: {
+  options: {
+    pages: [
+      {data: {title: 'Post #1'}, content: '\{{md "blog/post1.md"}}'},
+      {data: {title: 'Post #2'}, content: '\{{md "blog/post2.md"}}'},
+    ],
+    collections: [
+      {
+        title: 'pages',
+        sortorder: 'desc'
+      }
+    ]
+  }
+}
+```
+
+
+
 
 ## Related Information
 

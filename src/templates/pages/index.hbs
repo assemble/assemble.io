@@ -3,26 +3,23 @@ title: Home
 description: <%= pkg.description %>
 layout: base.hbs
 ---
-
 {{! .jumbotron component
-================================================== }}
-{{> jumbotron}}
+================================ }}
+{{> jumbotron jumbotron }}
 
 
 {{! .teaser component
-================================================== }}
-{{> teaser-link home.teaser.masthead }}
+================================ }}
+{{> teaser teaser }}
 
 
 {{! page content
-================================================== }}
+================================ }}
 <div class="container">
   <div class="panel panel-clear">
     <section class="gallery">
       <div class="row">
-        {{#each gallery}}
-          {{> thumbnail . }}
-        {{/each}}
+        {{> repos }}
       </div>
     </section>
   </div>
@@ -30,6 +27,6 @@ layout: base.hbs
 
 
 {{! .banner component
-================================================== }}
-{{> banner home.banner }}
+================================ }}
+{{> banner banner }}
 

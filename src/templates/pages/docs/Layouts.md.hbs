@@ -5,7 +5,214 @@ area: docs
 section: templates
 ---
 
-> Layouts are used for "wrapping" the content of individual pages with common HTNL, such as a "header" and "footer".
+> Layouts are used for "wrapping" the content of individual pages with common elements, such as the `<head></head>` and footer sections, which usually contain necessities such as `<link>` and `<script>` tags.
+
+## Basic Layout
+
+A very simple layout might look something like this:
+
+```handlebars
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>\{{title}}</title>
+  </head>
+  <body>
+    \{{> body }}
+  </body>
+</html>
+```
+
+Where `\{{> body }}` is the point of insertion for content from any pages that use this layout.
+
+
+### Defining layouts
+
+In the Assemble task options you can either specify a general layout to be used for all pages in a project:
+
+```js
+assemble: {
+  options: {
+    layout: 'layouts/default.hbs'
+  }
+}
+```
+
+### Multiple layouts
+
+When your project has different types or groupings of pages, such as "docs", "blog" and "examples" for instance, {{!you may wish to use a specialized layout for each page type.}} and there are certain design or structural elements that are unique to each grouping, it often makes sense to:
+
+1. Create a different targets in the assemble task to accomodate each grouping,
+2. Give each target (e.g. each grouping of pages) its own special layout containing the unique elements required by each grouping. For example, every page in the `blog` target might have a right sidebar, whereas every page in the `docs` target might have a left sideabar:
+
+For example:
+
+```js
+assemble: {
+  options: {
+    layout: 'default.hbs',
+    layoutdir: 'layouts'
+  },
+  docs: {
+    // override task-level layout
+    options: {layout: 'docs-layout.hbs'},
+    files: {'docs/': ['src/docs/*.hbs']},
+  },
+  site: {
+    // override task-level layout
+    options: {layout: 'site-layout.hbs'},
+    files: {'site/': ['src/site/*.hbs']},
+  }
+  // ... other targets
+}
+```
+
+### Nested layouts
+
+Layouts can also be "stacked" so that the parent-most layouts contain the most commonly used elements while "child layouts" contain elements that are only necessary for specific pages or groupings of pages.
+
+If, for example:
+
+* all pages will require the same `<script></script>` and `<link>` tags,
+* some pages in your project should be rendered _with a sidebar_
+* and some _without a sidebar_
+
+This is a good opportunity to use nested layouts that might look something like this:
+
+#### Example Layout #1: parent layout
+
+Our parent layout will only contain the most commonly required, generalized elements. We'll call this layout `parent-layout.hbs`:
+
+```handlebars
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>\{{title}}</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    \{{> body }}
+    <script src="main.js"></script>
+  </body>
+</html>
+```
+
+#### Example Layout #2: child layout
+
+Our "child" layout will contain additional markup for our sidebar, but it should also inherit all of the markup from the parent layout (since layouts are "flattened" before pages are rendered). For the markup to be inherited, we need to **specify a parent layout for our child layout**.
+
+Specifying a _layout for a layout_ works the exact same way as specifying a layout for any reguar page. It can be defined in the `options.layout` property in the Assemble task config in the Gruntfile (at the task and/or target level), or the layout can be specified in the child layout's YAML front matter. Here is an example of the latter:
+
+`child-layout.hbs`
+
+```html
+---
+layout: parent-layout.hbs
+---
+<!-- Only the child layout should have this sidebar! -->
+<div class="row">
+  <div class="col-lg-3">
+    <div class="sidebar">
+      <a href="#">Buttons</a>
+      <ul class="nav">
+        <li><a href="#button-expand-left"></a>Expand Left</li>
+        <li><a href="#button-expand-right"></a>Expand Right</li>
+        <li><a href="#button-expand-up"></a>Expand Up</li>
+        <li><a href="#button-expand-down"></a>Expand Down</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <!-- render content from pages that specify this layout -->
+    \{{> body }}
+  </div>
+</div>
+```
+
+You might recall that the `\{{> body }}` tag is the "insertion point" in a layout, specifying exactly where the content from each page will be passed in. Layouts are no different. A child layout will be inserted (flattened) into the parent layout at the point of the `\{{> body }}` tag.
+
+
+#### Example "flattened" result
+
+Continuing with the example from the previous section, the flattened layout for pages that use the "child" layout might look something like this during build:
+
+```handlebars
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>\{{title}}</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="sidebar">
+          <a href="#">Buttons</a>
+          <ul class="nav">
+            <li><a href="#button-expand-left"></a>Expand Left</li>
+            <li><a href="#button-expand-right"></a>Expand Right</li>
+            <li><a href="#button-expand-up"></a>Expand Up</li>
+            <li><a href="#button-expand-down"></a>Expand Down</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        \{{> body }}
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
+```
+
+
+## Layout FAQ
+
+* Layouts are optional. If you don't need one, don't define one.
+* At build time, nested layouts are "flattened" before content is passed in from pages (child layouts are progressively "merged" into their respective parent layouts until there are no parent layouts left in the stack.)
+* Layouts can be defined at the **task-level**, **target-level**, in the **YAML front-matter** of a page, or in the `data.layout` property for pages defined in an `options.pages` collection. {{! TODO link to info about options.pages }}
+
+**Layout Specificity**
+
+As with CSS, the more specific layout wins:
+
+| Level                       | Description                                     |  |
+| --------------------------- | --------------------------------------------------------- | -------------------------- |
+| **none**                    | Layouts are optional.                                     |                            |
+| **Task**                    | Defined at the task-level of the assemble task.           | Project level              |
+| **Target**                  | Defined at the target-level in the assemble task.         | Sub-project level          |
+| **Layout property** (data)  | Defined in the `data: {}` object in a `pages` collection. | Page and/or sub-page level |
+| **Layout property** (YFM)   | Defined in the YAML front matter of a page.               | Page and/or sub-page level |
+
+
+
+
+
+
+{{#draft}}
+* `default.hbs`: the default layout for the project, and it's the only layout that would really be "needed" in an actual project, since it wraps the demo pages
+* `component.hbs`: a child layout that inherits the default layout, this is a specialized "inner layout" for wrapping components with certain details about the "current demo".
+
+For those who are more visual, layouts are nested
+
+Layouts in this project are nested in the following order:
+
+These "nested" layouts are flattened before content is rendered.
+
+**TODO**
+
+Introduce:
+
+* pages
+* data
+* src-dest/files-objects/files-arrays
+{{/draft}}
+
+
+
 
 
 ## Layout example

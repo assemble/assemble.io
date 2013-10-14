@@ -13,14 +13,15 @@ section: getting started
 * generate links to/from each page in each category
 {{/todo}}
 
-First and foremost, on each page of Assemble's live documentation you will find a "See the templates for this page" link, so you can take a look behind the curtains and get a peek at how we build our own docs. Of course, you can also fork or download the entire project if you want to go deeper with it (or make a pull request, you thoughtful and charitable community member you!).
+## Source files for the Docs
+On each page of Assemble's live documentation you will find a "See the templates for this page" link, so you can take a look behind the curtains and get a peek at how we build our own docs. Of course, you can also fork or download the entire project if you want to go deeper with it (or make a pull request, you thoughtful and charitable community member you!).
+
 
 ## Generating a list from a collection
-
 The simplest way to generate a list from a collection is to create a block expression using the name of the collection, and the collection items inside.
 
-### Collection items from "all pages"
 
+### Collection items from "all pages"
 To generate a list of [categories][options-collections] for all [pages][pages] in a [target][targets], add the following block expression to a page or a [layout][layouts] (depending on whether or not you want the list to render to a _specified page/pages_ or _all_ pages):
 
 ```html
@@ -66,8 +67,8 @@ The generated output will be a basic list containing the merged values from the 
 </ul>
 ```
 
-### Collection items on a given page
 
+### Collection items on a given page
 To generate a list of [categories][options-collections] for the a page, you would add the following to the page on which you want to generate the list:
 
 ```html
@@ -78,8 +79,8 @@ To generate a list of [categories][options-collections] for the a page, you woul
 Or we can use: `\{{#each page.categories}}...\{{/each}}` block expression with the name of the collection as a variable to get the list of pages in the current [target][targets]
 
 
-## Dynamically building navigation
 
+## Dynamically building navigation
 Following the previous example, we'll use the `\{{#each}}...\{{/each}}` block expression with the [pages][pages] variable to get the list of pages in the current [target][targets].
 
 Then, using the `\{{#is}}...\{{/is}}` comparison helper from the [handlebars-helpers][handlebars-helpers] library, we can dynamically build navigation items by comparing a property (or properties) from the YAML front matter each page in the list with the given values.
@@ -107,12 +108,12 @@ Any pages with the `section: getting-started` in the YAML front matter will rend
 \{{#todo}} update the docs once [Pages Arrays][pages-array] can achieve this as well.\{{/todo}}
 
 
-## Adding "active" links to navigation items
 
+## Adding "active" links to navigation items
 If you want to add `class="active"` to a navigation item for the "current page", you can achieve this using the `\{{#is}}...\{{/is}}` [comparison helper](https://github.com/assemble/handlebars-helpers#comparisons-equal-helpers) from the [handlebars-helpers][handlebars-helpers] library.
 
-### Using YFM properties
 
+### Using YFM properties
 You can achieve this using many different variables, but relatively easy one is to compare the _[basename][built-in-variables] of the current page_ to the _given value_:
 
 ```html
@@ -136,8 +137,8 @@ You can achieve this using many different variables, but relatively easy one is 
 ```
 _The above example is from the navbar in [assemble-bootstrap](https://github.com/assemble/assemble-bootstrap)._
 
-### Without YFM
 
+### Without YFM
 However, if you don't use YFM (or don't want to use properties from YFM to create active links), you can compare the _destination of the current page_ to the _destination of the linked page_ to get a truthy or falsy value.
 
 ```html
@@ -157,8 +158,8 @@ However, if you don't use YFM (or don't want to use properties from YFM to creat
 \{{/each}}
 ```
 
-## Generating relative paths for links
 
+## Generating relative paths for links
 To get the relative path from the _destination of the current page_ to the _destination of the linked page_, the [\{{relative}}](https://github.com/assemble/handlebars-helpers#relative) helper works quite well:
 
 ```html
@@ -242,17 +243,15 @@ Throughout the Assemble docs, anytime we refere to a target(s), we are refering 
 In the following example, the `assemble` task is configured with three targets:
 
 ```js
-{
-  assemble: {
-    docs: {
-      'docs/': 'src/docs/*.hbs'
-    },
-    blog: {
-      'articles/': 'src/posts/*.hbs'
-    },
-    site: {
-      'site/': 'src/pages/*.hbs'
-    }
+assemble: {
+  docs: {
+    'docs/': 'src/docs/*.hbs'
+  },
+  blog: {
+    'articles/': 'src/posts/*.hbs'
+  },
+  site: {
+    'site/': 'src/pages/*.hbs'
   }
 }
 ```
@@ -260,6 +259,7 @@ In the following example, the `assemble` task is configured with three targets:
 This is just one aspect of Grunt's conventions that we have found to be extremely useful and powerful. Oftentimes we see developers looking for overly complicated workarounds to difficult issues that could very easily be solved by just adding another target to the assemble task (or even by adding another supplemental task).
 
 
+<a class="anchor" name="current-target" id="current-target"></a>
 ### "Current Target"
 
 Throughout Assemble's docs, when you see the term "current target", this refers to the _context of the target currently being run_.
@@ -471,7 +471,7 @@ Assemble provides:
 
 ## Configurable Conventions
 
-As a philosophy, Assemble does not force opinion on you, freeing you to use your own conventions for most things, including:
+As a philosophy, Assemble does not force opinions on you, freeing you to use your own conventions for most things, including:
 * How and where configuration data is stored
 * Terminology for variables ("global" variables, page variables or component variables, and so on)
 * Folder structure and file naming conventions.

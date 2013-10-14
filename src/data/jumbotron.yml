@@ -1,7 +1,5 @@
-jumbotron:
-  btn:
-    modifier: btn-inverse
-    text: "Download Assemble"
-  lead: "It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now."
-  #lead: "Assemble is a Grunt-based static site generator."
-  title: "build something"
+heading: "build something"
+lead: "It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now."
+btn:
+  modifier: btn-inverse
+  text: "Download Assemble"

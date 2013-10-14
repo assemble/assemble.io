@@ -1,13 +1,17 @@
+# Always-ignore files
 npm-debug.log
-node_modules
-vendor
-tmp
-temp
-/docs
-src/generate
-_gh_pages
-
 *.sublime-*
 *.zip
 *.rar
 TODO.md
+
+# Always-ignore folders
+/docs
+_gh_pages
+node_modules
+src/generate
+src/templates/pages/docs/drafts
+tasks
+temp
+tmp
+vendor

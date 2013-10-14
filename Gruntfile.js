@@ -1,8 +1,9 @@
 /*
- * Documentation for Assemble
+ * Documentation for Assemble: the static site generator and 
+ * component builder for Node.js, Grunt.js and Yeoman.
  * https://github.com/assemble/assemble-docs/
  *
- * Copyright (c) 2013 Upstage
+ * Copyright (c) 2013, Upstage
  * Licensed under the MIT license.
  */
 
@@ -10,24 +11,34 @@
 
 module.exports = function (grunt) {
 
-  // Internal lib
+  // Mix local utilities into grunt instance.
   grunt.util._.mixin(require('./src/extensions/mixins'));
 
   // Report elapsed execution time of grunt tasks.
   require('time-grunt')(grunt);
 
+  var prettify = function(src) {
+    return require('js-prettify').html(src, {
+      indent_size: 2,
+      indent_inner_html: true
+    }).replace(/(\r\n|\n\r|\n|\r){2,}/g, '\n');
+  };
+
   // Project configuration.
   grunt.initConfig({
 
-    // Metadata for templates
-    pkg: grunt.file.readJSON('package.json'),
-    helpers: grunt.file.readJSON('src/templates/pages/helpers.json'), // config for "helpers" docs
-
-    site: grunt.file.readYAML('src/data/site.yml'),
+    /**
+     * Metadata for templates
+     */
+    pkg      : grunt.file.readJSON('package.json'),
     bootstrap: grunt.file.readYAML('src/less/bootstrap.yml'),
-    ghpages: grunt.file.readYAML('src/less/ghpages.yml'),
+    ghpages  : grunt.file.readYAML('src/less/ghpages.yml'),
+    site     : grunt.file.readYAML('src/data/site.yml'),
+    helpers  : grunt.file.readJSON('src/templates/pages/helpers.json'), // config for "helpers" docs
 
-
+    /**
+     * Process LESS files
+     */
     less: {
       options: {
         imports: {reference: '<%= ghpages.globals %>'}
@@ -46,34 +57,60 @@ module.exports = function (grunt) {
       }
     },
 
+    /**
+     * Generate up-to-date list of Assemble's GitHub repos
+     */
+    github: {
+      repos: {
+        options: {filters: {type: 'public'}},
+        src: '/orgs/assemble/repos?page=1&per_page=100',
+        dest: 'src/data/repos.json'
+      }
+    },
+
+    /**
+     * Generate the site.
+     */
     assemble: {
       options: {
-        // assemblerc: '.assemblerc',
-        marked: {sanitize: false},
+        today: '<%= grunt.template.today() %>',
+        production: true,
+        flatten: true,
+        // plugins: ['assemble-contrib-contextual'],
+        contextual: {
+          dest: './temp'
+        },
+        data: ['src/data/*.{json,yml}', 'package.json'],
+        assets: '<%= site.destination %>/assets',
+        helpers: ['src/extensions/*.js', 'helper-prettify'],
+        partials: ['src/templates/includes/**/*.{hbs,md}'],
+        layoutdir: 'src/templates/layouts',
+        layout: 'default.hbs',
+        marked: {sanitize: false },
+        // postprocess: prettify,
         prettify: {
           indent: 2,
           condense: true,
           padcomments: true
-        },
-        production: true,
-        flatten: true,
-        helpers: ['src/extensions/*.js', 'helper-prettify'],
-        today: '<%= grunt.template.today() %>',
-        assets: '<%= site.destination %>/assets',
-        partials: [
-          'src/templates/includes/**/*.{hbs,md}',
-          'src/templates/layouts/includes/*.hbs'
-        ],
-        data: ['src/data/*.{json,yml}', 'package.json'],
-        layoutdir: 'src/templates/layouts',
-        layout: 'default.hbs'
+        }
       },
-      // Build links for navigation. Hacky and temporary
+
+      /**
+       * Generate markdown navigation links 
+       */
       links: {
-        options: {ext: '.hbs', flatten: false},
+        options: {
+          postprocess: false,
+          flatten: true,
+          ext: '.hbs'
+        },
         src: 'src/templates/includes/snippets/links-template.md.hbs',
-        dest: 'src/templates/includes/snippets/generated-links.md.hbs',
+        dest: 'src/templates/includes/snippets/generated-links.md.hbs'
       },
+
+      /**
+       * Build the main docs.
+       */
       docs: {
         files: [
           {
@@ -98,19 +135,35 @@ module.exports = function (grunt) {
           }
         ]
       },
+
+      /**
+       * "Blog" section.
+       */
       blog: {
         options: {layout: 'blog.hbs'},
         files: {
           '<%= site.destination %>/blog/': ['src/templates/pages/blog/*.hbs']
         }
       },
-      // Helpers pages config, see: src/templates/pages/helpers.json
+
+      /**
+       * "Helpers" section. 
+       * Uses: src/templates/pages/helpers.json
+       */
       helpers: {
-        options: {pages: '<%= helpers.pages %>'},
-        files: {
-          '<%= site.destination %>/helpers/': ['src/templates/pages/helpers/index.hbs']
+        options: {
+          ext: '.html',
+          flatten: true,
+          engine: 'handlebars',
+          pages: '<%= helpers.pages %>'
         },
+        src: ['src/templates/pages/helpers/index.hbs'],
+        dest: '<%= site.destination %>/helpers/'
       },
+
+      /**
+       * "Boilerplates" section.
+       */
       boilerplates: {
         files: [
           {
@@ -146,8 +199,9 @@ module.exports = function (grunt) {
   // Load npm and local plugins.
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
-  grunt.loadNpmTasks('grunt-github-api');
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+  grunt.loadTasks('tasks');
 
   // Default task to be run.
   grunt.registerTask('default', [
