@@ -1,22 +1,33 @@
-<meta charset="UTF-8">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{default title page.basename}} | Assemble</title>
 <meta name="description" content="{{#if description}} {{description}} | {{/if}} {{package.description}}">
+<meta name="author" content="http://twitter.com/jonschlinkert">
+
+<title>
+  {{default title page.basename}} | Assemble
+</title>
+
 
 <!-- Styles -->
-{{#unless cheatsheet}}<link rel="stylesheet" href="{{assets}}/css/markdown.css">{{/unless}}
-{{#if cheatsheet}}<link rel="stylesheet" href="{{assets}}/css/gist.css">{{/if}}
 <link rel="stylesheet" href="{{assets}}/css/assemble.css">
+
+{{#unless cheatsheet}}
+  <link rel="stylesheet" href="{{assets}}/css/markdown.css">
+{{/unless}}
+
+{{#if cheatsheet}}
+  <link rel="stylesheet" href="{{assets}}/css/gist.css">
+{{/if}}
 
 <!-- Webfonts -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-    <script src="{{assets}}/js/html5shiv.js"></script>
-    <script src="{{assets}}/js/respond/respond.min.js"></script>
-    <![endif]-->
+  <script src="{{assets}}/js/html5shiv.js"></script>
+  <script src="{{assets}}/js/respond/respond.min.js"></script>
+<![endif]-->
 
 <!-- Favicons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{assets}}/ico/apple-touch-icon-144-precomposed.png">

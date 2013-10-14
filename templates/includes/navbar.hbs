@@ -1,15 +1,17 @@
 ---
 component: navbar
 ---
-<div class="navbar">
+<div class="navbar" role="banner">
   <div class="container">
-    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="{{relative page.dest "_gh_pages/./"}}/">ASSEMBLE</a>
-    <div class="navbar-collapse collapse">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="{{relative page.dest "_gh_pages/./"}}/" class="navbar-brand">ASSEMBLE</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li{{#is data.section "docs"}} class="active"{{/is}}> <a href="{{relative page.dest "_gh_pages/docs"}}/">Docs</a> </li>
         <!--<li{{#is data.section "boilerplates"}} class="active"{{/is}}> <a href="{{relative page.dest "_gh_pages/boilerplates"}}/">Boilerplates</a> </li>-->
@@ -22,6 +24,6 @@ component: navbar
         <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" {{#production}}{{{track.navbar.download}}}{{/production}}><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
         <li> <a href="https://github.com/assemble/assemble/" {{#production}}{{{track.navbar.click-repo}}}{{/production}}>GitHub Repo</a> </li>
       </ul>
-    </div>
+    </nav>
   </div>
 </div>

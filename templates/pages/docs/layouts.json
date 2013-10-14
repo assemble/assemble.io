@@ -1,0 +1,11 @@
+{
+  "layouts": {
+    "data": {
+      "area": "docs",
+      "title": "Layouts",
+      "section": "templates"
+    },
+    "content": "\nThis is a test.",
+    "filename": "layouts.html"
+  }
+}
