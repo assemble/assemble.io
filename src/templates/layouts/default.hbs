@@ -1,11 +1,11 @@
 ---
 layout: base.hbs
 ---
+
 {{!-- page content
 =================================== --}}
 <div class="container">
   <div class="row">
-
 
     {{!-- side navigation
     =================================== --}}
@@ -26,9 +26,7 @@ layout: base.hbs
       </div>
     </div>
 
-
     {{!> edit-template-link }}
-
 
     {{! main content
     =================================== }}
@@ -36,11 +34,10 @@ layout: base.hbs
       <div class="panel panel-docs">
         <h1>{{page.title}}</h1>
         {{#markdown}}
-          {{> body }}  {{> generated-links.md }}
+          {{> body }} {{> generated-links.md }}
         {{/markdown}}
         <hr>
-
-        <p><a href="{{site.templates.view}}/{{area}}/{{this.basename}}.hbs">See the template for this page → </a></p>
+        <p><a href="{{site.templates.view}}/{{area}}/{{this.basename}}.md.hbs">See the template for this page → </a></p>
         {{> footer }}
       </div>
     </div>
