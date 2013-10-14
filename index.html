@@ -135,9 +135,9 @@
       }
     </style>
     <div class="teaser ">
-      <a class="teaser-content" href="https://github.com/h5bp/Effeckt.css">
-        Effeckt uses Assemble!
-        <em> The H5BP project from Paul Irish, Chris Coyer, Dennis Gaebel... </em>
+      <a class="teaser-content" href="">
+        Assemble
+        <em> The static site generator for Node.js, Grunt.js and Yeoman. </em>
         <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
         <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
       </a> 
@@ -146,36 +146,230 @@
       <div class="panel panel-clear">
         <section class="gallery">
           <div class="row">
-            <div class="col col-lg-4">
-              <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
-              </a> 
-            </div>
-            <div class="col col-lg-4">
-              <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
-              </a> 
-            </div>
-            <div class="col col-lg-4">
-              <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
-              </a> 
-            </div>
-            <div class="col col-lg-4">
-              <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
-              </a> 
-            </div>
-            <div class="col col-lg-4">
-              <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
-              </a> 
-            </div>
-            <div class="col col-lg-4">
-              <a class="thumbnail" href="#">
-                <img data-src="holder.js/100%x250/auto/#fff:#000" alt="">
-              </a> 
-            </div>
+            <style>
+              .repos {
+                margin-left: 0;
+                padding: 0;
+                margin: 0 0 10px 25px;
+              }
+              .repo {
+                padding: 10px;
+                list-style: none;
+              }
+              .repo > .card {
+                position: relative;
+                padding: 1px 20px;
+                height: 250px;
+                background: #fff;
+                -webkit-box-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
+                -moz-box-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
+                box-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
+              }
+              .card h2 {
+                font-size: 16px;
+              }
+              .card h3 {
+                margin-bottom: 15px;
+                font-size: 14px;
+                color: #aaa;
+              }
+              .card p {
+                color: #333;
+              }
+              .card:after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0;
+                height: 0;
+                pointer-events: none;
+                border-right: 50px solid #33B5E5;
+                border-bottom: 50px solid rgba(0, 0, 0, 0);
+                border-left: 50px solid rgba(0, 0, 0, 0);
+                content:'';
+              }
+              /* renders as black */
+              .card.javascript:after {
+                border-right-color: #333;
+              }
+              /* renders as light blue */
+              .card.css:after {
+                border-right-color: #7ac9de;
+              }
+              /* renders as yellow */
+              .card.css:after {
+                border-right-color: #cc8300;
+              }
+              /* renders as green */
+              .card.css:after {
+                border-right-color: #6aad2d;
+              }
+              /* renders as red */
+              .card.css:after {
+                border-right-color: #cc1100;
+              }
+              iframe.small {
+                float: left;
+              }
+            </style>
+
+            <!-- GitHub repos -->
+            <ol class="repos">
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/assemble">
+                    <h2>assemble</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Static site generator for Grunt.js, Yeoman and Node.js. &quot;npm install assemble&quot;. Used by H5BP, Topcoat, and hundreds of other projects to build sites, themes, components, documentation, blogs and gh-pages.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/assemble-less">
+                    <h2>assemble-less</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble-less&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble-less&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Grunt task for compiling LESS to CSS.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/handlebars-helpers">
+                    <h2>handlebars-helpers</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=handlebars-helpers&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=handlebars-helpers&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Library of 100+ handlebars helpers. This project is active and supported, we love contributors and appreciate stars.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card css">
+                  <a href="https://github.com/assemble/boilerplates">
+                    <h2>boilerplates</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=boilerplates&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=boilerplates&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>CSS</h3> 
+                    <p>A bunch of example projects to help you learn how to use Assemble.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/boilerplate-site">
+                    <h2>boilerplate-site</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=boilerplate-site&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=boilerplate-site&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Demonstrates how to use Assemble to build a site. Includes layouts, pages, partials, and markdown content.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/grunt-init-assemble">
+                    <h2>grunt-init-assemble</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-init-assemble&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-init-assemble&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Grunt init template for Assemble, the static site generator built on Grunt.js. Kickstart new Assemble projects in just a few seconds, including templates, data, layouts, and a theme.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/generator-assemble">
+                    <h2>generator-assemble</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=generator-assemble&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=generator-assemble&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Yeoman generator for Assemble, the static site generator built on Grunt.js. Kickstart new Assemble projects in just a few seconds, including templates, data, layouts, and a theme.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/grunt-github-api">
+                    <h2>grunt-github-api</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-github-api&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-github-api&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Grunt plugin used to query the Github API and save the returned JSON files locally.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/grunt-convert">
+                    <h2>grunt-convert</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-convert&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-convert&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Grunt task to convert to or from JSON, YAML, XML, PLIST or CSV.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/grunt-firebase">
+                    <h2>grunt-firebase</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-firebase&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-firebase&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Grunt task for updating firebase data.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/boilerplate-bootstrap">
+                    <h2>boilerplate-bootstrap</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=boilerplate-bootstrap&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=boilerplate-bootstrap&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Build Bootstrap with Assemble instead of Jekyll.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card css">
+                  <a href="https://github.com/assemble/buttons">
+                    <h2>buttons</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=buttons&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=buttons&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>CSS</h3> 
+                    <p>Sooo many buttons... is this really necessary?! In reality this project has little to do with buttons. It&#x27;s an exercise in separation of concerns regarding structure, style, content and data.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/grunt-readme">
+                    <h2>grunt-readme</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-readme&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=grunt-readme&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Generate your README from a template. Fast, very little config, and if you already use Grunt it&#x27;s a no-brainer.</p>
+                  </a> 
+                </div>
+              </li>
+              <li class="repo col col-lg-4">
+                <div class="card javascript">
+                  <a href="https://github.com/assemble/permalinks">
+                    <h2>permalinks</h2> 
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=permalinks&amp;type=fork&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <iframe class="small" src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=permalinks&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+                    <h3>JavaScript</h3> 
+                    <p>Permalinks plugin for Assemble, the static site generator for Grunt.js and Yeoman. This plugin enables powerful and configurable URI replacement patterns, presets, uses Moment.js for parsing dates, and much more.</p>
+                  </a> 
+                </div>
+              </li>
+            </ol>
           </div>
         </section>
       </div>
