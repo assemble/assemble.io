@@ -128,10 +128,21 @@
               </li>
             </ul>
             <span class="nav-section-title">
-              Handlebars Helpers
+              Special Helpers
             </span> 
             <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helper-compose.html">Compose</a> 
+              </li>
             </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helper-aggregate.html">Aggregate</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Categories
+            </span> 
             <ul class="nav nav-pills nav-stacked">
               <li>
                 <a href="helpers-code.html">Code</a> 
@@ -217,22 +228,17 @@
                 <a href="helpers-url.html">URL</a> 
               </li>
             </ul>
-            <ul class="nav nav-pills nav-stacked">
-              <li>
-                <a href="helpers-special.html">special</a> 
-              </li>
-            </ul>
           </div>
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Aggregate</h1> 
             <p>
-              <h1>{{aggregate}}
+              <h3>{{aggregate}}
                 <a href="http://badge.fury.io/js/helper-aggregate">
                   <img src="https://badge.fury.io/js/helper-aggregate.png" alt="NPM version">
                 </a> 
-              </h1> 
+              </h3> 
             </p>
             <p>
               <blockquote>
@@ -240,12 +246,12 @@
             <p>{{aggregate}} handlebars helper. Inlines content from multiple files optionally using wildcard (globbing/minimatch) patterns, extracts YAML front matter to pass to context for each file. Accepts compare function as 3rd parameter for sorting
               inlined files.</p>
             </blockquote>
-            <h2>Quickstart</h2> 
+            <h3>Quickstart</h3> 
             <p>In the root of your project, run the following in the command line:</p>
             <pre><code class="language-bash">npm i helper-aggregate --save-dev</code></pre>
-            <h2>Usage</h2> 
+            <h3>Usage</h3> 
             <pre><code class="language-handlebars">{{aggregate &#39;path/to/<em>.hbs&#39;}}</code></pre>
-            <h3>Usage in Assemble</h3> 
+            <h4>Usage in Assemble</h4> 
             <p>In your Gruntfile, simply add <code>helper-aggregate</code> to the <code>helpers</code> property in the
               <a href="http://assemble.io">Assemble</a> task or target options:</p>
             <pre><code class="language-javascript">grunt.initConfig({
@@ -259,10 +265,10 @@
   }
 });</code></pre>
             <p>With that completed, you may now use the <code>{{aggregate}}</code> helper in your Assemble project.</p>
-            <h3>Usage examples</h3> 
+            <h4>Usage examples</h4> 
             <p>See examples of the <code>{{aggregate}}</code> helper being used in the
               <a href="https://github.com/assemble/yfm">yfm project</a>:</p>
-            <h4>templates and content</h4> 
+            <h5>templates and content</h5> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/yfm/blob/master/test/fixtures/aggregate.hbs">the helper itself</a> 
@@ -274,7 +280,7 @@
                 <a href="https://github.com/assemble/yfm/blob/master/test/actual/aggregate.html">the compiled result</a> 
               </li>
             </ul>
-            <h4>options and context</h4> 
+            <h5>options and context</h5> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/yfm/blob/master/Gruntfile.js#L31-L35">defining helper options</a> 
@@ -283,17 +289,17 @@
                 <a href="https://github.com/assemble/yfm/blob/master/Gruntfile.js#L19">config data used in examples</a> 
               </li>
             </ul>
-            <h2>Options</h2> 
-            <h3>sep</h3> 
+            <h3>Options</h3> 
+            <h4>sep</h4> 
             <p>Type: <code>String</code>
               Default value: <code>\n</code>
             </p>
             <p>The separator to append after each inlined file.</p>
-            <h2>Setting options</h2> 
-            <h3>hash options</h3> 
+            <h3>Setting options</h3> 
+            <h4>hash options</h4> 
             <p>Set options as hash arguments.</p>
             <pre><code class="language-handlebars">{{aggregate &#39;my/book/chapters/</em>.hbs&#39; sep=&quot;&lt;!- Chapter --&gt;&quot;}}</code></pre>
-            <h3>&quot;assemble&quot; task options</h3> 
+            <h4>&quot;assemble&quot; task options</h4> 
             <p>Pass
               <a href="http://assemble.io">Assemble</a> options into the helper.</p>
             <p>In your project&#39;s Gruntfile, options for the <code>{{aggregate}}</code> helper can be defined in the Assemble task options:</p>
@@ -311,7 +317,7 @@
 }</code></pre>
             <p>Note that the options are defined in the
               <a href="http://assemble.io/docs/Custom-Helpers.html">custom property</a>, <code>aggregate</code>, not on the <code>options</code> object itself.</p>
-            <h2>Lo-Dash templates</h2> 
+            <h3>Lo-Dash templates</h3> 
             <p>The helper will also process any valid Lo-Dash templates in the YAML front matter of targeted files, using <code>grunt.config.data</code> and the context of the &quot;current&quot; file. For example:</p>
             <p>Given you have this in the gruntfile:</p>
             <pre><code class="language-js"><span class="comment">// Project configuration.</span> 
@@ -365,7 +371,7 @@ intro: Chapter &lt;%= chapter %&gt;
     &lt;p class=&quot;chapter&quot;&gt;Chapter: 3&lt;/p&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <h2>Author</h2> 
+            <h3>Author</h3> 
             <p><strong>Jon Schlinkert</strong> 
             </p>
             <ul>
@@ -376,7 +382,7 @@ intro: Chapter &lt;%= chapter %&gt;
                 <a href="http://github.com/jonschlinkert">github/jonschlinkert</a> 
               </li>
             </ul>
-            <h2>License and Copyright</h2> 
+            <h3>License and Copyright</h3> 
             <p>Licensed under the
               <a href="./LICENSE-MIT">MIT License</a> 
               Copyright (c) Jon Schlinkert, contributors.</p>

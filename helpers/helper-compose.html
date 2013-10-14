@@ -128,10 +128,21 @@
               </li>
             </ul>
             <span class="nav-section-title">
-              Handlebars Helpers
+              Special Helpers
             </span> 
             <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helper-compose.html">Compose</a> 
+              </li>
             </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helper-aggregate.html">Aggregate</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Categories
+            </span> 
             <ul class="nav nav-pills nav-stacked">
               <li>
                 <a href="helpers-code.html">Code</a> 
@@ -217,22 +228,17 @@
                 <a href="helpers-url.html">URL</a> 
               </li>
             </ul>
-            <ul class="nav nav-pills nav-stacked">
-              <li>
-                <a href="helpers-special.html">special</a> 
-              </li>
-            </ul>
           </div>
         </div>
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Compose</h1> 
             <p>
-              <h1>{{compose}}
+              <h3>{{compose}}
                 <a href="http://badge.fury.io/js/helper-compose">
                   <img src="https://badge.fury.io/js/helper-compose.png" alt="NPM version">
                 </a> 
-              </h1> 
+              </h3> 
             </p>
             <p>
               <blockquote>
@@ -240,7 +246,7 @@
             <p>{{compose}} handlebars helper. Inlines content from multiple files optionally using wildcard (globbing/minimatch) patterns, extracts YAML front matter to pass to context for each file. Accepts compare function as 3rd parameter for sorting
               inlined files.</p>
             </blockquote>
-            <h2>Quickstart</h2> 
+            <h4>Quickstart</h4> 
             <p>In the root of your project, run the following in the command line:</p>
             <pre><code class="language-bash">npm i helper-compose --save-dev</code></pre>
             <p>Next, in your Gruntfile, simply add <code>helper-compose</code> to the <code>helpers</code> property in the
@@ -260,7 +266,7 @@
   &lt;h1&gt;Title: {{title}}&lt;/h1&gt;
   {{{content}}}&lt;/p&gt;
 {{/compose}}</code></pre>
-            <h2>Context &amp; Lo-Dash templates</h2> 
+            <h3>Context &amp; Lo-Dash templates</h3> 
             <p>The helper will also process any valid Lo-Dash templates in the YAML front matter of targeted files, using <code>grunt.config.data</code> and the context of the &quot;current&quot; file. For example:</p>
             <pre><code class="language-handlebars">---
 title: &lt;%= blog.title %&gt;
@@ -269,23 +275,23 @@ heading: &lt;%= blog.title %&gt; | Blog &lt;%= post %&gt;
 ---
 &lt;h1&gt;{{title}}&lt;/h1&gt;
 &lt;p class=&quot;heading&quot;&gt;{{heading}}&lt;/p&gt;</code></pre>
-            <h2>Options</h2> 
-            <h3>cwd</h3> 
+            <h3>Options</h3> 
+            <h4>cwd</h4> 
             <p>Type: <code>String</code> (optional) Default value: <code>&#39;&#39;</code>
             </p>
             <p>The <code>cwd</code> for paths defined in the helper.</p>
-            <h3>sep</h3> 
+            <h4>sep</h4> 
             <p>Type: <code>String</code>
               Default value: <code>\n</code>
             </p>
             <p>The separator to append after each inlined file.</p>
-            <h3>compare</h3> 
+            <h4>compare</h4> 
             <p>Type: <code>Function</code>
               Default value: <code>function(a, b) {return a.index &gt;= b.index ? 1 : -1;}</code>
             </p>
             <p>Compare function for sorting the aggregated files.</p>
-            <h2>Defining options</h2> 
-            <h3>&quot;assemble&quot; task options</h3> 
+            <h3>Defining options</h3> 
+            <h4>&quot;assemble&quot; task options</h4> 
             <blockquote>
               <p>If you use Grunt and
                 <a href="http://assemble.io">Assemble</a>, you can pass options from the <code>assemble</code> task in the Gruntfile to the helper.</p>
@@ -306,10 +312,10 @@ heading: &lt;%= blog.title %&gt; | Blog &lt;%= post %&gt;
 }</code></pre>
             <p>Note that the options are defined in <code>options: {compose: {}}</code>, which is a
               <a href="http://assemble.io/docs/Custom-Helpers.html">custom property</a> in the Assemble options.</p>
-            <h2>Examples</h2> 
+            <h3>Examples</h3> 
             <p>See examples of the <code>{{compose}}</code> helper being used in the
               <a href="https://github.com/assemble/yfm">yfm project</a>:</p>
-            <h3>example templates and content</h3> 
+            <h4>example templates and content</h4> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/yfm/blob/master/test/fixtures/compose.hbs">the helper itself</a> 
@@ -321,7 +327,7 @@ heading: &lt;%= blog.title %&gt; | Blog &lt;%= post %&gt;
                 <a href="https://github.com/assemble/yfm/blob/master/test/actual/compose.html">the compiled result</a> 
               </li>
             </ul>
-            <h3>example options and context</h3> 
+            <h4>example options and context</h4> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/yfm/blob/master/Gruntfile.js#L31-L35">defining helper options</a> 
@@ -330,7 +336,7 @@ heading: &lt;%= blog.title %&gt; | Blog &lt;%= post %&gt;
                 <a href="https://github.com/assemble/yfm/blob/master/Gruntfile.js#L19">config data used in examples</a> 
               </li>
             </ul>
-            <h3>all options</h3> 
+            <h4>all options</h4> 
             <pre><code class="language-js">assemble: {
   options: {
     compose: {
@@ -342,7 +348,7 @@ heading: &lt;%= blog.title %&gt; | Blog &lt;%= post %&gt;
     }
   }
 }</code></pre>
-            <h3>cwd option</h3> 
+            <h4>cwd option</h4> 
             <p>Instead of doing this:</p>
             <pre><code class="language-handlebars">{{compose &#39;path/to/my/blog/posts/<em>.hbs&#39;}}
   &lt;h1&gt;{{post.title}}&lt;/h1&gt;
@@ -362,7 +368,7 @@ heading: &lt;%= blog.title %&gt; | Blog &lt;%= post %&gt;
   &lt;h1&gt;{{post.title}}&lt;/h1&gt;
   ...
 {{/compose}}</code></pre>
-            <h2>Usage example</h2> 
+            <h3>Usage example</h3> 
             <p>Given you have this config in your project&#39;s gruntfile:</p>
             <pre><code class="language-js"><span class="comment">// Project configuration.</span> 
 grunt.initConfig({
@@ -416,7 +422,7 @@ This is the {{title}}, which should be inserted in the composed result.</code></
     &lt;p&gt;Post This is the Gamma post, which should be inserted in the composed result. &lt;/p&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <h2>Author</h2> 
+            <h3>Author</h3> 
             <p><strong>Jon Schlinkert</strong> 
             </p>
             <ul>
@@ -427,7 +433,7 @@ This is the {{title}}, which should be inserted in the composed result.</code></
                 <a href="http://github.com/jonschlinkert">github/jonschlinkert</a> 
               </li>
             </ul>
-            <h2>License and Copyright</h2> 
+            <h3>License and Copyright</h3> 
             <p>Licensed under the
               <a href="./LICENSE-MIT">MIT License</a> 
               Copyright (c) Jon Schlinkert, contributors.</p>
