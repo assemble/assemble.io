@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>options.layoutdir | Assemble</title>
     <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    <title>
+      options.layoutdir | Assemble
+    </title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../assets/css/markdown.css">
     <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
 
     <!-- Webfonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
@@ -17,16 +20,20 @@
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
-    <![endif]-->
+  <script src="../assets/js/html5shiv.js"></script>
+  <script src="../assets/js/respond/respond.min.js"></script>
+<![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/light/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/light/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/light/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/light/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/light/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/light/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/light/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/light/apple-touch-icon-76x76.png">
+    <link rel="shortcut icon" href="../assets/img/light/favicon.ico" type="image/x-icon">
     <script type="text/javascript">
       var _gaq = _gaq || [];
       var pluginUrl =
@@ -60,15 +67,17 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar">
+    <div class="navbar" role="banner">
       <div class="container">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-        </button>
-        <a class="navbar-brand" href="../">ASSEMBLE</a> 
-        <div class="navbar-collapse collapse">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button>
+          <a href="../" class="navbar-brand">ASSEMBLE</a> 
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
           <ul class="nav navbar-nav">
             <li>
               <a href="../docs/">Docs</a> 
@@ -96,7 +105,7 @@
               <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
     <header class="masthead subhead">
@@ -154,6 +163,9 @@
             </span> 
             <ul class="nav nav-pills nav-stacked">
               <li>
+                <a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a> 
+              </li>
+              <li>
                 <a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a> 
               </li>
               <li>
@@ -161,9 +173,6 @@
               </li>
               <li>
                 <a href="Introduction.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Introduction']);">Introduction</a> 
-              </li>
-              <li>
-                <a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a> 
               </li>
               <li>
                 <a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a> 
@@ -299,14 +308,11 @@
             <blockquote>
               <p>Path to the directory to be used as the &quot;cwd&quot; for layouts</p>
             </blockquote>
-            <p><code>layoutdir</code> makes maintaining
-              <a href="options-layout.html">layouts</a> a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are stored without having to update the path to each layout
-              used throughout your project. It could also reduce some clutter in the
-              <a href="http://gruntjs.com">Gruntfile</a> and
-              <a href="YAML-front-matter.html">YAML Front Matter</a>.</p>
+            <p><code>layoutdir</code> makes maintaining [layouts][options-layout] a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are
+              stored without having to update the path to each layout used throughout your project. It could also reduce some clutter in the
+              <a href="http://gruntjs.com">Gruntfile</a> and [YAML Front Matter][yaml-front-matter].</p>
             <p>Additionally, a <code>layoutdir</code> can be defined for each
-              <a href="http://gruntjs.com/configuring-tasks">targets</a>, allowing for even greater control over how
-              <a href="Layouts.html">layouts</a> are used in your projects.</p>
+              <a href="http://gruntjs.com/configuring-tasks">targets</a>, allowing for even greater control over how [layouts][] are used in your projects.</p>
             <h2>Usage Examples</h2> 
             <h3>Without <code>layoutdir</code>
             </h3> 
@@ -329,8 +335,7 @@
   }
   <span class="comment">// etc.</span> 
 }</code></pre>
-            <p>This also applies to
-              <a href="YAML-front-matter.html">YAML front matter</a> when it is necessary to &quot;override&quot; layouts at the page-level:</p>
+            <p>This also applies to [YAML front matter][yaml-front-matter] when it is necessary to &quot;override&quot; layouts at the page-level:</p>
             <pre><code class="language-yaml">---
 title: Blog
 layout: src/templates/layouts/blog-layout.hbs
@@ -357,8 +362,7 @@ layout: src/templates/layouts/blog-layout.hbs
   }
   // etc.
 }</code></pre>
-            <p>And in
-              <a href="YAML-front-matter.html">YAML front matter</a>:</p>
+            <p>And in [YAML front matter][yaml-front-matter]:</p>
             <pre><code class="language-yaml">---
 title: Blog
 layout: blog-layout.hbs
@@ -401,9 +405,8 @@ layout: blog-layout.hbs
   <span class="comment">// etc.</span> 
 }</code></pre>
             <p>Note that the layout name is the same for each target, but the <code>layoutdir</code> is a different directory, indicating that there are three different &quot;default&quot; layouts.</p>
-            <p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the
-              <a href="YAML-front-matter.html">YAML front matter</a> of individual pages, it is not a good idea to use the same name for multiple layouts, <em>unless you are intentionally using this naming convention as a strategy</em>. The reason is that it gets very difficult to track
-              which page is building from which layout when working inside the pages themselves.</p>
+            <p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the [YAML front matter][yaml-front-matter] of individual pages, it is not a good idea to use the same name for multiple layouts, <em>unless you are intentionally using this naming convention as a strategy</em>.
+              The reason is that it gets very difficult to track which page is building from which layout when working inside the pages themselves.</p>
             <h3>Difficult to follow</h3> 
             <p>Without <code>layoutdir</code>, you have the entire path to follow, but without it you must rely on the name of the layout itself to guide you.</p>
             <pre><code class="language-html">---
@@ -417,12 +420,10 @@ title: Any Page
 layout: blog-default.hbs
 ---</code></pre>
             <p>Of course, these are only recommendations and you will need to find a strategy that works for you and your team.</p>
-            <h4>Also see
-              <a href="Layouts.html">Layouts</a> and
-              <a href="options-layout.html">options.layout</a> →</h4> 
+            <h4>Also see [Layouts][layouts] and [options.layout][options-layout] →</h4> 
             <hr>
             <p>
-              <a href="http://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/options-layoutdir.hbs">See the template for this page →</a> 
+              <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/docs/options-layoutdir.md.hbs">See the template for this page →</a> 
             </p>
             <div class="alert">
               <style type="text/css" media="screen">

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | Assemble</title>
     <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    <title>
+      FAQ | Assemble
+    </title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../assets/css/markdown.css">
     <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
 
     <!-- Webfonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
@@ -17,16 +20,20 @@
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
-    <![endif]-->
+  <script src="../assets/js/html5shiv.js"></script>
+  <script src="../assets/js/respond/respond.min.js"></script>
+<![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/light/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/light/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/light/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/light/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/light/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/light/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/light/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/light/apple-touch-icon-76x76.png">
+    <link rel="shortcut icon" href="../assets/img/light/favicon.ico" type="image/x-icon">
     <script type="text/javascript">
       var _gaq = _gaq || [];
       var pluginUrl =
@@ -60,15 +67,17 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar">
+    <div class="navbar" role="banner">
       <div class="container">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-        </button>
-        <a class="navbar-brand" href="../">ASSEMBLE</a> 
-        <div class="navbar-collapse collapse">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button>
+          <a href="../" class="navbar-brand">ASSEMBLE</a> 
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
           <ul class="nav navbar-nav">
             <li>
               <a href="../docs/">Docs</a> 
@@ -96,7 +105,7 @@
               <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
     <header class="masthead subhead">
@@ -153,6 +162,9 @@
               Getting Started
             </span> 
             <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a> 
+              </li>
               <li class="active">
                 <a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a> 
               </li>
@@ -161,9 +173,6 @@
               </li>
               <li>
                 <a href="Introduction.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Introduction']);">Introduction</a> 
-              </li>
-              <li>
-                <a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a> 
               </li>
               <li>
                 <a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a> 
@@ -301,11 +310,8 @@
             <h2>Generating a list from a collection</h2> 
             <p>The simplest way to generate a list from a collection is to create a block expression using the name of the collection, and the collection items inside.</p>
             <h3>Collection items from &quot;all pages&quot;</h3> 
-            <p>To generate a list of
-              <a href="options-collections.html">categories</a> for all
-              <a href="Pages.html">pages</a> in a
-              <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>, add the following block expression to a page or a
-              <a href="Layouts.html">layout</a> (depending on whether or not you want the list to render to a <em>specified page/pages</em> or <em>all</em> pages):</p>
+            <p>To generate a list of [categories][options-collections] for all [pages][pages] in a
+              <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>, add the following block expression to a page or a [layout][layouts] (depending on whether or not you want the list to render to a <em>specified page/pages</em> or <em>all</em> pages):</p>
             <pre><code class="language-html">&lt;h2&gt;All Categories&lt;/h2&gt;
 &lt;ul&gt;
 {{#categories}}
@@ -337,8 +343,7 @@ categories:
   &lt;li&gt;oranges&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
             <h3>Collection items on a given page</h3> 
-            <p>To generate a list of
-              <a href="options-collections.html">categories</a> for the a page, you would add the following to the page on which you want to generate the list:</p>
+            <p>To generate a list of [categories][options-collections] for the a page, you would add the following to the page on which you want to generate the list:</p>
             <pre><code class="language-html">{{#page.categories}}
   {{.}}
 {{/page.categories}}</code></pre>
@@ -346,8 +351,7 @@ categories:
               <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a> 
             </p>
             <h2>Dynamically building navigation</h2> 
-            <p>Following the previous example, we&#39;ll use the <code>{{#each}}...{{/each}}</code> block expression with the
-              <a href="Pages.html">pages</a> variable to get the list of pages in the current
+            <p>Following the previous example, we&#39;ll use the <code>{{#each}}...{{/each}}</code> block expression with the [pages][pages] variable to get the list of pages in the current
               <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>.</p>
             <p>Then, using the <code>{{#is}}...{{/is}}</code> comparison helper from the
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library, we can dynamically build navigation items by comparing a property (or properties) from the YAML front matter each page in the list with the given values.</p>
@@ -372,7 +376,7 @@ categories:
               <a href="https://github.com/assemble/handlebars-helpers#comparisons-equal-helpers">comparison helper</a> from the
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library.</p>
             <h3>Using YFM properties</h3> 
-            <p>You can achieve this using many different variables, but relatively easy one is to compare the <em><a href="Built-in-Variables.html">basename</a>  of the current page</em> to the <em>given value</em>:</p>
+            <p>You can achieve this using many different variables, but relatively easy one is to compare the <em>[basename][built-in-variables] of the current page</em> to the <em>given value</em>:</p>
             <pre><code class="language-html">&lt;ul class=&quot;nav navbar-nav&quot;&gt;
   &lt;li{{#is basename &quot;getting-started&quot;}} class=&quot;active&quot;{{/is}}&gt;
     &lt;a href=&quot;getting-started.html&quot;&gt;Getting started&lt;/a&gt;
@@ -420,7 +424,7 @@ categories:
 {{/each}}</code></pre>
             <hr>
             <p>
-              <a href="http://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/FAQ.hbs">See the template for this page →</a> 
+              <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/docs/FAQ.md.hbs">See the template for this page →</a> 
             </p>
             <div class="alert">
               <style type="text/css" media="screen">

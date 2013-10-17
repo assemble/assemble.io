@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Options Overview | Assemble</title>
     <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    <title>
+      Options Overview | Assemble
+    </title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../assets/css/markdown.css">
     <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
 
     <!-- Webfonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
@@ -17,16 +20,20 @@
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond/respond.min.js"></script>
-    <![endif]-->
+  <script src="../assets/js/html5shiv.js"></script>
+  <script src="../assets/js/respond/respond.min.js"></script>
+<![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/light/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/light/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/light/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/light/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/light/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/light/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/light/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/light/apple-touch-icon-76x76.png">
+    <link rel="shortcut icon" href="../assets/img/light/favicon.ico" type="image/x-icon">
     <script type="text/javascript">
       var _gaq = _gaq || [];
       var pluginUrl =
@@ -60,15 +67,17 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar">
+    <div class="navbar" role="banner">
       <div class="container">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-        </button>
-        <a class="navbar-brand" href="../">ASSEMBLE</a> 
-        <div class="navbar-collapse collapse">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button>
+          <a href="../" class="navbar-brand">ASSEMBLE</a> 
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
           <ul class="nav navbar-nav">
             <li>
               <a href="../docs/">Docs</a> 
@@ -96,7 +105,7 @@
               <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
     <header class="masthead subhead">
@@ -154,6 +163,9 @@
             </span> 
             <ul class="nav nav-pills nav-stacked">
               <li>
+                <a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a> 
+              </li>
+              <li>
                 <a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a> 
               </li>
               <li>
@@ -161,9 +173,6 @@
               </li>
               <li>
                 <a href="Introduction.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Introduction']);">Introduction</a> 
-              </li>
-              <li>
-                <a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a> 
               </li>
               <li>
                 <a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a> 
@@ -298,11 +307,8 @@
             <blockquote>
               <p>Comprehensive list of options available in Assemble</p>
             </blockquote>
-            <p>Most options are defined in the <code>assemble</code> task or target options in the Gruntfile, some options may only be defined inside the
-              <a href="YAML-front-matter.html">YAML front matter</a> of a file, and some may be defined in either location.</p>
-            <p>Additionally, options may be defined in &quot;external&quot;
-              <a href="JSON.html">JSON</a> or
-              <a href="YAML.html">YAML</a> configuration files.</p>
+            <p>Most options are defined in the <code>assemble</code> task or target options in the Gruntfile, some options may only be defined inside the [YAML front matter][yaml-front-matter] of a file, and some may be defined in either location.</p>
+            <p>Additionally, options may be defined in &quot;external&quot; [JSON][] or [YAML][] configuration files.</p>
             <p>For the purposes of clarity, we will refer to options that are defined in the Gruntfile as &quot;configuration&quot; options, and options that are defined in the YFM as &quot;page&quot; options.</p>
             <h2>Configuration options</h2> 
             <p>These options are defined in the <code>assemble</code> task in your project&#39;s Gruntfile. Any option may be defined at the
@@ -316,73 +322,51 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    <a href="options-assets.html">assets</a> 
-                  </td>
+                  <td>[assets][options-assets]</td>
                   <td>directory that contains commonly used &quot;assets&quot; for a project, such as images, fonts, javascripts and stylesheets. Assemble will generate a relative path from dest files to the given <code>assets</code> directory.</td>
                 </tr>
                 <tr>
-                  <td>
-                    <a href="options-collections.html">collections</a> 
-                  </td>
+                  <td>[collections][options-collections]</td>
                   <td>Built-in collections for <code>tags</code>, <code>categories</code> and <code>pages</code> are available at the root of the context.</td>
                 </tr>
                 <tr>
-                  <td>
-                    <a href="options-data.html">data</a> 
-                  </td>
+                  <td>[data][options-data]</td>
                   <td>path to data files to supply the data that will be passed into templates.</td>
                 </tr>
                 <tr>
-                  <td>
-                    <a href="options-engine.html">engine</a> 
-                  </td>
+                  <td>[engine][options-engine]</td>
                   <td>engine to be used for processing templates. Handlebars is the default.</td>
                 </tr>
                 <tr>
-                  <td>
-                    <a href="options-ext.html">ext</a> 
-                  </td>
+                  <td>[ext][options-ext]</td>
                   <td>extension to be used for <code>dest</code> files.</td>
                 </tr>
                 <tr>
-                  <td>
-                    <a href="options-helpers.html">helpers</a> 
-                  </td>
+                  <td>[helpers][options-helpers]</td>
                   <td>path to custom helper(s) to be registered and used by the current template engine. Handlebars is the default.</td>
                 </tr>
                 <tr>
-                  <td>
-                    <a href="options-layout.html">layout</a> <strong> * </strong> 
+                  <td>[layout][options-layout]<strong> * </strong> 
                   </td>
-                  <td>
-                    <a href="Layouts.html">Layouts</a> are optional and assemble will build
-                    <a href="Pages.html">pages</a> without one. However, when a layout is specified the file <em>must contain a <code>{{&gt; body }}</code></em> tag, since this tag indicates where the content from each file in a target should be inserted.</td>
+                  <td>[Layouts][] are optional and assemble will build [pages][] without one. However, when a layout is specified the file <em>must contain a <code>{{&gt; body }}</code></em> tag, since this tag indicates where the content from each file in
+                    a target should be inserted.</td>
                 </tr>
                 <tr>
-                  <td>
-                    <a href="options-layoutdir.html">layoutdir</a> <strong> * </strong> 
+                  <td>[layoutdir][options-layoutdir]<strong> * </strong> 
                   </td>
-                  <td>
-                    <a href="Layouts.html">Layouts</a> are optional and assemble will build
-                    <a href="Pages.html">pages</a> without one. However, when a layout is specified the file <em>must contain a <code>{{&gt; body }}</code></em> tag, since this tag indicates where the content from each file in a target should be inserted.</td>
+                  <td>[Layouts][] are optional and assemble will build [pages][] without one. However, when a layout is specified the file <em>must contain a <code>{{&gt; body }}</code></em> tag, since this tag indicates where the content from each file in
+                    a target should be inserted.</td>
                 </tr>
                 <tr>
-                  <td>
-                    <a href="options-partials.html">partials</a> 
-                  </td>
-                  <td>the partials or &quot;includes&quot; to be used with
-                    <a href="Pages.html">pages</a>.</td>
+                  <td>[partials][options-partials]</td>
+                  <td>the partials or &quot;includes&quot; to be used with [pages][].</td>
                 </tr>
               </tbody>
             </table>
-            <p><strong>*Note</strong>  that when a layout is used the
-              <a href="Layouts.html">{{&gt; body }}</a> tag must be included inside the layout in order for content from pages to be &quot;pulled in&quot;.</p>
+            <p><strong>*Note</strong>  that when a layout is used the [{{&gt; body }}][Layouts] tag must be included inside the layout in order for content from pages to be &quot;pulled in&quot;.</p>
             <h2>Task Options</h2> 
             <p>These options are defined in the <code>assemble</code> task in your Gruntfile.</p>
-            <h3>
-              <a href="options-data.html">options.data</a> 
-            </h3> 
+            <h3>[options.data][options-data]</h3> 
             <p>Type: <code>String|Array</code> (optional) Default: <code>src/data</code>
             </p>
             <p>Retrieves data from any specified <code>JSON</code> and/or <code>YAML</code> files to populate the templates when rendered. Data gets passed through the <code>data</code> object to the options on the assemble task, and then to the context in your
@@ -390,24 +374,18 @@
             <pre><code class="language-js">options: { data: <span class="string">'src/data/**/*.{json,yml}'</span>  }</code></pre>
             <p>Note that <code>assemble</code> merges the task and target-level data for <code>options.data</code>.</p>
             <blockquote>
-              <p>Learn more about
-                <a href="Data.html">data</a> →</p>
+              <p>Learn more about [data][data] →</p>
             </blockquote>
-            <h3>
-              <a href="options-layout.html">options.layout</a> 
-            </h3> 
+            <h3>[options.layout][options-layout]</h3> 
             <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
             </p>
             <p>Layouts are optional and may be defined at the task and/or
               <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a> level. <em>Unlike Jekyll</em>, Assemble requires a file extension since you are not limited to using a single file type.</p>
             <pre><code class="language-js">options: { layout: <span class="string">'src/layouts/default.hbs'</span>  }</code></pre>
             <blockquote>
-              <p>Learn more about
-                <a href="Layouts.html">layouts</a> →</p>
+              <p>Learn more about [layouts][layouts] →</p>
             </blockquote>
-            <h3>
-              <a href="options-layoutdir.html">options.layoutdir</a> 
-            </h3> 
+            <h3>[options.layoutdir][options-layoutdir]</h3> 
             <p>Type: <code>String</code>|<code>False</code>|<code>None</code> (optional) Default: <code>undefined</code>
             </p>
             <p>Path to the directory that is to be used as the &quot;cwd&quot; for layouts.</p>
@@ -418,17 +396,13 @@
             <pre><code class="language-yaml">---
 layout: default.hbs
 ---</code></pre>
-            <h3>
-              <a href="options-assets.html">options.assets</a> 
-            </h3> 
+            <h3>[options.assets][options-assets]</h3> 
             <p>Type: <code>String</code> (optional) Default: <code>undefined</code>
             </p>
             <p>Path to the &quot;assets&quot; or &quot;public&quot; directory that will be used by dest files. Assemble uses path in the <code>assets</code> option to generate a relative path from dest files to the given &quot;assets&quot; directory. The &quot;assets&quot;
               folder commonly contains the CSS, JavaScripts, images and other similar files for a project. The <code>assets</code> option may be defined at the task or target-level.</p>
             <pre><code class="language-js">options: { assets: <span class="string">'docs/assets'</span>  }</code></pre>
-            <h3>
-              <a href="options-partials.html">options.partials</a> 
-            </h3> 
+            <h3>[options.partials][options-partials]</h3> 
             <p>Type: <code>String|Array</code> (optional) Default: <code>undefined</code>
             </p>
             <p>Specifies the Handlebars partials files, or paths to the directories of files to be used.</p>
@@ -436,12 +410,9 @@ layout: default.hbs
             <p><em><strong>Note that <code>assemble</code> merges the task and target-level data for <code>options.partials</code>.</strong> </em>
             </p>
             <blockquote>
-              <p>Learn more about
-                <a href="Partials.html">partials</a> →</p>
+              <p>Learn more about [partials][partials] →</p>
             </blockquote>
-            <h3>
-              <a href="options-ext.html">options.ext</a> 
-            </h3> 
+            <h3>[options.ext][options-ext]</h3> 
             <p>Type: <code>String</code> (optional) Default: <code>.html</code>
             </p>
             <p>Specify the file extension to be used for destination files. For example:</p>
@@ -462,20 +433,14 @@ layout: default.hbs
   }
 }</code></pre>
             <blockquote>
-              <p>Learn more about the
-                <a href="options-ext.html">ext option</a> →</p>
+              <p>Learn more about the [ext option][options-ext] →</p>
             </blockquote>
-            <h3>
-              <a href="options-engine.html">options.engine</a> 
-            </h3> 
+            <h3>[options.engine][options-engine]</h3> 
             <p>Type: <code>String</code> (optional) Default: <code>handlebars</code>
             </p>
-            <p>The engine to use for processing client-side templates. Assemble ships Handlebars as the default template engine, to learn more about adding other template engines please read the documentation on
-              <a href="Methods.html">assemble methods</a>.</p>
+            <p>The engine to use for processing client-side templates. Assemble ships Handlebars as the default template engine, to learn more about adding other template engines please read the documentation on [assemble methods][methods].</p>
             <p>Also, we welcome pull requests for additional template engines. If you have questions please create an [Issue][assemble-issues].</p>
-            <h3>
-              <a href="options-helpers.html">options.helpers</a> 
-            </h3> 
+            <h3>[options.helpers][options-helpers]</h3> 
             <p>Type: <code>String|Array</code> (optional) Default: 100+ helpers from
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> 
             </p>
@@ -489,25 +454,17 @@ layout: default.hbs
             </p>
             <p>Remove extraneous whitespace added by Handlebars in rendered files. <em>Use at your own risk, this is an experimental option and may be removed.</em>
             </p>
-            <h2>
-              <a href="YAML-front-matter.html">YAML Front-Matter Options</a> 
-            </h2> 
-            <p>These options are defined in the
-              <a href="YAML-front-matter.html">YAML front matter</a> of a page.</p>
-            <h3>
-              <a href="options-layout.html">options.layout</a> 
-            </h3> 
+            <h2>[YAML Front-Matter Options][yaml-front-matter]</h2> 
+            <p>These options are defined in the [YAML front matter][yaml-front-matter] of a page.</p>
+            <h3>[options.layout][options-layout]</h3> 
             <p>type: <code>string</code>
               default: <code>undefined</code>
             </p>
-            <p>Specifies the
-              <a href="Layouts.html">layout</a> file to be used. Layouts defined in
-              <a href="YAML-front-matter.html">YFM</a> will override layouts defined in the Gruntfile.</p>
+            <p>Specifies the [layout][Layouts] file to be used. Layouts defined in [YFM][yaml-front-matter] will override layouts defined in the Gruntfile.</p>
             <h3>options.published</h3> 
             <p>type: <code>boolean</code>
               default: true</p>
-            <p>Defining <code>published: false</code> in the
-              <a href="YAML-front-matter.html">YAML front matter</a> of a page will:</p>
+            <p>Defining <code>published: false</code> in the [YAML front matter][yaml-front-matter] of a page will:</p>
             <ul>
               <li>Prevent the page from rendering</li>
               <li>Omit the page from the <code>pages</code> collection.</li>
@@ -532,8 +489,7 @@ layout: default.hbs
 {{else}}
   &lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;
 {{/if}}</code></pre>
-            <p>Since <code>production: false</code> is defined in the Assemble
-              <a href="Options.html">task options</a>, the following HTML will be rendered with the <em>non-minified</em> version of the script:</p>
+            <p>Since <code>production: false</code> is defined in the Assemble [task options][options], the following HTML will be rendered with the <em>non-minified</em> version of the script:</p>
             <pre><code class="language-html">&lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;</code></pre>
             <h2>
               <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">Grunt.js</a> Options</h2> 
@@ -552,19 +508,15 @@ layout: default.hbs
             <h2>Related info:</h2> 
             <ul>
               <li>
-                <p>
-                  <a href="Built-in-Variables.html">Variables</a> 
-                </p>
+                <p>[Variables][built-in-variables]</p>
               </li>
               <li>
-                <p>
-                  <a href="YAML.html">YAML Options</a> 
-                </p>
+                <p>[YAML Options][YAML]</p>
               </li>
             </ul>
             <hr>
             <p>
-              <a href="http://github.com/assemble/assemble-docs/blob/master/src/templates/pages/docs/Options.hbs">See the template for this page →</a> 
+              <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/docs/Options.md.hbs">See the template for this page →</a> 
             </p>
             <div class="alert">
               <style type="text/css" media="screen">
