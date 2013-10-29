@@ -314,16 +314,20 @@
             <p>Type: <code>String</code> (optional) Default: <code>.html</code>
             </p>
             <h2>Overview</h2> 
-            <p>When planning out the strategy for your build targets, [templates-overview][templates-overview] and [data][data], don&#39;t forget to take the <code>ext</code> variable into consideration. <code>ext</code> opens up a few doors by &quot;bending
-              the rules&quot; around how your source files will be compiled or rendered.</p>
-            <p>In 90% of cases, the <code>ext</code> option will not be needed, and simply using the <code>.hbs</code> file extension on your [templates-overview][templates-overview] will suffice. However, in scenarios where you are using mixed content, say
-              HTML and markdown with Handelbars templates embedded in one or both formats, you may need to use the <code>ext</code> option to esure that you get the output you need.</p>
+            <p>When planning out the strategy for your build targets,
+              <a href="Templates-Overview.html">templates-overview</a> and
+              <a href="Data.html">data</a>, don&#39;t forget to take the <code>ext</code> variable into consideration. <code>ext</code> opens up a few doors by &quot;bending the rules&quot; around how your source files will be compiled or rendered.</p>
+            <p>In 90% of cases, the <code>ext</code> option will not be needed, and simply using the <code>.hbs</code> file extension on your
+              <a href="Templates-Overview.html">templates-overview</a> will suffice. However, in scenarios where you are using mixed content, say HTML and markdown with Handelbars templates embedded in one or both formats, you may need to use the <code>ext</code> option to esure that you
+              get the output you need.</p>
             <h3>Mixed content: Markdown and HTML together</h3> 
             <p>Consider the following scenario:</p>
             <ul>
-              <li>Your page content and/or blog posts will be written in [markdown][markdown] format</li>
+              <li>Your page content and/or blog posts will be written in
+                <a href="Markdown.html">markdown</a> format</li>
               <li>You want to embed Handlebars templates in your markdown content for certain types of metadata, such as links, date/time, etc.</li>
-              <li>Your page [layouts][layouts] are made from HTML, but they also with embedded with Handlebars templates</li>
+              <li>Your page
+                <a href="Layouts.html">layouts</a> are made from HTML, but they also with embedded with Handlebars templates</li>
               <li>
                 <p>Your end goal is for all of your markdown content to be rendered to HTML in the output.</p>
                 <p>and you want your need to compile some markdown files to HTML, and you want to use other markdown files as &quot;includes&quot; or &quot;partials&quot; inside other markdown files, in which case you want the markdown files to be rendered <em>as markdown</em> in
@@ -332,7 +336,7 @@
             </ul>
             <h2>Extensions map</h2> 
             <h3>Whitelisted extensions</h3> 
-            <p>As of 10/17/2013, Assemble&#39;s extensions map &quot;whitelists&quot; the following extensions:</p>
+            <p>As of 10/28/2013, Assemble&#39;s extensions map &quot;whitelists&quot; the following extensions:</p>
             <p><strong>Handlebars extensions</strong> 
             </p>
             <ul>
@@ -461,6 +465,15 @@
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

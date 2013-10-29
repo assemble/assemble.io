@@ -4301,6 +4301,7 @@ input.focused {
 
 body {
   padding-top: 80px;
+  padding-bottom: 120px;
 }
 .anchor {
   color: transparent;
@@ -4369,4 +4370,71 @@ h5:hover .anchor {
 }
 .panel hr + ul {
   padding: 0;
+}
+
+.repos {
+  padding: 0;
+  margin: 20px 0 10px 25px;
+}
+.repo {
+  padding: 10px;
+  list-style: none;
+}
+.repo > .card {
+  position: relative;
+  padding: 1px 20px;
+  height: 250px;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+     -moz-box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+          box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+  overflow: hidden;
+}
+.card h2 {
+  font-size: 16px;
+}
+.card h3 {
+  font-size: 14px;
+  text-align: right;
+  color: #aaa;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.card p {
+  color: #333;
+}
+
+.card:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-right: 30px solid #33B5E5;
+  border-bottom: 30px solid rgba(0, 0, 0, 0);
+  border-left: 30px solid rgba(0, 0, 0, 0);
+  content: '';
+}
+
+/* renders as black */
+.card.javascript:after {
+  border-right-color: #333;
+}
+/* renders as light blue */
+.card.css:after {
+  border-right-color: #7ac9de;
+}
+/* renders as yellow */
+.card.css:after {
+  border-right-color: #cc8300;
+}
+/* renders as green */
+.card.css:after {
+  border-right-color: #6aad2d;
+}
+/* renders as red */
+.card.css:after {
+  border-right-color: #cc1100;
 }

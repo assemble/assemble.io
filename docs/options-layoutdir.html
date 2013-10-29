@@ -311,11 +311,14 @@
             <blockquote>
               <p>Path to the directory to be used as the &quot;cwd&quot; for layouts</p>
             </blockquote>
-            <p><code>layoutdir</code> makes maintaining [layouts][options-layout] a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are
-              stored without having to update the path to each layout used throughout your project. It could also reduce some clutter in the
-              <a href="http://gruntjs.com">Gruntfile</a> and [YAML Front Matter][yaml-front-matter].</p>
+            <p><code>layoutdir</code> makes maintaining
+              <a href="options-layout.html">layouts</a> a little easier on projects that require more than one layout. The primary advantage of using the feature is that you can change or rename the directory where your layouts are stored without having to update the path to each layout
+              used throughout your project. It could also reduce some clutter in the
+              <a href="http://gruntjs.com">Gruntfile</a> and
+              <a href="YAML-front-matter.html">YAML Front Matter</a>.</p>
             <p>Additionally, a <code>layoutdir</code> can be defined for each
-              <a href="http://gruntjs.com/configuring-tasks">targets</a>, allowing for even greater control over how [layouts][] are used in your projects.</p>
+              <a href="http://gruntjs.com/configuring-tasks">targets</a>, allowing for even greater control over how
+              <a href="Layouts.html">layouts</a> are used in your projects.</p>
             <h2>Usage Examples</h2> 
             <h3>Without <code>layoutdir</code>
             </h3> 
@@ -338,7 +341,8 @@
   }
   <span class="comment">// etc.</span> 
 }</code></pre>
-            <p>This also applies to [YAML front matter][yaml-front-matter] when it is necessary to &quot;override&quot; layouts at the page-level:</p>
+            <p>This also applies to
+              <a href="YAML-front-matter.html">YAML front matter</a> when it is necessary to &quot;override&quot; layouts at the page-level:</p>
             <pre><code class="language-yaml">---
 title: Blog
 layout: src/templates/layouts/blog-layout.hbs
@@ -365,7 +369,8 @@ layout: src/templates/layouts/blog-layout.hbs
   }
   // etc.
 }</code></pre>
-            <p>And in [YAML front matter][yaml-front-matter]:</p>
+            <p>And in
+              <a href="YAML-front-matter.html">YAML front matter</a>:</p>
             <pre><code class="language-yaml">---
 title: Blog
 layout: blog-layout.hbs
@@ -408,8 +413,9 @@ layout: blog-layout.hbs
   <span class="comment">// etc.</span> 
 }</code></pre>
             <p>Note that the layout name is the same for each target, but the <code>layoutdir</code> is a different directory, indicating that there are three different &quot;default&quot; layouts.</p>
-            <p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the [YAML front matter][yaml-front-matter] of individual pages, it is not a good idea to use the same name for multiple layouts, <em>unless you are intentionally using this naming convention as a strategy</em>.
-              The reason is that it gets very difficult to track which page is building from which layout when working inside the pages themselves.</p>
+            <p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the
+              <a href="YAML-front-matter.html">YAML front matter</a> of individual pages, it is not a good idea to use the same name for multiple layouts, <em>unless you are intentionally using this naming convention as a strategy</em>. The reason is that it gets very difficult to track
+              which page is building from which layout when working inside the pages themselves.</p>
             <h3>Difficult to follow</h3> 
             <p>Without <code>layoutdir</code>, you have the entire path to follow, but without it you must rely on the name of the layout itself to guide you.</p>
             <pre><code class="language-html">---
@@ -423,7 +429,9 @@ title: Any Page
 layout: blog-default.hbs
 ---</code></pre>
             <p>Of course, these are only recommendations and you will need to find a strategy that works for you and your team.</p>
-            <h4>Also see [Layouts][layouts] and [options.layout][options-layout] →</h4> 
+            <h4>Also see
+              <a href="Layouts.html">Layouts</a> and
+              <a href="options-layout.html">options.layout</a> →</h4> 
             <hr>
             <p>
               <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/docs/options-layoutdir.md.hbs">See the template for this page →</a> 
@@ -451,6 +459,15 @@ layout: blog-default.hbs
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

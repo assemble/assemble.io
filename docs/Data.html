@@ -313,15 +313,18 @@
             <h2>Data Formats</h2> 
             <p>Any of the following data formats may be used:</p>
             <ul>
-              <li>[JSON][json] files, such as <code>my-data.json</code>
+              <li>
+                <a href="JSON.html">JSON</a> files, such as <code>my-data.json</code>
               </li>
-              <li>[YAML][yaml] files, such as <code>my-data.yml</code>
+              <li>
+                <a href="YAML.html">YAML</a> files, such as <code>my-data.yml</code>
               </li>
               <li>
                 <a href="YAML-front-matter.html" title="YAML Front Matter">YAML Front-Matter</a>, embedded directly inside the page/template itself</li>
             </ul>
             <blockquote>
-              <p>Go to [options.data][options-data] to learn about supplying data to your templates →</p>
+              <p>Go to
+                <a href="options-data.html">options.data</a> to learn about supplying data to your templates →</p>
             </blockquote>
             <h2>Usage examples</h2> 
             <p>Let&#39;s start by creating a template, which can be any kind of markdown, text, xml or markup/HTML that we want to use. For this example our template is going to be HTML, and since I&#39;m feeling creative let&#39;s call it <code>my-template.hbs</code>.</p>
@@ -361,7 +364,9 @@ author: Brian Woodward
             <p>Outputs:</p>
             <pre><code class="language-html">&lt;h1&gt;Assemble&lt;/h1&gt;
 &lt;p&gt;Brian Woodward&lt;/p&gt;</code></pre>
-            <h3>Underscore and [YAML front-matter][yaml-front-matter]</h3> 
+            <h3>Underscore and
+              <a href="YAML-front-matter.html">YAML front-matter</a> 
+            </h3> 
             <p>Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:</p>
             <pre><code class="language-html">---
 title: &lt;%= some.title.variable %&gt;
@@ -387,11 +392,21 @@ author: &lt;%= some.author.variable %&gt;
             <pre><code class="language-html">{{myData.title}}</code></pre>
             <h2>Related information:</h2> 
             <ul>
-              <li>[options.data][options-data]</li>
-              <li>[Complete list of Options][Options]</li>
-              <li>[Context][context]</li>
-              <li>[templates-overview][templates-overview]</li>
-              <li>[Variables][built-in-variables]</li>
+              <li>
+                <a href="options-data.html">options.data</a> 
+              </li>
+              <li>
+                <a href="Options.html">Complete list of Options</a> 
+              </li>
+              <li>
+                <a href="Context.html">Context</a> 
+              </li>
+              <li>
+                <a href="Templates-Overview.html">templates-overview</a> 
+              </li>
+              <li>
+                <a href="Built-in-Variables.html">Variables</a> 
+              </li>
             </ul>
             <hr>
             <p>
@@ -420,6 +435,15 @@ author: &lt;%= some.author.variable %&gt;
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

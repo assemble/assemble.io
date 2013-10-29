@@ -504,7 +504,8 @@ layout: parent-layout.hbs
             <ol>
               <li><strong>Task options</strong>: Great for defining a &quot;project-wide&quot; default.</li>
               <li><strong>Target options</strong>: Override the &quot;project default&quot; in the <code>options</code> for each target. Offers greater control over which &quot;types&quot; of pages get which <code>layout</code>.</li>
-              <li><strong>Page-by-page</strong>: If you require more granularity you can define a layout in the [YFM][yaml-front-matter] of a page</li>
+              <li><strong>Page-by-page</strong>: If you require more granularity you can define a layout in the
+                <a href="YAML-front-matter.html">YFM</a> of a page</li>
             </ol>
             <h3>Multiple layouts</h3> 
             <p>Since you can create as many
@@ -538,7 +539,8 @@ layout: parent-layout.hbs
 }</code></pre>
             <h2>Page-specific Layouts</h2> 
             <p>If you require a higher level of granularity than defining layouts in the Gruntfile, you may also define layouts on a page-by-page basis, thus overriding both the task-level (&quot;global&quot;) defaults and the target-level defaults.</p>
-            <p>To do so, just add the layout to the [YFM][yaml-front-matter] of the page like this:</p>
+            <p>To do so, just add the layout to the
+              <a href="YAML-front-matter.html">YFM</a> of the page like this:</p>
             <pre><code class="language-yaml">---
 layout: path/to/layout.hbs
 ---</code></pre>
@@ -657,18 +659,31 @@ layout: default.hbs
             <ul>
               <li>Layouts are optional</li>
               <li>When a layout is specified, <em>it must include a <code>{{&gt; body }}</code> tag to render content</em> from any file that uses the layout.</li>
-              <li>Layouts may be defined in the Gruntfile or in [YFM][yaml-front-matter] of a page.</li>
+              <li>Layouts may be defined in the Gruntfile or in
+                <a href="YAML-front-matter.html">YFM</a> of a page.</li>
               <li>A layout defined for a target will override a layout defined at the task level.</li>
-              <li>A layout defined in [YFM][yaml-front-matter] will override a layout defined in the Gruntfile</li>
-              <li>[Lo-dash templates][templates-overview] can be used in YAML front-matter to specificy a layout.</li>
+              <li>A layout defined in
+                <a href="YAML-front-matter.html">YFM</a> will override a layout defined in the Gruntfile</li>
+              <li>
+                <a href="Templates-Overview.html">Lo-dash templates</a> can be used in YAML front-matter to specificy a layout.</li>
             </ul>
             <h2>Related info</h2> 
             <ul>
-              <li>[options.layout][options-layout]</li>
-              <li>[Pages][pages]</li>
-              <li>[Partials][partials]</li>
-              <li>[templates-overview][templates-overview]</li>
-              <li>[YFM][yaml-front-matter]</li>
+              <li>
+                <a href="options-layout.html">options.layout</a> 
+              </li>
+              <li>
+                <a href="Pages.html">Pages</a> 
+              </li>
+              <li>
+                <a href="Partials.html">Partials</a> 
+              </li>
+              <li>
+                <a href="Templates-Overview.html">templates-overview</a> 
+              </li>
+              <li>
+                <a href="YAML-front-matter.html">YFM</a> 
+              </li>
             </ul>
             <hr>
             <p>
@@ -697,6 +712,15 @@ layout: default.hbs
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

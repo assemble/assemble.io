@@ -320,13 +320,20 @@
               example, the following will result in 2 helpers being registered:</p>
             <pre><code class="language-js">module.exports.foo = <span class="keyword">function</span> (str) { <span class="keyword">return</span>  str; };
 module.exports.bar = <span class="keyword">function</span> (str) { <span class="keyword">return</span>  str; };</code></pre>
-            <p>And this will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
+            <p>And the following will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
             <pre><code class="language-js">module.exports.register = <span class="keyword">function</span> (Handlebars, options) {
   Handlebars.registerHelper(<span class="string">'foo'</span>, <span class="keyword">function</span> (str) {
     <span class="keyword">return</span>  str;
   });
 };</code></pre>
             <p>The <code>Handlebars.registerHelper</code> method takes the name of the helper and the helper function as arguments. Handlebars.js then takes whatever is returned from the helper function and writes it out to the template, <em>so be sure to always return a string from your custom helpers</em>.</p>
+            <h2>Params object</h2> 
+            <p>Adding a third argument, <code>params</code>, to the call to <code>helper.register</code> will pass in grunt and assemble so that they may be used from inside helpers:</p>
+            <pre><code class="language-js">module.exports.register = <span class="keyword">function</span> (Handlebars, options, params) {
+  Handlebars.register(<span class="string">'awesome'</span>, <span class="keyword">function</span> () {
+    <span class="keyword">return</span>  params.assemble.options.foo;
+  };
+};</code></pre>
             <h2>Loading Helpers</h2> 
             <p>Minimatch patterns can be used in the <code>helpers</code> option, and they&#39;ll look inside your devDependencies for any node modules that it finds. If it finds modules, it will attempt to load those as helpers.</p>
             <p>Requirements for use:</p>
@@ -407,10 +414,18 @@ module.exports.bar = <span class="keyword">function</span> (str) { <span class="
             </ul>
             <h2>Related info</h2> 
             <ul>
-              <li>[Learn about Templates][templates-overview]</li>
-              <li>[Helpers][helpers]</li>
-              <li>[options.helpers][options-helpers]</li>
-              <li>[Options][options]</li>
+              <li>
+                <a href="Templates-Overview.html">Learn about Templates</a> 
+              </li>
+              <li>
+                <a href="Helpers.html">Helpers</a> 
+              </li>
+              <li>
+                <a href="options-helpers.html">options.helpers</a> 
+              </li>
+              <li>
+                <a href="Options.html">Options</a> 
+              </li>
             </ul>
             <h3>External Links</h3> 
             <ul>
@@ -454,6 +469,15 @@ module.exports.bar = <span class="keyword">function</span> (str) { <span class="
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

@@ -307,8 +307,10 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Built-in Variables</h1> 
-            <h3>Also see [Avoiding Collisions][errors] →</h3> 
-            <h2>&quot;[Page][pages]&quot; Variables</h2> 
+            <h3>Also see
+              <a href="Errors.html">Avoiding Collisions</a> →</h3> 
+            <h2>&quot;
+              <a href="Pages.html">Page</a> &quot; Variables</h2> 
             <p>The following variables are defined on the <code>page</code> object, which exposes data for the &quot;current page&quot; at build time:</p>
             <ul>
               <li><code>{{basename}}</code> : Equivalent to node
@@ -326,7 +328,8 @@
               <li><code>{{pageName}}</code> : deprecated, use <code>pagename</code> or <code>filename</code>
               </li>
             </ul>
-            <h2>&quot;[YFM][yaml-front-matter]&quot; Variables</h2> 
+            <h2>&quot;
+              <a href="YAML-front-matter.html">YFM</a> &quot; Variables</h2> 
             <ul>
               <li><code>categories</code> : a category, or an array of categories that are associated with this page. These should be provided in the yaml header.</li>
               <li><code>tags</code> : List of tag objects that are associated with this page. These should be provided in the yaml header.</li>
@@ -334,7 +337,8 @@
             <ul>
               <li><code>custom</code> : Any custom front matter that you specify will be available under <code>page</code>. For example, if you specify <code>something: true</code> in a page&#39;s front matter, that value will be available in templates as <code>page.something</code>&quot;</li>
               <li><code>layout</code> : the layout to be used for the current page. Overrides any layouts defined in the <code>assemble.options</code>, at the task and target level,</li>
-              <li><code>published</code> : Use <code>published: false</code> in the [YAML Front Matter][yaml-front-matter] of a page to exclude the page from being rendered.</li>
+              <li><code>published</code> : Use <code>published: false</code> in the
+                <a href="YAML-front-matter.html">YAML Front Matter</a> of a page to exclude the page from being rendered.</li>
             </ul>
             <pre><code class="language-yaml">---
 title: Just testing some stuff on this page, it should not be published
@@ -349,7 +353,8 @@ published: false
               <li><code>paginate</code> (planned)</li>
             </ul>
             <blockquote>
-              <p>[Learn more][options-collections] about collections →</p>
+              <p>
+                <a href="options-collections.html">Learn more</a> about collections →</p>
             </blockquote>
             <p>
               <a id="custom-variables"></a> 
@@ -372,13 +377,20 @@ published: false
             <p>Will render the HTML for the <em>non-minified</em> &nbsp; script tag:</p>
             <pre><code class="language-html">&lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;</code></pre>
             <h2>Helpers</h2> 
-            <p>Variables can be modified using using special tags called [helpers][helpers]. Helpers may also accept parameters, each of which is a
+            <p>Variables can be modified using using special tags called
+              <a href="Helpers.html">helpers</a>. Helpers may also accept parameters, each of which is a
               <a href="http://handlebarsjs.com/expressions.html">Handlebars expression</a>.</p>
-            <h3>See [Helpers][helpers] and [Custom Helpers][custom-helpers] →</h3> 
+            <h3>See
+              <a href="Helpers.html">Helpers</a> and
+              <a href="Custom-Helpers.html">Custom Helpers</a> →</h3> 
             <h2>Related info</h2> 
             <ul>
-              <li>[Options][options]</li>
-              <li>[Helpers][helpers]</li>
+              <li>
+                <a href="Options.html">Options</a> 
+              </li>
+              <li>
+                <a href="Helpers.html">Helpers</a> 
+              </li>
             </ul>
             <hr>
             <p>
@@ -407,6 +419,15 @@ published: false
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

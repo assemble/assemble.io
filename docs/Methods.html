@@ -351,7 +351,8 @@ assemble.files;   <span class="comment">// refers to the task.files</span> </cod
             <p>Admittedly, the <code>engine.engine</code> syntax is strange. This is &quot;alpha&quot;, so feedback and pull requests are especially welcome if you have ideas for improving this.</p>
             <h4>Register Helpers</h4> 
             <p>If you require helpers custom helpers beyond those included in
-              <a href="http://github.com/assemble/handlebars-helpers">handlebars-helpers</a>, [they can be loaded][options-helpers] with the current engine via <code>options: { helpers: []}</code> in the assemble task or target.</p>
+              <a href="http://github.com/assemble/handlebars-helpers">handlebars-helpers</a>,
+              <a href="options-helpers.html">they can be loaded</a> with the current engine via <code>options: { helpers: []}</code> in the assemble task or target.</p>
             <p>You may also call <code>registerFunctions</code> by passing in an engine. This is used if you need to register custom <strong>helpers</strong>  (filters, etc.):</p>
             <pre><code class="language-javascript">registerFunctions(assemble.engine);</code></pre>
             <p>Example of how this would be setup in the <code>options</code> of the assemble task or target:</p>
@@ -386,7 +387,9 @@ assemble.files;   <span class="comment">// refers to the task.files</span> </cod
     }
   }
 }</code></pre>
-            <p>Also see: [options.partials][options-partials]</p>
+            <p>Also see:
+              <a href="options-partials.html">options.partials</a> 
+            </p>
             <h3>assemble steps</h3> 
             <p>There are also methods to setup the assemble steps, and then execute the build:</p>
             <p>The <code>step</code> function takes a function which takes 2 parameters <code>function(assemble, next)</code> :</p>
@@ -515,6 +518,15 @@ assemble.files;   <span class="comment">// refers to the task.files</span> </cod
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

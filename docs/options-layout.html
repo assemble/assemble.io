@@ -309,7 +309,8 @@
             <h1>options.layout</h1> 
             <h2>options.layout</h2> 
             <blockquote>
-              <p>Layouts are commonly used with client-side templates as a quick way to &quot;wrap&quot; a number of [pages][] with commonly used page &quot;sections&quot;, such as the head, footer or navigation.</p>
+              <p>Layouts are commonly used with client-side templates as a quick way to &quot;wrap&quot; a number of
+                <a href="Pages.html">pages</a> with commonly used page &quot;sections&quot;, such as the head, footer or navigation.</p>
             </blockquote>
             <h2>Options</h2> 
             <p>Type: <code>String</code>|<code>False</code>|<code>None</code> (optional) Default: <code>undefined</code>
@@ -323,7 +324,8 @@
 }</code></pre>
             <h2>Defining Layouts</h2> 
             <p>Oftentimes you will need more than one layout for your project, so layouts can be defined using the <code>options.layout</code> variable at the task or target-level, or they can be specified at the page-level by adding a <code>layout</code> property
-              to the [YFM][yaml-front-matter].</p>
+              to the
+              <a href="YAML-front-matter.html">YFM</a>.</p>
             <h2>The <code>{{&gt; body }}</code> tag</h2> 
             <p>Although layouts are optional, the <code>{{&gt; body }}</code> tag is required for content to be pulled into a layout.</p>
             <pre><code class="language-html">&lt;!DOCTYPE html&gt;
@@ -336,15 +338,23 @@
     {{&gt; body }}
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <h4>Also see [Layouts][layouts] and [layoutdir][options-layoutdir] →</h4> 
+            <h4>Also see
+              <a href="Layouts.html">Layouts</a> and
+              <a href="options-layoutdir.html">layoutdir</a> →</h4> 
             <h2>Related info:</h2> 
             <ul>
-              <li>[Options][options]</li>
               <li>
-                <p>[Variables][built-in-variables]</p>
+                <a href="Options.html">Options</a> 
               </li>
               <li>
-                <p>[YAML Options][YAML]</p>
+                <p>
+                  <a href="Built-in-Variables.html">Variables</a> 
+                </p>
+              </li>
+              <li>
+                <p>
+                  <a href="YAML.html">YAML Options</a> 
+                </p>
               </li>
             </ul>
             <hr>
@@ -374,6 +384,15 @@
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

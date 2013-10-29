@@ -323,7 +323,8 @@
     about.hbs
     contact.hbs</code></pre>
             <p>Now in the Gruntfile, we configure the <code>assemble</code> task with two
-              <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">targets</a> and a [layout][layouts]:</p>
+              <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">targets</a> and a
+              <a href="Layouts.html">layout</a>:</p>
             <pre><code class="language-javascript">assemble: {
   options: {
     layout: <span class="string">'layouts/default.hbs'</span> 
@@ -339,8 +340,10 @@
     }
   }
 }</code></pre>
-            <p>Inside our [layout][layouts], <code>default.hbs</code>, we will add the <code>pages</code> variable to the <code>{{#each}}</code> block expression, and inside the block we will add the [<code>{{basename}}</code>][helpers] variable to give us the
-              filename of each page, without the extension.</p>
+            <p>Inside our
+              <a href="Layouts.html">layout</a>, <code>default.hbs</code>, we will add the <code>pages</code> variable to the <code>{{#each}}</code> block expression, and inside the block we will add the
+              <a href="Helpers.html"><code>{{basename}}</code>
+              </a> variable to give us the filename of each page, without the extension.</p>
             <pre><code class="language-handlebars">&lt;ul&gt;
   {{#each pages}}
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{basename}}&lt;/a&gt;&lt;/li&gt;
@@ -440,7 +443,8 @@ title: Home
   &lt;/ul&gt;
   {{/is}}
 {{/each}}</code></pre>
-            <p>Also see [collections][collections].</p>
+            <p>Also see
+              <a href="Collections.html">collections</a>.</p>
             <hr>
             <p>
               <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/docs/Pages-Collections.md.hbs">See the template for this page →</a> 
@@ -468,6 +472,15 @@ title: Home
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

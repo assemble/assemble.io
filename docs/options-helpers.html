@@ -316,7 +316,7 @@
             <pre><code class="language-handlebars">&lt;title&gt;{{ uppercase title }}&lt;/title&gt;</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">&lt;title&gt;PAGE TITLE&lt;/title&gt;</code></pre>
-            <h2>Custom helpers</h2> 
+            <h2>Register custom helpers</h2> 
             <p>Custom helpers may be loaded with the current engine via <code>options: { helpers: []}</code> in the assemble task or target. But <em>any helpers registered at the target level will override task-level helpers</em>.</p>
             <p>Globbing patterns may be used to specify paths to the helpers to be loaded:</p>
             <pre><code class="language-js">assemble: {
@@ -325,14 +325,21 @@
   }
 }</code></pre>
             <blockquote>
-              <p>For more info see [Custom Helpers][custom-helpers]. Or download
+              <p>For more info see
+                <a href="Custom-Helpers.html">Custom Helpers</a>. Or download
                 <a href="https://github.com/assemble/grunt-init-helper">grunt-init-helper</a> to generate helpers →</p>
             </blockquote>
             <h2>Related Info</h2> 
             <ul>
-              <li>[Helpers][helpers]</li>
-              <li>[Custom Helpers][custom-helpers]</li>
-              <li>[Options][options]</li>
+              <li>
+                <a href="Helpers.html">Helpers</a> 
+              </li>
+              <li>
+                <a href="Custom-Helpers.html">Custom Helpers</a> 
+              </li>
+              <li>
+                <a href="Options.html">Options</a> 
+              </li>
             </ul>
             <h2>External Links</h2> 
             <ul>
@@ -367,6 +374,15 @@
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>

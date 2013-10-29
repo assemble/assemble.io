@@ -313,8 +313,11 @@
             <h2>Generating a list from a collection</h2> 
             <p>The simplest way to generate a list from a collection is to create a block expression using the name of the collection, and the collection items inside.</p>
             <h3>Collection items from &quot;all pages&quot;</h3> 
-            <p>To generate a list of [categories][options-collections] for all [pages][pages] in a
-              <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>, add the following block expression to a page or a [layout][layouts] (depending on whether or not you want the list to render to a <em>specified page/pages</em> or <em>all</em> pages):</p>
+            <p>To generate a list of
+              <a href="options-collections.html">categories</a> for all
+              <a href="Pages.html">pages</a> in a
+              <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>, add the following block expression to a page or a
+              <a href="Layouts.html">layout</a> (depending on whether or not you want the list to render to a <em>specified page/pages</em> or <em>all</em> pages):</p>
             <pre><code class="language-html">&lt;h2&gt;All Categories&lt;/h2&gt;
 &lt;ul&gt;
 {{#categories}}
@@ -346,7 +349,8 @@ categories:
   &lt;li&gt;oranges&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
             <h3>Collection items on a given page</h3> 
-            <p>To generate a list of [categories][options-collections] for the a page, you would add the following to the page on which you want to generate the list:</p>
+            <p>To generate a list of
+              <a href="options-collections.html">categories</a> for the a page, you would add the following to the page on which you want to generate the list:</p>
             <pre><code class="language-html">{{#page.categories}}
   {{.}}
 {{/page.categories}}</code></pre>
@@ -354,7 +358,8 @@ categories:
               <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a> 
             </p>
             <h2>Dynamically building navigation</h2> 
-            <p>Following the previous example, we&#39;ll use the <code>{{#each}}...{{/each}}</code> block expression with the [pages][pages] variable to get the list of pages in the current
+            <p>Following the previous example, we&#39;ll use the <code>{{#each}}...{{/each}}</code> block expression with the
+              <a href="Pages.html">pages</a> variable to get the list of pages in the current
               <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>.</p>
             <p>Then, using the <code>{{#is}}...{{/is}}</code> comparison helper from the
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library, we can dynamically build navigation items by comparing a property (or properties) from the YAML front matter each page in the list with the given values.</p>
@@ -379,7 +384,7 @@ categories:
               <a href="https://github.com/assemble/handlebars-helpers#comparisons-equal-helpers">comparison helper</a> from the
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library.</p>
             <h3>Using YFM properties</h3> 
-            <p>You can achieve this using many different variables, but relatively easy one is to compare the <em>[basename][built-in-variables] of the current page</em> to the <em>given value</em>:</p>
+            <p>You can achieve this using many different variables, but relatively easy one is to compare the <em><a href="Built-in-Variables.html">basename</a>  of the current page</em> to the <em>given value</em>:</p>
             <pre><code class="language-html">&lt;ul class=&quot;nav navbar-nav&quot;&gt;
   &lt;li{{#is basename &quot;getting-started&quot;}} class=&quot;active&quot;{{/is}}&gt;
     &lt;a href=&quot;getting-started.html&quot;&gt;Getting started&lt;/a&gt;
@@ -452,6 +457,15 @@ categories:
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
     <script>
       $().showUp('.navbar');
     </script>
