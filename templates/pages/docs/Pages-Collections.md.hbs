@@ -162,7 +162,7 @@ Next we will modify our template to use the `title` variable instead of the file
 ```handlebars
 <ul>
   \{{#each pages}}
-    <li><a href="#">\{{this.data.title}}</a></li>
+    <li><a href="#">\{{data.title}}</a></li>
   \{{/each}}
 </ul>
 ```
@@ -171,9 +171,9 @@ or this:
 ```html
 <ul>
   \{{#each pages}}
-    \{{#this.data}}
+    \{{#data}}
     <li><a href="#">\{{title}}</a></li>
-    \{{/this.data}}
+    \{{/data}}
   \{{/each}}
 </ul>
 ```
