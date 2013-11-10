@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,16 +307,16 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.helpers</h1> 
-            <h2>options.helpers</h2> 
+            <h2 id="options-helpers">options.helpers</h2> 
             <blockquote>
               <p>Helpers manipulate the output of variables</p>
             </blockquote>
             <p>For the most part helper expressions follow this pattern: <code>{{ helper_name variable_name }}</code>.</p>
             <p>For example:</p>
-            <pre><code class="language-handlebars">&lt;title&gt;{{ uppercase title }}&lt;/title&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">title</span> &gt;</span> <span class="expression">{{ <span class="variable">uppercase</span>  <span class="variable">title</span>  }}</span> <span class="tag">&lt;/<span class="title">title</span> &gt;</span> </code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">&lt;title&gt;PAGE TITLE&lt;/title&gt;</code></pre>
-            <h2>Register custom helpers</h2> 
+            <h2 id="register-custom-helpers">Register custom helpers</h2> 
             <p>Custom helpers may be loaded with the current engine via <code>options: { helpers: []}</code> in the assemble task or target. But <em>any helpers registered at the target level will override task-level helpers</em>.</p>
             <p>Globbing patterns may be used to specify paths to the helpers to be loaded:</p>
             <pre><code class="language-js">assemble: {
@@ -329,7 +329,7 @@
                 <a href="Custom-Helpers.html">Custom Helpers</a>. Or download
                 <a href="https://github.com/assemble/grunt-init-helper">grunt-init-helper</a> to generate helpers →</p>
             </blockquote>
-            <h2>Related Info</h2> 
+            <h2 id="related-info">Related Info</h2> 
             <ul>
               <li>
                 <a href="Helpers.html">Helpers</a> 
@@ -341,7 +341,7 @@
                 <a href="Options.html">Options</a> 
               </li>
             </ul>
-            <h2>External Links</h2> 
+            <h2 id="external-links">External Links</h2> 
             <ul>
               <li>
                 <a href="http://github.com/assemble/handlebars-helpers">handlebars-helpers</a> 

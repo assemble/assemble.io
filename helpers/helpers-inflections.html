@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,16 +246,27 @@
           <div class="panel panel-docs">
             <h1>Inflections</h1> 
             <p>
-              <h4>{{inflect}}</h4> 
+              <h4 id="-inflect-">{{inflect}}</h4> 
             </p>
             <p>
               <p><em>Returns the plural or singular form of a word based on a count.</em>
               </p>
             </p>
             <p>
-              <p>Parameters:
-                <em> singular <code>string</code> - The singular form of the word. (Required)
-</em> plural <code>string</code> - The plural form of the word. (Required) * include <code>boolean</code> - whether or not to include the count before the word. (Optional)</p>
+              <p>Parameters:</p>
+            </p>
+            <p>
+              <ul>
+            </p>
+            <p>
+              <li>singular <code>string</code> - The singular form of the word. (Required)</li>
+            </p>
+            <p>
+              <li>plural <code>string</code> - The plural form of the word. (Required)</li>
+            </p>
+            <p>
+              <li>include <code>boolean</code> - whether or not to include the count before the word. (Optional)</li>
+              </ul>
             </p>
             <p>
               <p>Data:</p>
@@ -268,7 +279,7 @@ friends = <span class="number">1</span> </code></pre>
             <p>Renders to:</p>
             <pre><code>enemies
 1 friend</code></pre>
-            <h4>{{ordinalize}}</h4> 
+            <h4 id="-ordinalize-">{{ordinalize}}</h4> 
             <p><em>Turns a number into an ordinal string. Taken from the templating library <a href="https://github.com/jeremyruppel/walrus">Walrus</a>  by <a href="https://github.com/jeremyruppel">Jeremy Ruppel</a>.</em>
             </p>
             <p>Parameters: <code>none</code>

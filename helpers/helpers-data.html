@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,7 +246,7 @@
           <div class="panel panel-docs">
             <h1>Data</h1> 
             <p>
-              <h4>{{parseJSON}}</h4> 
+              <h4 id="-parsejson-">{{parseJSON}}</h4> 
             </p>
             <blockquote>
               <p>This block helper parses &quot;inline&quot; JSON and passes it into the templates or partial contained therein.</p>
@@ -256,7 +256,7 @@
               <a href="https://github.com/assemble/assemble/issues/228#issuecomment-20855238">this issue</a> 
             </p>
             <p>The helper:</p>
-            <pre><code class="language-js">parseJSON = <span class="keyword">function</span> (data, options) {
+            <pre><code class="language-js">parseJSON = <span class="function"><span class="keyword">function</span> <span class="params">(data, options)</span>  {</span> 
   <span class="keyword">return</span>  options.fn(JSON.parse(data));
 };</code></pre>
             <p>Templates (here we are using a partial, <code>input.hbs</code>):</p>

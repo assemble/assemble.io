@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -311,11 +311,11 @@
               <p>Now that the name of this page caught your attention, this page is for posting progress and reporting on actions to be taken in areas regarding namespacing variables, error logging and so on. This is a WIP, so until the matter is resolved
                 we will of course continue to update this page as information becomes available, or as we gain consensus on actions to be taken.</p>
             </blockquote>
-            <h2>Error Reporting</h2> 
+            <h2 id="error-reporting">Error Reporting</h2> 
             <p>The current plan is to create a utility library specifically for logging and reporting error messages related to helpers. If you want to contribute either with code or discussion, please
               <a href="https://github.com/assemble/handlebars-helpers/issues/32">visit this issue</a> and
               <a href="https://github.com/assemble/handlebars-helpers/issues/23">this issue</a>.</p>
-            <h2>Avoiding Variable Name Collisions</h2> 
+            <h2 id="avoiding-variable-name-collisions">Avoiding Variable Name Collisions</h2> 
             <p>This section is an off-shoot of the ongoing conversation on
               <a href="https://github.com/assemble/handlebars-helpers/issues/38">this issue</a>.</p>
             <p>We are currently discussing ways to automatically detect collisions to provide warnings about them, but in the meantime it is important for you to be aware that there is potential for name collision with built-in variables and helpers.</p>
@@ -324,7 +324,7 @@
               viable solution is found. We want to avoid namespacing if at all possible, so our current plan is to see if better reporting can mitigate the issue. If not, we&#39;ll look at namespacing. Please add your comments
               <a href="https://github.com/assemble/handlebars-helpers/issues/32">on this issue</a> or
               <a href="https://github.com/assemble/handlebars-helpers/issues/23">this issue</a>.</p>
-            <h2>Current Action</h2> 
+            <h2 id="current-action">Current Action</h2> 
             <p>In addition to the existing documentation, issues that have been created to track the discussion, and potential solutions listed above, we are currently documenting all the &quot;reserved&quot; variables and what they do in the documentation.
               This should be available any day now (as of 7/15/2013)</p>
             <p>Other feedback or contributions are encouraged. Visit either the

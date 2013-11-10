@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,9 +307,9 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Built-in Variables</h1> 
-            <h3>Also see
+            <h3 id="also-see-avoiding-collisions-errors-">Also see
               <a href="Errors.html">Avoiding Collisions</a> →</h3> 
-            <h2>&quot;
+            <h2 id="-page-pages-variables">&quot;
               <a href="Pages.html">Page</a> &quot; Variables</h2> 
             <p>The following variables are defined on the <code>page</code> object, which exposes data for the &quot;current page&quot; at build time:</p>
             <ul>
@@ -328,7 +328,7 @@
               <li><code>{{pageName}}</code> : deprecated, use <code>pagename</code> or <code>filename</code>
               </li>
             </ul>
-            <h2>&quot;
+            <h2 id="-yfm-yaml-front-matter-variables">&quot;
               <a href="YAML-front-matter.html">YFM</a> &quot; Variables</h2> 
             <ul>
               <li><code>categories</code> : a category, or an array of categories that are associated with this page. These should be provided in the yaml header.</li>
@@ -344,7 +344,7 @@
 title: Just testing some stuff on this page, it should not be published
 published: false
 ---</code></pre>
-            <h3>Collections</h3> 
+            <h3 id="collections">Collections</h3> 
             <p>Collections can also be defined in YAML front matter:</p>
             <ul>
               <li><code>pages</code> : list of pages in a target.</li>
@@ -359,7 +359,7 @@ published: false
             <p>
               <a id="custom-variables"></a> 
             </p>
-            <h2>Custom variables</h2> 
+            <h2 id="custom-variables">Custom variables</h2> 
             <p>You may add any custom variable you require to the <code>assemble</code> task or target options. Custom variables are added to the <em>root of the data context</em> and be available in any templates.</p>
             <p>For example, given that the custom variable <code>production</code> is set to <code>false</code> :</p>
             <pre><code class="language-js">assemble: {
@@ -376,14 +376,14 @@ published: false
 {{/if}}</code></pre>
             <p>Will render the HTML for the <em>non-minified</em> &nbsp; script tag:</p>
             <pre><code class="language-html">&lt;script src=&quot;dist/assets/script.js&quot;&gt;&lt;/script&gt;</code></pre>
-            <h2>Helpers</h2> 
+            <h2 id="helpers">Helpers</h2> 
             <p>Variables can be modified using using special tags called
               <a href="Helpers.html">helpers</a>. Helpers may also accept parameters, each of which is a
               <a href="http://handlebarsjs.com/expressions.html">Handlebars expression</a>.</p>
-            <h3>See
+            <h3 id="see-helpers-helpers-and-custom-helpers-custom-helpers-">See
               <a href="Helpers.html">Helpers</a> and
               <a href="Custom-Helpers.html">Custom Helpers</a> →</h3> 
-            <h2>Related info</h2> 
+            <h2 id="related-info">Related info</h2> 
             <ul>
               <li>
                 <a href="Options.html">Options</a> 

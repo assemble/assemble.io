@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,8 +307,8 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Pages Collections</h1> 
-            <h2>Collections of Pages</h2> 
-            <h3>Rendering Collections of Pages</h3> 
+            <h2 id="collections-of-pages">Collections of Pages</h2> 
+            <h3 id="rendering-collections-of-pages">Rendering Collections of Pages</h3> 
             <p>Let&#39;s say we create a project with the following structure:</p>
             <pre><code>src/
   layouts/default.hbs
@@ -344,11 +344,11 @@
               <a href="Layouts.html">layout</a>, <code>default.hbs</code>, we will add the <code>pages</code> variable to the <code>{{#each}}</code> block expression, and inside the block we will add the
               <a href="Helpers.html"><code>{{basename}}</code>
               </a> variable to give us the filename of each page, without the extension.</p>
-            <pre><code class="language-handlebars">&lt;ul&gt;
-  {{#each pages}}
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{basename}}&lt;/a&gt;&lt;/li&gt;
-  {{/each}}
-&lt;/ul&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span> &gt;</span> 
+  <span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  pages</span> }}</span> 
+    <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#"</span> &gt;</span> <span class="expression">{{<span class="variable">basename</span> }}</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> </code></pre>
             <p>When we build the project, pages from the <code>docs</code> target will render with:</p>
             <pre><code class="language-html">&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#&quot;&gt;index&lt;/a&gt;&lt;/li&gt;
@@ -363,7 +363,7 @@
   &lt;li&gt;&lt;a href=&quot;#&quot;&gt;about&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#&quot;&gt;contact&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-            <h2>{{#each pages}} Usage Examples</h2> 
+            <h2 id="-each-pages-usage-examples">{{#each pages}} Usage Examples</h2> 
             <p>Let&#39;s say our target has two pages with the following content:</p>
             <p>Page #1: <code>src/templates/one.hbs</code>
             </p>
@@ -378,27 +378,27 @@
 title: Home
 ---
 &lt;h1&gt;{{title}}&lt;/h1&gt;</code></pre>
-            <h4>{{page}} variable</h4> 
+            <h4 id="-page-variable">{{page}} variable</h4> 
             <p>The following templates:</p>
-            <pre><code class="language-handlebars">{{#each pages}}
-  {{{page}}}
-{{/each}}</code></pre>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  pages</span> }}</span> 
+  <span class="expression">{{{<span class="variable">page</span> }}</span> }
+<span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> </code></pre>
             <p>will return the concatenated &quot;content&quot; of each page in the target, with YFM stripped from each page, and templates returned <em>unrendered</em>:</p>
-            <pre><code class="language-handlebars">&lt;ul&gt;
-  &lt;li&gt;One&lt;/li&gt;
-  &lt;li&gt;Two&lt;/li&gt;
-  &lt;li&gt;Three&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1&gt;{{title}}&lt;/h1&gt;</code></pre>
-            <h4>{{src}} variable</h4> 
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> One<span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> Two<span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> Three<span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> 
+<span class="tag">&lt;<span class="title">h1</span> &gt;</span> <span class="expression">{{<span class="variable">title</span> }}</span> <span class="tag">&lt;/<span class="title">h1</span> &gt;</span> </code></pre>
+            <h4 id="-src-variable">{{src}} variable</h4> 
             <p>The following templates:</p>
-            <pre><code class="language-handlebars">{{#each pages}}
-  {{{src}}}
-{{/each}}</code></pre>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  pages</span> }}</span> 
+  <span class="expression">{{{<span class="variable">src</span> }}</span> }
+<span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> </code></pre>
             <p>will return the <code>src</code> path of each page in the target:</p>
             <pre><code class="language-html">src/templates/one.hbs
 src/templates/two.hbs</code></pre>
-            <h4>Using YFM with the <code>page</code> variable</h4> 
+            <h4 id="using-yfm-with-the-page-variable">Using YFM with the <code>page</code> variable</h4> 
             <p>With a couple of simple modifications to the previous example, we can have the output reflect the <code>title</code> of each page instead of the file name. To do so, each page must actually have a &quot;title&quot;. So let&#39;s add a <code>title</code> property
               to the YAML front matter of each page:</p>
             <pre><code class="language-yaml">---
@@ -406,11 +406,11 @@ title: Home
 ---</code></pre>
             <p>Next we will modify our template to use the <code>title</code> variable instead of the file name. Since we cannot use the context of each page as the first path (
               <a href="#data-title-explanation">see &quot;Data, Context and Why it Works this Way&quot;</a> ), to make sure we get the correct <code>title</code> we must add the <code>data</code> variable, giving us access to the root of the context:</p>
-            <pre><code class="language-handlebars">&lt;ul&gt;
-  {{#each pages}}
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt;&lt;/li&gt;
-  {{/each}}
-&lt;/ul&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span> &gt;</span> 
+  <span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  pages</span> }}</span> 
+    <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#"</span> &gt;</span> <span class="expression">{{<span class="variable">data.title</span> }}</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> </code></pre>
             <p>or this:</p>
             <pre><code class="language-html">&lt;ul&gt;
   {{#each pages}}
@@ -427,7 +427,7 @@ title: Home
   &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-            <h2>Pages per Collection Item
+            <h2 id="pages-per-collection-item-a-id-pages-per-collection-item-name-pages-per-collection-item-class-anchor-span-class-glyphicon-glyphicon-link-span-a-">Pages per Collection Item
               <a id="pages-per-collection-item" name="pages-per-collection-item" class="anchor">
                 <span class="glyphicon glyphicon-link"></span> 
               </a> 

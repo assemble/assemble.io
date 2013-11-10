@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,7 +307,7 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.partials</h1> 
-            <h2>Registering Partials</h2> 
+            <h2 id="registering-partials">Registering Partials</h2> 
             <p>Assemble automatically registers any partial or array of partials supplied to <code>options.partials</code>, at the task or target level.</p>
             <pre><code class="language-javascript">assemble {
   docs: {
@@ -319,35 +319,35 @@
     }
   }
 }</code></pre>
-            <h3>Tip</h3> 
+            <h3 id="tip">Tip</h3> 
             <p>Although this is not an &quot;officially supported&quot; feature, you can also pass partials in through the <code>options.helpers</code> object:</p>
             <pre><code class="language-js">Handlebars.registerPartial(<span class="string">'title'</span>, <span class="string">'&lt;strong&gt;{{title}}&lt;/strong&gt;'</span> );</code></pre>
             <p>If you wish to register partials this way, follow the same practices as
               <a href="helpers">registering helpers</a>.</p>
-            <h3>Task-target behavior</h3> 
+            <h3 id="task-target-behavior">Task-target behavior</h3> 
             <p>Any partials registered at the <em>task</em> level are are also available at the <em>target</em> level.</p>
             <p><strong>Important!</strong>  It is standard in Grunt.js for target-level options to overwrite task-level options. However, assemble merges the list of partials defined at the task-level with the partials defined for each target.</p>
-            <h2>Usage examples</h2> 
-            <h3>Ways to apply context to partials</h3> 
-            <h4>&quot;Inline&quot;</h4> 
+            <h2 id="usage-examples">Usage examples</h2> 
+            <h3 id="ways-to-apply-context-to-partials">Ways to apply context to partials</h3> 
+            <h4 id="-inline-">&quot;Inline&quot;</h4> 
             <p>You can establish context inside the partials:</p>
-            <pre><code class="language-handlebars">{{&gt; module module.panel-primary}}
-{{&gt; module module.panel-info}}
-{{&gt; module module.panel-success}}
-{{&gt; module module.panel-warning}}
-{{&gt; module module.panel-danger}}
-{{&gt; module module.panel-query}}</code></pre>
-            <h4>Block expressions</h4> 
+            <pre><code class="language-handlebars"><span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">module.panel</span> -<span class="variable">primary</span> }}</span> 
+<span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">module.panel</span> -<span class="variable">info</span> }}</span> 
+<span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">module.panel</span> -<span class="variable">success</span> }}</span> 
+<span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">module.panel</span> -<span class="variable">warning</span> }}</span> 
+<span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">module.panel</span> -<span class="variable">danger</span> }}</span> 
+<span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">module.panel</span> -<span class="variable">query</span> }}</span> </code></pre>
+            <h4 id="block-expressions">Block expressions</h4> 
             <p>Wrap partials in block expressions and either set the context on the partial:</p>
-            <pre><code class="language-handlebars">{{#module}}
-  {{&gt; module panel-inverse}}
-  {{&gt; module panel-success}}
-  {{&gt; module panel-info}}
-{{/module}}</code></pre>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="begin-block">#module</span> }}</span> 
+  <span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">panel</span> -<span class="variable">inverse</span> }}</span> 
+  <span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">panel</span> -<span class="variable">success</span> }}</span> 
+  <span class="expression">{{&gt; <span class="variable">module</span>  <span class="variable">panel</span> -<span class="variable">info</span> }}</span> 
+<span class="expression">{{<span class="end-block">/module</span> }}</span> </code></pre>
             <p>Or on the section tags:</p>
-            <pre><code class="language-handlebars">{{#module.panel-base}}
-  {{&gt; module }}
-{{/module.panel-base}}</code></pre>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="begin-block">#module.panel</span> -<span class="variable">base</span> }}</span> 
+  <span class="expression">{{&gt; <span class="variable">module</span>  }}</span> 
+<span class="expression">{{<span class="end-block">/module.panel</span> -<span class="variable">base</span> }}</span> </code></pre>
             <hr>
             <p>
               <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/docs/options-partials.md.hbs">See the template for this page →</a> 

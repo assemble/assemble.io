@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,15 +307,15 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.engine</h1> 
-            <h2><code>init</code> method</h2> 
+            <h2 id="-init-method"><code>init</code> method</h2> 
             <p>Describes <code>init</code> method to <code>assemble.engine</code>, and exposes engine on <code>assemble.engine</code>.</p>
-            <h3>Custom Engines</h3> 
+            <h3 id="custom-engines">Custom Engines</h3> 
             <p>If you don&#39;t wish to use Handlebars as your templates engine, you may add your own engine by providing an <code>init</code> function that takes in options from the assemble task/target. You may also override the <code>init</code> function
               in the task/target options by providing an <code>initializeEngine</code> function that takes the engine and the options:</p>
             <pre><code class="language-js">assemble: {
   options: {
     engine: <span class="string">'consolidate'</span>,
-    initializeEngine: <span class="keyword">function</span> (engine, options) {
+    initializeEngine: <span class="function"><span class="keyword">function</span> <span class="params">(engine, options)</span>  {</span> 
       engine.engine.swig.init(options);
     }
   },

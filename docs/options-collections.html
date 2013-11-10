@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,7 +307,7 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.collections</h1> 
-            <h2>Default Collections</h2> 
+            <h2 id="default-collections">Default Collections</h2> 
             <p>The following built-in collections are available at the root of the context:</p>
             <table>
               <thead>
@@ -345,14 +345,14 @@
                 </tr>
               </tbody>
             </table>
-            <h3>Pages collection differences</h3> 
+            <h3 id="pages-collection-differences">Pages collection differences</h3> 
             <p>&quot;
               <a href="Pages.html">Pages</a> &quot; and &quot;page&quot; differ from other collections and collection items in the following ways:</p>
             <ul>
               <li><em>Any files specified in the <code>src</code> of a given target</em> will be the collection items associated with the &quot;pages&quot; object for that target.</li>
               <li>Although a &quot;page&quot; is a collection item, there is currently no concept of &quot;pages with related pages&quot;. In other words <em>there is no object which contains a collection of pages associated with a given page</em>.</li>
             </ul>
-            <h3>Collection items</h3> 
+            <h3 id="collection-items">Collection items</h3> 
             <p>You may then add items to collections in the YAML front matter of any files that should include those collections:</p>
             <pre><code class="language-yaml">---
 title: My Blog
@@ -361,15 +361,15 @@ widgets:
 - two
 - three
 ---</code></pre>
-            <h3>Collections Options</h3> 
-            <h4>Implemented</h4> 
+            <h3 id="collections-options">Collections Options</h3> 
+            <h4 id="implemented">Implemented</h4> 
             <ul>
               <li><code>name:</code>: the name of the collection, plural form</li>
               <li><code>inflection</code>: the name of an individual collection item, in <strong>singular</strong>  form</li>
               <li><code>sortorder</code>: direction in which to sort the collection. Accepted values are (case insensitive): <code>asc</code>|<code>ascending</code>, <code>desc</code>|<code>descending</code>.</li>
               <li><code>sortby</code>: you may sort the collection by any field available in the page&#39;s data context</li>
             </ul>
-            <h4>Planned</h4> 
+            <h4 id="planned">Planned</h4> 
             <ul>
               <li><code>index</code>: the template to use for generating an index page for the collection, such as: <code>src/templates/indices/archives.hbs</code>.</li>
             </ul>
@@ -389,7 +389,7 @@ widgets:
     }
   ]
 }</code></pre>
-            <h3>List of associate pages</h3> 
+            <h3 id="list-of-associate-pages">List of associate pages</h3> 
             <p>Additionally, any collection item from the <code>collections</code> object can list the
               <a href="Pages.html">pages</a> associated with that collection. For example, each &quot;tag&quot; would list the
               <a href="Pages.html">pages</a> associated with that tag.</p>
@@ -397,8 +397,8 @@ widgets:
   tag: <span class="string">'news'</span>,
   pages: [<span class="string">'one.html'</span>, <span class="string">'two.html'</span>, <span class="string">'three.html'</span> ]
 }</code></pre>
-            <h2>Custom collections</h2> 
-            <h3>options.collections</h3> 
+            <h2 id="custom-collections">Custom collections</h2> 
+            <h3 id="options-collections">options.collections</h3> 
             <p>type: <code>Array</code>
               default: <code>null</code>
             </p>
@@ -416,7 +416,7 @@ widgets:
 - three
 ---</code></pre>
             <p>There are no restrictions on the number of collections created, you may specify as many custom collections as you require.</p>
-            <h3>Automatic inflection</h3> 
+            <h3 id="automatic-inflection">Automatic inflection</h3> 
             <p>Currently, for the sake of ease of use, the collection method uses the
               <a href="https://github.com/dreamerslab/node.inflection">inflection</a> library to convert a collection&#39;s item key into the correct syntax:</p>
             <ul>
@@ -427,7 +427,7 @@ widgets:
             </ul>
             <p>If words you wish to use are either missing or don&#39;t work properly, please let us know by
               <a href="https://github.com/assemble/assemble/issues/">creating an Issue</a> on Assemble&#39;s GitHub repository.</p>
-            <h2>Usage examples</h2> 
+            <h2 id="usage-examples">Usage examples</h2> 
             <p>Declaring tags and categories for a page within the page&#39;s
               <a href="YAML-front-matter.html">YAML front matter</a> 
             </p>
@@ -440,32 +440,32 @@ categories:
 ---</code></pre>
             <p><strong>List all tags</strong> 
             </p>
-            <pre><code class="language-handlebars">&lt;ul&gt;
-  {{#tags}}
-  &lt;li&gt;&lt;a href=&quot;/tag/{{tag}}.html&quot;&gt;{{tag}}&lt;/a&gt;&lt;/li&gt;
-  {{/tags}}
-&lt;/ul&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span> &gt;</span> 
+  <span class="expression">{{<span class="begin-block">#tags</span> }}</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"/tag/<span class="expression">{{<span class="variable">tag</span> }}</span>.html"</span> &gt;</span> <span class="expression">{{<span class="variable">tag</span> }}</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/tags</span> }}</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> </code></pre>
             <p><strong>List all categories</strong> 
             </p>
-            <pre><code class="language-handlebars">&lt;ul&gt;
-  {{#categories}}
-  &lt;li&gt;&lt;a href=&quot;/category/{{category}}.html&quot;&gt;{{category}}&lt;/a&gt;&lt;/li&gt;
-  {{/categories}}
-&lt;/ul&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span> &gt;</span> 
+  <span class="expression">{{<span class="begin-block">#categories</span> }}</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"/category/<span class="expression">{{<span class="variable">category</span> }}</span>.html"</span> &gt;</span> <span class="expression">{{<span class="variable">category</span> }}</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/categories</span> }}</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> </code></pre>
             <p><strong>List tags on current page</strong> 
             </p>
-            <pre><code class="language-handlebars">&lt;ul&gt;
-  {{#page.tags}}
-  &lt;li&gt;{{.}}&lt;/li&gt;
-  {{/page.tags}}
-&lt;/ul&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span> &gt;</span> 
+  <span class="expression">{{<span class="begin-block">#page.tags</span> }}</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="expression">{{<span class="variable">.</span> }}</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/page.tags</span> }}</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> </code></pre>
             <p><strong>List categories on current page</strong> 
             </p>
-            <pre><code class="language-handlebars">&lt;ul&gt;
-  {{#page.categories}}
-  &lt;li&gt;{{.}}&lt;/li&gt;
-  {{/page.categories}}
-&lt;/ul&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span> &gt;</span> 
+  <span class="expression">{{<span class="begin-block">#page.categories</span> }}</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="expression">{{<span class="variable">.</span> }}</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/page.categories</span> }}</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> </code></pre>
             <hr>
             <p>
               <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/docs/options-collections.md.hbs">See the template for this page →</a> 

@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling */
       .subhead {
@@ -153,14 +153,14 @@
             <p>Plugins are a new feature, but we know they&#39;ll play a big part in Assemble&#39;s future. We&#39;re looking for great plugins to add to our documentation and &quot;contrib&quot; collection, so please
               <a href="https://github.com/assemble/assemble/issues/new">let us know</a> if you have something in mind!</p>
             <p>If you authored an Assemble plugin, please submit a pull request to add it to this page!</p>
-            <h2>Contrib Plugins</h2> 
+            <h2 id="contrib-plugins">Contrib Plugins</h2> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/assemble-contrib-contextual">assemble-contrib-contextual</a>: Generates a JSON file containing the context of each page. Basic plugin to help see what&#39;s happening in the build.</li>
               <li>
                 <a href="https://github.com/assemble/permalinks">assemble-contrib-permalinks</a>: This plugin enables powerful and configurable URI replacement patterns, presets, uses Moment.js for parsing dates, and much more.</li>
             </ul>
-            <h2>Community Plugins</h2> 
+            <h2 id="community-plugins">Community Plugins</h2> 
             <ul>
               <li>
                 <a href="https://github.com/adjohnson916/assemble-markdown-data">assemble-markdown-data</a>: An Assemble plugin for automatic parsing of markdown in data.</li>
@@ -169,7 +169,7 @@
               <li>
                 <a href="https://github.com/hariadi/assemble-sitemap">assemble-sitemap</a>: Assemble plugin for generating sitemaps.</li>
             </ul>
-            <h2>Plugins we want</h2> 
+            <h2 id="plugins-we-want">Plugins we want</h2> 
             <p>Here are some plugins we&#39;d like to see. (
               <a href="https://github.com/assemble/assemble/issues/new">Let us know</a> if you build one and want to make it a contrib plugin):</p>
             <ul>
@@ -180,7 +180,7 @@
               <li>component-builders for YUI, OOCSS (make sure you talk to us about these if you&#39;re interested!)</li>
               <li>theme generators</li>
             </ul>
-            <h2>Things we&#39;re working on or need help with</h2> 
+            <h2 id="things-we-re-working-on-or-need-help-with">Things we&#39;re working on or need help with</h2> 
             <ul>
               <li>yeoman plugin generator</li>
               <li>grunt init template</li>

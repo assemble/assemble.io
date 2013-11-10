@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -313,21 +313,21 @@
             </blockquote>
             <p>Does your project use Assemble? Did you write a blog post about Assemble? Make a video, or create a &quot;community&quot; project based on Assemble? <em><a href="https://github.com/assemble/assemble/issues">Please let us know!</a> </em> &nbsp;
               We&#39;ll post a link to it on our docs. Thanks for thinking of us!</p>
-            <h3>Updates</h3> 
+            <h3 id="updates">Updates</h3> 
             <ul>
               <li>
                 <a href="https://github.com/h5bp/Effeckt.css">Effeckt uses Assemble!</a> - a h5bp project focused on &quot;UI-less, performant transitions &amp; animations&quot;. If you haven&#39;t seen it, definitely check it out, it&#39;s pretty awesome.</li>
               <li>
                 <a href="https://github.com/assemble/assemble-bootstrap">assemble-bootstrap</a> is a new boilerplate to build Twitter Bootstrap 3.0.0 with Assemble and Grunt.js. No need for Ruby, Jekyll, or running a server to view the docs. This repo is up-to-date and includes qunit and phantomjs tests.</li>
             </ul>
-            <h2>Generators and Init Templates</h2> 
-            <h3>Yeoman</h3> 
+            <h2 id="generators-and-init-templates">Generators and Init Templates</h2> 
+            <h3 id="yeoman">Yeoman</h3> 
             <ul>
               <li>
                 <a href="https://github.com/hariadi/generator-assemble">assemble/generator-assemble</a>: Yeoman generator for Assemble. Authored by
                 <a href="https://github.com/hariadi">@hariadi</a>.</li>
             </ul>
-            <h3>
+            <h3 id="-grunt-init-http-gruntjs-com-project-scaffolding-">
               <a href="http://gruntjs.com/project-scaffolding">Grunt Init</a> 
             </h3> 
             <ul>
@@ -342,7 +342,7 @@
             <blockquote>
               <p>These will be converted to Yeoman Generators at some point.</p>
             </blockquote>
-            <h3>
+            <h3 id="-yeoman-generators-https-github-com-yeoman-yeoman-">
               <a href="https://github.com/yeoman/yeoman">Yeoman Generators</a> 
             </h3> 
             <ul>
@@ -353,7 +353,7 @@
               <li>
                 <a href="https://github.com/hariadi/assemble-jekyll">hariadi/assemble-jekyll</a>: &quot;Yeoman generator for Assemble that generate layouts, pages, partials, and markdown content for Jekyll static site&quot;.</li>
             </ul>
-            <h2>Boilerplates</h2> 
+            <h2 id="boilerplates">Boilerplates</h2> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/buttons">assemble/buttons</a>: This project demonstrates how to build components and pages from templates and data.</li>
@@ -374,7 +374,7 @@
               <li>
                 <a href="https://github.com/assemble/boilerplate-markdown">assemble/boilerplate-markdown</a>: Generate HTML pages from markdown content. Useful for wikis, gh-pages, documentation and blogs or sites with markdown posts</li>
             </ul>
-            <h2>Engines</h2> 
+            <h2 id="engines">Engines</h2> 
             <p>Officially supported template engines:</p>
             <ul>
               <li>
@@ -387,7 +387,7 @@
             <p>Learn about
               <a href="Methods.html">adding an engine to Assemble</a> 
             </p>
-            <h2>Helpers and Extensions</h2> 
+            <h2 id="helpers-and-extensions">Helpers and Extensions</h2> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/handlebars-helpers">assemble/handlebars-helpers</a>: Library of 110+ handlebars helpers. This project is active and supported, we love contributors and appreciate watchers.</li>
@@ -397,7 +397,7 @@
                 <a href="http://github.com/assemble/swig-extensions">assemble/swig-extensions</a> 
               </li>
             </ul>
-            <h2>Sublime Text</h2> 
+            <h2 id="sublime-text">Sublime Text</h2> 
             <ul>
               <li>
                 <a href="https://github.com/jonschlinkert/sublime-monokai-extended">jonschlinkert/sublime-monokai-extended</a>: Sublime Text package that extends Soda&#39;s Monokai and the default markdown styles with additional or enhanced syntax highlighting for
@@ -410,7 +410,7 @@
                 <a href="http://github.com/jonschlinkert/sublime-swig">jonschlinkert/sublime-swig</a>: Syntax highlighting for
                 <a href="">Swig Templates</a> in Sublime Text.</li>
             </ul>
-            <h2>Other</h2> 
+            <h2 id="other">Other</h2> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/assemble-less">assemble-less</a>: Grunt task for compiling LESS to CSS. Maintained by
@@ -422,7 +422,7 @@
               <li>
                 <a href="https://github.com/assemble/grunt-firebase">grunt-firebase</a>: Grunt task to convert to or from JSON, YAML, XML, PLIST or CSV.</li>
             </ul>
-            <h2>Related Info</h2> 
+            <h2 id="related-info">Related Info</h2> 
             <ul>
               <li>
                 <a href="Methods.html">Methods</a> 

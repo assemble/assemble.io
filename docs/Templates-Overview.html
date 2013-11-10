@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -310,20 +310,20 @@
             <blockquote>
               <p>Assemble allows use of either Lo-Dash or Handlebars templates, depending on where the templates are used.</p>
             </blockquote>
-            <h2>Separation of Concerns</h2> 
+            <h2 id="separation-of-concerns">Separation of Concerns</h2> 
             <p>In general:</p>
             <ul>
               <li>Lo-Dash templates are used for configuration and metadata. Lo-Dash may be used in the Gruntfile, JSON/YAML files, YAML front matter, etc.</li>
               <li>Handlebars templates are used for content. These templates may be used in the content of pages or partials.</li>
             </ul>
             <p><em>Note that there is <strong><a href="Pages-Collections.html">one exception</a> </strong>  to this separation of concerns</em>, and these two libs also make a great team when you use them together.</p>
-            <h3>
+            <h3 id="-lo-dash-templates-http-lodash-com-">
               <a href="http://lodash.com/">Lo-Dash templates</a> 
             </h3> 
-            <h4>Syntax</h4> 
+            <h4 id="syntax">Syntax</h4> 
             <p>A basic template looks like this:</p>
             <pre><code class="language-yaml">title: &lt;%= pkg.name %&gt;</code></pre>
-            <h4>Usage</h4> 
+            <h4 id="usage">Usage</h4> 
             <p>Lo-Dash templates can be used in:</p>
             <ul>
               <li>Gruntfile</li>
@@ -333,19 +333,19 @@
             <p>However, Lo-Dash templates <strong>cannot be used in the &quot;content of pages&quot;</strong>.</p>
             <p>Assemble only limits <em>where</em> you can use Lo-Dash templates, beyond that you can do anything with Lo-Dash templates that you can do with JavaScript. Keep in mind, however, that the more logic you add to the YAML front matter of page for
               instance, the more complicated you make your pages and the more difficult your projects will be to maintain.</p>
-            <h3>
+            <h3 id="-handlebars-templates-http-handlebarsjs-com-">
               <a href="http://handlebarsjs.com/">Handlebars templates</a> 
             </h3> 
-            <h4>Syntax</h4> 
+            <h4 id="syntax">Syntax</h4> 
             <p>A basic expression looks like this:</p>
             <pre><code class="language-html">&lt;h1&gt;{{component.title}}&lt;/h1&gt;</code></pre>
             <p>Usage: May be used only in the &quot;content&quot; of pages, e.g. <em>anywhere but the YAML front matter of a page.</em>.</p>
             <p>Although Handlebars is most often used for generating HTML, you can also <em>generate</em> JSON, XML, YAML, CSS, LESS, SASS and so on.</p>
             <p>This keeps Lo-Dash templates focused on configuration(ish) data, or data that is used directly by the build process, and Handlebars focused on rendering content with as little logic as possible.</p>
-            <h2>Templating Basics</h2> 
+            <h2 id="templating-basics">Templating Basics</h2> 
             <p>Most templating languages share a few common features:</p>
-            <h2>&quot;Do&quot;s and &quot;Don&#39;t&quot;s</h2> 
-            <h3>Don&#39;t</h3> 
+            <h2 id="-do-s-and-don-t-s">&quot;Do&quot;s and &quot;Don&#39;t&quot;s</h2> 
+            <h3 id="don-t">Don&#39;t</h3> 
             <pre><code class="language-json">// alert.json
 {
   &quot;message&quot;: &quot;this is an alert from {{site.name}}&quot;
@@ -363,7 +363,7 @@ title: My Site
 &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
 Whoa! Nope, this won&#39;t work either. No Lo-Dash in the &quot;content&quot; part of the page!</code></pre>
             <p>Lo-Dash templates can only be used in the YAML front Matter (or in YAML/JSON files, or the Gruntfile).</p>
-            <h3>Do</h3> 
+            <h3 id="do">Do</h3> 
             <p>This works:</p>
             <pre><code class="language-json">// alert.json
 {
@@ -384,7 +384,7 @@ message: this is an alert from &lt;%= site.name %&gt; # pass in the site name</c
             <pre><code class="language-html">&lt;div class=&quot;alert {{alert.modifier}}&quot;&gt;
   &lt;strong&gt;{{ alert.strong }}&lt;/strong&gt;{{ alert.message }}
 &lt;/div&gt;</code></pre>
-            <h2>Related Information</h2> 
+            <h2 id="related-information">Related Information</h2> 
             <ul>
               <li>
                 <a href="Pages.html">Pages</a> 

@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,7 +246,7 @@
           <div class="panel panel-docs">
             <h1>Misc</h1> 
             <p>
-              <h4>{{default}}</h4> 
+              <h4 id="-default-">{{default}}</h4> 
             </p>
             <p><em>Provides a default or fallback value if a value doesn&#39;t exist.</em>
               <br>Parameters: defaultValue <code>string|int</code> - The default value to use. <code>title = &#39;&#39;</code>
@@ -255,7 +255,7 @@
             <pre><code class="language-html">{{default title &quot;No title available.&quot;}}</code></pre>
             <p>Renders to:</p>
             <pre><code>No title available.</code></pre>
-            <h4>{{noop}}</h4> 
+            <h4 id="-noop-">{{noop}}</h4> 
             <p>TODO...</p>
             <hr>
             <p>

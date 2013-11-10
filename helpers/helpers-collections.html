@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,7 +246,7 @@
           <div class="panel panel-docs">
             <h1>Collections</h1> 
             <p>
-              <h4>{{last}}</h4> 
+              <h4 id="-last-">{{last}}</h4> 
             </p>
             <p>
               <p><em>Returns the last item in a collection. Opposite of <code>first</code>.</em>
@@ -270,7 +270,7 @@
             <pre><code class="language-html">{{last collection}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Scruffy</code></pre>
-            <h4>{{after}}</h4> 
+            <h4 id="-after-">{{after}}</h4> 
             <p><em>Returns all of the items in the collection after the specified count.</em>
               <br>Parameters: count <code>int</code> - How many items to omit from the beginning. (Required)</p>
             <p>Data:</p>
@@ -288,7 +288,7 @@
             <pre><code class="language-html">{{after collection 5}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">Leela, Professor Farnsworth, Scruffy</code></pre>
-            <h4>{{before}}</h4> 
+            <h4 id="-before-">{{before}}</h4> 
             <p><em>Returns all of the items in the collection before the specified count. Opposite of <code>after</code>.</em>
               <br>Parameters: count <code>int</code> - How many items to omit from the end. (Required)</p>
             <p>Data:</p>
@@ -306,7 +306,7 @@
             <pre><code class="language-html">{{before collection 5}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">Amy Wong, Bender, Dr. Zoidberg</code></pre>
-            <h4>{{eachIndex}}</h4> 
+            <h4 id="-eachindex-">{{eachIndex}}</h4> 
             <p><em>Current implementation of the default Handlebars loop helper {{#each}} adding index (0-based index) to the loop context.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -318,7 +318,7 @@
 {{/eachIndex}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Professor Farnsworth is 0, Fry is 1, Bender is 2</code></pre>
-            <h4>{{eachProperty}}</h4> 
+            <h4 id="-eachproperty-">{{eachProperty}}</h4> 
             <p><em>Uses the key and value of each property in an object to render a block.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -334,7 +334,7 @@
             <p>Renders to:</p>
             <pre><code>one - 1
 two - 2</code></pre>
-            <h4>{{empty}}</h4> 
+            <h4 id="-empty-">{{empty}}</h4> 
             <p><em>Conditionally render a block if the collection is empty.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -348,7 +348,7 @@ two - 2</code></pre>
 {{/empty}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Good news everyone!</code></pre>
-            <h4>{{first}}</h4> 
+            <h4 id="-first-">{{first}}</h4> 
             <p><em>Returns the first item in a collection.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -367,7 +367,7 @@ two - 2</code></pre>
             <pre><code class="language-html">{{first collection}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">Amy Wong</code></pre>
-            <h4>{{inArray}}</h4> 
+            <h4 id="-inarray-">{{inArray}}</h4> 
             <p><em>Conditionally render a block if a specified value is in the collection.</em>
               <br>Parameters: value <code>string|int</code> - A value to test against. (Required)</p>
             <p>Data:</p>
@@ -380,7 +380,7 @@ two - 2</code></pre>
 {{/inArray}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">I&#39;m walking on sunshine!</code></pre>
-            <h4>{{join}}</h4> 
+            <h4 id="-join-">{{join}}</h4> 
             <p><em>Joins all elements of a collection into a string using a separator if specified.</em>
               <br>Parameters: separator <code>string</code> - A string to use as a separator between the items. (Optional)</p>
             <p>Data:</p>
@@ -398,7 +398,7 @@ two - 2</code></pre>
             <pre><code class="language-html">{{join collection &quot; &amp; &quot;}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Amy Wong &amp; Bender &amp; Dr. Zoidberg &amp; Fry &amp; Hermes Conrad &amp; Leela &amp; Professor Farnsworth &amp; Scruffy</code></pre>
-            <h4>{{any}}</h4> 
+            <h4 id="-any-">{{any}}</h4> 
             <p><em>Conditionally render a block if the collection isn&#39;t empty. Opposite of <code>empty</code></em>
               <br>Parameters: <code>none</code>
             </p>
@@ -412,7 +412,7 @@ two - 2</code></pre>
 {{/any}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Good news everyone!</code></pre>
-            <h4>{{length}}</h4> 
+            <h4 id="-length-">{{length}}</h4> 
             <p><em>Returns the length of the collection.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -431,7 +431,7 @@ two - 2</code></pre>
             <pre><code class="language-html">{{length collection}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">8</code></pre>
-            <h4>{{lengthEqual}}</h4> 
+            <h4 id="-lengthequal-">{{lengthEqual}}</h4> 
             <p><em>Conditionally render a block based on the length of a collection.</em>
               <br>Parameters: length <code>int</code> - The value to test against. (Required)</p>
             <p>Data:</p>
@@ -457,7 +457,7 @@ two - 2</code></pre>
 {{/lengthEqual}}</code></pre>
             <p>Renders to:</p>
             <pre><code>There are 3 people in Planet Express.</code></pre>
-            <h4>{{sort}}</h4> 
+            <h4 id="-sort-">{{sort}}</h4> 
             <p><em>Returns the collection sorted.</em>
               Parameters: <code>none</code>
             </p>
@@ -476,7 +476,7 @@ two - 2</code></pre>
             <pre><code class="language-html">{{sort collection}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Amy Wong, Bender, Dr. Zoidberg, Fry, Hermes Conrad, Leela, Professor Farnsworth, Scruffy</code></pre>
-            <h4>{{withAfter}}</h4> 
+            <h4 id="-withafter-">{{withAfter}}</h4> 
             <p><em>Use all of the items in the collection after the specified count inside a block.</em>
               <br>Parameters: count <code>int</code> - How many items to omit from the beginning. (Required)</p>
             <p>Data:</p>
@@ -496,7 +496,7 @@ two - 2</code></pre>
 {{/withAfter}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">Leela Professor Farnsworth Scruffy</code></pre>
-            <h4>{{withBefore}}</h4> 
+            <h4 id="-withbefore-">{{withBefore}}</h4> 
             <p><em>Use all of the items in the collection before the specified count inside a block. Opposite of <code>withAfter</code>.</em>
               <br>Parameters: count <code>int</code> - How many items to omit from the end. (Required)</p>
             <p>Data:</p>
@@ -516,7 +516,7 @@ two - 2</code></pre>
 {{/withBefore}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">gnoW ymA redneB grebdioZ .rD</code></pre>
-            <h4>{{withFirst}}</h4> 
+            <h4 id="-withfirst-">{{withFirst}}</h4> 
             <p><em>Use the first item in a collection inside a block.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -537,7 +537,7 @@ two - 2</code></pre>
 {{/withFirst}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">&lt;p&gt;Amy Wong is smart.&lt;/p&gt;</code></pre>
-            <h4>{{withLast}}</h4> 
+            <h4 id="-withlast-">{{withLast}}</h4> 
             <p><em>Use the last item in a collection inside a block. Opposite of <code>withFirst</code>.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -558,7 +558,7 @@ two - 2</code></pre>
 {{/withLast}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">&lt;p&gt;Scruffy is lazy.&lt;/p&gt;</code></pre>
-            <h4>{{withSort}}
+            <h4 id="-withsort-a-id-withsort-name-withsort-class-anchor-span-class-glyphicon-glyphicon-link-span-a-">{{withSort}}
               <a id="withSort" name="withSort" class="anchor">
                 <span class="glyphicon glyphicon-link"></span> 
               </a> 

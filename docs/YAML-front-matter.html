@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -313,7 +313,7 @@
             <p>YFM can be used with both
               <a href="Pages.html">pages</a> and
               <a href="Partials.html">partials</a>, so <em>unless otherwise noted</em> you can safely assume that when the documentation refers to the <strong>YFM of a page</strong>, the same also applies to the <strong>YFM of a partial</strong>.</p>
-            <h2>Example</h2> 
+            <h2 id="example">Example</h2> 
             <pre><code class="language-html">---
 title: YAML Front Matter
 description: A very simple way to add structured data to a page.
@@ -321,20 +321,20 @@ description: A very simple way to add structured data to a page.
 &lt;h1&gt; {{ title }} &lt;/h1&gt;
 &lt;p&gt; {{ description }} &lt;/p&gt;
 Page content here...</code></pre>
-            <h2>YFM &quot;Variables&quot;</h2> 
-            <h3>Built-in Variables</h3> 
+            <h2 id="yfm-variables-">YFM &quot;Variables&quot;</h2> 
+            <h3 id="built-in-variables">Built-in Variables</h3> 
             <ul>
               <li><code>layout</code> : Optionally define or override the layout to use. You must include file extension, since Assemble can process multiple file types. Layout files can exist in any directory, and may be.</li>
               <li><code>published</code> : set to <code>false</code> to exclude a file from being rendered by a task-target.</li>
-              <li><code>category</code>/<code>categories</code>/<code>tags</code> : Define the categories and tags as [YAML lists](
-                <a href="http://en.wikipedia.org/wiki/YAML#Lists">http://en.wikipedia.org/wiki/YAML#Lists</a> or a space-separated string) or a space-separated string. for each category and tag, Assemble will generate a page in the <code>dest</code> directory.</li>
+              <li><code>category</code>/<code>categories</code>/<code>tags</code> : Define the categories and tags as
+                <a href="http://en.wikipedia.org/wiki/YAML#Lists or a space-separated string">YAML lists</a> or a space-separated string. for each category and tag, Assemble will generate a page in the <code>dest</code> directory.</li>
             </ul>
             <p>If set, allows to specify tags attributed to given entry. Tag pages are generated automatically. Entry may belong to more than one tag, use YAML List to specify multiple tags.</p>
-            <h3>Custom Variables</h3> 
+            <h3 id="custom-variables">Custom Variables</h3> 
             <p>Any variables in the front-matter that are not predefined are mixed into the data that is sent to the Liquid templating engine during the conversion. For instance, if you set a title, you can use that in your layout to set the page title:</p>
             <pre><code class="language-html">&lt;title&gt;{{ page.title }}&lt;/title&gt;</code></pre>
-            <h2>Using Lo-Dash templates in YFM</h2> 
-            <h3>Metadata &quot;conduit&quot;</h3> 
+            <h2 id="using-lo-dash-templates-in-yfm">Using Lo-Dash templates in YFM</h2> 
+            <h3 id="metadata-conduit-">Metadata &quot;conduit&quot;</h3> 
             <p>This may not be obvious at first, is that YAML Front-Matter acts as a kind of &quot;conduit&quot; for passing information to pages via Lo-Dash templates.</p>
             <p>So you could do this:</p>
             <pre><code class="language-javascript">grunt.initConfig({
@@ -353,11 +353,11 @@ Page content here...</code></pre>
             <pre><code class="language-json">{
   "<span class="attribute">index</span> ": <span class="value">{
     "<span class="attribute">title</span> ": <span class="value"><span class="string">"Home"</span> 
-  }</span> </span>,
+  </span> }</span>,
   "<span class="attribute">about</span> ": <span class="value">{
     "<span class="attribute">title</span> ": <span class="value"><span class="string">"About Us"</span> 
-  }</span> 
-}</span> </code></pre>
+  </span> }
+</span> }</code></pre>
             <p>And in the YFM of the page, use underscore templates:</p>
             <pre><code class="language-html">---
 title: &lt;%= page.index.title %&gt;
@@ -365,7 +365,7 @@ title: &lt;%= page.index.title %&gt;
 {{ title }}</code></pre>
             <p>Alternatively, inside the Grunfile you can use <code>grunt.config.set</code> to define the data to be used for a given variable:</p>
             <pre><code class="language-js">grunt.config.set(<span class="string">'page.index.title'</span>, <span class="string">'Home'</span> );</code></pre>
-            <h3>Example usage</h3> 
+            <h3 id="example-usage">Example usage</h3> 
             <pre><code class="language-html">---
 title:
 list: &lt;% _.forEach(people, function(name) { %&gt;&lt;li&gt;&lt;%= name %&gt;&lt;/li&gt;&lt;% }); %&gt;
@@ -421,7 +421,7 @@ example:
   &lt;li&gt;{{.}}&lt;/li&gt;
   {{/each}}
 &lt;/ul&gt;</code></pre>
-            <h2>YAML Front-Matter in Partials</h2> 
+            <h2 id="yaml-front-matter-in-partials">YAML Front-Matter in Partials</h2> 
             <pre><code class="language-html">---
 title: &lt;%= component.name || pkg.name %&gt;
 ---
@@ -454,7 +454,7 @@ title: &lt;%= component.name || pkg.name %&gt;
     &lt;script src=&quot;{{assets}}/js/{{title}}.js&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <h3>Rendering Lists</h3> 
+            <h3 id="rendering-lists">Rendering Lists</h3> 
             <p>Use
               <a href="http://en.wikipedia.org/wiki/YAML#Associative_arrays_of_lists">YAML Associative Arrays</a> for rendering lists of information.</p>
             <p>Indented Blocks, common in YAML data files, use indentation and new lines to separate the <code>key: value</code> pairs</p>
@@ -483,7 +483,7 @@ morePeople: {name: Grace Jones, age: 21}
     {{/morePeople}}
   &lt;/dl&gt;
 &lt;/div&gt;</code></pre>
-            <h3>
+            <h3 id="-more-examples-https-assemble-assemble-test-actual-yaml-">
               <a href="https://assemble/assemble/test/actual/yaml">More examples</a> 
             </h3> 
             <p>See some great usage examples in assemble&#39;s
@@ -499,7 +499,7 @@ morePeople: {name: Grace Jones, age: 21}
               <li>YAML relational-trees</li>
               <li>YAML variables</li>
             </ul>
-            <h2>FAQ</h2> 
+            <h2 id="faq">FAQ</h2> 
             <ul>
               <li>With
                 <a href="https://github.com/assemble/assemble">Assemble</a> you may do
@@ -515,26 +515,34 @@ morePeople: {name: Grace Jones, age: 21}
               <li>YFM allows you to define variables for a page, directly inside the page.</li>
             </ul>
             <p><strong>Custom Variables</strong> 
-              <em> You may use any of the default variables provided by Assemble, or you may define your own custom variables inside the YFM of a file.
-</em> You may add as many custom variables as you require</p>
+            </p>
+            <ul>
+              <li>You may use any of the default variables provided by Assemble, or you may define your own custom variables inside the YFM of a file.</li>
+              <li>You may add as many custom variables as you require</li>
+            </ul>
             <p><strong>Lo-Dash Templates</strong> 
-              <em> You may use underscore <a href="http://gruntjs.com/configuring-tasks#templates">Lo-Dash templates</a>  in YFM
-</em> Assemble exposes all variables defined in YAML front-matter to the page in which they were defined, thus...
-              <em> Using <a href="http://gruntjs.com/configuring-tasks#templates">Lo-Dash templates</a>  in YFM enables programmatic access to those pages across your project.
-</em> YFM may be used in any file that Assemble processes through any of the
-              <a href="http://gruntjs.com/configuring-tasks#files">src-dest or files mappings formats</a> available in Grunt.js.</p>
-            <h3>Recommended usage</h3> 
+            </p>
+            <ul>
+              <li>You may use underscore
+                <a href="http://gruntjs.com/configuring-tasks#templates">Lo-Dash templates</a> in YFM</li>
+              <li>Assemble exposes all variables defined in YAML front-matter to the page in which they were defined, thus...</li>
+              <li>Using
+                <a href="http://gruntjs.com/configuring-tasks#templates">Lo-Dash templates</a> in YFM enables programmatic access to those pages across your project.</li>
+              <li>YFM may be used in any file that Assemble processes through any of the
+                <a href="http://gruntjs.com/configuring-tasks#files">src-dest or files mappings formats</a> available in Grunt.js.</li>
+            </ul>
+            <h3 id="recommended-usage">Recommended usage</h3> 
             <ul>
               <li>YFM is best used for structured data, like configuration settings or metadata for a page, as opposed to long-form content.</li>
               <li>YFM offers an easy way to maintain metadata or rendered data for pages and partials, as an <em>optional</em>&nbsp; alternative to using &quot;external&quot; <code>.json</code> or <code>.yaml</code> data files</li>
             </ul>
-            <h3>Not recommended</h3> 
+            <h3 id="not-recommended">Not recommended</h3> 
             <ul>
               <li>YFM isn&#39;t the best option for long-form content or extensive amounts of metadata. In these cases you might want to consider externalizing your data to
                 <a href="JSON.html">JSON</a> or
                 <a href="YAML.html">YAML</a> files instead.</li>
             </ul>
-            <h2>Related info</h2> 
+            <h2 id="related-info">Related info</h2> 
             <ul>
               <li>
                 <a href="YAML.html">YAML data</a> 
@@ -543,7 +551,7 @@ morePeople: {name: Grace Jones, age: 21}
                 <a href="JSON.html">JSON data</a> 
               </li>
             </ul>
-            <h2>External links</h2> 
+            <h2 id="external-links">External links</h2> 
             <ul>
               <li>
                 <a href="http://nodeca.github.io/js-yaml/">js-yaml &quot;online&quot;</a> allows you to play with YAML in the browser.</li>

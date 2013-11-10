@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -311,7 +311,7 @@
               <p>YAML is a &quot;human-readable data serialization format&quot; that may be used with Assemble as an alternative to JSON</p>
             </blockquote>
             <p>As a data format, YAML may be used as an alternative to JSON.</p>
-            <h2>
+            <h2 id="-yaml-front-matter-yaml-front-matter-">
               <a href="YAML-front-matter.html">YAML front matter</a> 
             </h2> 
             <blockquote>
@@ -319,7 +319,7 @@
             </blockquote>
             <p>YAML front-matter is optionally used at the beginning of a page to define metadata for the page&#39;s content. In order for YAML front-matter to be processed, it <em>must be the first thing at the top of the page</em>, and it must be &quot;wrapped&quot;
               properly using three dashes above (<code>---</code>) and three below (<code>---</code>).</p>
-            <h3>More information</h3> 
+            <h3 id="more-information">More information</h3> 
             <ul>
               <li>Go to the
                 <a href="YAML-front-matter.html">YAML front matter</a> page.</li>

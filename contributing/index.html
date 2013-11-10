@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -312,11 +312,11 @@
             </blockquote>
             <p>Looking to contribute something to Assemble? <strong>Here&#39;s how you can help.</strong> 
             </p>
-            <h2>Questions</h2> 
+            <h2 id="questions">Questions</h2> 
             <p>We love questions, and we love knowing how you&#39;re using Assemble. Before you create a new issue on one of Assemble&#39;s repos, please consider asking on
               <a href="http://stackoverflow.com/questions/tagged/assemble">StackOverflow.com</a>. This is entirely up to you, but your question and any answers to it are more likely to help other users in the future than a closed issue on GitHub. Also remember to add the
               <kbd>assemble</kbd>tag to your question!</p>
-            <h2>Reporting issues</h2> 
+            <h2 id="reporting-issues">Reporting issues</h2> 
             <p>Please read the following guidelines before opening any issue.</p>
             <ol>
               <li><strong>Search for existing issues.</strong>  To avoid duplicate issues, it would help us out if you could please check first to see if someone else has reported the same issue. Moreover, the issue may have already been resolved with a fix
@@ -327,28 +327,28 @@
               <li><strong>Include clear examples.</strong>  Make use of jsFiddle or jsBin to share your isolated test cases.</li>
               <li><strong>Share as much information as possible.</strong>  Include version of Assemble, customized or vanilla build, etc. where appropriate. Also include steps to reproduce the bug.</li>
             </ol>
-            <h2>Notes on the repo</h2> 
+            <h2 id="notes-on-the-repo">Notes on the repo</h2> 
             <p>Assemble&#39;s documentation is maintained at
               <a href="https://github.com/assemble/assemble-docs">assemble-docs</a> and is built with Assemble. Any edits to the docs should be first done in the templates and then recompiled into the HTML.</p>
-            <h2>Pull requests</h2> 
+            <h2 id="pull-requests">Pull requests</h2> 
             <ul>
               <li>Any changes to the docs must be made to the Handlebars templates, not just the compiled HTML pages</li>
               <li>CSS changes must be done in <code>.less</code> files first, never just the compiled files</li>
               <li>Try not to pollute your pull request with unintended changes--keep them simple and small</li>
             </ul>
-            <h2>Code Examples</h2> 
+            <h2 id="code-examples">Code Examples</h2> 
             <p><strong>Please use correct language definitions</strong>  next to the markdown backticks in code examples, <em>even if the language is not supported by GitHub Flavored Markdown</em>. This is important because we want to ensure that when a develper
               searches for &quot;handlebars&quot;, Assemble&#39;s relevant documentation will show up in the results. B</p>
             <p>For example, the Handlebars is not supported as a &quot;language&quot;, so you might be tempted to use <code>```html</code> so that you can take advantage of code highlighting, but you should still do <code>```handlebars</code>. The same is true
               for the LESS language, please use <code>```less</code> instead of <code>```css</code>.</p>
-            <h2>Coding standards: HTML</h2> 
+            <h2 id="coding-standards-html">Coding standards: HTML</h2> 
             <ul>
               <li>Always use proper indentation</li>
               <li>Two spaces for indentation, never tabs</li>
               <li>Double quotes only, never single quotes</li>
               <li>Use tags and elements appropriate for an HTML5 doctype (e.g., self-closing tags, and don&#39;t add the unnecessary closing forward slash.)</li>
             </ul>
-            <h2>Coding standards: CSS</h2> 
+            <h2 id="coding-standards-css">Coding standards: CSS</h2> 
             <ul>
               <li>Adhere to the
                 <a href="http://markdotto.com/2011/11/29/css-property-order/">Recess CSS property order</a> 
@@ -360,7 +360,7 @@
               <li>Attribute selectors, like <code>input[type=&quot;text&quot;]</code> should always wrap the attribute&#39;s value in double quotes, for consistency and safety (see this
                 <a href="http://mathiasbynens.be/notes/unquoted-attribute-values">blog post on unquoted attribute values</a> that can lead to XSS attacks).</li>
             </ul>
-            <h2>Coding standards: JS</h2> 
+            <h2 id="coding-standards-js">Coding standards: JS</h2> 
             <ul>
               <li>Please use semicolons</li>
               <li>Single quotes, except where double quotes are necessary</li>
@@ -368,7 +368,7 @@
               <li>strict mode</li>
               <li>Consistent formatting with the rest of the code</li>
             </ul>
-            <h2>Related Info</h2> 
+            <h2 id="related-info">Related Info</h2> 
             <ul>
               <li>
                 <a href="Methods.html">Methods</a> 

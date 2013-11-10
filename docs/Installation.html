@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,7 +307,7 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Installation</h1> 
-            <h2>Install the &quot;assemble&quot; plugin</h2> 
+            <h2 id="install-the-assemble-plugin">Install the &quot;assemble&quot; plugin</h2> 
             <p>This plugin requires Grunt <code>~0.4.1</code>
             </p>
             <p>If you haven&#39;t used
@@ -319,7 +319,7 @@
             <p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
             <pre><code class="language-js">grunt.loadNpmTasks(<span class="string">'assemble'</span> );</code></pre>
             <p>When completed, you&#39;ll be able to run the various <code>grunt</code> commands available</p>
-            <h2>The &quot;assemble&quot; task</h2> 
+            <h2 id="the-assemble-task">The &quot;assemble&quot; task</h2> 
             <pre><code class="language-js">assemble: {
   options: {
     assets: <span class="string">"path/to/assets"</span>,
@@ -337,13 +337,13 @@
 }
 grunt.loadNpmTasks(<span class="string">'assemble'</span> );
 grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'assemble'</span> ]);</code></pre>
-            <h3>add &quot;grunt-newer&quot; to speed up builds</h3> 
+            <h3 id="add-grunt-newer-to-speed-up-builds">add &quot;grunt-newer&quot; to speed up builds</h3> 
             <p>We also highly recommend that you install
               <a href="https://github.com/tschaub/grunt-newer">grunt-newer</a>, a must-have task that tells grunt to run tasks against only the files that have been modified since the previous build.</p>
             <pre><code class="language-js">grunt.loadNpmTasks(<span class="string">'assemble'</span> );
 grunt.loadNpmTasks(<span class="string">'grunt-newer'</span> );
 grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'newer:assemble'</span> ]);</code></pre>
-            <h2>Grunt.js Options</h2> 
+            <h2 id="grunt-js-options">Grunt.js Options</h2> 
             <p>Following is a brief exerpt from the Grunt.js wiki, please see
               <a href="http://gruntjs.com/configuring-tasks">Grunt.js docs</a> for more information. Grunt.js offers far more functionality than what we reference here.</p>
             <p>Inside a task configuration, an <code>options</code> property may be specified to override built-in defaults. In addition, each target may have an <code>options</code> property which is specific to that target. Target-level options will override
@@ -364,7 +364,7 @@ grunt.registerTask(<span class="string">'default'</span>, [<span class="string">
     }
   }
 });</code></pre>
-            <h3>
+            <h3 id="-building-the-files-object-dynamically-http-gruntjs-com-configuring-tasks-files-">
               <a href="http://gruntjs.com/configuring-tasks#files">Building the Files Object Dynamically</a> 
             </h3> 
             <p><strong>From <a href="http://gruntjs.com/configuring-tasks#files">Gruntjs.com: Configuring Tasks</a> </strong> 
@@ -380,7 +380,7 @@ grunt.registerTask(<span class="string">'default'</span>, [<span class="string">
               <li><code>rename</code> This function is called for each matched <code>src</code> file, (after extension renaming and flattening). The <code>dest</code> and matched <code>src</code> path are passed in, and this function must return a new <code>dest</code> value.
                 If the same <code>dest</code> is returned more than once, each <code>src</code> which used it will be added to an array of sources for it.</li>
             </ul>
-            <h2>Related info</h2> 
+            <h2 id="related-info">Related info</h2> 
             <ul>
               <li>
                 <a href="Built-in-Variables.html">variables</a> 
@@ -392,7 +392,7 @@ grunt.registerTask(<span class="string">'default'</span>, [<span class="string">
                 <a href="Methods.html">Methods</a> 
               </li>
             </ul>
-            <h4>
+            <h4 id="-next-built-in-variables-">
               <a href="Built-in-Variables.html">Next →</a> 
             </h4> 
             <p>

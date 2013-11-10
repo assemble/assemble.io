@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -257,7 +257,7 @@
               </blockquote>
             </p>
             <p>
-              <h4>{{_dirname}}</h4> 
+              <h4 id="-_dirname-">{{_dirname}}</h4> 
             </p>
             <p>
               <p><em>Return the directory name of a path. Similar to the Unix dirname command.</em>
@@ -269,7 +269,7 @@
             <pre><code class="language-html">{{_dirname &#39;/foo/bar/baz/asdf/quux&#39;}}</code></pre>
             <p>Renders to:</p>
             <pre><code>&#39;/foo/bar/baz/asdf&#39;</code></pre>
-            <h4>{{_extname}}</h4> 
+            <h4 id="-_extname-">{{_extname}}</h4> 
             <p><em>&quot;Return the extension of the path, from the last &#39;.&#39; to end of string in the last portion of the path. If there is no &#39;.&#39; in the last portion of the path or the first character of it is &#39;.&#39;, then it returns an empty string.&quot;</em>
             </p>
             <p>Parameters: <code>string</code> (the value to test against). Default: <code>none</code>
@@ -285,7 +285,7 @@
             <p>Template:</p>
             <pre><code class="language-html">{{_extname &#39;index&#39;}}</code></pre>
             <p>Returns nothing.</p>
-            <h4>{{_relative}}</h4> 
+            <h4 id="-_relative-">{{_relative}}</h4> 
             <p><em>Derive the relative path from one <strong>absolute path</strong>  to another (e.g from path A, to path B).</em>
               <br>Parameters: <code>string</code> (the value to test against)
               <br>Default: <code>none</code>

@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,16 +246,24 @@
           <div class="panel panel-docs">
             <h1>Code</h1> 
             <p>
-              <h4>{{embed}}</h4> 
+              <h4 id="-embed-">{{embed}}</h4> 
             </p>
             <p>
               <p><em>Embed code from specified file(s)</em>
               </p>
             </p>
             <p>
-              <p>Parameters:
-                <em> <code>String|File</code> : path to the file you want to embed
-</em>  <code>String|Language (optional)</code>: Optional second parameter to &quot;force&quot; a specific language to use fo syntax highlighting.</p>
+              <p>Parameters:</p>
+            </p>
+            <p>
+              <ul>
+            </p>
+            <p>
+              <li><code>String|File</code> : path to the file you want to embed</li>
+            </p>
+            <p>
+              <li><code>String|Language (optional)</code>: Optional second parameter to &quot;force&quot; a specific language to use fo syntax highlighting.</li>
+              </ul>
             </p>
             <p>
               <p>Unless overridden by a given extension, the helper will automatically use the extension of the specified file as the language to use for syntax highlighting. You may also force the helper to use a language that is different than the extension
@@ -276,7 +284,7 @@
               language you use will be applied to every embedded file.</p>
             <p><em>use globbing carefully! Until you have the hang of it try to be on the safe side and be more specific with your patterns</em>
             </p>
-            <h4>{{gist}}</h4> 
+            <h4 id="-gist-">{{gist}}</h4> 
             <p><em>Embed public GitHub Gists by adding only the Id of the Gist. The helper also accepts an optional second parameter for targeting a specific file on the Gist..</em>
             </p>
             <p>Parameters: <code>String</code>
@@ -287,7 +295,7 @@
             <pre><code class="language-html">{{gist &#39;5193239&#39;}}</code></pre>
             <p>Output:</p>
             <pre><code class="language-html">&lt;script src=&quot;https://gist.github.com/5193239.js&quot;&gt;&lt;/script&gt;</code></pre>
-            <h4>{{jsfiddle}}
+            <h4 id="-jsfiddle-a-id-jsfiddle-name-jsfiddle-class-anchor-span-class-glyphicon-glyphicon-link-span-a-">{{jsfiddle}}
               <a id="jsfiddle" name="jsfiddle" class="anchor">
                 <span class="glyphicon glyphicon-link"></span> 
               </a> 
@@ -298,21 +306,29 @@
               <a href="http://octopress.org/docs/plugins/jsfiddle-tag/">octopress</a> 
             </p>
             <p>Parameters: <code>{{ jsfiddle &quot;id&quot; &quot;tabs&quot; &quot;skin&quot; &quot;height&quot; &quot;width&quot; }}</code>
-              <em> <code>id</code>: full URL to the fiddle excluding <code>http://jsfiddle.net</code>
-  </em>  <code>tabs</code>: tabs to be displayed, and the order specified
-              <em> <code>skin</code>: the skin to be used, <code>light</code> or <code>presentation</code> are the only options available.
-  </em>  <code>height</code>: the height of the rendered <code>&lt;iframe&gt;</code>
-              * <code>width</code>: the width of the rendered <code>&lt;iframe&gt;</code>
             </p>
+            <ul>
+              <li><code>id</code>: full URL to the fiddle excluding <code>http://jsfiddle.net</code>
+              </li>
+              <li><code>tabs</code>: tabs to be displayed, and the order specified</li>
+              <li><code>skin</code>: the skin to be used, <code>light</code> or <code>presentation</code> are the only options available.</li>
+              <li><code>height</code>: the height of the rendered <code>&lt;iframe&gt;</code>
+              </li>
+              <li><code>width</code>: the width of the rendered <code>&lt;iframe&gt;</code>
+              </li>
+            </ul>
             <p>Template:</p>
             <pre><code class="language-html">{{ jsfiddle &#39;ccWP7&#39; }}</code></pre>
-            <h5>Fiddle tabs</h5> 
+            <h5 id="fiddle-tabs">Fiddle tabs</h5> 
             <p>You may also adjust the tabs shown and/or the order in which tabs are displayed.</p>
             <p>Default tabs and display order: <code>js,resources,html,css,result</code>
             </p>
-            <p>Options:
-              <em> <code>js</code>, <code>html</code>, <code>css</code>: tabs for displaying code
-</em>  <code>result</code>: tab for displaying the rendered result of the code * <code>resources</code>: tabs for displaying the list of external resources used. This tab will not be displayed if no resources were used.</p>
+            <p>Options:</p>
+            <ul>
+              <li><code>js</code>, <code>html</code>, <code>css</code>: tabs for displaying code</li>
+              <li><code>result</code>: tab for displaying the rendered result of the code</li>
+              <li><code>resources</code>: tabs for displaying the list of external resources used. This tab will not be displayed if no resources were used.</li>
+            </ul>
             <p>Template:</p>
             <pre><code class="language-html">{{jsfiddle &#39;ccWP7&#39; &#39;result,js,html,css&#39;}}</code></pre>
             <p>Renders to:</p>
@@ -327,7 +343,7 @@
             <pre><code class="language-html">&lt;iframe style=&quot;width: 100%; height: 210px&quot;
   src=&quot;http://jsfiddle.net/abc123/embedded/js,
   result/&quot;&gt;&lt;/iframe&gt;</code></pre>
-            <h4>Fiddle skins</h4> 
+            <h4 id="fiddle-skins">Fiddle skins</h4> 
             <p>A third <em>optional</em> parameter may be used to specify the &quot;skin&quot; for the fiddle. At time of writing, the only skins available are <code>light</code> and <code>presentation</code>. However as
               <a href="http://jsfiddle.net">jsFiddle</a> announces new skins they may be used immediately.</p>
             <p>Default: <code>light</code>

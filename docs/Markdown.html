@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -317,11 +317,11 @@
               <li>Write document fragments in markdown, so they can be &quot;included&quot; or used as partials within other larger documents</li>
               <li>Write sections of markdown directly inside HTML documents (referred to as &quot;inline markdown&quot;)</li>
             </ul>
-            <h3>&quot;Include&quot; extenal content</h3> 
+            <h3 id="-include-extenal-content">&quot;Include&quot; extenal content</h3> 
             <p>Use the markdown expression, <code>{{md}}</code>, to enable importing of external markdown content.</p>
             <p><strong>Example #1: using full path</strong> 
             </p>
-            <pre><code class="language-handlebars">{{md ../path/to/content.md}}</code></pre>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="variable">md</span>  <span class="variable">..</span> <span class="end-block">/path</span> <span class="end-block">/to</span> <span class="end-block">/content.md</span> }}</span> </code></pre>
             <p><strong>Example #2: using variables</strong> 
               Or use a variable instead of setting the path directly inside the template. For example you can add the content variable to the
               <a href="https://github.com/assemble/assemble/wiki/YAML-Front-Matter">YAML Front-Matter</a>:</p>
@@ -331,11 +331,11 @@ page:
 content: ../path/to/content.md
 ---</code></pre>
             <p>then use it like this:</p>
-            <pre><code class="language-handlebars">{{md content}}</code></pre>
-            <h3>Markdown &quot;includes&quot;</h3> 
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="variable">md</span>  <span class="variable">content</span> }}</span> </code></pre>
+            <h3 id="markdown-includes-">Markdown &quot;includes&quot;</h3> 
             <p>Using the <code>{{md}}</code> markdown helper, you can import markdown formatted content from another file, and render it to HTML. For example:</p>
             <p>Assuming we have a file named <code>index.hbs</code>, and we add the following:</p>
-            <pre><code class="language-handlebars">{{md &#39;../path/to/content.md&#39;}}</code></pre>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="variable">md</span>  '<span class="variable">..</span> <span class="end-block">/path</span> <span class="end-block">/to</span> <span class="end-block">/content.md</span> '}}</span> </code></pre>
             <p>And give that <code>content.md</code> contains the following:</p>
             <pre><code class="language-markdown"><span class="header"># Getting Started</span> 
 Lorem Ipsum...</code></pre>
@@ -346,8 +346,8 @@ Lorem Ipsum...</code></pre>
             <pre><code class="language-handlebars">---
 content: ../path/to/content.md
 ---
-{{md content}}</code></pre>
-            <h3>Markdown block expression</h3> 
+<span class="expression">{{<span class="variable">md</span>  <span class="variable">content</span> }}</span> </code></pre>
+            <h3 id="markdown-block-expression">Markdown block expression</h3> 
             <p>The <code>{{#markdown}}...{{/markdown}}</code> block expression is used to &quot;wrap&quot; markdown content that is written &quot;inline&quot; directly inside HTML documents:</p>
             <pre><code class="language-markdown"><span class="xml"><span class="tag">&lt;<span class="title">h1</span> &gt;</span> </span>  My Site <span class="xml"><span class="tag">&lt;/<span class="title">h1</span> &gt;</span> </span> 
 {{#markdown}}
@@ -366,10 +366,10 @@ Embed handlebars templates to make them even prettier.
 {{/page.links}}
 {{/markdown}}</code></pre>
             <p>In a layout, can also wrap the <code>{{&gt; body }}</code> tag with the <code>{{#markdown}}...{{/markdown}}</code> block helper to convert any HTML pages that use that layout to markdown:</p>
-            <pre><code class="language-handlebars">{{#markdown}}
-  {{&gt; body }}
-{{/markdown}}</code></pre>
-            <h2>Related Information</h2> 
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="begin-block">#markdown</span> }}</span> 
+  <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+<span class="expression">{{<span class="end-block">/markdown</span> }}</span> </code></pre>
+            <h2 id="related-information">Related Information</h2> 
             <ul>
               <li>[options.marked][options-markded]</li>
             </ul>

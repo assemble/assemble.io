@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,14 +307,14 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Helpers</h1> 
-            <h2>Built-in Helpers</h2> 
+            <h2 id="built-in-helpers">Built-in Helpers</h2> 
             <p>Assemble includes the
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library as a dependency, so more than <strong>100 Handlebars helpers</strong>  ofrom that library are available by default.</p>
-            <h3>Also see
+            <h3 id="also-see-custom-helpers-custom-helpers-grunt-init-assemble-helper-https-github-com-assemble-grunt-init-assemble-helper-grunt-init-assemble-helper-https-github-com-assemble-grunt-init-assemble-helper-">Also see
               <a href="Custom-Helpers.html">Custom Helpers</a> |
               <a href="https://github.com/assemble/grunt-init-assemble-helper">grunt-init-assemble-helper</a> |
               <a href="https://github.com/assemble/grunt-init-assemble-helper">grunt-init-assemble-helper</a> →</h3> 
-            <h3>Helpers created for Assemble</h3> 
+            <h3 id="helpers-created-for-assemble">Helpers created for Assemble</h3> 
             <p>Most helpers from
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> can be used with any Handlebars project, but a handful of helpers were created specifically for Assemble, including:</p>
             <ul>
@@ -382,7 +382,7 @@
               <p>Visit the
                 <a href="http://assemble.io/helpers/">helper documentation</a> to learn more →</p>
             </blockquote>
-            <h2>Related info</h2> 
+            <h2 id="related-info">Related info</h2> 
             <ul>
               <li>
                 <a href="Custom-Helpers.html">Custom Helpers</a> 

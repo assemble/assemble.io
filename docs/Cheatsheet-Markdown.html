@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -315,7 +315,7 @@
             <p>If you find any issues or have a suggestion for something we can add, please
               <a href="https://github.com/assemble/assemble-docs/issues">create an issue</a>, or just make a comment on
               <a href="https://gist.github.com/jonschlinkert/5854601">the Gist</a>. Thanks!</p>
-            <h3>Grab this Cheatsheet</h3> 
+            <h3 id="grab-this-cheatsheet">Grab this Cheatsheet</h3> 
             <ul>
               <li>
                 <a href="https://gist.github.com/jonschlinkert/5854601/download">Download the cheatsheet</a> 

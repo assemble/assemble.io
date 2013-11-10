@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,12 +307,12 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.layout</h1> 
-            <h2>options.layout</h2> 
+            <h2 id="options-layout">options.layout</h2> 
             <blockquote>
               <p>Layouts are commonly used with client-side templates as a quick way to &quot;wrap&quot; a number of
                 <a href="Pages.html">pages</a> with commonly used page &quot;sections&quot;, such as the head, footer or navigation.</p>
             </blockquote>
-            <h2>Options</h2> 
+            <h2 id="options">Options</h2> 
             <p>Type: <code>String</code>|<code>False</code>|<code>None</code> (optional) Default: <code>undefined</code>
             </p>
             <p>Path to the layout to be used for the current target. Layouts are optional and may be defined at the task and/or
@@ -322,11 +322,11 @@
     layout: <span class="string">'path/to/layouts/default.hbs'</span> 
   }
 }</code></pre>
-            <h2>Defining Layouts</h2> 
+            <h2 id="defining-layouts">Defining Layouts</h2> 
             <p>Oftentimes you will need more than one layout for your project, so layouts can be defined using the <code>options.layout</code> variable at the task or target-level, or they can be specified at the page-level by adding a <code>layout</code> property
               to the
               <a href="YAML-front-matter.html">YFM</a>.</p>
-            <h2>The <code>{{&gt; body }}</code> tag</h2> 
+            <h2 id="the-body-tag">The <code>{{&gt; body }}</code> tag</h2> 
             <p>Although layouts are optional, the <code>{{&gt; body }}</code> tag is required for content to be pulled into a layout.</p>
             <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -338,10 +338,10 @@
     {{&gt; body }}
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <h4>Also see
+            <h4 id="also-see-layouts-layouts-and-layoutdir-options-layoutdir-">Also see
               <a href="Layouts.html">Layouts</a> and
               <a href="options-layoutdir.html">layoutdir</a> →</h4> 
-            <h2>Related info:</h2> 
+            <h2 id="related-info-">Related info:</h2> 
             <ul>
               <li>
                 <a href="Options.html">Options</a> 

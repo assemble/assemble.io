@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,8 +307,8 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Pages</h1> 
-            <h2>Rendering Pages</h2> 
-            <h3>Excluding pages</h3> 
+            <h2 id="rendering-pages">Rendering Pages</h2> 
+            <h3 id="excluding-pages">Excluding pages</h3> 
             <p><strong>From the YAML Front Matter of a page</strong> 
             </p>
             <p>You may also exclude files from being rendered by adding <code>published: false</code> to the YAML Front Matter of a page.</p>
@@ -320,13 +320,13 @@ published: false
             </p>
             <p>Exclude files from being rendered by prefixing source file patterns with <code>!</code>. Visit the Grunt.js docs to
               <a href="http://gruntjs.com/configuring-tasks#globbing-patterns">learn more about globbing</a> patterns.</p>
-            <h5>
+            <h5 id="-quoted-from-the-grunt-js-docs-http-gruntjs-com-configuring-tasks-globbing-patterns-">
               <a href="http://gruntjs.com/configuring-tasks#globbing-patterns">Quoted from the Grunt.js docs</a> →</h5> 
             <pre><code class="language-javascript"><span class="comment">// All files except for bar.js, in alpha order:</span> 
 {src: [<span class="string">'foo/*.js'</span>, <span class="string">'!foo/bar.js'</span> ], dest: ...}
 <span class="comment">// All files in alpha order, but with bar.js at the end.</span> 
 {src: [<span class="string">'foo/*.js'</span>, <span class="string">'!foo/bar.js'</span>, <span class="string">'foo/bar.js'</span> ], dest: ...}</code></pre>
-            <h2>Related info</h2> 
+            <h2 id="related-info">Related info</h2> 
             <ul>
               <li>
                 <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> 

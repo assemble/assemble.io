@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,7 +246,7 @@
           <div class="panel panel-docs">
             <h1>Comparison</h1> 
             <p>
-              <h4>{{isnt}}</h4> 
+              <h4 id="-isnt-">{{isnt}}</h4> 
             </p>
             <p><em>Conditionally render a block if the condition is false. Opposite of <code>is</code>.</em>
               <br>Parameters: value <code>string|int</code> - the value to test against.</p>
@@ -260,7 +260,7 @@
 {{/isnt}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Never mind :(</code></pre>
-            <h4>{{and}}</h4> 
+            <h4 id="-and-">{{and}}</h4> 
             <p><em>Conditionally render a block if both values are truthy.</em>
             </p>
             <p>Parameters: values <code>string|int</code> - the values to test against.</p>
@@ -275,7 +275,7 @@ magnificent = <span class="literal">true</span> </code></pre>
 {{/and}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Kiss my shiny metal ass!</code></pre>
-            <h4>{{contains}}</h4> 
+            <h4 id="-contains-">{{contains}}</h4> 
             <p><em>Searches a string for the given value, and conditionally renders one block of content or another based on the result.</em>
             </p>
             <p>Parameters: <code>String</code> (the value to test against) Default: <code>undefined</code>
@@ -292,7 +292,7 @@ truth: Assemble is the best static site generator for node.js!
 {{/contains}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Absolutely true.</code></pre>
-            <h4>{{gt}}</h4> 
+            <h4 id="-gt-">{{gt}}</h4> 
             <p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
               <br>Parameters: value <code>string|int</code> - the value to test against.</p>
             <p>Data:</p>
@@ -305,7 +305,7 @@ truth: Assemble is the best static site generator for node.js!
 {{/gt}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Never mind :(</code></pre>
-            <h4>{{gte}}</h4> 
+            <h4 id="-gte-">{{gte}}</h4> 
             <p><em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y)</em>.
               <br>Parameters: value <code>string|int</code> - the value to test against.</p>
             <pre><code class="language-javascript">number = <span class="number">5</span> </code></pre>
@@ -317,7 +317,7 @@ truth: Assemble is the best static site generator for node.js!
 {{/gte}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Kiss my shiny metal ass!</code></pre>
-            <h4>{{if_gt}}</h4> 
+            <h4 id="-if_gt-">{{if_gt}}</h4> 
             <p><em>Conditionally render a block if the value is greater than a given number (If x &gt; y).</em>
               Parameters: <code>none</code>
             </p>
@@ -327,7 +327,7 @@ truth: Assemble is the best static site generator for node.js!
                 <a href="http://github.com/danharper">http://github.com/danharper</a> 
               </a> 
             </p>
-            <h4>{{if_gteq}}</h4> 
+            <h4 id="-if_gteq-">{{if_gteq}}</h4> 
             <p><em>Conditionally render a block if the value is greater or equal than a given number (If x &gt;= y).</em>
               Parameters: <code>none</code>
             </p>
@@ -337,12 +337,12 @@ truth: Assemble is the best static site generator for node.js!
                 <a href="http://github.com/danharper">http://github.com/danharper</a> 
               </a> 
             </p>
-            <h4>{{is}}</h4> 
+            <h4 id="-is-">{{is}}</h4> 
             <p><em>Conditionally render a block if the condition is true (if x = y).</em>
             </p>
             <p>Parameters: <code>string|int</code> (the value to test against) Default: <code>undefined</code>
             </p>
-            <h5>Example #1:</h5> 
+            <h5 id="example-1-">Example #1:</h5> 
             <p>Data:</p>
             <pre><code class="language-javascript">---
 number = <span class="number">5</span> 
@@ -355,7 +355,7 @@ number = <span class="number">5</span>
 {{/is}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Kiss my shiny metal ass!</code></pre>
-            <h5>Example #2:</h5> 
+            <h5 id="example-2-">Example #2:</h5> 
             <p>If you are using data from <em>YAML front matter</em> or any specified <code>JSON</code> and/or <code>YAML</code> source files will get passed through to the context in your templates.</p>
             <p>Data and Templates:</p>
             <pre><code class="language-html">---
@@ -369,7 +369,7 @@ page:
 {{/is}}</code></pre>
             <p>Renders to:</p>
             <pre><code class="language-html">&lt;h1&gt; About Us &lt;/h1&gt;</code></pre>
-            <h4>{{ifeq}}</h4> 
+            <h4 id="-ifeq-">{{ifeq}}</h4> 
             <p><strong>Alias for <code>is</code>. Considering consolidating</strong> 
             </p>
             <p><em>Conditionally render a block if the condition is true (If x = y).</em>
@@ -377,12 +377,12 @@ page:
             <p>Parameters: <code>none</code>
             </p>
             <pre><code class="language-html">{{#ifeq x compare=y}} ... {{/ifeq}}</code></pre>
-            <h4>{{#compare}}...{{/compare}}</h4> 
+            <h4 id="-compare-compare-">{{#compare}}...{{/compare}}</h4> 
             <p>Credit:
               <a href="https://github.com/stubbornella/oocss">OOCSS</a> 
             </p>
             <p>Compare the &quot;left value&quot; to the &quot;right value&quot; using any of the allowed operators.</p>
-            <h5>Allowed operators</h5> 
+            <h5 id="allowed-operators">Allowed operators</h5> 
             <ul>
               <li><code>==</code>
               </li>
@@ -403,29 +403,29 @@ page:
               <li><code>typeof</code>
               </li>
             </ul>
-            <h5>Parameters:</h5> 
+            <h5 id="parameters-">Parameters:</h5> 
             <ol>
               <li><code>Left</code>: value to compare against</li>
               <li><code>Operator</code>: The operator to use for the comparison. Must be between quotes <code>&quot;&gt;&quot;</code>, <code>&quot;=&quot;</code>, <code>&quot;&lt;=&quot;</code> and so on.</li>
               <li><code>Right</code>: value to</li>
               <li><code>Options</code>: Options object for Handlebars.</li>
             </ol>
-            <h5>Syntax:</h5> 
-            <pre><code class="language-handlebars">{{#compare [leftvalue] [operator] [rightvalue]}}
+            <h5 id="syntax-">Syntax:</h5> 
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="begin-block">#compare </span> [<span class="variable">leftvalue</span> ] [<span class="variable">operator</span> ] [<span class="variable">rightvalue</span> ]}}</span> 
   foo
-{{else}}
+<span class="expression">{{<span class="variable"><span class="keyword">else</span> </span> }}</span> 
   bar
-{{/compare}}</code></pre>
-            <h5>Examples:</h5> 
-            <pre><code class="language-handlebars">{{#compare unicorns &quot;&lt;&quot; ponies}}
+<span class="expression">{{<span class="end-block">/compare</span> }}</span> </code></pre>
+            <h5 id="examples-">Examples:</h5> 
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="begin-block">#compare unicorns </span> <span class="string">&quot;&lt;&quot;</span>  <span class="variable">ponies</span> }}</span> 
   I knew it, unicorns are just low-quality ponies!
-{{/compare}}
-{{#compare value &quot;&gt;=&quot; 10}}
+<span class="expression">{{<span class="end-block">/compare</span> }}</span> 
+<span class="expression">{{<span class="begin-block">#compare value </span> <span class="string">&quot;&gt;=&quot;</span>  10}}</span> 
   The value is greater or equal than 10
-  {{else}}
+  <span class="expression">{{<span class="variable"><span class="keyword">else</span> </span> }}</span> 
   The value is lower than 10
-{{/compare}}</code></pre>
-            <h4>{{lt}}</h4> 
+<span class="expression">{{<span class="end-block">/compare</span> }}</span> </code></pre>
+            <h4 id="-lt-">{{lt}}</h4> 
             <p><em>Conditionally render a block if the value is less than a given number. Opposite of <code>gt</code>.</em>
               <br>Parameters: value <code>string|int</code> - the value to test against.</p>
             <p>Data:</p>
@@ -438,7 +438,7 @@ page:
 {{/lt}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Never mind :(</code></pre>
-            <h4>{{lte}}</h4> 
+            <h4 id="-lte-">{{lte}}</h4> 
             <p><em>Conditionally render a block if the value is less or equal than a given number. Opposite of <code>gte</code>.</em>
               <br>Parameters: value <code>string|int</code> - the value to test against.</p>
             <p>Data:</p>
@@ -451,7 +451,7 @@ page:
 {{/lte}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Kiss my shiny metal ass!</code></pre>
-            <h4>{{or}}</h4> 
+            <h4 id="-or-">{{or}}</h4> 
             <p><em>Conditionally render a block if one of the values is truthy.</em>
             </p>
             <p>Parameters: values <code>string|int</code> - the values to test against.</p>
@@ -466,7 +466,7 @@ magnificent = <span class="literal">true</span> </code></pre>
 {{/or}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Kiss my shiny metal ass!</code></pre>
-            <h4>{{unless_eq}}</h4> 
+            <h4 id="-unless_eq-">{{unless_eq}}</h4> 
             <p><strong>Alias for <code>isnt</code></strong> 
             </p>
             <p><em>Conditionally render a block if the condition is false (Unless x = y). Opposite of <code>is</code>.</em>
@@ -479,7 +479,7 @@ magnificent = <span class="literal">true</span> </code></pre>
                 <a href="http://github.com/danharper">http://github.com/danharper</a> 
               </a> 
             </p>
-            <h4>{{unless_gt}}</h4> 
+            <h4 id="-unless_gt-">{{unless_gt}}</h4> 
             <p><em>Unless greater than (Unless x &gt; y)</em>
               Parameters: <code>none</code>
             </p>
@@ -489,7 +489,7 @@ magnificent = <span class="literal">true</span> </code></pre>
                 <a href="http://github.com/danharper">http://github.com/danharper</a> 
               </a> 
             </p>
-            <h4>{{unless_gteq}}</h4> 
+            <h4 id="-unless_gteq-">{{unless_gteq}}</h4> 
             <p><em>&quot;Unless x &gt;= y&quot;. Render block, unless given value is greater than or equal to.</em>
             </p>
             <p>Parameters: <code>none</code>
@@ -500,7 +500,7 @@ magnificent = <span class="literal">true</span> </code></pre>
                 <a href="http://github.com/danharper">http://github.com/danharper</a> 
               </a> 
             </p>
-            <h4>{{unless_lt}}</h4> 
+            <h4 id="-unless_lt-">{{unless_lt}}</h4> 
             <p><em>Render block, unless value is less than a given number (Unless x &lt; y)</em>.</p>
             <p>Parameters: <code>none</code>
             </p>
@@ -510,7 +510,7 @@ magnificent = <span class="literal">true</span> </code></pre>
                 <a href="http://github.com/danharper">http://github.com/danharper</a> 
               </a> 
             </p>
-            <h4>{{unless_lteq}}</h4> 
+            <h4 id="-unless_lteq-">{{unless_lteq}}</h4> 
             <p><em>Render block, unless value is less than or equal to a given number (Unless x &lt;= y)</em>.</p>
             <p>Parameters: <code>none</code>
             </p>

@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -253,7 +253,7 @@
             </blockquote>
             <p>Get the
               <a href="https://github.com/assemble/grunt-init-helper">helper generator →</a> for Assemble.</p>
-            <h2>Highlighted features unique to Assemble</h2> 
+            <h2 id="highlighted-features-unique-to-assemble">Highlighted features unique to Assemble</h2> 
             <ul>
               <li>File globbing using
                 <a href="https://github.com/isaacs/minimatch">minimatch</a> patterns. See the
@@ -266,14 +266,14 @@
               <li>Ability to render either markdown or HTML conditionally, based on the file extension of the generated file.</li>
               <li>Many more features...</li>
             </ul>
-            <h2>Contributing</h2> 
+            <h2 id="contributing">Contributing</h2> 
             <p>The simplest way to contribute is to show your support by starring the project!</p>
-            <h2>Using Custom Helpers</h2> 
+            <h2 id="using-custom-helpers">Using Custom Helpers</h2> 
             <blockquote>
               <p>Contributors welcome! Please consider adding your helpers to this library!</p>
             </blockquote>
             <p>Handlebars makes it pretty easy to add custom helpers. Just register your function into Handlebars with the <code>Handlebars.registerHelper</code> method and that helper will be available to any template you compile afterwards.</p>
-            <h2>Handlebars Helpers Basics</h2> 
+            <h2 id="handlebars-helpers-basics">Handlebars Helpers Basics</h2> 
             <p>Handlebars.js ships with some built-in helpers, such as <code>{{#each}}</code>, <code>{{#if}}</code> and <code>{{#unless}}</code>. Here is how helpers work:</p>
             <ul>
               <li>A Handlebars helper call is a simple identifier, followed by zero or more parameters (separated by space).</li>
@@ -283,7 +283,7 @@
             <p>
               <a href="https://github.com/wycats/handlebars.js">Handlebars.js</a> is currently the default template library for
               <a href="http://github.com/assemble/assemble">assemble</a>.</p>
-            <h3>Helper types</h3> 
+            <h3 id="helper-types">Helper types</h3> 
             <p>Handlebars allows two different kinds of helpers:</p>
             <ul>
               <li><strong>Expression helpers</strong>  are basically regular functions that take the name of the helper and the helper function as arguments. Once an expression helper is registered, it can be called anywhere in your templates, then Handlebars

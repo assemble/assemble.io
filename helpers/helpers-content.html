@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,7 +246,7 @@
           <div class="panel panel-docs">
             <h1>Content</h1> 
             <p>
-              <h4>{{copy}}</h4> 
+              <h4 id="-copy-">{{copy}}</h4> 
             </p>
             <p>
               <p><strong>example helpers, not for actual use!</strong> 
@@ -262,16 +262,16 @@
               <p>Example:</p>
             </p>
             <pre><code class="language-html">{{copy &#39;a.html&#39; &#39;../dir/b.txt&#39;}}</code></pre>
-            <h4>{{glob}}</h4> 
+            <h4 id="-glob-">{{glob}}</h4> 
             <p><strong>example helper</strong>: This helper is intended to be instructive, to help with creating new helpers that use these features.</p>
             <p><em>Use minimatch patterns to include content from specified file or files.</em>
               <br>Parameters: <code>String</code>
               <br>Default: <code>undefined</code>
             </p>
             <p>Examples:</p>
-            <pre><code class="language-handlebars">{{glob &#39;src/files/*.md&#39;}}
-{{glob &#39;src/files/*.{txt,md}&#39;}}</code></pre>
-            <h4>{{include}}</h4> 
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="variable">glob</span>  '<span class="variable">src</span> <span class="end-block">/files</span> /*<span class="variable">.md</span> '}}</span> 
+<span class="expression">{{<span class="variable">glob</span>  '<span class="variable">src</span> <span class="end-block">/files</span> /*<span class="variable">.</span> {<span class="variable">txt</span>,<span class="variable">md</span> }'}}</span> </code></pre>
+            <h4 id="-include-">{{include}}</h4> 
             <p><em>Include external files.</em>
             </p>
             <p>

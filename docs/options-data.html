@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,9 +307,9 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.data</h1> 
-            <h3>Also see
+            <h3 id="also-see-data-types-data-">Also see
               <a href="Data.html">data types</a> →</h3> 
-            <h2>Supplying data to templates</h2> 
+            <h2 id="supplying-data-to-templates">Supplying data to templates</h2> 
             <p>You must first define the paths to any data files you wish to use via the <code>options.data</code> object in the <code>assemble</code> task or target, then Assemble will automatically supply data to your templates:</p>
             <pre><code class="language-js">assemble: {
   options: {
@@ -319,7 +319,7 @@
     <span class="string">'site/'</span>: [<span class="string">'src/pages/*.hbs'</span> ]
   }
 }</code></pre>
-            <h3>Matching names</h3> 
+            <h3 id="matching-names">Matching names</h3> 
             <p>When using &quot;external&quot; data files (versus YAML front matter), <em>if name of the data file is the same as the associated template</em> then Assemble will automatically associate the two files.</p>
             <p><strong>&quot;widget component&quot; example</strong> 
             </p>
@@ -327,7 +327,7 @@
             <pre><code class="language-json">{
   "<span class="attribute">name</span> ": <span class="value"><span class="string">"This is a square widget"</span> </span>,
   "<span class="attribute">modifier</span> ": <span class="value"><span class="string">"widget-square"</span> 
-}</span> </code></pre>
+</span> }</code></pre>
             <p>With the following Handlebars expressions in out template, <code>widget.hbs</code>:</p>
             <pre><code class="language-html">&lt;div class=&quot;widget {{ widget.modifier }}&quot;&gt;{{ widget.name }}&lt;/div&gt;</code></pre>
             <p>The result after running <code>grunt assemble</code> will be:</p>
@@ -391,7 +391,7 @@ assemble {
                 <a href="YAML-front-matter.html">YAML front matter</a> 
               </p>
             </blockquote>
-            <h2>Related Info</h2> 
+            <h2 id="related-info">Related Info</h2> 
             <ul>
               <li>
                 <a href="Options.html">Complete list of Options</a> 

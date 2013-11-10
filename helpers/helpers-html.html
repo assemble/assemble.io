@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,7 +246,7 @@
           <div class="panel panel-docs">
             <h1>HTML</h1> 
             <p>
-              <h4>{{br}}</h4> 
+              <h4 id="-br-">{{br}}</h4> 
             </p>
             <p>
               <p><em>Renders <code>&lt;br&gt;</code> elements in the output, based on the number given as a parameter. Not really recommended for general use, but it&#39;s here if you need it.</em>
@@ -266,7 +266,7 @@
             <pre><code class="language-html">{{br 5}}</code></pre>
             <p>renders to:</p>
             <pre><code class="language-html">`&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;`</code></pre>
-            <h4>{{doctype}}</h4> 
+            <h4 id="-doctype-">{{doctype}}</h4> 
             <p><em>Easy way to add an uncommonly used doctype.</em>
             </p>
             <p>Default is HTML 5 (<code>&lt;!DOCTYPE html&gt;</code>) although this is probably only useful on projects that use anything besides HTML 5.</p>
@@ -307,7 +307,7 @@
 </em>
               <br>- <code>{{doctype &#39;svg 1.0&#39;}}</code> | aliases: <code>svg 1.0</code>, <code>svg1.0</code>, <code>svg1</code>
             </p>
-            <h4>{{exticon}}</h4> 
+            <h4 id="-exticon-">{{exticon}}</h4> 
             <p><em>Generate the appropriate icon based on the extension of the given file.</em>
             </p>
             <p>Since this helper generates classes that are very specific, feel free to copy the code and use it as inspiration for your a helper that works for you.</p>
@@ -325,7 +325,7 @@
 &lt;img src=&quot;img/txt-icon.png&quot;&gt;&lt;i&gt;file.txt&lt;/i&gt;
 &lt;img src=&quot;img/csv-icon.png&quot;&gt;&lt;i&gt;file.csv&lt;/i&gt;
 &lt;img src=&quot;img/other-icon.png&quot;&gt;&lt;i&gt;file&lt;/i&gt;</code></pre>
-            <h4>{{ol}}</h4> 
+            <h4 id="-ol-">{{ol}}</h4> 
             <p><em>Same as the <code>ul</code> helper but creates and ordered list. Returns <code>&lt;br&gt;</code> tags based on a count.</em>
             </p>
             <p>Parameters: <code>Hash</code>, <code>HTML attributes</code>, <code>Optional</code>
@@ -350,7 +350,7 @@
   &lt;li&gt; Bender - 239 deliveries &lt;/li&gt;
   &lt;li&gt; Fry - 1 delivery &lt;/li&gt;
 &lt;/ol&gt;</code></pre>
-            <h4>{{ul}}</h4> 
+            <h4 id="-ul-">{{ul}}</h4> 
             <p><em>Creates an unordered list.</em>
             </p>
             <p>Parameters: <code>Hash|HTML attributes</code>, <code>Optional</code>

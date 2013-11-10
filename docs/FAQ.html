@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,12 +307,12 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>FAQ</h1> 
-            <h2>Source files for the Docs</h2> 
+            <h2 id="source-files-for-the-docs">Source files for the Docs</h2> 
             <p>On each page of Assemble&#39;s live documentation you will find a &quot;See the templates for this page&quot; link, so you can take a look behind the curtains and get a peek at how we build our own docs. Of course, you can also fork or download
               the entire project if you want to go deeper with it (or make a pull request, you thoughtful and charitable community member you!).</p>
-            <h2>Generating a list from a collection</h2> 
+            <h2 id="generating-a-list-from-a-collection">Generating a list from a collection</h2> 
             <p>The simplest way to generate a list from a collection is to create a block expression using the name of the collection, and the collection items inside.</p>
-            <h3>Collection items from &quot;all pages&quot;</h3> 
+            <h3 id="collection-items-from-all-pages-">Collection items from &quot;all pages&quot;</h3> 
             <p>To generate a list of
               <a href="options-collections.html">categories</a> for all
               <a href="Pages.html">pages</a> in a
@@ -348,7 +348,7 @@ categories:
   &lt;li&gt;grapes&lt;/li&gt;
   &lt;li&gt;oranges&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-            <h3>Collection items on a given page</h3> 
+            <h3 id="collection-items-on-a-given-page">Collection items on a given page</h3> 
             <p>To generate a list of
               <a href="options-collections.html">categories</a> for the a page, you would add the following to the page on which you want to generate the list:</p>
             <pre><code class="language-html">{{#page.categories}}
@@ -357,7 +357,7 @@ categories:
             <p>Or we can use: <code>{{#each page.categories}}...{{/each}}</code> block expression with the name of the collection as a variable to get the list of pages in the current
               <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a> 
             </p>
-            <h2>Dynamically building navigation</h2> 
+            <h2 id="dynamically-building-navigation">Dynamically building navigation</h2> 
             <p>Following the previous example, we&#39;ll use the <code>{{#each}}...{{/each}}</code> block expression with the
               <a href="Pages.html">pages</a> variable to get the list of pages in the current
               <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">target</a>.</p>
@@ -365,25 +365,25 @@ categories:
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library, we can dynamically build navigation items by comparing a property (or properties) from the YAML front matter each page in the list with the given values.</p>
             <p>In other words, the <code>is</code> helper will ask: &quot;does this page have a &#39;getting started&#39; section? If &#39;true&#39;, then add the page as a list item, otherwise skip it&quot;. For example, this example shows two different sections
               being generated:</p>
-            <pre><code class="language-handlebars">&lt;h2&gt;Getting Started&lt;/h2&gt;
-{{#each pages}}
-  {{#is data.section &quot;getting started&quot;}}
-    &lt;li&gt; &lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt; &lt;/li&gt;
-  {{/is}}
-{{/each}}
-&lt;h2&gt;Configuration&lt;/h2&gt;
-{{#each pages}}
-  {{#is data.section &quot;configuration&quot;}}
-    &lt;li&gt; &lt;a href=&quot;#&quot;&gt;{{data.title}}&lt;/a&gt; &lt;/li&gt;
-  {{/is}}
-{{/each}}</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">h2</span> &gt;</span> Getting Started<span class="tag">&lt;/<span class="title">h2</span> &gt;</span> 
+<span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  pages</span> }}</span> 
+  <span class="expression">{{<span class="begin-block">#is data.section </span> <span class="string">"getting started"</span> }}</span> 
+    <span class="tag">&lt;<span class="title">li</span> &gt;</span>  <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#"</span> &gt;</span> <span class="expression">{{<span class="variable">data.title</span> }}</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span>  <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/is</span> }}</span> 
+<span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> 
+<span class="tag">&lt;<span class="title">h2</span> &gt;</span> Configuration<span class="tag">&lt;/<span class="title">h2</span> &gt;</span> 
+<span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  pages</span> }}</span> 
+  <span class="expression">{{<span class="begin-block">#is data.section </span> <span class="string">"configuration"</span> }}</span> 
+    <span class="tag">&lt;<span class="title">li</span> &gt;</span>  <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#"</span> &gt;</span> <span class="expression">{{<span class="variable">data.title</span> }}</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span>  <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/is</span> }}</span> 
+<span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> </code></pre>
             <p>Any pages with the <code>section: getting-started</code> in the YAML front matter will render in the first list, and pages with <code>section: configuration</code> will render in the second list.</p>
             <p>{{#todo}} update the docs once [Pages Arrays][pages-array] can achieve this as well.{{/todo}}</p>
-            <h2>Adding &quot;active&quot; links to navigation items</h2> 
+            <h2 id="adding-active-links-to-navigation-items">Adding &quot;active&quot; links to navigation items</h2> 
             <p>If you want to add <code>class=&quot;active&quot;</code> to a navigation item for the &quot;current page&quot;, you can achieve this using the <code>{{#is}}...{{/is}}</code> 
               <a href="https://github.com/assemble/handlebars-helpers#comparisons-equal-helpers">comparison helper</a> from the
               <a href="http://github.com/assemble/handlebars-helpers" title="Extensive collection of Handlebars helpers">handlebars-helpers</a> library.</p>
-            <h3>Using YFM properties</h3> 
+            <h3 id="using-yfm-properties">Using YFM properties</h3> 
             <p>You can achieve this using many different variables, but relatively easy one is to compare the <em><a href="Built-in-Variables.html">basename</a>  of the current page</em> to the <em>given value</em>:</p>
             <pre><code class="language-html">&lt;ul class=&quot;nav navbar-nav&quot;&gt;
   &lt;li{{#is basename &quot;getting-started&quot;}} class=&quot;active&quot;{{/is}}&gt;
@@ -404,7 +404,7 @@ categories:
 &lt;/ul&gt;</code></pre>
             <p><em>The above example is from the navbar in <a href="https://github.com/assemble/assemble-bootstrap">assemble-bootstrap</a>.</em>
             </p>
-            <h3>Without YFM</h3> 
+            <h3 id="without-yfm">Without YFM</h3> 
             <p>However, if you don&#39;t use YFM (or don&#39;t want to use properties from YFM to create active links), you can compare the <em>destination of the current page</em> to the <em>destination of the linked page</em> to get a truthy or falsy value.</p>
             <pre><code class="language-html">{{#is page.dest this.dest}} class=&quot;active&quot;{{/is}}</code></pre>
             <p><strong>The trick</strong>  with using this method is that the context must be correct for it to work. So if you are dynamically generating nav items, as in the [Dynamically build navigation][#dynamically-build-navigation] example, you will
@@ -417,7 +417,7 @@ categories:
     &lt;/li&gt;
   {{/is}}
 {{/each}}</code></pre>
-            <h2>Generating relative paths for links</h2> 
+            <h2 id="generating-relative-paths-for-links">Generating relative paths for links</h2> 
             <p>To get the relative path from the <em>destination of the current page</em> to the <em>destination of the linked page</em>, the
               <a href="https://github.com/assemble/handlebars-helpers#relative">{{relative}}</a> helper works quite well:</p>
             <pre><code class="language-html">{{relative page.dest this.dest}}</code></pre>

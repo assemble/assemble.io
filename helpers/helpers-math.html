@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,7 +246,7 @@
           <div class="panel panel-docs">
             <h1>Math</h1> 
             <p>
-              <h4>{{add}}</h4> 
+              <h4 id="-add-">{{add}}</h4> 
             </p>
             <p>
               <p><em>Returns the sum of two numbers.</em>
@@ -260,7 +260,7 @@
             <pre><code class="language-html">{{add value 5}}</code></pre>
             <p>Renders to:</p>
             <pre><code>10</code></pre>
-            <h4>{{ceil}}</h4> 
+            <h4 id="-ceil-">{{ceil}}</h4> 
             <p><em>Returns the value rounded up to the nearest integer.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -270,7 +270,7 @@
             <pre><code class="language-html">{{ceil value}}</code></pre>
             <p>Renders to:</p>
             <pre><code>6</code></pre>
-            <h4>{{divide}}</h4> 
+            <h4 id="-divide-">{{divide}}</h4> 
             <p><em>Returns the division of two numbers.</em>
               <br>Parameters: value <code>int</code> - The number to divide the expression. (Required)</p>
             <p>Data:</p>
@@ -279,7 +279,7 @@
             <pre><code class="language-html">{{divide value 5}}</code></pre>
             <p>Renders to:</p>
             <pre><code>1</code></pre>
-            <h4>{{floor}}</h4> 
+            <h4 id="-floor-">{{floor}}</h4> 
             <p><em>Returns the value rounded down to the nearest integer.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -289,7 +289,7 @@
             <pre><code class="language-html">{{floor value}}</code></pre>
             <p>Renders to:</p>
             <pre><code>5</code></pre>
-            <h4>{{multiply}}</h4> 
+            <h4 id="-multiply-">{{multiply}}</h4> 
             <p><em>Returns the multiplication of two numbers.</em>
               <br>Parameters: value <code>int</code> - The number to multiply the expression. (Required)</p>
             <p>Data:</p>
@@ -298,7 +298,7 @@
             <pre><code class="language-html">{{multiply value 5}}</code></pre>
             <p>Renders to:</p>
             <pre><code>25</code></pre>
-            <h4>{{round}}</h4> 
+            <h4 id="-round-">{{round}}</h4> 
             <p><em>Returns the value rounded to the nearest integer.</em>
               <br>Parameters: <code>none</code>
             </p>
@@ -308,7 +308,7 @@
             <pre><code class="language-html">{{round value}}</code></pre>
             <p>Renders to:</p>
             <pre><code>6</code></pre>
-            <h4>{{subtract}}</h4> 
+            <h4 id="-subtract-">{{subtract}}</h4> 
             <p><em>Returns the difference of two numbers. Opposite of <code>add</code></em>
               <br>Parameters: value <code>int</code> - The number to subtract from the expression. (Required)_</p>
             <p>Data:</p>
@@ -317,7 +317,7 @@
             <pre><code class="language-html">{{subtract value 5}}</code></pre>
             <p>Renders to:</p>
             <pre><code>0</code></pre>
-            <h4>{{sum}}</h4> 
+            <h4 id="-sum-">{{sum}}</h4> 
             <p><em>Returns the sum of multiple numbers. Similar to <code>{{#add}}</code> block helper but accepts multiple arguments.</em>
               <br>Parameters: <code>none</code>
             </p>

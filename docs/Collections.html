@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,11 +307,11 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>Collections</h1> 
-            <h2>Collections</h2> 
+            <h2 id="collections">Collections</h2> 
             <p>What is included in a collection?</p>
             <p>For any given collection, only items found in the [current target] will be added to the collection by Assemble.</p>
             <p>For example, if we wish to render a list of all of the pages in the <code>pages</code> collection, we will only see the pages in the &quot;current target&quot;.</p>
-            <h2>Pages for each Collection Item</h2> 
+            <h2 id="pages-for-each-collection-item">Pages for each Collection Item</h2> 
             <p>If you want to list all of the pages in a target that have a certain tag, such as <code>Test</code>, you could would &quot;wrap&quot; the <code>{{#each tags}}...{{/each}}</code> block around the <code>{{#each pages}}...{{/each}}</code>
               block. Something like this:</p>
             <pre><code class="language-html">{{#each tags}}
@@ -336,7 +336,7 @@
   {{/is}}
 {{/each}}</code></pre>
             <p>Note that you may only use dot notation for sorting, names like <code>a[&#39;my.page&#39;]</code> will be interpreted as <code>a.my.page</code> and thus will not work.</p>
-            <h2>Sorting</h2> 
+            <h2 id="sorting">Sorting</h2> 
             <p>Now, if we also want to <em>sort the pages</em> by say, <code>date</code>, we would instead use <code>{{#withSort pages}}</code>...<code>{{/withSort}}</code> along with the second parameter that we wish to sort by, in this case <code>date</code>:</p>
             <pre><code class="language-html">{{#each tags}}
   {{#is tag &quot;foo&quot;}}
@@ -350,7 +350,7 @@
 {{/each}}</code></pre>
             <p><em>Note that you may only use dot notation for sorting, names like <code>a[&#39;my.page&#39;]</code> will be interpreted as <code>a.my.page</code> and thus will not work.</em>
             </p>
-            <h3>Sort order</h3> 
+            <h3 id="sort-order">Sort order</h3> 
             <p>Collections options can be configured to sort:</p>
             <ul>
               <li><code>ascending</code> (or alias <code>asc</code>)</li>
@@ -384,7 +384,7 @@
     ]
   }
 }</code></pre>
-            <h2>Related Information</h2> 
+            <h2 id="related-information">Related Information</h2> 
             <ul>
               <li>
                 <a href="FAQ.html">FAQ</a> 

@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,7 +246,7 @@
           <div class="panel panel-docs">
             <h1>Logging</h1> 
             <p>
-              <h4>{{debug}}</h4> 
+              <h4 id="-debug-">{{debug}}</h4> 
             </p>
             <p>
               <p><em>Simple <code>console.debug()</code> that shows the current context.</em>
@@ -282,7 +282,7 @@
             <p>Renders to:</p>
             <pre><code class="language-javascript">Context: { deliveries: <span class="number">8021</span>, name: <span class="string">"Leela"</span>  }
 Value: Leela</code></pre>
-            <h4>{{expandJSON}}</h4> 
+            <h4 id="-expandjson-">{{expandJSON}}</h4> 
             <p><em>Return a stringified array of the expanded file paths that match the given globbing pattern(s)</em>
             </p>
             <p>Parameters: <code>String</code>
@@ -310,7 +310,7 @@ Value: Leela</code></pre>
   <span class="string">"src/content/tables.md"</span>,
   <span class="string">"src/content/test.md"</span> 
 ]</code></pre>
-            <h4>{{expandYAML}}</h4> 
+            <h4 id="-expandyaml-">{{expandYAML}}</h4> 
             <p><em>Return a unique, YAML-formatted array of all file or directory paths that match the given globbing pattern(s)</em>
             </p>
             <ul>
@@ -339,7 +339,7 @@ Value: Leela</code></pre>
 - &quot;src/content/reference.md&quot;
 - &quot;src/content/tables.md&quot;
 - &quot;src/content/test.md&quot;</code></pre>
-            <h4>{{log}}</h4> 
+            <h4 id="-log-">{{log}}</h4> 
             <p><em>Simple <code>console.log()</code></em>
             </p>
             <p>Parameters: <code>none</code>

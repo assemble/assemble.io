@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,7 +307,7 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.layoutdir</h1> 
-            <h2>options.layoutdir</h2> 
+            <h2 id="options-layoutdir">options.layoutdir</h2> 
             <blockquote>
               <p>Path to the directory to be used as the &quot;cwd&quot; for layouts</p>
             </blockquote>
@@ -319,8 +319,8 @@
             <p>Additionally, a <code>layoutdir</code> can be defined for each
               <a href="http://gruntjs.com/configuring-tasks">targets</a>, allowing for even greater control over how
               <a href="Layouts.html">layouts</a> are used in your projects.</p>
-            <h2>Usage Examples</h2> 
-            <h3>Without <code>layoutdir</code>
+            <h2 id="usage-examples">Usage Examples</h2> 
+            <h3 id="without-layoutdir-">Without <code>layoutdir</code>
             </h3> 
             <p>When <code>layoutdir</code>  <em>is not defined</em>, each layout must be defined using the <em>full path from the project root to the layout</em>:</p>
             <pre><code class="language-js">assemble: {
@@ -347,7 +347,7 @@
 title: Blog
 layout: src/templates/layouts/blog-layout.hbs
 ---</code></pre>
-            <h3>With <code>layoutdir</code>
+            <h3 id="with-layoutdir-">With <code>layoutdir</code>
             </h3> 
             <p>When <code>layoutdir</code> is defined only require the name of the layout to be used (<em>must include the file extension</em>):</p>
             <pre><code>assemble: {
@@ -375,7 +375,7 @@ layout: src/templates/layouts/blog-layout.hbs
 title: Blog
 layout: blog-layout.hbs
 ---</code></pre>
-            <h2>A Word of Caution</h2> 
+            <h2 id="a-word-of-caution">A Word of Caution</h2> 
             <p>While <code>layoutdir</code> can make your project a little easier to manage, it is strongly recommended that you <strong>establish clear and consistent conventions for your layouts, and follow them</strong>. Otherwise, this feature might end
               up causing more problems than it solves.</p>
             <p>Here are some recommendations.</p>
@@ -383,11 +383,11 @@ layout: blog-layout.hbs
               <li>Use names such as <code>default-layout.hbs</code> versus simply <code>default.hbs</code>, and</li>
               <li>Use a unique name for each layout used throughout a project.</li>
             </ul>
-            <h3>Why clear naming conventions are important</h3> 
+            <h3 id="why-clear-naming-conventions-are-important">Why clear naming conventions are important</h3> 
             <p>To understand why this is important, imagine that you&#39;re project has three &quot;sub-projects&quot;, or
               <a href="http://gruntjs.com/configuring-tasks">targets</a>: <code>components</code>, <code>docs</code> and <code>blog</code>, and that each target has a different layout. This is a fairly basic, common scenario. But remember that each may also have its own <code>layoutdir</code> as well, which
               creates potential for conventions that lead to using the wrong layout accidentally, such as this:</p>
-            <h4>Not recommended</h4> 
+            <h4 id="not-recommended">Not recommended</h4> 
             <pre><code class="language-js">assemble: {
   components: {
     options: {
@@ -416,20 +416,20 @@ layout: blog-layout.hbs
             <p>While it might make sense for each target to have its own <code>layoutdir</code>, since layouts can be overridden in the
               <a href="YAML-front-matter.html">YAML front matter</a> of individual pages, it is not a good idea to use the same name for multiple layouts, <em>unless you are intentionally using this naming convention as a strategy</em>. The reason is that it gets very difficult to track
               which page is building from which layout when working inside the pages themselves.</p>
-            <h3>Difficult to follow</h3> 
+            <h3 id="difficult-to-follow">Difficult to follow</h3> 
             <p>Without <code>layoutdir</code>, you have the entire path to follow, but without it you must rely on the name of the layout itself to guide you.</p>
             <pre><code class="language-html">---
 title: Any Page
 layout: default.hbs
 ---</code></pre>
-            <h3>Recommended</h3> 
+            <h3 id="recommended">Recommended</h3> 
             <p>Using a more descriptive name for the layout helps avoid confusion <em>now</em>:</p>
             <pre><code class="language-html">---
 title: Any Page
 layout: blog-default.hbs
 ---</code></pre>
             <p>Of course, these are only recommendations and you will need to find a strategy that works for you and your team.</p>
-            <h4>Also see
+            <h4 id="also-see-layouts-layouts-and-options-layout-options-layout-">Also see
               <a href="Layouts.html">Layouts</a> and
               <a href="options-layout.html">options.layout</a> →</h4> 
             <hr>

@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -310,11 +310,11 @@
             <blockquote>
               <p>Like &quot;includes&quot;, partials are reusable fragments of code that can be included in a page and rendered</p>
             </blockquote>
-            <h2>Syntax</h2> 
+            <h2 id="syntax">Syntax</h2> 
             <p>Partials are useful when you have blocks of reusable code that is applicable in different contexts. The <code>Handlebars.registerPartial</code> method, which registers a partial, accepts the name of the partial as its first argument and either
               a <em>template source string</em> or a <em>compiled template</em> as its second argument.</p>
             <p>Accepting a compiled template as the second argument enables you, for example, to use the partial in a loop that outputs a list but also append items to the list later using the partial’s template function.</p>
-            <h4>Also see
+            <h4 id="also-see-options-partials-options-partials-">Also see
               <a href="options-partials.html">options.partials</a> →</h4> 
             <hr>
             <p>

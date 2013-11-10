@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -318,24 +318,24 @@
               <li>You have <code>npm</code> and <code>grunt-cli</code> installed globally</li>
             </ol>
             <p>That just about covers it, so let&#39;s get started!</p>
-            <h2>Setup</h2> 
-            <h3>1. git clone assemble</h3> 
+            <h2 id="setup">Setup</h2> 
+            <h3 id="1-git-clone-assemble">1. git clone assemble</h3> 
             <pre><code class="language-shell">git clone https://github.com/assemble/assemble.git &quot;my-project&quot;</code></pre>
             <p>then</p>
             <pre><code class="language-shell">cd my-project</code></pre>
-            <h3>2. Install necessary packages</h3> 
+            <h3 id="2-install-necessary-packages">2. Install necessary packages</h3> 
             <pre><code class="language-shell">npm i</code></pre>
-            <h3>3. Build</h3> 
+            <h3 id="3-build">3. Build</h3> 
             <pre><code class="language-shell">grunt assemble</code></pre>
             <p>If everything builds properly, then run:</p>
             <pre><code class="language-shell">grunt test</code></pre>
             <p>And all tests should pass.</p>
-            <h3>4. Time to customize!</h3> 
+            <h3 id="4-time-to-customize-">4. Time to customize!</h3> 
             <p>IIdeally, you should start with a nice clean Gruntfile and a brand new <code>src</code> directory, but this is a great way to start learning by example. If you get stuck or need inspiration, just head over to
               <a href="http://assemble.io">Assemble&#39;s documentation</a>, or take a look at
               <a href="https://github.com/assemble/assemble-examples">some other examples</a>.</p>
             <p>Have fun!</p>
-            <h4>Also see
+            <h4 id="also-see-resources-resources-">Also see
               <a href="Resources.html">Resources</a> →</h4> 
             <hr>
             <p>

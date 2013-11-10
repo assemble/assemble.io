@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,7 +307,7 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.assets</h1> 
-            <h2>options.assets</h2> 
+            <h2 id="options-assets">options.assets</h2> 
             <blockquote>
               <p>&quot;Assets&quot; directory to be used by dest files in a target.</p>
             </blockquote>
@@ -315,10 +315,10 @@
             </p>
             <p><em><code>options.assets</code> may be defined at the task- and/or target-levels.</em>
             </p>
-            <h2>Overview</h2> 
+            <h2 id="overview">Overview</h2> 
             <p>Oftentimes an &quot;assets&quot; directory is used in projects for containing the CSS, JavaScripts, images and other similar files.</p>
             <p>Once the <code>assets</code> variable is defined in the Gruntfile, you may use the <code>{{assets}}</code> variable anywhere in your templates and Assemble will generate a relative path from <code>dest</code> files to the specified <code>assets</code> directory.</p>
-            <h2>Example usage</h2> 
+            <h2 id="example-usage">Example usage</h2> 
             <p>Given the following task configuration in your project&#39;s Grunfile:</p>
             <pre><code class="language-js">assemble: {
   options: {
@@ -357,7 +357,7 @@
             <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/bootstrap.css&quot;&gt;</code></pre>
             <p><strong>Note</strong>  that for <code>assets</code> to work predictably, <em>a slash must follow the <code>{{assets}}</code> variable</em>
             </p>
-            <h2>More information</h2> 
+            <h2 id="more-information">More information</h2> 
             <ul>
               <li>
                 <a href="Options.html">Options</a> 

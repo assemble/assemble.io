@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -311,14 +311,14 @@
               <p>Thanks for visiting the Assemble docs! Find something that needs to be fixed or updated?
                 <a href="https://github.com/assemble/assemble/issues">Please let us know</a>.</p>
             </blockquote>
-            <h2>Updates</h2> 
+            <h2 id="updates">Updates</h2> 
             <ul>
               <li>
                 <a href="https://github.com/h5bp/Effeckt.css">Effeckt uses Assemble!</a> - a h5bp project focused on &quot;UI-less, performant transitions &amp; animations&quot;. If you haven&#39;t seen it, definitely check it out, it&#39;s pretty awesome.</li>
               <li>
                 <a href="https://github.com/assemble/assemble-bootstrap">assemble-bootstrap</a> is a new boilerplate to build Twitter Bootstrap 3.0.0 with Assemble and Grunt.js. No need for Ruby, Jekyll, or running a server to view the docs. This repo is up-to-date and includes qunit and phantomjs tests.</li>
             </ul>
-            <h2>Getting Started</h2> 
+            <h2 id="getting-started">Getting Started</h2> 
             <ul>
               <li>
                 <a href="About.html">About</a> 
@@ -336,7 +336,7 @@
                 <a href="Resources.html">Resources</a> 
               </li>
             </ul>
-            <h2>Configuration</h2> 
+            <h2 id="configuration">Configuration</h2> 
             <ul>
               <li>
                 <a href="Built-in-Variables.html">Built-In Variables</a> 
@@ -377,7 +377,7 @@
                 </ul>
               </li>
             </ul>
-            <h2>Data</h2> 
+            <h2 id="data">Data</h2> 
             <ul>
               <li>
                 <a href="Context.html">Context</a> 
@@ -394,7 +394,7 @@
                 </ul>
               </li>
             </ul>
-            <h2>Templates</h2> 
+            <h2 id="templates">Templates</h2> 
             <ul>
               <li>
                 <a href="Templates-Overview.html">Templates Overview</a> 
@@ -418,13 +418,13 @@
                 <a href="Partials.html">Partials</a> 
               </li>
             </ul>
-            <h2>Content</h2> 
+            <h2 id="content">Content</h2> 
             <ul>
               <li>
                 <a href="Markdown.html">Markdown</a> 
               </li>
             </ul>
-            <h2>Boilerplates</h2> 
+            <h2 id="boilerplates">Boilerplates</h2> 
             <ul>
               <li>
                 <a href="Resources.html">Resources</a> 
@@ -442,25 +442,25 @@
                 <a href="https://github.com/assemble/assemble-boilerplate-sitemap">Create sitemap</a> 
               </li>
             </ul>
-            <h2>Development</h2> 
+            <h2 id="development">Development</h2> 
             <ul>
               <li>
                 <a href="Methods.html">Methods</a> 
               </li>
             </ul>
-            <h2>Other</h2> 
+            <h2 id="other">Other</h2> 
             <ul>
               <li>
                 <a href="External-Libraries.html">External Libraries</a> 
               </li>
             </ul>
-            <h2>Related Projects</h2> 
+            <h2 id="related-projects">Related Projects</h2> 
             <ul>
               <li>
                 <a href="https://github.com/assemble/assemble-less">assemble-less</a> 
               </li>
             </ul>
-            <h2>Community Projects</h2> 
+            <h2 id="community-projects">Community Projects</h2> 
             <p>Does your project use Assemble? Did you write a blog post about Assemble? Make a video, or create a &quot;community&quot; project based on Assemble? <em><a href="https://github.com/assemble/assemble/issues">Please let us know!</a> </em> &nbsp;
               We&#39;ll post a link to it on our docs. Thanks for thinking of us!</p>
             <hr>

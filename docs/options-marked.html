@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -307,7 +307,7 @@
         <div class="col col-lg-9">
           <div class="panel panel-docs">
             <h1>options.marked</h1> 
-            <h2>options.marked</h2> 
+            <h2 id="options-marked">options.marked</h2> 
             <p>Assemble uses
               <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> for processing markdown. Any options from marked can be defined on the <code>marked</code> object in the assemble options. This is an example of using all options:</p>
             <pre><code class="language-js">assemble: {
@@ -315,14 +315,14 @@
     marked: {
       breaks: <span class="literal">false</span>,
       gfm: <span class="literal">true</span>,
-      highlight: <span class="keyword">function</span> (code, lang, callback) {
+      highlight: <span class="function"><span class="keyword">function</span> <span class="params">(code, lang, callback)</span>  {</span> 
         pygmentize(
           {
             lang: lang,
             format: <span class="string">'html'</span> 
           },
           code,
-          <span class="keyword">function</span> (err, result) {
+          <span class="function"><span class="keyword">function</span> <span class="params">(err, result)</span>  {</span> 
             callback(err, result.toString());
           }
         );
@@ -340,13 +340,13 @@
 }</code></pre>
             <p><em>Please visit the <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a>  project to learn more about available options.</em> (the following is from the
               <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">Marked.js</a> readme).</p>
-            <h3>gfm</h3> 
+            <h3 id="gfm">gfm</h3> 
             <p>Type: <code>Boolean</code>
               Default: <code>true</code>
             </p>
             <p>Enable
               <a href="https://help.github.com/articles/github-flavored-markdown">GitHub flavored markdown</a>.</p>
-            <h3>highlight</h3> 
+            <h3 id="highlight">highlight</h3> 
             <p>Type: <code>Function</code>
             </p>
             <p>A function to highlight code blocks. The function takes three arguments: <code>code</code>, <code>lang</code>, and <code>callback</code>. The above example uses async highlighting with
@@ -357,7 +357,7 @@
     <span class="keyword">return</span>  hljs.highlightAuto(lang, code).value;
   }
 }</code></pre>
-            <h4>highlight arguments</h4> 
+            <h4 id="highlight-arguments">highlight arguments</h4> 
             <p>Type: <code>String</code>
             </p>
             <ul>
@@ -365,44 +365,44 @@
               <li><code>lang</code>: The programming language specified in the code block.</li>
               <li><code>callback</code>: The callback function to call when using an async highlighter.</li>
             </ul>
-            <h3>tables</h3> 
+            <h3 id="tables">tables</h3> 
             <p>Type: <code>Boolean</code>
               Default: <code>true</code>
             </p>
             <p>Enable GFM
               <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables">tables</a>. This option requires the <code>gfm</code> option to be true.</p>
-            <h3>breaks</h3> 
+            <h3 id="breaks">breaks</h3> 
             <p>Type: <code>Boolean</code>
               Default: <code>false</code>
             </p>
             <p>Enable GFM
               <a href="https://help.github.com/articles/github-flavored-markdown#newlines">line breaks</a>. This option requires the <code>gfm</code> option to be true.</p>
-            <h3>pedantic</h3> 
+            <h3 id="pedantic">pedantic</h3> 
             <p>Type: <code>Boolean</code>
               Default: <code>false</code>
             </p>
             <p>Conform to obscure parts of <code>markdown.pl</code> as much as possible. Don&#39;t fix any of the original markdown bugs or poor behavior.</p>
-            <h3>sanitize</h3> 
+            <h3 id="sanitize">sanitize</h3> 
             <p>Type: <code>Boolean</code>
               Default: <code>true</code>
             </p>
             <p>Sanitize the output. Ignore any HTML that has been input.</p>
-            <h3>smartLists</h3> 
+            <h3 id="smartlists">smartLists</h3> 
             <p>Type: <code>Boolean</code>
               Default: <code>true</code>
             </p>
             <p>Use smarter list behavior than the original markdown. May eventually be default with the old behavior moved into <code>pedantic</code>.</p>
-            <h3>smartypants</h3> 
+            <h3 id="smartypants">smartypants</h3> 
             <p>Type: <code>Boolean</code>
               Default: <code>false</code>
             </p>
             <p>Use &quot;smart&quot; typograhic punctuation for things like quotes and dashes.</p>
-            <h3>langPrefix</h3> 
+            <h3 id="langprefix">langPrefix</h3> 
             <p>Type: <code>String</code>
               Default: <code>lang-</code>
             </p>
             <p>Set the prefix for code block classes.</p>
-            <h4>Marked License</h4> 
+            <h4 id="marked-license">Marked License</h4> 
             <p>Marked Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License). See the Marked.js
               <a href="https://github.com/chjj/marked/blob/master/LICENSE">LICENSE</a> and
               <a href="https://github.com/chjj/marked" title="Marked Repo on GitHub">repo</a> for more info.</p>

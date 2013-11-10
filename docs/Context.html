@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <header class="masthead subhead">
       <div class="container">
         <div class="row">
@@ -317,7 +317,7 @@
             <p>
               <a id="context-in-handlebars"></a> 
             </p>
-            <h2>Context in Handlebars</h2> 
+            <h2 id="context-in-handlebars">Context in Handlebars</h2> 
             <p>In Handlebars, every template has a context. Blocks such as <code>{{#if}}</code> create &quot;inline&quot; templates, and the <code>{{#if}}</code> helper then determines the context in which to render the template.</p>
             <p>Some helpers, like <code>{{#if}}</code>, will preserve the current context, while others such as <code>{{#each}}</code> and <code>{{#with}}</code>, <em>will change the context</em> in different ways. <em>Helpers can even change the context to something completely different if they want</em>:</p>
             <pre><code class="language-js">options.fn({
@@ -331,71 +331,71 @@
             <p>
               <a id="the-context-object"></a> 
             </p>
-            <h2>The &quot;context&quot; object</h2> 
+            <h2 id="the-context-object">The &quot;context&quot; object</h2> 
             <p>The context object is just a
               <a href="JSON.html">JSON data</a> object that when passed to the compiled template function becomes the value of this inside your template. You must use the name of the associated
               <a href="Data.html">data file</a> to access properties and call helper methods on the context object.</p>
-            <h3>Example</h3> 
+            <h3 id="example">Example</h3> 
             <p>Given we have a data file <code>alert.json</code> that contains the following properties:</p>
             <pre><code class="language-json">{
   "<span class="attribute">title</span> ": <span class="value"><span class="string">"Heads up!"</span> 
-}</span> </code></pre>
+</span> }</code></pre>
             <p>In our template <code>alert.hbs</code>, we will now look up the properites of <code>alert.json</code> by using the name of the file, <code>alert</code>, as the current context. So to retrieve the <code>title</code> property, we would do this:</p>
-            <pre><code class="language-handlebars">&lt;h1&gt;{{alert.title}}&lt;/h1&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">h1</span> &gt;</span> <span class="expression">{{<span class="variable">alert.title</span> }}</span> <span class="tag">&lt;/<span class="title">h1</span> &gt;</span> </code></pre>
             <p>Which renders to:</p>
             <pre><code class="language-html">&lt;h1&gt;Heads up!&lt;/h1&gt;</code></pre>
             <p>
               <a id="root-context"></a> 
             </p>
-            <h2>Root context</h2> 
+            <h2 id="root-context">Root context</h2> 
             <p>In Assemble, the root of the context is where the data object starts. Everything under the root is a child property. Also, when a variable is at &quot;the root of the context&quot; the variable may be used as-is, or &quot;raw&quot;, enabling
               you to look up properties <em>for the &quot;current&quot; object</em> without nesting the context <em>within</em> the current object. In other words, the &quot;path&quot; of the current object does not need to be appended to the variable, so
               instead of <code>about_us.title</code>, you may simply use <code>title</code>.</p>
-            <h3>Example</h3> 
+            <h3 id="example">Example</h3> 
             <p>In <code>layout.hbs</code> we will use <code>{{title}}</code> to lookup the <code>title</code> property on each page that is passed into the layout.</p>
-            <pre><code class="language-handlebars">&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;{{title}}&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    {{&gt; body }}
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="doctype">&lt;!doctype html&gt;</span> 
+<span class="tag">&lt;<span class="title">html</span>  <span class="attribute">lang</span> =<span class="value">"en"</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">head</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">meta</span>  <span class="attribute">charset</span> =<span class="value">"UTF-8"</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">title</span> &gt;</span> <span class="expression">{{<span class="variable">title</span> }}</span> <span class="tag">&lt;/<span class="title">title</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">head</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">body</span> &gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+  <span class="tag">&lt;/<span class="title">body</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">html</span> &gt;</span> </code></pre>
             <p>Since the <code>{{title}}</code> variable is inside a
               <a href="Layouts.html">layout</a>, we do not need to nest the <code>title</code> within the context of the <code>data</code> object. In other words, by default, layouts</p>
             <p>
               <a id="the-data-object"></a> 
             </p>
-            <h2>The &quot;data&quot; object</h2> 
+            <h2 id="the-data-object">The &quot;data&quot; object</h2> 
             <p>When data is added directly to a file named <code>data.json</code> (or <code>data.yml</code>) it will be loaded <em>directly into the root of the context</em> by Assemble. Note that your templates will need to be namespaced differently than if
               you put data into a file called <code>myData.json</code>.</p>
             <p>For example, given we have a file named <code>data.json</code> with:</p>
             <pre><code class="language-json">{
   "<span class="attribute">title</span> ": <span class="value"><span class="string">"My Title"</span> 
-}</span> </code></pre>
+</span> }</code></pre>
             <p>Inside <code>myTemplate.hbs</code>, we would use:</p>
-            <pre><code class="language-handlebars">{{title}}</code></pre>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="variable">title</span> }}</span> </code></pre>
             <p>However, using the same example but with a file named <code>myData.json</code>, the data must now be accessed using the name of the file.</p>
             <p>So, given we have <code>myData.json</code> with:</p>
             <pre><code class="language-json">{
   "<span class="attribute">title</span> ": <span class="value"><span class="string">"My Title"</span> 
-}</span> </code></pre>
+</span> }</code></pre>
             <p>Out template, <code>myTemplate.hbs</code>, would have:</p>
-            <pre><code class="language-handlebars">{{myData.title}}</code></pre>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="variable">myData.title</span> }}</span> </code></pre>
             <p>
               <a id="this-expression"></a> 
             </p>
-            <h2>&quot;this&quot; expression</h2> 
+            <h2 id="-this-expression">&quot;this&quot; expression</h2> 
             <p>You can use the <code>this</code> expression in any context to refer to the current context.</p>
             <p>For example (from
               <a href="http://handlebarsjs.com/">http://handlebarsjs.com/</a> ), inside the <code>{{#each}}</code> block, you can use <code>this</code> to reference the element being iterated over.</p>
-            <pre><code class="language-handlebars">&lt;ul class=&quot;people-list&quot;&gt;
-  {{#each people}}
-  &lt;li&gt;{{this}}&lt;/li&gt;
-  {{/each}}
-&lt;/ul&gt;</code></pre>
+            <pre><code class="language-handlebars"><span class="tag">&lt;<span class="title">ul</span>  <span class="attribute">class</span> =<span class="value">"people-list"</span> &gt;</span> 
+  <span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  people</span> }}</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="expression">{{<span class="variable">this</span> }}</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> </code></pre>
             <p>when used with this context, <code>people.json</code>:</p>
             <pre><code class="language-json">[
   <span class="string">"Jon Schlinkert"</span>,

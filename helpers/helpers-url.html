@@ -45,7 +45,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +67,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <div class="navbar" role="banner">
+    <header class="navbar navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +110,7 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,28 +246,40 @@
           <div class="panel panel-docs">
             <h1>URL</h1> 
             <p>
-              <p>URL helpers are
-                <a href="http://nodejs.org/api/url.html">node.js</a>  <code>url</code> utilities for URL resolution and parsing. As with node.js:</p>
-            </p>
-            <p>
               <blockquote>
             </p>
             <p>
-              <p>&quot;Parsed URL objects have some or all of the following fields, depending on whether or not they exist in the URL string. Any parts that are not in the URL string will not be in the parsed object.&quot;</p>
+              <p>URL helpers are
+                <a href="http://nodejs.org/api/url.html">node.js</a>  <code>url</code> utilities for URL resolution and parsing. As with node.js:</p>
+              </blockquote>
             </p>
             <p>
-              <h4>{{urlParse}}</h4> 
+              <h3 id="-urlparse-">{{urlParse}}</h3> 
             </p>
             <p>
               <p><em>Take a URL string, and return an object.</em>
               </p>
-              </blockquote>
             </p>
             <p>
-              <p>Params:
-                <em> <code>url</code>
-</em> Output format: <code>yaml</code> or <code>json</code>. Default: <code>json</code>
+              <h3 id="params">Params</h3> 
+            </p>
+            <p>
+              <h4 id="url">url</h4> 
+            </p>
+            <p>
+              <p>Type: <code>String</code>
+                Default: <code>undefined</code>
               </p>
+            </p>
+            <p>
+              <p>The URL to parse.</p>
+            </p>
+            <p>
+              <h4 id="output-format">output format</h4> 
+            </p>
+            <p>
+              <p>Type: <code>String</code>
+                Default: <code>json</code> (options: <code>yaml</code> or <code>json</code>)</p>
             </p>
             <p>
               <p>Template:</p>
@@ -287,7 +299,7 @@
   "<span class="attribute">pathname</span> ": <span class="value"><span class="string">"/one"</span> </span>,
   "<span class="attribute">path</span> ": <span class="value"><span class="string">"/one"</span> </span>,
   "<span class="attribute">href</span> ": <span class="value"><span class="string">"http://example.com/one"</span> 
-}</span> </code></pre>
+</span> }</code></pre>
             <p>Or with <code>yaml</code> as the second param:</p>
             <pre><code class="language-html">{{urlParse &quot;http://foo.com/bar/baz?key=value&quot; &quot;yaml&quot;}}</code></pre>
             <p>Renders to:</p>
@@ -308,7 +320,7 @@ format:
 resolve:
 resolveObject:
 parseHost:</code></pre>
-            <h4>{{urlResolve}}</h4> 
+            <h4 id="-urlresolve-">{{urlResolve}}</h4> 
             <p><em>Take a base URL, and a href URL, and resolve them as a browser would for an anchor tag.</em>
             </p>
             <p>
