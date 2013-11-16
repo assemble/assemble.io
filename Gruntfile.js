@@ -162,6 +162,20 @@ module.exports = function (grunt) {
       },
 
       /**
+       * "Plugins" section. 
+       * Uses: templates/pages/helpers.json
+       */
+      plugins: {
+        options: {
+          ext: '.html',
+          flatten: true,
+          engine: 'handlebars'
+        },
+        src: ['templates/pages/plugins/index.hbs'],
+        dest: '<%= site.destination %>/plugins/'
+      },
+
+      /**
        * "Boilerplates" section.
        */
       boilerplates: {
