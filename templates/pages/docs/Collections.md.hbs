@@ -32,25 +32,6 @@ block. Something like this:
 \{{/each}}
 ```
 
-However, if you also want to sort the pages by say, `date`, you would instead use `\{{#withSort pages}}`...`\{{/withSort}}` along with a second parameter, in this case `date`:
-
-```html
-\{{#each tags}}
-  \{{#is tag "Test"}}
-  <h1>\{{tag}}</h1>
-  <ul>
-    \{{#withSort pages data.date}}
-      <li>\{{data.title}}</li>
-    \{{/withSort}}
-  </ul>
-  \{{/is}}
-\{{/each}}
-```
-
-Note that you may only use dot notation for sorting, names like `a['my.page']` will be interpreted as `a.my.page` and thus will not work.
-
-
-
 ## Sorting
 
 If you also want to _sort the pages_ by `date`, you would instead use `\{{#withSort pages}}`...`\{{/withSort}}` along with the second parameter that you wish to sort by, in this case `date`:
