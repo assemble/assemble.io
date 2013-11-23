@@ -26,6 +26,10 @@ area:
 
 
 templates:
-  edit: <%= site.area.docs.repo %>/edit/master/src/templates/pages
-  view: <%= site.area.docs.repo %>/blob/master/src/templates/pages
+  edit: <%= site.area.docs.repo %>/edit/master/templates/pages
+  view: <%= site.area.docs.repo %>/blob/master/templates/pages
+
+content:
+  edit: <%= site.area.docs.repo %>/edit/master/src/content
+  view: <%= site.area.docs.repo %>/tree/master/src/content
 
