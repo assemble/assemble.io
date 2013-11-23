@@ -32,7 +32,7 @@ To generate a list of [categories][options-collections] for all [pages][pages] i
 \{{/categories}}
 </ul>
 ```
-Now, if two of the pages in our target have categories defined as such:
+Now, if two of the pages in your target have categories defined as such:
 
 ```html
 ---
@@ -69,21 +69,21 @@ The generated output will be a basic list containing the merged values from the 
 
 
 ### Collection items on a given page
-To generate a list of [categories][options-collections] for the a page, you would add the following to the page on which you want to generate the list:
+To generate a list of [categories][options-collections] for a page, you would add the following to the page on which you want to generate the list:
 
 ```html
 \{{#page.categories}}
   \{{.}}
 \{{/page.categories}}
 ```
-Or we can use: `\{{#each page.categories}}...\{{/each}}` block expression with the name of the collection as a variable to get the list of pages in the current [target][targets]
+Or you can use the `\{{#each page.categories}}...\{{/each}}` block expression with the name of the collection as a variable to get the list of pages in the current [target][targets].
 
 
 
 ## Dynamically building navigation
-Following the previous example, we'll use the `\{{#each}}...\{{/each}}` block expression with the [pages][pages] variable to get the list of pages in the current [target][targets].
+Following the previous example, you can use the `\{{#each}}...\{{/each}}` block expression with the [pages][pages] variable to get the list of pages in the current [target][targets].
 
-Then, using the `\{{#is}}...\{{/is}}` comparison helper from the [handlebars-helpers][handlebars-helpers] library, we can dynamically build navigation items by comparing a property (or properties) from the YAML front matter each page in the list with the given values.
+Then, using the `\{{#is}}...\{{/is}}` comparison helper from the [handlebars-helpers][handlebars-helpers] library, you can dynamically build navigation items by comparing a property (or properties) from the YAML front matter for each page in the list with the given values.
 
 In other words, the `is` helper will ask: "does this page have a 'getting started' section? If 'true', then add the page as a list item, otherwise skip it". For example, this example shows two different sections being generated:
 
@@ -103,7 +103,7 @@ In other words, the `is` helper will ask: "does this page have a 'getting starte
 \{{/each}}
 ```
 
-Any pages with the `section: getting-started` in the YAML front matter will render in the first list, and pages with `section: configuration` will render in the second list.
+Any pages with `section: getting-started` in the YAML front matter will render in the first list, and pages with `section: configuration` will render in the second list.
 
 \{{#todo}} update the docs once [Pages Arrays][pages-array] can achieve this as well.\{{/todo}}
 
@@ -114,7 +114,7 @@ If you want to add `class="active"` to a navigation item for the "current page",
 
 
 ### Using YFM properties
-You can achieve this using many different variables, but relatively easy one is to compare the _[basename][built-in-variables] of the current page_ to the _given value_:
+You can achieve this using many different variables, but a relatively easy one is to compare the _[basename][built-in-variables] of the current page_ to the _given value_:
 
 ```html
 <ul class="nav navbar-nav">

@@ -24,7 +24,7 @@ options.fn({
 
 Handlebars also supports _nested contexts_, making it possible to look up properties nested below the current context. Nested handlebars paths can also include `../` segments, which evaluate their paths against a parent context.
 
-The `../` path means "look this up on the context of the parent template". In some cases, that will amount to the parent in the current object (with). In other cases, it will not. In cases like if, which preserve the context, `../` will happen to point to the same object, but this is just a coincidence. In all cases, `../` is lexically bound to the parent template.
+The `../` path means "look this up on the context of the parent template". In cases like `\{{#with}}` that will mean the parent in the current object. In cases like `\{{#if}}`, which preserve the context, `../` will happen to point to the same object, but this is just a coincidence. In all cases, `../` is lexically bound to the parent template.
 
 _The information in this section was mostly taken from [this conversation](https://github.com/wycats/handlebars.js/issues/196#issuecomment-8581551), and edited to make sense for Assemble._
 
