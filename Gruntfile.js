@@ -215,8 +215,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('assemble-less');
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.loadTasks('tasks');
-
   // Default task to be run.
   grunt.registerTask('default', [
     'clean:ghpages',
