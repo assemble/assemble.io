@@ -40,7 +40,8 @@ layout: base.hbs
           {{> body }} {{> generated-links.md }}
         {{/markdown}}
         <hr>
-        <p><a href="{{site.templates.view}}/{{area}}/{{this.basename}}.md.hbs">See the template for this page → </a></p>
+
+        <p><a href="{{#is area 'helpers'}}{{site.content.view}}{{else}}{{site.templates.view}}{{/is}}/{{area}}/{{#is area 'helpers'}}{{replace this.basename 'helpers-' '' }}{{else}}{{this.basename}}.hbs{{/is}}">See the template for this page → </a></p>
         {{> footer }}
       </div>
     </div>
