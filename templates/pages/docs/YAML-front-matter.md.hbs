@@ -52,9 +52,9 @@ Use cases:
 
 ### Built-in Variables
 
- * `layout` : Optionally define or override the layout to use. You must include file extension, since Assemble can process multiple file types. Layout files can exist in any directory, and may be.
+ * `layout` : Optionally define or override the layout to use. You must include the file extension, since Assemble can process multiple file types. Layout files can exist in any directory.
  * `published` : set to `false` to exclude a file from being rendered by a task-target.
- * `category`/`categories`/`tags` : Define the categories and tags as [YAML lists](http://en.wikipedia.org/wiki/YAML#Lists or a space-separated string) or a space-separated string. for each category and tag, Assemble will generate a page in the `dest` directory.
+ * `category`/`categories`/`tags` : Define the categories and tags as [YAML lists](http://en.wikipedia.org/wiki/YAML#Lists or a space-separated string) or a space-separated string. For each category and tag, Assemble will generate a page in the `dest` directory.
 
 If set, allows to specify tags attributed to given entry. Tag pages are generated automatically. Entry may belong to more than one tag, use YAML List to specify multiple tags.
 
@@ -302,27 +302,27 @@ See some great usage examples in assemble's [YAML test files](https://github.com
 * With [Assemble](https://github.com/assemble/assemble) you may do [just about anything](https://github.com/assemble/assemble/tree/master/test/YAML) with YAML front matter that you can do with [valid YAML](http://www.yaml.org/spec/1.2/spec.html)
 * YFM must be [valid YAML](http://www.yaml.org/spec/1.2/spec.html)
 * YFM cannot be parsed if it is not the first thing on the page
-* [Assemble](https://github.com/assemble/assemble) parses YAML front matter into an object literal.
-* YFM allows you to define variables for a page, directly inside the page.
+* [Assemble](https://github.com/assemble/assemble) parses YAML front matter into an object literal
+* YFM allows you to define variables for a page, directly inside the page
 
 **Custom Variables**
-* You may use any of the default variables provided by Assemble, or you may define your own custom variables inside the YFM of a file.
+* You may use any of the default variables provided by Assemble, or you may define your own custom variables inside the YFM of a file
 * You may add as many custom variables as you require
 
 **Lo-Dash Templates**
 * You may use underscore [Lo-Dash templates][lodash] in YFM
 * Assemble exposes all variables defined in YAML front-matter to the page in which they were defined, thus...
-* Using [Lo-Dash templates][lodash] in YFM enables programmatic access to those pages across your project.
-* YFM may be used in any file that Assemble processes through any of the [src-dest or files mappings formats][files] available in Grunt.js.
+* Using [Lo-Dash templates][lodash] in YFM enables programmatic access to those pages across your project
+* YFM may be used in any file that Assemble processes through any of the [src-dest or files mappings formats][files] available in Grunt.js
 
 
 ### Recommended usage
-* YFM is best used for structured data, like configuration settings or metadata for a page, as opposed to long-form content.
+* YFM is best used for structured data, like configuration settings or metadata for a page, as opposed to long-form content
 * YFM offers an easy way to maintain metadata or rendered data for pages and partials, as an _optional_&nbsp; alternative to using "external" `.json` or `.yaml` data files
 
 
 ### Not recommended
-* YFM isn't the best option for long-form content or extensive amounts of metadata. In these cases you might want to consider externalizing your data to [JSON][] or [YAML][] files instead.
+* YFM isn't the best option for long-form content or extensive amounts of metadata In these cases you might want to consider externalizing your data to [JSON][] or [YAML][] files instead
 
 
 
