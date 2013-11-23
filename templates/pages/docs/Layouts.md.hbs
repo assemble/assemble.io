@@ -29,7 +29,7 @@ Where `\{{> body }}` is the point of insertion for content from any pages that u
 
 ### Defining layouts
 
-In the Assemble task options you can either specify a general layout to be used for all pages in a project:
+In the Assemble task options you can specify a general layout to be used for all pages in a project:
 
 ```js
 assemble: {
@@ -41,10 +41,10 @@ assemble: {
 
 ### Multiple layouts
 
-When your project has different types or groupings of pages, such as "docs", "blog" and "examples" for instance, {{!you may wish to use a specialized layout for each page type.}} and there are certain design or structural elements that are unique to each grouping, it often makes sense to:
+When your project has different types or groupings of pages, such as "docs", "blog" and "examples", {{!you may wish to use a specialized layout for each page type.}} and there are certain design or structural elements that are unique to each grouping, it often makes sense to:
 
-1. Create a different targets in the assemble task to accomodate each grouping,
-2. Give each target (e.g. each grouping of pages) its own special layout containing the unique elements required by each grouping. For example, every page in the `blog` target might have a right sidebar, whereas every page in the `docs` target might have a left sideabar:
+1. Create a different target in the assemble task to accomodate each grouping
+2. Give each target (e.g. each grouping of pages) its own special layout containing the unique elements required by each grouping. For example, every page in the `blog` target might have a right sidebar, whereas every page in the `docs` target might have a left sidebar:
 
 For example:
 
@@ -72,13 +72,13 @@ assemble: {
 
 Layouts can also be "stacked" so that the parent-most layouts contain the most commonly used elements while "child layouts" contain elements that are only necessary for specific pages or groupings of pages.
 
-If, for example:
+For example, if:
 
-* all pages will require the same `<script></script>` and `<link>` tags,
+* all pages will require the same `<script></script>` and `<link>` tags
 * some pages in your project should be rendered _with a sidebar_
-* and some _without a sidebar_
+* some pages should render _without a sidebar_
 
-This is a good opportunity to use nested layouts that might look something like this:
+This is a good opportunity to use nested layouts.
 
 #### Example Layout #1: parent layout
 
@@ -103,7 +103,7 @@ Our parent layout will only contain the most commonly required, generalized elem
 
 Our "child" layout will contain additional markup for our sidebar, but it should also inherit all of the markup from the parent layout (since layouts are "flattened" before pages are rendered). For the markup to be inherited, we need to **specify a parent layout for our child layout**.
 
-Specifying a _layout for a layout_ works the exact same way as specifying a layout for any reguar page. It can be defined in the `options.layout` property in the Assemble task config in the Gruntfile (at the task and/or target level), or the layout can be specified in the child layout's YAML front matter. Here is an example of the latter:
+Specifying a _layout for a layout_ works the exact same way as specifying a layout for any regular page. It can be defined in the `options.layout` property in the Assemble task config in the Gruntfile (at the task and/or target level), or the layout can be specified in the child layout's YAML front matter. Here is an example of the latter:
 
 `child-layout.hbs`
 
@@ -136,7 +136,7 @@ You might recall that the `\{{> body }}` tag is the "insertion point" in a layou
 
 #### Example "flattened" result
 
-Continuing with the example from the previous section, the flattened layout for pages that use the "child" layout might look something like this during build:
+Continuing with the example from the previous section, the flattened layout for pages that use the "child" layout might look something like this at build:
 
 ```handlebars
 <!DOCTYPE html>
