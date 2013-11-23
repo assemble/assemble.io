@@ -13,14 +13,14 @@ To make it easier for Assemble users to consume custom helpers created by other 
 
 ## Registering custom helpers
 
-Helpers can either be an object or a single `register` function. If `register` is on the object, then it calls the `register` function, passing in the engine. Otherwise each method is registered as a helper. For example, the following will result in 2 helpers being registered:
+Helpers can either be an object or a single `register` function. If `register` is on the object, then it calls the `register` function, passing in the engine. Otherwise each method is registered as a helper. For example, the following will result in two helpers being registered:
 
 ```js
 module.exports.foo = function(str) { return str; };
 module.exports.bar = function(str) { return str; };
 ```
 
-And this will result in the `foo` helper getting register directly through Handlebars:
+And this will register the `foo` helper directly through Handlebars:
 
 ```js
 module.exports.register = function(Handlebars, options) {
@@ -39,9 +39,9 @@ Minimatch patterns can be used in the `helpers` option, and they'll look inside 
 
 Requirements for use:
 
- - Install the module and save to devDependcies
+ - Install the module and save to devDependencies
    - `npm install my-custom-helper-module --save-dev`
- - Add a pattern or the entire name to use that module in the options
+ - Add a pattern (or the entire name) to use that module in the options
    - `options: { helpers: ['*-helper-module'] } }`
  - Enjoy
 
