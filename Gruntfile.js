@@ -17,13 +17,6 @@ module.exports = function (grunt) {
   // Report elapsed execution time of grunt tasks.
   require('time-grunt')(grunt);
 
-  var prettify = function(src) {
-    return require('js-prettify').html(src, {
-      indent_size: 2,
-      indent_inner_html: true
-    }).replace(/(\r\n|\n\r|\n|\r){2,}/g, '\n');
-  };
-
   // Project configuration.
   grunt.initConfig({
 
@@ -82,7 +75,7 @@ module.exports = function (grunt) {
         },
         data: ['src/data/*.{json,yml}', 'package.json'],
         assets: '<%= site.destination %>/assets',
-        helpers: ['src/extensions/*.js', 'helper-prettify'],
+        helpers: ['src/extensions/*.js', 'handlebars-helper-prettify'],
         partials: ['templates/includes/**/*.{hbs,md}'],
         layoutdir: 'templates/layouts',
         layout: 'default.hbs',
