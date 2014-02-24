@@ -72,7 +72,7 @@ The result after running `grunt assemble` will be:
 Add `package.json` to the `data` object:
 
 ```js
-assemble {
+assemble: {
   myProject: {
     options: {
       data: 'package.json'
@@ -101,7 +101,7 @@ Assuming we add the following code to our Gruntfile
 ```js
 pkg: grunt.file.readJSON('package.json'),
 
-assemble {
+assemble: {
   myProject: {
     options: {
       pkg: '<%= pkg %>',
