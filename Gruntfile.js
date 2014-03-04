@@ -34,7 +34,7 @@ module.exports = function (grunt) {
     bootstrap: grunt.file.readYAML('src/less/bootstrap.yml'),
     ghpages  : grunt.file.readYAML('src/less/ghpages.yml'),
     site     : grunt.file.readYAML('src/data/site.yml'),
-    helpers  : grunt.file.readJSON('src/templates/pages/helpers.json'), // config for "helpers" docs
+    helpers  : grunt.file.readJSON('templates/pages/helpers.json'), // config for "helpers" docs
 
     /**
      * Process LESS files
@@ -83,8 +83,8 @@ module.exports = function (grunt) {
         data: ['src/data/*.{json,yml}', 'package.json'],
         assets: '<%= site.destination %>/assets',
         helpers: ['src/extensions/*.js', 'helper-prettify'],
-        partials: ['src/templates/includes/**/*.{hbs,md}'],
-        layoutdir: 'src/templates/layouts',
+        partials: ['templates/includes/**/*.{hbs,md}'],
+        layoutdir: 'templates/layouts',
         layout: 'default.hbs',
         marked: {sanitize: false },
         // postprocess: prettify,
@@ -104,8 +104,8 @@ module.exports = function (grunt) {
           flatten: true,
           ext: '.hbs'
         },
-        src: 'src/templates/includes/snippets/links-template.md.hbs',
-        dest: 'src/templates/includes/snippets/generated-links.md.hbs'
+        src: 'templates/includes/snippets/links-template.md.hbs',
+        dest: 'templates/includes/snippets/generated-links.md.hbs'
       },
 
       /**
@@ -115,20 +115,20 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'src/templates/pages',
+            cwd: 'templates/pages',
             src: ['*.hbs'],
             dest: '<%= site.destination %>/'
           },
           {
             expand: true,
-            cwd: 'src/templates/pages/docs',
+            cwd: 'templates/pages/docs',
             src: ['*.hbs'],
             dest: '<%= site.destination %>/docs/',
             ext: '.html'
           },
           {
             expand: true,
-            cwd: 'src/templates/pages/contributing',
+            cwd: 'templates/pages/contributing',
             src: ['*.hbs'],
             dest: '<%= site.destination %>/contributing/',
             ext: '.html'
@@ -142,13 +142,13 @@ module.exports = function (grunt) {
       blog: {
         options: {layout: 'blog.hbs'},
         files: {
-          '<%= site.destination %>/blog/': ['src/templates/pages/blog/*.hbs']
+          '<%= site.destination %>/blog/': ['templates/pages/blog/*.hbs']
         }
       },
 
       /**
        * "Helpers" section. 
-       * Uses: src/templates/pages/helpers.json
+       * Uses: templates/pages/helpers.json
        */
       helpers: {
         options: {
@@ -157,7 +157,7 @@ module.exports = function (grunt) {
           engine: 'handlebars',
           pages: '<%= helpers.pages %>'
         },
-        src: ['src/templates/pages/helpers/index.hbs'],
+        src: ['templates/pages/helpers/index.hbs'],
         dest: '<%= site.destination %>/helpers/'
       },
 
@@ -168,7 +168,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'src/templates/pages/boilerplates/',
+            cwd: 'templates/pages/boilerplates/',
             src: ['*.hbs'],
             dest: '<%= site.destination %>/boilerplates/',
             ext: '.html'
