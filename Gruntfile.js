@@ -52,9 +52,9 @@ module.exports = function(grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= site.scripts %>/*.js',
         '<%= site.helpers %>/*.js',
         '<%= site.plugins %>/*.js',
+        '<%= site.scripts %>/*.js',
         '<%= site.utils %>/*.js',
       ]
     },

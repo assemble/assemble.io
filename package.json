@@ -1,7 +1,7 @@
 {
-  "name": "assemble-book",
+  "name": "assemble-docs",
   "version": "0.1.0",
-  "description": "Boilerplate and theme for building a book or documentation with Assemble.",
+  "description": "Documentation for Assemble.",
   "homepage": "http://assemble.io",
   "author": {
     "name": "Jon Schlinkert",
@@ -20,7 +20,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/sellside/assemble-book/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/assemble-docs/blob/master/LICENSE-MIT"
     },
     {
       "type": "Creative Commons Attribution 3.0 Unported License",
@@ -29,14 +29,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sellside/assemble-book"
+    "url": "https://github.com/assemble/assemble-docs"
   },
   "bugs": {
-    "url": "https://github.com/sellside/assemble-book/issues"
+    "url": "https://github.com/assemble/assemble-docs/issues"
   },
   "main": "index.js",
   "devDependencies": {
-    "assemble": "~0.4.36",
+    "assemble": "git://github.com/assemble/assemble.git#v0.5.0",
     "assemble-contrib-anchors": "~0.1.2",
     "assemble-contrib-decompress": "~0.1.0",
     "assemble-contrib-download": "~0.1.2",

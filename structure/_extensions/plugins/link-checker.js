@@ -1,3 +1,4 @@
+
 var options = {
   stage: 'render:post:page'
 };
