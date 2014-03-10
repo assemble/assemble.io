@@ -1,0 +1,32 @@
+<!-- Core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+{{#production}}<!-- <script src="http://platform.twitter.com/widgets.js"></script> -->{{/production}}
+<script src="{{ assets }}/js/docs.min.js"></script>
+<script src="{{ assets }}/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  $( '.dismiss' ).click(function() {
+    $( '.navbar-wrap' ).addClass( 'fade' );
+    $( '.anchor-target' ).addClass( 'anchor-target-small' );
+    $( '.navbar-wrap' ).delay(1000).hide( 'fast' );
+  });
+</script>
+
+{{#if site.analytics.google.enabled}}
+<!-- Google Analytics -->
+<script>
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '{{site.analytics.google.siteid}}');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+{{/if}}

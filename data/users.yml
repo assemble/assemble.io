@@ -1,0 +1,19 @@
+# ------- PLEASE READ ------- (borrowed from Ember.js)
+#
+# To have your pull request accepted, you must email assemble@sellside.com
+# with the subject line "Assemble User Logo Contact". Please include the
+# name and email of a contact we can reach out to should we ever need to
+# make changes to this page or get logo variants.
+#
+# Please also be sure the logo you upload has a transparent background,
+# and adequate whitespace.
+
+# These logos are in a particular order, most recently; that being the
+# order in which people made their requests. Be respectful to those who
+# came before you and add your name to the *bottom*
+
+
+- url: http://www.foo.com/
+  image: bar.png
+- url: http://www.baz.com/
+  image: quux.png

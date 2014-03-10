@@ -1,0 +1,54 @@
+---
+title: About
+slug: about
+lead: "Learn about the history of assemble, meet the core team, and check out the ever-growing community resources."
+---
+
+{{!-- History
+================================================== --}}
+<div class="docs-section">
+  <div class="page-header">
+    <h1 id="history">History</h1>
+  </div>
+  {{md 'history'}}
+</div>
+
+
+{{!-- Team
+================================================== --}}
+<div class="docs-section">
+  <div class="page-header">
+    <h1 id="team">Core team</h1>
+  </div>
+  <p class="lead">assemble is maintained by a group of invaluable core contributors, with the massive support and involvement of our community. No one person is in charge and everyone has their own areas and donates the time they can afford. In alphabetical order:</p>
+  <div class="list-group team">
+
+    {{! Generated from data/team.yml }}
+    {{#each team}}
+    <div class="list-group-item">
+      <iframe class="github-btn" src="{{{follow}}}"></iframe>
+      <a class="team-member" href="https://github.com/{{{username}}}">
+        <img src="{{{gravatar}}}" alt="@{{{username}}}">
+        <strong>{{{name}}}</strong> <small>@{{{username}}}</small>
+      </a>
+    </div>
+    {{/each}}
+
+  </div>
+  <p>Get involved with Assemble development by <a href="{{ core.issues }}/new">opening an issue</a> or submitting a pull request (if it's a feature request, please open an issue first). </p>
+  <p>Read our <a href="{{ core.master }}CONTRIBUTING.md">contributing guidelines</a> and the <a href="{{rel 'usage/#developing-assemble'}}">developing section</a> of our usage page.</p>
+</div>
+
+
+{{!-- Community
+================================================== --}}
+<div class="docs-section">
+  <div class="page-header">
+    <h1 id="community">Community</h1>
+  </div>
+  <p class="lead">Stay up to date on the development of Assemble and reach out to the community with these helpful resources.</p>
+  <ul>
+    <!--li>Read and subscribe to <a href="">The Official Assemble Blog</a>.</li -->
+    <li>Have a feature request or bug report? <a href="{{ site.issues }}">Let us know on our GitHub Issues</a>.</li>
+  </ul>
+</div>

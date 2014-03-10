@@ -1,9 +1,0 @@
-{
-  "masthead": {
-    "download": "onclick=\"_gaq.push(['_trackEvent', 'masthead-download', 'clicked'])\""
-  },
-  "navbar": {
-    "download": "onclick=\"_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])\"",
-    "click-repo": "onclick=\"_gaq.push(['_trackEvent', 'click-repo', 'clicked'])\""
-  }
-}

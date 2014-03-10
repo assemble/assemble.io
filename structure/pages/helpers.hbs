@@ -1,0 +1,22 @@
+---
+title: Helpers
+slug: helpers
+---
+<!-- inner navigation (for content) -->
+{{> navbar-content }}
+
+{{#each helpers.published}}
+  <!-- {{title}} -->
+  <div class="docs-section">
+    <div class="page-header">
+      <h1 id="{{@key}}">{{title}}</h1>
+    </div>
+    {{#if files}}
+      {{#each (expand files)}}
+        <!-- {{basename .}} -->
+        {{success '>> Reading:' (basename .)}} {{! log a success message }}
+        {{content (basename .)}}
+      {{/each}}
+    {{/if}}
+  </div>
+{{/each}}

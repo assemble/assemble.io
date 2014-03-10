@@ -1,0 +1,48 @@
+//
+// Footer
+// --------------------------------------------------
+// Separated section of content at the bottom of all
+// pages, save the homepage.
+
+
+// Variables
+@footer-text-color:       #777;
+@footer-border-color:     #e5e5e5;
+
+
+
+// Base
+.footer {
+  background: #fff;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  margin-top: 100px;
+  color: @footer-text-color;
+  text-align: center;
+  border-top: 1px solid @footer-border-color;
+}
+
+
+// Components
+.footer-links {
+  margin: 10px 0;
+  padding-left: 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+
+// Responsive
+@media (min-width: 768px) {
+  .footer {
+    text-align: left;
+  }
+  .footer p {
+    margin-bottom: 0;
+  }
+}

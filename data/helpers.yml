@@ -1,0 +1,78 @@
+#===========================================
+# Helpers docs config
+#===========================================
+
+published:
+  collections:
+    title: Collections
+    files: "content/helpers/collections/*.md"
+
+  code:
+    title: Code
+    files: "content/helpers/code/*.md"
+
+  comparison:
+    title: Comparison
+    files: "content/helpers/comparison/*.md"
+
+  content:
+    title: Content
+    files: "content/helpers/content/*.md"
+
+  data:
+    title: Data
+    files: "content/helpers/data/*.md"
+
+  dates:
+    title: Dates
+    files: "content/helpers/dates/*.md"
+
+  html:
+    title: HTML
+    files: "content/helpers/html/*.md"
+
+  inflections:
+    title: Inflections
+    files: "content/helpers/inflections/*.md"
+
+  logging:
+    title: Logging
+    files: "content/helpers/logging/*.md"
+
+  markdown:
+    title: Markdown
+    files: "content/helpers/markdown/*.md"
+
+  math:
+    title: Math
+    files: "content/helpers/math/*.md"
+
+  misc:
+    title: Misc
+    files: "content/helpers/misc/*.md"
+
+  numbers:
+    title: Numbers
+    files: "content/helpers/numbers/*.md"
+
+  path:
+    title: Path
+    files: "content/helpers/path/*.md"
+
+  strings:
+    title: Strings
+    files: "content/helpers/strings/*.md"
+
+  url:
+    title: URL
+    files: "content/helpers/url/*.md"
+
+
+unpublished:
+  readme:
+    title: Readme
+    files: "content/helpers/readme/*.md"
+
+  special:
+    title: Special
+    files: "content/helpers/special/*.md"

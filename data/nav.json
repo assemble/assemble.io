@@ -1,0 +1,81 @@
+{
+  "main": {
+    "list": [
+      {
+        "modifier": "nav navbar-nav",
+        "items": [
+          {
+            "published": true,
+            "url": "getting-started",
+            "text": "Getting Started"
+          },
+          {
+            "published": true,
+            "url": "examples",
+            "text": "Examples"
+          },
+          {
+            "published": true,
+            "url": "helpers",
+            "text": "Helpers"
+          },
+          {
+            "published": false,
+            "url": "docs",
+            "text": "Docs"
+          },
+          {
+            "published": false,
+            "url": "api",
+            "text": "API"
+          }
+        ]
+      },
+      {
+        "modifier": "nav navbar-nav navbar-right",
+        "items": [
+          {
+            "published": false,
+            "url": "blog",
+            "text": "Blog"
+          },
+          {
+            "published": true,
+            "url": "about",
+            "text": "About"
+          },
+          {
+            "dropdown": true,
+            "modifier": "dropdown-menu",
+            "text": "GitHub",
+            "items": [
+              {
+                "published": true,
+                "url": "<%= site.repo %>",
+                "text": "Docs repo"
+              },
+              {
+                "published": true,
+                "url": "<%= site.issues %>",
+                "text": "Docs issues"
+              },
+              {
+                "divider": true
+              },
+              {
+                "published": true,
+                "url": "<%= assemble.repo %>",
+                "text": "Assemble repo"
+              },
+              {
+                "published": true,
+                "url": "<%= assemble.issues %>",
+                "text": "Assemble issues"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

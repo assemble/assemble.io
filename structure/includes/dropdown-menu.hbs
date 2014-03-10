@@ -1,0 +1,9 @@
+<ul class="dropdown-inverse">
+{{#each .}}
+  {{#if link}}
+    <li> <a href="{{url}}">{{text}}</a> </li>
+  {{else}}
+    <li class="divider"></li>
+  {{/if}}
+{{/each}}
+</ul>

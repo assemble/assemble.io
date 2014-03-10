@@ -1,0 +1,35 @@
+<div class="navbar-wrap">
+  <nav class="navbar navbar-content navbar-static-top" role="navigation">
+    <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-xs-1">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <ul class="nav navbar-left navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{> toggle }}
+              </a>
+
+              <!-- `dropdown-menu` partial is supplied with data (context) from `menu.json` -->
+              {{> dropdown-menu menu.content }}
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-10">
+          <!-- Search form -->
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="search" class="form-control" placeholder="Search">
+            </div>
+          </form>
+        </div>
+        <div class="col-xs-1">
+          <button type="button" class="dismiss dismiss-large" aria-hidden="true">&times;</button>
+        </div>
+
+      </div><!-- /.row -->
+    </div>
+  </nav>
+</div>

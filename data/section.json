@@ -1,0 +1,14 @@
+{
+  "blog": {
+    "enabled": false
+  },
+  "plugins": {
+    "enabled": true
+  },
+  "helpers": {
+    "enabled": true
+  },
+  "cheatsheet": {
+    "enabled": true
+  }
+}

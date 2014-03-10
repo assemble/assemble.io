@@ -1,0 +1,30 @@
+
+.stacked {
+  padding-bottom: 10px;
+}
+.stacked:after,
+.stacked:before {
+  content: '';
+  visibility: visible;
+
+  position: absolute;
+  bottom: -3px;
+  left: 0%;
+
+  width: 100%;
+  height: 6px;
+
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+.stacked:before {
+  bottom: 0px;
+}
+
+
+.adjust-stack:before {
+  bottom: -10px;
+}
+.adjust-stack:after {
+  bottom: -11px;
+  height: 4px;
+}

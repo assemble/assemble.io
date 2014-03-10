@@ -1,0 +1,137 @@
+# =============================================
+# DEST CONFIG
+# =============================================
+
+root:              _gh_pages
+dest:              <%= site.root %>
+public:            <%= site.dest %>/public
+
+
+# =============================================
+# SOURCE CONFIG
+# =============================================
+
+# Data
+data:              data
+utils:             data/utils
+
+# Assets > fonts, icons, images etc.
+assets:            assets
+
+# Styles
+styles:            styles
+
+# Scripts
+scripts:           scripts
+
+# Content
+content:           content
+
+# Templates
+templates:         structure
+pages:             <%= site.templates %>/pages
+includes:          <%= site.templates %>/includes
+layouts:           <%= site.templates %>/layouts
+layoutext:         .hbs
+layout:            default
+
+
+# =============================================
+# EXTENSIONS
+# =============================================
+
+helpers: <%= site.templates %>/_extensions/helpers
+plugins:
+  # NPM Plugins
+  # - assemble-contrib-download
+  # - assemble-contrib-decompress
+  - assemble-contrib-permalinks
+  - assemble-contrib-wordcount
+
+  # Local plugins
+  - <%= site.templates %>/_extensions/plugins/navigation.js
+
+
+# =============================================
+# PROJECT METADATA
+# =============================================
+
+# Site metadata
+brand:              ASSEMBLE
+title:              assemble
+authors:            "Jon Schlinkert, Brian Woodward, contributors"
+lead:               Static site generator for Node.js
+name:               <%= pkg.name %>
+version:            <%= pkg.version %>
+author:             <%= pkg.author.name %>
+description:        <%= pkg.description %>
+
+# URLs
+url:
+
+  # Repo
+  homepage:         <%= pkg.homepage %>
+  repo:             <%= pkg.repository.url %>
+  issues:           <%= pkg.bugs.url %>?state=open
+
+  # Site
+  public:           http://assemble.io/
+  about:            <%= site.url.public %>/about/
+  blog:             <%= site.url.public %>/blog/
+
+  # _.hostname mixin. See './data/utils/mixins.js'
+  domain:           <%= _.hostname(site.url.public) %>
+
+license:
+  source:
+    type:           MIT
+    url:            https://github.com/sellside/assemble-book/blob/master/LICENSE-MIT
+  docs:
+    type:           CC BY 3.0
+    url:            http://creativecommons.org/licenses/by/3.0/
+
+
+# =============================================
+# SEO / SEM
+# =============================================
+
+analytics:
+  alexa:            false
+  google:
+    enabled:        false
+    id:             UA-XXXXXXXX-YY
+    siteid:         false
+    domain:         <%= site.domain %>
+
+    # Google Tags (see: https://www.google.com/tagmanager/)
+    tags:           FOO-012345
+
+
+# =============================================
+# SOCIAL / SHARING
+# =============================================
+
+# Comments
+disqus:
+  enabled:         false
+  shortname:       <%= pkg.name %>
+
+# Social
+social:
+  twitter:
+    via:            jonschlinkert
+    username:       assemblejs
+    related:        jonschlinkert:Assemble core team.
+  facebook:         false
+  linkedin:         false
+  gplus:            false
+  hn:               false
+  google:           false
+
+# Sharing
+sharing:
+  twitter:          false
+  facebook:         false
+  gplus:            false
+  hn:               false
+  google:           false

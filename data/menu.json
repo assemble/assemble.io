@@ -1,0 +1,27 @@
+{
+  "content": [
+    {
+      "link": true,
+      "url": "<%= site.repo %>",
+      "text": "Docs repo"
+    },
+    {
+      "link": true,
+      "url": "<%= site.issues %>",
+      "text": "Docs issues"
+    },
+    {
+      "link": false
+    },
+    {
+      "link": true,
+      "url": "<%= assemble.repo %>",
+      "text": "Assemble issues"
+    },
+    {
+      "link": true,
+      "url": "<%= assemble.issues %>",
+      "text": "Assemble issues"
+    }
+  ]
+}

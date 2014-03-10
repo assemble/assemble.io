@@ -1,0 +1,60 @@
+//
+// Main navigation
+// --------------------------------------------------
+
+
+
+
+.main-nav {
+  font-family: @font-family-assemble;
+  margin-bottom: 0;
+  background-color: #fff;
+  border-bottom: 0;
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover {
+    color: @gray;
+    background-color: #f9f9f9;
+  }
+  .navbar-toggle .icon-bar {
+    background-color: @text-color;
+  }
+
+  // Toggle
+  .navbar-toggle {
+    border-color: #fff;
+  }
+
+  .navbar-toggle:hover,
+  .navbar-toggle:focus {
+    background-color: #f9f9f9;
+    border-color: #f9f9f9;
+  }
+
+  // Brand
+  .navbar-brand {
+    color: #111;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: 5px;
+    padding-left: 20px;
+    padding-top: 31px;
+    text-transform: uppercase;
+  }
+
+  // Links
+  .navbar-nav > li > a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #777;
+    line-height: 20px;
+  }
+}
+
+
+// Increase specificity on box-shadow. We only
+// want this applied on the main-nav.
+.navbar.main-nav {
+  .box-shadow(0 1px 7px rgba(0,0,0,.2));
+}

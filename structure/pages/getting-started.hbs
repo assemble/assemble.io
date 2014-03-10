@@ -1,0 +1,24 @@
+---
+title: Getting started
+slug: getting-started
+lead: Brief introduction to using Assemble.
+---
+
+<!-- Usage
+=================================== -->
+<div class="docs-section">
+  <h1 id="getting-started-with-assemble">{{title}}</h1>
+  <p class="lead">{{lead}}</p>
+</div>
+
+{{#each usage.published}}
+  <!-- {{title}} -->
+  <div class="docs-section">
+    <div class="page-header">
+      <h1 id="{{@key}}">{{title}}</h1>
+    </div>
+    <div class="section-content">
+      {{md @key}}
+    </div>
+  </div>
+{{/each}}
