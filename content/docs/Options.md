@@ -57,34 +57,32 @@ Default: `undefined`
 
 Layouts are optional and may be defined at the task and/or [target][tasks-and-targets] level. _Unlike Jekyll_, Assemble requires a file extension since you are not limited to using a single file type.
 
-
 ``` js
 options: { layout: 'src/layouts/default.hbs' }
 ```
 
 > Learn more about [layouts][layouts] →
 
-
 ### [options.layoutdir][options-layoutdir]
 Type: `String`|`False`|`None` (optional)
 Default: `undefined`
 
-Path to the directory that is to be used as the "cwd" for layouts.
+Path to the directory that is to be used as the "cwd", or home directory, for layouts.
 
 ``` js
 options: { layoutdir: 'src/layouts' }
 ```
 
-When `layoutdir` is defined, then a `layout` may defined without the path:
+When `layoutdir` is defined, then a `layout` may defined without the path, both in `gruntfile.js`,
 
 ``` js
-options: { layout: 'default.hbs' }
+options: { layout: 'blog-layout.hbs' }
 ```
-or
+and in YAML front matter.
 
 ```yaml
 ---
-layout: default.hbs
+layout: blog-layout.hbs
 ---
 ```
 
@@ -107,6 +105,7 @@ Specifies the Handlebars partials files, or paths to the directories of files to
 ``` js
 options: { partials: 'src/partials/**/*.hbs' }
 ```
+
 _**Note that `assemble` merges the task and target-level data for `options.partials`.**_
 
 > Learn more about [partials][partials] →
@@ -116,7 +115,7 @@ _**Note that `assemble` merges the task and target-level data for `options.parti
 Type: `String` (optional)
 Default: `.html`
 
-Specify the file extension to be used for destination files. For example:
+Specify the file extension to be used for destination files.
 
 ``` js
 assemble: {
@@ -161,71 +160,79 @@ If you wish for Assemble to use custom helpers with Handlebars or any specified 
 options: { helpers: 'your/custom/helpers' }
 ```
 
-### options.removeHbsWhitespace
-Type: `Boolean`
-Default: `false`
+## YAML Front-Matter Options
+These options are defined in the [YAML front matter][yaml-front-matter], usually shortened to simply just "YFM", of a page. YFM allows you to have more control over defining specific data and custom options for each page.
 
-Remove extraneous whitespace added by Handlebars in rendered files. _Use at your own risk, this is an experimental option and may be removed._
-
-
-
-## [YAML Front-Matter Options][yaml-front-matter]
-These options are defined in the [YAML front matter][yaml-front-matter] of a page.
+```yaml
+---
+title: YAML Front Matter Rocks
+---
+```
 
 ### [options.layout][options-layout]
 type: `string`
 default: `undefined`
 
-Specifies the [layout][Layouts] file to be used. Layouts defined in [YFM][yaml-front-matter] will override layouts defined in the Gruntfile.
+Specifies the [layout][Layouts] file to be used. Layouts defined in YFM will override layouts defined in `gruntfile.js`.
+
+```yaml
+---
+title: ...
+layout: blog-layout.hbs
+---
+```
 
 ### options.published
 type: `boolean`
 default: true
 
-Defining `published: false` in the [YAML front matter][yaml-front-matter] of a page will:
+Defining `published: false` in the YAML front matter of a page will both prevent that page from rendering and omit the page from the `pages` collection.
 
-* Prevent the page from rendering
-* Omit the page from the `pages` collection.
+```yaml
+---
+title: ...
+published: false
+---
+```
 
-
-## Custom Options
+### Custom Options
 Custom, user-defined variables may be specified in the [Options][options-overview] of the assemble task or target. Any variables defined in the options will be added to the _root of the data context_ and thus they will also be available in any templates.
 
-### Example usage
-A common use case for defining custom variables in the options is for easily including or excluding content based on current "development status".
+A common use case for defining custom variables in the options is for easily including or excluding content based on current "development status". For example, assuming we have defined a custom option, `production`.
 
-For example, assuming we have defined a custom option, `production`:
-
-``` js
+```js
 assemble: {
   options: {
-    production: false
-  },
-  files: {
-    'site/': ['src/pages/*.hbs']
+    production: true | false
   }
+  ...
 }
 ```
-And we add the `production` variable to our templates:
 
-``` html
+We have also added the `production` variable to our templates.
+
+```html
 \{{#if production}}
-  <script src="dist/assets/script.min.js"></script>
+  <script src="dist/assets/components.js"></script>
 \{{else}}
-  <script src="dist/assets/script.js"></script>
+  <script src="dist/assets/development.js"></script>
 \{{/if}}
 ```
-Since `production: false` is defined in the Assemble [task options][options], the following HTML will be rendered with the _non-minified_ version of the script:
 
-``` html
-<script src="dist/assets/script.js"></script>
+If `production: false` is defined, the HTML document would be rendered with the `development.js` script.
+
+```html
+<script src="dist/assets/development.js"></script>
 ```
 
+If `production: true` is defined, the other script would be used.
+
+```html
+<script src="dist/assets/components.js"></script>
+```
 
 ## [Grunt.js][tasks-and-targets] Options
-The following is just a handful of options that can be used in your Gruntfile. Please visit the [Grunt documentation](http://gruntjs.com/api/grunt.file) to learn more.
-
-* `expand` Set to `true` to enable the following options:
+{{#todo}}* `expand` Set to `true` to enable the following options:{{/todo}}
 * `cwd` All `src` matches are relative to (but don't include) this path.
 * `src` Pattern(s) to match, relative to the `cwd`.
 * `dest` Destination path prefix.
@@ -233,14 +240,10 @@ The following is just a handful of options that can be used in your Gruntfile. P
 * `flatten` Remove all path parts from generated `dest` paths.
 * `rename` This function is called for each matched `src` file, (after extension renaming and flattening). The `dest` and matched `src` path are passed in, and this function must return a new `dest` value.  If the same `dest` is returned more than once, each `src` which used it will be added to an array of sources for it.
 
-
-
-
+Please visit the [Grunt documentation](http://gruntjs.com/api/grunt.file) to learn more.
 
 ## Related info:
-
 * [Variables][built-in-variables]
 {{#draft}}* [Markdown Options][Markdown]{{/draft}}
 * [YAML Options][YAML]
-
-[tasks-and-targets]: http://gruntjs.com/configuring-tasks#task-configuration-and-targets
+* [tasks-and-targets]: http://gruntjs.com/configuring-tasks#task-configuration-and-targets
