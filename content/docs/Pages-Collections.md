@@ -52,7 +52,7 @@ Inside our [layout][layouts], `default.hbs`, we will add the `pages` variable to
 ```handlebars
 <ul>
   \{{#each pages}}
-    <li><a href="#">\{{basename}}</a></li>
+    <li><a href="#">\{{this.basename}}</a></li>
   \{{/each}}
 </ul>
 ```
@@ -110,7 +110,7 @@ The following templates:
 
 ```handlebars
 \{{#each pages}}
-  \{{{page}}}
+  \{{{this.page}}}
 \{{/each}}
 ```
 
@@ -133,7 +133,7 @@ The following templates:
 
 ```handlebars
 \{{#each pages}}
-  \{{{src}}}
+  \{{{this.src}}}
 \{{/each}}
 ```
 
@@ -155,7 +155,9 @@ title: Home
 ---
 ```
 
-Next we will modify our template to use the `title` variable instead of the file name. Since we cannot use the context of each page as the first path ([see "Data, Context and Why it Works this Way"](#data-title-explanation)), to make sure we get the correct `title` we must add the `data` variable, giving us access to the root of the context:
+Next we will modify our template to use the `title` variable instead of the file name. Since we cannot use the context of each page as the first path
+{{#draft}} ([see "Data, Context and Why it Works this Way"](#data-title-explanation)){{/draft}}
+, to make sure we get the correct `title` we must add the `data` variable, giving us access to the root of the context:
 
 ```handlebars
 <ul>
@@ -198,7 +200,7 @@ To get a list all of the pages in a given target with certain tag, such as `foo`
   <h1>\{{tag}}</h1>
   <ul>
     \{{#each pages}}
-      <li>\{{data.title}}</li>
+      <li>\{{this.data.title}}</li>
     \{{/each}}
   </ul>
   \{{/is}}
