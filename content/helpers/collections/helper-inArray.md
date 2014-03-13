@@ -6,8 +6,8 @@ Parameters: value `string|int` - A value to test against. (Required)
 
 Data:
 
-```json
-"collection": ["Professor Farnsworth", "Fry", "Bend"]
+```js
+var collection = ["Professor Farnsworth", "Fry", "Bend"]
 ```
 Template:
 

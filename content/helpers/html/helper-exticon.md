@@ -16,7 +16,7 @@ Usage:
 ```
 Output:
 
-```handlebars
+```html
 <img src="img/img-icon.png"><i>file.png</i>
 <img src="img/pdf-icon.png"><i>file.pdf</i>
 <img src="img/word-icon.png"><i>file.doc</i>

@@ -6,8 +6,8 @@ Parameters: `none`
 
 Data:
 
-```json
-"collection": [
+```js
+var collection = [
   "Amy Wong",
   "Bender",
   "Dr. Zoidberg",

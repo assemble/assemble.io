@@ -10,8 +10,8 @@ Parameters: `String`
 Examples:
 
 ```handlebars
-\{{glob 'src/files/&#42;.md'}}
-\{{glob 'src/files/&#42;.{txt,md}'}}
+\{{glob "src/files/*.md"}}
+\{{glob "src/files/*.{txt,md}"}}
 ```
 
 {{#draft}}
@@ -45,7 +45,7 @@ href:
 The
 
 ```handlebars
-\{{globWithContext './src/&#42;&#42;/test.md' href}}
+\{{globWithContext "src/**/test.md" href}}
 ```
 
 Data (context):
@@ -59,7 +59,7 @@ link:
 ```
 
 ```handlebars
-\{{globWithContext './src/&#42;&#42;/test.md' this}}
-\{{globWithContext './src/&#42;&#42;/test.md' this}}
+\{{globWithContext "src/**/test.md" this}}
+\{{globWithContext "src/**/test.md" this}}
 ```
 {{/draft}}

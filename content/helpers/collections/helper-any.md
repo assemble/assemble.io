@@ -6,8 +6,8 @@ Parameters: `none`
 
 Data:
 
-```json
-"collection": ["Professor Farnswor"]
+```js
+var collection = ["Professor Farnswor"];
 ```
 Templates:
 

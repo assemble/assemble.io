@@ -1,10 +1,8 @@
 ## \{{copy}}
 
-> **example helpers, not for actual use!**
+> Example helper, copies file A to path B.
 
-Why do this? The goal is to inspire other concepts that build from this one.
-
-_Example helper, copies file A to path B._
+**example helpers, use at your own risk!**
 
 Parameters: `String`
 <br> Default: `undefined`
@@ -12,6 +10,5 @@ Parameters: `String`
 Example:
 
 ```handlebars
-\{{copy 'a.html' '../dir/b.txt'}}
+\{{copy "a.html" "../dir/b.txt"}}
 ```
-

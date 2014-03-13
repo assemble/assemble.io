@@ -7,8 +7,8 @@ Parameters: values `string|int` - the values to test against.
 Data:
 
 ```js
-great = true
-magnificent = true
+var great = true
+var magnificent = true
 ```
 
 Template:

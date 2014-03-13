@@ -6,8 +6,8 @@ Parameters: `none`
 
 Data:
 
-```json
-"collection": {
+```js
+var collection = {
   "one": 1,
   "two": 2
 }

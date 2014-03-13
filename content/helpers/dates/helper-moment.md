@@ -35,9 +35,8 @@ Also, the handlebars syntax does not allow you pass certain values (like arrays 
 
 
 ### Usage Examples
-#### Optional YAML Front Matter
 
-> YAML front matter is not required, but we'll use it hear to supply our example data for purposes of demonstration:
+> YAML front matter is not required, we're using it here just for the purposes of demonstration:
 
 ```handlebars
 ---
@@ -55,9 +54,9 @@ duration:
   minutes: 33}
 ---
 
-Unix timestamp of now
+<h1>Unix timestamp of now</h1>
 
-\{{moment}}
+<span>\{{moment}}</span>
 ```
 
 Results in:
@@ -322,11 +321,10 @@ The event will last 3 hours
 ### Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
 
+
 ### Author
 
-#### Mikko Tapionlinna
-
-+ [github.com/Arkkimaagi](https://github.com/Arkkimaagi)
++ [@Arkkimaagi](https://github.com/Arkkimaagi)
 
 
 ### License

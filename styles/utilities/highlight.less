@@ -1,26 +1,66 @@
-/*
+//
+// Syntax Highlighting for highlight.js
+// ----------------------------------------------------------
+// github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
-*/
+
+// Langauge Variables
+// --------------------------------------------------
+
+@grayish:                #998;
+@grayer:                 #aaa;
+
+// Base variables
+@example-bg:             #f8f8ff;
+@code-color:             #af4b08;  // rust coor
+
+
+// Language
+
+// Grays
+@language-doctype:       @gray-light;
+@language-handlebars:    #8d880f;
+@language-comment:       @grayish;
+@language-chunk:         @grayer;
+
+// Blues
+@language-command:       #458;         // denim blue
+@language-keyword:       #000080;      // saturated blue
+
+// Greens
+@language-regexp:        #009926;      // green
+@language-variable:      #008080;      // dark greenish
+@language-constant:      #099;         // sea green
+@language-addition:      #dfd;         // pale green
+
+// Reds/pinks
+@language-deletion:      #fdd;         // pink
+@language-formula:       #d14;         // dark pink
+@language-preprocessor:  #900;         // dark red
+@language-prompt:        #990073;      // fuschia
+
+// Background colors
+@language-diff-bg:       #0086b3;  // fuschia
+
+
 
 pre code {
   display: block; padding: 0.5em;
-  color: #333;
-  background: #f8f8ff;
+  color: @gray-dark;
+  background: @example-bg;
 }
 
-.lang-html {
-  .language-comment {
-    margin-top: 10px;
-  }
+.xml {
+  color: @gray-dark;
 }
+
 
 .language-comment,
 .language-template_comment,
 .diff .language-header,
 .language-javadoc {
-  color: #998;
+  color: @language-comment;
   font-style: italic;
 }
 
@@ -30,28 +70,28 @@ pre code {
 .language-subst,
 .language-request,
 .language-status {
-  color: #333;
+  color: @gray-dark;
   font-weight: bold
 }
 
 .language-number,
 .language-hexcolor,
 .ruby .language-constant {
-  color: #099;
+  color: @language-constant;
 }
 
 .language-string,
 .language-tag .language-value,
 .language-phpdoc,
 .tex .language-formula {
-  color: #d14;
+  color: @language-formula;
 }
 
 .language-title,
 .language-id,
 .coffeescript .language-params,
 .scss .language-preprocessor {
-  color: #900;
+  color: @language-preprocessor;
   font-weight: bold;
 }
 
@@ -66,7 +106,7 @@ pre code {
 .haskell .language-type,
 .vhdl .language-literal,
 .tex .language-command {
-  color: #458;
+  color: @language-command;
   font-weight: bold;
 }
 
@@ -74,18 +114,18 @@ pre code {
 .language-tag .language-title,
 .language-rules .language-property,
 .django .language-tag .language-keyword {
-  color: #000080;
+  color: @language-keyword;
   font-weight: normal;
 }
 
 .language-attribute,
 .language-variable,
 .lisp .language-body {
-  color: #008080;
+  color: @language-variable;
 }
 
 .language-regexp {
-  color: #009926;
+  color: @language-regexp;
 }
 
 .language-symbol,
@@ -93,13 +133,13 @@ pre code {
 .lisp .language-keyword,
 .tex .language-special,
 .language-prompt {
-  color: #990073;
+  color: @language-prompt;
 }
 
 .language-built_in,
 .lisp .language-title,
 .clojure .language-built_in {
-  color: #0086b3;
+  color: @language-diff-bg;
 }
 
 .language-preprocessor,
@@ -108,22 +148,46 @@ pre code {
 .language-doctype,
 .language-shebang,
 .language-cdata {
-  color: #999;
+  color: @language-doctype;
   font-weight: bold;
 }
 
 .language-deletion {
-  background: #fdd;
+  background: @language-deletion;
 }
 
 .language-addition {
-  background: #dfd;
+  background: @language-addition;
 }
 
 .diff .language-change {
-  background: #0086b3;
+  background: @language-diff-bg;
 }
 
 .language-chunk {
-  color: #aaa;
+  color: @language-chunk;
+}
+
+
+// Overrides
+// --------------------------------------------------
+// Increase specificity to override defaults
+
+.book pre code {
+  &.lang-js {
+    color: #000;
+  }
+
+  &.lang-handlebars {
+    color: @language-handlebars;
+    .language-variable {
+      color: #299cb3;
+    }
+  }
+
+  &.lang-html {
+    .language-comment {
+      margin-top: 10px;
+    }
+  }
 }

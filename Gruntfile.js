@@ -23,7 +23,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     // Project metadata
-    site   : grunt.file.readYAML('_config.yml'),
+    site   : grunt.file.readYAML('.assemblerc.yml'),
     pkg    : grunt.file.readJSON('package.json'),
     core   : grunt.file.readJSON('data/core.json'),
     helpers: grunt.file.readYAML('data/helpers.yml'),

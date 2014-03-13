@@ -16,6 +16,8 @@ slug: helpers
         <!-- {{basename .}} -->
         {{success '>> Reading:' (basename .)}} {{! log a success message }}
         {{content (basename .)}}
+
+        <hr>
       {{/each}}
     {{/if}}
   </div>

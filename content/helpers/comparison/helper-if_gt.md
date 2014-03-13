@@ -8,4 +8,6 @@ Parameters: `none`
 \{{#if_gt x compare=y}} ... \{{/if_gt}}
 ```
 
-Author: Dan Harper <http://github.com/danharper>
+#### Author
+
++ [@danharper](http://github.com/danharper)
