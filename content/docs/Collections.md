@@ -66,7 +66,7 @@ assemble: {
     collections: [
       {
         // the name of the collection
-        title: 'tags',
+        name: 'tags',
         // the order in which to sort
         sortorder: 'desc'
       }
@@ -86,7 +86,7 @@ assemble: {
     ],
     collections: [
       {
-        title: 'pages',
+        name: 'pages',
         sortorder: 'desc'
       }
     ]

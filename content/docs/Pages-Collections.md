@@ -67,7 +67,7 @@ When we build the project, pages from the `docs` target will render with:
 </ul>
 ```
 
-When we build the project, and pages from the `block` target will render with:
+When we build the project, and pages from the `blog` target will render with:
 
 ```html
 <ul>
