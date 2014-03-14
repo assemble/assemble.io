@@ -1,0 +1,114 @@
+# =============================================
+# SITE NAVIGATION
+# =============================================
+
+
+# Used by {{> list nav.main }}:
+# - which uses the `list.hbs` template
+# - the first variable, `nav`, means there is a `nav` property on the context,
+#   in this case the name of this file, `nav.yml`, supplies that property
+# - thus, the `.main` part of `nav.main` is the following property:
+main:
+
+  # In `list.hbs` you will see that variable in the first block expression
+  # is {{#each navigation}}, which is the following:
+  navigation:
+
+  # left nav
+  # =====================================
+  - modifier: nav navbar-nav
+    items:
+
+
+    # Below, the <%= features %> templates use the values in `features.yml`
+    # to determine whether or not the nav item should be enabled. This allows
+    # us, when necessary, to control any related site features from a central
+    # location.
+    #
+    # In other words, when you disable a feature, you may want to hide the
+    # nav, as well as any content referencing that feature.
+
+    # `Getting Started` link
+    - enabled: <%= features.getting_started %>
+      url:     getting-started.html
+      text:    Getting Started
+
+    # Dropdown Menu: `Docs` link
+    - dropdown: true
+      modifier: dropdown-menu
+      text:     Docs
+
+      # Dropdown items
+      items:
+      - enabled: <%= features.helpers %>
+        url:     helpers.html
+        text:    Helpers
+
+      - enabled: <%= features.plugins %>
+        url:     plugins.html
+        text:    Plugins
+
+      - enabled: <%= features.api %>
+        url:     api.html
+        text:    API
+
+  # right nav
+  # =====================================
+  - modifier: nav navbar-nav navbar-right
+    items:
+
+    # `Blog` link
+    - enabled: <%= features.blog %>
+      url:     blog
+      text:    Blog
+
+    # `About` link
+    - enabled: <%= features.about %>
+      url:     about
+      text:    About
+
+    # Dropdown Menu: `More` link
+    - dropdown: true
+      modifier: dropdown-menu
+      text:     More
+
+      # Dropdown items
+      items:
+      - enabled: <%= features.guides %>
+        url:     guides.html
+        text:    Guides
+
+      - enabled: <%= features.tutorials %>
+        url:     tutorials.html
+        text:    Tutorials
+
+      - enabled: <%= features.cheatsheets %>
+        url:     cheatsheets.html
+        text:    Cheatsheets
+
+      - enabled: <%= features.examples %>
+        url:     examples.html
+        text:    Examples
+
+      # divider
+      - divider: true
+
+      - enabled: true
+        url:     <%= site.repo %>
+        text:    Docs repo
+
+      - enabled: true
+        url:     <%= site.issues %>
+        text:    Docs issues
+
+      # divider
+      - divider: true
+
+      - enabled: true
+        url:     <%= assemble.repo %>
+        text:    Assemble repo
+
+      - enabled: true
+        url:     <%= assemble.issues %>
+        text:    Assemble issues
+

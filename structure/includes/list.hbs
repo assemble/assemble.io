@@ -1,7 +1,7 @@
-{{#each list}}
+{{#each navigation}}
   <ul class="{{modifier}}">
   {{#each items}}
-    {{#if published}}
+    {{#if enabled}}
       <li {{isActive url}}>
         <a href="{{rel (isPermalink url url)}}">{{text}}</a>
       </li>
@@ -14,7 +14,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{text}} <b class="caret"></b></a>
         <ul class="{{modifier}}">
         {{#each items}}
-          {{#if published}}
+          {{#if enabled}}
             <li> <a href="{{url}}">{{text}}</a> </li>
           {{/if}}
           {{#if divider}}
