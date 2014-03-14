@@ -233,11 +233,9 @@ module.exports = function(grunt) {
       options: {livereload: true},
       site: {
         files: [
-          '<%= site.content %>/**/*.md',
-          '<%= site.content %>/_config.yml',
-          '<%= site.data %>/*.json',
-          '<%= site.data %>/*.yml',
           '<%= site.helpers %>',
+          '<%= site.data %>/*.{yml,json}',
+          '<%= site.content %>/**/*.md',
           '<%= site.styles %>/**/*.less',
           '<%= site.templates %>/**/*.hbs',
         ],

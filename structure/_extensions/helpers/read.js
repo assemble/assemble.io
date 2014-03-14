@@ -6,17 +6,15 @@
 
 'use strict';
 
-var path = require('path');
 var matter = require('gray-matter');
-var file = require('fs-utils');
+var _ = require('lodash');
 
 module.exports.register = function (Handlebars) {
 
-  Handlebars.registerHelper("read", function(filepath) {
-    var str = file.readFileSync(path.resolve(filepath));
-
-    // Use gray-matter to parse content in case YAML front matter
-    // exists and needs to be stripped.
-    return new Handlebars.SafeString(matter(str).content + '\n');
+  Handlebars.registerHelper("read", function(filepath, context) {
+    var page = matter.read(filepath);
+    var metadata = _.extend(context.data.root, page.context);
+    var template = Handlebars.compile(page.content);
+    return new Handlebars.SafeString(template(metadata));
   });
 };
