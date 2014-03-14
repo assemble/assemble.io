@@ -19,9 +19,3 @@ That's right, _slackers_. Assemble can make you even more lazy, because it's jus
 
 If you haven't tried out assemble, give it a shot. Assemble can be used just for building Handlebars templates if that's all you need for a project.
 Assemble was created to be a site builder, so it can do orders of magnitude more than Grunt tasks for building templates
-
-
-
-
-
-
