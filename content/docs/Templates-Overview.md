@@ -474,4 +474,3 @@ reusable blocks of code which are not
 * [Partials][partials]
 * [Layouts][layouts]
 * [Helpers][helpers]
-
