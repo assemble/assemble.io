@@ -311,5 +311,3 @@ TODO:
   My name is \{{name}}.
 </script>
 ```
-
-
