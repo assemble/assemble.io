@@ -7,7 +7,7 @@ section: configuration
 
 ## options.marked
 
-Assemble uses [Marked.js][marked] for processing markdown. Any options from marked can be defined on the `marked` object in the assemble options. This is an example of using all options:
+Assemble uses [Marked.js][marked] for processing markdown. Any options from marked can be defined on the `marked` object in the assemble options.
 
 ```js
 assemble: {
@@ -40,13 +40,17 @@ assemble: {
 }
 ```
 
-_Please visit the [Marked.js][marked] project to learn more about available options._ (the following is from the [Marked.js][marked] readme).
-
 ### gfm
 Type: `Boolean`
 Default: `true`
 
 Enable [GitHub flavored markdown](https://help.github.com/articles/github-flavored-markdown).
+
+```js
+options: {
+  gfm: true | false
+}
+```
 
 ### highlight
 Type: `Function`
@@ -72,13 +76,27 @@ Type: `String`
 Type: `Boolean`
 Default: `true`
 
-Enable GFM [tables](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables). This option requires the `gfm` option to be true.
+To use [tables](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables), ensure that GFM is true.
+
+```js
+options: {
+  gfm: true,
+  tables: true
+}
+```
 
 ### breaks
 Type: `Boolean`
 Default: `false`
 
-Enable GFM [line breaks](https://help.github.com/articles/github-flavored-markdown#newlines). This option requires the `gfm` option to be true.
+To use [line breaks](https://help.github.com/articles/github-flavored-markdown#newlines), ensure that GFM is true.
+
+```js
+options: {
+  gfm: true,
+  breaks: true
+}
+```
 
 ### pedantic
 Type: `Boolean`
@@ -102,7 +120,7 @@ Use smarter list behavior than the original markdown. May eventually be default 
 Type: `Boolean`
 Default: `false`
 
-Use "smart" typograhic punctuation for things like quotes and dashes.
+Use "smart" punctuation for things like quotes and dashes.
 
 ### langPrefix
 Type: `String`
@@ -110,9 +128,10 @@ Default: `lang-`
 
 Set the prefix for code block classes.
 
+### More options
+Please visit the [Marked.js][marked] project to learn more about available options.
 
 #### Marked License
-
-Marked Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License). See the Marked.js [LICENSE](https://github.com/chjj/marked/blob/master/LICENSE) and [repo][marked] for more info.
+Copyright (c) 2011-2014, Christopher Jeffrey. [Licensed MIT](https://github.com/chjj/marked/blob/master/LICENSE).
 
 [marked]: https://github.com/chjj/marked "Marked Repo on GitHub"
