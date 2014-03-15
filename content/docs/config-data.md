@@ -46,4 +46,3 @@ pages:       <%= config.templates %>/pages
 includes:    <%= config.templates %>/includes
 layouts:     <%= config.templates %>/layouts
 ```
-

@@ -36,5 +36,3 @@ layout: base-layout.hbs
 \{{> navbar }}
 \{{> body }}
 ```
-
-

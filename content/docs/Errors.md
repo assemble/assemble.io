@@ -26,4 +26,3 @@ The [assemble/handlebars-helpers](https://github.com/assemble/handlebars-helpers
 In addition to the existing documentation, issues that have been created to track the discussion, and potential solutions listed above, we are currently documenting all the "reserved" variables and what they do in the documentation. This should be available any day now (as of 7/15/2013)
 
 Other feedback or contributions are encouraged. Visit either the [handlebars-helpers issues](https://github.com/assemble/handlebars-helpers/issues) or the [assemble issues](https://github.com/assemble/assemble/issues) to add your voice to the conversation.
-
