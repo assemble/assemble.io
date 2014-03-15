@@ -231,7 +231,7 @@ Layouts are optional, but the `\{{> body }}` tag is required for content to be p
   </head>
   <body>
     <!-- the body "pulls in" content from pages -->
-    {{> body }}
+    \{{> body }}
   </body>
 </html>
 ```

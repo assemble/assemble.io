@@ -9,14 +9,14 @@ HTML attributes to use on the `ul` element.
 Data:
 
 ```js
-collection = [
+var collection = [
   name: 'Leela'
   deliveries: 8021,
   name: 'Bender'
   deliveries: 239,
   name: 'Fry'
   deliveries: 1
-]
+];
 ```
 
 Template:
@@ -29,7 +29,7 @@ Template:
 
 Output:
 
-```handlebars
+```html
 <ul class="deliveries-list">
   <li> Leela - 8021 deliveries </li>
   <li> Bender - 239 deliveries </li>

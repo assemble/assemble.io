@@ -55,14 +55,3 @@ Renders to:
 ```handlebars
 <h1> About Us </h1>
 ```
-
-## \{{ifeq}}
-**Alias for `is`. Considering consolidating**
-
-_Conditionally render a block if the condition is true (If x = y)._
-
-Parameters: `none`
-
-```handlebars
-\{{#ifeq x compare=y}} ... \{{/ifeq}}
-```

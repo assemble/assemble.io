@@ -7,4 +7,6 @@ Parameters: `none`
 ```handlebars
 \{{#unless_lt x compare=y}} ... \{{/unless_lt}}
 ```
-Author: Dan Harper <http://github.com/danharper>
+#### Author
+
++ [@danharper](http://github.com/danharper)

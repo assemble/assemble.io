@@ -6,8 +6,8 @@ Parameters: field `string` - String name of the field or property to sort by. (O
 
 Data:
 
-```json
-"collection": [
+```js
+var collection = [
   {
     "name": "Leela",
     "deliveries": 8021

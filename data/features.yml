@@ -1,0 +1,17 @@
+# =============================================
+# SITE SECTIONS
+# =============================================
+
+# If "true" the section is enabled in the navigation
+# please keep sections in alphabetical order.
+about:           true
+api:             true
+blog:            false
+cheatsheet:      true
+docs:            true
+examples:        true
+getting_started: true
+guides:          true
+helpers:         true
+plugins:         true
+tutorials:       true

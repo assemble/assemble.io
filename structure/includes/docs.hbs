@@ -1,0 +1,20 @@
+{{#each .}}
+  <!-- {{title}} -->
+  <div class="docs-section">
+    <div class="page-header">
+      <h1 id="{{@key}}">{{title}}</h1>
+    </div>
+
+    {{#each (expand files)}}
+      <!-- {{basename .}} -->
+      {{success '>> Inlining:' (basename .)}} {{! log a success message! }}
+
+      {{#markdown}}
+        {{inline .}}
+      {{/markdown}}
+
+      {{br 2}}
+    {{/each}}
+
+  </div>
+{{/each}}

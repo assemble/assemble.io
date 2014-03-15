@@ -36,7 +36,7 @@
   },
   "main": "index.js",
   "devDependencies": {
-    "assemble": "git://github.com/assemble/assemble.git#v0.5.0",
+    "assemble": "~0.4.37",
     "assemble-contrib-anchors": "~0.1.2",
     "assemble-contrib-decompress": "~0.1.0",
     "assemble-contrib-download": "~0.1.2",
@@ -61,6 +61,7 @@
     "grunt-sync-pkg": "~0.1.2",
     "grunt-uncss": "~0.2.0",
     "handlebars-helper-autolink": "~0.1.1",
+    "handlebars-helper-br": "~0.1.0",
     "handlebars-helper-disqus": "~0.1.1",
     "handlebars-helper-feed": "~0.1.1",
     "handlebars-helper-ghbtns": "~0.1.0",
@@ -68,11 +69,14 @@
     "handlebars-helper-rel": "~0.1.0",
     "handlebars-helper-slugify": "~0.2.0",
     "handlebars-helper-track": "~0.1.0",
+    "highlight.js": "~8.0.0",
     "lodash": "~2.4.1",
     "marked": "0.3.0",
     "marked-extras": "~0.2.2",
     "request": "~2.34.0",
-    "template": "~0.1.5"
+    "template": "~0.1.5",
+    "underscore.string": "~2.3.3",
+    "shelljs": "~0.2.6"
   },
   "keywords": [
     "assemble",
@@ -80,6 +84,7 @@
     "docs",
     "documentation",
     "handlebars-helper-autolink",
+    "handlebars-helper-br",
     "handlebars-helper-disqus",
     "handlebars-helper-feed",
     "handlebars-helper-ghbtns",
@@ -89,10 +94,5 @@
     "handlebars-helper-slugify",
     "handlebars-helper-track",
     "theme"
-  ],
-  "dependencies": {
-    "chalk": "~0.4.0",
-    "lodash": "~2.4.1",
-    "highlight.js": "~8.0.0"
-  }
+  ]
 }

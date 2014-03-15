@@ -2,11 +2,28 @@
 
 > Assemble makes it easy to combine templates, data and content to produce any kind of resulting documents, such as HTML web pages, UI components, styleguides, blog posts, and so on.
 
-Assemble is a static
-
+_(WIP)_
 
 ## Getting Started
 
+* Installation (TODO)
+* Brief Example (TODO)
+
+
+```handlebars
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- variables like `title` are simply placeholders for real data -->
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <!-- insertion point for any page using this layout -->
+    {{> body }}
+  </body>
+</html>
+```
 
 ### Core Concepts
 
@@ -23,19 +40,22 @@ Assemble is a static
 
 Assemble has built-in support for the following template concepts:
 
-* Layouts: used to "wrap" pages with common elements, such as site-wide navigation, footers, the `<head></head>` section and so on.
-* Pages: typically have a 1-to-1 relationship with the actual generated HTML pages in a project, e.g. `about.hbs` => `about.html` (or with [permalinks][permalinks] `about/index.html`)
-* Partials: document fragments or snippets of code that will be included, inserted or embedded into other templates at build time.
+* **Layouts**: used to "wrap" pages with common elements, such as site-wide navigation, footers, the `<head></head>` section and so on.
+* **Pages**: typically have a 1-to-1 relationship with the actual generated HTML pages in a project, e.g. `about.hbs` => `about.html` or `about/index.html`. But pages can also be dynamically generated from config data.
+* **Partials**: document fragments or snippets of code that will be included, inserted or embedded into other templates at build time.
+
+Let's walk through these in more detail.
 
 ### Layouts
 
-A basic layout might look something like this:
+Since layouts are used to "wrap" other pages with common elements, a basic layout might look something like this:
 
 ```handlebars
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <!-- variables like `title` are simply placeholders for real data -->
     <title>{{title}}</title>
   </head>
   <body>
@@ -44,6 +64,17 @@ A basic layout might look something like this:
   </body>
 </html>
 ```
+
+You can tell Assemble that you want to use a particular layout by defining it in the options:
+
+```js
+options: {
+  layout: 'path/to/my-layout.hbs'
+}
+```
+
+If you need more than one layout, no worries [we have you covered](#TODO: layouts introduction)!
+
 
 ### Pages
 
@@ -108,7 +139,7 @@ Now, to actually use the partial, add the `{{> head }}` template to the `head` s
 
 ## Content
 
-> Content is usually written in an easy-to-read plain text format such as markdown. Assemble can be extended to convert any format.
+> Content is usually written in an easy-to-read plain text format such as markdown, but Assemble can be extended to convert any format.
 
 Additionally, Assemble can convert your content to HTML according to your preferences:
 
@@ -161,7 +192,7 @@ Which results in:
 <button type="button" class="btn btn-warning">Warning!</button>
 ```
 
-Beyond using data files for context, they can also be used for global project configuration and setting options. See the [documentation for data]() to learn more.
+Beyond using data files to pass to templates as context, they can also be used for global project configuration and setting options. See the [documentation for data](#TODO) to learn more.
 
 
 ## Extending Assemble

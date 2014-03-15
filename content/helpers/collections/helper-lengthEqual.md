@@ -6,8 +6,8 @@ Parameters: length `int` - The value to test against. (Required)
 
 Data:
 
-```json
-"collection": [
+```js
+var collection = [
   {
     "name": "Leela",
     "deliveries": 8021

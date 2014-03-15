@@ -13,7 +13,18 @@
 # came before you and add your name to the *bottom*
 
 
-- url: http://www.foo.com/
-  image: bar.png
-- url: http://www.baz.com/
-  image: quux.png
+- name: Zurb Ink
+  url:
+  image:
+- name: Zurb Foundation
+  url:
+  image:
+- name: Less.js
+  url:
+  image:
+- name: Zurb Ink
+  url:
+  image:
+- name: Topcoat
+  url:
+  image:

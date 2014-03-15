@@ -13,6 +13,6 @@ Example:
 ```
 Output:
 
-```handlebars
+```html
 <script src="https://gist.github.com/5193239.js"></script>
 ```

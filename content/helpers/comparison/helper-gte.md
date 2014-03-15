@@ -5,7 +5,7 @@
 Parameters: value `string|int` - the value to test against.
 
 ```js
-number = 5
+var number = 5
 ```
 
 Template:

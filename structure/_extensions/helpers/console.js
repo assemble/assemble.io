@@ -16,4 +16,10 @@ module.exports.register = function (Handlebars) {
   Handlebars.registerHelper("warn", function(msg, context) {
     console.log(chalk.yellow(msg), context);
   });
+
+  Handlebars.registerHelper("fail", function(msg, context) {
+    console.log(chalk.red(msg), context);
+  });
+
+
 };

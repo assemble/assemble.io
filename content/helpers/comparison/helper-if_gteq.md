@@ -7,4 +7,6 @@ Parameters: `none`
 \{{#if_gteq x compare=y}} ... \{{/if_gteq}}
 ```
 
-Author: Dan Harper <http://github.com/danharper>
+#### Author
+
++ [@danharper](http://github.com/danharper)

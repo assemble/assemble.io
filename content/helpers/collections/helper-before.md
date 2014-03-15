@@ -6,8 +6,8 @@ Parameters: count `int` - How many items to omit from the end. (Required)
 
 Data:
 
-```json
-"collection": [
+```js
+var collection = [
   "Amy Wong",
   "Bender",
   "Dr. Zoidberg",
