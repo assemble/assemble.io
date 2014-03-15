@@ -28,3 +28,6 @@
 - name: Topcoat
   url:
   image:
+- name: Typeplate
+  url: https://github.com/typeplate/typeplate.github.io
+  image:
