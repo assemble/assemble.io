@@ -12,22 +12,23 @@
 # order in which people made their requests. Be respectful to those who
 # came before you and add your name to the *bottom*
 
+# TODO: Add more references from: https://github.com/assemble/assemble/issues/300
 
 - name: Zurb Ink
-  url:
+  url: https://github.com/zurb/ink/blob/master/Gruntfile.js
   image:
 - name: Zurb Foundation
-  url:
-  image:
-- name: Less.js
-  url:
-  image:
-- name: Zurb Ink
-  url:
-  image:
-- name: Topcoat
-  url:
+  url: https://github.com/zurb/foundation/blob/master/Gruntfile.js
   image:
 - name: Typeplate
-  url: https://github.com/typeplate/typeplate.github.io
+  url: https://github.com/typeplate/typeplate.github.io/blob/master/Gruntfile.js
+  image:
+- name: Effeckt.css
+  url: https://github.com/h5bp/Effeckt.css/blob/master/Gruntfile.js
+  image:
+- name: Less.js
+  url: https://github.com/less/less-docs/blob/master/Gruntfile.js
+  image:
+- name: Topcoat
+  url: https://github.com/topcoat/topcoat-grunt-telemetry/blob/master/Gruntfile.js
   image:
