@@ -1,3 +1,9 @@
+/*
+ * Adapted from link-checker.js
+ * github.com/less/less-docs
+ * @lukeapage
+ *
+ */
 
 var options = {
   stage: 'render:post:page'
