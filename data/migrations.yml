@@ -1,0 +1,14 @@
+#===========================================
+# MIGRATIONS DOCS CONFIG
+#===========================================
+
+published:
+  helpers:
+    title: Helpers
+    files: "content/migrations/helpers.md"
+
+  plugins:
+    title: Plugins
+    files: "content/migrations/plugins.md"
+
+unpublished:
