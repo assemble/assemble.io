@@ -19,14 +19,14 @@ module.exports.register = function (Handlebars, options) {
    * @usage: {{isActive}}
    */
   Handlebars.registerHelper('isActive', function(current, options) {
-    var context = _.extend(opts.data, this);
+    var context = _.extend({}, opts.data, this);
     options = options || {};
 
     var modifier = (options.hash && options.hash.class) ? options.hash.class : 'active';
+    context.page = context.page || {};
     if(context.page.basename === current) {
       modifier = ' class="' + modifier + '"';
     }
     return new Handlebars.SafeString(modifier);
   });
 };
-
