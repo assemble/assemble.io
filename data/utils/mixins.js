@@ -1,5 +1,14 @@
-
 var url = require('url');
+var file = require('fs-utils');
+
+
+/**
+ * Count the number of files.
+ */
+
+exports.fileCount = function(str) {
+  return file.expand(str).length;
+};
 
 /**
  * Get the hostname of a URL

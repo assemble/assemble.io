@@ -26,7 +26,6 @@ module.exports = function(grunt) {
     site   : grunt.file.readYAML('.assemblerc.yml'),
     pkg    : grunt.file.readJSON('package.json'),
     core   : grunt.file.readJSON('data/core.json'),
-    helpers: grunt.file.readYAML('data/helpers.yml'),
     vendor : grunt.file.readJSON('.bowerrc').directory,
 
     bootstrap: {
