@@ -22,5 +22,3 @@ or just make a comment on [the Gist](https://gist.github.com/jonschlinkert/58546
 
 
 {{gist "5854601"}}
-
-

@@ -27,6 +27,8 @@ Examples
 * Build docs pages and components at once
 {{/draft}}
 
+> Partials are snippets of code that are included into a layout. Usually section of your site appear are on each page, like the header, footer, and navigation, are broken into partials.
+
 ## Registering Partials
 
 Assemble automatically registers any partial or array of partials supplied to `options.partials`, at the task or target level.

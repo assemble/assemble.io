@@ -12,19 +12,40 @@
 # order in which people made their requests. Be respectful to those who
 # came before you and add your name to the *bottom*
 
+# TODO: Add more references from: https://github.com/assemble/assemble/issues/300
 
 - name: Zurb Ink
-  url:
-  image:
+  GruntfileUrl: https://github.com/zurb/ink/blob/master/Gruntfile.js
+  websiteUrl: http://zurb.com/ink/
+  imageUrl:
+  imagePath: <%= site.images %>/users/
+
 - name: Zurb Foundation
-  url:
-  image:
+  GruntfileUrl: https://github.com/zurb/foundation/blob/master/Gruntfile.js
+  websiteUrl: http://foundation.zurb.com/
+  imageUrl:
+  imagePath: <%= site.images %>/users/
+
+- name: Typeplate
+  GruntfileUrl: https://github.com/typeplate/typeplate.github.io/blob/master/Gruntfile.js
+  websiteUrl: http://typeplate.com/
+  imageUrl: https://raw.github.com/typeplate/typeplate.github.io/master/img/logo.png
+  imagePath: <%= site.images %>/users/typeplate.png
+
+- name: Effeckt.css
+  GruntfileUrl: https://github.com/h5bp/Effeckt.css/blob/master/Gruntfile.js
+  websiteUrl: http://h5bp.github.io/Effeckt.css/
+  imageUrl:
+  imagePath: <%= site.images %>/users/
+
 - name: Less.js
-  url:
-  image:
-- name: Zurb Ink
-  url:
-  image:
+  GruntfileUrl: https://github.com/less/less-docs/blob/master/Gruntfile.js
+  websiteUrl: http://lesscss.org/
+  imageUrl: https://github.com/less/less-docs/blob/master/assets/public/img/logo.png
+  imagePath: <%= site.images %>/users/less.png
+
 - name: Topcoat
-  url:
-  image:
+  GruntfileUrl: https://github.com/topcoat/topcoat-grunt-telemetry/blob/master/Gruntfile.js
+  websiteUrl: http://topcoat.io/
+  imageUrl:
+  imagePath: <%= site.images %>/users/

@@ -76,7 +76,8 @@
     "request": "~2.34.0",
     "template": "~0.1.5",
     "underscore.string": "~2.3.3",
-    "shelljs": "~0.2.6"
+    "shelljs": "~0.2.6",
+    "remote-origin-url": "^0.2.1"
   },
   "keywords": [
     "assemble",

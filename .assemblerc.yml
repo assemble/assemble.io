@@ -17,6 +17,8 @@ utils:             data/utils
 
 # Assets > fonts, icons, images etc.
 assets:            assets
+images:            <%= site.assets %>/images
+fonts:             <%= site.assets %>/fonts
 
 # Styles
 styles:            styles

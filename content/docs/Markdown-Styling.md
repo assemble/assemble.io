@@ -47,4 +47,3 @@ _**[Click here](http://assemble.io)**_
 [_**Click here**_](http://assemble.io)
 
 [**_Click here_**](http://assemble.io)
-

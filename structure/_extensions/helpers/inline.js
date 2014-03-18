@@ -23,7 +23,7 @@ module.exports.register = function (Handlebars, options) {
     var page = matter.read(filepath);
     var data = Handlebars.createFrame({filepath: filepath});
 
-    _.extend(inline, context.data.root.inline || {});
+    _.extend(inline, context.data.inline || {});
 
     // Prepend or append any content in the given partial to the output
     prepend = inline.prepend ? Handlebars.partials[inline.prepend] : '';

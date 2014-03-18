@@ -338,4 +338,3 @@ See some great usage examples in assemble's [YAML test files](https://github.com
 * [YAML specification](http://www.yaml.org/spec/1.2/spec.html)
 * [http://www.yaml.org/](http://www.yaml.org/)
 * [wikipedia page about YAML](http://en.wikipedia.org/wiki/YAML)
-

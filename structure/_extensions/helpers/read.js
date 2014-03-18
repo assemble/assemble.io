@@ -12,6 +12,7 @@ var _ = require('lodash');
 module.exports.register = function (Handlebars) {
 
   Handlebars.registerHelper("read", function(filepath, context) {
+    context.data = context.data || {};
     var page = matter.read(filepath);
     var metadata = _.extend(context.data.root, page.context);
     var template = Handlebars.compile(page.content);
