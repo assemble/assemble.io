@@ -8,6 +8,6 @@ module.exports.register = function (Handlebars, options) {
   'use strict';
 
   Handlebars.registerHelper("isPermalink", function(value, fallback) {
-    return options.permalinks ? value : fallback + '.html';
+    return options.permalinks ? value : fallback + (value.lastIndexOf('.') > 0 ? '' : options.ext);
   });
 };
