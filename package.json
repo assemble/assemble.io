@@ -59,7 +59,8 @@
     "grunt-prettify": "~0.3.4",
     "grunt-repos": "~0.1.2",
     "grunt-sync-pkg": "~0.1.2",
-    "grunt-uncss": "~0.2.0",
+    "grunt-uncss": "~0.2.2",
+    "handlebars": "~2.0.0-alpha.2",
     "handlebars-helper-autolink": "~0.1.1",
     "handlebars-helper-br": "~0.1.0",
     "handlebars-helper-disqus": "~0.1.1",
@@ -73,11 +74,11 @@
     "lodash": "~2.4.1",
     "marked": "0.3.0",
     "marked-extras": "~0.2.2",
+    "remote-origin-url": "^0.2.1",
     "request": "~2.34.0",
-    "template": "~0.1.5",
-    "underscore.string": "~2.3.3",
     "shelljs": "~0.2.6",
-    "remote-origin-url": "^0.2.1"
+    "template": "~0.1.5",
+    "underscore.string": "~2.3.3"
   },
   "keywords": [
     "assemble",
@@ -91,7 +92,6 @@
     "handlebars-helper-ghbtns",
     "handlebars-helper-isactive",
     "handlebars-helper-prettify",
-    "handlebars-helper-rel",
     "handlebars-helper-slugify",
     "handlebars-helper-track",
     "theme"
