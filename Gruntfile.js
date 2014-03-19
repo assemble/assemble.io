@@ -277,6 +277,7 @@ module.exports = function(grunt) {
   grunt.registerTask('design', [
     'clean',
     'copy',
+    'uglify',
     'less:site',
     'assemble:site',
     'connect',
