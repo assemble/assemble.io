@@ -114,11 +114,6 @@ module.exports = function(grunt) {
           dest: 'tmp/helpers/'
         },
 
-        // `permalinks` plugin
-        // permalinks: {
-        //   structure: ':basename:ext'
-        // }
-
         // marked-extras options
         marked: {
           process: true,
@@ -128,6 +123,12 @@ module.exports = function(grunt) {
       },
 
       site: {
+        options: {
+          // `permalinks` plugin
+          permalinks: {
+            structure: ':basename/index.html'
+          }
+        },
         files: {'<%= site.dest %>/': ['<%= site.pages %>/*.hbs']}
       }
     },
@@ -272,6 +273,12 @@ module.exports = function(grunt) {
 
   // Runt tests and lint code.
   grunt.registerTask('test', ['jshint', 'csslint']);
+
+  // Design-oriented tasks.
+  grunt.registerTask('basic', [
+    'assemble:site',
+    'prettify'
+  ]);
 
   // Design-oriented tasks.
   grunt.registerTask('design', [

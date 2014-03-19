@@ -59,12 +59,12 @@ main:
 
     # `Blog` link
     - enabled: <%= features.blog %>
-      url:     blog
+      url:     blog.html
       text:    Blog
 
     # `About` link
     - enabled: <%= features.about %>
-      url:     about
+      url:     about.html
       text:    About
 
     # Dropdown Menu: `More` link

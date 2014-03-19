@@ -78,7 +78,9 @@
     "request": "~2.34.0",
     "shelljs": "~0.2.6",
     "template": "~0.1.5",
-    "underscore.string": "~2.3.3"
+    "underscore.string": "~2.3.3",
+    "async": "~0.2.10",
+    "relative": "~0.1.2"
   },
   "keywords": [
     "assemble",
