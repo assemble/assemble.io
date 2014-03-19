@@ -35,6 +35,8 @@ foo: Some info
 * `{{page.foo}}`
 * `{{foo}}`
 * `{{../foo}}`
+* `{{foo (bar .)}}`
+
 
 
 ### Conventions used in this guide

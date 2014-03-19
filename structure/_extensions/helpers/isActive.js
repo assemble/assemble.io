@@ -9,7 +9,7 @@ var _ = require('lodash');
 module.exports.register = function (Handlebars, options) {
   'use strict';
 
-  var opts = options;
+  var opts = options || {};
 
   /**
    * Add `active` class for current page.
@@ -19,7 +19,7 @@ module.exports.register = function (Handlebars, options) {
    * @usage: {{isActive}}
    */
   Handlebars.registerHelper('isActive', function(current, options) {
-    var context = _.extend({}, opts.data, this);
+    var context = _.extend({}, opts, this);
     options = options || {};
 
     var modifier = (options.hash && options.hash.class) ? options.hash.class : 'active';

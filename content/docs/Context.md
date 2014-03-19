@@ -10,7 +10,6 @@ section: data
 If you are unfamiliar with how Handlebar templates work, please visit the [Handlebar documentation](http://handlebarsjs.com/) for more information. Also see Assemble's documentation for [templates][templates-overview] and [Data][data].
 
 
-<a id="context-in-handlebars"></a>
 ## Context in Handlebars
 In Handlebars, every template has a context. Blocks such as `\{{#if}}` create "inline" templates, and the `\{{#if}}` helper then determines the context in which to render the template.
 
@@ -28,7 +27,6 @@ The `../` path means "look this up on the context of the parent template". In ca
 
 _The information in this section was mostly taken from [this conversation](https://github.com/wycats/handlebars.js/issues/196#issuecomment-8581551), and edited to make sense for Assemble._
 
-<a id="the-context-object"></a>
 ## The "context" object
 The context object is just a [JSON data][JSON] object that when passed to the compiled template function becomes the value of this inside your template. You must use the name of the associated [data file][Data] to access properties and call helper methods on the context object.
 
@@ -53,7 +51,6 @@ Which renders to:
 <h1>Heads up!</h1>
 ```
 
-<a id="root-context"></a>
 ## Root context
 In Assemble, the root of the context is where the data object starts. Everything under the root is a child property. Also, when a variable is at "the root of the context" the variable may be used as-is, or "raw", enabling you to look up properties _for the "current" object_ without nesting the context _within_ the current object. In other words, the "path" of the current object does not need to be appended to the variable, so instead of `about_us.title`, you may simply use `title`.
 
@@ -87,7 +84,6 @@ for the following , `assemble` provides additional contexts for ,
 {{/draft}}
 
 
-<a id="the-data-object"></a>
 ## The "data" object
 When data is added directly to a file named `data.json` (or `data.yml`) it will be loaded _directly into the root of the context_ by Assemble. Note that your templates will need to be namespaced differently than if you put data into a file called `myData.json`.
 
@@ -122,7 +118,6 @@ Out template, `myTemplate.hbs`, would have:
 TODO: describe how `\{{data.title}}` can be used in templates to get data from the current partial
 {{/draft}}
 
-<a id="this-expression"></a>
 ## "this" expression
 
 You can use the `this` expression in any context to refer to the current context.

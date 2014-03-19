@@ -3,7 +3,7 @@
   {{#each items}}
     {{#if enabled}}
       <li {{isActive url}}>
-        <a href="{{rel (isPermalink url url)}}">{{text}}</a>
+        <a href="{{!rel (isPermalink url url)}}">{{text}}</a>
       </li>
     {{/if}}
     {{#if external}}

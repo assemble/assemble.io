@@ -20,6 +20,8 @@ module.exports.register = function (Handlebars, options) {
     var append = '',
       prepend = '';
 
+    context.data = context.data || {};
+
     var page = matter.read(filepath);
     var data = Handlebars.createFrame({filepath: filepath});
 

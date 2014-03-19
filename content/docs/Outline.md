@@ -104,7 +104,7 @@ assemble: {
       ext: ''
     }
     files: [
-      'README.md': ['src/README.md.hbs']
+      'README.md': ['src/README.md']
     ]
   },
 

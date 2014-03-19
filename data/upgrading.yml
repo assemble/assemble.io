@@ -3,12 +3,16 @@
 #===========================================
 
 published:
+  intro:
+    title: Upgrading to v0.5
+    files: "content/upgrading/v0.5/intro.md"
+
   helpers:
     title: Helpers
-    files: "content/migrations/helpers.md"
+    files: "content/upgrading/v0.5/helpers.md"
 
   plugins:
     title: Plugins
-    files: "content/migrations/plugins.md"
+    files: "content/upgrading/v0.5/plugins.md"
 
 unpublished:

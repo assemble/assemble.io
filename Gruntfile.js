@@ -114,6 +114,11 @@ module.exports = function(grunt) {
           dest: 'tmp/helpers/'
         },
 
+        // `permalinks` plugin
+        // permalinks: {
+        //   structure: ':basename:ext'
+        // }
+
         // marked-extras options
         marked: {
           process: true,
@@ -121,17 +126,13 @@ module.exports = function(grunt) {
           prefix: 'language-'
         }
       },
+
       site: {
-        options: {
-          content: ['content/helpers/**/*.md'],
-          // permalinks: {
-          //   structure: ':basename:ext'
-          // }
-        },
         files: {'<%= site.dest %>/': ['<%= site.pages %>/*.hbs']}
       }
     },
 
+    // Format HTML
     prettify: {
       options: {
         indent_scripts: 'keep'
@@ -143,6 +144,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Run a Connect server
     connect: {
       options: {
         port: 3000,

@@ -24,7 +24,6 @@ module.exports.register = function (Handlebars, opts) {
   // Set marked.js options
   marked.setOptions(markedOpts);
 
-
   Handlebars.registerHelper("markdown", function (options) {
     return marked(options.fn(this));
   });

@@ -113,7 +113,7 @@ assemble: {
   },
   readme: {
     files: {
-      './': ['src/templates/README.md.hbs']
+      './': ['src/templates/README.md']
     }
   }
 }
@@ -123,7 +123,7 @@ Our goal here is to tell the `assemble` task to treat the `src` markdown files a
 
 Our goal here is to tell the `assemble` task.
 
-Here, we tell the `assemble` task not to use an extension on `dest` files by leaving `ext: ''` blank. We do this because our templates have the extenions `.md.hbs` and assemble only slices off the last extension at build time. So by 1) telling assemble not to add another extension to the rendered templates, and 2) by naming our template files with the `.md.hbs` extension, we
+Here, we tell the `assemble` task not to use an extension on `dest` files by leaving `ext: ''` blank. We do this because our templates have the extenions `.md` and assemble only slices off the last extension at build time. So by 1) telling assemble not to add another extension to the rendered templates, and 2) by naming our template files with the `.md` extension, we
 
 
 ### markdown-to-HTML
@@ -139,7 +139,7 @@ assemble: {
     engine: "Handlebars" // case insensitive
   },
   files: {
-    'dist/': ['src/pages/*.md.hbs']
+    'dist/': ['src/pages/*.md']
   }
 }
 ```
