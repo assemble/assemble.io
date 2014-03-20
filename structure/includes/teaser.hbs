@@ -2,8 +2,6 @@
 component: teaser
 ---
 
-{{! Special styles for GitHub Buttons
-====================================== }}
 <style type="text/css" media="screen">
   .teaser iframe {
     margin: -7px 0 0 25px;
@@ -14,17 +12,13 @@ component: teaser
   }
 </style>
 
-
-
-
-{{! TEASER COMPONENT
-====================================== }}
+<!-- .teaser component -->
 <div class="teaser {{modifier}}">
   <a class="teaser-content" href="{{ url }}">
     {{{default masthead.title ''}}}
     <em> {{{default masthead.subtitle ''}}} </em>
 
-    {{! GITHUB BUTTONS
+    {{! GitHub buttons
     ======================= }}
     {{> btn-github-star }}
     {{> btn-github-fork }}

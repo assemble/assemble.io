@@ -5,12 +5,7 @@
  */
 'use strict';
 
-// Node.js
-var path = require('path');
-var _ = require('lodash');
-
-module.exports.register = function (Handlebars, options, params) {
-  var assemble = params.assemble;
+module.exports.register = function (Handlebars) {
 
   Handlebars.registerHelper('nav', function (name, context, options) {
     var fn = Handlebars.compile(Handlebars.partials[name]);

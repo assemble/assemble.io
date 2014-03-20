@@ -9,9 +9,14 @@
        -o-user-select: @select;
           user-select: @select;
 }
+
 .no-select() {
-  -moz-user-select: -moz-none;
-  .user-select(none);
+  -webkit-user-select: none;
+     -moz-user-select: -moz-none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
 }
 
 .transition(...) {

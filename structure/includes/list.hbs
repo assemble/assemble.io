@@ -3,7 +3,7 @@
   {{#each items}}
     {{#if enabled}}
       <li {{isActive url}}>
-        <a href="{{resolve url @context}}">{{text}}</a>
+        <a href="{{resolve url @context}}" title="{{text}}">{{text}}</a>
       </li>
     {{/if}}
     {{#if external}}
@@ -15,7 +15,7 @@
         <ul class="{{modifier}}">
         {{#each items}}
           {{#if enabled}}
-            <li> <a href="{{resolve url @context}}">{{text}}</a> </li>
+            <li> <a href="{{resolve url @context}}" title="{{text}}">{{text}}</a> </li>
           {{/if}}
           {{#if divider}}
             <li class="divider"></li>

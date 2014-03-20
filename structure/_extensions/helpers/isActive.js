@@ -26,6 +26,8 @@ module.exports.register = function (Handlebars, options) {
     context.page = context.page || {};
     if(context.page.basename === current) {
       modifier = ' class="' + modifier + '"';
+    } else {
+      modifier = '';
     }
     return new Handlebars.SafeString(modifier);
   });

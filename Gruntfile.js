@@ -16,21 +16,24 @@ module.exports = function(grunt) {
   // Initialize mixins
   grunt.util._.mixin(require('./data/utils/mixins'));
 
+  // Report the execution time of each task.
+  require('time-grunt')(grunt);
+
+
   /**
-   * Project configuration.
+   * Initialize Grunt configuration
    */
 
   grunt.initConfig({
 
-    // Project metadata
+    /**
+     * Metadata
+     */
+
     site   : grunt.file.readYAML('.assemblerc.yml'),
     pkg    : grunt.file.readJSON('package.json'),
     core   : grunt.file.readJSON('data/core.json'),
     vendor : grunt.file.readJSON('.bowerrc').directory,
-
-    bootstrap: {
-      js: '<%= vendor %>/bootstrap/dist/js',
-    },
 
     metadata: {
       year: '<%= grunt.template.today("yyyy") %>',
@@ -44,30 +47,15 @@ module.exports = function(grunt) {
       ].join('\n')
     },
 
-    // Lint JavaScripts
-    jshint: {
-      options: {
-        jshintrc: '<%= site.scripts %>/.jshintrc'
-      },
-      all: [
-        'Gruntfile.js',
-        '<%= site.helpers %>/*.js',
-        '<%= site.plugins %>/*.js',
-        '<%= site.scripts %>/*.js',
-        '<%= site.utils %>/*.js',
-      ]
+    // Alias for Bootstrap's javascripts
+    bootstrap: {
+      js: '<%= vendor %>/bootstrap/dist/js',
     },
 
-    // Pull down a list of repos from the Assemble org using
-    // GitHub's API. Resulting JSON is supplied to the templates.
-    repos: {
-      namespaced: {
-        options: {username: 'assemble'},
-        files: {
-          '<%= site.data %>/repos.json': ['repos?page=1&per_page=100']
-        }
-      }
-    },
+
+    /**
+     * HTML tasks
+     */
 
     // Build HTML from templates and data
     assemble: {
@@ -84,14 +72,14 @@ module.exports = function(grunt) {
         data: ['<%= site.data %>/*.{json,yml}'],
 
         // Templates
-        partials: ['<%= site.includes %>/**/*.hbs', 'structure/snippets/*.hbs'],
+        partials: ['<%= site.includes %>/**/*.hbs',  'structure/snippets/*.hbs'],
         layoutdir: '<%= site.layouts %>',
         layoutext: '<%= site.layoutext %>',
         layout: '<%= site.layout %>',
 
         // Extensions
-        plugins: '<%= site.plugins %>',
-        helpers: ['<%= site.helpers %>/*.js'],
+        plugins: '<%= site.plugins.load %>',
+        helpers: '<%= site.helpers.load %>',
 
         // 'anchors' plugin > Add anchors markup
         // to headings in rendered HTML
@@ -114,6 +102,12 @@ module.exports = function(grunt) {
           dest: 'tmp/helpers/'
         },
 
+        // HTML 'validation' plugin
+        validation: {
+          report: 'structure/validation-report.json',
+          status: 'structure/validation-status.json'
+        },
+
         // marked-extras options
         marked: {
           process: true,
@@ -122,43 +116,47 @@ module.exports = function(grunt) {
         }
       },
 
+      // `site` target
       site: {
         options: {
-          // `permalinks` plugin
-          permalinks: {
-            structure: ':basename/index.html'
-          }
+          permalinks: {structure: ':basename/index.html'}
         },
         files: {'<%= site.dest %>/': ['<%= site.pages %>/*.hbs']}
       }
     },
 
-    // Format HTML
+    // Lint HTML
+    validation: {
+      options: {
+        reset: true,
+        failHard: true,
+        charset: 'utf-8',
+        doctype: 'HTML5',
+        path: 'structure/validation-status.json',
+        reportpath: 'structure/validation-report.json',
+        relaxerror: '<%= site.html.errorcodes %>'
+      },
+      files: {
+        src: '<%= site.dest %>/**/*.html'
+      }
+    },
+
+    // Prettify HTML
     prettify: {
       options: {
         indent_scripts: 'keep'
       },
       site: {
         files: [
-          {expand: true, cwd: '<%= site.dest %>', src: '*.html', dest: '<%= site.dest %>/', ext: '.html'}
+          {expand: true, cwd: '<%= site.dest %>', src: '**/*.html', dest: '<%= site.dest %>/', ext: '.html'}
         ]
       }
     },
 
-    // Run a Connect server
-    connect: {
-      options: {
-        port: 3000,
-        livereload: 35729,
-        hostname: 'localhost'
-      },
-      livereload: {
-        options: {
-          open: true,
-          base: ['<%= site.dest %>']
-        }
-      }
-    },
+
+    /**
+     * CSS tasks
+     */
 
     // Compile Less to CSS
     less: {
@@ -172,6 +170,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Lint CSS
     csslint: {
       strict: {
         options: {
@@ -181,6 +180,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Prettify CSS
     csscomb: {
       options: {
         config: 'styles/.csscomb.json'
@@ -202,6 +202,25 @@ module.exports = function(grunt) {
       }
     },
 
+
+    /**
+     * JavaScript tasks
+     */
+
+    // Lint JavaScripts
+    jshint: {
+      options: {
+        jshintrc: '<%= site.scripts %>/.jshintrc'
+      },
+      all: [
+        'Gruntfile.js',
+        '<%= site.helpers.path %>/*.js',
+        // '<%= site.plugins.path %>/*.js',
+        '<%= site.scripts %>/*.js',
+        '<%= site.utils %>/*.js',
+      ]
+    },
+
     // Minify JavaScripts
     uglify: {
       options: {banner: '<%= metadata.banner %>'},
@@ -211,13 +230,18 @@ module.exports = function(grunt) {
       }
     },
 
+
+    /**
+     * Setup tasks
+     */
+
     copy: {
-      // Copy Bootstrap's scripts to local directory
+      // Copy Bootstrap's js to local scripts
       vendor: {
         src: '<%= bootstrap.js %>/bootstrap.js',
         dest: '<%= site.scripts %>/vendor/bootstrap.js'
       },
-      // Copy source images, fonts and icons to site `public` directory
+      // Copy local `assets` to `public` directory
       assets: {
         files: [
           {expand: true, cwd: '<%= site.assets %>', src: '**', dest: '<%= site.public %>/'}
@@ -225,23 +249,53 @@ module.exports = function(grunt) {
       }
     },
 
-    // Before generating new files, clean files from previous build.
+    // Clean files from previous build
     clean: {
       example: ['<%= site.dest %>/**/*.{html,css,js}']
+    },
+
+    // Pull down a list of repos from the Assemble's repos from
+    // GitHub's API, so we can use the resulting JSON in templates.
+    repos: {
+      namespaced: {
+        options: {username: 'assemble'},
+        files: {
+          '<%= site.data %>/repos.json': ['repos?page=1&per_page=100']
+        }
+      }
+    },
+
+
+    /**
+     * "Live" tasks
+     */
+
+    // Run a Connect server
+    connect: {
+      options: {
+        port: 3000,
+        livereload: 35729,
+        hostname: 'localhost'
+      },
+      livereload: {
+        options: {
+          open: true,
+          base: ['<%= site.dest %>']
+        }
+      }
     },
 
     // Watch certain files, rebuild when changes are saved.
     watch: {
       options: {livereload: true},
-      site: {
+      design: {
         files: [
-          '<%= site.helpers %>',
-          '<%= site.data %>/*.{yml,json}',
+          '<%= site.data %>/**/*.{yml,json}',
           '<%= site.content %>/**/*.md',
           '<%= site.styles %>/**/*.less',
           '<%= site.templates %>/**/*.hbs',
         ],
-        tasks: ['clean', 'copy', 'less:site', 'assemble']
+        tasks: ['clean', 'less', 'assemble']
       }
     }
   });
@@ -260,44 +314,60 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-html-validation');
   grunt.loadNpmTasks('grunt-prettify');
   grunt.loadNpmTasks('grunt-repos');
   grunt.loadNpmTasks('grunt-sync-pkg');
   grunt.loadNpmTasks('grunt-uncss');
 
+
   /**
-   * Register Tasks
+   * Task types
    */
 
-  grunt.registerTask('update', ['repos', 'default']);
-
-  // Runt tests and lint code.
-  grunt.registerTask('test', ['jshint', 'csslint']);
-
-  // Design-oriented tasks.
-  grunt.registerTask('basic', [
-    'assemble:site',
-    'prettify'
+  // First things first.
+  grunt.registerTask('setup', [
+    'clean',
+    'copy',
   ]);
+
+  // Compile CSS, HTML, etc.
+  grunt.registerTask('compile', [
+    'less',
+    'assemble'
+  ]);
+
+  // Lint and runt tests.
+  grunt.registerTask('lint', [
+    'jshint',
+    'validation',
+    'csslint'
+  ]);
+
+  // Prep for deployment.
+  grunt.registerTask('prod', [
+    'repos',
+    'uglify'
+  ]);
+
+
+  /**
+   * Tasks to run
+   */
 
   // Design-oriented tasks.
   grunt.registerTask('design', [
-    'clean',
-    'copy',
-    'uglify',
-    'less:site',
-    'assemble:site',
+    'default',
     'connect',
-    'watch'
+    'watch:design'
   ]);
 
-  // Default tasks to be run.
+  // Default tasks to run with the `grunt` command.
   grunt.registerTask('default', [
-    'jshint',
-    'copy',
+    'setup',
+    'compile',
+    'prettify',
     'uglify',
-    'less:site',
-    'assemble:site',
-    'prettify'
+    'lint',
   ]);
 };

@@ -10,11 +10,54 @@ var options = {
 };
 
 var cheerio = require('cheerio');
-var chalk = require('chalk');
 var request = require('request');
 
 var linkMap = {};
 
+
+var que = [],
+  activeRequests = 0;
+
+function checkLink(link, callback) {
+
+  if (link.indexOf("//") === 0) {
+    link = "http:" + link;
+  }
+
+  function doRequest() {
+    activeRequests++;
+    request.get({
+      uri: link,
+      strictSSL: false
+    }, function (error, res, body) {
+      if (error) {
+        callback(false, error);
+      } else {
+        callback(res.statusCode === 200, res.statusCode);
+      }
+      if (que.length) {
+        que.pop()();
+      } else {
+        activeRequests--;
+      }
+    });
+  }
+
+  if (activeRequests >= 9) {
+    que.push(doRequest);
+  } else {
+    doRequest();
+  }
+}
+
+function findLink(linkToFind, anchors) {
+  for (var i = 0; i < anchors.length; i++) {
+    if (anchors[i] === linkToFind) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Adapted from link-checker.js from less/less-docs
 module.exports = function (params, callback) {
@@ -139,48 +182,5 @@ module.exports = function (params, callback) {
   finish();
 };
 
-var que = [],
-  activeRequests = 0;
-
-function checkLink(link, callback) {
-
-  if (link.indexOf("//") === 0) {
-    link = "http:" + link;
-  }
-
-  if (activeRequests >= 9) {
-    que.push(doRequest);
-  } else {
-    doRequest();
-  }
-
-  function doRequest() {
-    activeRequests++;
-    request.get({
-      uri: link,
-      strictSSL: false
-    }, function (error, res, body) {
-      if (error) {
-        callback(false, error);
-      } else {
-        callback(res.statusCode === 200, res.statusCode);
-      }
-      if (que.length) {
-        que.pop()();
-      } else {
-        activeRequests--;
-      }
-    });
-  }
-}
-
-function findLink(linkToFind, anchors) {
-  for (var i = 0; i < anchors.length; i++) {
-    if (anchors[i] === linkToFind) {
-      return true;
-    }
-  }
-  return false;
-}
 
 module.exports.options = options;

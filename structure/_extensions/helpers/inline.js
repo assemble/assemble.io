@@ -5,6 +5,7 @@
  */
 'use strict';
 
+var file = require('fs-utils');
 var matter = require('gray-matter');
 var _ = require('lodash');
 
@@ -17,21 +18,20 @@ module.exports.register = function (Handlebars, options) {
 
 
   Handlebars.registerHelper('inline', function(filepath, context) {
+    context.data = context.data || {};
     var append = '',
       prepend = '';
-
-    context.data = context.data || {};
 
     var page = matter.read(filepath);
     var data = Handlebars.createFrame({filepath: filepath});
 
-    _.extend(inline, context.data.inline || {});
+    _.extend(inline, options.data.inline || {});
+    _.defaults(page.context, context.data.root || {});
 
     // Prepend or append any content in the given partial to the output
     prepend = inline.prepend ? Handlebars.partials[inline.prepend] : '';
     append = inline.append ? Handlebars.partials[inline.append] : '';
 
-    _.defaults(page.context, context.data.root);
     var sections = [prepend, page.content, append].join('\n\n');
     var template = Handlebars.compile(sections);
     var result = template(page.context, {data: data});

@@ -6,10 +6,7 @@
 
 'use strict';
 
-var _ = require('lodash');
-
-module.exports.register = function (Handlebars, options, params) {
-  var assemble = params.assemble;
+module.exports.register = function (Handlebars) {
 
   /**
    * This helper passes the given context into the block,

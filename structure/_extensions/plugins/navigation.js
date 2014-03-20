@@ -17,7 +17,6 @@ var path = require('path');
 var template = require('template');
 var chalk = require('chalk');
 var cheerio = require('cheerio');
-var _ = require('lodash');
 
 var warn = chalk.yellow;
 
@@ -33,6 +32,16 @@ module.exports = function (params, callback) {
   var $ = cheerio.load(params.content);
 
   var opts = params.assemble.options.anchors || {};
+
+  // Lo-Dash template to use for anchors
+  var anchorTemplate = require('./lib/template.js');
+
+  // If an anchor template is specified in the options, use that instead.
+  if(opts && opts.template) {
+    opts.template = path.resolve(opts.template);
+    anchorTemplate = require(opts.template);
+  }
+
 
   // get all the anchor tags from inside the headers
   var headings = $('h1[id],h2[id]');
@@ -69,7 +78,20 @@ module.exports = function (params, callback) {
     var depth = level <= 1 ? 1 : 2;
     var location = findLocation(navigation, depth);
     location.push(node);
+
+    // Anchor template
+    var anchor = template(anchorTemplate, {id: link});
+    $(this).append(anchor);
+
+    // Adjust heading
+    $(this).removeAttr('id').addClass('docs-heading');
+
+    if($(this).prev().children().hasClass('source-link')) {
+      var sourceLink = $(this).prev().children('.source-link');
+      $(this).append(sourceLink);
+    }
   });
+
 
   /**
    * Build the HTML for side navigation.
@@ -101,32 +123,6 @@ module.exports = function (params, callback) {
   // }
 
   $('#navigation').append(buildHTML(navigation, true));
-
-  //
-  var anchorTemplate = require('./lib/template.js');
-
-  // If an anchor template is specified in the options, use that instead.
-  if(opts && opts.template) {
-    opts.template = path.resolve(opts.template);
-    anchorTemplate = require(opts.template);
-  }
-
-  headings.map(function (i, e) {
-    var $e = $(e);
-    var id = $e.attr('id');
-
-    // Anchor template
-    var anchor = template(anchorTemplate, {id: id});
-    $(this).append(anchor);
-
-    // Adjust heading
-    $(this).removeAttr('id').addClass('docs-heading');
-
-    if($(this).prev().children().hasClass('source-link')) {
-      var sourceLink = $(this).prev().children('.source-link');
-      $(this).append(sourceLink);
-    }
-  });
 
   params.content = $.html();
   callback();

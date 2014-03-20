@@ -37,21 +37,39 @@ layouts:           <%= site.templates %>/layouts
 layoutext:         .hbs
 layout:            default
 
+# HTML error codes
+html:
+  errorcodes:
+    - 'Bad value X-UA-Compatible for attribute http-equiv on element meta.'
+    - 'Element img is missing required attribute src.'
+    - 'The name attribute is obsolete. Consider putting an id attribute on the nearest container instead.'
+    - 'The element button must not appear as a descendant of the a element.'
+
 
 # =============================================
 # EXTENSIONS
 # =============================================
 
-helpers: <%= site.templates %>/_extensions/helpers
-plugins:
-  # NPM Plugins
-  # - assemble-contrib-download
-  # - assemble-contrib-decompress
-  - assemble-contrib-permalinks
-  - assemble-contrib-wordcount
+# Handlebars helpers
+helpers:
+  path: <%= site.templates %>/_extensions/helpers
+  load:
+    - <%= site.helpers.path %>/*.js
 
-  # Local plugins
-  - <%= site.templates %>/_extensions/plugins/navigation.js
+# Assemble plugins
+plugins:
+  path:  <%= site.templates %>/_extensions/plugins
+  load:
+    # NPM Plugins
+    # - assemble-contrib-download
+    # - assemble-contrib-decompress
+    # - assemble-contrib-wordcount
+    - assemble-contrib-permalinks
+
+    # Local plugins
+    - <%= site.plugins.path %>/styles.js
+    - <%= site.plugins.path %>/navigation.js
+    # - <%= site.plugins.path %>/validate.js
 
 
 # =============================================
@@ -77,7 +95,7 @@ url:
   issues:           <%= pkg.bugs.url %>?state=open
 
   # Site
-  public:           http://assemble.io/
+  public:           http://assemble.io
   about:            <%= site.url.public %>/about/
   blog:             <%= site.url.public %>/blog/
 

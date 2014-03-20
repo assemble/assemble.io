@@ -10,7 +10,7 @@ var path = require('path');
 var _ = require('lodash');
 var relative = require('relative');
 
-module.exports.register = function (Handlebars, options) {
+module.exports.register = function (Handlebars) {
 
   /**
    * Resolves the path to the actual destination file,
