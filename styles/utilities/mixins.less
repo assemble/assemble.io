@@ -1,0 +1,69 @@
+// Mixins
+// ---------------------------------
+
+// User select. For selecting text on the page
+.user-select(@select) {
+  -webkit-user-select: @select;
+     -moz-user-select: @select;
+      -ms-user-select: @select;
+       -o-user-select: @select;
+          user-select: @select;
+}
+
+.no-select() {
+  -webkit-user-select: none;
+     -moz-user-select: -moz-none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.transition(...) {
+  -webkit-transition-property: @arguments;
+     -moz-transition-property: @arguments;
+      -ms-transition-property: @arguments;
+       -o-transition-property: @arguments;
+          transition-property: @arguments;
+}
+.transition-property(...) {
+  -webkit-transition-property: @arguments;
+     -moz-transition-property: @arguments;
+      -ms-transition-property: @arguments;
+       -o-transition-property: @arguments;
+          transition-property: @arguments;
+}
+
+.transition-duration(...) {
+  -webkit-transition-duration: @arguments;
+     -moz-transition-duration: @arguments;
+      -ms-transition-duration: @arguments;
+       -o-transition-duration: @arguments;
+          transition-duration: @arguments;
+}
+
+.transition-timing-function(...) {
+  -webkit-transition-timing-function: @arguments;
+     -moz-transition-timing-function: @arguments;
+      -ms-transition-timing-function: @arguments;
+       -o-transition-timing-function: @arguments;
+          transition-timing-function: @arguments;
+}
+
+// Transitions
+.transform(...) {
+  -webkit-transition: -webkit-transform @arguments;
+     -moz-transition:    -moz-transform @arguments;
+       -o-transition:      -o-transform @arguments;
+          transition:         transform @arguments;
+}
+
+
+.render-image() {
+  image-rendering: -webkit-optimize-contrast;
+  // image-rendering: -moz-crisp-edges; // don't do this! looks really bad
+  image-rendering: optimizeSpeed;
+  image-rendering: optimize-contrast;
+  image-rendering: -o-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}

@@ -1,0 +1,103 @@
+- name: Cory Logan
+  username: counterbeing
+  origin: assemble-issues
+  link:
+  message: >
+    I’ve been dreaming about a project like this for a year now, but had no idea it existed. Thanks again!
+
+- name: Matt Bailey
+  username: _mattbailey
+  origin: Twitter
+  link: https://twitter.com/_mattbailey/status/391264100782981120
+  message: >
+    Assemble is awesome!
+
+- name: Bobby Bobak
+  username: bobek_balinek
+  origin: Twitter
+  link: https://twitter.com/bobek_balinek/statuses/346937578773172224
+  message: >
+    That Assemble module has just completely changed my life. Thanks!
+
+- name: Josh Fry
+  username: joshfry
+  origin: Twitter
+  link: https://twitter.com/joshfry/status/400410774360711168
+  message: >
+    I feel like a super hero with @gruntjs and @assemblejs. Modularity + build process = win.
+
+- name: Thomas Parisot
+  username: oncletom
+  orgs:
+  origin: Twitter
+  link: https://twitter.com/oncletom/status/382930631103356928
+  message: >
+    Showing 11,844 changed files with 2,167,282 additions and 1,061 deletions. — done with @assemblejs :-)
+
+- name: Sacha Schmid
+  username: sachaschmid
+  origin: Twitter
+  link: https://twitter.com/sachaschmid/status/401105973336879104
+  message: >
+    Started using Assemble. Seems far better suited for static-site-generation on non-blog sites than Jekyll.
+
+- name: Demetri Ganoff
+  username: DGanoff
+  origin: Twitter
+  link: https://twitter.com/DGanoff/status/392812423960203265
+  message: >
+    Rebuilt my personal site in 2 days with @assemblejs static site generator for @gruntjs. So far I love it! http://demetridesign.com
+
+- name: Dane Petersen
+  username: thegreatsunra
+  github: https://github.com/thegreatsunra
+  orgs: https://github.com/GeneralElectric
+  origin: Twitter
+  link: https://twitter.com/thegreatsunra/status/404745898254557184
+  message: >
+    What makes @assemblejs so powerful is its flexibility, which also made it a bit of a challenge to learn.
+
+- name: Dane Petersen
+  username: thegreatsunra
+  github: https://github.com/thegreatsunra
+  orgs: https://github.com/GeneralElectric
+  origin: Twitter
+  link: https://twitter.com/thegreatsunra/status/404746880753475585
+  message: >
+    What's great is, after you understand @gruntjs you can use @assemblejs to build whatever you want, however you want.
+
+- name: Dane Petersen
+  username: thegreatsunra
+  github: https://github.com/thegreatsunra
+  orgs: https://github.com/GeneralElectric
+  origin: Twitter
+  link: https://twitter.com/thegreatsunra/status/404746498673348609
+  message: >
+    Assemble is an awesome collection of task helpers, and it's up to you to enforce convention.
+
+- name: Dane Petersen
+  username: thegreatsunra
+  github: https://github.com/thegreatsunra
+  orgs: https://github.com/GeneralElectric
+  origin: Twitter
+  link: https://twitter.com/thegreatsunra/status/404777836516356096
+  message: >
+    I absolutely agree! Once I wrapped my head around it, @assemblejs was far and beyond the best tool of the bunch.
+
+- name: kenfrederick
+  username: frederickk
+  github: https://github.com/frederickk
+  orgs:
+  origin: StackOverflow
+  link: http://stackoverflow.com/questions/19867677/grunt-pre-compile-inline-markdown
+  message: >
+    This system works like a dream, hats off to the Assemble.io guys.
+
+- name: Sharat M.R
+  username: cosmos_genius
+  github: https://github.com/cosmosgenius
+  orgs:
+  origin: Twitter
+  link: https://twitter.com/cosmos_genius/status/410476670714265601
+  message: >
+    The coolest static website generator i have ever seen awesome!!!

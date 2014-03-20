@@ -1,0 +1,94 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+
+// Variables
+// ---------------------------------------
+
+@dropdown-inverse-font-size:              13px;
+@dropdown-inverse-font-family:            @font-family-sans-serif;
+@dropdown-inverse-min-width:              240px;
+@dropdown-inverse-bg:                     #333;
+@dropdown-inverse-border:                 transparent;
+@dropdown-inverse-link-color:             lighten(@dropdown-inverse-bg, 65%);
+@dropdown-inverse-link-hover-color:       #fff;
+@dropdown-inverse-link-hover-bg:          rgba(255,255,255,.05);
+@dropdown-inverse-link-active-color:      @dropdown-inverse-link-hover-color;
+@dropdown-inverse-link-active-bg:         @dropdown-inverse-link-hover-bg;
+@dropdown-inverse-link-disabled-color:    lighten(@dropdown-inverse-bg, 5%);
+@dropdown-inverse-header-color:           @dropdown-inverse-link-color;
+
+
+// The dropdown menu (ul)
+.dropdown-inverse {
+  &:extend(.dropdown-menu all);
+
+  left: -2px;
+  font-family: @dropdown-inverse-font-family;
+  font-size: @dropdown-inverse-font-size;
+  padding: 8px 0 12px; // a bit more space looks better on inverse dropdowns
+  min-width: @dropdown-inverse-min-width;
+  background-color: @dropdown-inverse-bg;
+  border: 1px solid @dropdown-inverse-border;
+  border-radius: 7px;
+
+  .no-select();
+  -webkit-overflow-scrolling: touch !important;
+  .box-shadow(4px 6px 10px rgba(0,0,0,.175));
+
+  // Links within the dropdown menu
+  > li > a {
+    color: @dropdown-inverse-link-color;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.1);
+
+    padding: 6px 20px;
+
+    .transition-property(color);
+    .transition-duration(.1s);
+    .transition-timing-function(ease-out);
+
+    &:hover, &:focus {
+      text-shadow: 0 -1px 0 rgba(0,0,0,.1);
+      color: @dropdown-inverse-link-hover-color;
+      background-color: @dropdown-inverse-link-hover-bg;
+    }
+  }
+
+  // Dividers
+  .divider {
+    background-color: rgba(255,255,255,.05);
+  }
+
+
+  // Active state
+  > .active > a {
+    &, &:hover, &:focus {
+      text-shadow: 0 -1px 0 rgba(0,0,0,.1);
+      color: @dropdown-inverse-link-active-color;
+      background-color: @dropdown-inverse-link-active-bg;
+    }
+  }
+
+  // Disabled state
+  > .disabled > a {
+    &, &:hover, &:focus {
+      color: @dropdown-inverse-link-disabled-color;
+    }
+  }
+
+  // Nuke hover/focus effects
+  > .disabled > a {
+    &:hover, &:focus {
+      background-color: transparent;
+      background-image: none; // Remove CSS gradient
+      .reset-filter();
+    }
+  }
+
+  // Dropdown section headers
+  .dropdown-header {
+    color: @dropdown-inverse-header-color;
+  }
+}
+
+

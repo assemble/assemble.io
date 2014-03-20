@@ -1,0 +1,47 @@
+//
+// Button States
+// --------------------------------------------------
+
+
+// Button psuedo states
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus,
+// :active, and disabled options for all buttons
+
+.button-pseudo-states(@color, @background, @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 10%);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border
+    }
+  }
+}
+.button-inverse-pseudo-states(@color: #222, @background, @border) {
+  .button-pseudo-states(@color, @background, @border);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 10%);
+  }
+}
+

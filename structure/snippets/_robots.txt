@@ -1,0 +1,10 @@
+---
+layout: none
+---
+
+# www.robotstxt.org/
+
+# Allow crawling of all content
+User-agent: *
+Disallow:
+Sitemap: {{ site.url.pulic }}/sitemap.xml

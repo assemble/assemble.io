@@ -1,33 +1,22 @@
-# [Assemble Documentation](http://assemble.io/)
+# assemble.io
 
-> Assemble is a component and static site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.
+> Website and documentation for [Assemble](https://github.com/assemble/assemble)
 
+Branch v3.0 is a work in progress.
 
-#### [Visit the docs →](http://assemble.io/)
+## Getting started
 
-#### [Get boilerplates →](https://github.com/assemble/assemble-boilerplates/)
+Download the documentation from GitHub, then install dependencies by running:
 
+```bash
+npm install && bower install
+```
 
+Next, try building the project with
 
-## Contributing
-All contributions are welcome! The simplest way to show your support for this project is to **"star" it**. Please see [Contributing to Assemble](http://assemble.io/contributing) for more information.
+```bash
+grunt
+```
+In the very short term, while we're migrating the build process to use Assemble v0.5, _please don't create issues related to getting the build working for this branch_.  However, we encourage you to create issues or do pull requests related to actual documentation, or other things than can be improved with the site structure regardless of whether or not the build is working for you locally.
 
-
-
-## Authors
-
-**Jon Schlinkert**
-
-+ [http://twitter.com/jonschlinkert](http://twitter.com/jonschlinkert)
-+ [http://github.com/jonschlinkert](http://github.com/jonschlinkert)
-
-**Brian Woodward**
-
-+ [http://twitter.com/doowb](http://twitter.com/doowb)
-+ [http://github.com/doowb](http://github.com/doowb)
-
-
-
-## Copyright and license
-Copyright (c) 2013 Assemble
-Released under the [MIT License](LICENSE-MIT).
+Thanks!

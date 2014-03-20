@@ -1,0 +1,41 @@
+//
+// Dismiss icons
+// --------------------------------------------------
+
+
+.dismiss {
+  font-size: (@font-size-large * 1.5);
+  font-weight: @dismiss-font-weight;
+  line-height: 1;
+  color: @dismiss-color;
+  text-shadow: @dismiss-text-shadow;
+  .opacity(.2);
+
+  &:hover,
+  &:focus {
+    color: @dismiss-color;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    .opacity(.5);
+  }
+
+  // Additional properties for button version
+  // iOS requires the button element instead of an anchor tag.
+  // If you want the anchor version, it requires `href="#"`.
+  button& {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+  }
+}
+
+
+// Size modifier classes
+// --------------------------------------------------
+
+.dismiss-large {
+  font-size: @font-size-h1;
+}

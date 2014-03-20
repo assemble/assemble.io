@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> head }}
+  </head>
+  <body class="{{slug}}{{#is slug 'helpers'}} book{{/is}}">
+    <!-- Docs master nav -->
+    {{> nav-main }}
+
+    <!-- Header -->
+    {{#is slug "index"}}
+      {{> jumbotron jumbotron }}
+      {{> teaser teaser }}
+    {{/is}}
+
+    <!-- Content -->
+    <div class="container bs-docs-container">
+      {{> body }}
+    </div>
+
+    <!-- Footer -->
+    {{> footer }}
+
+
+    <!-- JavaScript and analytics only. -->
+    {{> javascripts }}
+  </body>
+</html>

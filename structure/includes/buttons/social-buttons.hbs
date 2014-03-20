@@ -1,0 +1,20 @@
+<div class="bs-social">
+  {{#if production}}
+  <ul class="bs-social-buttons">
+    <li>
+      {{ghbtn size="small" user="assemble" repo="assemble"}}
+    </li>
+    <li>
+      {{ghbtn size="small" user="assemble" repo="assemble" type="fork"}}
+    </li>
+    <li class="follow-btn">
+      {{follow user="assemblejs"}}
+    </li>
+    <li class="tweet-btn">
+      {{tweet url="http://assemble.io" via="assemblejs" related="jonschlinkert:Assemble core team."}}
+    </li>
+  </ul>
+  {{^}}
+    Placeholder for social buttons.
+  {{/if}}
+</div>

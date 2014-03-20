@@ -1,0 +1,15 @@
+#===========================================
+# PAGINATION METADATA
+#===========================================
+
+prev:
+  prev:     true
+  text:     Previous Section
+  modifier: paginate-prev stacked
+  icon:     glyphicon-chevron-up
+
+next:
+  next:     true
+  text:     Next Section
+  modifier: paginate-next
+  icon:     glyphicon-chevron-down

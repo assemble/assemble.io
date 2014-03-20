@@ -1,226 +1,373 @@
 /*
- * Documentation for Assemble: the static site generator and 
- * component builder for Node.js, Grunt.js and Yeoman.
- * https://github.com/assemble/assemble-docs/
+ * assemble-docs <https://github.com/assemble/assemble-docs>
  *
- * Copyright (c) 2013, Upstage
+ * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
  * Licensed under the MIT license.
  */
 
-'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
-  // Mix local utilities into grunt instance.
-  grunt.util._.mixin(require('./src/extensions/mixins'));
+  'use strict';
 
-  // Report elapsed execution time of grunt tasks.
+  // Force unix-style newlines
+  grunt.util.linefeed = '\n';
+
+  // Initialize mixins
+  grunt.util._.mixin(require('./data/utils/mixins'));
+
+  // Report the execution time of each task.
   require('time-grunt')(grunt);
 
-  var prettify = function(src) {
-    return require('js-prettify').html(src, {
-      indent_size: 2,
-      indent_inner_html: true
-    }).replace(/(\r\n|\n\r|\n|\r){2,}/g, '\n');
-  };
 
-  // Project configuration.
+  /**
+   * Initialize Grunt configuration
+   */
+
   grunt.initConfig({
 
     /**
-     * Metadata for templates
+     * Metadata
      */
-    pkg      : grunt.file.readJSON('package.json'),
-    bootstrap: grunt.file.readYAML('src/less/bootstrap.yml'),
-    ghpages  : grunt.file.readYAML('src/less/ghpages.yml'),
-    site     : grunt.file.readYAML('src/data/site.yml'),
-    helpers  : grunt.file.readJSON('templates/pages/helpers.json'), // config for "helpers" docs
 
-    /**
-     * Process LESS files
-     */
-    less: {
-      options: {
-        imports: {reference: '<%= ghpages.globals %>'}
-      },
-      main: {
-        src: ['<%= bootstrap.bundle.docs %>', '<%= ghpages.bundle.docs %>'],
-        dest: '<%= site.destination %>/assets/css/assemble.css'
-      },
-      gist: {
-        src: ['src/less/docs/gist-overrides.less'],
-        dest: '<%= site.destination %>/assets/css/gist.css'
-      },
-      markdown: {
-        src: ['src/less/components/markdown.less'],
-        dest: '<%= site.destination %>/assets/css/markdown.css'
-      }
+    site   : grunt.file.readYAML('.assemblerc.yml'),
+    pkg    : grunt.file.readJSON('package.json'),
+    core   : grunt.file.readJSON('data/core.json'),
+    vendor : grunt.file.readJSON('.bowerrc').directory,
+
+    metadata: {
+      year: '<%= grunt.template.today("yyyy") %>',
+      banner: [
+        '/*!',
+        ' * <%= site.brand %> v<%= core.version %> <<%= core.homepage %>>',
+        ' * Copyright 2013-<%= metadata.year %>, <%= site.authors %>.',
+        ' * Source code licensed under the <%= site.license.source.type %> license.',
+        ' * Docs licensed under <%= site.license.docs.type %>.',
+        ' */\n\n'
+      ].join('\n')
     },
 
-    /**
-     * Generate up-to-date list of Assemble's GitHub repos
-     */
-    github: {
-      repos: {
-        options: {filters: {type: 'public'}},
-        src: '/orgs/assemble/repos?page=1&per_page=100',
-        dest: 'src/data/repos.json'
-      }
+    // Alias for Bootstrap's javascripts
+    bootstrap: {
+      js: '<%= vendor %>/bootstrap/dist/js',
     },
 
+
     /**
-     * Generate the site.
+     * HTML tasks
      */
+
+    // Build HTML from templates and data
     assemble: {
       options: {
-        today: '<%= grunt.template.today() %>',
-        production: true,
         flatten: true,
-        // plugins: ['assemble-contrib-contextual'],
-        contextual: {
-          dest: './temp'
+        production: false,
+        assets: '<%= site.public %>',
+        css: '<%= less.site.dest %>',
+
+        // Metadata
+        pkg: '<%= pkg %>',
+        site: '<%= site %>',
+        core: '<%= core %>',
+        data: ['<%= site.data %>/*.{json,yml}'],
+
+        // Templates
+        partials: ['<%= site.includes %>/**/*.hbs',  'structure/snippets/*.hbs'],
+        layoutdir: '<%= site.layouts %>',
+        layoutext: '<%= site.layoutext %>',
+        layout: '<%= site.layout %>',
+
+        // Extensions
+        plugins: '<%= site.plugins.load %>',
+        helpers: '<%= site.helpers.load %>',
+
+        // 'anchors' plugin > Add anchors markup
+        // to headings in rendered HTML
+        anchors: {
+          template: '<%= site.templates %>/snippets/anchor.js'
         },
-        data: ['src/data/*.{json,yml}', 'package.json'],
-        assets: '<%= site.destination %>/assets',
-        helpers: ['src/extensions/*.js', 'helper-prettify'],
-        partials: ['templates/includes/**/*.{hbs,md}'],
-        layoutdir: 'templates/layouts',
-        layout: 'default.hbs',
-        marked: {sanitize: false },
-        // postprocess: prettify,
-        prettify: {
-          indent: 2,
-          condense: true,
-          padcomments: true
+
+        // 'download' plugin > Download docs for
+        // helpers from GitHub
+        download: {
+          repo: 'assemble/handlebars-helpers',
+          dest: 'tmp/',
+          files: ['docs/helpers.zip']
+        },
+
+        // 'decompress' plugin > Decompress zip
+        // file for helper docs
+        decompress: {
+          files: ['tmp/helpers.zip'],
+          dest: 'tmp/helpers/'
+        },
+
+        // HTML 'validation' plugin
+        validation: {
+          report: 'structure/validation-report.json',
+          status: 'structure/validation-status.json'
+        },
+
+        // marked-extras options
+        marked: {
+          process: true,
+          heading: '<%= site.templates %>/snippets/heading.tmpl',
+          prefix: 'language-'
         }
       },
 
-      /**
-       * Generate markdown navigation links 
-       */
-      links: {
+      // `site` target
+      site: {
         options: {
-          postprocess: false,
-          flatten: true,
-          ext: '.hbs'
+          permalinks: {structure: ':basename/index.html'}
         },
-        src: 'templates/includes/snippets/links-template.md.hbs',
-        dest: 'templates/includes/snippets/generated-links.md.hbs'
-      },
+        files: {'<%= site.dest %>/': ['<%= site.pages %>/*.hbs']}
+      }
+    },
 
-      /**
-       * Build the main docs.
-       */
-      docs: {
+    // Lint HTML
+    validation: {
+      options: {
+        reset: true,
+        failHard: true,
+        charset: 'utf-8',
+        doctype: 'HTML5',
+        path: 'structure/validation-status.json',
+        reportpath: 'structure/validation-report.json',
+        relaxerror: '<%= site.html.errorcodes %>'
+      },
+      files: {
+        src: '<%= site.dest %>/**/*.html'
+      }
+    },
+
+    // Prettify HTML
+    prettify: {
+      options: {
+        indent_scripts: 'keep'
+      },
+      site: {
         files: [
-          {
-            expand: true,
-            cwd: 'templates/pages',
-            src: ['*.hbs'],
-            dest: '<%= site.destination %>/'
-          },
-          {
-            expand: true,
-            cwd: 'templates/pages/docs',
-            src: ['*.hbs'],
-            dest: '<%= site.destination %>/docs/',
-            ext: '.html'
-          },
-          {
-            expand: true,
-            cwd: 'templates/pages/contributing',
-            src: ['*.hbs'],
-            dest: '<%= site.destination %>/contributing/',
-            ext: '.html'
-          }
-        ]
-      },
-
-      /**
-       * "Blog" section.
-       */
-      blog: {
-        options: {layout: 'blog.hbs'},
-        files: {
-          '<%= site.destination %>/blog/': ['templates/pages/blog/*.hbs']
-        }
-      },
-
-      /**
-       * "Helpers" section. 
-       * Uses: templates/pages/helpers.json
-       */
-      helpers: {
-        options: {
-          ext: '.html',
-          flatten: true,
-          engine: 'handlebars',
-          pages: '<%= helpers.pages %>'
-        },
-        src: ['templates/pages/helpers/index.hbs'],
-        dest: '<%= site.destination %>/helpers/'
-      },
-
-      /**
-       * "Plugins" section. 
-       * Uses: templates/pages/helpers.json
-       */
-      plugins: {
-        options: {
-          ext: '.html',
-          flatten: true,
-          engine: 'handlebars'
-        },
-        src: ['templates/pages/plugins/index.hbs'],
-        dest: '<%= site.destination %>/plugins/'
-      },
-
-      /**
-       * "Boilerplates" section.
-       */
-      boilerplates: {
-        files: [
-          {
-            expand: true,
-            cwd: 'templates/pages/boilerplates/',
-            src: ['*.hbs'],
-            dest: '<%= site.destination %>/boilerplates/',
-            ext: '.html'
-          }
+          {expand: true, cwd: '<%= site.dest %>', src: '**/*.html', dest: '<%= site.dest %>/', ext: '.html'}
         ]
       }
     },
+
+
+    /**
+     * CSS tasks
+     */
+
+    // Compile Less to CSS
+    less: {
+      options: {
+        process: true,
+        paths: ['styles', 'styles/bootstrap', 'styles/components']
+      },
+      site: {
+        src: ['styles/index.less'],
+        dest: '<%= assemble.options.assets %>/css/index.css'
+      }
+    },
+
+    // Lint CSS
+    csslint: {
+      strict: {
+        options: {
+          csslintrc: 'styles/.csslintrc'
+        },
+        src: ['<%= less.site.dest %>']
+      }
+    },
+
+    // Prettify CSS
+    csscomb: {
+      options: {
+        config: 'styles/.csscomb.json'
+      },
+      site: {
+        src: ['<%= less.site.dest %>'],
+        dest: '<%= less.site.dest %>'
+      }
+    },
+
+    // Remove unused CSS from output.
+    uncss: {
+      options: {
+        ignore: ['#webfonts', '.active']
+      },
+      site: {
+        src: ['<%= site.dest %>/*.html'],
+        dest: '<%= less.site.dest %>'
+      }
+    },
+
+
+    /**
+     * JavaScript tasks
+     */
+
+    // Lint JavaScripts
+    jshint: {
+      options: {
+        jshintrc: '<%= site.scripts %>/.jshintrc'
+      },
+      all: [
+        'Gruntfile.js',
+        '<%= site.helpers.path %>/*.js',
+        // '<%= site.plugins.path %>/*.js',
+        '<%= site.scripts %>/*.js',
+        '<%= site.utils %>/*.js',
+      ]
+    },
+
+    // Minify JavaScripts
+    uglify: {
+      options: {banner: '<%= metadata.banner %>'},
+      site: {
+        src: ['<%= site.scripts %>/**/*.js'],
+        dest: '<%= site.public %>/js/docs.min.js'
+      }
+    },
+
+
+    /**
+     * Setup tasks
+     */
 
     copy: {
-      docs: {
+      // Copy Bootstrap's js to local scripts
+      vendor: {
+        src: '<%= bootstrap.js %>/bootstrap.js',
+        dest: '<%= site.scripts %>/vendor/bootstrap.js'
+      },
+      // Copy local `assets` to `public` directory
+      assets: {
         files: [
-          {expand: true, cwd: 'contributing', src: ['**'], dest: '<%= site.destination %>/contributing'},
-          {expand: true, cwd: 'docs', src: ['**'], dest: '<%= site.destination %>/docs'},
-          {expand: true, cwd: './', src: ['*.html'], dest: '<%= site.destination %>/'}
+          {expand: true, cwd: '<%= site.assets %>', src: '**', dest: '<%= site.public %>/'}
         ]
       }
     },
 
-    // Before generating new files, clean out files from previous build.
+    // Clean files from previous build
     clean: {
-      ghpages: ['<%= site.destination %>/**/*.html']
+      example: ['<%= site.dest %>/**/*.{html,css,js}']
+    },
+
+    // Pull down a list of repos from the Assemble's repos from
+    // GitHub's API, so we can use the resulting JSON in templates.
+    repos: {
+      namespaced: {
+        options: {username: 'assemble'},
+        files: {
+          '<%= site.data %>/repos.json': ['repos?page=1&per_page=100']
+        }
+      }
+    },
+
+
+    /**
+     * "Live" tasks
+     */
+
+    // Run a Connect server
+    connect: {
+      options: {
+        port: 3000,
+        livereload: 35729,
+        hostname: 'localhost'
+      },
+      livereload: {
+        options: {
+          open: true,
+          base: ['<%= site.dest %>']
+        }
+      }
+    },
+
+    // Watch certain files, rebuild when changes are saved.
+    watch: {
+      options: {livereload: true},
+      design: {
+        files: [
+          '<%= site.data %>/**/*.{yml,json}',
+          '<%= site.content %>/**/*.md',
+          '<%= site.styles %>/**/*.less',
+          '<%= site.templates %>/**/*.hbs',
+        ],
+        tasks: ['clean', 'less', 'assemble']
+      }
     }
   });
 
-  // Set the base path for Bootstrap LESS library.
-  grunt.config.set('vendor.base', 'vendor');
+  /**
+   * Load Plugins
+   */
 
-  // Load npm and local plugins.
+  // Load npm plugins to provide necessary tasks.
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-html-validation');
+  grunt.loadNpmTasks('grunt-prettify');
+  grunt.loadNpmTasks('grunt-repos');
+  grunt.loadNpmTasks('grunt-sync-pkg');
+  grunt.loadNpmTasks('grunt-uncss');
 
-  // Default task to be run.
+
+  /**
+   * Task types
+   */
+
+  // First things first.
+  grunt.registerTask('setup', [
+    'clean',
+    'copy',
+  ]);
+
+  // Compile CSS, HTML, etc.
+  grunt.registerTask('compile', [
+    'less',
+    'assemble'
+  ]);
+
+  // Lint and runt tests.
+  grunt.registerTask('lint', [
+    'jshint',
+    'validation',
+    'csslint'
+  ]);
+
+  // Prep for deployment.
+  grunt.registerTask('prod', [
+    'repos',
+    'uglify'
+  ]);
+
+
+  /**
+   * Tasks to run
+   */
+
+  // Design-oriented tasks.
+  grunt.registerTask('design', [
+    'default',
+    'connect',
+    'watch:design'
+  ]);
+
+  // Default tasks to run with the `grunt` command.
   grunt.registerTask('default', [
-    'clean:ghpages',
-    'assemble:helpers',
-    'assemble',
-    'newer:less',
-    'sync'
+    'setup',
+    'compile',
+    'prettify',
+    'uglify',
+    'lint',
   ]);
 };

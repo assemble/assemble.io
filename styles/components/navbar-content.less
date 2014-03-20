@@ -1,0 +1,231 @@
+//
+// Content Navbar
+// ---------------------------------------------
+
+.navbar-content {
+  &:extend(.clearfix all, .navbar-default all);
+
+  margin: 0 -(@docs-gutter);
+  min-height: 60px;
+
+  background-color: #f7f8f8;
+  border-color: #e7e7e7;
+  box-shadow: 0 -1px @gray-lighter;
+
+  // Remove bottom-left radius on dropdown menus
+  // inside the content navbar
+  .dropdown-menu {
+    border-bottom-left-radius: 0;
+  }
+
+  .navbar-nav {
+    float: none;
+    margin: 0;
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      // Override Bootstrap's responsive styling
+      .open .dropdown-menu {
+        position: absolute;
+        float: left;
+        width: auto;
+        min-width: @dropdown-inverse-min-width;
+        background-color: @dropdown-inverse-bg;
+        border: 1px solid @dropdown-inverse-border;
+        .box-shadow(0 6px 12px rgba(0,0,0,.175));
+        background-clip: padding-box;
+
+        > li > a {
+          &:hover, &:focus {
+            text-shadow: none;
+            color: @dropdown-inverse-link-hover-color;
+            background-color: @dropdown-inverse-link-hover-bg;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-nav > li > a {
+    padding: 20px 15px;
+  }
+  .nav > li {
+    display: inline-block;
+  }
+
+  // Ensure that toggle always shows,
+  // and remove border to make it blend in.
+  .dropdown-toggle .navbar-toggle {
+    float: none;
+    display: inline-block;
+    background-image: none;
+
+    top: 3px;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin: 0;
+
+    border: none;
+
+    .icon-bar {
+      background-color: @gray-dark;
+    }
+
+    &:hover, &:focus, &:active {
+      background-color: transparent;
+      &,
+      &.open {
+        .icon-bar {
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
+
+// Affix
+.navbar-content.affix {
+  position: static;
+}
+
+
+// Forms
+// --------------------------------------------
+
+
+// Increase specificity to override Bootstrap styles.
+.navbar-content {
+  .navbar-form {
+    margin: 13px 0 0;
+
+    &.navbar-right:last-child {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    // Make the search field span most of the width of the content area
+    .form-group {
+      &, .form-control {
+        width: 100%;
+      }
+    }
+  }
+
+
+  // Search form inside dismissable navbar
+  // --------------------------------------------
+  // Expand the right padding and account for the
+  // close button's positioning.
+
+  .navbar-form {
+    position: relative;
+    padding-right: 0;
+  }
+
+  // Adjust vertical and horizontal possitioning of dismiss icon
+  .dismiss-large {
+    margin-left: -5px;
+    line-height: 1.6; // vertically center the icon
+  }
+
+
+  @media (max-width: @screen-sm-min) {
+    // Make the navbar background white on small screens.
+    // It blends with the body bg better.
+    background-color: #fff;
+
+    .navbar-form {
+      padding: 0;
+      border: 0;
+    }
+
+    // Adjust columns in navbar, to accommodate
+    // dropdown and dismiss icon in side columns
+    .col-xs-10 {
+      width: 76%;
+    }
+    .col-xs-1 {
+      width: 12%;
+    }
+
+    .dismiss-large {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: @screen-sm-min) {
+    .col-xs-10 {
+      width: 68%;
+    }
+    .col-xs-1 {
+      width: 16%;
+    }
+  }
+
+}
+
+
+
+// Show and affix the side nav when space allows it
+@media (min-width: 992px) {
+  .navbar-content .nav > .active > ul {
+    display: block;
+  }
+
+  .navbar-content.affix,
+  .navbar-content.affix-bottom {
+    width: 100%;
+  }
+  .navbar-content.affix {
+    position: fixed; // Undo the static from mobile first approach
+    top: 80px;
+  }
+  .navbar-content.affix-bottom {
+    position: absolute; // Undo the static from mobile first approach
+  }
+  .navbar-content.affix-bottom .sidenav,
+  .navbar-content.affix .sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  // Widen the fixed navbar-content again
+  .navbar-content.affix-bottom,
+  .navbar-content.affix {
+    width: 100%;
+  }
+}
+
+
+
+//
+// Themes for content navbar
+// ---------------------------------------------
+
+.navbar-content-light {
+  background-color: @book-theme-bg-light-blue;
+
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    color: @gray;
+    background-color: #cceaf7;
+  }
+}
+
+.navbar-content-slate {
+  background-color: #585858;
+
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    color: @gray;
+    background-color: #95cee7;
+  }
+  .navbar-brand {
+    color: #888;
+  }
+  .navbar-nav > li > a {
+    color: @gray-light;
+  }
+}

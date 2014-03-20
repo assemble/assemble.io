@@ -1,0 +1,32 @@
+{{#each navigation}}
+  <ul class="{{modifier}}">
+  {{#each items}}
+    {{#if enabled}}
+      <li {{isActive url}}>
+        <a href="{{resolve url @context}}" title="{{text}}">{{text}}</a>
+      </li>
+    {{/if}}
+    {{#if external}}
+      <li> <a href="{{url}}">{{text}}</a> </li>
+    {{/if}}
+    {{#if dropdown}}
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{text}} <b class="caret"></b></a>
+        <ul class="{{modifier}}">
+        {{#each items}}
+          {{#if enabled}}
+            <li> <a href="{{resolve url @context}}" title="{{text}}">{{text}}</a> </li>
+          {{/if}}
+          {{#if divider}}
+            <li class="divider"></li>
+          {{/if}}
+        {{/each}}
+        </ul>
+      </li>
+    {{/if}}
+    {{#if divider}}
+      <li class="divider"></li>
+    {{/if}}
+  {{/each}}
+  </ul>
+{{/each}}
