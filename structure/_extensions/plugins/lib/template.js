@@ -1,5 +1,5 @@
 /**
- * Template Plugin
+ * Anchors template
  * Copyright (c) 2014 Jon Schlinkert
  * Licensed under the MIT License (MIT).
  */
