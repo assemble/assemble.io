@@ -72,7 +72,7 @@ module.exports = function(grunt) {
         data: ['<%= site.data %>/*.{json,yml}'],
 
         // Templates
-        partials: ['<%= site.includes %>/**/*.hbs',  'structure/snippets/*.hbs'],
+        partials: ['<%= site.includes %>/{,*/}*.hbs',  'structure/snippets/*.hbs'],
         layoutdir: '<%= site.layouts %>',
         layoutext: '<%= site.layoutext %>',
         layout: '<%= site.layout %>',
@@ -137,7 +137,7 @@ module.exports = function(grunt) {
         relaxerror: '<%= site.html.errorcodes %>'
       },
       files: {
-        src: '<%= site.dest %>/**/*.html'
+        src: '<%= site.dest %>/{,*/}*.html'
       }
     },
 
@@ -148,7 +148,7 @@ module.exports = function(grunt) {
       },
       site: {
         files: [
-          {expand: true, cwd: '<%= site.dest %>', src: '**/*.html', dest: '<%= site.dest %>/', ext: '.html'}
+          {expand: true, cwd: '<%= site.dest %>', src: '{,*/}*.html', dest: '<%= site.dest %>/', ext: '.html'}
         ]
       }
     },
@@ -165,7 +165,7 @@ module.exports = function(grunt) {
         paths: ['styles', 'styles/bootstrap', 'styles/components']
       },
       site: {
-        src: ['styles/index.less'],
+        src: ['<%= site.styles %>/index.less'],
         dest: '<%= assemble.options.assets %>/css/index.css'
       }
     },
@@ -174,7 +174,7 @@ module.exports = function(grunt) {
     csslint: {
       strict: {
         options: {
-          csslintrc: 'styles/.csslintrc'
+          csslintrc: '<%= site.styles %>/.csslintrc'
         },
         src: ['<%= less.site.dest %>']
       }
@@ -225,7 +225,7 @@ module.exports = function(grunt) {
     uglify: {
       options: {banner: '<%= metadata.banner %>'},
       site: {
-        src: ['<%= site.scripts %>/**/*.js'],
+        src: ['<%= site.scripts %>/{,*/}*.js'],
         dest: '<%= site.public %>/js/docs.min.js'
       }
     },
@@ -251,7 +251,7 @@ module.exports = function(grunt) {
 
     // Clean files from previous build
     clean: {
-      example: ['<%= site.dest %>/**/*.{html,css,js}']
+      example: ['<%= site.dest %>/{,*/}*.{html,css,js}']
     },
 
     // Pull down a list of repos from the Assemble's repos from
@@ -290,10 +290,10 @@ module.exports = function(grunt) {
       options: {livereload: true},
       design: {
         files: [
-          '<%= site.data %>/**/*.{yml,json}',
-          '<%= site.content %>/**/*.md',
-          '<%= site.styles %>/**/*.less',
-          '<%= site.templates %>/**/*.hbs',
+          '<%= site.data %>/{,*/}*.{yml,json}',
+          '<%= site.content %>/{,*/}*.md',
+          '<%= site.styles %>/{,*/}*.less',
+          '<%= site.templates %>/{,*/}*.hbs',
         ],
         tasks: ['clean', 'less', 'assemble']
       }
@@ -340,7 +340,7 @@ module.exports = function(grunt) {
   // Lint and runt tests.
   grunt.registerTask('lint', [
     'jshint',
-    'validation',
+    // 'validation',
     'csslint'
   ]);
 

@@ -5,7 +5,6 @@
  */
 'use strict';
 
-var file = require('fs-utils');
 var matter = require('gray-matter');
 var _ = require('lodash');
 

@@ -1,6 +1,6 @@
 {
-  "name": "assemble-docs",
-  "version": "0.1.0",
+  "name": "assemble.io",
+  "version": "0.3.0",
   "description": "Documentation for Assemble.",
   "homepage": "http://assemble.io",
   "author": {
@@ -20,7 +20,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/assemble-docs/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/assemble.io/blob/master/LICENSE-MIT"
     },
     {
       "type": "Creative Commons Attribution 3.0 Unported License",
@@ -29,10 +29,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/assemble/assemble-docs"
+    "url": "https://github.com/assemble/assemble.io"
   },
   "bugs": {
-    "url": "https://github.com/assemble/assemble-docs/issues"
+    "url": "https://github.com/assemble/assemble.io/issues"
   },
   "main": "index.js",
   "devDependencies": {
@@ -55,7 +55,7 @@
     "grunt-contrib-csslint": "~0.2.0",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-watch": "~0.6.1",
     "grunt-csscomb": "~2.0.1",
     "grunt-html-validation": "~0.1.13",
     "grunt-prettify": "~0.3.4",
@@ -84,7 +84,7 @@
     "time-grunt": "~0.2.10",
     "underscore.string": "~2.3.3",
     "script-tags": "0.0.3",
-    "verbalise": "0.0.1",
+    "verbalize": "~0.0.1",
     "w3cjs": "~0.1.24"
   },
   "keywords": [
