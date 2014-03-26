@@ -17,6 +17,7 @@ var path = require('path');
 var template = require('template');
 var chalk = require('chalk');
 var cheerio = require('cheerio');
+var _ = require('lodash');
 
 var warn = chalk.yellow;
 
@@ -31,17 +32,8 @@ module.exports = function (params, callback) {
   // load current page content
   var $ = cheerio.load(params.content);
 
-  var opts = params.assemble.options.anchors || {};
-
-  // Lo-Dash template to use for anchors
-  var anchorTemplate = require('./lib/template.js');
-
-  // If an anchor template is specified in the options, use that instead.
-  if(opts && opts.template) {
-    opts.template = path.resolve(opts.template);
-    anchorTemplate = require(opts.template);
-  }
-
+  var anchorOpts = params.assemble.options.anchors || {};
+  var navOpts = params.assemble.options.navigation || {};
 
   // get all the anchor tags from inside the headers
   var headings = $('h1[id],h2[id]');
@@ -78,20 +70,7 @@ module.exports = function (params, callback) {
     var depth = level <= 1 ? 1 : 2;
     var location = findLocation(navigation, depth);
     location.push(node);
-
-    // Anchor template
-    var anchor = template(anchorTemplate, {id: link});
-    $(this).append(anchor);
-
-    // Adjust heading
-    $(this).removeAttr('id').addClass('docs-heading');
-
-    if($(this).prev().children().hasClass('source-link')) {
-      var sourceLink = $(this).prev().children('.source-link');
-      $(this).append(sourceLink);
-    }
   });
-
 
   /**
    * Build the HTML for side navigation.
@@ -122,7 +101,33 @@ module.exports = function (params, callback) {
   //   throw new Error("Stopping, duplicates found.");
   // }
 
-  $('#navigation').append(buildHTML(navigation, true));
+  $(navOpts.id || '#navigation').append(buildHTML(navigation, true));
+
+  //
+  var anchorTemplate = require('./lib/template.js');
+
+  // If an anchor template is specified in the options, use that instead.
+  if(anchorOpts && anchorOpts.template) {
+    anchorOpts.template = path.resolve(anchorOpts.template);
+    anchorTemplate = require(anchorOpts.template);
+  }
+
+  headings.map(function (i, e) {
+    var $e = $(e);
+    var id = $e.attr('id');
+
+    // Anchor template
+    var anchor = template(anchorTemplate, {id: id});
+    $(this).append(anchor);
+
+    // Adjust heading
+    $(this).removeAttr('id').addClass('docs-heading');
+
+    if($(this).prev().children().hasClass('source-link')) {
+      var sourceLink = $(this).prev().children('.source-link');
+      $(this).append(sourceLink);
+    }
+  });
 
   params.content = $.html();
   callback();
