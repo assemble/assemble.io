@@ -64,6 +64,7 @@ plugins:
     # - assemble-contrib-download
     # - assemble-contrib-decompress
     # - assemble-contrib-wordcount
+    - assemble-contrib-navigation
     - assemble-contrib-permalinks
 
     # Local plugins

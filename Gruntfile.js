@@ -81,12 +81,6 @@ module.exports = function(grunt) {
         plugins: '<%= site.plugins.load %>',
         helpers: '<%= site.helpers.load %>',
 
-        // 'anchors' plugin > Add anchors markup
-        // to headings in rendered HTML
-        anchors: {
-          template: '<%= site.templates %>/snippets/anchor.js'
-        },
-
         // 'download' plugin > Download docs for
         // helpers from GitHub
         download: {
