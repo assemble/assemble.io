@@ -130,6 +130,7 @@
 * [\{{truncate}}](#truncate)
 * [\{{center}}](#center)
 * [\{{formatPhoneNumber}}](#formatphonenumber)
+* [\{{plusify}}](#plusify)
 
 ### [URL](#url)
 * [\{{url_resolve}}](#url_resolve)
