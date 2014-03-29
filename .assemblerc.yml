@@ -13,7 +13,7 @@ public:            <%= site.dest %>/public
 
 # Data
 data:              data
-utils:             data/utils
+utils:             data/_utils
 
 # Assets > fonts, icons, images etc.
 assets:            assets
@@ -92,7 +92,7 @@ url:
 
   # Repo
   homepage:         <%= pkg.homepage %>
-  repo:             <%= pkg.repository.url %>
+  repo:             <%= _.stripGit(pkg.repository.url) %>
   issues:           <%= pkg.bugs.url %>?state=open
 
   # Site

@@ -1,5 +1,5 @@
 /**
- * Handlebars Helpers: {{expand}}
+ * Handlebars Helpers
  * Copyright (c) 2014 Jon Schlinkert
  * Licensed under the MIT License (MIT).
  */

@@ -14,11 +14,10 @@ module.exports = function(grunt) {
   grunt.util.linefeed = '\n';
 
   // Initialize mixins
-  grunt.util._.mixin(require('./data/utils/mixins'));
+  grunt.util._.mixin(require('./data/_utils/mixins'));
 
   // Report the execution time of each task.
   require('time-grunt')(grunt);
-
 
   /**
    * Initialize Grunt configuration
@@ -30,16 +29,16 @@ module.exports = function(grunt) {
      * Metadata
      */
 
-    site   : grunt.file.readYAML('.assemblerc.yml'),
-    pkg    : grunt.file.readJSON('package.json'),
-    core   : grunt.file.readJSON('data/core.json'),
-    vendor : grunt.file.readJSON('.bowerrc').directory,
+    site     : grunt.file.readYAML('.assemblerc.yml'),
+    pkg      : grunt.file.readJSON('package.json'),
+    vendor   : grunt.file.readJSON('.bowerrc').directory,
+    _assemble: grunt.file.readJSON('data/_assemble.json'),
 
     metadata: {
       year: '<%= grunt.template.today("yyyy") %>',
       banner: [
         '/*!',
-        ' * <%= site.brand %> v<%= core.version %> <<%= core.homepage %>>',
+        ' * <%= site.brand %> v<%= _assemble.version %> <<%= _assemble.homepage %>>',
         ' * Copyright 2013-<%= metadata.year %>, <%= site.authors %>.',
         ' * Source code licensed under the <%= site.license.source.type %> license.',
         ' * Docs licensed under <%= site.license.docs.type %>.',
@@ -51,7 +50,6 @@ module.exports = function(grunt) {
     bootstrap: {
       js: '<%= vendor %>/bootstrap/dist/js',
     },
-
 
     /**
      * HTML tasks
@@ -68,8 +66,10 @@ module.exports = function(grunt) {
         // Metadata
         pkg: '<%= pkg %>',
         site: '<%= site %>',
-        core: '<%= core %>',
-        data: ['<%= site.data %>/*.{json,yml}'],
+        data: ['<%= site.data %>/{,*/}*.{json,yml}'],
+
+        // Metadata from github.com/assemble/assemble
+        _assemble: '<%= _assemble %>',
 
         // Templates
         partials: ['<%= site.includes %>/{,*/}*.hbs',  'structure/snippets/*.hbs'],

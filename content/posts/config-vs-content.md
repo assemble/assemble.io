@@ -3,7 +3,7 @@ title: Config vs. Content
 lead: Why does Assemble use two templates engines by default?
 ---
 
-I have been asked this question a couple of times. But recently one of our users created an issue to discuss the matter, and the answer I gave seemed to only create more questions. So I decided to dedicate a post to the matter.
+We've been asked this question a couple of times. But recently one of our users created an issue to discuss the matter, and the answer I gave seemed to only create more questions. So I decided to dedicate a post to the matter.
 
 
 YAML

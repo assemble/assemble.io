@@ -1,189 +1,21 @@
-## Getting Started
+---
+title: Overview
 
-> What is Assemble?
+area: docs
+section: getting started
 
-* About
-* History
+published: false
+---
 
-## Where does Assemble fit in the build chain?
+> Assemble is a dead-simple, "opinion aware", static site and component generator.
 
-> Assemble has Grunt and Gulp plugins, Yeoman generators, lots of boilerplates and many example projects from the core team and the community!
+I've been trying to come up with a better slogan for Assemble for a while now, but I just can't think of anything that really gets across how powerful and easy it is to use.
 
-* Generator
-* Build system
-  - Minifying => Assemble (via plugins and helpers)
-  - Linting
-  - Compiling, rendering => Assemble (core strength)
-* Server
+Here is a short list of **the slogans that didn't make the cut**:
 
-## Why use Assemble?
+### Assemble: A blogging framework for slackers
 
-* Unique strengths
-* Main focus
-* Easy to use
-* Configurable and extensible
-* Many boilerplates, examples, great community / ecosystem
-* Target users
-* Use cases
+That's right, _slackers_. Assemble can make you even more lazy, because it's just that easy to use. Although I love this fact (who doesn't like being lazy?), I'm not sure it tells the _entire_ story (btw, I tried "snackers" as well, but that makes absolutely no sense at all. So no).
 
-Related
-
-* Project showcase
-* Who uses Assemble?
-* Community
-
-## How do I get started?
-
-* Installation
-* 5-minute getting started video
-* Getting started guide
-* Getting started tutorials (topical)
-* Examples
-* Boilerplates
-* Generators: Initializing a new project
-* Running Assemble the first time
-
-Related
-
-* Migration tools (Harp, Metalsmith, Jekyll, Wintersmith, )
-* Live projects / examples
-
-## Overview: Core concepts
-
-* Configuration
-  - Defaults
-  - Global config
-* Templates
-  - template variables
-  - layouts
-  - pages
-  - includes
-  - template helpers
-* Data
-* Content
-
-### Related concepts
-
-> These things "dial in", but they aren't in the same room.
-
-* Logic
-* Styling
-
-## Usage
-
-* Configure
-* Extend
-* Build
-
-
-## Development
-
-### Extending Assemble
-
-* Helpers: manipulate templates, data and content
-* Mixins: manipulate config values
-* Plugins: extend Assemble's core functionality
-* Middleware
-
-### API
-
-* Utilities
-* Plugins
-* Middleware
-* Helpers
-
-## FAQ
-
-*
-
-## Features
-Gulp
-Grunt
-
-* **Configuration AND convention**. Assemble is highly extensible, so tinkerers and power users will find many ways to add new features or augment existing functionality. For those who prefer the ease-of-use of opinionated systems like Jekyll or Harp, [grab a boilerplate](#TODO) or run [one of our generators](#TODO) and let Yeoman do the work, so you can spend less time on figuring out how to organize the project.
-* Not only can Assemble, ahem... well, assemble, but also minification, concatenation, cache-busting and post-processing. Beyond that, Assemble's core functionality is infinitely extensible via plugins and middleware.
-
-## Conventions
-
-* Project organization
-
-## Project Goals
-
-* Near-term (current release): User experience
-* Optimization / speed
-
-## Contributing
-
-* Pull requests
-* Bugs / Issues
-* Feature requests
-
-## Community
-
-* GitHub
-* Google+
-* StackOvervlow
-* IRC
-
-
-## Handlebars Templates
-
-Assemble's default template engine, Handlebars.js, uses a syntax characterized by double-curly-braces, `{{foo}}`, affectionately reffered to as mustaches. The most basic handlebars template is a simple identifier (Handlebars.js calls these "Handlebars expressions"):
-
-```handlebars
-<h1>{{title}}</h1>
-```
-To use this
-
-
-Here are some of the highlights.
-
-* Basic Variables: `{{title}}`
-* Function expressions:
-* Block expressions:
-* Subexpressions:
-* Partials:
-* Helpers:
-
-
-
-
-# Assemble
-
->
-
-## Why Assemble?
-
-+ What is Assemble
-+ How can it help?
-
-***
-
-## Getting Started
-
-### Installation
-
-+ Get Assemble (download, install, clone)
-
-### Usage
-
-
-
-***
-
-## Blog
-
-***
-
-## Documentation
-
-+ Usage
-+ API
-
-***
-
-## FAQ
-
-***
-
-## Contributing
+If you haven't tried out assemble, give it a shot. Assemble can be used just for building Handlebars templates if that's all you need for a project.
+Assemble was created to be a site builder, so it can do orders of magnitude more than Grunt tasks for building templates

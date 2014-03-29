@@ -1,30 +1,43 @@
 # Button data
 
-- text: Info
+- text:     Info
   modifier: btn-info
-- text: Success
+
+- text:     Success
   modifier: btn-success
-- text: Warning
+
+- text:     Warning
   modifier: btn-warning
-- text: Default
+
+- text:     Default
   modifier: btn-default
-- text: Primary
+
+- text:     Primary
   modifier: btn-primary
-- text: Danger
+
+- text:     Danger
   modifier: btn-danger
-- text: Jade
+
+- text:     Jade
   modifier: btn-jade
-- text: Inverse
+
+- text:     Inverse
   modifier: btn-inverse
-- text: Dark
+
+- text:     Dark
   modifier: button-dark
-- text: Jade Alt
+
+- text:     Jade Alt
   modifier: button-jade-alt
-- text: Cool Gray
+
+- text:     Cool Gray
   modifier: button-coolgray
-- text: White
+
+- text:     White
   modifier: button-white
-- text: Outline
+
+- text:     Outline
   modifier: btn-outline
-- text: Outline Inverse
+
+- text:     Outline Inverse
   modifier: btn-outline-inverse

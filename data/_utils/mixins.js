@@ -3,22 +3,47 @@ var file = require('fs-utils');
 
 
 /**
- * Count the number of files.
+ * Count the number of files returned from the
+ * given glob pattern.
+ *
  */
 
 exports.fileCount = function(str) {
   return file.expand(str).length;
 };
 
+
 /**
  * Get the hostname of a URL
  * @param   {String}  str  The full URL to parse
  * @return  {String}       The hostname only
  * @example
- *   _.hostname('https://assemble.io') => assemble.io
+ *   <%= _.hostname('https://assemble.io') %>
+ *   => assemble.io
  */
+
 exports.hostname = function(str) {
   return url.parse(str).hostname;
+};
+
+
+/**
+ * Strip `.git` from the end of a URL, so the URL
+ * can be used and extended in config values.
+ *
+ * @param {String} str
+ * @return  {String}
+ * @example
+ *   <%= _.stripGit('https://github.com/assemble/assemble.io.git') %>
+ *   => https://github.com/assemble/assemble.io
+ */
+
+exports.stripGit = function(url) {
+  var git = /\.git$/;
+  if (git.test(url)) {
+    return url.replace(git, '');
+  }
+  return url;
 };
 
 

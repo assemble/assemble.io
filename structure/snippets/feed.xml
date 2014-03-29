@@ -6,12 +6,12 @@
   <title>{{site.title}}</title>
   <updated>{{datetime}}</updated>
   <id>{{site.homepage}}</id>
-  {{#core.authors}}
+  {{#_assemble.authors}}
   <author>
     <name>{{name}}</name>
     <email>{{email}}</email>
   </author>
-  {{/core.authors}}
+  {{/_assemble.authors}}
   <rights>Copyright (c) 2013-{{now '%Y'}}, Jon Schlinkert, Brian Woodward. All rights reserved.</rights>
 
   {{#feed src="templates/*.hbs"}}
