@@ -1,0 +1,92 @@
+//
+// Perfect Scrollbar styles
+// --------------------------------------------------------
+// https://github.com/noraesae/perfect-scrollbar
+
+
+.ps-container {
+
+  .ps-scrollbar-x-rail {
+    bottom: 3px; /* there must be 'bottom' for ps-scrollbar-x-rail */
+    height: 8px;
+  }
+  // y-rail
+  .ps-scrollbar-y-rail {
+    right: 3px; /* there must be 'right' for ps-scrollbar-y-rail */
+    width: 8px;
+  }
+
+  .ps-scrollbar-x-rail,
+  .ps-scrollbar-y-rail {
+    position: absolute; /* please don't change 'position' */
+    border-radius: 4px;
+    .opacity(0);
+    .transition(background-color .2s linear, opacity .2s linear);
+  }
+
+  &:hover,
+  &.hover {
+    .ps-scrollbar-x-rail,
+    .ps-scrollbar-y-rail {
+      .opacity(0.6);
+    }
+  }
+
+  .ps-scrollbar-x-rail,
+  .ps-scrollbar-y-rail {
+    &:hover,
+    &.hover {
+      background-color: #eee;
+      .opacity(0.9);
+      .ps-scrollbar-x {
+        background-color: #999;
+      }
+    }
+  }
+
+  .ps-scrollbar-x-rail,
+  .ps-scrollbar-y-rail {
+    &.in-scrolling {
+      .opacity(0.9);
+    }
+  }
+
+  .ps-scrollbar-y {
+    bottom: 0; /* there must be 'bottom' for ps-scrollbar-x */
+    height: 8px;
+  }
+  .ps-scrollbar-y {
+    right: 0; /* there must be 'right' for ps-scrollbar-y */
+    width: 8px;
+  }
+  .ps-scrollbar-x,
+  .ps-scrollbar-y {
+    position: absolute; /* please don't change 'position' */
+    background-color: #aaa;
+    border-radius: 4px;
+    .transition(background-color .2s linear);
+  }
+}
+
+// ie
+.ps-container {
+  &.ie6 {
+    .ps-scrollbar-y ,
+    .ps-scrollbar-x {
+      font-size: 0; /* fixed scrollbar height in xp sp3 ie6 */
+    }
+  }
+
+  &.ie {
+    .ps-scrollbar-x,
+    .ps-scrollbar-y {
+      visibility: hidden;
+    }
+    &:hover .ps-scrollbar-x,
+    &:hover .ps-scrollbar-y,
+    &.hover .ps-scrollbar-x,
+    &.hover .ps-scrollbar-y {
+      visibility: visible;
+    }
+  }
+}
