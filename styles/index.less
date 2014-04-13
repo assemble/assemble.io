@@ -1,5 +1,5 @@
 //
-// Assemble Styles
+// Site styles
 // --------------------------------------------------
 
 // Core variables and mixins
@@ -10,7 +10,6 @@
 
 // Utilities
 @import "utilities/mixins.less";
-@import "utilities/stack.less";
 @import "utilities/highlight.less";
 @import "utilities/button-states.less";
 
@@ -18,8 +17,7 @@
 // Docs Components
 // ----------------------------------------
 
-@import "base.less";
-
+@import "themes/base.less";
 
 // Typography & Code
 @import "webfonts.less";
@@ -30,6 +28,7 @@
 @import "masthead.less";
 @import "teaser.less";
 @import "footer.less";
+@import "stack.less";
 
 // Navigation
 @import "main-nav.less";
@@ -44,19 +43,21 @@
 @import "callout.less";
 @import "team.less";
 
-// Links and buttons
-@import "anchors.less";
+// Buttons
 @import "dismiss.less";
 @import "btn.less";
 @import "btn-outline.less";
+
+// Links
+@import "anchors.less";
 @import "source-link.less";
 
 
 // Theme
 // ----------------------------------------
 
-@import "themes/book-code.less";
-@import "themes/book.less";
+@import "themes/base.less";
+@import "themes/@{theme}/index.less";
 
 
 // Vendor
@@ -65,7 +66,7 @@
 /*@import "vendor/perfect-scrollbar.less";*/
 
 
-// Utilities
+// Utilities (must be last!)
 // ----------------------------------------
 
 @import "utilities/utilities.less";

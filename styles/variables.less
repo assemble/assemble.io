@@ -31,12 +31,15 @@
 // ------------------------------------------------
 // Settings for some of the most global styles.
 
+// Background color for `<body>`.
 @body-bg:               #fff;
 @body-padding:          @navbar-height;
+// Global text color on `<body>`.
 @text-color:            @gray-dark;
 
 // Global textual link color.
 @link-color:            @brand-info;
+// Link hover color set via `darken()` function.
 @link-hover-color:      darken(@link-color, 15%);
 
 
@@ -128,8 +131,9 @@
 
 
 // Tables
-//
-// Customizes the `.table` component with basic values, each used across all table variations.
+// -------------------------------------------------
+// Customizes the `.table` component with basic values,
+// each used across all table variations.
 
 // Padding for `<th>`s and `<td>`s.
 @table-cell-padding:            8px;
@@ -149,8 +153,9 @@
 
 
 // Buttons
-//
-// For each of Bootstrap's buttons, define text, background and border color.
+// -------------------------------------------------
+// For each of Bootstrap's buttons, define text,
+// background and border color.
 
 @btn-font-weight:                normal;
 
@@ -218,7 +223,7 @@
 
 
 // Dropdowns
-//
+// -------------------------------------------------
 // Dropdown menu container and contents.
 
 // Background for the dropdown menu.
@@ -253,10 +258,10 @@
 
 
 // Z-index master list
-//
+// -------------------------------------------------
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
-//
+// -------------------------------------------------
 // Note: These variables are not generated into the Customizer.
 
 @zindex-navbar:            1000;
@@ -269,8 +274,9 @@
 
 
 // Media queries breakpoints
-//
-// Define the breakpoints at which your layout will change, adapting to different screen sizes.
+// -------------------------------------------------
+// Define the breakpoints at which your layout will
+// change, adapting to different screen sizes.
 
 // Extra small screen / phone
 // Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
@@ -303,7 +309,7 @@
 
 
 // Grid system
-//
+// -------------------------------------------------
 // Define your custom responsive grid.
 
 // Number of columns in the grid.
@@ -318,7 +324,7 @@
 
 
 // Container sizes
-//
+// -------------------------------------------------
 // Define the maximum width of `.container` for different screen sizes.
 
 // Small screen / tablet
@@ -401,7 +407,7 @@
 // Navs
 // -------------------------------------------------
 
-//=== Shared nav styles
+// Shared nav styles
 @nav-link-padding:                          10px 15px;
 @nav-link-hover-bg:                         @gray-lighter;
 
@@ -474,8 +480,9 @@
 
 
 // Form states and alerts
-//
-// Define colors for form feedback states and, by default, alerts.
+// -------------------------------------------------
+// Define colors for form feedback states and, by
+// default, alerts.
 
 @state-success-text:             #3c763d;
 @state-success-bg:               #dff0d8;
@@ -594,7 +601,7 @@
 
 
 // Alerts
-//
+// -------------------------------------------------
 // Define alert colors, border radius, and padding.
 
 @alert-padding:               15px;
