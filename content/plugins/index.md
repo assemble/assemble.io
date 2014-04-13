@@ -29,7 +29,7 @@ If you authored an Assemble plugin, please submit a pull request to add it to th
 * [sirlantis/assemble-image-resizer](https://github.com/sirlantis/assemble-image-resizer): Assemble plugin for resizing images found in your templates.
 * [adjohnson916/assemble-markdown-data](https://github.com/adjohnson916/assemble-markdown-data): An Assemble plugin for automatic parsing of markdown in data.
 * [adjohnson916/assemble-related-pages](https://github.com/adjohnson916/assemble-related-pages): An Assemble plugin for generating lists of related pages.
-
+* [albogdano/assemble-partial-data](https://github.com/albogdano/assemble-partial-data): An Assemble plugin for aggregating and grouping data from partials.
 ## Plugins we want
 
 Here are some plugins we'd like to see. ([let us know](https://github.com/assemble/assemble/issues/new) if you build one and want to make it a contrib plugin):
