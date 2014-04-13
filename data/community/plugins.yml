@@ -1,0 +1,18 @@
+# =============================================
+# Plugins
+# =============================================
+
+core:
+- name:        assemble-plugin-name
+  author:      @jonschlinkert
+  repo:        https://github.com/foo/bar
+  description: >
+    Foo, bar baz
+
+community:
+- name:        assemble-plugin-name
+  author:      @jonschlinkert
+  repo:        https://github.com/foo/bar
+  description: >
+    Foo, bar baz
+

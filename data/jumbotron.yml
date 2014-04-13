@@ -1,5 +1,5 @@
-heading: "build something"
-lead: "It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now."
+heading:    "build something"
+lead:       "It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now."
 btn:
   modifier: btn-inverse
-  text: "Download Assemble"
+  text:     "Download Assemble"

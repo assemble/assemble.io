@@ -1,11 +1,59 @@
-var url = require('url');
-var file = require('fs-utils');
+const url = require('url');
+const file = require('fs-utils');
+const origin = require('remote-origin-url');
+const branch = require('git-branch');
+const repoUrl = require('github-repo-url');
+const ghUsername = require('git-username');
+const ghRepoName = require('git-repo-name');
+
+
+/**
+ * Get the current branch for a local git repository
+ */
+
+exports.uppercase = function(str) {
+  return str.toUpperCase();
+};
+
+
+/**
+ * Get the current branch for a local git repository
+ */
+
+exports.origin = origin.url();
+
+
+/**
+ * Get the current branch for a local git repository
+ */
+
+exports.branch = branch;
+
+
+/**
+ * Get the remote origin url for a local git repository
+ */
+
+exports.repo_url = repoUrl;
+
+
+/**
+ * Get the username from the GitHub remote origin URL
+ */
+
+exports.username = ghUsername;
+
+
+/**
+ * Get the repo name from the GitHub remote origin URL
+ */
+
+exports.repo_name = ghRepoName;
 
 
 /**
  * Count the number of files returned from the
  * given glob pattern.
- *
  */
 
 exports.fileCount = function(str) {
@@ -45,6 +93,8 @@ exports.stripGit = function(url) {
   }
   return url;
 };
+
+
 
 
 /**

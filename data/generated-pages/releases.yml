@@ -1,0 +1,25 @@
+#===========================================
+# MIGRATIONS DOCS CONFIG
+#===========================================
+
+# The base path for release docs
+base:        content/news/releases
+
+
+# Published documenation
+published:
+  intro:
+    title:   Upgrading to v0.5
+    files:   <%= releases.base %>/v0.5.0/intro.md
+
+  helpers:
+    title:   Helpers
+    files:   <%= releases.base %>/v0.5.0/helpers.md
+
+  plugins:
+    title:   Plugins
+    files:   <%= releases.base %>/v0.5.0/plugins.md
+
+
+# Unpublished documenation
+unpublished:

@@ -1,16 +1,17 @@
-/**
- * package.json
+/*!
+ * Pull down the package.json for a project
+ * Customize `user`, `repo`, `path` and `dest`.
+ *
+ * Run `node pkg` to pull down the file.
  */
 
-// Node.js
 var path = require('path');
-
-// node_modules
-var grunt = require('grunt');
+var file = require('fs-utils');
 var _ = require('lodash');
 
-// Config
-var cwd = path.join.bind(null, __dirname, '../');
+var cwd = path.join.bind(null, process.cwd());
+var destination = cwd('data/_assemble.json');
+
 
 var githubApi = require('github');
 var github = new githubApi({
@@ -32,19 +33,19 @@ var getPackageFile = function (dest) {
       console.log('error: ' + err);
       callback(err, null);
     } else {
-      var b = new Buffer(resp.content, 'base64');
+      var buffer = new Buffer(resp.content, 'base64');
       var pkg = {
         name: resp.name,
-        text: b.toString()
+        contents: JSON.parse(buffer.toString())
       };
-      var contents = JSON.parse(pkg.text, 'utf-8');
-      grunt.log.ok('Saved:'.yellow, dest);
 
       // Extend package.json with custom properties
-      contents = _.extend(contents, require('./extend-pkg'));
-      grunt.file.write(dest, JSON.stringify(contents, null, 2));
+      _.extend(pkg.contents, require('./extend-pkg'));
+
+      file.writeJSONSync(dest, pkg.contents);
+      console.log('Saved:', dest);
     }
   });
 };
 
-getPackageFile(cwd('core.json'));
+getPackageFile(destination);

@@ -16,7 +16,7 @@ main:
 
   # left nav
   # =====================================
-  - modifier: nav navbar-nav
+  - modifier:   nav navbar-nav
     items:
 
 
@@ -29,9 +29,9 @@ main:
     # nav, as well as any content referencing that feature.
 
     # `Getting Started` link
-    - enabled: <%= features.getting_started %>
-      url:     getting-started.html
-      text:    Getting Started
+    - enabled:  <%= features.getting_started %>
+      url:      getting-started.html
+      text:     Getting Started
 
     # Dropdown Menu: `Docs` link
     - dropdown: true
@@ -41,31 +41,31 @@ main:
       # Dropdown items
       items:
       - enabled: <%= features.helpers %>
-        url:     helpers.html
-        text:    Helpers
+        url:    helpers.html
+        text:   Helpers
 
       - enabled: <%= features.plugins %>
-        url:     plugins.html
-        text:    Plugins
+        url:    plugins.html
+        text:   Plugins
 
       - enabled: <%= features.api %>
-        url:     api.html
-        text:    API
+        url:    api.html
+        text:   API
 
   # right nav
   # =====================================
-  - modifier: nav navbar-nav navbar-right
+  - modifier:   nav navbar-nav navbar-right
     items:
 
     # `Blog` link
-    - enabled: <%= features.blog %>
-      url:     blog.html
-      text:    Blog
+    - enabled:  <%= features.blog %>
+      url:      blog.html
+      text:     Blog
 
     # `About` link
-    - enabled: <%= features.about %>
-      url:     about.html
-      text:    About
+    - enabled:  <%= features.about %>
+      url:      about.html
+      text:     About
 
     # Dropdown Menu: `More` link
     - dropdown: true
@@ -75,40 +75,40 @@ main:
       # Dropdown items
       items:
       - enabled: <%= features.guides %>
-        url:     guides.html
-        text:    Guides
+        url:    guides.html
+        text:   Guides
 
       - enabled: <%= features.tutorials %>
-        url:     tutorials.html
-        text:    Tutorials
+        url:    tutorials.html
+        text:   Tutorials
 
       - enabled: <%= features.cheatsheets %>
-        url:     cheatsheets.html
-        text:    Cheatsheets
+        url:    cheatsheets.html
+        text:   Cheatsheets
 
       - enabled: <%= features.examples %>
-        url:     examples.html
-        text:    Examples
+        url:    examples.html
+        text:   Examples
 
       # divider
       - divider: true
 
       - enabled: true
-        url:     <%= site.repo %>
-        text:    Docs repo
+        url:    <%= site.repo %>
+        text:   Docs repo
 
       - enabled: true
-        url:     <%= site.issues %>
-        text:    Docs issues
+        url:    <%= site.issues %>
+        text:   Docs issues
 
       # divider
       - divider: true
 
       - enabled: true
-        url:     <%= assemble.repo %>
-        text:    Assemble repo
+        url:    <%= assemble.repo %>
+        text:   Assemble repo
 
       - enabled: true
-        url:     <%= assemble.issues %>
-        text:    Assemble issues
+        url:    <%= assemble.issues %>
+        text:   Assemble issues
 

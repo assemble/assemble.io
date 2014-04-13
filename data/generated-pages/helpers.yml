@@ -2,77 +2,82 @@
 # HELPERS DOCS CONFIG
 #===========================================
 
+# The base path for helpers docs
+base:           content/docs/extensions/helpers
+
+# Published documenation
 published:
   collections:
-    title: Collections
-    files: "content/helpers/collections/*.md"
+    title:      Collections
+    files:      <%= helpers.base %>/collections/*.md
 
   code:
-    title: Code
-    files: "content/helpers/code/*.md"
+    title:      Code
+    files:      <%= helpers.base %>/code/*.md
 
   comparison:
-    title: Comparison
-    files: "content/helpers/comparison/*.md"
+    title:      Comparison
+    files:      <%= helpers.base %>/comparison/*.md
 
   content:
-    title: Content
-    files: "content/helpers/content/*.md"
+    title:      Content
+    files:      <%= helpers.base %>/content/*.md
 
   data:
-    title: Data
-    files: "content/helpers/data/*.md"
+    title:      Data
+    files:      <%= helpers.base %>/data/*.md
 
   dates:
-    title: Dates
-    files: "content/helpers/dates/*.md"
+    title:      Dates
+    files:      <%= helpers.base %>/dates/*.md
 
   html:
-    title: HTML
-    files: "content/helpers/html/*.md"
+    title:      HTML
+    files:      <%= helpers.base %>/html/*.md
 
   inflections:
-    title: Inflections
-    files: "content/helpers/inflections/*.md"
+    title:      Inflections
+    files:      <%= helpers.base %>/inflections/*.md
 
   logging:
-    title: Logging
-    files: "content/helpers/logging/*.md"
+    title:      Logging
+    files:      <%= helpers.base %>/logging/*.md
 
   markdown:
-    title: Markdown
-    files: "content/helpers/markdown/*.md"
+    title:      Markdown
+    files:      <%= helpers.base %>/markdown/*.md
 
   math:
-    title: Math
-    files: "content/helpers/math/*.md"
+    title:      Math
+    files:      <%= helpers.base %>/math/*.md
 
   misc:
-    title: Misc
-    files: "content/helpers/misc/*.md"
+    title:      Misc
+    files:      <%= helpers.base %>/misc/*.md
 
   numbers:
-    title: Numbers
-    files: "content/helpers/numbers/*.md"
+    title:      Numbers
+    files:      <%= helpers.base %>/numbers/*.md
 
   path:
-    title: Path
-    files: "content/helpers/path/*.md"
+    title:      Path
+    files:      <%= helpers.base %>/path/*.md
 
   strings:
-    title: Strings
-    files: "content/helpers/strings/*.md"
+    title:      Strings
+    files:      <%= helpers.base %>/strings/*.md
 
   url:
-    title: URL
-    files: "content/helpers/url/*.md"
+    title:      URL
+    files:      <%= helpers.base %>/url/*.md
 
 
+# Unpublished documenation
 unpublished:
   readme:
-    title: Readme
-    files: "content/helpers/readme/*.md"
+    title:      Readme
+    files:      <%= helpers.base %>/readme/*.md
 
   special:
-    title: Special
-    files: "content/helpers/special/*.md"
+    title:      Special
+    files:      <%= helpers.base %>/special/*.md
