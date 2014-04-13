@@ -7,6 +7,10 @@
 
 var chalk = require('chalk');
 
+/**
+ * Logging helpers
+ */
+
 module.exports.register = function (Handlebars) {
 
   Handlebars.registerHelper("success", function(msg, context) {
@@ -20,6 +24,4 @@ module.exports.register = function (Handlebars) {
   Handlebars.registerHelper("fail", function(msg, context) {
     console.log(chalk.red(msg), context);
   });
-
-
 };

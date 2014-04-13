@@ -11,7 +11,7 @@ var path = require('path');
 module.exports.register = function (Handlebars) {
 
   /**
-   * JavaScript's replace function, exposed in a helper.
+   * JavaScript's replace function exposed in a helper.
    *
    * @param   {String}  str          The string to evaluate
    * @param   {RegExp}  pattern      The regex or string pattern to replace
@@ -25,6 +25,7 @@ module.exports.register = function (Handlebars) {
     return str.replace(new RegExp(pattern, flags), replacement);
   });
 
+
   /**
    * This helper is used in the `source-link` popovers to
    * rename, say `helper-foo` to `"{{foo}}"` or, if not a
@@ -34,15 +35,18 @@ module.exports.register = function (Handlebars) {
    * @return  {String}             The {{renamed}} string
    */
 
-  Handlebars.registerHelper("rename", function(basename) {
-    if(~basename.search('helper')) {
-      return '{{' + basename.split('-')[1] + '}}';
+  Handlebars.registerHelper("rename", function(name) {
+    if(/helper/.test(name)) {
+      return '{{' + name.split('-')[1] + '}}';
     }
-    return '"' + basename + '"';
+    return new Handlebars.SafeString('"' + name + '"');
   });
 
+
   /**
-   * Adds a message based on the file extension.
+   * Used in the source-link popovers to modify
+   * the message based on the file extension.
+   *
    * @param   {String}  filepath
    * @return  {String}
    */

@@ -8,6 +8,6 @@ module.exports.register = function (Handlebars) {
   'use strict';
 
   Handlebars.registerHelper("join", function(arr, sep) {
-    return arr.join(sep);
+    return new Handlebars.SafeString(arr.join(sep));
   });
 };

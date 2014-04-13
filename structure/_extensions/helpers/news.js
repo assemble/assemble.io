@@ -23,6 +23,6 @@ module.exports.register = function(Handlebars) {
     }
 
     result += '</ul>';
-    return result;
+    return new Handlebars.SafeString(result);
   });
 };

@@ -34,9 +34,10 @@ module.exports.register = function (Handlebars) {
 
     self.pages.forEach(function(page) {
       if (page.src.indexOf(name) !== -1) {
-        url += relative(self.page.dest, page.dest);
+        url = relative(self.page.dest, page.dest);
       }
     });
-    return url;
+
+    return new Handlebars.SafeString(url);
   });
 };

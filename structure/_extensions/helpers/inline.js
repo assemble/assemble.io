@@ -11,10 +11,10 @@ var _ = require('lodash');
 
 module.exports.register = function (Handlebars, options) {
   options = options || {};
+  options.data = options.data || {};
 
   // Add `inline` to assemble's options.
-  var inline = options.inline || {};
-
+  var inline = _.extend(options.inline || {}, options.data.inline || {});
 
   Handlebars.registerHelper('inline', function(filepath, context) {
     context.data = context.data || {};
@@ -24,7 +24,6 @@ module.exports.register = function (Handlebars, options) {
     var page = matter.read(filepath);
     var data = Handlebars.createFrame({filepath: filepath});
 
-    _.extend(inline, options.data.inline || {});
     _.defaults(page.context, context.data.root || {});
 
     // Prepend or append any content in the given partial to the output

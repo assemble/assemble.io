@@ -25,6 +25,6 @@ module.exports.register = function (Handlebars, opts) {
   marked.setOptions(markedOpts);
 
   Handlebars.registerHelper("markdown", function (options) {
-    return marked(options.fn(this));
+    return new Handlebars.SafeString(marked(options.fn(this)));
   });
 };

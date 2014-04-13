@@ -9,6 +9,8 @@
 module.exports.register = function (Handlebars) {
 
   /**
+   * {{context}}
+   *
    * This helper passes the given context into the block,
    * allowing outer contexts to be used in nested blocks.
    * This is accomplished using Handlebars.createFrame, which

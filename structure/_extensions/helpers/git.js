@@ -1,19 +1,12 @@
 /**
- * Handlebars Helpers
+ * Handlebars Helpers: Git branch and remote origin URL
  * Copyright (c) 2014 Jon Schlinkert
  * Licensed under the MIT License (MIT).
  */
-
-'use strict';
-
-var shell = require('shelljs');
-var origin = require('remote-origin-url');
-var branch = shell.exec('git rev-parse --abbrev-ref HEAD', {silent:true}).output;
-var url = origin.url().replace(/\.git$/, '');
-
-
+const utils = require('../../../data/_lib/utils');
 
 module.exports.register = function (Handlebars) {
+
 
   /**
    * Current branch of the project's git repository
@@ -21,8 +14,9 @@ module.exports.register = function (Handlebars) {
    */
 
   Handlebars.registerHelper("branch", function() {
-    return branch;
+    return new Handlebars.SafeString(utils.branch);
   });
+
 
   /**
    * Remote origin url of the project's git repository.
@@ -30,6 +24,6 @@ module.exports.register = function (Handlebars) {
    */
 
   Handlebars.registerHelper("origin", function() {
-    return url;
+    return new Handlebars.SafeString(utils.repo_url);
   });
 };
