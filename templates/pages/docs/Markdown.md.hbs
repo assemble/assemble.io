@@ -126,6 +126,27 @@ In a layout, can also wrap the `\{{> body }}` tag with the `\{{#markdown}}...\{{
 \{{/markdown}}
 ```
 
+The markdown block can also be used to continue parsing markdown content within an html tag that would normally not be processed as markdown:
+
+<pre>
+## My Header
+
+Just some normal markdown content, but below is a `div` wrapping
+some code that should also be parsed as markdown
+
+&lt;div class='my class'>
+\{{#markdown}}
+```js
+//now my code will be pretty!
+var a = 1 + 2;
+```
+\{{/markdown}}
+&lt;/div>
+
+Now back to regular markdown in this page
+
+</pre>
+
 ## Related Information
 
 * [options.marked][options-markded]
