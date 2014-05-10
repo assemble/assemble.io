@@ -7,11 +7,15 @@ const ghUsername = require('git-username');
 const ghRepoName = require('git-repo-name');
 
 
+var utils = module.exports = {};
+
+
+
 /**
  * Get the current branch for a local git repository
  */
 
-exports.uppercase = function(str) {
+utils.uppercase = function(str) {
   return str.toUpperCase();
 };
 
@@ -20,35 +24,38 @@ exports.uppercase = function(str) {
  * Get the current branch for a local git repository
  */
 
-exports.origin = origin.url();
+utils.origin = origin.url();
 
 
 /**
  * Get the current branch for a local git repository
  */
 
-exports.branch = branch;
+utils.branch = branch;
 
 
 /**
  * Get the remote origin url for a local git repository
  */
 
-exports.repo_url = repoUrl;
-
+utils.repo_url = (function() {
+  return repoUrl;
+});
 
 /**
  * Get the username from the GitHub remote origin URL
  */
 
-exports.username = ghUsername;
+utils.username = (function() {
+  return ghUsername;
+});
 
 
 /**
  * Get the repo name from the GitHub remote origin URL
  */
 
-exports.repo_name = ghRepoName;
+utils.repo_name = ghRepoName;
 
 
 /**
@@ -56,7 +63,8 @@ exports.repo_name = ghRepoName;
  * given glob pattern.
  */
 
-exports.fileCount = function(str) {
+utils.fileCount = function(str) {
+  console.log(str)
   return file.expand(str).length;
 };
 
@@ -70,7 +78,7 @@ exports.fileCount = function(str) {
  *   => assemble.io
  */
 
-exports.hostname = function(str) {
+utils.hostname = function(str) {
   return url.parse(str).hostname;
 };
 
@@ -86,7 +94,7 @@ exports.hostname = function(str) {
  *   => https://github.com/assemble/assemble.io
  */
 
-exports.stripGit = function(url) {
+utils.stripGit = function(url) {
   var git = /\.git$/;
   if (git.test(url)) {
     return url.replace(git, '');
@@ -108,7 +116,7 @@ exports.stripGit = function(url) {
  * @api public
  */
 
-exports.date = function(structure) {
+utils.date = function(structure) {
   /* jshint unused: false */
 
   var dateobj = new Date();

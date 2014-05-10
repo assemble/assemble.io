@@ -1,0 +1,11 @@
+# =============================================
+# Helpers
+# =============================================
+
+community:
+  -
+    author: "@jonschlinkert"
+    name:   assemble-plugin-name
+    repo:   "https://github.com/foo/bar"
+    description: >
+      Foo, bar baz

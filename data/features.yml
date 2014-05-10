@@ -4,14 +4,15 @@
 
 # If "true" the section is enabled in the navigation
 # please keep sections in alphabetical order.
-about:           true
-api:             true
-blog:            false
-cheatsheet:      true
+
+about:           false
+api:             false
+blog:            true
+cheatsheet:      false
 docs:            true
 examples:        true
-getting_started: true
-guides:          true
+getting_started: false
+guides:          false
 helpers:         true
 plugins:         true
-tutorials:       true
+tutorials:       false
