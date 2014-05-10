@@ -4,22 +4,24 @@
  * Licensed under the MIT License (MIT).
  */
 
-'use strict';
+const path = require('path');
+const file = require('fs-utils');
+const matter = require('gray-matter');
+const _ = require('lodash');
 
-var path = require('path');
-var file = require('fs-utils');
-var matter = require('gray-matter');
-var _ = require('lodash');
 
-module.exports.register = function (Handlebars) {
+module.exports = function (config) {
+  var Handlebars = config.Handlebars;
+  var helpers = {};
 
-  Handlebars.registerHelper("read", function(filepath, context) {
+
+  helpers.read = function (filepath, context) {
     context.data = context.data || {};
     var page = matter.read(filepath);
     var metadata = _.extend(context.data.root, page.context);
     var template = Handlebars.compile(page.content);
     return new Handlebars.SafeString(template(metadata));
-  });
+  };
 
   /**
    * Write a file to disk.
@@ -29,9 +31,9 @@ module.exports.register = function (Handlebars) {
    * @return  {String}
    */
 
-  Handlebars.registerHelper("write", function(filepath, content) {
+  helpers.write = function (filepath, content) {
     return file.writeFileSync(filepath, content);
-  });
+  };
 
   /**
    * Write the give context to a JSON file.
@@ -45,7 +47,10 @@ module.exports.register = function (Handlebars) {
    *
    */
 
-  Handlebars.registerHelper("writeJSON", function(dest, name, context) {
+  helpers.writeJSON = function (dest, name, context) {
     return file.writeJSONSync(path.join(dest, name) + '.json', context);
-  });
+  };
+
+  return helpers;
 };
+

@@ -4,12 +4,14 @@
  * Licensed under the MIT License (MIT).
  */
 
-var _ = require('lodash');
+const _ = require('lodash');
 
-module.exports.register = function (Handlebars, options) {
-  'use strict';
 
-  var opts = options || {};
+module.exports = function (config) {
+  var Handlebars = config.Handlebars;
+  var opts = config.options || {};
+
+  var helpers = {};
 
   /**
    * Add `active` class for current page.
@@ -18,7 +20,8 @@ module.exports.register = function (Handlebars, options) {
    *
    * @usage: {{isActive}}
    */
-  Handlebars.registerHelper('isActive', function(current, options) {
+
+  helpers.isActive = function (current, options) {
     var context = _.extend({}, opts, this);
     options = options || {};
 
@@ -30,5 +33,7 @@ module.exports.register = function (Handlebars, options) {
       modifier = '';
     }
     return new Handlebars.SafeString(modifier);
-  });
+  };
+
+  return helpers;
 };

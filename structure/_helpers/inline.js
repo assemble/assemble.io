@@ -3,20 +3,23 @@
  * Copyright (c) 2014 Jon Schlinkert
  * Licensed under the MIT License (MIT).
  */
-'use strict';
 
-var matter = require('gray-matter');
-var _ = require('lodash');
+const matter = require('gray-matter');
+const _ = require('lodash');
 
 
-module.exports.register = function (Handlebars, options) {
-  options = options || {};
+module.exports = function (config) {
+  var Handlebars = config.Handlebars;
+  var helpers = {};
+
+  var options = config.options || {};
   options.data = options.data || {};
 
   // Add `inline` to assemble's options.
   var inline = _.extend(options.inline || {}, options.data.inline || {});
 
-  Handlebars.registerHelper('inline', function(filepath, context) {
+
+  helpers.inline = function (filepath, context) {
     context.data = context.data || {};
     var append = '',
       prepend = '';
@@ -34,5 +37,7 @@ module.exports.register = function (Handlebars, options) {
     var template = Handlebars.compile(sections);
     var result = template(page.context, {data: data});
     return new Handlebars.SafeString(result);
-  });
+  };
+
+  return helpers;
 };

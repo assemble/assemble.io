@@ -4,10 +4,13 @@
  * Licensed under the MIT License (MIT).
  */
 
-module.exports.register = function (Handlebars) {
-  'use strict';
+module.exports = function (config) {
+  var Handlebars = config.Handlebars;
 
-  Handlebars.registerHelper("join", function(arr, sep) {
+  var helpers = {};
+  helpers.join = function (arr, sep) {
     return new Handlebars.SafeString(arr.join(sep));
-  });
+  };
+
+  return helpers;
 };

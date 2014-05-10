@@ -1,13 +1,8 @@
-/**
- * Handlebars Helpers: {{list}}
- * Copyright (c) 2014 Jon Schlinkert
- * Licensed under the MIT License (MIT).
- */
-'use strict';
+module.exports = function (config) {
+  var Handlebars = config.Handlebars;
 
-module.exports.register = function (Handlebars) {
-
-  Handlebars.registerHelper('nav', function (name, context, options) {
+  var helpers = {};
+  helpers.nav = function (name, context, options) {
     var fn = Handlebars.compile(Handlebars.partials[name]);
 
     var frame = Handlebars.createFrame(context.data);
@@ -17,5 +12,8 @@ module.exports.register = function (Handlebars) {
 
     var template = fn(context, {data: frame});
     return new Handlebars.SafeString(template);
-  });
+  };
+
+  return helpers;
 };
+

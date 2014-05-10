@@ -4,10 +4,11 @@
  * Licensed under the MIT License (MIT).
  */
 
-module.exports.register = function(Handlebars) {
-  'use strict';
+module.exports = function (config) {
+  var Handlebars = config.Handlebars;
 
-  Handlebars.registerHelper("news", function (context, options) {
+  var helpers = {};
+  helpers.news = function (context, options) {
     var result = '<ul class="list-group">';
     var data;
 
@@ -24,5 +25,8 @@ module.exports.register = function(Handlebars) {
 
     result += '</ul>';
     return new Handlebars.SafeString(result);
-  });
+  };
+
+  return helpers;
 };
+

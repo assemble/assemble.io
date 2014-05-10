@@ -4,11 +4,12 @@
  * Licensed under the MIT License (MIT).
  */
 
-'use strict';
+const path = require('path');
 
-var path = require('path');
 
-module.exports.register = function (Handlebars) {
+module.exports = function (config) {
+  var Handlebars = config.Handlebars;
+  var helpers = {};
 
   /**
    * JavaScript's replace function exposed in a helper.
@@ -19,12 +20,10 @@ module.exports.register = function (Handlebars) {
    * @param   {String}  flags        Optional regex flags to use.
    * @return  {String}
    */
-
-  Handlebars.registerHelper("replace", function(str, pattern, replacement, flags) {
+  helpers.replace = function (str, pattern, replacement, flags) {
     flags = flags || 'gi';
     return str.replace(new RegExp(pattern, flags), replacement);
-  });
-
+  };
 
   /**
    * This helper is used in the `source-link` popovers to
@@ -35,13 +34,12 @@ module.exports.register = function (Handlebars) {
    * @return  {String}             The {{renamed}} string
    */
 
-  Handlebars.registerHelper("rename", function(name) {
+  helpers.rename = function (name) {
     if(/helper/.test(name)) {
       return '{{' + name.split('-')[1] + '}}';
     }
     return new Handlebars.SafeString('"' + name + '"');
-  });
-
+  };
 
   /**
    * Used in the source-link popovers to modify
@@ -51,7 +49,7 @@ module.exports.register = function (Handlebars) {
    * @return  {String}
    */
 
-  Handlebars.registerHelper("filetype", function (filepath) {
+  helpers.filetype = function (filepath) {
     switch (path.extname(filepath)) {
       case '.md':
         return 'markdown source';
@@ -62,5 +60,7 @@ module.exports.register = function (Handlebars) {
       default:
         return 'source file';
     }
-  });
+  };
+
+  return helpers;
 };
