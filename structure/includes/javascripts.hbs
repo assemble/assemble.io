@@ -7,6 +7,8 @@
 <script src="{{ assets }}/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
+
+{{! hide the "content" navbar and related elements }}
 <script>
   $( '.dismiss' ).click(function() {
     $( '.navbar-wrap' ).addClass( 'fade' );
@@ -15,18 +17,9 @@
   });
 </script>
 
-{{#if site.analytics.google.enabled}}
-<!-- Google Analytics -->
-<script>
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '{{site.analytics.google.siteid}}');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-{{/if}}
+
+{{! google analytics settings are in .assemblerc.yml }}
+{{#is site.mode 'production'}}
+  <!-- Google Analytics -->
+  {{analytics site.google.analytics 'footer'}}
+{{/is}}

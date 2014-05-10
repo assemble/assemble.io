@@ -1,0 +1,10 @@
+---
+component: newsfeed-body
+comments: Not sure of the best way to scaffold this out. From a "static" standpoint it seems straightforward. I can use some guidance here @doowb
+---
+
+<ul class="media-list">
+  {{!#each newsfeed-item}}
+    {{!> newsfeed-item . }}
+  {{!/each}}
+</ul>

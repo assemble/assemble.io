@@ -1,0 +1,31 @@
+---
+component: teaser
+---
+{{warn 'reading' 'partial > teaser'}}
+
+
+<style type="text/css" media="screen">
+  .teaser iframe {
+    margin: -7px 0 0 25px;
+    vertical-align: text-top;
+  }
+  .teaser iframe + iframe {
+    margin-left: -20px;
+  }
+</style>
+
+<!-- .teaser component -->
+<div class="teaser {{modifier}}">
+  <a class="teaser-content" href="{{ url }}">
+    {{{default masthead.title ''}}}
+    <em> {{{default masthead.subtitle ''}}} </em>
+
+
+    {{! GitHub buttons
+    ==================================== }}
+    {{#if site.deployed}}
+      {{> btn-github-watch }}
+      {{> btn-github-fork }}
+    {{/if}}
+  </a>
+</div>

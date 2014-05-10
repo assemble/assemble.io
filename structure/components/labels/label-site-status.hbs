@@ -1,0 +1,8 @@
+---
+comments: Informational component. Displays either `development` or `live` to Sellside developers. There is probably a much better way to do this!
+---
+{{#is site.status 'live'}}
+  <span class="label label-site-status label-success">live</span>
+  {{^}}
+  <span class="label label-site-status label-danger">dev</span>
+{{/is}}

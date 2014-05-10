@@ -1,0 +1,20 @@
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    {{> btn-social }}
+
+    <p>Founded with all the love in the world by <a href="http://twitter.com/jonschlinkert" target="_blank">@jonschlinkert</a> and <a href="http://twitter.com/doowb" target="_blank">@doowb</a>.</p>
+
+    <ul class="footer-links muted">
+      <li>Currently v{{ site.version }}</li>
+      <li class="muted">&middot;</li>
+      <li><a href="{{ site.url.repo }}">GitHub</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="{{rel 'about.html'}}">About</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="{{rel 'blog.html'}}">Blog</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="{{ site.url.repo }}/issues?state=open">Issues</a></li>
+    </ul>
+  </div>
+</footer>

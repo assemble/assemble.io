@@ -1,0 +1,35 @@
+---
+component: newsfeed
+---
+<div class="row">
+
+
+  <!-- newsfeed -->
+  <div class="col-md-9" role="main">
+    <div class="newsfeed">
+
+      <!-- composer -->
+      <div class="newsfeed-header">
+        {{> newsfeed-header }}
+      </div>
+
+      <!-- activity stream -->
+      <div class="newsfeed-body">
+        {{> newsfeed-body }}
+      </div>
+
+      <!-- pagination -->
+      <div class="newsfeed-footer">
+        {{> newsfeed-footer }}
+      </div>
+
+    </div>
+  </div>
+
+  <!-- newsfeed sidebar -->
+  <div class="col-md-3">
+    <div class="sidebar hidden-print" role="complementary">
+      {{> newsfeed-sidebar }}
+    </div>
+  </div>
+</div>

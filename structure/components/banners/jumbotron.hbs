@@ -1,0 +1,20 @@
+{{warn 'reading' 'partial > jumbotron'}}
+
+<main class="jumbotron masthead">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-6">
+        <h1> {{{uppercase heading}}} </h1>
+        <p class="lead"> {{{lead}}} </p>
+        <p> <a class="btn {{{btn.modifier}}}" {{#production}}onclick="{{{track.masthead.download}}}" {{/production}}href="https://github.com/assemble/assemble/archive/master.zip">{{{btn.text}}}</a> </p>
+      </div>
+      <div class="col col-lg-6">
+
+        {{#is site.mode 'live'}}
+          {{> rotating-tweets }}
+        {{/is}}
+
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,27 @@
+---
+component: social-buttons
+---
+<style>
+  .bs-social-buttons
+  .twitter-follow-button {
+    width: 160px !important;
+  }
+</style>
+
+<!-- social buttons -->
+<div class="bs-social">
+  {{#is site.status 'live'}}
+  <ul class="bs-social-buttons">
+
+    <!-- github buttons -->
+    <li> {{> btn-github-watch }} </li>
+    <li> {{> btn-github-fork }} </li>
+
+    <!-- twitter buttons -->
+    <li class="follow-btn"> {{> btn-twitter-follow }} </li>
+    <li class="tweet-btn"> {{> btn-twitter-tweet }} </li>
+  </ul>
+  {{^}}
+    Replaced with social buttons in production mode.
+  {{/is}}
+</div>
