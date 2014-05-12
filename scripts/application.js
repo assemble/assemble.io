@@ -33,7 +33,7 @@
 
     $('.source-link').each(function () {
       var id = $(this).data('content');
-      var content = $('<div/>').append($('#'+id)).html();
+      var content = $('<span>').append($('#' + id)).html();
       $(this).attr('data-content', content);
 
       // Keep popovers open when hovered
@@ -41,8 +41,8 @@
         trigger: 'manual',
         container: 'body',
         placement: 'left',
-        toggle: 'popover',
-        template: '<div class="popover popover-source"> <div class="arrow"></div> <div class="popover-inner"> <h3 class="popover-title"></h3> <div class="popover-content"> <p></p> </div> </div> </div>',
+        // toggle: 'popover',
+        // template: '<div class="popover popover-source"> <div class="arrow"></div> <div class="popover-inner"> <h3 class="popover-title"></h3> <div class="popover-content"> <p></p> </div> </div> </div>',
         html: true,
         delay: {show: 50, hide: 750}
       }).on('mouseenter', function () {
