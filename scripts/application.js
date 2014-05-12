@@ -31,34 +31,41 @@
       e.preventDefault();
     });
 
-    // Keep popovers open when hovered
-    $('.source-link').popover({
-      trigger: 'manual',
-      container: 'body',
-      placement: 'left',
-      toggle: 'popover',
-      template: '<div class="popover popover-source"> <div class="arrow"></div> <div class="popover-inner"> <h3 class="popover-title"></h3> <div class="popover-content"> <p></p> </div> </div> </div>',
-      html: true,
-      delay: {show: 50, hide: 750}
-    }).on('mouseenter', function () {
-      var self = this;
-      $(this).popover('show');
-      $(this).addClass('active');
+    $('.source-link').each(function () {
+      var id = $(this).data('content');
+      var content = $('<div/>').append($('#'+id)).html();
+      $(this).attr('data-content', content);
 
-      $('.popover').on('mouseleave', function () {
-        $(self).popover('hide');
-        $(self).removeClass('active');
-      });
+      // Keep popovers open when hovered
+      $(this).popover({
+        trigger: 'manual',
+        container: 'body',
+        placement: 'left',
+        toggle: 'popover',
+        template: '<div class="popover popover-source"> <div class="arrow"></div> <div class="popover-inner"> <h3 class="popover-title"></h3> <div class="popover-content"> <p></p> </div> </div> </div>',
+        html: true,
+        delay: {show: 50, hide: 750}
+      }).on('mouseenter', function () {
+        var self = this;
+        $(this).popover('show');
+        $(this).addClass('active');
 
-    }).on('mouseleave', function () {
-      var self = this;
-      setTimeout(function () {
-        if (!$('.popover:hover').length) {
+        $('.popover').on('mouseleave', function () {
           $(self).popover('hide');
           $(self).removeClass('active');
-        }
-      }, 100);
+        });
+
+      }).on('mouseleave', function () {
+        var self = this;
+        setTimeout(function () {
+          if (!$('.popover:hover').length) {
+            $(self).popover('hide');
+            $(self).removeClass('active');
+          }
+        }, 100);
+      });
     });
+
 
     // Dock the content navbar as it arrives just below the navbar. This arrangement
     // allows a different navbar to be defined for each content section, but for now
