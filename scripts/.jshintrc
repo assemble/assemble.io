@@ -11,6 +11,7 @@
   "expr": true,
   "immed": true,
   "indent": 2,
+  "jquery": true,
   "latedef": true,
   "laxbreak": true,
   "newcap": true,
@@ -20,7 +21,6 @@
   "undef": true,
   "unused": true,
   "validthis": true,
-  "jquery": true,
   "globals": {
     "define": true,
     "before": true,

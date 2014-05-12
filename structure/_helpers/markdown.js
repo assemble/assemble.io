@@ -36,14 +36,14 @@ module.exports = function (config) {
 
   helpers.markdown = function (options) {
     var content = strip(options.fn(this));
-    return new Handlebars.SafeString(marked(content));
+    return new Handlebars.SafeString(marked(content || ''));
   };
 
   helpers.md = function (name, context) {
     var ctx = _.extend(this, context || {});
     var template = Handlebars.partials[name];
     var fn = Handlebars.compile(template);
-    return new Handlebars.SafeString(marked(fn(ctx)));
+    return new Handlebars.SafeString(marked(fn(ctx) || ''));
   };
 
   return helpers;

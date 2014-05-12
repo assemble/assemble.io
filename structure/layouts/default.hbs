@@ -4,7 +4,7 @@ layout: base
 <div class="row">
   <div class="col-md-3">
     <div class="sidebar hidden-print" role="complementary">
-      {{> navigation }}
+      {{> sidenav }}
     </div>
   </div>
   <div class="col-md-9" role="main">
@@ -14,7 +14,7 @@ layout: base
 
     <!-- Content -->
     <div class="docs-content{{#is slug 'helpers'}} stacked{{/is}}">
-      {{> body }}
+      {{ body }}
     </div>
 
     {{#is slug 'helpers'}}

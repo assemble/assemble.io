@@ -35,8 +35,8 @@ module.exports = function (config) {
    */
 
   helpers.rename = function (name) {
-    if(/helper/.test(name)) {
-      return '{{' + name.split('-')[1] + '}}';
+    if(/helper-/.test(name)) {
+      return '{{' + name.split(/\W/)[1] + '}}';
     }
     return new Handlebars.SafeString('"' + name + '"');
   };

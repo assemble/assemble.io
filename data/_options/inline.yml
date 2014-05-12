@@ -10,7 +10,7 @@ origin:  true
 
 # This is the name of the partial used in the
 # 'Edit this source' poposvers
-prepend: source-link
+prepend: popover-source-link
 
 # Partial to append to each markdown file after
 # it is converted to HTML by the {{inline}} helper.

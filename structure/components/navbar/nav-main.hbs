@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-default" id="top" role="banner">
+<header class="navbar navbar-fixed-top main-nav" id="top" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -9,12 +9,7 @@
       </button>
       <a href="{{resolve 'index'}}" class="navbar-brand" title="{{site.title}}">{{site.brand}}</a>
     </div>
-
-    {{> label-site-status }}
-
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-
-    {{!writeJSON './' 'this.json' this}}
 
       <!-- nav items -->
       {{#context current=this}}

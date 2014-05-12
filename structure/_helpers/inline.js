@@ -34,6 +34,7 @@ module.exports = function (config) {
     append = inline.append ? Handlebars.partials[inline.append] : '';
 
     var sections = [prepend, page.content, append].join('\n\n');
+
     var template = Handlebars.compile(sections);
     var result = template(page.context, {data: data});
     return new Handlebars.SafeString(result);

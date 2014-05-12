@@ -1,9 +1,28 @@
 ---
+layout: content
 title: Helpers
 slug: helpers
+modifier: book
 ---
-<!-- inner navigation (for content) -->
-{{> navbar-content }}
+<!-- See `data/generated-pages/helpers.yml` -->
+{{#each helpers.published}}
+  <!-- {{title}} -->
+  <div class="docs-section">
+    <div class="page-header">
+      <h1 id="{{@key}}">{{title}}</h1>
+    </div>
 
-<!-- See `structure/includes/docs.hbs` and `data/helpers.yml` -->
-{{> docs helpers.published }}
+    {{#each (expand files)}}
+      <!-- {{basename .}} -->
+
+      {{success '>> Inlining:' (basename .)}} {{! log a success message! }}
+
+        {{#markdown}}
+          {{inline .}}
+        {{/markdown}}
+
+      <br>
+    {{/each}}
+
+  </div>
+{{/each}}

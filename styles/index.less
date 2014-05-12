@@ -2,26 +2,21 @@
 // Site styles
 // --------------------------------------------------
 
+
 // Core variables and mixins
 @import "variables.less";
+@import "mixins/index.less";
 @import "bootstrap.less";
 @import "docs.less";
 
 
-// Utilities
-@import "utilities/mixins.less";
-@import "utilities/highlight.less";
-@import "utilities/button-states.less";
-
-
-// Docs Components
+// Theme components
 // ----------------------------------------
-
-@import "themes/base.less";
 
 // Typography & Code
 @import "webfonts.less";
 @import "blockquote.less";
+@import "highlight.less";
 
 // Layout and structure
 @import "header.less";
@@ -69,4 +64,6 @@
 // Utilities (must be last!)
 // ----------------------------------------
 
-@import "utilities/utilities.less";
+
+// Override utilities
+@import "utilities/index.less";

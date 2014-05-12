@@ -27,8 +27,9 @@
 @brand-inverse:         #fff;
 
 
+
 // Scaffolding
-// ------------------------------------------------
+// -------------------------------------------------
 // Settings for some of the most global styles.
 
 // Background color for `<body>`.
@@ -44,7 +45,9 @@
 
 
 // Typography
-// ------------------------------------------------
+// -------------------------------------------------
+// Font, line-height, and color for body text, headings,
+// and more.
 
 // Web Fonts
 @font-oswald:             'Oswald';
@@ -53,10 +56,14 @@
 @font-roboto:             'Roboto';
 @font-roboto-condensed:   'Roboto Condensed';
 
-// Main fonts
-@font-family-sans-serif:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-@font-family-serif:       'Chronicle SSm A', 'Chronicle SSm B', Georgia, serif;
 
+// Sitewide fonts
+@font-family-sans-serif:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-family-serif:       'Chronicle SSm A', 'Chronicle SSm B', Georgia, "Times New Roman", Times, serif;
+
+
+
+// Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
@@ -73,7 +80,10 @@
 @font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
 
 // Line height
+// -------------------------------------------------
+// Unit-less `line-height` for use in components like buttons.
 @line-height-base:        1.428571429; // 20/14
+// Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
 // Headings typeography
@@ -83,22 +93,25 @@
 @headings-line-height:    1.1;
 @headings-color:          @black;
 
-
 // Iconography
-// -----------------------------------------------
-// Specify custom locations of the include
-// Glyphicons icon font. Useful for those
-// including Bootstrap via Bower.
+// -------------------------------------------------
+// Specify custom location and filename of the included
+// Glyphicons icon font. Useful for those including
+// Bootstrap via Bower.
 
+// Load fonts from this directory.
 @icon-font-path:          "../fonts/";
+// File name for all font files.
 @icon-font-name:          "glyphicons-halflings-regular";
+// Element ID within SVG icon file.
 @icon-font-svg-id:        "glyphicons_halflingsregular";
 
+
 // Components
-// -----------------------------------------------
-// Define common padding and border radius sizes
-// and more. Values based on 14px text and 1.428
-// line-height (~20px to start).
+// -------------------------------------------------
+// Define common padding and border radius sizes and
+// more. Values based on 14px text and 1.428 line-height
+// (~20px to start).
 
 @padding-base-vertical:     6px;
 @padding-base-horizontal:   12px;
@@ -346,14 +359,18 @@
 // Navbar
 // -------------------------------------------------
 
-// Basics of a navbar
-@navbar-height:                    80px;
+// Navbar typography
+@navbar-font-family:       'Assemble SSm A', 'Assemble SSm B', @font-family-sans-serif;
+
+// Common navbar styles
+@navbar-height:                            50px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
+// Default navbar
 @navbar-default-color:             #777;
 @navbar-default-bg:                #f8f8f8;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
@@ -655,18 +672,34 @@
 // List group border radius
 @list-group-border-radius:      @border-radius-base;
 
-// Background color of single list elements on hover
+// Background color of single list items on hover
 @list-group-hover-bg:           #f5f5f5;
-// Text color of active list elements
+// Text color of active list items
 @list-group-active-color:       @component-active-color;
-// Background color of active list elements
+// Background color of active list items
 @list-group-active-bg:          @component-active-bg;
 // Border color of active list elements
 @list-group-active-border:      @list-group-active-bg;
+// Text color for content within active list items
 @list-group-active-text-color:  lighten(@list-group-active-bg, 40%);
 
+// Text color of disabled list items
+@list-group-disabled-color:      @gray-light;
+// Background color of disabled list items
+@list-group-disabled-bg:         @gray-lighter;
+// Text color for content within disabled list items
+@list-group-disabled-text-color: @list-group-disabled-color;
+
 @list-group-link-color:         #555;
+@list-group-link-hover-color:   @list-group-link-color;
 @list-group-link-heading-color: #333;
+
+
+// -------------------------------------------
+// Content
+// -------------------------------------------
+
+@content-gutter:                60px;
 
 
 // Panels
@@ -674,6 +707,8 @@
 
 @panel-bg:                    #fff;
 @panel-body-padding:          15px;
+@panel-heading-padding:       10px 15px;
+@panel-footer-padding:        @panel-heading-padding;
 @panel-border-radius:         @border-radius-base;
 
 // Border color for elements within panels

@@ -1,10 +1,23 @@
 # =============================================
+# SITE STATUS
+# =============================================
+
+# Site status is set via the command line using
+# the `-m` or --mode` flag.  Run `-h` or `--help`
+# to see all available command line flags.
+
+# status:          <% if(site.mode) { %><%= site.mode %><% } else { %>dev<% } %>
+
+
+# =============================================
 # DEST CONFIG
 # =============================================
 
-root:              _gh_pages
-dest:              <%= site.root %>
-public:            <%= site.dest %>/public
+root:            _gh_pages
+dest:            <%= site.root %>
+
+# Dest assets
+public:          <%= site.dest %>/public
 
 
 # =============================================
@@ -12,38 +25,44 @@ public:            <%= site.dest %>/public
 # =============================================
 
 # Data
-data:              data
-utils:             data/_utils
+data:            data
+utils:           <%= site.data %>/_utils
+mixins:          <%= site.data %>/_utils
+date:            <%= new Date() %>
 
 # Assets > fonts, icons, images etc.
-assets:            assets
-images:            <%= site.assets %>/images
-fonts:             <%= site.assets %>/fonts
+assets:          assets
+images:          <%= site.assets %>/images
+fonts:           <%= site.assets %>/fonts
 
 # Styles
-styles:            styles
+styles:          styles
 
 # Scripts
-scripts:           scripts
+scripts:         scripts
 
 # Content
-content:           content
+content:         content
 
-# Templates
-templates:         structure
-pages:             <%= site.templates %>/pages
-includes:          <%= site.templates %>/includes
-layouts:           <%= site.templates %>/layouts
-layoutext:         .hbs
-layout:            default
 
-# HTML error codes
-html:
-  errorcodes:
-    - 'Bad value X-UA-Compatible for attribute http-equiv on element meta.'
-    - 'Element img is missing required attribute src.'
-    - 'The name attribute is obsolete. Consider putting an id attribute on the nearest container instead.'
-    - 'The element button must not appear as a descendant of the a element.'
+# =============================================
+# TEMPLATES
+# =============================================
+
+templates:       structure
+
+# pages
+pages:           <%= site.templates %>/pages
+
+# partials
+components:      <%= site.templates %>/components
+includes:        <%= site.templates %>/includes
+snippets:        <%= site.templates %>/snippets
+
+# layouts
+layouts:         <%= site.templates %>/layouts
+layoutext:       .hbs
+layout:          two-col-sidebar-left
 
 
 # =============================================
@@ -51,108 +70,144 @@ html:
 # =============================================
 
 # Handlebars helpers
-helpers:
-  path: <%= site.templates %>/_extensions/helpers
-  load:
-    - <%= site.helpers.path %>/*.js
+helpers:         <%= site.templates %>/_helpers
 
-# Assemble plugins
-plugins:
-  path:  <%= site.templates %>/_extensions/plugins
-  load:
-    # NPM Plugins
-    # - assemble-contrib-download
-    # - assemble-contrib-decompress
-    # - assemble-contrib-wordcount
-    - assemble-contrib-navigation
-    - assemble-contrib-permalinks
-
-    # Local plugins
-    - <%= site.plugins.path %>/styles.js
-    - <%= site.plugins.path %>/navigation.js
-    # - <%= site.plugins.path %>/validate.js
+# Assemble middleware
+middleware:      <%= site.templates %>/_middleware
 
 
 # =============================================
-# PROJECT METADATA
+# WEBFONTS
 # =============================================
 
-# Site metadata
-brand:              ASSEMBLE
-title:              assemble
-authors:            "Jon Schlinkert, Brian Woodward, contributors"
-lead:               Static site generator for Node.js
-name:               <%= pkg.name %>
-version:            <%= pkg.version %>
-author:             <%= pkg.author.name %>
-description:        <%= pkg.description %>
+webfonts:
+  - 'Open+Sans+Condensed:300,700:latin' # Headings
+  - 'Open+Sans:400,300,600,700:latin'   # Body text
+  - 'Lora:400,700,400italic,700italic'  # Blog
 
+
+# =============================================
+# SITE METADATA
+# =============================================
+
+version:         <%= pkg.version %>
+current_version: <%= site.version %>
+
+name:            <%= pkg.name %>
+title:           <%= pkg.name %>
+brand:           ASSEMBLE
+
+lead:            Static site generator for Node.js, Grunt, gulp and Yeoman.
+description:     <%= pkg.description %>
+
+author:          Jon Schlinkert, Brian Woodward, contributors
+
+
+# =============================================
+# GITHUB
+# =============================================
+
+username:       <%= _.username() %>
+homepage:       <%= _.repo_url() %>
+repo:           <%= _.repo_url() %>
+issues:         <%= pkg.bugs.url %>?state=open
+
+
+# =============================================
 # URLs
+# =============================================
+
+domain:         assemble.io
 url:
 
   # Repo
-  homepage:         <%= pkg.homepage %>
-  repo:             <%= _.stripGit(pkg.repository.url) %>
-  issues:           <%= pkg.bugs.url %>?state=open
+  homepage:      <%= pkg.homepage %>
+  repo:          <%= _.stripGit(pkg.repository.url) %>
+  issues:        <%= pkg.bugs.url %>?state=open
 
   # Site
-  public:           http://assemble.io
-  about:            <%= site.url.public %>/about/
-  blog:             <%= site.url.public %>/blog/
+  public:        http://<%= site.domain %>
+  about:         <%= site.url.public %>/about/
+  blog:          <%= site.url.public %>/blog/
 
   # _.hostname mixin. See './data/utils/mixins.js'
-  domain:           <%= _.hostname(site.url.public) %>
+  domain:        <%= _.hostname(site.url.public) %>
 
 license:
   source:
-    type:           MIT
-    url:            https://github.com/sellside/assemble-book/blob/master/LICENSE-MIT
+    type:        MIT
+    url:         https://github.com/sellside/assemble-book/blob/master/LICENSE-MIT
   docs:
-    type:           CC BY 3.0
-    url:            http://creativecommons.org/licenses/by/3.0/
+    type:        CC BY 3.0
+    url:         http://creativecommons.org/licenses/by/3.0/
 
 
 # =============================================
 # SEO / SEM
 # =============================================
 
+# Most of these are not enabled. You will need
+# to setup accounts with the services you want
+# to use and add the templates.
+
 analytics:
-  alexa:            false
+  alexa:         false
+
+  # Google Analytics
   google:
-    enabled:        false
-    id:             UA-XXXXXXXX-YY
-    siteid:         false
-    domain:         <%= site.domain %>
+    enabled:     false
+    id:          UA-XXXXXXXX-YY
+    siteid:      false
+    domain:      <%= site.domain %>
 
     # Google Tags (see: https://www.google.com/tagmanager/)
-    tags:           FOO-012345
+    tags:        FOO-012345
 
 
 # =============================================
 # SOCIAL / SHARING
 # =============================================
 
+# Like SEO/SEM, Most of these are not enabled.
+# You will need to setup accounts with the
+# services you want to use and add the templates.
+
 # Comments
 disqus:
-  enabled:         false
-  shortname:       <%= pkg.name %>
+  enabled:       false
+  shortname:     <%= pkg.name %>
 
 # Social
 social:
+  enabled:       false #<%= site.status %>
   twitter:
-    via:            jonschlinkert
-    username:       assemblejs
-    related:        jonschlinkert:Assemble core team.
-  facebook:         false
-  linkedin:         false
-  gplus:            false
-  hn:               false
-  google:           false
+    via:         jonschlinkert
+    username:    assemblejs
+    related:     jonschlinkert:Assemble core team.
+  facebook:      false
+  linkedin:      false
+  gplus:         false
+  hn:            false
+  google:        false
 
 # Sharing
 sharing:
-  twitter:          false
-  facebook:         false
-  gplus:            false
-  hn:               false
-  google:           false
+  enabled:       false #<%= site.status %>
+  twitter:       false
+  facebook:      false
+  gplus:         false
+  hn:            false
+  google:        false
+
+
+
+# =============================================
+# HTML VALIDATION ERROR CODES
+# =============================================
+
+html:
+  errorcodes:
+    - 'Bad value X-UA-Compatible for attribute http-equiv on element meta.'
+    - 'Element img is missing required attribute src.'
+    - 'The name attribute is obsolete. Consider putting an id attribute on the nearest container instead.'
+    - 'The element button must not appear as a descendant of the a element.'

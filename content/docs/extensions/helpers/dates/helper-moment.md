@@ -1,4 +1,4 @@
-## \{{moment}} [![NPM version](https://badge.fury.io/js/handlebars-helper-momentjs.png)](http://badge.fury.io/js/handlebars-helper-momentjs)
+## \{{moment}}
 
 > A helper to master time! Combining the powers of Assemble, Handlebars.js and Moment.js. This helper leverages Moment.js to provide ultimate control over manipulating time and dates in your templates.
 

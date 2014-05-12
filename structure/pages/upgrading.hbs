@@ -1,9 +1,26 @@
 ---
+layout: content
 title: Migrations
 slug: helpers
 ---
-<!-- inner navigation (for content) -->
-{{> navbar-content }}
+<!-- See `data/generated-pages/upgrading.yml` -->
+{{#each upgrading.published}}
+  <!-- {{title}} -->
+  <div class="docs-section">
+    <div class="page-header">
+      <h1 id="{{@key}}">{{title}}</h1>
+    </div>
 
-<!-- See `structure/includes/docs.hbs` and `data/migrations.yml` -->
-{{> docs upgrading.published }}
+    {{#each (expand files)}}
+      <!-- {{basename .}} -->
+      {{success '>> Inlining:' (basename .)}} {{! log a success message! }}
+
+      {{#markdown}}
+        {{inline .}}
+      {{/markdown}}
+
+      <br>
+    {{/each}}
+
+  </div>
+{{/each}}

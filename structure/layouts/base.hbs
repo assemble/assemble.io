@@ -3,9 +3,12 @@
   <head>
     {{> head }}
   </head>
-  <body class="{{slug}}{{#is slug 'helpers'}} book{{/is}}">
-    <!-- Docs master nav -->
+  <body{{#modifier}} class="{{.}}"{{/modifier}}>
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <!-- sitewide navigation -->
     {{> nav-main }}
+
 
     <!-- Header -->
     {{#is slug "index"}}
@@ -13,16 +16,18 @@
       {{> teaser teaser }}
     {{/is}}
 
+
     <!-- Content -->
-    <div class="container bs-docs-container">
-      {{> body }}
-    </div>
-
-    <!-- Footer -->
-    {{> footer }}
+    {{ body }}
 
 
-    <!-- JavaScript and analytics only. -->
+    <!-- footer, used everywhere but blog -->
+    {{#isnt slug 'blog'}}
+      {{> footer }}
+    {{/isnt}}
+
+
+    <!-- sitewide javascripts -->
     {{> javascripts }}
   </body>
 </html>

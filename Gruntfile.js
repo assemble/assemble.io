@@ -1,38 +1,46 @@
+
 /*
  * assemble-docs <https://github.com/assemble/assemble-docs>
  *
  * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
  * Licensed under the MIT license.
  */
+'use strict';
+
+
+var load = require('resolve-dep');
+var argv = require('minimist')(process.argv.slice(2));
+var modeFlag = argv.m || argv.mode;
+var deployFlag = argv.deploy;
+
+// This also uses grunt's debug
+// var debug = argv.debug;
 
 
 module.exports = function(grunt) {
 
-  'use strict';
-
   // Force unix-style newlines
   grunt.util.linefeed = '\n';
 
-  // Initialize mixins
-  grunt.util._.mixin(require('./data/_utils/mixins'));
+  // Mix utils into Lo-Dash
+  grunt.util._.mixin(require('./data/_utils/utils'));
 
   // Report the execution time of each task.
   require('time-grunt')(grunt);
 
-  /**
-   * Initialize Grunt configuration
-   */
-
+  // Initialize Grunt configuration
   grunt.initConfig({
 
-    /**
-     * Metadata
-     */
-
+    // Project Metadata
     site     : grunt.file.readYAML('.assemblerc.yml'),
     pkg      : grunt.file.readJSON('package.json'),
     vendor   : grunt.file.readJSON('.bowerrc').directory,
     _assemble: grunt.file.readJSON('data/_assemble.json'),
+
+    load: {
+      helpers:    load('handlebars-helper-*'),
+      middleware: load('assemble-middleware-*'),
+    },
 
     metadata: {
       year: '<%= grunt.template.today("yyyy") %>',
@@ -59,62 +67,57 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         flatten: true,
-        production: false,
         assets: '<%= site.public %>',
-        css: '<%= less.site.dest %>',
+        css: '<%= less.docs.dest %>',
 
         // Metadata
         pkg: '<%= pkg %>',
         site: '<%= site %>',
-        data: ['<%= site.data %>/{,*/}*.{json,yml}'],
+        _assemble: '<%= _assemble %>', // from github.com/assemble/assemble
+        data: [
+          {name: ':basename', src: ['<%= site.data %>/{,*/}*.{json,yml}']}
+        ],
 
-        // Metadata from github.com/assemble/assemble
-        _assemble: '<%= _assemble %>',
+        // Includes
+        partials: [
+          '<%= site.components %>/{,*/}*.hbs',
+          '<%= site.includes %>/{,*/}*.hbs',
+          '<%= site.snippets %>/*.hbs',
+          '<%= site.content %>/**/*.md'
+        ],
 
-        // Templates
-        partials: ['<%= site.includes %>/{,*/}*.hbs',  'structure/snippets/*.hbs'],
+        // Layouts
         layoutdir: '<%= site.layouts %>',
         layoutext: '<%= site.layoutext %>',
         layout: '<%= site.layout %>',
 
         // Extensions
-        plugins: '<%= site.plugins.load %>',
-        helpers: '<%= site.helpers.load %>',
+        mixins: ['<%= site.mixins %>/utils.js'],
+        helpers: ['<%= site.helpers %>/*.js', '<%= load.helpers %>'],
+        middleware: ['<%= load.middleware %>'],
 
-        // 'download' plugin > Download docs for
-        // helpers from GitHub
-        download: {
-          repo: 'assemble/handlebars-helpers',
-          dest: 'tmp/',
-          files: ['docs/helpers.zip']
+        // permalinks middleware options
+        permalinks: {
+          preset: 'pretty'
         },
 
-        // 'decompress' plugin > Decompress zip
-        // file for helper docs
-        decompress: {
-          files: ['tmp/helpers.zip'],
-          dest: 'tmp/helpers/'
-        },
-
-        // HTML 'validation' plugin
-        validation: {
-          report: 'structure/validation-report.json',
-          status: 'structure/validation-status.json'
-        },
-
-        // marked-extras options
+        // marked-extras options (markdown helper)
         marked: {
           process: true,
-          heading: '<%= site.templates %>/snippets/heading.tmpl',
-          prefix: 'language-'
+          heading: '<%= site.snippets %>/heading.tmpl',
+          prefix: 'lang-'
+        },
+
+        // `inline` helper options
+        inline: {
+          origin: true,
+          prepend: 'popover-source-link'
         }
       },
 
-      // `site` target
+      // assemble.io
       site: {
-        options: {
-          permalinks: {structure: ':basename/index.html'}
-        },
+        options: {theme: 'docs'},
         files: {'<%= site.dest %>/': ['<%= site.pages %>/*.hbs']}
       }
     },
@@ -126,12 +129,14 @@ module.exports = function(grunt) {
         failHard: true,
         charset: 'utf-8',
         doctype: 'HTML5',
-        path: 'structure/validation-status.json',
-        reportpath: 'structure/validation-report.json',
+        path: 'tmp/validation-status.json',
+        reportpath: 'tmp/validation-report.json',
         relaxerror: '<%= site.html.errorcodes %>'
       },
-      files: {
-        src: '<%= site.dest %>/{,*/}*.html'
+      site: {
+        files: {
+          src: '<%= site.dest %>/{,*/}*.html'
+        }
       }
     },
 
@@ -155,13 +160,26 @@ module.exports = function(grunt) {
     // Compile Less to CSS
     less: {
       options: {
-        process: true,
-        paths: ['styles', 'styles/bootstrap', 'styles/components']
+        paths: [
+          '<%= site.styles %>',
+          '<%= site.styles %>/vendor/bootstrap',
+          '<%= site.styles %>/components'
+        ]
       },
-      site: {
+      docs: {
+        options: {
+          globalVars: {theme: 'docs'}
+        },
         src: ['<%= site.styles %>/index.less'],
-        dest: '<%= assemble.options.assets %>/css/index.css'
-      }
+        dest: '<%= site.public %>/css/docs.css'
+      },
+      // blog: {
+      //   options: {
+      //     globalVars: {theme: 'blog'}
+      //   },
+      //   src: ['<%= less.docs.src %>'],
+      //   dest: '<%= site.public %>/css/blog.css'
+      // }
     },
 
     // Lint CSS
@@ -180,8 +198,8 @@ module.exports = function(grunt) {
         config: 'styles/.csscomb.json'
       },
       site: {
-        src: ['<%= less.site.dest %>'],
-        dest: '<%= less.site.dest %>'
+        src: ['<%= less.docs.dest %>'],
+        dest: '<%= less.docs.dest %>'
       }
     },
 
@@ -191,8 +209,8 @@ module.exports = function(grunt) {
         ignore: ['#webfonts', '.active']
       },
       site: {
-        src: ['<%= site.dest %>/*.html'],
-        dest: '<%= less.site.dest %>'
+        src: ['<%= site.dest %>/{,*/}*.html'],
+        dest: '<%= less.docs.dest %>'
       }
     },
 
@@ -210,8 +228,8 @@ module.exports = function(grunt) {
         'Gruntfile.js',
         '<%= site.helpers.path %>/*.js',
         // '<%= site.plugins.path %>/*.js',
-        '<%= site.scripts %>/*.js',
-        '<%= site.utils %>/*.js',
+        // '<%= site.scripts %>/{,*/}*.js',
+        // '<%= site.utils %>/{,*/}*.js',
       ]
     },
 
@@ -226,7 +244,7 @@ module.exports = function(grunt) {
 
 
     /**
-     * Setup tasks
+     * "setup" tasks
      */
 
     copy: {
@@ -248,18 +266,6 @@ module.exports = function(grunt) {
       example: ['<%= site.dest %>/{,*/}*.{html,css,js}']
     },
 
-    // Pull down a list of repos from the Assemble's repos from
-    // GitHub's API, so we can use the resulting JSON in templates.
-    repos: {
-      namespaced: {
-        options: {username: 'assemble'},
-        files: {
-          '<%= site.data %>/repos.json': ['repos?page=1&per_page=100']
-        }
-      }
-    },
-
-
     /**
      * "Live" tasks
      */
@@ -267,7 +273,7 @@ module.exports = function(grunt) {
     // Run a Connect server
     connect: {
       options: {
-        port: 3000,
+        port: 9000,
         livereload: 35729,
         hostname: 'localhost'
       },
@@ -282,45 +288,58 @@ module.exports = function(grunt) {
     // Watch certain files, rebuild when changes are saved.
     watch: {
       options: {livereload: true},
-      design: {
+      html: {
+        tasks: ['assemble'],
         files: [
-          '<%= site.data %>/{,*/}*.{yml,json}',
-          '<%= site.content %>/{,*/}*.md',
-          '<%= site.styles %>/{,*/}*.less',
           '<%= site.templates %>/{,*/}*.hbs',
-        ],
-        tasks: ['clean', 'less', 'assemble']
+          '<%= site.content %>/{,*/}*.md',
+          '<%= site.data %>/{,*/}*.{yml,json}'
+        ]
+      },
+      css: {
+        tasks: ['less'],
+        files: [
+          '<%= site.styles %>/{,*/}*.less'
+        ]
+      },
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
+        files: [
+          '<%= site.dest %>/{,*/}*.html',
+          '<%= site.assets %>/{,*/}*.css',
+          '<%= site.assets %>/{,*/}*.js',
+          '<%= site.assets %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        ]
       }
     }
   });
+
+  // check for a command line option to deploy
+  if (deployFlag) {
+    grunt.config.set('site.root', '_deploy');
+  }
+
+
+  if (modeFlag) {
+    grunt.config.set('site.mode', modeFlag);
+  }
+
 
   /**
    * Load Plugins
    */
 
   // Load npm plugins to provide necessary tasks.
-  grunt.loadNpmTasks('assemble');
-  grunt.loadNpmTasks('assemble-less');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-html-validation');
-  grunt.loadNpmTasks('grunt-prettify');
-  grunt.loadNpmTasks('grunt-repos');
-  grunt.loadNpmTasks('grunt-sync-pkg');
-  grunt.loadNpmTasks('grunt-uncss');
-
+  require('load-grunt-tasks')(grunt);
 
   /**
-   * Task types
+   * Tasks to be run
    */
 
   // First things first.
-  grunt.registerTask('setup', [
+  grunt.registerTask('prep', [
     'clean',
     'copy',
   ]);
@@ -335,18 +354,22 @@ module.exports = function(grunt) {
   grunt.registerTask('lint', [
     'jshint',
     // 'validation',
-    'csslint'
+    // 'csslint'
   ]);
 
   // Prep for deployment.
   grunt.registerTask('prod', [
-    'repos',
     'uglify'
+  ]);
+
+  // Lint and runt tests.
+  grunt.registerTask('document', [
+    'verb'
   ]);
 
 
   /**
-   * Tasks to run
+   * Tasks to be run
    */
 
   // Design-oriented tasks.
@@ -358,10 +381,11 @@ module.exports = function(grunt) {
 
   // Default tasks to run with the `grunt` command.
   grunt.registerTask('default', [
-    'setup',
+    'prep',
+    'lint',
     'compile',
     'prettify',
     'uglify',
-    'lint',
+    'document'
   ]);
 };

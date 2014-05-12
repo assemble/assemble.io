@@ -1,53 +1,67 @@
 # Numerous always-ignore extensions
-.ruby-version
+*.csv
+*.dat
 *.diff
 *.err
-*.orig
+*.gz
 *.log
+*.orig
+*.out
+*.pid
+*.rar
 *.rej
+*.seed
 *.swo
 *.swp
-*.zip
 *.vi
+*.yo-rc.json
+*.zip
 *~
+.ruby-version
+lib-cov
 
 # OS or Editor folders
 *.esproj
+*.komodoproject
 *.sublime-project
 *.sublime-workspace
 ._*
 .cache
 .DS_Store
 .idea
+.komodotools
 .project
 .settings
 .tmproj
 nbproject
 Thumbs.db
 
-# Komodo
-*.komodoproject
-.komodotools
+# logs
+pids
+logs
+results
 
 # grunt-html-validation
 validation-status.json
 validation-report.json
 
 # Folders to ignore
-tmp
-temp
-TODO.md
-vendor
-node_modules
-bower_components
 _gh_pages
-_site
-_draft
+bower_components
+node_modules
+npm-debug.log
+temp
+tmp
+
+# Only ignore the root vendor
+vendor
+!styles/vendor
 
 # Planned
+_draft
 content/blog
 content/boilerplates
 content/examples
 content/tutorials
-
 build-chain.fw.png
+TODO.md

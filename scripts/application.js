@@ -1,5 +1,5 @@
 /*!
- * Adapted from Bootstrap docs JavaScript
+ * Adapted from Bootstrap docs
  */
 
 !(function ($) {

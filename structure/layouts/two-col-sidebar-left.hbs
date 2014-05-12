@@ -1,0 +1,26 @@
+---
+# This 2-column layout extends the `container` layout
+layout: container
+---
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="sidebar hidden-print" role="complementary">
+      {{> sidenav }}
+    </div>
+  </div>
+  <div class="col-md-9" role="main">
+    {{#is slug 'helpers'}}
+      {{> paginate paginate.prev }}
+    {{/is}}
+
+    <!-- Content -->
+    <div class="docs-content{{#is slug 'helpers'}} stacked{{/is}}">
+      {{ body }}
+    </div>
+
+    {{#is slug 'helpers'}}
+      {{> paginate paginate.next }}
+    {{/is}}
+  </div>
+</div>
