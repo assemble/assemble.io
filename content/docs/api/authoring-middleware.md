@@ -8,6 +8,12 @@
 * `layout`:
 * `partials`:
 
+
+## stages
+
+
+
+
 ## Add a component to the Assemble options
 
 ```js

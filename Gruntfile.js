@@ -8,7 +8,7 @@
 'use strict';
 
 
-var load = require('resolve-dep');
+var resolve = require('resolve-dep');
 var argv = require('minimist')(process.argv.slice(2));
 var modeFlag = argv.m || argv.mode;
 var deployFlag = argv.deploy;
@@ -38,8 +38,8 @@ module.exports = function(grunt) {
     _assemble: grunt.file.readJSON('data/_assemble.json'),
 
     load: {
-      helpers:    load('handlebars-helper-*'),
-      middleware: load('assemble-middleware-*'),
+      helpers:    resolve('handlebars-helper-*'),
+      middleware: resolve('assemble-middleware-*'),
     },
 
     metadata: {
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
           {name: ':basename', src: ['<%= site.data %>/{,*/}*.{json,yml}']}
         ],
 
-        // Includes
+        // Template includes
         partials: [
           '<%= site.components %>/{,*/}*.hbs',
           '<%= site.includes %>/{,*/}*.hbs',
@@ -86,14 +86,14 @@ module.exports = function(grunt) {
           '<%= site.content %>/**/*.md'
         ],
 
-        // Layouts
+        // Templte layouts
         layoutdir: '<%= site.layouts %>',
         layoutext: '<%= site.layoutext %>',
         layout: '<%= site.layout %>',
 
-        // Extensions
+        // Assemble extensions
         mixins: ['<%= site.mixins %>/utils.js'],
-        helpers: ['<%= site.helpers %>/*.js', '<%= load.helpers %>'],
+        helpers: ['<%= load.helpers %>', '<%= site.helpers %>/*.js'],
         middleware: ['<%= load.middleware %>'],
 
         // permalinks middleware options
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
           preset: 'pretty'
         },
 
-        // marked-extras options (markdown helper)
+        // `markdown` and `md` helper options (for marked-extras)
         marked: {
           process: true,
           heading: '<%= site.snippets %>/heading.tmpl',
@@ -114,13 +114,12 @@ module.exports = function(grunt) {
           prepend: 'popover-source-link'
         }
       },
-
-      // assemble.io
       site: {
         options: {theme: 'docs'},
-        files: {'<%= site.dest %>/': ['<%= site.pages %>/*.hbs']}
+        files: {'<%= site.dest %>/': ['<%= site.pages %>/helpers.hbs']}
       }
     },
+
 
     // Lint HTML
     validation: {

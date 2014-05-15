@@ -1,11 +1,11 @@
-var url = require('url');
-var file = require('fs-utils');
-var origin = require('remote-origin-url');
-var branch = require('git-branch');
-var repoUrl = require('github-repo-url');
-var ghUsername = require('git-username');
-var ghRepoName = require('git-repo-name');
-var _ = require('lodash');
+const url = require('url');
+const file = require('fs-utils');
+const origin = require('remote-origin-url');
+const branch = require('git-branch');
+const repoUrl = require('github-repo-url');
+const ghUsername = require('git-username');
+const ghRepoName = require('git-repo-name');
+const _ = require('lodash');
 
 /**
  * Extend the context
@@ -13,11 +13,7 @@ var _ = require('lodash');
 
 module.exports = function (assemble) {
 
-  console.log(assemble);
-
   var middleware = function (params, next) {
-    'use strict';
-
     var utils = {};
 
     /**
