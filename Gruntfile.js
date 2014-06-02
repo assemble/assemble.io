@@ -47,9 +47,9 @@ module.exports = function(grunt) {
       banner: [
         '/*!',
         ' * <%= site.brand %> v<%= _assemble.version %> <<%= _assemble.homepage %>>',
-        ' * Copyright 2013-<%= metadata.year %>, <%= site.authors %>.',
+        ' * Copyright 2014-<%= metadata.year %>, <%= site.authors %>.',
         ' * Source code licensed under the <%= site.license.source.type %> license.',
-        ' * Docs licensed under <%= site.license.docs.type %>.',
+        ' * Documentation licensed under <%= site.license.docs.type %>.',
         ' */\n\n'
       ].join('\n')
     },
@@ -234,10 +234,25 @@ module.exports = function(grunt) {
 
     // Minify JavaScripts
     uglify: {
-      options: {banner: '<%= metadata.banner %>'},
+      options: {
+        banner: '<%= metadata.banner %>'
+      },
       site: {
         src: ['<%= site.scripts %>/{,*/}*.js'],
         dest: '<%= site.public %>/js/docs.min.js'
+      },
+
+      /**
+       * ie.js
+       * Provides support in older versions of IE.
+       * Source scripts are installed via Bower.
+       */
+      ie: {
+        src: [
+          './vendor/html5shiv/dist/html5shiv.js',
+          './vendor/respond/dest/respond.min.js'
+        ],
+        dest: '<%= site.public %>/js/ie.min.js'
       }
     },
 
