@@ -179,6 +179,16 @@ module.exports = function(grunt) {
       //   src: ['<%= less.docs.src %>'],
       //   dest: '<%= site.public %>/css/blog.css'
       // }
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 version', 'ie 8', 'ie 9']
+      },
+      styles: {
+        expand: true,
+        flatten: true,
+        src: '<%= site.public %>/css/*.css',
+        dest: '<%= site.public %>/css/'
+      },
     },
 
     // Lint CSS
