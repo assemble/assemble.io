@@ -4,10 +4,8 @@
   "main": [
     "./"
   ],
-  "devDependencies": {
-    "bootstrap": "~3.1.1"
-  },
   "dependencies": {
+    "bootstrap": "~3.1.1",
     "html5shiv": "~3.7.2",
     "respond": "~1.4.2"
   }
