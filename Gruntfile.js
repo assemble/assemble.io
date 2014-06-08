@@ -1,6 +1,6 @@
 
 /*
- * assemble-docs <https://github.com/assemble/assemble-docs>
+ * assemble.io <https://github.com/assemble/assemble.io>
  *
  * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
  * Licensed under the MIT license.
