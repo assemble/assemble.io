@@ -1,20 +1,13 @@
-<!-- meta -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{site.description}} | {{default description (default title basename)}}">
-<meta name="author" content="Jon Schlinkert, Brian Woodward, contributors.">
+<title>{{default title (titleize basename)}} | {{site.title}} &raquo; {{site.description}}</title>
+<meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1.0">
+<meta name=description content="{{site.description}} | {{default description (default title basename)}}">
+<meta name=author content="Jon Schlinkert, Brian Woodward, contributors">
+<link href="{{ assets }}/css/{{ theme }}.css" rel=stylesheet>
+<!--[if lt IE 9]><script src="/public/js/ie.min.js"></script><![endif]-->
 
-<!-- title -->
-<title>
-  {{default title (titleize basename)}} | {{site.title}} &raquo; {{site.description}}
-</title>
-
-<!-- Main CSS -->
-<link href="{{ assets }}/css/{{ theme }}.css" rel="stylesheet">
-
-<!-- Webfonts -->
-<script type="text/javascript">
+<script>/* Google webfonts */
   WebFontConfig = {google: {families: [{{webfonts site.webfonts}}] }};
   (function() {
     var wf = document.createElement('script');
@@ -27,11 +20,13 @@
   })();
 </script>
 
-<!-- IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]><script src="/public/js/ie.min.js"></script><![endif]-->
-
-<!-- Favicons -->
-<link rel="shortcut icon" href="{{ assets }}/ico/favicon.ico">
+<link rel="shortcut icon" href="/public/ico/favicon.ico"><!-- Favicons -->
+{{!--<link rel=apple-touch-icon-precomposed href=/public/img/site/icon/60.png>
+<link rel=icon href=/public/img/site/icon/16.png size=16x16>
+<link rel=icon href=/public/img/site/icon/32.png size=32x32>
+<link rel=icon href=/public/img/site/icon/48.png size=48x48>
+<link rel=icon href=/public/img/site/icon/64.png size=64x64>
+<link rel=icon href=/public/img/site/icon/128.png size=128x128>--}}
 
 {{!-- Google Analytics --}}
 {{#if production}}
