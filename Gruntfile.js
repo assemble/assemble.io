@@ -118,7 +118,16 @@ module.exports = function(grunt) {
       site: {
         options: {theme: 'docs'},
         files: {
-          '<%= site.dest %>/': ['<%= site.pages %>/helpers.hbs']
+          '<%= site.dest %>/': [
+            '<%= site.pages %>/helpers.hbs',
+            '<%= site.content %>/*.hbs'
+          ]
+        }
+      },
+      // Temporary task for homepage dev
+      homepage: {
+        files: {
+          '<%= site.dest %>/': ['<%= site.content %>/index.hbs']
         }
       }
     },
@@ -188,6 +197,10 @@ module.exports = function(grunt) {
         src: ['<%= site.styles %>/index.less'],
         dest: '<%= site.public %>/css/docs.css'
       },
+      homepage: {
+        src: ['<%= site.styles %>/module/page-home.less'],
+        dest: '<%= site.public %>/css/home.css'
+      }
     },
     
     autoprefixer: {
@@ -363,6 +376,14 @@ module.exports = function(grunt) {
           '<%= site.assets %>/{,*/}*.css',
           '<%= site.assets %>/{,*/}*.js',
           '<%= site.assets %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        ]
+      },
+      // Temporary task for homepage dev
+      homepage: {
+        tasks: ['assemble:homepage','less:homepage'],
+        files: [
+          '<%= site.content %>/index.hbs',
+          '<%= site.styles %>/module/page-home.less'
         ]
       }
     }

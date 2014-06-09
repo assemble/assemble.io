@@ -1,0 +1,87 @@
+---
+layout: none
+theme: docs
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head }}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel=stylesheet type="text/css" href=/public/css/home.css>
+</head>
+<body{{#modifier}} class="{{.}}"{{/modifier}}>
+
+{{> nav-main }}
+
+<main class="page page-home">
+  
+  <section id=assemble-introduction class="page-home-section">
+    
+    <div class=masthead-section>
+      {{!--<h1 class=masthead-section-title>Build something</h1>--}}
+      <p class=masthead-section-subtitle><a href rel=external></a></p>
+    </div>
+    
+    <div class=masthead-github>
+      <p class=commit-msg>
+        Latest commit <a href="" rel=source>on GitHub</a>
+        <span class=commit-msg-date></span>&#124;
+        <a href class=commit-msg-hash></a>
+        <script>
+          var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          $.ajax({
+            url: "https://api.github.com/repos/assemble/assemble/commits?access_token=a68f663a562b8c67d18f3fff16411a384316818d",
+            dataType: 'jsonp',
+            success: function (json) {
+              var latest = json.data[0];
+              if (!latest) return;
+              var stamp = new Date(latest.commit.committer.date),
+                  stampString = month[stamp.getMonth()] + ' ' + stamp.getDate() + ', ' + stamp.getFullYear();
+              //$('.commit-msg .description').text(latest.commit.message);
+              $('.commit-msg-date').text(stampString);
+              $('.commit-msg-hash').html('Commit ' + latest.sha + ' &raquo;');
+              $('.commit-msg-hash').attr('href', "https://github.com/assemble/assemble/commit/" + latest.sha);
+            } 
+          });
+          $.ajax({
+            dataType: 'jsonp',
+            url: 'https://api.github.com/repos/assemble/assemble?callback=assembleGitHub&access_token=a68f663a562b8c67d18f3fff16411a384316818d',
+            success: function (response) {
+              if (response && response.data.watchers) {
+                var watchers = (Math.round((response.data.watchers / 100), 10) / 10).toFixed(1);
+                $('.masthead-section-subtitle a').html(watchers + 'k stargazers');
+              }
+            }
+          });
+          </script>
+      </p>
+    </div>
+    
+  </section><!-- /#assemble-introduction -->
+  
+  <section id=assemble-projects class="page-home-section">
+    <article date-feature=true class=asseble-project>
+
+    </article>
+    <article class=asseble-project>
+
+    </article>
+    <article class=asseble-project>
+
+    </article>
+  </section><!-- /#assemble-projects -->
+
+  <section class="page-home-section">
+
+  </section><!-- /# -->
+
+</main>
+
+{{#isnt slug 'blog'}}
+  {{> footer }}
+{{/isnt}}
+
+{{> javascripts }}
+</body>
+</html>

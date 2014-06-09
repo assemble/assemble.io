@@ -1,0 +1,42 @@
+@import '../variables';
+
+#assemble-introduction {
+  top: 35px;
+}
+
+.masthead-section {
+  display: flex;
+  height: 50vh;
+  background: @black;
+}
+
+.masthead-section-title {
+  flex: 1 auto;
+  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  color: @white;
+  font-family: @font-open-sans-condensed;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.masthead-section-subtitle {
+  letter-spacing: 1px;
+  color: @white;
+}
+
+.masthead-github {
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px;
+  background: @gray-dark;
+  color: @white;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}

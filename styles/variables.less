@@ -5,26 +5,34 @@
 
 // Palette
 // ------------------------------------------------
-// Grayscale and colors for use across the site.
+// Values and colors for use across the site.
 
 // Grayscale
-@black:                  #000;
-@gray-darkest:           lighten(#000, 7.5%);   // #111
-@gray-darker:            lighten(#000, 13.5%);  // #222
-@gray-dark:              lighten(#000, 20%);    // #333
-@gray:                   lighten(#000, 33.5%);  // #555
-@gray-medium:            lighten(#000, 46.75%); // #777
-@gray-light:             lighten(#000, 60%);    // #999
-@gray-lighter:           lighten(#000, 93.5%);  // #eee
-@gray-lightest:          lighten(#000, 97%);    // #f7f7f7
+@black:                  #000; // as the night
+@gray-darkest:           lighten(#000, 7.5%);   // -> #111
+@gray-darker:            lighten(#000, 13.5%);  // -> #222
+@gray-dark:              lighten(#000, 20%);    // -> #333
+@gray:                   lighten(#000, 33.5%);  // -> #555
+@gray-medium:            lighten(#000, 46.75%); // -> #777
+@gray-light:             lighten(#000, 60%);    // -> #999
+@gray-lighter:           lighten(#000, 93.5%);  // -> #eee
+@gray-lightest:          lighten(#000, 97%);    // -> #f7f7f7
 
 // Colors
-@brand-primary:         #33b5e5;
-@brand-success:         #5cb85c;
-@brand-info:            #00b4e0;
-@brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
-@brand-inverse:         #fff;
+@blue-light: #33b5e5;
+@blue-dark: #00b4e0;
+@green: #5cb85c;
+@orange: #f0ad4e;
+@red: #d9534f;
+@white: #fff;
+
+// Branded Colors
+@brand-primary: @blue-light;
+@brand-success: @green;
+@brand-info: @blue-dark;
+@brand-warning: @orange;
+@brand-danger: @red;
+@brand-inverse: @white;
 
 
 
@@ -33,7 +41,7 @@
 // Settings for some of the most global styles.
 
 // Background color for `<body>`.
-@body-bg:               #fff;
+@body-bg:               @white;
 @body-padding:          @navbar-height;
 // Global text color on `<body>`.
 @text-color:            @gray-dark;
@@ -60,8 +68,6 @@
 // Sitewide fonts
 @font-family-sans-serif:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 @font-family-serif:       'Chronicle SSm A', 'Chronicle SSm B', Georgia, "Times New Roman", Times, serif;
-
-
 
 // Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
