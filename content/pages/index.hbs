@@ -2,7 +2,6 @@
 layout: none
 theme: docs
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +14,14 @@ theme: docs
 {{> nav-main }}
 
 <main class="page page-home">
-  
+
   <section id=assemble-introduction class="page-home-section">
-    
+
     <div class=masthead-section>
       {{!--<h1 class=masthead-section-title>Build something</h1>--}}
       <p class=masthead-section-subtitle><a href rel=external></a></p>
     </div>
-    
+
     <div class=masthead-github>
       <p class=commit-msg>
         Latest commit <a href="" rel=source>on GitHub</a>
@@ -42,7 +41,7 @@ theme: docs
               $('.commit-msg-date').text(stampString);
               $('.commit-msg-hash').html('Commit ' + latest.sha + ' &raquo;');
               $('.commit-msg-hash').attr('href', "https://github.com/assemble/assemble/commit/" + latest.sha);
-            } 
+            }
           });
           $.ajax({
             dataType: 'jsonp',
@@ -57,9 +56,9 @@ theme: docs
           </script>
       </p>
     </div>
-    
+
   </section><!-- /#assemble-introduction -->
-  
+
   <section id=assemble-projects class="page-home-section">
     <article date-feature=true class=asseble-project>
 
