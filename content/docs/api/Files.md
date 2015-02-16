@@ -1,9 +1,7 @@
 ---
 title: API
-
 area: docs
 section: development
-
 published: false
 ---
 
