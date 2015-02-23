@@ -1,5 +1,7 @@
 # [Assemble Documentation](http://assemble.io/)
 
+*The documentation for Assemble is currently in the process of a major revision! Before creating an issue related to a bug on the current site, please check to make sure that one does already exist. If you are interested in contributing to the next release of the site. Please let us know.*
+
 > Assemble is a component and static site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.
 
 
