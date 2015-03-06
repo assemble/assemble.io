@@ -1,6 +1,5 @@
 ---
-title: Templates Overview
-
+title: Overview
 area: docs
 section: templates
 ---

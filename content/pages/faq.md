@@ -30,11 +30,6 @@
 
 {{#draft}}
 
-copied from an answer to an issue
-> Can assemble be run without grunt though?
-
-Currently no, but we're planning a refactor of assemble and anything is possible for the future. we would love for you and your team to participate in this planning process here: https://github.com/assemble/refactor-planning. Sincit it's new, currently it's just some notes and placeholder files, but we want to start adding issues and having discussions regarding goals for the next major version of assemble.
-
 > Shouldn't I aim to make autonomous?
 
 Well, that's your call, but IMO it's best to create the helper that you need for the job your doing. We're planning on labeling helpers somehow to make it easy to differentiate them based on the following:

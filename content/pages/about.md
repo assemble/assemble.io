@@ -1,13 +1,28 @@
-# Introduction
-> Become familiar with the basics of Assemble.
+---
+title: About
 
-Assemble makes it easy to combine templates, content, and data to produce any kind of static documents: web pages, web components, blog posts, and so on. This introduction guide covers where to find documentation on how to get started using Assemble and explains the terminology, building blocks, and core-concepts of a static site generator.
+area: docs
+section: getting started
+---
 
-## Getting started
-Visit the [Getting Started Guide][getting-started] for information on how to install, setup and configure your first Assemble project. If you are unfamiliar with [Grunt.js][Grunt] and [Gulp.js][Gulp], two task runners for which Assemble plugins are available, view their getting started guides. Although an in-dept understanding of these tools is not required, it is important to be familiar with the configuration of your entire stack, not just Assemble.
+> Assemble is a dead-simple static site and component generator for Node.js.
 
-[Grunt]: http:// "Grunt.js Getting Started Guide"
-[Gulp]: http://  "Gulp.js Getting Started Guide"
+Assemble makes it easy to combine templates, data and content to produce any kind of resulting documents, such as HTML web pages, UI components, styleguides, blog posts, and so on. Assemble was created by [@jonschlinkert](https://github.com/jonschlinkert) and [@doowb](https://github.com/doowb) to get designers and developers on the same page.
+
+## What you won't find in Assemble
+
+### "Blog awareness"
+
+Which really means "if you put your posts in a specific folder, and you name it exactly as required, then the parser will find your posts and render them into a blog". But Assemble isn't worried about what you put where, or where you go and how late you'll be out. You're a semi-responsible very bearded adult, you should be able to make your own decisions. Bottom line: Assemble is "beard aware". Wait... Assemble helps you make choices about your beard. Nevermind...
+
+### Special required _folders
+
+You won't find a requirement for directories like `_layouts`, `_posts` or `_anything-else`. Assemble is a Grunt.js plugin, so you have as much flexibility as you would with any other Grunt.js plugin. Your project structure is whatever you want it to be. You can put your [layouts][layouts], [pages][pages], posts, [partials][options-partials] or any other files wherever you want them to be. You can use an `includes` directory instead of `partials`. In fact, you could add hundreds of [targets](http://gruntjs.com/configuring-tasks) in the assemble task in your Gruntfile, and use a different convention for each one if you had a reason.
+
+### _config.yml
+
+A requirement to use `_config.yml`, or `config.json`, or `config` anything. Instead, Assemble provides [options.data][options-data] which enables you to use your own conventions for configuration. You can name your files however you want, or put them in whatever directory you want. It's up to you.
+
 
 ## Building blocks
 
@@ -52,9 +67,3 @@ A [scaffold](http://en.wikipedia.org/wiki/Scaffolding) is a temporary structure 
 *Boilerplate code* refers to sections of code that have to be included in many places with little or no alteration. If you are familiar with [Twitter Bootstrap]() and/or [Zurb Foundation](), both could be considered boilerplates.
 
 Historically, a bolier plate was the label used to identify the builder of steam boilers. You may have also heard of *Boilerplate text*: any text that is used, or can be reused, in new contexts or applications without being changed much from the original.
-
-# Core Concepts
-
-## Primary
-
-## Secondary

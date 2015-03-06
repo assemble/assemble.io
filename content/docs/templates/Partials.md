@@ -10,15 +10,6 @@ tags:
 - includes
 - partials
 
-logo:
-  URL: media/images/logo.png
-  classes:
-    - logo
-    - main
-  width: 80
-  height: 40
-  title: Assemble This!
-
 hide-partial-YFM:
   class: ""
 ---
