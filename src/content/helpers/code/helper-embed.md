@@ -13,7 +13,7 @@ For example, here we will force highlighting as `javascript` instead of `json`
 \{{ embed 'src/example.json' 'js' }}
 ```
 
-When embedding a markdown snippet (`.md|markdown|markd`), the helper automatically converts any code fences inside the snippet (`` ``` ``) to their Unicode equivalent ("`&#x60;&#x60;&#x60;`")
+When embedding a markdown snippet (`.md|markdown|markd`), the helper automatically converts any code fences inside the snippet (```` ``` ````) to their Unicode equivalent ("`&#x60;&#x60;&#x60;`")
 
 ```html
 \{{embed 'src/example.md'}}
