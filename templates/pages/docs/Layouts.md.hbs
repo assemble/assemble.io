@@ -168,6 +168,23 @@ Continuing with the example from the previous section, the flattened layout for 
 </html>
 ```
 
+### Using glob pattern for layouts
+
+Instead of using the `layoutdir` option as a single root folder for all your layouts, you can also put your layouts into different folders and use the `layouts` option to specify a glob pattern or list of glob patterns. Layouts found with those patterns will then be made available for use with their file name.
+
+The following example illustrates, how you can use glob patterns to define layout files that match a specific pattern within your `src` directory structure:
+
+```js
+assemble: {
+  options: {
+    layout: 'default.layout.hbs',
+    layouts: 'src/**/*.layout.hbs'
+  },
+  docs: {
+    files: {'docs/': ['src/docs/*.hbs']}
+  }
+}
+```
 
 ## Layout FAQ
 

@@ -1,0 +1,58 @@
+---
+title: options.layouts
+shortname: layouts
+
+area: docs
+section: configuration
+
+categories:
+- options
+- templates
+tags:
+- options
+- layout
+- layoutdir
+- layouts
+- templates
+---
+
+## options.layouts
+
+> Glob pattern or list of glob patterns to be scanned for layouts
+
+A glob pattern to be used to find layouts. When this option is defined, and resolves to some files, the `layoutdir` option is ignored and layouts specified in templates will be matched against the resolved files using the specified glob pattern(s).
+
+## Usage Examples
+
+### Using a specific extension
+This allows you to distribute layouts across multiple folders but let them follow a specific file extension pattern:
+
+```js
+assemble: {
+  options: {
+    layout: 'default.layout.hbs',
+    layouts: 'src/**/*.layout.hbs'
+  },
+  docs: {
+    files: {'docs/': ['src/docs/*.hbs']}
+  }
+}
+```
+
+### With multiple glob patterns
+
+This enables you to be very specific and also exclude files that match a given pattern explicitly:
+
+```js
+assemble: {
+  options: {
+    layout: 'default.hbs',
+    layouts: ['src/layouts/*.hbs', 'node_modules/**/layouts/*.hbs', '!*not-this-layout.hbs']
+  },
+  docs: {
+    files: {'docs/': ['src/docs/*.hbs']}
+  }
+}
+```
+
+#### Also see [Layouts][layouts] and [options.layout][options-layout] →
