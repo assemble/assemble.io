@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    
+    <title>
+      Core application | Assemble
+    </title>
+    
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
+    
+      <link rel="stylesheet" href="../../assets/css/markdown.css">
+    
+    
+    <!-- Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/img/favicon.png">
+    
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    
+    <script type="application/ld+json">
+    [
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Person",
+        "name" : "Jon Schlinkert",
+        "description" : "Co-creator of Assemble.",
+        "url" : "https://github.com/jonschlinkert"
+      },
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Person",
+        "name" : "Brian Woodward",
+        "description" : "Co-creator of Assemble.",
+        "url" : "https://github.com/doowb"
+      }
+    ]
+    </script>    <script>
+      var site = JSON.parse('{"title":"Assemble Docs","description":"The static site generator for Node.js, Grunt.js and Yeoman.","lead":"It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.","version":"0.10.0","base":":destBase/en/v:site.version","baseUrl":"http://assemble.io"}');
+      var destBase = "_gh_pages";
+      var currentPath = "_gh_pages/en/v0.10.0/docs/api/app.html";
+    </script>
+  </head>
+  <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+
+
+    <div class="navbar" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">ASSEMBLE</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-docs">
+            <li><a href="../api.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Classes']);">Classes</a></li>
+    <li><a href="../build-cycle.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">build-cycle</a></li>
+    <li><a href="../docs.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">docs</a></li>
+    <li><a href="../index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Docs']);">Docs</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Api <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-api">
+            <li><a href="./app.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Core application']);">Core application</a></li>
+    <li><a href="./app.use.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.use']);">app.use</a></li>
+    <li><a href="./app.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.view']);">app.view</a></li>
+    <li><a href="./assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="./class.Assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble']);">Assemble</a></li>
+    <li><a href="./class.Item.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Item']);">Item</a></li>
+    <li><a href="./class.List.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/List']);">List</a></li>
+    <li><a href="./class.Route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    <li><a href="./class.Router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    <li><a href="./class.View.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View']);">View</a></li>
+    <li><a href="./collection-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collection Types']);">Collection Types</a></li>
+    <li><a href="./collection.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/collection.view']);">collection.view</a></li>
+    <li><a href="./collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collections']);">Collections</a></li>
+    <li><a href="./data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Data']);">Data</a></li>
+    <li><a href="./events.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Events']);">Events</a></li>
+    <li><a href="./file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/File system API']);">File system API</a></li>
+    <li><a href="./front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Front matter']);">Front matter</a></li>
+    <li><a href="./helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helpers']);">Helpers</a></li>
+    <li><a href="./index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/API']);">API</a></li>
+    <li><a href="./layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Layouts']);">Layouts</a></li>
+    <li><a href="./methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Settings API']);">Settings API</a></li>
+    <li><a href="./middleware.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Middleware']);">Middleware</a></li>
+    <li><a href="./options/mergeTypes.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: mergeTypes']);">Option: mergeTypes</a></li>
+    <li><a href="./options/renameKey.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: renameKey']);">Option: renameKey</a></li>
+    <li><a href="./pipeline-plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Pipeline plugins']);">Pipeline plugins</a></li>
+    <li><a href="./route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    <li><a href="./router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    <li><a href="./tasks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Task API']);">Task API</a></li>
+    <li><a href="./terminology.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Terminology']);">Terminology</a></li>
+    <li><a href="./view-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View collections']);">View collections</a></li>
+    <li><a href="./view-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View types']);">View types</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recipes <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-recipes">
+            <li><a href="../recipes/assemble-instance.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble instance']);">Assemble instance</a></li>
+    <li><a href="../recipes/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="../recipes/browser-sync.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble and Browser-Sync']);">Assemble and Browser-Sync</a></li>
+    <li><a href="../recipes/copy-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Copy files']);">Copy files</a></li>
+    <li><a href="../recipes/create-a-collection.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Create a collection']);">Create a collection</a></li>
+    <li><a href="../recipes/custom-async-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom async helpers']);">Custom async helpers</a></li>
+    <li><a href="../recipes/custom-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom helpers']);">Custom helpers</a></li>
+    <li><a href="../recipes/default-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Default layout']);">Default layout</a></li>
+    <li><a href="../recipes/delete-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Deleting files']);">Deleting files</a></li>
+    <li><a href="../recipes/generate-html-and-precompile-less.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile LESS']);">Generate HTML and precompile LESS</a></li>
+    <li><a href="../recipes/generate-html-and-precompile-sass.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile SASS']);">Generate HTML and precompile SASS</a></li>
+    <li><a href="../recipes/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Recipes']);">Recipes</a></li>
+    <li><a href="../recipes/inspecting-the-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Inspecting the context']);">Inspecting the context</a></li>
+    <li><a href="../recipes/install-assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Install assemble']);">Install assemble</a></li>
+    <li><a href="../recipes/javascript-generators.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">recipes/javascript-generators</a></li>
+    <li><a href="../recipes/listening-for-errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for errors']);">Listening for errors</a></li>
+    <li><a href="../recipes/listening-for-views.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for views']);">Listening for views</a></li>
+    <li><a href="../recipes/load-templates-from-the-file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Loading views for a collection']);">Loading views for a collection</a></li>
+    <li><a href="../recipes/markdown-to-html.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Converting markdown to HTML']);">Converting markdown to HTML</a></li>
+    <li><a href="../recipes/merging-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Merging context']);">Merging context</a></li>
+    <li><a href="../recipes/register-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Register helpers']);">Register helpers</a></li>
+    <li><a href="../recipes/rename-keys.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Rename view keys']);">Rename view keys</a></li>
+    <li><a href="../recipes/render-markdown-in-layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render markdown with layouts']);">Render markdown with layouts</a></li>
+    <li><a href="../recipes/rendering-templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render templates']);">Render templates</a></li>
+    <li><a href="../recipes/to-stream.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Push views onto a vinyl stream']);">Push views onto a vinyl stream</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subjects <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-subjects">
+            <li><a href="../subjects/assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/About']);">About</a></li>
+    <li><a href="../subjects/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="../subjects/building-blocks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Building blocks']);">Building blocks</a></li>
+    <li><a href="../subjects/context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Context']);">Context</a></li>
+    <li><a href="../subjects/gulp-faq.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Gulp FAQ']);">Gulp FAQ</a></li>
+    <li><a href="../subjects/helper-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helper context']);">Helper context</a></li>
+    <li><a href="../subjects/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Subjects']);">Subjects</a></li>
+    <li><a href="../subjects/overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Overview']);">Overview</a></li>
+    <li><a href="../subjects/plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble Plugins']);">Assemble Plugins</a></li>
+  </ul>
+        </li>
+      </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other Versions <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="dropdown-versions">
+              </ul>
+            </li>
+            <li> <a href="/">Blog</a> </li>
+            <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" ><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
+            <li> <a href="https://github.com/assemble/assemble/" >GitHub Repo</a> </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+    <header class="masthead subhead">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-12">
+        <style type="text/css" media="screen">
+          #custom-tweet-button > a {
+            float: right;
+            display: inline-block;
+            padding: 8px 16px 8px 36px;
+            margin: 15px 0 0 0;
+            background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
+            background-color: transparent;
+            border: none;
+            border-radius: 4px;
+          }
+          #custom-tweet-button > a:hover {
+            background-color: rgba(255,255,255,.07);
+          }
+        </style>
+        <div id="custom-tweet-button">
+          <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
+          <script>
+            ! function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            }(document, "script", "twitter-wjs");
+          </script>
+        </div>        <h1>
+          <span class="text-muted">api /&nbsp;</span>
+          Core application
+        </h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col col-lg-3">
+      <div class="sidebar">
+        <ul class="nav">
+          <li><span><a href="../index.html" class="nav-section-title">docs</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="../api.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Classes']);">Classes</a></li>
+    
+      <li><a href="../build-cycle.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">build-cycle</a></li>
+    
+      <li><a href="../docs.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">docs</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span class="active"><a href="./index.html" class="nav-section-title">api</a>
+</span>
+    <ul class="nav nav-pills nav-stacked  active">
+    
+      <li class="active"><a href="./app.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Core application']);">Core application</a></li>
+    
+      <li><a href="./app.use.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.use']);">app.use</a></li>
+    
+      <li><a href="./app.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.view']);">app.view</a></li>
+    
+      <li><a href="./assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="./class.Assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble']);">Assemble</a></li>
+    
+      <li><a href="./class.Item.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Item']);">Item</a></li>
+    
+      <li><a href="./class.List.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/List']);">List</a></li>
+    
+      <li><a href="./class.Route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    
+      <li><a href="./class.Router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    
+      <li><a href="./class.View.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View']);">View</a></li>
+    
+      <li><a href="./collection-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collection Types']);">Collection Types</a></li>
+    
+      <li><a href="./collection.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/collection.view']);">collection.view</a></li>
+    
+      <li><a href="./collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collections']);">Collections</a></li>
+    
+      <li><a href="./data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Data']);">Data</a></li>
+    
+      <li><a href="./events.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Events']);">Events</a></li>
+    
+      <li><a href="./file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/File system API']);">File system API</a></li>
+    
+      <li><a href="./front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Front matter']);">Front matter</a></li>
+    
+      <li><a href="./helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helpers']);">Helpers</a></li>
+    
+      <li><a href="./layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Layouts']);">Layouts</a></li>
+    
+      <li><a href="./methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Settings API']);">Settings API</a></li>
+    
+      <li><a href="./middleware.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Middleware']);">Middleware</a></li>
+    
+      <li><a href="./options/mergeTypes.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: mergeTypes']);">Option: mergeTypes</a></li>
+    
+      <li><a href="./options/renameKey.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: renameKey']);">Option: renameKey</a></li>
+    
+      <li><a href="./pipeline-plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Pipeline plugins']);">Pipeline plugins</a></li>
+    
+      <li><a href="./route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    
+      <li><a href="./router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    
+      <li><a href="./tasks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Task API']);">Task API</a></li>
+    
+      <li><a href="./terminology.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Terminology']);">Terminology</a></li>
+    
+      <li><a href="./view-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View collections']);">View collections</a></li>
+    
+      <li><a href="./view-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View types']);">View types</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span><a href="../recipes/index.html" class="nav-section-title">recipes</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="../recipes/assemble-instance.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble instance']);">Assemble instance</a></li>
+    
+      <li><a href="../recipes/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="../recipes/browser-sync.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble and Browser-Sync']);">Assemble and Browser-Sync</a></li>
+    
+      <li><a href="../recipes/copy-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Copy files']);">Copy files</a></li>
+    
+      <li><a href="../recipes/create-a-collection.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Create a collection']);">Create a collection</a></li>
+    
+      <li><a href="../recipes/custom-async-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom async helpers']);">Custom async helpers</a></li>
+    
+      <li><a href="../recipes/custom-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom helpers']);">Custom helpers</a></li>
+    
+      <li><a href="../recipes/default-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Default layout']);">Default layout</a></li>
+    
+      <li><a href="../recipes/delete-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Deleting files']);">Deleting files</a></li>
+    
+      <li><a href="../recipes/generate-html-and-precompile-less.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile LESS']);">Generate HTML and precompile LESS</a></li>
+    
+      <li><a href="../recipes/generate-html-and-precompile-sass.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile SASS']);">Generate HTML and precompile SASS</a></li>
+    
+      <li><a href="../recipes/inspecting-the-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Inspecting the context']);">Inspecting the context</a></li>
+    
+      <li><a href="../recipes/install-assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Install assemble']);">Install assemble</a></li>
+    
+      <li><a href="../recipes/javascript-generators.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">recipes/javascript-generators</a></li>
+    
+      <li><a href="../recipes/listening-for-errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for errors']);">Listening for errors</a></li>
+    
+      <li><a href="../recipes/listening-for-views.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for views']);">Listening for views</a></li>
+    
+      <li><a href="../recipes/load-templates-from-the-file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Loading views for a collection']);">Loading views for a collection</a></li>
+    
+      <li><a href="../recipes/markdown-to-html.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Converting markdown to HTML']);">Converting markdown to HTML</a></li>
+    
+      <li><a href="../recipes/merging-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Merging context']);">Merging context</a></li>
+    
+      <li><a href="../recipes/register-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Register helpers']);">Register helpers</a></li>
+    
+      <li><a href="../recipes/rename-keys.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Rename view keys']);">Rename view keys</a></li>
+    
+      <li><a href="../recipes/render-markdown-in-layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render markdown with layouts']);">Render markdown with layouts</a></li>
+    
+      <li><a href="../recipes/rendering-templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render templates']);">Render templates</a></li>
+    
+      <li><a href="../recipes/to-stream.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Push views onto a vinyl stream']);">Push views onto a vinyl stream</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span><a href="../subjects/index.html" class="nav-section-title">subjects</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="../subjects/assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/About']);">About</a></li>
+    
+      <li><a href="../subjects/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="../subjects/building-blocks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Building blocks']);">Building blocks</a></li>
+    
+      <li><a href="../subjects/context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Context']);">Context</a></li>
+    
+      <li><a href="../subjects/gulp-faq.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Gulp FAQ']);">Gulp FAQ</a></li>
+    
+      <li><a href="../subjects/helper-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helper context']);">Helper context</a></li>
+    
+      <li><a href="../subjects/overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Overview']);">Overview</a></li>
+    
+      <li><a href="../subjects/plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble Plugins']);">Assemble Plugins</a></li>
+    
+    </ul>
+  </li>
+</ul>
+      </div>
+    </div>
+
+
+    <div class="col col-lg-9">
+      <div class="panel panel-docs">
+        <h1>Core application</h1>
+<h1>API</h1>
+<h2>Core API</h2>
+<p>Assemble's core API is powered by [base][], [cache-base][].</p>
+<h3>.set</h3>
+<p>Assign <code>value</code> to <code>key</code>. Also emits <code>set</code> with the key and value.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>value</code> <strong>{any}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Events</strong></p>
+<ul>
+<li><code>emits</code>: <code>set</code> with <code>key</code> and <code>value</code> as arguments.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.on('set', function(key, val) {
+  // do something when `set` is emitted
+});
+
+app.set(key, value);
+
+// also takes an object or array
+app.set({name: 'Halle'});
+app.set([{foo: 'bar'}, {baz: 'quux'}]);
+console.log(app);
+//=&gt; {name: 'Halle', foo: 'bar', baz: 'quux'}
+</code></pre>
+<h3>.get</h3>
+<p>Return the value of <code>key</code>. Dot notation may be used to get [nested property values][get-value].</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: The name of the property to get. Dot-notation may be used.</li>
+<li><code>returns</code> <strong>{any}</strong>: Returns the value of <code>key</code></li>
+</ul>
+<p><strong>Events</strong></p>
+<ul>
+<li><code>emits</code>: <code>get</code> with <code>key</code> and <code>value</code> as arguments.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.set('a.b.c', 'd');
+app.get('a.b');
+//=&gt; {c: 'd'}
+
+app.get(['a', 'b']);
+//=&gt; {c: 'd'}
+</code></pre>
+<h3>.has</h3>
+<p>Return true if app has a stored value for <code>key</code>, false only if value is <code>undefined</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Events</strong></p>
+<ul>
+<li><code>emits</code>: <code>has</code> with <code>key</code> and true or false as arguments.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.set('foo', 'bar');
+app.has('foo');
+//=&gt; true
+</code></pre>
+<h3>.del</h3>
+<p>Delete one or more properties from the instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Array}</strong>: Property name or array of property names.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Events</strong></p>
+<ul>
+<li><code>emits</code>: <code>del</code> with the <code>key</code> as the only argument.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.del(); // delete all
+// or
+app.del('foo');
+// or
+app.del(['foo', 'bar']);
+</code></pre>
+<h3>.clear</h3>
+<p>Reset the entire cache to an empty object.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.clear();
+</code></pre>
+<h3>.visit</h3>
+<p>Visit <code>method</code> over the properties in the given object, or map
+visit over the object-elements in an array.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>method</code> <strong>{String}</strong>: The name of the <code>base</code> method to call.</li>
+<li><code>val</code> <strong>{Object|Array}</strong>: The object or array to iterate over.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<h3>.is</h3>
+<p>Set the given <code>name</code> on <code>app._name</code> and <code>app.is*</code> properties. Used for doing lookups in plugins.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.is('foo');
+console.log(app._name);
+//=&gt; 'foo'
+console.log(app.isFoo);
+//=&gt; true
+app.is('bar');
+console.log(app.isFoo);
+//=&gt; true
+console.log(app.isBar);
+//=&gt; true
+console.log(app._name);
+//=&gt; 'bar'
+</code></pre>
+<h3>.isRegistered</h3>
+<p>Returns true if a plugin has already been registered on an instance.</p>
+<p>Plugin implementors are encouraged to use this first thing in a plugin
+to prevent the plugin from being called more than once on the same
+instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: The plugin name.</li>
+<li><code>register</code> <strong>{Boolean}</strong>: If the plugin if not already registered, to record it as being registered pass <code>true</code> as the second argument.</li>
+<li><code>returns</code> <strong>{Boolean}</strong>: Returns true if a plugin is already registered.</li>
+</ul>
+<p><strong>Events</strong></p>
+<ul>
+<li><code>emits</code>: <code>plugin</code> Emits the name of the plugin.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var base = new Base();
+base.use(function(app) {
+  if (app.isRegistered('myPlugin')) return;
+  // do stuff to `app`
+});
+
+// to also record the plugin as being registered
+base.use(function(app) {
+  if (app.isRegistered('myPlugin', true)) return;
+  // do stuff to `app`
+});
+</code></pre>
+<h3>.assertPlugin</h3>
+<p>Throws an error when plugin <code>name</code> is not registered.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: The plugin name.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var base = new Base();
+base.use(function(app) {
+  app.assertPlugin('base-foo');
+  app.assertPlugin('base-bar');
+  app.assertPlugin('base-baz');
+});
+</code></pre>
+<h3>.use</h3>
+<p>Define a plugin function to be called immediately upon init. Plugins are chainable and the only parameter exposed to the plugin is the application instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: plugin function to call</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the item instance for chaining.</li>
+</ul>
+<p><strong>Events</strong></p>
+<ul>
+<li><code>emits</code>: <code>use</code> with no arguments.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var app = new Base()
+  .use(foo)
+  .use(bar)
+  .use(baz)
+</code></pre>
+<h3>.lazy</h3>
+<p>Lazily invoke a registered plugin. <strong>Note</strong> that this method can only be used with:</p>
+<ol>
+<li>plugins that <em>add a single method or property</em> to <code>app</code></li>
+<li>plugins that do not (themselves) add a getter/setter property (they're already lazy)</li>
+<li>plugins that do not return a function</li>
+</ol>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>prop</code> <strong>{String}</strong>: The name of the property or method added by the plugin.</li>
+<li><code>fn</code> <strong>{Function}</strong>: The plugin function</li>
+<li><code>options</code> <strong>{Object}</strong>: Options to use when the plugin is invoked.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.lazy('store', require('base-store'));
+</code></pre>
+<h3>.define</h3>
+<p>Define a non-enumerable property on the instance. Dot-notation is <strong>not supported</strong> with <code>define</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: The name of the property to define.</li>
+<li><code>value</code> <strong>{any}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Events</strong></p>
+<ul>
+<li><code>emits</code>: <code>define</code> with <code>key</code> and <code>value</code> as arguments.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">// arbitrary `render` function using lodash `template`
+define('render', function(str, locals) {
+  return _.template(str)(locals);
+});
+</code></pre>
+<h3>.mixin</h3>
+<p>Mix property <code>key</code> onto the Base prototype. If base-methods
+is inherited using <code>Base.extend</code> this method will be overridden
+by a new <code>mixin</code> method that will only add properties to the
+prototype of the inheriting application.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>val</code> <strong>{Object|Array}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<h3>.use</h3>
+<p>Static method for adding global plugin functions that will be added to an instance when created.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: Plugin function to use on each instance.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">Base.use(function(app) {
+  app.foo = 'bar';
+});
+var app = new Base();
+console.log(app.foo);
+//=&gt; 'bar'
+</code></pre>
+<h3>.extend</h3>
+<p>Static method for inheriting both the prototype and
+static methods of the <code>Base</code> class. See <a href="https://github.com/jonschlinkert/class-utils">class-utils</a>
+for more details.</p>
+<h3>App.mixin</h3>
+<p>Static method for adding mixins to the prototype. When a function is returned from the mixin plugin, it will be added to an array so it can be used on inheriting classes via <code>Base.mixins(Child)</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: Function to call</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">Base.mixin(function fn(proto) {
+  proto.foo = function(msg) {
+    return 'foo ' + msg;
+  };
+  return fn;
+});
+</code></pre>
+<h3>App.mixins</h3>
+<p>Static method for running currently saved global mixin functions against a child constructor.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>Child</code> <strong>{Function}</strong>: Constructor function of a child class</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">Base.extend(Child);
+Base.mixins(Child);
+</code></pre>
+<h3>.inherit</h3>
+<p>Similar to <code>util.inherit</code>, but copies all static properties,
+prototype properties, and descriptors from <code>Provider</code> to <code>Receiver</code>.
+<a href="https://github.com/jonschlinkert/class-utils">class-utils</a>for more details.</p>
+<hr>
+<h2>Options API</h2>
+<p>Assemble's Options API is powered by [base-option][] and [option-cache][].</p>
+<h3>.option</h3>
+<p>Set or get an option.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: The option name.</li>
+<li><code>value</code> <strong>{any}</strong>: The value to set.</li>
+<li><code>returns</code> <strong>{any}</strong>: Returns a <code>value</code> when only <code>key</code> is defined.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.option('a', true);
+app.option('a');
+//=&gt; true
+</code></pre>
+<h3>.hasOption</h3>
+<p>Return true if <code>options.hasOwnProperty(key)</code></p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>prop</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Boolean}</strong>: True if <code>prop</code> exists.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.hasOption('a');
+//=&gt; false
+app.option('a', 'b');
+app.hasOption('a');
+//=&gt; true
+</code></pre>
+<h3>.enable</h3>
+<p>Enable <code>key</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong> <code>Options</code>: to enable chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.enable('a');
+</code></pre>
+<h3>.disable</h3>
+<p>Disable <code>key</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: The option to disable.</li>
+<li><code>returns</code> <strong>{Object}</strong> <code>Options</code>: to enable chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.disable('a');
+</code></pre>
+<h3>.enabled</h3>
+<p>Check if <code>prop</code> is enabled (truthy).</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>prop</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.enabled('a');
+//=&gt; false
+
+app.enable('a');
+app.enabled('a');
+//=&gt; true
+</code></pre>
+<h3>.disabled</h3>
+<p>Check if <code>prop</code> is disabled (falsey).</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>prop</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Boolean}</strong>: Returns true if <code>prop</code> is disabled.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.disabled('a');
+//=&gt; true
+
+app.enable('a');
+app.disabled('a');
+//=&gt; false
+</code></pre>
+<h3>.isTrue</h3>
+<p>Returns true if the value of <code>prop</code> is strictly <code>true</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>prop</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Boolean}</strong>: Uses strict equality for comparison.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.option('a', 'b');
+app.isTrue('a');
+//=&gt; false
+
+app.option('c', true);
+app.isTrue('c');
+//=&gt; true
+
+app.option({a: {b: {c: true}}});
+app.isTrue('a.b.c');
+//=&gt; true
+</code></pre>
+<h3>.isFalse</h3>
+<p>Returns true if the value of <code>key</code> is strictly <code>false</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>prop</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Boolean}</strong>: Uses strict equality for comparison.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.option('a', null);
+app.isFalse('a');
+//=&gt; false
+
+app.option('c', false);
+app.isFalse('c');
+//=&gt; true
+
+app.option({a: {b: {c: false}}});
+app.isFalse('a.b.c');
+//=&gt; true
+</code></pre>
+<h3>.isBoolean</h3>
+<p>Return true if the value of key is either <code>true</code> or <code>false</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Boolean}</strong>: True if <code>true</code> or <code>false</code>.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.option('a', 'b');
+app.isBoolean('a');
+//=&gt; false
+
+app.option('c', true);
+app.isBoolean('c');
+//=&gt; true
+</code></pre>
+<h3>.option.set</h3>
+<p>Set option <code>key</code> on <code>app.options</code> with the given <code>value</code></p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: Option key, dot-notation may be used.</li>
+<li><code>value</code> <strong>{any}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.option.set('a', 'b');
+console.log(app.option.get('a'));
+//=&gt; 'b'
+</code></pre>
+<h3>.option.get</h3>
+<p>Get option <code>key</code> from <code>app.options</code></p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: Option key, dot-notation may be used.</li>
+<li><code>returns</code> <strong>{any}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.option({a: 'b'});
+console.log(app.option.get('a'));
+//=&gt; 'b'
+</code></pre>
+<h3>.option.create</h3>
+<p>Returns a shallow clone of <code>app.options</code> with all of the options methods, as well as a <code>.merge</code> method for merging options onto the cloned object.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Options}</strong>: Object to merge onto the returned options object.</li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var opts = app.option.create();
+opts.merge({foo: 'bar'});
+</code></pre>
+<hr>
+<h2>Plugin API</h2>
+<p>Assemble's Plugin API is powered by [base-plugins][].</p>
+<h3>.use</h3>
+<p>Define a plugin function to be called immediately upon init. The only parameter exposed to the plugin is the application instance.</p>
+<p>Also, if a plugin returns a function, the function will be pushed
+onto the <code>fns</code> array, allowing the plugin to be called at a
+later point, elsewhere in the application.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: plugin function to call</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the item instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">// define a plugin
+function foo(app) {
+  // do stuff
+}
+
+// register plugins
+var app = new Base()
+  .use(foo)
+  .use(bar)
+  .use(baz)
+</code></pre>
+<h3>.run</h3>
+<p>Run all plugins</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>value</code> <strong>{Object}</strong>: Object to be modified by plugins.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the item instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var config = {};
+app.run(config);
+</code></pre>
+<hr>
+<h2>Task API</h2>
+<p>Assemble's Task API is powered by [base-task][] and [composer][].</p>
+<h3>.task</h3>
+<p>Register a new task with it's options and dependencies. To return the task object of an already registered task, pass the name of the task without any additional parameters.</p>
+<p>Dependencies may also be specified as a glob pattern. Be aware that
+the order cannot be guarenteed when using a glob pattern.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: Name of the task to register</li>
+<li><code>options</code> <strong>{Object}</strong>: Options to set dependencies or control flow.</li>
+<li><code>options.deps</code> <strong>{Object}</strong>: array of dependencies</li>
+<li><code>options.flow</code> <strong>{Object}</strong>: How this task will be executed with it's dependencies (<code>series</code>, <code>parallel</code>, <code>settleSeries</code>, <code>settleParallel</code>)</li>
+<li><code>deps</code> <strong>{String|Array|Function}</strong>: Additional dependencies for this task.</li>
+<li><code>fn</code> <strong>{Function}</strong>: Final function is the task to register.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Return the instance for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">// register task &quot;site&quot; with composer
+app.task('site', ['styles'], function() {
+  return app.src('templates/pages/*.hbs')
+    .pipe(app.dest('_gh_pages'));
+});
+
+// get the &quot;site&quot; task object
+var task = app.task('site');
+</code></pre>
+<h3>.build</h3>
+<p>Build a task or array of tasks.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>tasks</code> <strong>{String|Array|Function}</strong>: List of tasks by name, function, or array of names/functions. (Defaults to <code>[default]</code>).</li>
+<li><code>cb</code> <strong>{Function}</strong>: Callback function to be called when all tasks are finished building.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.build('default', function(err, results) {
+  if (err) return console.error(err);
+  console.log(results);
+});
+</code></pre>
+<h3>.series</h3>
+<p>Compose task or list of tasks into a single function that runs the tasks in series.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>tasks</code> <strong>{String|Array|Function}</strong>: List of tasks by name, function, or array of names/functions.</li>
+<li><code>returns</code> <strong>{Function}</strong>: Composed function that may take a callback function.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.task('foo', function(done) {
+  console.log('this is foo');
+  done();
+});
+
+var fn = app.series('foo', function bar(done) {
+  console.log('this is bar');
+  done();
+});
+
+fn(function(err) {
+  if (err) return console.error(err);
+  console.log('done');
+});
+//=&gt; this is foo
+//=&gt; this is bar
+//=&gt; done
+</code></pre>
+<h3>.parallel</h3>
+<p>Compose task or list of tasks into a single function that runs the tasks in parallel.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>tasks</code> <strong>{String|Array|Function}</strong>: List of tasks by name, function, or array of names/functions.</li>
+<li><code>returns</code> <strong>{Function}</strong>: Composed function that may take a callback function.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.task('foo', function(done) {
+  setTimeout(function() {
+    console.log('this is foo');
+    done();
+  }, 500);
+});
+
+var fn = app.parallel('foo', function bar(done) {
+  console.log('this is bar');
+  done();
+});
+
+fn(function(err) {
+  if (err) return console.error(err);
+  console.log('done');
+});
+//=&gt; this is bar
+//=&gt; this is foo
+//=&gt; done
+</code></pre>
+<h2>Events</h2>
+<p><a href="https://github.com/jonschlinkert/composer">composer</a> is an event emitter that may emit the following events:</p>
+<h3>starting</h3>
+<p>This event is emitted when a <code>build</code> is starting.</p>
+<p>The event emits 2 arguments, the current instance of <a href="https://github.com/jonschlinkert/composer">composer</a> as the <code>app</code> and an object containing the build runtime information.</p>
+<pre><code class="language-js">app.on('starting', function(app, build) {});
+</code></pre>
+<ul>
+<li><code>build</code> exposes a <code>.date</code> object that has a <code>.start</code> property containing the start time as a <code>Date</code> object.</li>
+<li><code>build</code> exposes a <code>.hr</code> object that has a <code>.start</code> property containing the start time as an <code>hrtime</code> array.</li>
+</ul>
+<h3>finished</h3>
+<p>This event is emitted when a <code>build</code> has finished.</p>
+<p>The event emits 2 arguments, the current instance of <a href="https://github.com/jonschlinkert/composer">composer</a> as the <code>app</code> and an object containing the build runtime information.</p>
+<pre><code class="language-js">app.on('finished', function(app, build) {});
+</code></pre>
+<ul>
+<li><code>build</code> exposes a <code>.date</code> object that has <code>.start</code> and <code>.end</code> properties containing start and end times of the build as <code>Date</code> objects.</li>
+<li><code>build</code> exposes a <code>.hr</code> object that has <code>.start</code>, <code>.end</code>, <code>.duration</code>, and <code>.diff</code> properties containing timing information calculated using <code>process.hrtime</code></li>
+</ul>
+<h3>error</h3>
+<p>This event is emitted when an error occurrs during a <code>build</code>.
+The event emits 1 argument as an <code>Error</code> object containing additional information about the build and the task running when the error occurred.</p>
+<pre><code class="language-js">app.on('error', function(err) {});
+</code></pre>
+<p>Additional properties:</p>
+<ul>
+<li><code>app</code>: current composer instance running the build</li>
+<li><code>build</code>: current build runtime information</li>
+<li><code>task</code>: current task instance running when the error occurred</li>
+<li><code>run</code>: current task runtime information</li>
+</ul>
+<h3>task:starting</h3>
+<p>This event is emitted when a task is starting.
+The event emits 2 arguments, the current instance of the task object and an object containing the task runtime information.</p>
+<pre><code class="language-js">app.on('task:starting', function(task, run) {});
+</code></pre>
+<p>The <code>run</code> parameter exposes:</p>
+<ul>
+<li><code>.date</code> <strong>{Object}</strong>: has a <code>.start</code> property containing the start time as a <code>Date</code> object.</li>
+<li><code>.hr</code> <strong>{Object}</strong>: has a <code>.start</code> property containing the start time as an <code>hrtime</code> array.</li>
+</ul>
+<h3>task:finished</h3>
+<p>This event is emitted when a task has finished.</p>
+<p>The event emits 2 arguments, the current instance of the task object and an object containing the task runtime information.</p>
+<pre><code class="language-js">app.on('task:finished', function(task, run) {});
+</code></pre>
+<p>The <code>run</code> parameter exposes:</p>
+<ul>
+<li><code>.date</code> <strong>{Object}</strong>: has a <code>.date</code> object that has <code>.start</code> and <code>.end</code> properties containing start and end times of the task as <code>Date</code> objects.</li>
+<li><code>run</code> <strong>{Object}</strong>: has an <code>.hr</code> object that has <code>.start</code>, <code>.end</code>, <code>.duration</code>, and <code>.diff</code> properties containing timing information calculated using <code>process.hrtime</code></li>
+</ul>
+<h3>task:error</h3>
+<p>This event is emitted when an error occurrs while running a task.
+The event emits 1 argument as an <code>Error</code> object containing additional information about the task running when the error occurred.</p>
+<pre><code class="language-js">app.on('task:error', function(err) {});
+</code></pre>
+<p><strong>Additional properties</strong></p>
+<ul>
+<li><code>task</code>: current task instance running when the error occurred</li>
+<li><code>run</code>: current task runtime information</li>
+</ul>
+<hr>
+<h2>Templates API</h2>
+<h3>Common methods</h3>
+<p>This section describes methods that are common to all classes exposed through the templates API.</p>
+<h4>.option</h4>
+<p>Set or get an option value.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Pass a key-value pair or an object to set.</li>
+<li><code>val</code> <strong>{any}</strong>: Any value when a key-value pair is passed. This can also be options if a glob pattern is passed as the first value.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.option('a', 'b');
+app.option({c: 'd'});
+console.log(app.options);
+//=&gt; {a: 'b', c: 'd'}
+</code></pre>
+<h4>.use</h4>
+<p>Run a plugin on the given instance. Plugins are invoked immediately upon instantiating in the order in which they were defined.</p>
+<p><strong>Example</strong></p>
+<p>The simplest plugin looks something like the following:</p>
+<pre><code class="language-js">app.use(function(inst) {
+  // do something to `inst`
+});
+</code></pre>
+<p>Note that <code>inst</code> is the instance of the class you're instantiating. So if you create an instance of <code>Collection</code>, inst is the collection instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: Plugin function. If the plugin returns a function it will be passed to the <code>use</code> method of each item created on the instance.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Usage</strong></p>
+<pre><code class="language-js">collection.use(function(items) {
+  // `items` is the instance, as is `this`
+
+  // optionally return a function to be passed to
+  // the `.use` method of each item created on the
+  // instance
+  return function(item) {
+    // do stuff to each `item`
+  };
+});
+</code></pre>
+<h3>.list</h3>
+<p>Create a new list. See the <a href="docs/lists.md">list docs</a> for more information about lists.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>opts</code> <strong>{Object}</strong>: List options</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the <code>list</code> instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var list = app.list();
+list.addItem('abc', {content: '...'});
+
+// or, create list from a collection
+app.create('pages');
+var list = app.list(app.pages);
+</code></pre>
+<h3>.collection</h3>
+<p>Create a new collection. Collections are decorated with special methods for getting and setting items from the collection. Note that, unlike the <a href="#create">create</a> method, collections created with <code>.collection()</code> are not cached.</p>
+<p>See the <a href="docs/collections.md">collection docs</a> for more
+information about collections.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>opts</code> <strong>{Object}</strong>: Collection options</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the <code>collection</code> instance for chaining.</li>
+</ul>
+<h3>.create</h3>
+<p>Create a new view collection to be stored on the <code>app.views</code> object. See
+the <a href="docs/collections.md#create">create docs</a> for more details.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: The name of the collection to create. Plural or singular form may be used, as the inflections are automatically resolved when the collection is created.</li>
+<li><code>opts</code> <strong>{Object}</strong>: Collection options</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the <code>collection</code> instance for chaining.</li>
+</ul>
+<h3>.setup</h3>
+<p>Expose static <code>setup</code> method for providing access to an instance before any other use code is run.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>app</code> <strong>{Object}</strong>: Application instance</li>
+<li><code>name</code> <strong>{String}</strong>: Optionally pass the constructor name to use.</li>
+<li><code>returns</code> <strong>{undefined}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">function App(options) {
+  Templates.call(this, options);
+  Templates.setup(this);
+}
+Templates.extend(App);
+</code></pre>
+<hr>
+<h3>.engine</h3>
+<p>Register a view engine callback <code>fn</code> as <code>ext</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>exts</code> <strong>{String|Array}</strong>: String or array of file extensions.</li>
+<li><code>fn</code> <strong>{Function|Object}</strong>: or <code>settings</code></li>
+<li><code>settings</code> <strong>{Object}</strong>: Optionally pass engine options as the last argument.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.engine('hbs', require('engine-handlebars'));
+
+// using consolidate.js
+var engine = require('consolidate');
+app.engine('jade', engine.jade);
+app.engine('swig', engine.swig);
+
+// get a registered engine
+var swig = app.engine('swig');
+</code></pre>
+<hr>
+<h3>.helper</h3>
+<p>Register a template helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: Helper name</li>
+<li><code>fn</code> <strong>{Function}</strong>: Helper function.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.helper('upper', function(str) {
+  return str.toUpperCase();
+});
+</code></pre>
+<h3>.helpers</h3>
+<p>Register multiple template helpers.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>helpers</code> <strong>{Object|Array}</strong>: Object, array of objects, or glob patterns.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.helpers({
+  foo: function() {},
+  bar: function() {},
+  baz: function() {}
+});
+</code></pre>
+<h3>.getHelper</h3>
+<p>Get a previously registered helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: Helper name</li>
+<li><code>returns</code> <strong>{Function}</strong>: Returns the registered helper function.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var fn = app.getHelper('foo');
+</code></pre>
+<h3>.getAsyncHelper</h3>
+<p>Get a previously registered async helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: Helper name</li>
+<li><code>returns</code> <strong>{Function}</strong>: Returns the registered helper function.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var fn = app.getAsyncHelper('foo');
+</code></pre>
+<h3>.hasHelper</h3>
+<p>Return true if sync helper <code>name</code> is registered.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: sync helper name</li>
+<li><code>returns</code> <strong>{Boolean}</strong>: Returns true if the sync helper is registered</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">if (app.hasHelper('foo')) {
+  // do stuff
+}
+</code></pre>
+<h3>.hasAsyncHelper</h3>
+<p>Return true if async helper <code>name</code> is registered.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: Async helper name</li>
+<li><code>returns</code> <strong>{Boolean}</strong>: Returns true if the async helper is registered</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">if (app.hasAsyncHelper('foo')) {
+  // do stuff
+}
+</code></pre>
+<h3>.asyncHelper</h3>
+<p>Register an async helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: Helper name.</li>
+<li><code>fn</code> <strong>{Function}</strong>: Helper function</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.asyncHelper('upper', function(str, next) {
+  next(null, str.toUpperCase());
+});
+</code></pre>
+<h3>.asyncHelpers</h3>
+<p>Register multiple async template helpers.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>helpers</code> <strong>{Object|Array}</strong>: Object, array of objects, or glob patterns.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.asyncHelpers({
+  foo: function() {},
+  bar: function() {},
+  baz: function() {}
+});
+</code></pre>
+<h3>.helperGroup</h3>
+<p>Register a namespaced helper group.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>helpers</code> <strong>{Object|Array}</strong>: Object, array of objects, or glob patterns.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">// markdown-utils
+app.helperGroup('mdu', {
+  foo: function() {},
+  bar: function() {},
+});
+
+// Usage:
+// &lt;%= mdu.foo() %&gt;
+// &lt;%= mdu.bar() %&gt;
+</code></pre>
+<h3>Built-in helpers</h3>
+<hr>
+<h3>View</h3>
+<p>API for the <code>View</code> class.</p>
+<h3>View</h3>
+<p>Create an instance of <code>View</code>. Optionally pass a default object to use.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var view = new View({
+  path: 'foo.html',
+  content: '...'
+});
+</code></pre>
+<h3>.context</h3>
+<p>Creates a context object from front-matter data, <code>view.locals</code> and the given <code>locals</code> object.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>locals</code> <strong>{Object}</strong>: Optionally pass locals to the engine.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the context object.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var ctx = page.context({foo: 'bar'});
+</code></pre>
+<h3>.compile</h3>
+<p>Synchronously compile a view.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>locals</code> <strong>{Object}</strong>: Optionally pass locals to the engine.</li>
+<li><code>returns</code> <strong>{Object}</strong> <code>View</code>: instance, for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var view = page.compile();
+view.fn({title: 'A'});
+view.fn({title: 'B'});
+view.fn({title: 'C'});
+</code></pre>
+<h3>.render</h3>
+<p>Asynchronously render a view.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>locals</code> <strong>{Object}</strong>: Optionally pass locals to the engine.</li>
+<li><code>returns</code> <strong>{Object}</strong> <code>View</code>: instance, for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">view.render({title: 'Home'}, function(err, res) {
+  //=&gt; view object with rendered `content`
+});
+</code></pre>
+<h3>.isType</h3>
+<p>Return true if the view is the given view <code>type</code>. Since types are assigned by collections, views that are &quot;collection-less&quot; will not have a type, and thus will always return <code>false</code> (as expected).</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>type</code> <strong>{String}</strong>: (<code>renderable</code>, <code>partial</code>, <code>layout</code>)</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">view.isType('partial');
+</code></pre>
+<h3>.data</h3>
+<p>Set, get and load data to be passed to templates as context at render-time.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Pass a key-value pair or an object to set.</li>
+<li><code>val</code> <strong>{any}</strong>: Any value when a key-value pair is passed. This can also be options if a glob pattern is passed as the first value.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns an instance of <code>Templates</code> for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.data('a', 'b');
+app.data({c: 'd'});
+console.log(app.cache.data);
+//=&gt; {a: 'b', c: 'd'}
+</code></pre>
+<h3>.context</h3>
+<p>Build the context for the given <code>view</code> and <code>locals</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object}</strong>: The view being rendered</li>
+<li><code>locals</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: The object to be passed to engines/views as context.</li>
+</ul>
+<h3>setHelperOptions</h3>
+<p>Update context in a helper so that <code>this.helper.options</code> is
+the options for that specific helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>context</code> <strong>{Object}</strong></li>
+<li><code>key</code> <strong>{String}</strong></li>
+</ul>
+<h3>.mergePartials</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template
+engines have no support for partials or only support one
+type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>returns</code> <strong>{Object}</strong>: Merged partials</li>
+</ul>
+<h3>.mergePartialsAsync</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template engines
+have no support for partials or only support one type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>callback</code> <strong>{Function}</strong>: Function that exposes <code>err</code> and <code>partials</code> parameters</li>
+</ul>
+<hr>
+<h3>Item</h3>
+<p>API for the <code>Item</code> class.</p>
+<h3>Item</h3>
+<p>Create an instance of <code>Item</code>. Optionally pass a default object to use.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>item</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var item = new Item({
+  path: 'foo.html',
+  content: '...'
+});
+</code></pre>
+<h3>.clone</h3>
+<p>Re-decorate Item methods after calling vinyl's <code>.clone()</code> method.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong> <code>item</code>: Cloned instance</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">item.clone({deep: true}); // false by default
+</code></pre>
+<h3>.data</h3>
+<p>Set, get and load data to be passed to templates as context at render-time.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Pass a key-value pair or an object to set.</li>
+<li><code>val</code> <strong>{any}</strong>: Any value when a key-value pair is passed. This can also be options if a glob pattern is passed as the first value.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns an instance of <code>Templates</code> for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.data('a', 'b');
+app.data({c: 'd'});
+console.log(app.cache.data);
+//=&gt; {a: 'b', c: 'd'}
+</code></pre>
+<h3>.context</h3>
+<p>Build the context for the given <code>view</code> and <code>locals</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object}</strong>: The view being rendered</li>
+<li><code>locals</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: The object to be passed to engines/views as context.</li>
+</ul>
+<h3>setHelperOptions</h3>
+<p>Update context in a helper so that <code>this.helper.options</code> is
+the options for that specific helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>context</code> <strong>{Object}</strong></li>
+<li><code>key</code> <strong>{String}</strong></li>
+</ul>
+<h3>.mergePartials</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template
+engines have no support for partials or only support one
+type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>returns</code> <strong>{Object}</strong>: Merged partials</li>
+</ul>
+<h3>.mergePartialsAsync</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template engines
+have no support for partials or only support one type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>callback</code> <strong>{Function}</strong>: Function that exposes <code>err</code> and <code>partials</code> parameters</li>
+</ul>
+<hr>
+<h3>Views</h3>
+<p>API for the <code>Views</code> class.</p>
+<h3>Views</h3>
+<p>Create an instance of <code>Views</code> with the given <code>options</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var collection = new Views();
+collection.addView('foo', {content: 'bar'});
+</code></pre>
+<h3>.setView</h3>
+<p>Set a view on the collection. This is identical to <a href="#addView">addView</a> except <code>setView</code> does not emit an event for each view.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: View key or object</li>
+<li><code>value</code> <strong>{Object}</strong>: If key is a string, value is the view object.</li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the <code>view</code> instance.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.setView('foo', {content: 'bar'});
+</code></pre>
+<h3>.addView</h3>
+<p>Similar to <a href="#setView">setView</a>, adds a view to the collection but also fires an event and iterates over the loading <code>queue</code> for loading views from the <code>addView</code> event listener. If the given view is not already an instance of <code>View</code>, it will be converted to one before being added to the <code>views</code> object.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>value</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance of the created <code>View</code> to allow chaining view methods.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var views = new Views(...);
+views.addView('a.html', {path: 'a.html', contents: '...'});
+</code></pre>
+<h3>.deleteView</h3>
+<p>Delete a view from collection <code>views</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">views.deleteView('foo.html');
+</code></pre>
+<h3>.addViews</h3>
+<p>Load multiple views onto the collection.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>views</code> <strong>{Object|Array}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the <code>collection</code> object</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.addViews({
+  'a.html': {content: '...'},
+  'b.html': {content: '...'},
+  'c.html': {content: '...'}
+});
+</code></pre>
+<h3>.addList</h3>
+<p>Load an array of views onto the collection.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>list</code> <strong>{Array}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the <code>views</code> instance</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.addList([
+  {path: 'a.html', content: '...'},
+  {path: 'b.html', content: '...'},
+  {path: 'c.html', content: '...'}
+]);
+</code></pre>
+<h3>.groupBy</h3>
+<p>Group all collection <code>views</code> by the given property, properties or compare functions. See <a href="https://github.com/doowb/group-array">group-array</a> for the full range of available features and options.</p>
+<ul>
+<li><code>returns</code> <strong>{Object}</strong>: Returns an object of grouped views.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var collection = new Collection();
+collection.addViews(...);
+var groups = collection.groupBy('data.date', 'data.slug');
+</code></pre>
+<h3>.getView</h3>
+<p>Get view <code>name</code> from <code>collection.views</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: Key of the view to get.</li>
+<li><code>fn</code> <strong>{Function}</strong>: Optionally pass a function to modify the key.</li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.getView('a.html');
+</code></pre>
+<h3>.extendView</h3>
+<p>Load a view from the file system.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.loadView(view);
+</code></pre>
+<h3>.isType</h3>
+<p>Return true if the collection belongs to the given view <code>type</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>type</code> <strong>{String}</strong>: (<code>renderable</code>, <code>partial</code>, <code>layout</code>)</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.isType('partial');
+</code></pre>
+<h3>.viewTypes</h3>
+<p>Alias for <code>viewType</code></p>
+<h3>.data</h3>
+<p>Set, get and load data to be passed to templates as context at render-time.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Pass a key-value pair or an object to set.</li>
+<li><code>val</code> <strong>{any}</strong>: Any value when a key-value pair is passed. This can also be options if a glob pattern is passed as the first value.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns an instance of <code>Templates</code> for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.data('a', 'b');
+app.data({c: 'd'});
+console.log(app.cache.data);
+//=&gt; {a: 'b', c: 'd'}
+</code></pre>
+<h3>.context</h3>
+<p>Build the context for the given <code>view</code> and <code>locals</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object}</strong>: The view being rendered</li>
+<li><code>locals</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: The object to be passed to engines/views as context.</li>
+</ul>
+<h3>setHelperOptions</h3>
+<p>Update context in a helper so that <code>this.helper.options</code> is
+the options for that specific helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>context</code> <strong>{Object}</strong></li>
+<li><code>key</code> <strong>{String}</strong></li>
+</ul>
+<h3>.mergePartials</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template
+engines have no support for partials or only support one
+type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>returns</code> <strong>{Object}</strong>: Merged partials</li>
+</ul>
+<h3>.mergePartialsAsync</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template engines
+have no support for partials or only support one type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>callback</code> <strong>{Function}</strong>: Function that exposes <code>err</code> and <code>partials</code> parameters</li>
+</ul>
+<hr>
+<h3>.find</h3>
+<p>Find a view by <code>name</code>, optionally passing a <code>collection</code> to limit the search. If no collection is passed all <code>renderable</code> collections will be searched.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: The name/key of the view to find</li>
+<li><code>colleciton</code> <strong>{String}</strong>: Optionally pass a collection name (e.g. pages)</li>
+<li><code>returns</code> <strong>{Object|undefined}</strong>: Returns the view if found, or <code>undefined</code> if not.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var page = app.find('my-page.hbs');
+
+// optionally pass a collection name as the second argument
+var page = app.find('my-page.hbs', 'pages');
+</code></pre>
+<h3>.getView</h3>
+<p>Get view <code>key</code> from the specified <code>collection</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>collection</code> <strong>{String}</strong>: Collection name, e.g. <code>pages</code></li>
+<li><code>key</code> <strong>{String}</strong>: Template name</li>
+<li><code>fn</code> <strong>{Function}</strong>: Optionally pass a <code>renameKey</code> function</li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var view = app.getView('pages', 'a/b/c.hbs');
+
+// optionally pass a `renameKey` function to modify the lookup
+var view = app.getView('pages', 'a/b/c.hbs', function(fp) {
+  return path.basename(fp);
+});
+</code></pre>
+<h3>.getViews</h3>
+<p>Get all views from a <code>collection</code> using the collection's singular or plural name.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: The collection name, e.g. <code>pages</code> or <code>page</code></li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var pages = app.getViews('pages');
+//=&gt; { pages: {'home.hbs': { ... }}
+
+var posts = app.getViews('posts');
+//=&gt; { posts: {'2015-10-10.md': { ... }}
+</code></pre>
+<hr>
+<h3>Collections</h3>
+<p>API for the <code>Collections</code> class.</p>
+<h3>Collection</h3>
+<p>Create an instance of <code>Collection</code> with the given <code>options</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var collection = new Collection();
+collection.addItem('foo', {content: 'bar'});
+</code></pre>
+<h3>.setItem</h3>
+<p>Set an item on the collection. This is identical to <a href="#addItem">addItem</a> except <code>setItem</code> does not emit an event for each item and does not iterate over the item <code>queue</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Item key or object</li>
+<li><code>value</code> <strong>{Object}</strong>: If key is a string, value is the item object.</li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the <code>item</code> instance.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.setItem('foo', {content: 'bar'});
+</code></pre>
+<h3>.addItem</h3>
+<p>Similar to <code>setItem</code>, adds an item to the collection but also fires an event and iterates over the item <code>queue</code> to load items from the <code>addItem</code> event listener.  An item may be an instance of <code>Item</code>, if not, the item is converted to an instance of <code>Item</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>value</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var list = new List(...);
+list.addItem('a.html', {path: 'a.html', contents: '...'});
+</code></pre>
+<h3>.deleteItem</h3>
+<p>Delete an item from collection <code>items</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">items.deleteItem('abc');
+</code></pre>
+<h3>.addItems</h3>
+<p>Load multiple items onto the collection.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>items</code> <strong>{Object|Array}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the instance for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.addItems({
+  'a.html': {content: '...'},
+  'b.html': {content: '...'},
+  'c.html': {content: '...'}
+});
+</code></pre>
+<h3>.addList</h3>
+<p>Load an array of items onto the collection.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>items</code> <strong>{Array}</strong>: or an instance of <code>List</code></li>
+<li><code>fn</code> <strong>{Function}</strong>: Optional sync callback function that is called on each item.</li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the Collection instance for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.addList([
+  {path: 'a.html', content: '...'},
+  {path: 'b.html', content: '...'},
+  {path: 'c.html', content: '...'}
+]);
+</code></pre>
+<h3>.getItem</h3>
+<p>Get an item from the collection.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: Key of the item to get.</li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.getItem('a.html');
+</code></pre>
+<h3>.data</h3>
+<p>Set, get and load data to be passed to templates as context at render-time.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Pass a key-value pair or an object to set.</li>
+<li><code>val</code> <strong>{any}</strong>: Any value when a key-value pair is passed. This can also be options if a glob pattern is passed as the first value.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns an instance of <code>Templates</code> for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.data('a', 'b');
+app.data({c: 'd'});
+console.log(app.cache.data);
+//=&gt; {a: 'b', c: 'd'}
+</code></pre>
+<h3>.context</h3>
+<p>Build the context for the given <code>view</code> and <code>locals</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object}</strong>: The view being rendered</li>
+<li><code>locals</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: The object to be passed to engines/views as context.</li>
+</ul>
+<h3>setHelperOptions</h3>
+<p>Update context in a helper so that <code>this.helper.options</code> is
+the options for that specific helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>context</code> <strong>{Object}</strong></li>
+<li><code>key</code> <strong>{String}</strong></li>
+</ul>
+<h3>.mergePartials</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template
+engines have no support for partials or only support one
+type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>returns</code> <strong>{Object}</strong>: Merged partials</li>
+</ul>
+<h3>.mergePartialsAsync</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template engines
+have no support for partials or only support one type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>callback</code> <strong>{Function}</strong>: Function that exposes <code>err</code> and <code>partials</code> parameters</li>
+</ul>
+<hr>
+<h3>List</h3>
+<p>API for the <code>List</code> class.</p>
+<h3>List</h3>
+<p>Create an instance of <code>List</code> with the given <code>options</code>. Lists differ from collections in that items are stored as an array, allowing items to be paginated, sorted, and grouped.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var list = new List();
+list.addItem('foo', {content: 'bar'});
+</code></pre>
+<h3>.setItem</h3>
+<p>Set an item on the collection. This is identical to <a href="#addItem">addItem</a> except <code>setItem</code> does not emit an event for each item and does not iterate over the item <code>queue</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Item key or object</li>
+<li><code>value</code> <strong>{Object}</strong>: If key is a string, value is the item object.</li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the <code>item</code> instance.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.setItem('foo', {content: 'bar'});
+</code></pre>
+<h3>.addItem</h3>
+<p>Similar to <a href="#setItem">setItem</a>, adds an item to the list but also fires an event and iterates over the item <code>queue</code> to load items from the <code>addItem</code> event listener. If the given item is not already an instance of <code>Item</code>, it will be converted to one before being added to the <code>items</code> object.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>value</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance of the created <code>Item</code> to allow chaining item methods.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var items = new Items(...);
+items.addItem('a.html', {path: 'a.html', contents: '...'});
+</code></pre>
+<h3>.addItems</h3>
+<p>Load multiple items onto the collection.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>items</code> <strong>{Object|Array}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the instance for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">collection.addItems({
+  'a.html': {content: '...'},
+  'b.html': {content: '...'},
+  'c.html': {content: '...'}
+});
+</code></pre>
+<h3>.addList</h3>
+<p>Load an array of items or the items from another instance of <code>List</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>items</code> <strong>{Array}</strong>: or an instance of <code>List</code></li>
+<li><code>fn</code> <strong>{Function}</strong>: Optional sync callback function that is called on each item.</li>
+<li><code>returns</code> <strong>{Object}</strong>: returns the List instance for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var foo = new List(...);
+var bar = new List(...);
+bar.addList(foo);
+</code></pre>
+<h3>.hasItem</h3>
+<p>Return true if the list has the given item (name).</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">list.addItem('foo.html', {content: '...'});
+list.hasItem('foo.html');
+//=&gt; true
+</code></pre>
+<h3>.getIndex</h3>
+<p>Get a the index of a specific item from the list by <code>key</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">list.getIndex('foo.html');
+//=&gt; 1
+</code></pre>
+<h3>.getItem</h3>
+<p>Get a specific item from the list by <code>key</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: The item name/key.</li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">list.getItem('foo.html');
+//=&gt; '&lt;Item &lt;foo.html&gt;&gt;'
+</code></pre>
+<h3>.getView</h3>
+<p>Proxy for <code>getItem</code></p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String}</strong>: Pass the key of the <code>item</code> to get.</li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">list.getItem('foo.html');
+//=&gt; '&lt;Item &quot;foo.html&quot; &lt;buffer e2 e2 e2&gt;&gt;'
+</code></pre>
+<h3>.deleteItem</h3>
+<p>Remove an item from the list.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{Object|String}</strong>: Pass an <code>item</code> instance (object) or <code>item.key</code> (string).</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">list.deleteItem('a.html');
+</code></pre>
+<h3>.extendItem</h3>
+<p>Decorate each item on the list with additional methods
+and properties. This provides a way of easily overriding
+defaults.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>item</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Instance of item for chaining</li>
+</ul>
+<h3>.groupBy</h3>
+<p>Group all list <code>items</code> using the given property, properties or compare functions. See <a href="https://github.com/doowb/group-array">group-array</a> for the full range of available features and options.</p>
+<ul>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the grouped items.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var list = new List();
+list.addItems(...);
+var groups = list.groupBy('data.date', 'data.slug');
+</code></pre>
+<h3>.sortBy</h3>
+<p>Sort all list <code>items</code> using the given property, properties or compare functions. See <a href="https://github.com/jonschlinkert/array-sort">array-sort</a> for the full range of available features and options.</p>
+<ul>
+<li><code>returns</code> <strong>{Object}</strong>: Returns a new <code>List</code> instance with sorted items.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var list = new List();
+list.addItems(...);
+var result = list.sortBy('data.date');
+//=&gt; new sorted list
+</code></pre>
+<h3>.paginate</h3>
+<p>Paginate all <code>items</code> in the list with the given options, See <a href="https://github.com/doowb/paginationator">paginationator</a> for the full range of available features and options.</p>
+<ul>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the paginated items.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var list = new List(items);
+var pages = list.paginate({limit: 5});
+</code></pre>
+<h3>.data</h3>
+<p>Set, get and load data to be passed to templates as context at render-time.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Pass a key-value pair or an object to set.</li>
+<li><code>val</code> <strong>{any}</strong>: Any value when a key-value pair is passed. This can also be options if a glob pattern is passed as the first value.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns an instance of <code>Templates</code> for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.data('a', 'b');
+app.data({c: 'd'});
+console.log(app.cache.data);
+//=&gt; {a: 'b', c: 'd'}
+</code></pre>
+<h3>.context</h3>
+<p>Build the context for the given <code>view</code> and <code>locals</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object}</strong>: The view being rendered</li>
+<li><code>locals</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: The object to be passed to engines/views as context.</li>
+</ul>
+<h3>setHelperOptions</h3>
+<p>Update context in a helper so that <code>this.helper.options</code> is
+the options for that specific helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>context</code> <strong>{Object}</strong></li>
+<li><code>key</code> <strong>{String}</strong></li>
+</ul>
+<h3>.mergePartials</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template
+engines have no support for partials or only support one
+type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>returns</code> <strong>{Object}</strong>: Merged partials</li>
+</ul>
+<h3>.mergePartialsAsync</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template engines
+have no support for partials or only support one type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>callback</code> <strong>{Function}</strong>: Function that exposes <code>err</code> and <code>partials</code> parameters</li>
+</ul>
+<hr>
+<h3>Group</h3>
+<p>API for the <code>Group</code> class.</p>
+<h3>Group</h3>
+<p>Create an instance of <code>Group</code> with the given <code>options</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var group = new Group({
+  'foo': { items: [1,2,3] }
+});
+</code></pre>
+<hr>
+<h3>.find</h3>
+<p>Find a view by <code>name</code>, optionally passing a <code>collection</code> to limit the search. If no collection is passed all <code>renderable</code> collections will be searched.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: The name/key of the view to find</li>
+<li><code>colleciton</code> <strong>{String}</strong>: Optionally pass a collection name (e.g. pages)</li>
+<li><code>returns</code> <strong>{Object|undefined}</strong>: Returns the view if found, or <code>undefined</code> if not.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var page = app.find('my-page.hbs');
+
+// optionally pass a collection name as the second argument
+var page = app.find('my-page.hbs', 'pages');
+</code></pre>
+<h3>.getView</h3>
+<p>Get view <code>key</code> from the specified <code>collection</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>collection</code> <strong>{String}</strong>: Collection name, e.g. <code>pages</code></li>
+<li><code>key</code> <strong>{String}</strong>: Template name</li>
+<li><code>fn</code> <strong>{Function}</strong>: Optionally pass a <code>renameKey</code> function</li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var view = app.getView('pages', 'a/b/c.hbs');
+
+// optionally pass a `renameKey` function to modify the lookup
+var view = app.getView('pages', 'a/b/c.hbs', function(fp) {
+  return path.basename(fp);
+});
+</code></pre>
+<h3>.getViews</h3>
+<p>Get all views from a <code>collection</code> using the collection's singular or plural name.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: The collection name, e.g. <code>pages</code> or <code>page</code></li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var pages = app.getViews('pages');
+//=&gt; { pages: {'home.hbs': { ... }}
+
+var posts = app.getViews('posts');
+//=&gt; { posts: {'2015-10-10.md': { ... }}
+</code></pre>
+<hr>
+<h3>.compile</h3>
+<p>Compile <code>content</code> with the given <code>locals</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object|String}</strong>: View object.</li>
+<li><code>locals</code> <strong>{Object}</strong></li>
+<li><code>isAsync</code> <strong>{Boolean}</strong>: Load async helpers</li>
+<li><code>returns</code> <strong>{Object}</strong>: View object with compiled <code>view.fn</code> property.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var indexPage = app.page('some-index-page.hbs');
+var view = app.compile(indexPage);
+// view.fn =&gt; [function]
+
+// you can call the compiled function more than once
+// to render the view with different data
+view.fn({title: 'Foo'});
+view.fn({title: 'Bar'});
+view.fn({title: 'Baz'});
+</code></pre>
+<h3>.compileAsync</h3>
+<p>Asynchronously compile <code>content</code> with the given <code>locals</code> and callback.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object|String}</strong>: View object.</li>
+<li><code>locals</code> <strong>{Object}</strong></li>
+<li><code>isAsync</code> <strong>{Boolean}</strong>: Pass true to load helpers as async (mostly used internally)</li>
+<li><code>callback</code> <strong>{Function}</strong>: function that exposes <code>err</code> and the <code>view</code> object with compiled <code>view.fn</code> property</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var indexPage = app.page('some-index-page.hbs');
+app.compileAsync(indexPage, function(err, view) {
+  // view.fn =&gt; compiled function
+});
+</code></pre>
+<h3>.render</h3>
+<p>Render a view with the given <code>locals</code> and <code>callback</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object|String}</strong>: Instance of <code>View</code></li>
+<li><code>locals</code> <strong>{Object}</strong>: Locals to pass to template engine.</li>
+<li><code>callback</code> <strong>{Function}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var blogPost = app.post.getView('2015-09-01-foo-bar');
+app.render(blogPost, {title: 'Foo'}, function(err, view) {
+  // `view` is an object with a rendered `content` property
+});
+</code></pre>
+<hr>
+<h3>.data</h3>
+<p>Set, get and load data to be passed to templates as context at render-time.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>key</code> <strong>{String|Object}</strong>: Pass a key-value pair or an object to set.</li>
+<li><code>val</code> <strong>{any}</strong>: Any value when a key-value pair is passed. This can also be options if a glob pattern is passed as the first value.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns an instance of <code>Templates</code> for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.data('a', 'b');
+app.data({c: 'd'});
+console.log(app.cache.data);
+//=&gt; {a: 'b', c: 'd'}
+</code></pre>
+<h3>.context</h3>
+<p>Build the context for the given <code>view</code> and <code>locals</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>view</code> <strong>{Object}</strong>: The view being rendered</li>
+<li><code>locals</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: The object to be passed to engines/views as context.</li>
+</ul>
+<h3>setHelperOptions</h3>
+<p>Update context in a helper so that <code>this.helper.options</code> is
+the options for that specific helper.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>context</code> <strong>{Object}</strong></li>
+<li><code>key</code> <strong>{String}</strong></li>
+</ul>
+<h3>.mergePartials</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template
+engines have no support for partials or only support one
+type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>returns</code> <strong>{Object}</strong>: Merged partials</li>
+</ul>
+<h3>.mergePartialsAsync</h3>
+<p>Merge &quot;partials&quot; view types. This is necessary for template engines
+have no support for partials or only support one type of partials.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong>: Optionally pass an array of <code>viewTypes</code> to include on <code>options.viewTypes</code></li>
+<li><code>callback</code> <strong>{Function}</strong>: Function that exposes <code>err</code> and <code>partials</code> parameters</li>
+</ul>
+<hr>
+<h2>Routes</h2>
+<h3>.handle</h3>
+<p>Handle a middleware <code>method</code> for <code>view</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>method</code> <strong>{String}</strong>: Name of the router method to handle. See <a href="./docs/router.md">router methods</a></li>
+<li><code>view</code> <strong>{Object}</strong>: View object</li>
+<li><code>callback</code> <strong>{Function}</strong>: Callback function</li>
+<li><code>returns</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.handle('customMethod', view, callback);
+</code></pre>
+<h3>.handleView</h3>
+<p>Deprecated, use <code>.handleOnce</code></p>
+<h3>.route</h3>
+<p>Create a new Route for the given path. Each route contains a separate middleware stack.</p>
+<p>See the [route API documentation][route-api] for details on
+adding handlers and middleware to routes.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>path</code> <strong>{String}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong> <code>Route</code>: for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.create('posts');
+app.route(/blog/)
+  .all(function(view, next) {
+    // do something with view
+    next();
+  });
+
+app.post('whatever', {path: 'blog/foo.bar', content: 'bar baz'});
+</code></pre>
+<h3>.all</h3>
+<p>Special route method that works just like the <code>router.METHOD()</code> methods, except that it matches all verbs.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>path</code> <strong>{String}</strong></li>
+<li><code>callback</code> <strong>{Function}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong> <code>this</code>: for chaining</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.all(/\.hbs$/, function(view, next) {
+  // do stuff to view
+  next();
+});
+</code></pre>
+<h3>.param</h3>
+<p>Add callback triggers to route parameters, where <code>name</code> is the name of the parameter and <code>fn</code> is the callback function.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong></li>
+<li><code>fn</code> <strong>{Function}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance of <code>Templates</code> for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">app.param('title', function(view, next, title) {
+  //=&gt; title === 'foo.js'
+  next();
+});
+
+app.onLoad('/blog/:title', function(view, next) {
+  //=&gt; view.path === '/blog/foo.js'
+  next();
+});
+</code></pre>
+<hr>
+<h2>is</h2>
+<h3>.isApp</h3>
+<p>Static method that returns true if the given value is a <code>templates</code> instance (<code>App</code>).</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>val</code> <strong>{Object}</strong>: The value to test.</li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var templates = require('templates');
+var app = templates();
+
+templates.isApp(templates);
+//=&gt; false
+
+templates.isApp(app);
+//=&gt; true
+</code></pre>
+<h3>.isCollection</h3>
+<p>Static method that returns true if the given value is a templates <code>Collection</code> instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>val</code> <strong>{Object}</strong>: The value to test.</li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var templates = require('templates');
+var app = templates();
+
+app.create('pages');
+templates.isCollection(app.pages);
+//=&gt; true
+</code></pre>
+<h3>.isViews</h3>
+<p>Static method that returns true if the given value is a templates <code>Views</code> instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>val</code> <strong>{Object}</strong>: The value to test.</li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var templates = require('templates');
+var app = templates();
+
+app.create('pages');
+templates.isViews(app.pages);
+//=&gt; true
+</code></pre>
+<h3>.isList</h3>
+<p>Static method that returns true if the given value is a templates <code>List</code> instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>val</code> <strong>{Object}</strong>: The value to test.</li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var templates = require('templates');
+var List = templates.List;
+var app = templates();
+
+var list = new List();
+templates.isList(list);
+//=&gt; true
+</code></pre>
+<h3>.isGroup</h3>
+<p>Static method that returns true if the given value is a templates <code>Group</code> instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>val</code> <strong>{Object}</strong>: The value to test.</li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var templates = require('templates');
+var Group = templates.Group;
+var app = templates();
+
+var group = new Group();
+templates.isGroup(group);
+//=&gt; true
+</code></pre>
+<h3>.isView</h3>
+<p>Static method that returns true if the given value is a templates <code>View</code> instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>val</code> <strong>{Object}</strong>: The value to test.</li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var templates = require('templates');
+var app = templates();
+
+templates.isView('foo');
+//=&gt; false
+
+var view = app.view('foo', {content: '...'});
+templates.isView(view);
+//=&gt; true
+</code></pre>
+<h3>.isItem</h3>
+<p>Static method that returns true if the given value is a templates <code>Item</code> instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>val</code> <strong>{Object}</strong>: The value to test.</li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var templates = require('templates');
+var app = templates();
+
+templates.isItem('foo');
+//=&gt; false
+
+var view = app.view('foo', {content: '...'});
+templates.isItem(view);
+//=&gt; true
+</code></pre>
+<h3>.isVinyl</h3>
+<p>Static method that returns true if the given value is a vinyl <code>File</code> instance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>val</code> <strong>{Object}</strong>: The value to test.</li>
+<li><code>returns</code> <strong>{Boolean}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">var File = require('vinyl');
+var templates = require('templates');
+var app = templates();
+
+var view = app.view('foo', {content: '...'});
+templates.isVinyl(view);
+//=&gt; true
+
+var file = new File({path: 'foo', contents: new Buffer('...')});
+templates.isVinyl(file);
+//=&gt; true
+</code></pre>
+
+
+        <hr>
+
+        <p><a href="https://github.com/assemble/assemble/tree/master/docs/content/api/app.md">See the template for this page → </a>
+</p>
+        <div class="alert">
+        
+          <style type="text/css" media="screen">
+            .alert iframe {
+              float: right;
+              margin: 7px -30px 0 0;
+              vertical-align: text-top;
+            }
+          </style>
+        
+          <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>  <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+          <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble/issues/new?title=%5BDOCS%5D%3A%20Core%20application&body=I%20found%20an%20issue%20in%20%5Bthe%20documentation%5D(https%3A%2F%2Fgithub.com%2Fassemble%2Fassemble%2Ftree%2Fmaster%2Fdocs%2Fcontent%2Fapi%2Fapp.md)">Let us know →</a></p>
+        </div>
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        /*
+        var disqus_config = function () {
+        this.page.url = "http://assemble.io/en/v0.10.0/docs/api/app.html"; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "api/app"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//assemble-docs.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/holder.js"></script>
+    <script src="../../assets/js/highlight.js"></script>
+    <script src="../../assets/js/showup.js"></script>
+    <script src="../../assets/js/docs.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    <title>
+      Layouts | Assemble
+    </title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
+
+    <!-- Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+  <script src="../assets/js/html5shiv.js"></script>
+  <script src="../assets/js/respond/respond.min.js"></script>
+<![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/img/light/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/light/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/light/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/light/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/light/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/light/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/light/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/light/apple-touch-icon-76x76.png">
+    <link rel="shortcut icon" href="../assets/img/light/favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="application/ld+json">
+      [{
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Jon Schlinkert",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/jonschlinkert"
+      }, {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Brian Woodward",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/doowb"
+      }]
+    </script>
+  </head>
+  <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+    <header class="navbar navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button>
+          <a href="../" class="navbar-brand">ASSEMBLE</a> 
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="../docs/">Docs</a> 
+            </li>
+
+            <!--<li> <a href="../boilerplates/">Boilerplates</a>  </li>-->
+            <li>
+              <a href="../plugins/">Plugins</a> 
+            </li>
+            <li>
+              <a href="../helpers/">Helpers</a> 
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+
+            <!--<li> <a href="../examples/">Examples</a>  </li>-->
+
+            <!--<li> <a href="../tutorials/">Tutorials</a>  </li> -->
+            <li>
+              <a href="../blog/">Blog</a> 
+            </li>
+            <li>
+              <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
+                <i class="glyphicon glypicon-large glyphicon-download"></i>
+              </a> 
+            </li>
+            <li>
+              <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <style type="text/css" media="screen">
+              #custom-tweet-button > a {
+                float: right;
+                display: inline-block;
+                padding: 8px 16px 8px 36px;
+                margin: 15px 0 0 0;
+                background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
+                background-color: transparent;
+                border: none;
+                border-radius: 4px;
+              }
+              #custom-tweet-button > a:hover {
+                background-color: rgba(255, 255, 255, .07);
+              }
+            </style>
+            <div id="custom-tweet-button">
+              <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a> 
+              <script>
+                ! function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }
+                }(document, "script", "twitter-wjs");
+              </script>
+            </div>
+            <h1>
+              <span class="text-muted">Docs /&nbsp;</span> 
+              templates
+            </h1> 
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'Welcome/Welcome!']);">Welcome</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Getting Started
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="About.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/About']);">About</a> 
+              </li>
+              <li>
+                <a href="FAQ.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/FAQ']);">FAQ</a> 
+              </li>
+              <li>
+                <a href="Installation.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Installation']);">Installation</a> 
+              </li>
+              <li>
+                <a href="Introduction.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Introduction']);">Introduction</a> 
+              </li>
+              <li>
+                <a href="Quickstart.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Quickstart']);">Quickstart</a> 
+              </li>
+              <li>
+                <a href="Resources.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'getting started/Resources']);">Resources</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Templates
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Collections']);">Collections</a> 
+              </li>
+              <li>
+                <a href="Custom-Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Custom Helpers']);">Custom Helpers</a> 
+              </li>
+              <li>
+                <a href="Helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Helpers']);">Helpers</a> 
+              </li>
+              <li class="active">
+                <a href="Layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Layouts']);">Layouts</a> 
+              </li>
+              <li>
+                <a href="Pages-Collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages Collections']);">Pages Collections</a> 
+              </li>
+              <li>
+                <a href="Pages.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Pages']);">Pages</a> 
+              </li>
+              <li>
+                <a href="Partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Partials']);">Partials</a> 
+              </li>
+              <li>
+                <a href="Templates-Overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'templates/Templates Overview']);">Templates Overview</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Data
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="Context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Context']);">Context</a> 
+              </li>
+              <li>
+                <a href="Data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/Data']);">Data</a> 
+              </li>
+              <li>
+                <a href="YAML-front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML front matter']);">YAML front matter</a> 
+              </li>
+              <li>
+                <a href="YAML.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'data/YAML data']);">YAML data</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Configuration
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="Options.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Options Overview']);">Options Overview</a> 
+              </li>
+              <li>
+                <a href="Built-in-Variables.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Built-in Variables']);">Built-in Variables</a> 
+              </li>
+              <li>
+                <a href="Errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/Errors']);">Errors</a> 
+              </li>
+              <li>
+                <a href="options-assets.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.assets']);">options.assets</a> 
+              </li>
+              <li>
+                <a href="options-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.collections']);">options.collections</a> 
+              </li>
+              <li>
+                <a href="options-data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.data']);">options.data</a> 
+              </li>
+              <li>
+                <a href="options-engine.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.engine']);">options.engine</a> 
+              </li>
+              <li>
+                <a href="options-ext.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.ext']);">options.ext</a> 
+              </li>
+              <li>
+                <a href="options-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.helpers']);">options.helpers</a> 
+              </li>
+              <li>
+                <a href="options-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layout']);">options.layout</a> 
+              </li>
+              <li>
+                <a href="options-layoutdir.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.layoutdir']);">options.layoutdir</a> 
+              </li>
+              <li>
+                <a href="options-marked.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.marked']);">options.marked</a> 
+              </li>
+              <li>
+                <a href="options-partials.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'configuration/options.partials']);">options.partials</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Content
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="Cheatsheet-Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown Cheatsheet']);">Markdown Cheatsheet</a> 
+              </li>
+              <li>
+                <a href="Embedding-Code.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Embedding Code']);">Embedding Code</a> 
+              </li>
+              <li>
+                <a href="Markdown.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'content/Markdown']);">Markdown</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Development
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="External-Libraries.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/External Libraries']);">External Libraries</a> 
+              </li>
+              <li>
+                <a href="Methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Methods']);">Methods</a> 
+              </li>
+              <li>
+                <a href="../contributing/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', 'development/Contributing to Assemble']);">Contributing to Assemble</a> 
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>Layouts</h1> 
+            <blockquote>
+              <p>Layouts are used for &quot;wrapping&quot; the content of individual pages with common elements, such as the <code>&lt;head&gt;&lt;/head&gt;</code> and footer sections, which usually contain necessities such as <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags.</p>
+            </blockquote>
+            <h2 id="basic-layout">Basic Layout</h2> 
+            <p>A very simple layout might look something like this:</p>
+            <pre><code class="language-handlebars"><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
+<span class="tag">&lt;<span class="title">html</span>  <span class="attribute">lang</span> =<span class="value">"en"</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">head</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">meta</span>  <span class="attribute">charset</span> =<span class="value">"UTF-8"</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">title</span> &gt;</span> <span class="expression">{{<span class="variable">title</span> }}</span> <span class="tag">&lt;/<span class="title">title</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">head</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">body</span> &gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+  <span class="tag">&lt;/<span class="title">body</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">html</span> &gt;</span> </code></pre>
+            <p>Where <code>{{&gt; body }}</code> is the point of insertion for content from any pages that use this layout.</p>
+            <h3 id="defining-layouts">Defining layouts</h3> 
+            <p>In the Assemble task options you can either specify a general layout to be used for all pages in a project:</p>
+            <pre><code class="language-js">assemble: {
+  options: {
+    layout: <span class="string">'layouts/default.hbs'</span> 
+  }
+}</code></pre>
+            <h3 id="multiple-layouts">Multiple layouts</h3> 
+            <p>When your project has different types or groupings of pages, such as &quot;docs&quot;, &quot;blog&quot; and &quot;examples&quot; for instance, and there are certain design or structural elements that are unique to each grouping, it often makes
+              sense to:</p>
+            <ol>
+              <li>Create a different targets in the assemble task to accomodate each grouping,</li>
+              <li>Give each target (e.g. each grouping of pages) its own special layout containing the unique elements required by each grouping. For example, every page in the <code>blog</code> target might have a right sidebar, whereas every page in the <code>docs</code> target
+                might have a left sideabar:</li>
+            </ol>
+            <p>For example:</p>
+            <pre><code class="language-js">assemble: {
+  options: {
+    layout: <span class="string">'default.hbs'</span>,
+    layoutdir: <span class="string">'layouts'</span> 
+  },
+  docs: {
+    <span class="comment">// override task-level layout</span> 
+    options: {layout: <span class="string">'docs-layout.hbs'</span> },
+    files: {<span class="string">'docs/'</span>: [<span class="string">'src/docs/*.hbs'</span> ]},
+  },
+  site: {
+    <span class="comment">// override task-level layout</span> 
+    options: {layout: <span class="string">'site-layout.hbs'</span> },
+    files: {<span class="string">'site/'</span>: [<span class="string">'src/site/*.hbs'</span> ]},
+  }
+  <span class="comment">// ... other targets</span> 
+}</code></pre>
+            <h3 id="nested-layouts">Nested layouts</h3> 
+            <p>Layouts can also be &quot;stacked&quot; so that the parent-most layouts contain the most commonly used elements while &quot;child layouts&quot; contain elements that are only necessary for specific pages or groupings of pages.</p>
+            <p>If, for example:</p>
+            <ul>
+              <li>all pages will require the same <code>&lt;script&gt;&lt;/script&gt;</code> and <code>&lt;link&gt;</code> tags,</li>
+              <li>some pages in your project should be rendered <em>with a sidebar</em>
+              </li>
+              <li>and some <em>without a sidebar</em>
+              </li>
+            </ul>
+            <p>This is a good opportunity to use nested layouts that might look something like this:</p>
+            <h4 id="example-layout-1-parent-layout">Example Layout #1: parent layout</h4> 
+            <p>Our parent layout will only contain the most commonly required, generalized elements. We&#39;ll call this layout <code>parent-layout.hbs</code>:</p>
+            <pre><code class="language-handlebars"><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
+<span class="tag">&lt;<span class="title">html</span>  <span class="attribute">lang</span> =<span class="value">"en"</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">head</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">meta</span>  <span class="attribute">charset</span> =<span class="value">"UTF-8"</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">title</span> &gt;</span> <span class="expression">{{<span class="variable">title</span> }}</span> <span class="tag">&lt;/<span class="title">title</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">link</span>  <span class="attribute">rel</span> =<span class="value">"stylesheet"</span>  <span class="attribute">href</span> =<span class="value">"main.css"</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">head</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">body</span> &gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+    <span class="tag">&lt;<span class="title">script</span>  <span class="attribute">src</span> =<span class="value">"main.js"</span> &gt;</span> <span class="javascript"></span> <span class="tag">&lt;/<span class="title">script</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">body</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">html</span> &gt;</span> </code></pre>
+            <h4 id="example-layout-2-child-layout">Example Layout #2: child layout</h4> 
+            <p>Our &quot;child&quot; layout will contain additional markup for our sidebar, but it should also inherit all of the markup from the parent layout (since layouts are &quot;flattened&quot; before pages are rendered). For the markup to be inherited,
+              we need to <strong>specify a parent layout for our child layout</strong>.</p>
+            <p>Specifying a <em>layout for a layout</em> works the exact same way as specifying a layout for any reguar page. It can be defined in the <code>options.layout</code> property in the Assemble task config in the Gruntfile (at the task and/or target
+              level), or the layout can be specified in the child layout&#39;s YAML front matter. Here is an example of the latter:</p>
+            <p><code>child-layout.hbs</code>
+            </p>
+            <pre><code class="language-html">---
+layout: parent-layout.hbs
+---
+&lt;!-- Only the child layout should have this sidebar! --&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-3&quot;&gt;
+    &lt;div class=&quot;sidebar&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;Buttons&lt;/a&gt;
+      &lt;ul class=&quot;nav&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#button-expand-left&quot;&gt;&lt;/a&gt;Expand Left&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#button-expand-right&quot;&gt;&lt;/a&gt;Expand Right&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#button-expand-up&quot;&gt;&lt;/a&gt;Expand Up&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#button-expand-down&quot;&gt;&lt;/a&gt;Expand Down&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-lg-9&quot;&gt;
+    &lt;!-- render content from pages that specify this layout --&gt;
+    {{&gt; body }}
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p>You might recall that the <code>{{&gt; body }}</code> tag is the &quot;insertion point&quot; in a layout, specifying exactly where the content from each page will be passed in. Layouts are no different. A child layout will be inserted (flattened)
+              into the parent layout at the point of the <code>{{&gt; body }}</code> tag.</p>
+            <h4 id="example-flattened-result">Example &quot;flattened&quot; result</h4> 
+            <p>Continuing with the example from the previous section, the flattened layout for pages that use the &quot;child&quot; layout might look something like this during build:</p>
+            <pre><code class="language-handlebars"><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
+<span class="tag">&lt;<span class="title">html</span>  <span class="attribute">lang</span> =<span class="value">"en"</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">head</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">meta</span>  <span class="attribute">charset</span> =<span class="value">"UTF-8"</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">title</span> &gt;</span> <span class="expression">{{<span class="variable">title</span> }}</span> <span class="tag">&lt;/<span class="title">title</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">link</span>  <span class="attribute">rel</span> =<span class="value">"stylesheet"</span>  <span class="attribute">href</span> =<span class="value">"main.css"</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">head</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">body</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"row"</span> &gt;</span> 
+      <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"col-lg-3"</span> &gt;</span> 
+        <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"sidebar"</span> &gt;</span> 
+          <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#"</span> &gt;</span> Buttons<span class="tag">&lt;/<span class="title">a</span> &gt;</span> 
+          <span class="tag">&lt;<span class="title">ul</span>  <span class="attribute">class</span> =<span class="value">"nav"</span> &gt;</span> 
+            <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#button-expand-left"</span> &gt;</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> Expand Left<span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+            <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#button-expand-right"</span> &gt;</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> Expand Right<span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+            <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#button-expand-up"</span> &gt;</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> Expand Up<span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+            <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"#button-expand-down"</span> &gt;</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> Expand Down<span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+          <span class="tag">&lt;/<span class="title">ul</span> &gt;</span> 
+        <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+      <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+      <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"col-lg-9"</span> &gt;</span> 
+        <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+      <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+    <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">script</span>  <span class="attribute">src</span> =<span class="value">"main.js"</span> &gt;</span> <span class="javascript"></span> <span class="tag">&lt;/<span class="title">script</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">body</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">html</span> &gt;</span> </code></pre>
+            <h2 id="layout-faq">Layout FAQ</h2> 
+            <ul>
+              <li>Layouts are optional. If you don&#39;t need one, don&#39;t define one.</li>
+              <li>At build time, nested layouts are &quot;flattened&quot; before content is passed in from pages (child layouts are progressively &quot;merged&quot; into their respective parent layouts until there are no parent layouts left in the stack.)</li>
+              <li>Layouts can be defined at the <strong>task-level</strong>, <strong>target-level</strong>, in the <strong>YAML front-matter</strong>  of a page, or in the <code>data.layout</code> property for pages defined in an <code>options.pages</code> collection.</li>
+            </ul>
+            <p><strong>Layout Specificity</strong> 
+            </p>
+            <p>As with CSS, the more specific layout wins:</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Level</th>
+                  <th>Description</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>none</strong> 
+                  </td>
+                  <td>Layouts are optional.</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Task</strong> 
+                  </td>
+                  <td>Defined at the task-level of the assemble task.</td>
+                  <td>Project level</td>
+                </tr>
+                <tr>
+                  <td><strong>Target</strong> 
+                  </td>
+                  <td>Defined at the target-level in the assemble task.</td>
+                  <td>Sub-project level</td>
+                </tr>
+                <tr>
+                  <td><strong>Layout property</strong>  (data)</td>
+                  <td>Defined in the <code>data: {}</code> object in a <code>pages</code> collection.</td>
+                  <td>Page and/or sub-page level</td>
+                </tr>
+                <tr>
+                  <td><strong>Layout property</strong>  (YFM)</td>
+                  <td>Defined in the YAML front matter of a page.</td>
+                  <td>Page and/or sub-page level</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 id="layout-example">Layout example</h2> 
+            <p>Layouts are optional, but the <code>{{&gt; body }}</code> tag is required for content to be pulled into a layout.</p>
+            <pre><code class="language-handlebars"><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
+<span class="tag">&lt;<span class="title">html</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">head</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">title</span> &gt;</span> <span class="expression">{{<span class="variable">title</span> }}</span> <span class="tag">&lt;/<span class="title">title</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">head</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">body</span> &gt;</span> 
+    <span class="comment">&lt;!-- the body "pulls in" content from pages --&gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+  <span class="tag">&lt;/<span class="title">body</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">html</span> &gt;</span> </code></pre>
+            <h2 id="granular-control">Granular control</h2> 
+            <ol>
+              <li><strong>Task options</strong>: Great for defining a &quot;project-wide&quot; default.</li>
+              <li><strong>Target options</strong>: Override the &quot;project default&quot; in the <code>options</code> for each target. Offers greater control over which &quot;types&quot; of pages get which <code>layout</code>.</li>
+              <li><strong>Page-by-page</strong>: If you require more granularity you can define a layout in the
+                <a href="YAML-front-matter.html">YFM</a> of a page</li>
+            </ol>
+            <h3 id="multiple-layouts">Multiple layouts</h3> 
+            <p>Since you can create as many
+              <a href="http://gruntjs.com/configuring-tasks">targets</a> as you require, defining layouts in the Gruntfile is a great way of quickly setting up your layout &quot;defaults&quot;. In the <code>assemble</code> task in your Gruntfile.js, you can define a layout at the task-level, and/or a
+              different layout for each build target:</p>
+            <pre><code class="language-javascript">assemble: {
+  options: {
+    layout: <span class="string">'layouts/default.hbs'</span> 
+  },
+  site: {
+    files: {
+      <span class="string">'site/'</span>: [<span class="string">'templates/pages/*.hbs'</span> ]
+    }
+  },
+  blog: {
+    options: {
+      layout: <span class="string">'layout/post.hbs'</span> 
+    },
+    files: {
+      <span class="string">'blog/'</span>: [<span class="string">'templates/posts/*.hbs'</span> ]
+    }
+  },
+  docs: {
+    options: {
+      layout: <span class="string">'layouts/docs.hbs'</span> 
+    },
+    files: {
+      <span class="string">'docs/'</span>: [<span class="string">'templates/docs/*.hbs'</span> ]
+    }
+  }
+}</code></pre>
+            <h2 id="page-specific-layouts">Page-specific Layouts</h2> 
+            <p>If you require a higher level of granularity than defining layouts in the Gruntfile, you may also define layouts on a page-by-page basis, thus overriding both the task-level (&quot;global&quot;) defaults and the target-level defaults.</p>
+            <p>To do so, just add the layout to the
+              <a href="YAML-front-matter.html">YFM</a> of the page like this:</p>
+            <pre><code class="language-yaml">---
+layout: path/to/layout.hbs
+---</code></pre>
+            <h2 id="disabling-layouts">Disabling Layouts</h2> 
+            <ul>
+              <li><strong>Pages</strong>: add <code>layout: false</code> or <code>layout: none</code> to the YAML front matter of any page that should build without a layout.</li>
+              <li><strong>Targets</strong>: add <code>layout: false</code> or <code>layout: none</code> to the options of any target that should build pages without a layout.</li>
+            </ul>
+            <h2 id="example-usage">Example usage</h2> 
+            <p>Your imagination is the only limit to what can be done with layouts, so these are just examples.</p>
+            <pre><code class="language-handlebars"><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
+<span class="tag">&lt;<span class="title">html</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">head</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">title</span> &gt;</span> <span class="expression">{{<span class="variable">title</span> }}</span> <span class="tag">&lt;/<span class="title">title</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">head</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">body</span> &gt;</span> 
+    <span class="comment">&lt;!-- HEADER --&gt;</span> 
+    <span class="tag">&lt;<span class="title">header</span>  <span class="attribute">class</span> =<span class="value">"masthead subhead"</span> &gt;</span> 
+      <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"container"</span> &gt;</span> 
+        <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"row"</span> &gt;</span> 
+          <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"col col-lg-12"</span> &gt;</span> 
+            <span class="tag">&lt;<span class="title">h1</span> &gt;</span> <span class="tag">&lt;<span class="title">span</span>  <span class="attribute">class</span> =<span class="value">"text-muted"</span> &gt;</span> Docs /&amp;nbsp;<span class="tag">&lt;/<span class="title">span</span> &gt;</span>  <span class="expression">{{<span class="begin-block">#<span class="keyword">if</span>  section</span> }}</span> <span class="expression">{{ <span class="variable">section</span>  }}</span>  <span class="expression">{{<span class="variable"><span class="keyword">else</span> </span> }}</span> <span class="expression">{{<span class="variable">basename</span> }}</span> <span class="expression">{{<span class="end-block">/<span class="keyword">if</span> </span> }}</span> <span class="tag">&lt;/<span class="title">h1</span> &gt;</span> 
+          <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+        <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+      <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+    <span class="tag">&lt;/<span class="title">header</span> &gt;</span> 
+    <span class="comment">&lt;!-- CONTENT --&gt;</span> 
+    <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"container"</span> &gt;</span> 
+      <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+    <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+    <span class="comment">&lt;!-- FOOTER --&gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">footer</span>  }}</span> 
+  <span class="tag">&lt;/<span class="title">body</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">html</span> &gt;</span> </code></pre>
+            <p>
+              <a name="nested-layouts" id="nested-layouts"></a> 
+            </p>
+            <h2 id="nested-layouts">Nested Layouts</h2> 
+            <p>Layouts can be nested inside other layouts. This enables highly granular control over how pages and layouts are organized. A common strategy is to use a basic &quot;master&quot; or &quot;default&quot; layout for a site, which contains only
+              the most common, bare necessities for a site. This default layout is then inherited by other more specialized layouts.</p>
+            <p>For example, your default layout may contain the <code>&lt;head&gt;&lt;/head&gt;</code>, footer, common link and script tags for a site:</p>
+            <pre><code class="language-handlebars"><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
+<span class="tag">&lt;<span class="title">html</span>  <span class="attribute">lang</span> =<span class="value">"en"</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">head</span> &gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">header</span>  }}</span> 
+  <span class="tag">&lt;/<span class="title">head</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">body</span> &gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+    <span class="tag">&lt;<span class="title">section</span>  <span class="attribute">id</span> =<span class="value">"footer"</span> &gt;</span> 
+      <span class="expression">{{&gt; <span class="variable">footer</span>  }}</span> 
+    <span class="tag">&lt;/<span class="title">section</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">body</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">html</span> &gt;</span> </code></pre>
+            <p>And more specialize layouts might contain side navigation for a section of the site, like this:</p>
+            <pre><code class="language-handlebars">---
+layout: default.hbs
+---
+<span class="tag">&lt;<span class="title">header</span>  <span class="attribute">class</span> =<span class="value">"masthead subhead"</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"container"</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">h1</span> &gt;</span> <span class="tag">&lt;<span class="title">span</span>  <span class="attribute">class</span> =<span class="value">"text-muted"</span> &gt;</span> Docs /&amp;nbsp;<span class="tag">&lt;/<span class="title">span</span> &gt;</span> <span class="expression">{{<span class="variable">titleize</span>  <span class="variable">basename</span> }}</span> <span class="tag">&lt;/<span class="title">h1</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">header</span> &gt;</span> 
+<span class="tag">&lt;<span class="title">ul</span>  <span class="attribute">class</span> =<span class="value">"nav nav-pills nav-stacked"</span> &gt;</span> 
+  <span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  pages</span> }}</span> 
+  <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"<span class="expression">{{<span class="variable">relative</span>  <span class="variable">..</span> <span class="end-block">/page.dest this.dest</span> }}</span> "</span> &gt;</span> <span class="expression">{{<span class="variable">data.title</span> }}</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+  <span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> 
+<span class="tag">&lt;/<span class="title">ul</span> &gt;</span> 
+<span class="expression">{{&gt; <span class="variable">body</span>  }}</span> </code></pre>
+            <p>At build time layouts are &quot;flattened&quot; first before pages are passed in. In other words, the above example becomes this first:</p>
+            <pre><code class="language-handlebars"><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
+<span class="tag">&lt;<span class="title">html</span>  <span class="attribute">lang</span> =<span class="value">"en"</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">head</span> &gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">header</span>  }}</span> 
+  <span class="tag">&lt;/<span class="title">head</span> &gt;</span> 
+  <span class="tag">&lt;<span class="title">body</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">header</span>  <span class="attribute">class</span> =<span class="value">"masthead subhead"</span> &gt;</span> 
+      <span class="tag">&lt;<span class="title">div</span>  <span class="attribute">class</span> =<span class="value">"container"</span> &gt;</span> 
+        <span class="tag">&lt;<span class="title">h1</span> &gt;</span> <span class="tag">&lt;<span class="title">span</span>  <span class="attribute">class</span> =<span class="value">"text-muted"</span> &gt;</span> Docs /&amp;nbsp;<span class="tag">&lt;/<span class="title">span</span> &gt;</span> <span class="expression">{{<span class="variable">titleize</span>  <span class="variable">basename</span> }}</span> <span class="tag">&lt;/<span class="title">h1</span> &gt;</span> 
+      <span class="tag">&lt;/<span class="title">div</span> &gt;</span> 
+    <span class="tag">&lt;/<span class="title">header</span> &gt;</span> 
+    <span class="tag">&lt;<span class="title">ul</span>  <span class="attribute">class</span> =<span class="value">"nav nav-pills nav-stacked"</span> &gt;</span> 
+      <span class="expression">{{<span class="begin-block">#<span class="keyword">each</span>  pages</span> }}</span> 
+      <span class="tag">&lt;<span class="title">li</span> &gt;</span> <span class="tag">&lt;<span class="title">a</span>  <span class="attribute">href</span> =<span class="value">"<span class="expression">{{<span class="variable">relative</span>  <span class="variable">..</span> <span class="end-block">/page.dest this.dest</span> }}</span> "</span> &gt;</span> <span class="expression">{{<span class="variable">data.title</span> }}</span> <span class="tag">&lt;/<span class="title">a</span> &gt;</span> <span class="tag">&lt;/<span class="title">li</span> &gt;</span> 
+      <span class="expression">{{<span class="end-block">/<span class="keyword">each</span> </span> }}</span> 
+    <span class="tag">&lt;/<span class="title">ul</span> &gt;</span> 
+    <span class="expression">{{&gt; <span class="variable">body</span>  }}</span> 
+    <span class="tag">&lt;<span class="title">section</span>  <span class="attribute">id</span> =<span class="value">"footer"</span> &gt;</span> 
+      <span class="expression">{{&gt; <span class="variable">footer</span>  }}</span> 
+    <span class="tag">&lt;/<span class="title">section</span> &gt;</span> 
+  <span class="tag">&lt;/<span class="title">body</span> &gt;</span> 
+<span class="tag">&lt;/<span class="title">html</span> &gt;</span> </code></pre>
+            <h3 id="layouts-for-other-formats">Layouts for other formats</h3> 
+            <h4 id="markdown-layouts">Markdown layouts</h4> 
+            <p>Layouts don&#39;t have to be HTML, they can be whatever language you want them to be. If you&#39;re generating markdown pages instead of HTML, maybe for a project wiki or other markdown documentation, then you&#39;ll want to use a markdown
+              formatted <code>layout</code>.</p>
+            <p>In this example, instead of adding adding the traditional head and footer we&#39;ll add some link references to make sure the same ones are used on every generated page. This makes it easier to maintain links and it also cuts down on potential
+              for broken links:</p>
+            <pre><code class="language-markdown">{{&gt; body }}
+<span class="bullet">* </span> <span class="bullet">* *</span> 
+<span class="emphasis">_This page was generated using Grunt and [assemble][repo] on {{ today }}._</span> 
+[org]: https://github.com/assemble
+[repo]: https://github.com/assemble/assemble
+[issues]: https://github.com/assemble/assemble/issues
+[docs]: https://github.com/assemble/assemble-docs</code></pre>
+            <h4 id="readme-layout">README Layout</h4> 
+            <pre><code class="language-markdown"><span class="header"># {{pkg.name}} {{travis-badge}}</span> 
+<span class="blockquote">&gt; {{pkg.description}}</span> 
+{{&gt; body }}
+<span class="bullet">* </span> <span class="bullet">* *</span> 
+<span class="emphasis">_This readme was generated using Grunt and [assemble][repo] on {{ today }}._</span> 
+[org]: https://github.com/assemble
+[repo]: https://github.com/assemble/assemble
+[issues]: https://github.com/assemble/assemble/issues
+[docs]: https://github.com/assemble/assemble-docs</code></pre>
+            <h2 id="layout-faq">Layout FAQ</h2> 
+            <ul>
+              <li>Layouts are optional</li>
+              <li>When a layout is specified, <em>it must include a <code>{{&gt; body }}</code> tag to render content</em> from any file that uses the layout.</li>
+              <li>Layouts may be defined in the Gruntfile or in
+                <a href="YAML-front-matter.html">YFM</a> of a page.</li>
+              <li>A layout defined for a target will override a layout defined at the task level.</li>
+              <li>A layout defined in
+                <a href="YAML-front-matter.html">YFM</a> will override a layout defined in the Gruntfile</li>
+              <li>
+                <a href="Templates-Overview.html">Lo-dash templates</a> can be used in YAML front-matter to specificy a layout.</li>
+            </ul>
+            <h2 id="related-info">Related info</h2> 
+            <ul>
+              <li>
+                <a href="options-layout.html">options.layout</a> 
+              </li>
+              <li>
+                <a href="Pages.html">Pages</a> 
+              </li>
+              <li>
+                <a href="Partials.html">Partials</a> 
+              </li>
+              <li>
+                <a href="Templates-Overview.html">templates-overview</a> 
+              </li>
+              <li>
+                <a href="YAML-front-matter.html">YFM</a> 
+              </li>
+            </ul>
+            <hr>
+            <p>
+              <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/docs/Layouts.md.hbs">See the template for this page →</a> 
+            </p>
+            <div class="alert">
+              <style type="text/css" media="screen">
+                .alert iframe {
+                  float: right;
+                  margin: 7px -30px 0 0;
+                  vertical-align: text-top;
+                }
+              </style>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <p>Find an error?
+                <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a> 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/holder.js"></script>
+    <script src="../assets/js/highlight.js"></script>
+    <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+</html>

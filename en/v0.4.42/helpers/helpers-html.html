@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    <title>
+      HTML | Assemble
+    </title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
+
+    <!-- Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+  <script src="../assets/js/html5shiv.js"></script>
+  <script src="../assets/js/respond/respond.min.js"></script>
+<![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/img/light/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/light/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/light/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/light/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/light/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/light/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/light/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/light/apple-touch-icon-76x76.png">
+    <link rel="shortcut icon" href="../assets/img/light/favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="application/ld+json">
+      [{
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Jon Schlinkert",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/jonschlinkert"
+      }, {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Brian Woodward",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/doowb"
+      }]
+    </script>
+  </head>
+  <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+    <header class="navbar navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button>
+          <a href="../" class="navbar-brand">ASSEMBLE</a> 
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="../docs/">Docs</a> 
+            </li>
+
+            <!--<li> <a href="../boilerplates/">Boilerplates</a>  </li>-->
+            <li>
+              <a href="../plugins/">Plugins</a> 
+            </li>
+            <li>
+              <a href="../helpers/">Helpers</a> 
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+
+            <!--<li> <a href="../examples/">Examples</a>  </li>-->
+
+            <!--<li> <a href="../tutorials/">Tutorials</a>  </li> -->
+            <li>
+              <a href="../blog/">Blog</a> 
+            </li>
+            <li>
+              <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
+                <i class="glyphicon glypicon-large glyphicon-download"></i>
+              </a> 
+            </li>
+            <li>
+              <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <style>
+      /* Temporarily override subhead styling for development */
+      .subhead {
+        background-color: #33b5e5;
+      }
+      .subhead .text-muted {
+        color: #b5e4f5;
+      }
+    </style>
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1>
+              <span class="text-muted">helpers&nbsp;/</span> &nbsp;HTML</h1> 
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="./">Overview</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Special Helpers
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helper-compose.html">Compose</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helper-aggregate.html">Aggregate</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Categories
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-code.html">Code</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-collections.html">Collections</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-comparison.html">Comparison</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-content.html">Content</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-data.html">Data</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-dates.html">Dates</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-html.html">HTML</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-inflections.html">Inflections</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-logging.html">Logging</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-markdown.html">Markdown</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-math.html">Math</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-misc.html">Miscellaneous</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-numbers.html">Numbers</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-path.html">Path</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-readme.html">Readme</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-strings.html">Strings</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-url.html">URL</a> 
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>HTML</h1> 
+            <p>
+              <h4 id="-br-">{{br}}</h4> 
+            </p>
+            <p>
+              <p><em>Renders <code>&lt;br&gt;</code> elements in the output, based on the number given as a parameter. Not really recommended for general use, but it&#39;s here if you need it.</em>
+              </p>
+            </p>
+            <p>
+              <p>Parameters: <code>Integer|Count</code>, <code>Optional</code>
+              </p>
+            </p>
+            <p>
+              <p>The number of <code>br</code> elements to render.</p>
+            </p>
+            <p>
+              <p><code>template.hbs</code>
+              </p>
+            </p>
+            <pre><code class="language-html">{{br 5}}</code></pre>
+            <p>renders to:</p>
+            <pre><code class="language-html">`&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;`</code></pre>
+            <h4 id="-doctype-">{{doctype}}</h4> 
+            <p><em>Easy way to add an uncommonly used doctype.</em>
+            </p>
+            <p>Default is HTML 5 (<code>&lt;!DOCTYPE html&gt;</code>) although this is probably only useful on projects that use anything besides HTML 5.</p>
+            <p>Template:</p>
+            <pre><code class="language-html">{{DOCTYPE &#39;svg 1.1&#39;}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code class="language-html">&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</code></pre>
+            <p>Available doctypes:</p>
+            <p><strong>HTML 5 (default)</strong> 
+              *
+              <br>- <code>{{doctype &#39;5&#39;}}</code> | aliases: <code>html</code>, <code>html5</code>
+            </p>
+            <p><strong>XML</strong> 
+              <em><br>- <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</code>
+</em>
+              <br>- <code>{{doctype &#39;xml&#39;}}</code>
+            </p>
+            <p><strong>XHTML</strong> 
+              <em><br>- <code>{{doctype &#39;basic&#39;}}</code>
+</em>
+              <br>- <code>{{doctype &#39;strict&#39;}}</code>
+              <em><br>- <code>{{doctype &#39;transitional&#39;}}</code>
+</em>
+              <br>- <code>{{doctype &#39;frameset&#39;}}</code>
+              <em><br>- <code>{{doctype &#39;1.1&#39;}}</code> | aliases: <code>1.1</code>, <code>xhtml 1.1</code>
+</em>
+              <br>- <code>{{doctype &#39;mobile&#39;}}</code>
+            </p>
+            <p><strong>HTML 4.01</strong> 
+              <em><br>- <code>{{doctype &#39;4&#39;}}</code> | aliases: <code>4.01</code>, <code>4.01 strict</code>
+</em>
+              <br>- <code>{{doctype &#39;4.01 trans&#39;}}</code>
+              *
+              <br>- <code>{{doctype &#39;4.01 frameset&#39;}}</code>
+            </p>
+            <p><strong>SVG</strong> 
+              <em><br>- <code>{{doctype &#39;svg&#39;}}</code> | aliases: <code>svg</code>, <code>svg 1.1</code>, <code>svg1.1</code>
+</em>
+              <br>- <code>{{doctype &#39;svg 1.0&#39;}}</code> | aliases: <code>svg 1.0</code>, <code>svg1.0</code>, <code>svg1</code>
+            </p>
+            <h4 id="-exticon-">{{exticon}}</h4> 
+            <p><em>Generate the appropriate icon based on the extension of the given file.</em>
+            </p>
+            <p>Since this helper generates classes that are very specific, feel free to copy the code and use it as inspiration for your a helper that works for you.</p>
+            <p>Usage:</p>
+            <pre><code class="language-html">{{exticon &#39;file.png&#39;}}
+{{exticon &#39;file.pdf&#39;}}
+{{exticon &#39;file.doc&#39;}}
+{{exticon &#39;file.txt&#39;}}
+{{exticon &#39;file.csv&#39;}}
+{{exticon &#39;file&#39;}}</code></pre>
+            <p>Output:</p>
+            <pre><code class="language-html">&lt;img src=&quot;img/img-icon.png&quot;&gt;&lt;i&gt;file.png&lt;/i&gt;
+&lt;img src=&quot;img/pdf-icon.png&quot;&gt;&lt;i&gt;file.pdf&lt;/i&gt;
+&lt;img src=&quot;img/word-icon.png&quot;&gt;&lt;i&gt;file.doc&lt;/i&gt;
+&lt;img src=&quot;img/txt-icon.png&quot;&gt;&lt;i&gt;file.txt&lt;/i&gt;
+&lt;img src=&quot;img/csv-icon.png&quot;&gt;&lt;i&gt;file.csv&lt;/i&gt;
+&lt;img src=&quot;img/other-icon.png&quot;&gt;&lt;i&gt;file&lt;/i&gt;</code></pre>
+            <h4 id="-ol-">{{ol}}</h4> 
+            <p><em>Same as the <code>ul</code> helper but creates and ordered list. Returns <code>&lt;br&gt;</code> tags based on a count.</em>
+            </p>
+            <p>Parameters: <code>Hash</code>, <code>HTML attributes</code>, <code>Optional</code>
+            </p>
+            <p>HTML attributes to use on the <code>ol</code> element.</p>
+            <p>Data:</p>
+            <pre><code class="language-javascript">collection = [
+  name: <span class="string">'Leela'</span> 
+  deliveries: <span class="number">8021</span>,
+  name: <span class="string">'Bender'</span> 
+  deliveries: <span class="number">239</span>,
+  name: <span class="string">'Fry'</span> 
+  deliveries: <span class="number">1</span> 
+]</code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#ol collection class=&quot;deliveries-list&quot;}}
+  {{name}} - {{inflect deliveries &quot;delivery&quot; &quot;deliveries&quot; true}}
+{{/ol}}</code></pre>
+            <p>Output:</p>
+            <pre><code class="language-html">&lt;ol class=&quot;deliveries-list&quot;&gt;
+  &lt;li&gt; Leela - 8021 deliveries &lt;/li&gt;
+  &lt;li&gt; Bender - 239 deliveries &lt;/li&gt;
+  &lt;li&gt; Fry - 1 delivery &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            <h4 id="-ul-">{{ul}}</h4> 
+            <p><em>Creates an unordered list.</em>
+            </p>
+            <p>Parameters: <code>Hash|HTML attributes</code>, <code>Optional</code>
+            </p>
+            <p>HTML attributes to use on the <code>ul</code> element.</p>
+            <p>Data:</p>
+            <pre><code class="language-javascript">collection = [
+  name: <span class="string">'Leela'</span> 
+  deliveries: <span class="number">8021</span>,
+  name: <span class="string">'Bender'</span> 
+  deliveries: <span class="number">239</span>,
+  name: <span class="string">'Fry'</span> 
+  deliveries: <span class="number">1</span> 
+]</code></pre>
+            <p>Template:</p>
+            <pre><code class="language-html">{{#ul collection class=&quot;deliveries-list&quot;}}
+  {{name}} - {{inflect deliveries &quot;delivery&quot; &quot;deliveries&quot; true}}
+{{/ul}}</code></pre>
+            <p>Output:</p>
+            <pre><code class="language-html">&lt;ul class=&quot;deliveries-list&quot;&gt;
+  &lt;li&gt; Leela - 8021 deliveries &lt;/li&gt;
+  &lt;li&gt; Bender - 239 deliveries &lt;/li&gt;
+  &lt;li&gt; Fry - 1 delivery &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <hr>
+            <p>
+              <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/helpers/helpers-html.md.hbs">See the template for this page →</a> 
+            </p>
+            <div class="alert">
+              <style type="text/css" media="screen">
+                .alert iframe {
+                  float: right;
+                  margin: 7px -30px 0 0;
+                  vertical-align: text-top;
+                }
+              </style>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <p>Find an error?
+                <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a> 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/holder.js"></script>
+    <script src="../assets/js/highlight.js"></script>
+    <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+</html>

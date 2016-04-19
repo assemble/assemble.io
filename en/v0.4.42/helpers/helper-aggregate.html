@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    <title>
+      Aggregate | Assemble
+    </title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/assemble.css">
+    <link rel="stylesheet" href="../assets/css/markdown.css">
+
+    <!-- Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+  <script src="../assets/js/html5shiv.js"></script>
+  <script src="../assets/js/respond/respond.min.js"></script>
+<![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/img/light/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/light/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/light/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/light/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/light/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/light/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/light/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/light/apple-touch-icon-76x76.png">
+    <link rel="shortcut icon" href="../assets/img/light/favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="application/ld+json">
+      [{
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Jon Schlinkert",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/jonschlinkert"
+      }, {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Brian Woodward",
+        "description": "Co-creator of Assemble.",
+        "url": "https://github.com/doowb"
+      }]
+    </script>
+  </head>
+  <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+    <header class="navbar navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button>
+          <a href="../" class="navbar-brand">ASSEMBLE</a> 
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="../docs/">Docs</a> 
+            </li>
+
+            <!--<li> <a href="../boilerplates/">Boilerplates</a>  </li>-->
+            <li>
+              <a href="../plugins/">Plugins</a> 
+            </li>
+            <li>
+              <a href="../helpers/">Helpers</a> 
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+
+            <!--<li> <a href="../examples/">Examples</a>  </li>-->
+
+            <!--<li> <a href="../tutorials/">Tutorials</a>  </li> -->
+            <li>
+              <a href="../blog/">Blog</a> 
+            </li>
+            <li>
+              <a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" onclick="_gaq.push(['_trackEvent', 'navbar-download', 'clicked'])">
+                <i class="glyphicon glypicon-large glyphicon-download"></i>
+              </a> 
+            </li>
+            <li>
+              <a href="https://github.com/assemble/assemble/" onclick="_gaq.push(['_trackEvent', 'click-repo', 'clicked'])">GitHub Repo</a> 
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <style>
+      /* Temporarily override subhead styling for development */
+      .subhead {
+        background-color: #33b5e5;
+      }
+      .subhead .text-muted {
+        color: #b5e4f5;
+      }
+    </style>
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1>
+              <span class="text-muted">helpers&nbsp;/</span> &nbsp;Aggregate</h1> 
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-3">
+          <div class="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="./">Overview</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Special Helpers
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helper-compose.html">Compose</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helper-aggregate.html">Aggregate</a> 
+              </li>
+            </ul>
+            <span class="nav-section-title">
+              Categories
+            </span> 
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-code.html">Code</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-collections.html">Collections</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-comparison.html">Comparison</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-content.html">Content</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-data.html">Data</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-dates.html">Dates</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-html.html">HTML</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-inflections.html">Inflections</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-logging.html">Logging</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-markdown.html">Markdown</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-math.html">Math</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-misc.html">Miscellaneous</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-numbers.html">Numbers</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-path.html">Path</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-readme.html">Readme</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-strings.html">Strings</a> 
+              </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="helpers-url.html">URL</a> 
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col col-lg-9">
+          <div class="panel panel-docs">
+            <h1>Aggregate</h1> 
+            <p>
+              <h3 id="-aggregate-npm-version-https-badge-fury-io-js-helper-aggregate-png-http-badge-fury-io-js-helper-aggregate-">{{aggregate}}
+                <a href="http://badge.fury.io/js/helper-aggregate">
+                  <img src="https://badge.fury.io/js/helper-aggregate.png" alt="NPM version">
+                </a> 
+              </h3> 
+            </p>
+            <p>
+              <blockquote>
+            </p>
+            <p>{{aggregate}} handlebars helper. Inlines content from multiple files optionally using wildcard (globbing/minimatch) patterns, extracts YAML front matter to pass to context for each file. Accepts compare function as 3rd parameter for sorting
+              inlined files.</p>
+            </blockquote>
+            <h3 id="quickstart">Quickstart</h3> 
+            <p>In the root of your project, run the following in the command line:</p>
+            <pre><code class="language-bash">npm i helper-aggregate --save-dev</code></pre>
+            <h3 id="usage">Usage</h3> 
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="variable">aggregate</span>  &#39;<span class="variable">path</span> <span class="end-block">/to</span> /<em><span class="variable">.hbs</span> &#39;}}</span> </code></pre>
+            <h4 id="usage-in-assemble">Usage in Assemble</h4> 
+            <p>In your Gruntfile, simply add <code>helper-aggregate</code> to the <code>helpers</code> property in the
+              <a href="http://assemble.io">Assemble</a> task or target options:</p>
+            <pre><code class="language-javascript">grunt.initConfig({
+  assemble: {
+    options: {
+      <span class="comment">// must be in devDependencies for assemble</span> 
+      <span class="comment">// to automatically resolve the helper</span> 
+      helpers: [<span class="string">&#39;helper-aggregate&#39;</span> ]
+    }
+    ...
+  }
+});</code></pre>
+            <p>With that completed, you may now use the <code>{{aggregate}}</code> helper in your Assemble project.</p>
+            <h4 id="usage-examples">Usage examples</h4> 
+            <p>See examples of the <code>{{aggregate}}</code> helper being used in the
+              <a href="https://github.com/assemble/yfm">yfm project</a>:</p>
+            <h5 id="templates-and-content">templates and content</h5> 
+            <ul>
+              <li>
+                <a href="https://github.com/assemble/yfm/blob/master/test/fixtures/aggregate.hbs">the helper itself</a> 
+              </li>
+              <li>
+                <a href="https://github.com/assemble/yfm/tree/master/test/fixtures/book">content being aggregated by the helper</a> 
+              </li>
+              <li>
+                <a href="https://github.com/assemble/yfm/blob/master/test/actual/aggregate.html">the compiled result</a> 
+              </li>
+            </ul>
+            <h5 id="options-and-context">options and context</h5> 
+            <ul>
+              <li>
+                <a href="https://github.com/assemble/yfm/blob/master/Gruntfile.js#L31-L35">defining helper options</a> 
+              </li>
+              <li>
+                <a href="https://github.com/assemble/yfm/blob/master/Gruntfile.js#L19">config data used in examples</a> 
+              </li>
+            </ul>
+            <h3 id="options">Options</h3> 
+            <h4 id="sep">sep</h4> 
+            <p>Type: <code>String</code>
+              Default value: <code>\n</code>
+            </p>
+            <p>The separator to append after each inlined file.</p>
+            <h3 id="setting-options">Setting options</h3> 
+            <h4 id="hash-options">hash options</h4> 
+            <p>Set options as hash arguments.</p>
+            <pre><code class="language-handlebars"><span class="expression">{{<span class="variable">aggregate</span>  &#39;<span class="variable">my</span> <span class="end-block">/book</span> <span class="end-block">/chapters</span> /</em><span class="variable">.hbs</span> &#39; <span class="variable">sep</span> =<span class="string">&quot;&lt;!- Chapter --&gt;&quot;</span> }}</span> </code></pre>
+            <h4 id="-assemble-task-options">&quot;assemble&quot; task options</h4> 
+            <p>Pass
+              <a href="http://assemble.io">Assemble</a> options into the helper.</p>
+            <p>In your project&#39;s Gruntfile, options for the <code>{{aggregate}}</code> helper can be defined in the Assemble task options:</p>
+            <pre><code class="language-javascript">assemble: {
+  options: {
+    helpers: [<span class="string">&#39;helper-aggregate&#39;</span> ],
+    aggregate: {
+      sep: <span class="string">&#39;\n\n&#39;</span>,
+      compare_fn: <span class="function"><span class="keyword">function</span> <span class="params">(a, b)</span>  {</span> 
+        <span class="keyword">return</span>  a.index &gt;= b.index ? <span class="number">1</span>  : -<span class="number">1</span>;
+      }
+    }
+  }
+  ...
+}</code></pre>
+            <p>Note that the options are defined in the
+              <a href="http://assemble.io/docs/Custom-Helpers.html">custom property</a>, <code>aggregate</code>, not on the <code>options</code> object itself.</p>
+            <h3 id="lo-dash-templates">Lo-Dash templates</h3> 
+            <p>The helper will also process any valid Lo-Dash templates in the YAML front matter of targeted files, using <code>grunt.config.data</code> and the context of the &quot;current&quot; file. For example:</p>
+            <p>Given you have this in the gruntfile:</p>
+            <pre><code class="language-js"><span class="comment">// Project configuration.</span> 
+grunt.initConfig({
+  <span class="comment">// Metadata for our book.</span> 
+  book: require(<span class="string">&#39;./test/fixtures/book/book.yml&#39;</span> ),
+  assemble: {
+    options: {
+      helpers: [<span class="string">&#39;helper-aggregate&#39;</span> ],
+      aggregate: {
+        sep: <span class="string">&#39;&lt;!-- chapter --&gt;&#39;</span>,
+        compare_fn: <span class="function"><span class="keyword">function</span> <span class="params">(a, b)</span>  {</span> 
+          <span class="keyword">return</span>  a.index &gt;= b.index ? <span class="number">1</span>  : -<span class="number">1</span>;
+        }
+      },
+      book: {
+        src: [<span class="string">&#39;chapters/*.hbs&#39;</span> ],
+        dest: <span class="string">&#39;book/&#39;</span> 
+      }
+    }
+  }
+});</code></pre>
+            <p>And these Lo-Dash and Handlebars templates:</p>
+            <pre><code class="language-handlebars">---
+title: <span class="vbscript">&lt;%= book.title %&gt;</span> 
+chapter: 1
+intro: Chapter <span class="vbscript">&lt;%= chapter %&gt;</span> 
+---
+<span class="tag">&lt;<span class="title">h1</span> &gt;</span> Content from <span class="expression">{{<span class="variable">title</span> }}</span> <span class="tag">&lt;/<span class="title">h1</span> &gt;</span> 
+<span class="tag">&lt;<span class="title">p</span>  <span class="attribute">class</span> =<span class="value">&quot;intro&quot;</span> &gt;</span> <span class="expression">{{<span class="variable">intro</span> }}</span> <span class="tag">&lt;/<span class="title">p</span> &gt;</span> 
+<span class="tag">&lt;<span class="title">p</span>  <span class="attribute">class</span> =<span class="value">&quot;chapter&quot;</span> &gt;</span> Chapter: <span class="expression">{{<span class="variable">chapter</span> }}</span> <span class="tag">&lt;/<span class="title">p</span> &gt;</span> </code></pre>
+            <p>would result in:</p>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;My Amazing Book&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- chapter --&gt;
+    &lt;h1&gt;Content from My Amazing Book&lt;/h1&gt;
+    &lt;p class=&quot;intro&quot;&gt;Chapter 1&lt;/p&gt;
+    &lt;p class=&quot;chapter&quot;&gt;Chapter: 1&lt;/p&gt;
+    &lt;!-- chapter --&gt;
+    &lt;h1&gt;Content from My Amazing Book&lt;/h1&gt;
+    &lt;p class=&quot;intro&quot;&gt;Chapter 2&lt;/p&gt;
+    &lt;p class=&quot;chapter&quot;&gt;Chapter: 2&lt;/p&gt;
+    &lt;!-- chapter --&gt;
+    &lt;h1&gt;Content from My Amazing Book&lt;/h1&gt;
+    &lt;p class=&quot;intro&quot;&gt;Chapter 3&lt;/p&gt;
+    &lt;p class=&quot;chapter&quot;&gt;Chapter: 3&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <h3 id="author">Author</h3> 
+            <p><strong>Jon Schlinkert</strong> 
+            </p>
+            <ul>
+              <li>
+                <a href="http://twitter.com/jonschlinkert">twitter/jonschlinkert</a> 
+              </li>
+              <li>
+                <a href="http://github.com/jonschlinkert">github/jonschlinkert</a> 
+              </li>
+            </ul>
+            <h3 id="license-and-copyright">License and Copyright</h3> 
+            <p>Licensed under the
+              <a href="./LICENSE-MIT">MIT License</a> 
+              Copyright (c) Jon Schlinkert, contributors.</p>
+            <hr>
+            <p>
+              <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/helpers/helper-aggregate.md.hbs">See the template for this page →</a> 
+            </p>
+            <div class="alert">
+              <style type="text/css" media="screen">
+                .alert iframe {
+                  float: right;
+                  margin: 7px -30px 0 0;
+                  vertical-align: text-top;
+                }
+              </style>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+              <p>Find an error?
+                <a class="alert-link" href="https://github.com/assemble/assemble-docs/issues?state=open">Let us know →</a> 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/holder.js"></script>
+    <script src="../assets/js/highlight.js"></script>
+    <script src="../assets/js/showup.js"></script>
+    <script type='text/javascript'>
+      (function(d, t) {
+        var bh = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
+        s.parentNode.insertBefore(bh, s);
+      })(document, 'script');
+    </script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    
+    <title>
+      Listening for views | Assemble
+    </title>
+    
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/assemble.css">
+    
+      <link rel="stylesheet" href="../../assets/css/markdown.css">
+    
+    
+    <!-- Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/img/favicon.png">
+    
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    
+    <script type="application/ld+json">
+    [
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Person",
+        "name" : "Jon Schlinkert",
+        "description" : "Co-creator of Assemble.",
+        "url" : "https://github.com/jonschlinkert"
+      },
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Person",
+        "name" : "Brian Woodward",
+        "description" : "Co-creator of Assemble.",
+        "url" : "https://github.com/doowb"
+      }
+    ]
+    </script>    <script>
+      var site = JSON.parse('{"title":"Assemble Docs","description":"The static site generator for Node.js, Grunt.js and Yeoman.","lead":"It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.","version":"0.10.0","base":":destBase/en/v:site.version","baseUrl":"http://assemble.io"}');
+      var destBase = "_gh_pages";
+      var currentPath = "_gh_pages/en/v0.10.0/docs/recipes/listening-for-views.html";
+    </script>
+  </head>
+  <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+
+
+    <div class="navbar" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">ASSEMBLE</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-docs">
+            <li><a href="../api.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Classes']);">Classes</a></li>
+    <li><a href="../build-cycle.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">build-cycle</a></li>
+    <li><a href="../docs.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">docs</a></li>
+    <li><a href="../index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Docs']);">Docs</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Api <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-api">
+            <li><a href="../api/app.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Core application']);">Core application</a></li>
+    <li><a href="../api/app.use.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.use']);">app.use</a></li>
+    <li><a href="../api/app.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.view']);">app.view</a></li>
+    <li><a href="../api/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="../api/class.Assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble']);">Assemble</a></li>
+    <li><a href="../api/class.Item.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Item']);">Item</a></li>
+    <li><a href="../api/class.List.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/List']);">List</a></li>
+    <li><a href="../api/class.Route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    <li><a href="../api/class.Router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    <li><a href="../api/class.View.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View']);">View</a></li>
+    <li><a href="../api/collection-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collection Types']);">Collection Types</a></li>
+    <li><a href="../api/collection.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/collection.view']);">collection.view</a></li>
+    <li><a href="../api/collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collections']);">Collections</a></li>
+    <li><a href="../api/data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Data']);">Data</a></li>
+    <li><a href="../api/events.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Events']);">Events</a></li>
+    <li><a href="../api/file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/File system API']);">File system API</a></li>
+    <li><a href="../api/front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Front matter']);">Front matter</a></li>
+    <li><a href="../api/helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helpers']);">Helpers</a></li>
+    <li><a href="../api/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/API']);">API</a></li>
+    <li><a href="../api/layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Layouts']);">Layouts</a></li>
+    <li><a href="../api/methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Settings API']);">Settings API</a></li>
+    <li><a href="../api/middleware.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Middleware']);">Middleware</a></li>
+    <li><a href="../api/options/mergeTypes.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: mergeTypes']);">Option: mergeTypes</a></li>
+    <li><a href="../api/options/renameKey.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: renameKey']);">Option: renameKey</a></li>
+    <li><a href="../api/pipeline-plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Pipeline plugins']);">Pipeline plugins</a></li>
+    <li><a href="../api/route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    <li><a href="../api/router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    <li><a href="../api/tasks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Task API']);">Task API</a></li>
+    <li><a href="../api/terminology.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Terminology']);">Terminology</a></li>
+    <li><a href="../api/view-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View collections']);">View collections</a></li>
+    <li><a href="../api/view-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View types']);">View types</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recipes <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-recipes">
+            <li><a href="./assemble-instance.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble instance']);">Assemble instance</a></li>
+    <li><a href="./assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="./browser-sync.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble and Browser-Sync']);">Assemble and Browser-Sync</a></li>
+    <li><a href="./copy-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Copy files']);">Copy files</a></li>
+    <li><a href="./create-a-collection.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Create a collection']);">Create a collection</a></li>
+    <li><a href="./custom-async-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom async helpers']);">Custom async helpers</a></li>
+    <li><a href="./custom-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom helpers']);">Custom helpers</a></li>
+    <li><a href="./default-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Default layout']);">Default layout</a></li>
+    <li><a href="./delete-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Deleting files']);">Deleting files</a></li>
+    <li><a href="./generate-html-and-precompile-less.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile LESS']);">Generate HTML and precompile LESS</a></li>
+    <li><a href="./generate-html-and-precompile-sass.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile SASS']);">Generate HTML and precompile SASS</a></li>
+    <li><a href="./index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Recipes']);">Recipes</a></li>
+    <li><a href="./inspecting-the-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Inspecting the context']);">Inspecting the context</a></li>
+    <li><a href="./install-assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Install assemble']);">Install assemble</a></li>
+    <li><a href="./javascript-generators.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">recipes/javascript-generators</a></li>
+    <li><a href="./listening-for-errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for errors']);">Listening for errors</a></li>
+    <li><a href="./listening-for-views.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for views']);">Listening for views</a></li>
+    <li><a href="./load-templates-from-the-file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Loading views for a collection']);">Loading views for a collection</a></li>
+    <li><a href="./markdown-to-html.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Converting markdown to HTML']);">Converting markdown to HTML</a></li>
+    <li><a href="./merging-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Merging context']);">Merging context</a></li>
+    <li><a href="./register-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Register helpers']);">Register helpers</a></li>
+    <li><a href="./rename-keys.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Rename view keys']);">Rename view keys</a></li>
+    <li><a href="./render-markdown-in-layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render markdown with layouts']);">Render markdown with layouts</a></li>
+    <li><a href="./rendering-templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render templates']);">Render templates</a></li>
+    <li><a href="./to-stream.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Push views onto a vinyl stream']);">Push views onto a vinyl stream</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subjects <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-subjects">
+            <li><a href="../subjects/assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/About']);">About</a></li>
+    <li><a href="../subjects/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="../subjects/building-blocks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Building blocks']);">Building blocks</a></li>
+    <li><a href="../subjects/context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Context']);">Context</a></li>
+    <li><a href="../subjects/gulp-faq.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Gulp FAQ']);">Gulp FAQ</a></li>
+    <li><a href="../subjects/helper-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helper context']);">Helper context</a></li>
+    <li><a href="../subjects/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Subjects']);">Subjects</a></li>
+    <li><a href="../subjects/overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Overview']);">Overview</a></li>
+    <li><a href="../subjects/plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble Plugins']);">Assemble Plugins</a></li>
+  </ul>
+        </li>
+      </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other Versions <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="dropdown-versions">
+              </ul>
+            </li>
+            <li> <a href="/">Blog</a> </li>
+            <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" ><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
+            <li> <a href="https://github.com/assemble/assemble/" >GitHub Repo</a> </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+    <header class="masthead subhead">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-12">
+        <style type="text/css" media="screen">
+          #custom-tweet-button > a {
+            float: right;
+            display: inline-block;
+            padding: 8px 16px 8px 36px;
+            margin: 15px 0 0 0;
+            background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
+            background-color: transparent;
+            border: none;
+            border-radius: 4px;
+          }
+          #custom-tweet-button > a:hover {
+            background-color: rgba(255,255,255,.07);
+          }
+        </style>
+        <div id="custom-tweet-button">
+          <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
+          <script>
+            ! function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            }(document, "script", "twitter-wjs");
+          </script>
+        </div>        <h1>
+          <span class="text-muted">recipes /&nbsp;</span>
+          Listening for views
+        </h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col col-lg-3">
+      <div class="sidebar">
+        <ul class="nav">
+          <li><span><a href="../index.html" class="nav-section-title">docs</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="../api.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Classes']);">Classes</a></li>
+    
+      <li><a href="../build-cycle.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">build-cycle</a></li>
+    
+      <li><a href="../docs.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">docs</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span><a href="../api/index.html" class="nav-section-title">api</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="../api/app.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Core application']);">Core application</a></li>
+    
+      <li><a href="../api/app.use.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.use']);">app.use</a></li>
+    
+      <li><a href="../api/app.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.view']);">app.view</a></li>
+    
+      <li><a href="../api/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="../api/class.Assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble']);">Assemble</a></li>
+    
+      <li><a href="../api/class.Item.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Item']);">Item</a></li>
+    
+      <li><a href="../api/class.List.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/List']);">List</a></li>
+    
+      <li><a href="../api/class.Route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    
+      <li><a href="../api/class.Router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    
+      <li><a href="../api/class.View.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View']);">View</a></li>
+    
+      <li><a href="../api/collection-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collection Types']);">Collection Types</a></li>
+    
+      <li><a href="../api/collection.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/collection.view']);">collection.view</a></li>
+    
+      <li><a href="../api/collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collections']);">Collections</a></li>
+    
+      <li><a href="../api/data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Data']);">Data</a></li>
+    
+      <li><a href="../api/events.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Events']);">Events</a></li>
+    
+      <li><a href="../api/file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/File system API']);">File system API</a></li>
+    
+      <li><a href="../api/front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Front matter']);">Front matter</a></li>
+    
+      <li><a href="../api/helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helpers']);">Helpers</a></li>
+    
+      <li><a href="../api/layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Layouts']);">Layouts</a></li>
+    
+      <li><a href="../api/methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Settings API']);">Settings API</a></li>
+    
+      <li><a href="../api/middleware.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Middleware']);">Middleware</a></li>
+    
+      <li><a href="../api/options/mergeTypes.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: mergeTypes']);">Option: mergeTypes</a></li>
+    
+      <li><a href="../api/options/renameKey.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: renameKey']);">Option: renameKey</a></li>
+    
+      <li><a href="../api/pipeline-plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Pipeline plugins']);">Pipeline plugins</a></li>
+    
+      <li><a href="../api/route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    
+      <li><a href="../api/router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    
+      <li><a href="../api/tasks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Task API']);">Task API</a></li>
+    
+      <li><a href="../api/terminology.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Terminology']);">Terminology</a></li>
+    
+      <li><a href="../api/view-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View collections']);">View collections</a></li>
+    
+      <li><a href="../api/view-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View types']);">View types</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span class="active"><a href="./index.html" class="nav-section-title">recipes</a>
+</span>
+    <ul class="nav nav-pills nav-stacked  active">
+    
+      <li><a href="./assemble-instance.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble instance']);">Assemble instance</a></li>
+    
+      <li><a href="./assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="./browser-sync.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble and Browser-Sync']);">Assemble and Browser-Sync</a></li>
+    
+      <li><a href="./copy-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Copy files']);">Copy files</a></li>
+    
+      <li><a href="./create-a-collection.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Create a collection']);">Create a collection</a></li>
+    
+      <li><a href="./custom-async-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom async helpers']);">Custom async helpers</a></li>
+    
+      <li><a href="./custom-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom helpers']);">Custom helpers</a></li>
+    
+      <li><a href="./default-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Default layout']);">Default layout</a></li>
+    
+      <li><a href="./delete-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Deleting files']);">Deleting files</a></li>
+    
+      <li><a href="./generate-html-and-precompile-less.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile LESS']);">Generate HTML and precompile LESS</a></li>
+    
+      <li><a href="./generate-html-and-precompile-sass.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile SASS']);">Generate HTML and precompile SASS</a></li>
+    
+      <li><a href="./inspecting-the-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Inspecting the context']);">Inspecting the context</a></li>
+    
+      <li><a href="./install-assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Install assemble']);">Install assemble</a></li>
+    
+      <li><a href="./javascript-generators.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">recipes/javascript-generators</a></li>
+    
+      <li><a href="./listening-for-errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for errors']);">Listening for errors</a></li>
+    
+      <li class="active"><a href="./listening-for-views.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for views']);">Listening for views</a></li>
+    
+      <li><a href="./load-templates-from-the-file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Loading views for a collection']);">Loading views for a collection</a></li>
+    
+      <li><a href="./markdown-to-html.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Converting markdown to HTML']);">Converting markdown to HTML</a></li>
+    
+      <li><a href="./merging-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Merging context']);">Merging context</a></li>
+    
+      <li><a href="./register-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Register helpers']);">Register helpers</a></li>
+    
+      <li><a href="./rename-keys.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Rename view keys']);">Rename view keys</a></li>
+    
+      <li><a href="./render-markdown-in-layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render markdown with layouts']);">Render markdown with layouts</a></li>
+    
+      <li><a href="./rendering-templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render templates']);">Render templates</a></li>
+    
+      <li><a href="./to-stream.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Push views onto a vinyl stream']);">Push views onto a vinyl stream</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span><a href="../subjects/index.html" class="nav-section-title">subjects</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="../subjects/assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/About']);">About</a></li>
+    
+      <li><a href="../subjects/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="../subjects/building-blocks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Building blocks']);">Building blocks</a></li>
+    
+      <li><a href="../subjects/context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Context']);">Context</a></li>
+    
+      <li><a href="../subjects/gulp-faq.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Gulp FAQ']);">Gulp FAQ</a></li>
+    
+      <li><a href="../subjects/helper-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helper context']);">Helper context</a></li>
+    
+      <li><a href="../subjects/overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Overview']);">Overview</a></li>
+    
+      <li><a href="../subjects/plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble Plugins']);">Assemble Plugins</a></li>
+    
+    </ul>
+  </li>
+</ul>
+      </div>
+    </div>
+
+
+    <div class="col col-lg-9">
+      <div class="panel panel-docs">
+        <h1>Listening for views</h1>
+<p>When a view is created by a collection, an <code>view</code> event is emitted, and a event with the <em>singular name of the collection</em> is emitted. In other words, the <code>pages</code> collection will emit a <code>page</code> event when a view is created.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="language-js">var assemble = require('assemble');
+var app = assemble();
+
+app.create('pages');
+app.create('partials', { viewType: 'partial' });
+
+app.on('view', function(view) {
+  // will listen for both &quot;pages&quot; and &quot;partials&quot;
+});
+
+app.on('page', function(page) {
+  // will listen for &quot;page&quot;
+});
+
+app.on('partial', function(partial) {
+  // will listen for &quot;partial&quot;
+});
+</code></pre>
+
+
+        <hr>
+
+        <p><a href="https://github.com/assemble/assemble/tree/master/docs/content/recipes/listening-for-views.md">See the template for this page → </a>
+</p>
+        <div class="alert">
+        
+          <style type="text/css" media="screen">
+            .alert iframe {
+              float: right;
+              margin: 7px -30px 0 0;
+              vertical-align: text-top;
+            }
+          </style>
+        
+          <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>  <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+          <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble/issues/new?title=%5BDOCS%5D%3A%20Listening%20for%20views&body=I%20found%20an%20issue%20in%20%5Bthe%20documentation%5D(https%3A%2F%2Fgithub.com%2Fassemble%2Fassemble%2Ftree%2Fmaster%2Fdocs%2Fcontent%2Frecipes%2Flistening-for-views.md)">Let us know →</a></p>
+        </div>
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        /*
+        var disqus_config = function () {
+        this.page.url = "http://assemble.io/en/v0.10.0/docs/recipes/listening-for-views.html"; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "recipes/listening-for-views"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//assemble-docs.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/holder.js"></script>
+    <script src="../../assets/js/highlight.js"></script>
+    <script src="../../assets/js/showup.js"></script>
+    <script src="../../assets/js/docs.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+</html>

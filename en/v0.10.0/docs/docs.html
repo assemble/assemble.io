@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="author" content="http://twitter.com/jonschlinkert">
+    
+    <title>
+       | Assemble
+    </title>
+    
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/assemble.css">
+    
+      <link rel="stylesheet" href="../assets/css/markdown.css">
+    
+    
+    <!-- Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+      <script src="../assets/js/respond/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/img/favicon.png">
+    
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl =
+        '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-33358518-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    
+    <script type="application/ld+json">
+    [
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Person",
+        "name" : "Jon Schlinkert",
+        "description" : "Co-creator of Assemble.",
+        "url" : "https://github.com/jonschlinkert"
+      },
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Person",
+        "name" : "Brian Woodward",
+        "description" : "Co-creator of Assemble.",
+        "url" : "https://github.com/doowb"
+      }
+    ]
+    </script>    <script>
+      var site = JSON.parse('{"title":"Assemble Docs","description":"The static site generator for Node.js, Grunt.js and Yeoman.","lead":"It has never been easier to leverage the full force of powerful frameworks like Bootstrap and Zurb Foundation. Nothing can stop you now.","version":"0.10.0","base":":destBase/en/v:site.version","baseUrl":"http://assemble.io"}');
+      var destBase = "_gh_pages";
+      var currentPath = "_gh_pages/en/v0.10.0/docs/docs.html";
+    </script>
+  </head>
+  <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
+
+
+    <div class="navbar" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">ASSEMBLE</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-docs">
+            <li><a href="./api.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Classes']);">Classes</a></li>
+    <li><a href="./build-cycle.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">build-cycle</a></li>
+    <li><a href="./docs.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">docs</a></li>
+    <li><a href="./index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Docs']);">Docs</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Api <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-api">
+            <li><a href="./api/app.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Core application']);">Core application</a></li>
+    <li><a href="./api/app.use.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.use']);">app.use</a></li>
+    <li><a href="./api/app.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.view']);">app.view</a></li>
+    <li><a href="./api/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="./api/class.Assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble']);">Assemble</a></li>
+    <li><a href="./api/class.Item.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Item']);">Item</a></li>
+    <li><a href="./api/class.List.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/List']);">List</a></li>
+    <li><a href="./api/class.Route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    <li><a href="./api/class.Router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    <li><a href="./api/class.View.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View']);">View</a></li>
+    <li><a href="./api/collection-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collection Types']);">Collection Types</a></li>
+    <li><a href="./api/collection.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/collection.view']);">collection.view</a></li>
+    <li><a href="./api/collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collections']);">Collections</a></li>
+    <li><a href="./api/data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Data']);">Data</a></li>
+    <li><a href="./api/events.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Events']);">Events</a></li>
+    <li><a href="./api/file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/File system API']);">File system API</a></li>
+    <li><a href="./api/front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Front matter']);">Front matter</a></li>
+    <li><a href="./api/helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helpers']);">Helpers</a></li>
+    <li><a href="./api/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/API']);">API</a></li>
+    <li><a href="./api/layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Layouts']);">Layouts</a></li>
+    <li><a href="./api/methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Settings API']);">Settings API</a></li>
+    <li><a href="./api/middleware.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Middleware']);">Middleware</a></li>
+    <li><a href="./api/options/mergeTypes.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: mergeTypes']);">Option: mergeTypes</a></li>
+    <li><a href="./api/options/renameKey.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: renameKey']);">Option: renameKey</a></li>
+    <li><a href="./api/pipeline-plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Pipeline plugins']);">Pipeline plugins</a></li>
+    <li><a href="./api/route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    <li><a href="./api/router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    <li><a href="./api/tasks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Task API']);">Task API</a></li>
+    <li><a href="./api/terminology.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Terminology']);">Terminology</a></li>
+    <li><a href="./api/view-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View collections']);">View collections</a></li>
+    <li><a href="./api/view-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View types']);">View types</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recipes <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-recipes">
+            <li><a href="./recipes/assemble-instance.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble instance']);">Assemble instance</a></li>
+    <li><a href="./recipes/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="./recipes/browser-sync.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble and Browser-Sync']);">Assemble and Browser-Sync</a></li>
+    <li><a href="./recipes/copy-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Copy files']);">Copy files</a></li>
+    <li><a href="./recipes/create-a-collection.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Create a collection']);">Create a collection</a></li>
+    <li><a href="./recipes/custom-async-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom async helpers']);">Custom async helpers</a></li>
+    <li><a href="./recipes/custom-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom helpers']);">Custom helpers</a></li>
+    <li><a href="./recipes/default-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Default layout']);">Default layout</a></li>
+    <li><a href="./recipes/delete-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Deleting files']);">Deleting files</a></li>
+    <li><a href="./recipes/generate-html-and-precompile-less.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile LESS']);">Generate HTML and precompile LESS</a></li>
+    <li><a href="./recipes/generate-html-and-precompile-sass.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile SASS']);">Generate HTML and precompile SASS</a></li>
+    <li><a href="./recipes/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Recipes']);">Recipes</a></li>
+    <li><a href="./recipes/inspecting-the-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Inspecting the context']);">Inspecting the context</a></li>
+    <li><a href="./recipes/install-assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Install assemble']);">Install assemble</a></li>
+    <li><a href="./recipes/javascript-generators.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">recipes/javascript-generators</a></li>
+    <li><a href="./recipes/listening-for-errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for errors']);">Listening for errors</a></li>
+    <li><a href="./recipes/listening-for-views.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for views']);">Listening for views</a></li>
+    <li><a href="./recipes/load-templates-from-the-file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Loading views for a collection']);">Loading views for a collection</a></li>
+    <li><a href="./recipes/markdown-to-html.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Converting markdown to HTML']);">Converting markdown to HTML</a></li>
+    <li><a href="./recipes/merging-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Merging context']);">Merging context</a></li>
+    <li><a href="./recipes/register-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Register helpers']);">Register helpers</a></li>
+    <li><a href="./recipes/rename-keys.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Rename view keys']);">Rename view keys</a></li>
+    <li><a href="./recipes/render-markdown-in-layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render markdown with layouts']);">Render markdown with layouts</a></li>
+    <li><a href="./recipes/rendering-templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render templates']);">Render templates</a></li>
+    <li><a href="./recipes/to-stream.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Push views onto a vinyl stream']);">Push views onto a vinyl stream</a></li>
+  </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subjects <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-subjects">
+            <li><a href="./subjects/assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/About']);">About</a></li>
+    <li><a href="./subjects/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    <li><a href="./subjects/building-blocks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Building blocks']);">Building blocks</a></li>
+    <li><a href="./subjects/context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Context']);">Context</a></li>
+    <li><a href="./subjects/gulp-faq.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Gulp FAQ']);">Gulp FAQ</a></li>
+    <li><a href="./subjects/helper-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helper context']);">Helper context</a></li>
+    <li><a href="./subjects/index.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Subjects']);">Subjects</a></li>
+    <li><a href="./subjects/overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Overview']);">Overview</a></li>
+    <li><a href="./subjects/plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble Plugins']);">Assemble Plugins</a></li>
+  </ul>
+        </li>
+      </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other Versions <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="dropdown-versions">
+              </ul>
+            </li>
+            <li> <a href="/">Blog</a> </li>
+            <li><a href="https://github.com/assemble/assemble/archive/master.zip" title="Download Assemble" ><i class="glyphicon glypicon-large glyphicon-download"></i></a></li>
+            <li> <a href="https://github.com/assemble/assemble/" >GitHub Repo</a> </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+    <header class="masthead subhead">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-12">
+        <style type="text/css" media="screen">
+          #custom-tweet-button > a {
+            float: right;
+            display: inline-block;
+            padding: 8px 16px 8px 36px;
+            margin: 15px 0 0 0;
+            background: url('https://twitter.com/favicons/favicon.ico') 15px center no-repeat;
+            background-color: transparent;
+            border: none;
+            border-radius: 4px;
+          }
+          #custom-tweet-button > a:hover {
+            background-color: rgba(255,255,255,.07);
+          }
+        </style>
+        <div id="custom-tweet-button">
+          <a href="https://twitter.com/intent/tweet?screen_name=assemblejs" data-related="jonschlinkert:Jon Schlinkert,doowb:Brian Woodward" data-lang="en" target="_blank">&nbsp;Tweet</a>
+          <script>
+            ! function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            }(document, "script", "twitter-wjs");
+          </script>
+        </div>        <h1>
+          <span class="text-muted">docs /&nbsp;</span>
+          docs
+        </h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col col-lg-3">
+      <div class="sidebar">
+        <ul class="nav">
+          <li><span class="active"><a href="./index.html" class="nav-section-title">docs</a>
+</span>
+    <ul class="nav nav-pills nav-stacked  active">
+    
+      <li><a href="./api.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Classes']);">Classes</a></li>
+    
+      <li><a href="./build-cycle.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">build-cycle</a></li>
+    
+      <li class="active"><a href="./docs.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">docs</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span><a href="./api/index.html" class="nav-section-title">api</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="./api/app.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Core application']);">Core application</a></li>
+    
+      <li><a href="./api/app.use.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.use']);">app.use</a></li>
+    
+      <li><a href="./api/app.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/app.view']);">app.view</a></li>
+    
+      <li><a href="./api/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="./api/class.Assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble']);">Assemble</a></li>
+    
+      <li><a href="./api/class.Item.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Item']);">Item</a></li>
+    
+      <li><a href="./api/class.List.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/List']);">List</a></li>
+    
+      <li><a href="./api/class.Route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    
+      <li><a href="./api/class.Router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    
+      <li><a href="./api/class.View.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View']);">View</a></li>
+    
+      <li><a href="./api/collection-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collection Types']);">Collection Types</a></li>
+    
+      <li><a href="./api/collection.view.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/collection.view']);">collection.view</a></li>
+    
+      <li><a href="./api/collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Collections']);">Collections</a></li>
+    
+      <li><a href="./api/data.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Data']);">Data</a></li>
+    
+      <li><a href="./api/events.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Events']);">Events</a></li>
+    
+      <li><a href="./api/file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/File system API']);">File system API</a></li>
+    
+      <li><a href="./api/front-matter.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Front matter']);">Front matter</a></li>
+    
+      <li><a href="./api/helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helpers']);">Helpers</a></li>
+    
+      <li><a href="./api/layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Layouts']);">Layouts</a></li>
+    
+      <li><a href="./api/methods.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Settings API']);">Settings API</a></li>
+    
+      <li><a href="./api/middleware.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Middleware']);">Middleware</a></li>
+    
+      <li><a href="./api/options/mergeTypes.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: mergeTypes']);">Option: mergeTypes</a></li>
+    
+      <li><a href="./api/options/renameKey.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Option: renameKey']);">Option: renameKey</a></li>
+    
+      <li><a href="./api/pipeline-plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Pipeline plugins']);">Pipeline plugins</a></li>
+    
+      <li><a href="./api/route.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Route']);">Route</a></li>
+    
+      <li><a href="./api/router.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Router']);">Router</a></li>
+    
+      <li><a href="./api/tasks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Task API']);">Task API</a></li>
+    
+      <li><a href="./api/terminology.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Terminology']);">Terminology</a></li>
+    
+      <li><a href="./api/view-collections.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View collections']);">View collections</a></li>
+    
+      <li><a href="./api/view-types.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/View types']);">View types</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span><a href="./recipes/index.html" class="nav-section-title">recipes</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="./recipes/assemble-instance.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble instance']);">Assemble instance</a></li>
+    
+      <li><a href="./recipes/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="./recipes/browser-sync.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble and Browser-Sync']);">Assemble and Browser-Sync</a></li>
+    
+      <li><a href="./recipes/copy-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Copy files']);">Copy files</a></li>
+    
+      <li><a href="./recipes/create-a-collection.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Create a collection']);">Create a collection</a></li>
+    
+      <li><a href="./recipes/custom-async-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom async helpers']);">Custom async helpers</a></li>
+    
+      <li><a href="./recipes/custom-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Custom helpers']);">Custom helpers</a></li>
+    
+      <li><a href="./recipes/default-layout.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Default layout']);">Default layout</a></li>
+    
+      <li><a href="./recipes/delete-files.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Deleting files']);">Deleting files</a></li>
+    
+      <li><a href="./recipes/generate-html-and-precompile-less.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile LESS']);">Generate HTML and precompile LESS</a></li>
+    
+      <li><a href="./recipes/generate-html-and-precompile-sass.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Generate HTML and precompile SASS']);">Generate HTML and precompile SASS</a></li>
+    
+      <li><a href="./recipes/inspecting-the-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Inspecting the context']);">Inspecting the context</a></li>
+    
+      <li><a href="./recipes/install-assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Install assemble']);">Install assemble</a></li>
+    
+      <li><a href="./recipes/javascript-generators.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/']);">recipes/javascript-generators</a></li>
+    
+      <li><a href="./recipes/listening-for-errors.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for errors']);">Listening for errors</a></li>
+    
+      <li><a href="./recipes/listening-for-views.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Listening for views']);">Listening for views</a></li>
+    
+      <li><a href="./recipes/load-templates-from-the-file-system.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Loading views for a collection']);">Loading views for a collection</a></li>
+    
+      <li><a href="./recipes/markdown-to-html.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Converting markdown to HTML']);">Converting markdown to HTML</a></li>
+    
+      <li><a href="./recipes/merging-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Merging context']);">Merging context</a></li>
+    
+      <li><a href="./recipes/register-helpers.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Register helpers']);">Register helpers</a></li>
+    
+      <li><a href="./recipes/rename-keys.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Rename view keys']);">Rename view keys</a></li>
+    
+      <li><a href="./recipes/render-markdown-in-layouts.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render markdown with layouts']);">Render markdown with layouts</a></li>
+    
+      <li><a href="./recipes/rendering-templates.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Render templates']);">Render templates</a></li>
+    
+      <li><a href="./recipes/to-stream.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Push views onto a vinyl stream']);">Push views onto a vinyl stream</a></li>
+    
+    </ul>
+  </li>
+
+  <li><span><a href="./subjects/index.html" class="nav-section-title">subjects</a>
+</span>
+    <ul class="nav nav-pills nav-stacked ">
+    
+      <li><a href="./subjects/assemble.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/About']);">About</a></li>
+    
+      <li><a href="./subjects/assemblefile.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/assemblefile.js']);">assemblefile.js</a></li>
+    
+      <li><a href="./subjects/building-blocks.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Building blocks']);">Building blocks</a></li>
+    
+      <li><a href="./subjects/context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Context']);">Context</a></li>
+    
+      <li><a href="./subjects/gulp-faq.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Gulp FAQ']);">Gulp FAQ</a></li>
+    
+      <li><a href="./subjects/helper-context.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Helper context']);">Helper context</a></li>
+    
+      <li><a href="./subjects/overview.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Overview']);">Overview</a></li>
+    
+      <li><a href="./subjects/plugins.html" onclick="_gaq.push(['_trackEvent', 'Sidenav', 'clicked', '/Assemble Plugins']);">Assemble Plugins</a></li>
+    
+    </ul>
+  </li>
+</ul>
+      </div>
+    </div>
+
+
+    <div class="col col-lg-9">
+      <div class="panel panel-docs">
+        <h1></h1>
+<h3>Example: Pre-process CSS</h3>
+<p><strong>Using a plugin</strong></p>
+<p>Use plugins to pre-process CSS (Assemble can run any gulp plugin):</p>
+<pre><code class="language-js">var assemble = require('assemble');
+var less = require('gulp-less');
+
+app.task('css', function () {
+  app.src('styles/*.less')
+    .pipe(less())
+    .pipe(app.dest('dist/assets/css'));
+});
+
+app.task('default', ['css']);
+</code></pre>
+<p><strong>Or, using an engine</strong></p>
+<p>Instead of a plugin you can register an engine, such as <a href="https://github.com/jonschlinkert/engine-less">engine-less</a>.</p>
+<p><em>(Engines are run automatically on any files that have a file extension matching the name that you used when registering the engine.)</em></p>
+<pre><code class="language-js">var assemble = require('assemble');
+app.engine('less', require('engine-less'));
+
+app.task('css', function () {
+  app.src('styles/*.less')
+    .pipe(app.dest('dist/assets/css'));
+});
+
+app.task('default', ['css']);
+</code></pre>
+<h2>API</h2>
+<p>All of the following code examples assume the following code:</p>
+<pre><code class="language-js">var assemble = require('assemble');
+var app = assemble();
+</code></pre>
+<h2>Collections</h2>
+<p>Assemble has first-class support for collections, with four different collection types to choose from, depending on your needs.</p>
+<h3>Collection type comparison</h3>
+<table>
+<thead>
+<tr><th><strong>Collection type</strong></th><th><strong>Object (cache) type</strong></th><th><strong>Description</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>Collection</td><td>Object</td><td>Bare-bones collections, for caching an object of <code>items</code>. Use <code>app.collection()</code> or <code>new app.Collection()</code> when you want to customize your own render cycle, middleware handlers, or creating an entirely custom collection experience.</td></tr>
+<tr><td>View collection</td><td>Object</td><td>Augments collections with special methods and middleware handlers that are synchronized to the render cycle. View collections are typically created using the <a href="#create">.create</a> method.</td></tr>
+<tr><td>List</td><td>Array</td><td>Similar to collections, but caches <code>items</code> as an <strong>array</strong>. Use <code>app.list()</code> or <code>new app.List()</code> to create a list.</td></tr>
+<tr><td>Group</td><td>Object</td><td>Used within lists for grouping items. Can be used in conjunction with sorting, paging, pagination, and more.</td></tr>
+</tbody>
+</table>
+<h2>API</h2>
+<ul>
+<li>[collections][]
+<ul>
+<li>[.create][]</li>
+<li>[.addView][]</li>
+<li>[.getView][]</li>
+</ul></li>
+</ul>
+<h3>.create</h3>
+<p>Create a custom view collection.</p>
+<pre><code class="language-js">app.create('docs');
+</code></pre>
+<p>Adds both the <code>.doc</code> and <code>.docs</code> methods to <code>app</code> for loading views onto the collection (thanks to the [inflection][] library).</p>
+<p><strong>Add views</strong></p>
+<p>Add views to the custom <code>docs</code> collection.</p>
+<pre><code class="language-js">// define a &quot;page&quot;
+app.doc('faq.hbs', { content: 'Read our FAQ' });
+
+// load a glob of &quot;pages&quot;
+app.docs('foo/*.hbs');
+</code></pre>
+<p>You can use <code>app.doc</code> or <code>app.docs</code> interchangeably.</p>
+<p><strong>View cache</strong></p>
+<p>Views are cached on <code>app.views.*</code> using the <em>plural</em> name of the collection. So our custom <code>docs</code> views would be stored on <code>app.views.docs</code>.</p>
+<p><strong>Get views</strong></p>
+<p>Get views from the collection.</p>
+<pre><code class="language-js">var doc = app.docs.getView('faq.hbs');
+
+// or
+var doc = app.views.docs['faq.hbs'];
+</code></pre>
+<h3>View types</h3>
+<p>Assemble supports three different view types: <code>partial</code>, <code>renderable</code> and <code>layout</code>. View types determine how individual views will be handled during the render cycle. When a view collection is created, one or more view types may be passed on the options.</p>
+<ul>
+<li>partial</li>
+<li>renderable</li>
+<li>layout</li>
+</ul>
+<h3>Built-in view collections</h3>
+<p>The following collections ship with assemble. The collections are created using the <code>.create</code> method, the same way a user would create them.</p>
+<ul>
+<li><a href="#partial">partials</a></li>
+<li><a href="#page">pages</a></li>
+<li><a href="#layout">layouts</a></li>
+</ul>
+<h3>.partial</h3>
+<blockquote>
+<p>Add partials to be used in other templates.</p>
+</blockquote>
+<pre><code class="language-js">// define partials as objects
+app.partial('button', { content: '&lt;button&gt;Click me!&lt;/button&gt;' });
+app.partial('banner', { content: '&lt;div&gt;Heads up!&lt;/div&gt;' });
+
+// or load a glob of partials
+app.partials('partials/*.hbs');
+</code></pre>
+<p><strong>Usage</strong></p>
+<p>Use the <code>partial</code> helper to inject into other templates:</p>
+<pre><code class="language-html">&lt;!-- handlebars --&gt;
+{{partial &quot;banner&quot;}}
+
+&lt;!-- lodash/erb style --&gt;
+&lt;%= partial(&quot;banner&quot;) %&gt;
+</code></pre>
+<p>Get a cached partial:</p>
+<pre><code class="language-js">var banner = app.partials.getView('banner');
+</code></pre>
+<h3>.page</h3>
+<blockquote>
+<p>Add pages that might be rendered (really, any template is renderable, pages fit the part though)</p>
+</blockquote>
+<pre><code class="language-js">app.page('toc.hbs', { content: 'Table of Contents...'});
+// or load a glob of pages
+app.pages('pages/*.hbs', {site: {title: 'Code Project'}});
+</code></pre>
+<p>Use the <code>page</code> helper to inject pages into other templates:</p>
+<pre><code class="language-js">{{page &quot;toc&quot;}}
+</code></pre>
+<p>Get a cached page:</p>
+<pre><code class="language-js">var toc = app.views.pages['toc'];
+</code></pre>
+<p>Pages are <code>renderable</code> templates, so they also have a <code>.render()</code> method:</p>
+<pre><code class="language-js">var toc = app.views.pages['toc'];
+// async
+toc.render({}, function(err, content) {
+  console.log(content);
+});
+
+// or sync
+var res = toc.render();
+</code></pre>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>locals</code> <strong>{Object}</strong>: Optionally pass locals as the first arg</li>
+<li><code>callback</code> <strong>{Function}</strong>: If a callback is passed, the template will be rendered async, otherwise sync.</li>
+</ul>
+<h3>.layout</h3>
+<blockquote>
+<p>Add layouts, which are used to &quot;wrap&quot; other templates:</p>
+</blockquote>
+<pre><code class="language-js">app.layout('default', {content: [
+  '&lt;!DOCTYPE html&gt;',
+  '  &lt;html lang=&quot;en&quot;&gt;',
+  '  &lt;head&gt;',
+  '    &lt;meta charset=&quot;UTF-8&quot;&gt;',
+  '    &lt;title&gt;{%%= title %}&lt;/title&gt;',
+  '  &lt;/head&gt;',
+  '  &lt;body&gt;',
+  '    {%% body %}', // `body` is the insertion point for another template
+  '  &lt;/body&gt;',
+  '&lt;/html&gt;'
+].join('\n')});
+
+// or load a glob of layouts
+app.layouts('layouts/*.hbs', {site: {title: 'Code Project'}});
+</code></pre>
+<p>Layouts may be use with any other template, including other layouts. Any level of nesting is also possible.</p>
+<p><strong>Body tags</strong></p>
+<p>Layouts use a <code>body</code> as the insertion point for other templates. The syntax assemble uses for the <code>body</code> tag is:</p>
+<pre><code class="language-js">{%% body %}
+</code></pre>
+<p>Admittedly, it's a strange syntax, but that's why we're using it. assemble shouldn't collide with templates that you might be using in your documentation.</p>
+<p><strong>Usage</strong></p>
+<p>Layouts can be defined in template locals:</p>
+<pre><code class="language-js">// either of these work (one object or two)
+app.page('toc.hbs', { content: 'Table of Contents...'}, { layout: 'default' });
+app.partial('foo.hbs', { content: 'partial stuff', layout: 'block' });
+</code></pre>
+<p>Or in the front matter of a template. For example, here is how another layout would use our layout example from earlier:</p>
+<pre><code class="language-js">// using this 'inline' template format to make it easy to see what's happening
+// this could be loaded from a file too
+app.layout('sidebar', {content: [
+  '---',
+  'layout: default',
+  '---',
+  '&lt;div&gt;',
+  ' {%% body %}',
+  '&lt;/div&gt;'
+].join('\n')});
+</code></pre>
+<h3>.engine</h3>
+<blockquote>
+<p>Add engines for rendering templates.</p>
+</blockquote>
+<pre><code class="language-js">// render any files with a `.tmpl` extension using engine-lodash
+app.engine('tmpl', require('engine-lodash'));
+
+// render any files with a `.less` extension using engine-less
+app.engine('less', require('engine-less'));
+</code></pre>
+<h3>.helper</h3>
+<blockquote>
+<p>Add helpers to be used in templates.</p>
+</blockquote>
+<p>Helpers are passed to the template engine being used at render time.</p>
+<p><strong>Custom helper</strong></p>
+<pre><code class="language-js">app.helper('read', function(filepath) {
+  return fs.readFileSync(filepath, 'utf8');
+});
+//=&gt; {{read &quot;foo.txt&quot;}}
+</code></pre>
+<p><strong>Register a glob of helpers</strong></p>
+<pre><code class="language-js">app.helpers('helpers/*.js');
+</code></pre>
+<p><strong>Pro tip</strong></p>
+<p>If you want to publish your helpers and share them with the community, make them as generic as possible so they work with any template engine.</p>
+<h1>Data</h1>
+<h3>.data</h3>
+<blockquote>
+<p>Load data to pass to templates.</p>
+</blockquote>
+<p>Any of these work:</p>
+<pre><code class="language-js">app.data({foo: 'bar'});
+app.data('package.json');
+app.data(['foo/*.{json,yml}']);
+</code></pre>
+
+
+        <hr>
+
+        <p><a href="https://github.com/assemble/assemble/tree/master/docs/content/docs.md">See the template for this page → </a>
+</p>
+        <div class="alert">
+        
+          <style type="text/css" media="screen">
+            .alert iframe {
+              float: right;
+              margin: 7px -30px 0 0;
+              vertical-align: text-top;
+            }
+          </style>
+        
+          <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>  <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+          <p>Find an error? <a class="alert-link" href="https://github.com/assemble/assemble/issues/new?title=%5BDOCS%5D%3A%20docs&body=I%20found%20an%20issue%20in%20%5Bthe%20documentation%5D(https%3A%2F%2Fgithub.com%2Fassemble%2Fassemble%2Ftree%2Fmaster%2Fdocs%2Fcontent%2Fdocs.md)">Let us know →</a></p>
+        </div>
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        /*
+        var disqus_config = function () {
+        this.page.url = "http://assemble.io/en/v0.10.0/docs/docs.html"; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "docs"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//assemble-docs.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/holder.js"></script>
+    <script src="../assets/js/highlight.js"></script>
+    <script src="../assets/js/showup.js"></script>
+    <script src="../assets/js/docs.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+</html>
