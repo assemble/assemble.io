@@ -41,7 +41,7 @@ If you also want to _sort the pages_ by `date`, you would instead use `\{{#withS
   \{{#is tag "foo"}}
   <h1>\{{tag}}</h1>
   <ul>
-    \{{#withSort pages data.date}}
+    \{{#withSort pages 'data.date'}}
       <li>\{{data.title}}</li>
     \{{/withSort}}
   </ul>
