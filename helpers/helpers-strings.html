@@ -25,15 +25,11 @@
 <![endif]-->
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="../assets/img/light/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/light/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/light/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/light/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/light/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/light/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/light/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/light/apple-touch-icon-76x76.png">
-    <link rel="shortcut icon" href="../assets/img/light/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
     <script type="text/javascript">
       var _gaq = _gaq || [];
       var pluginUrl =
@@ -45,7 +41,7 @@
         var ga = document.createElement('script');
         ga.type = 'text/javascript';
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
@@ -67,7 +63,7 @@
     </script>
   </head>
   <body style="background: white;" data-spy="scroll" data-target=".bs-sidebar">
-    <header class="navbar navbar-fixed-top" role="banner">
+    <div class="navbar" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -110,7 +106,7 @@
           </ul>
         </nav>
       </div>
-    </header>
+    </div>
     <style>
       /* Temporarily override subhead styling for development */
       .subhead {
@@ -246,16 +242,26 @@
           <div class="panel panel-docs">
             <h1>Strings</h1> 
             <p>
-              <h4 id="-lowercase-">{{lowercase}}</h4> 
+              <h4 id="-occurrences-">{{occurrences}}</h4> 
             </p>
             <p>
-              <p><em>Turns a string to lowercase.</em>
-                <br>Parameters: <code>none</code>
-              </p>
+              <p><em>Evaluate string A, and count the occurrences of string B within string A</em>
+                <br>Default: <code>undefined</code>
+                <br>Parameters:</p>
             </p>
-            <pre><code class="language-html">{{lowercase &quot;MAKE THIS ALL LOWERCASE&quot;}}</code></pre>
-            <p>Renders to:</p>
-            <pre><code>make this all lowercase</code></pre>
+            <p>
+              <ul>
+            </p>
+            <p>
+              <li><code>String A</code> (required): The string to evaluate</li>
+            </p>
+            <p>
+              <li><code>String B</code> (required): The string to look for and count in &quot;string A&quot;</li>
+              </ul>
+            </p>
+            <pre><code class="language-html">{{occurrences &quot;evaluate this string&quot; &quot;i&quot;}}</code></pre>
+            <p>Result:</p>
+            <pre><code>2</code></pre>
             <h4 id="-capitalizeeach-">{{capitalizeEach}}</h4> 
             <p><em>Capitalizes each word in a string.</em>
               <br>Parameters: <code>none</code>
@@ -295,6 +301,13 @@
             <pre><code class="language-html">{{hyphenate &quot;make this all hyphenated&quot;}}</code></pre>
             <p>Result:</p>
             <pre><code>make-this-all-hyphenated</code></pre>
+            <h4 id="-lowercase-">{{lowercase}}</h4> 
+            <p><em>Turns a string to lowercase.</em>
+              <br>Parameters: <code>none</code>
+            </p>
+            <pre><code class="language-html">{{lowercase &quot;MAKE THIS ALL LOWERCASE&quot;}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code>make this all lowercase</code></pre>
             <h4 id="-capitalizefirst-">{{capitalizeFirst}}</h4> 
             <p><em>Capitalizes the first word in a string.</em>
               <br>Parameters: <code>none</code>
@@ -302,17 +315,16 @@
             <pre><code class="language-html">{{capitalizeFirst &quot;capitalize first word in this sentence&quot;}}</code></pre>
             <p>Renders to:</p>
             <pre><code>Capitalize first word in this sentence</code></pre>
-            <h4 id="-occurrences-">{{occurrences}}</h4> 
-            <p><em>Evaluate string A, and count the occurrences of string B within string A</em>
-              <br>Default: <code>undefined</code>
-              <br>Parameters:</p>
-            <ul>
-              <li><code>String A</code> (required): The string to evaluate</li>
-              <li><code>String B</code> (required): The string to look for and count in &quot;string A&quot;</li>
-            </ul>
-            <pre><code class="language-html">{{occurrences &quot;evaluate this string&quot; &quot;i&quot;}}</code></pre>
-            <p>Result:</p>
-            <pre><code>2</code></pre>
+            <h4 id="-plusify-">{{plusify}}</h4> 
+            <p><em>Same as <code>hyphenate</code>, but replaces spaces in string with plus signs.</em>
+            </p>
+            <p>Credit:
+              <a href="https://github.com/stephenway">Stephen Way</a> 
+            </p>
+            <p>Template:</p>
+            <pre><code class="language-html">{{plusify &quot;11 Wall Street New York, NY&quot;}}</code></pre>
+            <p>Renders to:</p>
+            <pre><code>11+Wall+Street+New+York,+NY</code></pre>
             <h4 id="-reverse-">{{reverse}}</h4> 
             <p><em>Reverses a string.</em>
               <br>Parameters: <code>none</code>
@@ -353,7 +365,7 @@
             <pre><code>MAKE THIS ALL UPPERCASE</code></pre>
             <hr>
             <p>
-              <a href="http://github.com/assemble/assemble-docs/blob/master/templates/pages/helpers/helpers-strings.md.hbs">See the template for this page →</a> 
+              <a href="http://github.com/assemble/assemble-docs/tree/master/src/content/helpers/strings">See the template for this page →</a> 
             </p>
             <div class="alert">
               <style type="text/css" media="screen">
@@ -378,15 +390,6 @@
     <script src="../assets/js/holder.js"></script>
     <script src="../assets/js/highlight.js"></script>
     <script src="../assets/js/showup.js"></script>
-    <script type='text/javascript'>
-      (function(d, t) {
-        var bh = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-        bh.type = 'text/javascript';
-        bh.src = '//www.bugherd.com/sidebarv2.js?apikey=fzwbtzyrop9q61cxf8wwsa';
-        s.parentNode.insertBefore(bh, s);
-      })(document, 'script');
-    </script>
     <script>
       $().showUp('.navbar');
     </script>
